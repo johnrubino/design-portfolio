@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John | Product Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #141414;
+            --secondary-bg: #1a1a1a;
+            --surface-bg: #2a2a2a;
+            --border-color: #3a3a3a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --accent-orange: #FF8C42;
+            --accent-purple: #667eea;
+        }
+
+        [data-theme="light"] {
+            --primary-bg: #ffffff;
+            --secondary-bg: #f5f5f7;
+            --surface-bg: #e8e8ea;
+            --border-color: #d1d1d6;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --accent-orange: #FF8C42;
+            --accent-purple: #667eea;
+        }
+
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            transition: background 300ms ease, color 300ms ease;
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background: var(--secondary-bg);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #141414 0%, #444148 100%);
+            border: 2px solid #FCFCFC;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 150ms cubic-bezier(0.31, 0.94, 0.34, 1.00);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--text-primary);
+        }
+
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: var(--surface-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 200ms ease;
+            margin-left: 12px;
+        }
+
+        .theme-toggle:hover {
+            background: var(--border-color);
+            transform: scale(1.05);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.95);
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            margin-top: 64px;
+            min-height: calc(100vh - 64px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 32px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--surface-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-orange);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero-title {
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 48px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ==================== BUTTONS ==================== */
+        .btn-primary {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 0 28px;
+            height: 48px;
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #141414 0%, #444148 100%);
+            color: #FFF;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 
+                0 8px 25px 0 rgba(0, 0, 0, 0.30),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.15),
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.4),
+                0 1px 2px 0 rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1.00);
+            text-decoration: none;
+            overflow: visible;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 8px;
+            padding: 2px;
+            background: radial-gradient(circle at 50% 0%, #FCFCFC 0%, #757A7C 100%);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.12) 0%, 
+                rgba(255, 255, 255, 0.04) 50%,
+                transparent 100%);
+            border-radius: 6px 6px 0 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .btn-primary span {
+            position: relative;
+            z-index: 3;
+        }
+
+        .btn-primary:hover {
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #1c1c1c 0%, #4f4c54 100%);
+            transform: translateY(-3px);
+            box-shadow: 
+                0 14px 38px 0 rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.3),
+                0 2px 4px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-primary:hover::after {
+            background: radial-gradient(circle at 50% 0%, #FFFFFF 0%, #9a9fa1 100%);
+        }
+
+        .btn-primary:hover::before {
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.18) 0%, 
+                rgba(255, 255, 255, 0.08) 50%,
+                transparent 100%);
+        }
+
+        .btn-primary:active {
+            transform: translateY(1px);
+            box-shadow: 
+                0 2px 8px 0 rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 0 rgba(0, 0, 0, 0.4),
+                inset 0 -1px 0 0 rgba(255, 255, 255, 0.1),
+                inset 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #0d0d0d 0%, #3a373f 100%);
+        }
+
+        .btn-secondary {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 0 28px;
+            height: 48px;
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #141414 0%, #444148 100%);
+            color: #FFF;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 
+                0 8px 25px 0 rgba(0, 0, 0, 0.30),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.15),
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.4),
+                0 1px 2px 0 rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1.00);
+            text-decoration: none;
+            overflow: visible;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-secondary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 8px;
+            padding: 2px;
+            background: radial-gradient(circle at 50% 0%, #FCFCFC 0%, #757A7C 100%);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.12) 0%, 
+                rgba(255, 255, 255, 0.04) 50%,
+                transparent 100%);
+            border-radius: 6px 6px 0 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .btn-secondary span {
+            position: relative;
+            z-index: 3;
+        }
+
+        .btn-secondary:hover {
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #1c1c1c 0%, #4f4c54 100%);
+            transform: translateY(-3px);
+            box-shadow: 
+                0 14px 38px 0 rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.3),
+                0 2px 4px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-secondary:hover::after {
+            background: radial-gradient(circle at 50% 0%, #FFFFFF 0%, #9a9fa1 100%);
+        }
+
+        .btn-secondary:hover::before {
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.18) 0%, 
+                rgba(255, 255, 255, 0.08) 50%,
+                transparent 100%);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(1px);
+            box-shadow: 
+                0 2px 8px 0 rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 0 rgba(0, 0, 0, 0.4),
+                inset 0 -1px 0 0 rgba(255, 255, 255, 0.1),
+                inset 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #0d0d0d 0%, #3a373f 100%);
+        }
+
+        /* ==================== FEATURED WORK ==================== */
+        .featured-section {
+            padding: 80px 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        /* ==================== CARDS ==================== */
+        .card {
+            position: relative;
+            background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ea 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow:
+                0 8px 24px 0 rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.8),
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.15);
+            transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1.00);
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.4) 0%, 
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0) 0%,
+                rgba(102, 126, 234, 0) 100%);
+            opacity: 0;
+            transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1.00);
+            pointer-events: none;
+            z-index: -1;
+            box-shadow: 
+                0 0 0 0 rgba(102, 126, 234, 0),
+                0 0 0 0 rgba(102, 126, 234, 0);
+        }
+
+        .card:hover {
+            border: 1px solid rgba(102, 126, 234, 0.6);
+        }
+
+        .card:hover::after {
+            opacity: 1;
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0.3) 0%,
+                rgba(118, 75, 162, 0.3) 100%);
+            box-shadow: 
+                0 0 20px 4px rgba(102, 126, 234, 0.6),
+                0 0 40px 8px rgba(102, 126, 234, 0.3),
+                inset 0 0 20px 2px rgba(102, 126, 234, 0.2);
+        }
+
+        .card-image {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .card-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, 
+                transparent 0%, 
+                rgba(0, 0, 0, 0.1) 100%);
+        }
+
+        .card-placeholder {
+            font-size: 64px;
+            opacity: 0.3;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-content {
+            position: relative;
+            padding: 24px;
+            z-index: 2;
+            background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ea 100%);
+        }
+
+        .card-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-purple);
+            margin-bottom: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .card-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
+        .card-description {
+            font-size: 15px;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        /* ==================== LOCKED CARD STATE ==================== */
+        .card.locked {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .card.locked::before {
+            background: linear-gradient(180deg,
+                rgba(0, 0, 0, 0.6) 0%,
+                rgba(0, 0, 0, 0.4) 50%,
+                transparent 100%);
+        }
+
+        .card.locked .card-image::after {
+            background: linear-gradient(180deg,
+                transparent 0%,
+                rgba(0, 0, 0, 0.7) 100%);
+        }
+
+        .card.locked .card-content {
+            opacity: 0.7;
+        }
+
+        .card-locked-badge {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(20, 20, 20, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 20px 32px;
+            z-index: 10;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            text-align: center;
+        }
+
+        .card-locked-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .card-locked-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+            white-space: nowrap;
+        }
+
+        .card.locked:hover .card-locked-badge {
+            background: rgba(30, 30, 30, 0.95);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* ==================== SKILLS SECTION ==================== */
+        .skills-section {
+            padding: 80px 32px;
+            background: var(--secondary-bg);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .skill-card {
+            background: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .skill-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--surface-bg);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .skill-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .skill-description {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ==================== FOOTER ==================== */
+        .site-footer {
+            background: var(--secondary-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 48px 32px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 150ms cubic-bezier(0.31, 0.94, 0.34, 1.00);
+        }
+
+        .footer-link:hover {
+            color: var(--text-primary);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 40px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-header">
+        <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">J</div>
+            <span>John</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="writing.html" class="nav-link">Writing</a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="theme-icon">☀️</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="status-dot"></span>
+                Available for new opportunities
+            </div>
+            <h1 class="hero-title">Product Designer Solving 0-to-1 Problems for AI-Native Startups</h1>
+            <p class="hero-subtitle">
+                I help founders build AI-native products with real social impact. By day, I design scalable systems at BNY Pershing. By night, I'm angel investing and exploring the future of AI + design on Substack.
+            </p>
+            <div class="hero-cta">
+                <a href="about.html" class="btn-primary">
+                    View My Work
+                    <span>→</span>
+                </a>
+                <a href="writing.html" class="btn-secondary">
+                    Read My Thoughts
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Work -->
+    <section class="featured-section">
+        <div class="section-header">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Designing systems and experiences that scale</p>
+        </div>
+        <div class="work-grid">
+            <a href="mailto:johnrubinodesign@gmail.com?subject=Portfolio%20Access%20Request" class="card locked">
+                <div class="card-image">
+                    <!-- Replace with: <img src="images/case-studies/nao/hero.png" alt="NAO Platform"> -->
+                    <div class="card-placeholder">🏦</div>
+                </div>
+                <div class="card-content">
+                    <div class="card-tag">BNY PERSHING</div>
+                    <h3 class="card-title">New Account Opening</h3>
+                    <p class="card-description">
+                        Streamlined workflows and design system implementation for a critical wealth services process, reducing completion time and improving advisor experience.
+                    </p>
+                </div>
+                <div class="card-locked-badge">
+                    <div class="card-locked-icon">🔒</div>
+                    <div class="card-locked-text">Confidential - Request Access</div>
+                </div>
+            </a>
+
+            <a href="mailto:johnrubinodesign@gmail.com?subject=Portfolio%20Access%20Request" class="card locked">
+                <div class="card-image">
+                    <!-- Replace with: <img src="images/case-studies/asset-movement/hero.png" alt="Asset Movement Platform"> -->
+                    <div class="card-placeholder">💎</div>
+                </div>
+                <div class="card-content">
+                    <div class="card-tag">BNY PERSHING</div>
+                    <h3 class="card-title">Asset Movement</h3>
+                    <p class="card-description">
+                        Designed intuitive interfaces for complex financial transfers, balancing regulatory requirements with user needs across clearing and servicing pods.
+                    </p>
+                </div>
+                <div class="card-locked-badge">
+                    <div class="card-locked-icon">🔒</div>
+                    <div class="card-locked-text">Confidential - Request Access</div>
+                </div>
+            </a>
+
+            <a href="mailto:johnrubinodesign@gmail.com?subject=Portfolio%20Access%20Request" class="card locked">
+                <div class="card-image">
+                    <!-- Replace with: <img src="images/case-studies/fpl/hero.png" alt="Fully Paid Lending Platform"> -->
+                    <div class="card-placeholder">💰</div>
+                </div>
+                <div class="card-content">
+                    <div class="card-tag">BNY PERSHING</div>
+                    <h3 class="card-title">Fully Paid Lending</h3>
+                    <p class="card-description">
+                        Streamlined the fully paid lending process to help advisors access liquidity for clients while maintaining compliance and reducing operational risk.
+                    </p>
+                </div>
+                <div class="card-locked-badge">
+                    <div class="card-locked-icon">🔒</div>
+                    <div class="card-locked-text">Confidential - Request Access</div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <div class="skills-container">
+            <div class="section-header">
+                <h2 class="section-title">How I Work</h2>
+                <p class="section-subtitle">Strategic systems thinking meets hands-on execution</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3 class="skill-title">Design Systems</h3>
+                    <p class="skill-description">
+                        Building scalable component libraries and style guides that create consistency across products while empowering teams to move faster.
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🔄</div>
+                    <h3 class="skill-title">Process Innovation</h3>
+                    <p class="skill-description">
+                        Championing modern workflows through Figma Dev Mode adoption, AI integration, and improved design-to-development handoff processes.
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🤝</div>
+                    <h3 class="skill-title">Cross-Functional Leadership</h3>
+                    <p class="skill-description">
+                        Bridging product, engineering, and design through clear communication, documentation, and proactive collaboration across disciplines.
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">📚</div>
+                    <h3 class="skill-title">Mentorship & Knowledge Sharing</h3>
+                    <p class="skill-description">
+                        Growing team capabilities through mentorship, share-outs, and building cross-team relationships that strengthen the broader design org.
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🚀</div>
+                    <h3 class="skill-title">Venture Design</h3>
+                    <p class="skill-description">
+                        Applying entrepreneurial thinking to design challenges, exploring AI-native experiences and product strategy through Colllective Design.
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">✍️</div>
+                    <h3 class="skill-title">Design Thinking</h3>
+                    <p class="skill-description">
+                        Publishing reflections on the future of design, AI, and human-centered technology through the Design Thinker Substack.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p class="footer-text">© 2025 John Rubino | Product Designer</p>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/john-rubino/" class="footer-link" target="_blank">LinkedIn</a>
+                <a href="https://johnrubino.substack.com" class="footer-link" target="_blank">Substack</a>
+                <a href="mailto:john@example.com" class="footer-link">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('.theme-icon');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to dark mode
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+
+        // Apply saved theme
+        if (savedTheme === 'light') {
+            html.setAttribute('data-theme', 'light');
+            themeIcon.textContent = '🌙';
+        } else {
+            html.removeAttribute('data-theme');
+            themeIcon.textContent = '☀️';
+        }
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+
+            if (currentTheme === 'light') {
+                // Switch to dark mode
+                html.removeAttribute('data-theme');
+                themeIcon.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                // Switch to light mode
+                html.setAttribute('data-theme', 'light');
+                themeIcon.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>

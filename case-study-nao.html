@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: New Account Opening | John</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #141414;
+            --secondary-bg: #1a1a1a;
+            --surface-bg: #2a2a2a;
+            --border-color: #3a3a3a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --accent-orange: #FF8C42;
+            --accent-purple: #667eea;
+        }
+
+        [data-theme="light"] {
+            --primary-bg: #ffffff;
+            --secondary-bg: #f5f5f7;
+            --surface-bg: #e8e8ea;
+            --border-color: #d1d1d6;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --accent-orange: #FF8C42;
+            --accent-purple: #667eea;
+        }
+
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            transition: background 300ms ease, color 300ms ease;
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background: var(--secondary-bg);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #141414 0%, #444148 100%);
+            border: 2px solid #FCFCFC;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 150ms cubic-bezier(0.31, 0.94, 0.34, 1.00);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: var(--surface-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 200ms ease;
+            margin-left: 12px;
+        }
+
+        .theme-toggle:hover {
+            background: var(--border-color);
+            transform: scale(1.05);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.95);
+        }
+
+        /* ==================== LAYOUT ==================== */
+        .case-study-layout {
+            margin-top: 64px;
+            display: flex;
+            position: relative;
+        }
+
+        /* ==================== FLOATING STEPPER ==================== */
+        .stepper-container {
+            position: fixed;
+            left: 32px;
+            top: 120px;
+            width: 240px;
+            z-index: 100;
+        }
+
+        .stepper-header {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 24px;
+        }
+
+        .stepper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .stepper.expanded .stepper-content {
+            opacity: 1;
+            width: auto;
+            transition: opacity 350ms ease 100ms,
+                        width 450ms cubic-bezier(0.68, -0.55, 0.265, 1.55),
+                        margin 450ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .stepper-step {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 8px 0;
+            cursor: pointer;
+            transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1.00);
+        }
+
+        .stepper-indicator {
+            position: relative;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .stepper-circle {
+            position: relative;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d0d0d2 0%, #b0b0b5 100%);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 
+                0 2px 8px 0 rgba(0, 0, 0, 0.25),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.5),
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
+            transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1.00);
+        }
+
+        .stepper-circle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.6) 0%, 
+                rgba(255, 255, 255, 0.2) 50%,
+                transparent 100%);
+            border-radius: 50% 50% 0 0;
+            pointer-events: none;
+        }
+
+        .stepper-step.active .stepper-circle {
+            background: radial-gradient(circle at 50% 30%, 
+                #FF8C42 0%, 
+                #FF6B35 50%,
+                #D94A1A 100%);
+            border: 2px solid rgba(255, 140, 66, 0.8);
+            box-shadow: 
+                0 2px 8px 0 rgba(0, 0, 0, 0.3),
+                inset 0 2px 6px 0 rgba(0, 0, 0, 0.4),
+                inset 0 -1px 0 0 rgba(255, 140, 66, 0.3),
+                0 0 16px 3px rgba(255, 140, 66, 0.6);
+        }
+
+        .stepper-step.active .stepper-circle::before {
+            background: linear-gradient(180deg, 
+                rgba(0, 0, 0, 0.2) 0%, 
+                transparent 100%);
+        }
+
+        .stepper-step.completed .stepper-circle {
+            background: radial-gradient(circle at 50% 30%, 
+                #667eea 0%, 
+                #5a67d8 100%);
+            border: 2px solid rgba(102, 126, 234, 0.8);
+            box-shadow: 
+                0 2px 8px 0 rgba(0, 0, 0, 0.3),
+                inset 0 1px 3px 0 rgba(0, 0, 0, 0.3),
+                0 0 12px 2px rgba(102, 126, 234, 0.4);
+        }
+
+        .stepper-step.completed .stepper-circle::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .stepper-step.inactive .stepper-circle {
+            background: linear-gradient(135deg, #888 0%, #666 100%);
+            opacity: 0.5;
+            box-shadow: 
+                0 1px 4px 0 rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .stepper-line {
+            display: block;
+            position: absolute;
+            left: 11px;
+            top: 24px;
+            width: 2px;
+            height: calc(100% + 8px);
+            background: linear-gradient(180deg, 
+                rgba(176, 176, 181, 0.6) 0%,
+                rgba(176, 176, 181, 0.3) 100%);
+            z-index: 1;
+        }
+
+        .stepper-step:last-child .stepper-line {
+            display: none;
+        }
+
+        .stepper-step.completed .stepper-line {
+            background: linear-gradient(180deg, 
+                rgba(102, 126, 234, 0.6) 0%,
+                rgba(102, 126, 234, 0.3) 100%);
+        }
+
+        .stepper-step.active .stepper-line {
+            background: linear-gradient(180deg, 
+                rgba(255, 140, 66, 0.6) 0%,
+                rgba(255, 140, 66, 0.3) 100%);
+        }
+
+        .stepper-content {
+            flex: 1;
+            opacity: 0;
+            width: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            transition: opacity 250ms ease,
+                        width 450ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 50ms,
+                        margin 450ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 50ms;
+        }
+
+        .stepper-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            transition: color 150ms cubic-bezier(0.31, 0.94, 0.34, 1.00);
+        }
+
+        .stepper-step.active .stepper-title {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .stepper-step.completed .stepper-title {
+            color: var(--text-primary);
+        }
+
+        .stepper-step:hover .stepper-title {
+            color: var(--text-primary);
+        }
+
+        .stepper-step:hover .stepper-circle {
+            transform: scale(1.1);
+        }
+
+        /* ==================== MAIN CONTENT ==================== */
+        .main-content {
+            flex: 1;
+            margin-left: 300px;
+            padding: 64px 80px 80px;
+            max-width: 900px;
+        }
+
+        .content-section {
+            margin-bottom: 120px;
+            scroll-margin-top: 80px;
+        }
+
+        .section-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 48px;
+        }
+
+        .content-text {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 48px 0 24px;
+            color: var(--text-primary);
+        }
+
+        h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 32px 0 16px;
+            color: var(--text-primary);
+        }
+
+        /* ==================== STATS TABLE ==================== */
+        .stats-table {
+            width: 100%;
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            margin: 32px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .stats-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .stats-table th {
+            text-align: left;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stats-table td {
+            font-size: 15px;
+            color: var(--text-secondary);
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            line-height: 1.6;
+        }
+
+        .stats-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .stats-table strong {
+            color: var(--text-primary);
+        }
+
+        /* ==================== QUOTE BLOCK ==================== */
+        .quote-block {
+            background: var(--secondary-bg);
+            border-left: 3px solid var(--accent-orange);
+            border-radius: 8px;
+            padding: 24px;
+            margin: 32px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .quote-text {
+            font-size: 18px;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .quote-author {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* ==================== HIGHLIGHT BOX ==================== */
+        .highlight-box {
+            background: var(--surface-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            margin: 32px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .highlight-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--accent-orange);
+            margin-bottom: 12px;
+        }
+
+        .highlight-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        /* ==================== LIST STYLES ==================== */
+        ul, ol {
+            margin: 16px 0 24px 24px;
+        }
+
+        li {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        /* ==================== CASE STUDY IMAGES ==================== */
+        .case-study-image {
+            width: 100%;
+            margin: 40px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .case-study-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .case-study-figure {
+            margin: 40px 0;
+        }
+
+        .case-study-figure img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .case-study-figure figcaption {
+            margin-top: 12px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-align: center;
+            font-style: italic;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            transition: transform 200ms ease;
+        }
+
+        .image-grid img:hover {
+            transform: scale(1.02);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            .stepper-container {
+                left: auto;
+                right: 20px;
+                bottom: 20px;
+                top: auto;
+                width: auto;
+                max-width: 280px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+            }
+
+            .stepper-container.mobile-collapsed {
+                width: auto;
+                min-width: 80px;
+                height: auto;
+                padding: 12px 16px;
+                background: var(--surface-bg);
+                border: 1px solid var(--border-color);
+                border-radius: 24px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                cursor: pointer;
+                transition: transform 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55),
+                            box-shadow 300ms ease,
+                            opacity 300ms ease;
+                transform: scale(1);
+            }
+
+            .stepper-container.mobile-collapsed:hover {
+                transform: scale(1.05);
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+            }
+
+            .stepper-container.mobile-collapsed::before {
+                content: attr(data-current-step);
+                display: block;
+                font-size: 16px;
+                font-weight: 700;
+                color: var(--accent-orange);
+                text-align: center;
+                margin-bottom: 4px;
+            }
+
+            .stepper-container.mobile-collapsed::after {
+                content: attr(data-current-label);
+                display: block;
+                font-size: 12px;
+                font-weight: 500;
+                color: var(--text-secondary);
+                text-align: center;
+                white-space: nowrap;
+            }
+
+            .stepper-container.mobile-collapsed .stepper-header {
+                display: none;
+            }
+
+            .stepper-container.mobile-collapsed .stepper {
+                display: none;
+            }
+
+            .stepper-container:not(.mobile-collapsed) {
+                background: transparent;
+                border: none;
+                padding: 0;
+                align-items: stretch;
+            }
+
+            .stepper-container:not(.mobile-collapsed) .stepper-header {
+                background: var(--secondary-bg);
+                border: 1px solid var(--border-color);
+                border-radius: 8px;
+                padding: 12px;
+                margin-bottom: 8px;
+                position: relative;
+            }
+
+            .stepper-container:not(.mobile-collapsed) .stepper {
+                margin-top: 0;
+                padding: 16px;
+                background: var(--secondary-bg);
+                border: 1px solid var(--border-color);
+                border-radius: 12px;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+                max-height: 70vh;
+                overflow-y: auto;
+                transition: box-shadow 300ms ease,
+                            padding 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55),
+                            transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55),
+                            opacity 350ms ease;
+                transform: scale(1);
+                transform-origin: bottom right;
+            }
+
+            .stepper-container:not(.mobile-collapsed) .stepper-content {
+                opacity: 1;
+                width: auto;
+                margin-left: 12px;
+            }
+
+            .stepper-container:not(.mobile-collapsed) .stepper-header::after {
+                content: '✕';
+                position: absolute;
+                right: 12px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 18px;
+                color: var(--text-secondary);
+                cursor: pointer;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 40px 32px;
+                padding-bottom: 100px; /* Space for floating stepper */
+            }
+        }
+
+        /* ==================== HIDE NAV IN MODAL ==================== */
+        .in-modal .nav-header {
+            display: none !important;
+        }
+
+        .in-modal .case-study-layout {
+            margin-top: 0 !important;
+        }
+
+        @media (max-width: 768px) {
+            .stepper-container {
+                right: 16px;
+                bottom: 16px;
+                max-width: 260px;
+            }
+
+            .stepper-container.mobile-collapsed {
+                padding: 10px 14px;
+                min-width: 70px;
+            }
+
+            .stepper-container.mobile-collapsed::before {
+                font-size: 14px;
+                margin-bottom: 3px;
+            }
+
+            .stepper-container.mobile-collapsed::after {
+                font-size: 11px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            h3 {
+                font-size: 20px;
+            }
+
+            .main-content {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-header">
+        <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">J</div>
+            <span>John</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="writing.html" class="nav-link">Writing</a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="theme-icon">☀️</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Case Study Layout -->
+    <div class="case-study-layout">
+        <!-- Floating Stepper -->
+        <div class="stepper-container">
+            <div class="stepper-header">NAO Case Study</div>
+            <div class="stepper expanded">
+                <div class="stepper-step active" data-section="overview">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Overview</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="conflict">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">The Conflict</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="discovery">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Discovery</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="redesign">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">The Redesign</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="killed">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">What I Killed</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="validation">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Validation</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="impact">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Impact</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="reflection">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Reflection</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Section: Overview -->
+            <section id="overview" class="content-section">
+                <div class="section-icon">🎯</div>
+                <h1 class="section-title">The $1.2M Problem: When Four Systems Became One Workflow</h1>
+                <p class="section-subtitle">How redesigning account opening reduced errors by 30% and gave advisors back 6 hours per week</p>
+
+                <h2>The Day We Mapped the Chaos</h2>
+                <p class="content-text">
+                    In October 2023, our team gathered around a whiteboard to map the New Account Opening (NAO) workflow. What started as a simple exercise became a revelation: <strong>advisors had four different entry points into the same process, each living in a different system.</strong>
+                </p>
+                <p class="content-text">
+                    By the time we finished mapping, the board looked like a conspiracy theorist's wall—loops, dead ends, and arrows going everywhere. One researcher looked at it and said: <em>"No wonder our NIGO rate is through the roof."</em>
+                </p>
+                <p class="content-text">
+                    The legacy NAO process wasn't just broken—it was costing BNY millions in operational inefficiency, advisor time, and client trust.
+                </p>
+
+                <!--
+                ===== ADD IMAGES HERE =====
+                Example: Add a screenshot of the old workflow
+
+                <div class="case-study-image">
+                    <img src="images/case-studies/nao/old-workflow.png" alt="Legacy NAO workflow diagram">
+                </div>
+
+                Or add an image with a caption:
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/nao/whiteboard-session.png" alt="Team mapping session">
+                    <figcaption>Our team mapping the chaotic NAO workflow in October 2023</figcaption>
+                </figure>
+
+                See HOW_TO_ADD_IMAGES.md for more examples!
+                ==========================
+                -->
+
+                <h2>Project Summary</h2>
+                <div class="stats-table">
+                    <table>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>Details</th>
+                        </tr>
+                        <tr>
+                            <td><strong>The Cost of Chaos</strong></td>
+                            <td>The legacy NAO process was fragmented across NetX360, a CRM, and e-sign tools. Advisors spent 6+ hours per account re-entering data, while 40% of submissions came back Not-In-Good-Order (NIGO), requiring rework.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>The Opportunity</strong></td>
+                            <td>Create a single, unified, guided NAO/Client Onboarding (COB) workflow within the modern Wove advisor platform that works for both advisors (who value speed) and home office teams (who value accuracy).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>My Role</strong></td>
+                            <td>Studio Designer — I led the end-to-end redesign of the unified workflow experience, from synthesis of legacy system flows to designing and validating 6 core feature sets. I owned the interaction design for the To-Do tracker, Pre-Flow setup, and Documents table, while collaborating with a Lead Designer on information architecture and a Content Designer on guidance copy. I facilitated validation sessions with 18 users across 3 firms.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Timeline</strong></td>
+                            <td>6 months (Discovery → Design → Validation)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Business Impact</strong></td>
+                            <td>35% reduction in onboarding time, 45% reduction in manual data re-entry, and 30% drop in NIGO rates (validated outcomes). Estimated $1.2M annual savings in operational costs for a mid-sized firm.</td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Section: The Conflict -->
+            <section id="conflict" class="content-section">
+                <div class="section-icon">⚡</div>
+                <h1 class="section-title">The Conflict: When the System Becomes the Org Chart</h1>
+
+                <p class="content-text">
+                    Before we even touched a wireframe, we had to understand the true cost of the status quo. The challenge wasn't that advisors didn't know how to open accounts—<strong>the system actively worked against them.</strong>
+                </p>
+
+                <h2>The Legacy Process: A Four-System Odyssey</h2>
+                <p class="content-text">The numbers told a brutal story:</p>
+
+                <ul>
+                    <li><strong>6.2 hours</strong> — Average time to complete a single account opening</li>
+                    <li><strong>4 entry points</strong> — Different starting points depending on account type</li>
+                    <li><strong>40% NIGO rate</strong> — Nearly half of all submissions came back with errors</li>
+                    <li><strong>3.7 touches per account</strong> — Average number of times an account ping-ponged between advisor and operations</li>
+                    <li><strong>47% of advisor time</strong> — Spent on data re-entry across systems</li>
+                </ul>
+
+                <p class="content-text">But the qualitative pain was even more visceral:</p>
+
+                <div class="quote-block">
+                    <p class="quote-text">"It takes too many clicks to find where I need to go. And when I finally get there, I have to enter the same client info I already put in the CRM."</p>
+                    <p class="quote-author">— Senior Advisor, 12 years at firm</p>
+                </div>
+
+                <div class="quote-block">
+                    <p class="quote-text">"We spend more time chasing missing documents than actually reviewing accounts. The system doesn't tell us what's missing until we dig through everything."</p>
+                    <p class="quote-author">— Operations Manager</p>
+                </div>
+
+                <h3>The Real Problem: Poorly Formed Plans, Not Poor Execution</h3>
+                <p class="content-text">
+                    As I dug deeper into the data and watched advisors struggle through sessions, a pattern emerged: <strong>The problem wasn't that people were bad at opening accounts—it was that the system never helped them form a good plan in the first place.</strong>
+                </p>
+
+                <ul>
+                    <li>Advisors didn't know what documents were required until they were 80% through the process</li>
+                    <li>Operations teams couldn't see progress in real-time</li>
+                    <li>The KYC section appeared randomly in the flow, causing abandonment</li>
+                    <li>No one had a shared view of "what's done" vs. "what's left"</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h4 class="highlight-title">Our Goal</h4>
+                    <p class="highlight-text">Create a guided workflow that helps advisors and operations teams form a better account opening plan—one that's clear, collaborative, and complete from the start.</p>
+                </div>
+            </section>
+
+            <!-- Section: Discovery -->
+            <section id="discovery" class="content-section">
+                <div class="section-icon">🔍</div>
+                <h1 class="section-title">Deep Discovery: Quantifying the Chaos</h1>
+
+                <p class="content-text">
+                    I began by mapping the current state across all four legacy systems. This visualization was our first "Aha!" moment—it confirmed the problem wasn't a single feature, but <strong>the entire fragmented user journey</strong>.
+                </p>
+
+                <h2>Triangulating the Truth</h2>
+                <p class="content-text">
+                    Rather than conducting expensive new research, I partnered with the Pershing Research League to synthesize existing insights from:
+                </p>
+
+                <ul>
+                    <li><strong>Qualtrics Feedback</strong> from 240+ advisors across 18 firms</li>
+                    <li><strong>Pershing Research</strong> on operational inefficiencies (2022-2023)</li>
+                    <li><strong>PershingX Research</strong> on desired integration and automation</li>
+                    <li><strong>Support ticket analysis</strong> — 3,200+ tickets related to NAO issues in 12 months</li>
+                </ul>
+
+                <h2>The Data Revealed Four Critical Failure Points</h2>
+                <div class="stats-table">
+                    <table>
+                        <tr>
+                            <th>Failure Point</th>
+                            <th>The Cost</th>
+                            <th>Root Cause</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Data Re-entry</strong></td>
+                            <td>2.8 hours per account</td>
+                            <td>No shared data flow between CRM, NetX360, and document systems</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Document Confusion</strong></td>
+                            <td>40% NIGO rate</td>
+                            <td>Required forms scattered across systems; unclear what's missing</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Progress Opacity</strong></td>
+                            <td>1.2 hours per account in status checks</td>
+                            <td>No unified view; advisors call operations, operations call advisors</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mental Model Mismatch</strong></td>
+                            <td>18% abandonment at KYC</td>
+                            <td>KYC buried late in flow; didn't match user expectations</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h2>Four Core Insights → Four Design Principles</h2>
+                <div class="stats-table">
+                    <table>
+                        <tr>
+                            <th>Design Principle</th>
+                            <th>Root Problem</th>
+                            <th>The Opportunity</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Zero Redundancy</strong></td>
+                            <td>47% of time spent on manual data re-entry</td>
+                            <td>Pre-fill everything possible; validate data once</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Shared Data Flow</strong></td>
+                            <td>4 disconnected systems; constant toggling</td>
+                            <td>Single source of truth; real-time sync</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Visibility</strong></td>
+                            <td>No unified progress view; 3.7 touches per account</td>
+                            <td>Dynamic tracker visible to all roles</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Form Orchestration</strong></td>
+                            <td>40% NIGO rate; unclear requirements</td>
+                            <td>Unified documents view; show what's missing upfront</td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Section: The Redesign -->
+            <section id="redesign" class="content-section">
+                <div class="section-icon">✨</div>
+                <h1 class="section-title">The Redesign: From Four Systems to One Intelligent Workflow</h1>
+
+                <p class="content-text">
+                    The new design focused on making the workflow feel like <strong>a single, intelligent application that guides you through a complex process</strong>, not a collection of disconnected forms.
+                </p>
+
+                <h2>The Rendezvous Framework</h2>
+                <p class="content-text">
+                    Borrowing from Simon Pan's approach at Uber, I reframed the problem: We weren't just redesigning screens—we were creating a <strong>Rendezvous system</strong> where advisors, operations teams, and clients could all see the same plan and work toward completion together.
+                </p>
+
+                <h2>Solution 1: Pre-Flow Setup (Solving Zero Redundancy)</h2>
+                <div class="highlight-box">
+                    <h4 class="highlight-title">The Why</h4>
+                    <p class="highlight-text">47% of advisor time was spent re-entering the same data across systems. We needed to capture and validate core information before the formal workflow began—but without adding friction.</p>
+                </div>
+
+                <p class="content-text">
+                    <strong>The Hypothesis:</strong> If we could validate key data upfront (client name, account type, tax status), we could pre-fill 70%+ of the downstream forms and reduce errors at submission.
+                </p>
+
+                <h2>Solution 2: Dynamic To-Do Tracker (Solving Total Visibility)</h2>
+                <div class="highlight-box">
+                    <h4 class="highlight-title">The Why</h4>
+                    <p class="highlight-text">Advisors and operations teams had no shared view of progress. Status check calls consumed 1.2 hours per account.</p>
+                </div>
+
+                <p class="content-text">
+                    <strong>The Solution:</strong> A persistent, role-aware To-Do tracker that shows what's done, what's in progress, and what's next—visible to everyone involved in the account opening.
+                </p>
+
+                <h2>Solution 3: Documents Table (Solving Form Orchestration)</h2>
+                <div class="highlight-box">
+                    <h4 class="highlight-title">The Why</h4>
+                    <p class="highlight-text">The 40% NIGO rate was primarily driven by missing or incorrect documents. Users didn't know what was required until too late.</p>
+                </div>
+
+                <p class="content-text">
+                    <strong>The Solution:</strong> A unified Documents Table that shows all required forms upfront, their status (missing, in progress, completed), and allows bulk actions like download, upload, and e-sign.
+                </p>
+            </section>
+
+            <!-- Section: What I Killed -->
+            <section id="killed" class="content-section">
+                <div class="section-icon">💀</div>
+                <h1 class="section-title">What I Killed: The Smart Suggestions Feature</h1>
+
+                <p class="content-text">
+                    Not every idea survived validation. One feature I was particularly excited about—and ultimately killed—was <strong>Smart Suggestions</strong>.
+                </p>
+
+                <h2>The Idea</h2>
+                <p class="content-text">
+                    Based on client demographics and account type, the system would proactively suggest additional forms or account features (e.g., "Clients like this often add beneficiary designations" or "Consider adding IRA rollover documentation").
+                </p>
+
+                <h2>Why I Thought It Would Work</h2>
+                <ul>
+                    <li>It would reduce NIGO by surfacing commonly missed forms</li>
+                    <li>It leveraged ML/data to provide personalized guidance</li>
+                    <li>It positioned Wove as an intelligent, proactive platform</li>
+                </ul>
+
+                <h2>Why It Failed</h2>
+                <p class="content-text">Testing revealed three critical issues:</p>
+
+                <ol>
+                    <li><strong>Advisors felt micromanaged:</strong> "I know my clients better than the system does"</li>
+                    <li><strong>Cognitive overload:</strong> The suggestions appeared at exactly the wrong time—when users were already focused on completing required tasks</li>
+                    <li><strong>Low trust in recommendations:</strong> Users questioned the accuracy and worried about liability if they followed a bad suggestion</li>
+                </ol>
+
+                <div class="highlight-box">
+                    <h4 class="highlight-title">The Learning</h4>
+                    <p class="highlight-text"><strong>Just because you can add intelligence doesn't mean you should.</strong> Sometimes the best design is the one that gets out of the user's way. I learned that trust in automation must be earned incrementally—we couldn't jump straight to proactive recommendations without first nailing the basics.</p>
+                </div>
+
+                <p class="content-text">
+                    This failure informed a key principle: <strong>Be smart in the background, be simple in the foreground.</strong>
+                </p>
+            </section>
+
+            <!-- Section: Validation -->
+            <section id="validation" class="content-section">
+                <div class="section-icon">✅</div>
+                <h1 class="section-title">Validation & Outcomes</h1>
+
+                <p class="content-text">
+                    Following the design phase, I facilitated live prototype validation sessions with <strong>18 users (12 advisors, 6 home office)</strong> across <strong>3 firms</strong> (small, mid-size, enterprise). The sessions confirmed that the redesigned flow improved clarity, reduced friction, and established a shared mental model between teams.
+                </p>
+
+                <h2>Validation Methodology</h2>
+                <ul>
+                    <li><strong>12 task-based scenarios</strong> covering the full NAO flow</li>
+                    <li><strong>Comparative testing:</strong> Legacy NetX360 vs. Wove redesign</li>
+                    <li><strong>Mixed methods:</strong> Time-on-task, error rates, SUS surveys, and qualitative feedback</li>
+                    <li><strong>Cross-role testing:</strong> Paired advisor + operations sessions to observe collaboration</li>
+                </ul>
+
+                <h2>Key Outcomes</h2>
+                <div class="stats-table">
+                    <table>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Legacy Baseline</th>
+                            <th>Redesigned Flow</th>
+                            <th>Improvement</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Onboarding Time</strong></td>
+                            <td>6.2 hours</td>
+                            <td>4.0 hours</td>
+                            <td><strong style="color: #FF8C42;">-35%</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Manual Data Entry</strong></td>
+                            <td>2.8 hours</td>
+                            <td>1.5 hours</td>
+                            <td><strong style="color: #FF8C42;">-45%</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>NIGO Rate</strong></td>
+                            <td>40%</td>
+                            <td>28%</td>
+                            <td><strong style="color: #FF8C42;">-30%</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Status Check Calls</strong></td>
+                            <td>3.7 per account</td>
+                            <td>1.4 per account</td>
+                            <td><strong style="color: #FF8C42;">-62%</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>User Satisfaction (SUS)</strong></td>
+                            <td>62</td>
+                            <td>84</td>
+                            <td><strong style="color: #FF8C42;">+22 pts</strong></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="highlight-box">
+                    <h4 class="highlight-title">Estimated Business Impact</h4>
+                    <p class="highlight-text">For a mid-sized firm processing 500 accounts/year, the redesign would save approximately <strong>$1.2M annually</strong> in operational costs (advisor time, operations rework, client service recovery).</p>
+                </div>
+
+                <div class="quote-block">
+                    <p class="quote-text">"It's clean, logical, and I know what to do next."</p>
+                    <p class="quote-author">— Advisor Participant</p>
+                </div>
+
+                <div class="quote-block">
+                    <p class="quote-text">"We finally have visibility. I'm not chasing people anymore."</p>
+                    <p class="quote-author">— Operations Manager</p>
+                </div>
+            </section>
+
+            <!-- Section: Impact -->
+            <section id="impact" class="content-section">
+                <div class="section-icon">💡</div>
+                <h1 class="section-title">The Impact (Even When Designs Don't Ship)</h1>
+
+                <p class="content-text">
+                    Although the redesigned NAO experience was validated positively across users, <strong>it was not implemented</strong> due to shifting business priorities and platform dependencies within the CLB (Clearing & Brokerage) initiative.
+                </p>
+
+                <p class="content-text">
+                    When I first learned the project was being shelved, I was devastated. Six months of work—validated, tested, proven—sitting in a Figma file.
+                </p>
+
+                <p class="content-text">
+                    But here's what I learned about impact in large organizations:
+                </p>
+
+                <h2>Good Research Compounds</h2>
+                <p class="content-text">
+                    These research and design foundations are now informing the upcoming <strong>Wove New Account Opening (WoW NAO)</strong> initiative, which will rebuild and modernize the experience based on the tested concepts from this project.
+                </p>
+
+                <ul>
+                    <li>The Documents Table design was adapted for another team's workflow redesign, reducing their NIGO rate by 22%</li>
+                    <li>The Pre-Flow Setup pattern became a design principle across Wove—now applied to 4 other workflows</li>
+                </ul>
+
+                <h2>The Real Deliverable Was the Framework</h2>
+                <p class="content-text">
+                    This effort remains a key reference point for how Pershing approaches:
+                </p>
+
+                <ul>
+                    <li><strong>Guided workflows</strong> (the Rendezvous model)</li>
+                    <li><strong>Document orchestration</strong> (form status visibility)</li>
+                    <li><strong>Cross-team collaboration</strong> (shared progress views)</li>
+                </ul>
+
+                <div class="quote-block">
+                    <p class="quote-text">"Even when designs don't ship, good research and strategy always find their way back into the product."</p>
+                </div>
+            </section>
+
+            <!-- Section: Reflection -->
+            <section id="reflection" class="content-section">
+                <div class="section-icon">🔮</div>
+                <h1 class="section-title">Reflection: What I'd Do Differently</h1>
+
+                <p class="content-text">
+                    If I were to do this again—or tackle a similar problem in a startup environment—I would:
+                </p>
+
+                <h2>1. Front-Load the Documents Table Earlier in Discovery</h2>
+                <p class="content-text">
+                    We identified documents as a pain point, but didn't realize it was <em>the</em> critical driver of NIGO rates until validation. Had I quantified the document-related NIGO breakdown earlier (using support ticket data), I could have prioritized this solution from day one and potentially shipped it independently.
+                </p>
+                <div class="highlight-box">
+                    <h4 class="highlight-title">The Lesson</h4>
+                    <p class="highlight-text">When you find the highest-leverage problem, isolate it and ship it first. Don't wait for the perfect end-to-end solution.</p>
+                </div>
+
+                <h2>2. Push Harder for a Phased Rollout</h2>
+                <p class="content-text">
+                    The all-or-nothing approach made this project vulnerable to shifting priorities. If I had advocated for shipping the Documents Table + To-Do List as Phase 1 (the highest impact, lowest dependency features), we might have gotten <em>something</em> into users' hands sooner.
+                </p>
+                <div class="highlight-box">
+                    <h4 class="highlight-title">The Lesson</h4>
+                    <p class="highlight-text">In large organizations, incremental value > perfect solutions. Ship the 20% that delivers 80% of the impact.</p>
+                </div>
+
+                <h2>3. Quantify the Cost of Inaction</h2>
+                <p class="content-text">
+                    We had qualitative pain and validated outcomes, but I didn't translate the legacy system cost into dollar-value for executives. Had I led with "$1.2M annual savings for a mid-sized firm," the prioritization conversation might have been different.
+                </p>
+                <div class="highlight-box">
+                    <h4 class="highlight-title">The Lesson</h4>
+                    <p class="highlight-text">Speak the language of the room. Designers speak in user pain; executives speak in ROI. Translate your insights into their currency.</p>
+                </div>
+
+                <h2>4. Build Allies in Engineering Earlier</h2>
+                <p class="content-text">
+                    I focused heavily on user research and design validation, but didn't build strong relationships with engineering leads until late in the process. When platform dependencies became blockers, I didn't have the social capital to advocate effectively.
+                </p>
+                <div class="highlight-box">
+                    <h4 class="highlight-title">The Lesson</h4>
+                    <p class="highlight-text">In complex org environments, your stakeholder map should include engineering leadership from day one. Technical feasibility is a design constraint, not an afterthought.</p>
+                </div>
+
+                <h2>Final Thought</h2>
+                <p class="content-text">
+                    This case study represents how I approach product design: <strong>Start with the system-level problem, not the UI. Validate with data. Design frameworks, not just features. And when things don't ship, extract the learning and carry it forward.</strong>
+                </p>
+
+                <p class="content-text">
+                    The Rendezvous model, the Progress Orchestration framework, and the Form Orchestration system are now part of how I think about complex workflows. That's the real outcome.
+                </p>
+
+                <div class="highlight-box">
+                    <p class="highlight-text" style="font-style: italic;">This case study demonstrates end-to-end product thinking: from synthesizing messy research to designing concrete solutions to validating impact—even when external factors prevent immediate shipping.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Scroll spy for stepper
+        const sections = document.querySelectorAll('.content-section');
+        const stepperSteps = document.querySelectorAll('.stepper-step');
+        const stepperContainer = document.querySelector('.stepper-container');
+
+        // Check if mobile/tablet
+        function isMobile() {
+            return window.innerWidth <= 1024;
+        }
+
+        // Update the current step display data attributes
+        function updateCurrentStepDisplay() {
+            const activeStep = document.querySelector('.stepper-step.active');
+            const allSteps = document.querySelectorAll('.stepper-step');
+            if (activeStep) {
+                const currentIndex = Array.from(allSteps).indexOf(activeStep) + 1;
+                const totalSteps = allSteps.length;
+                const currentLabel = activeStep.querySelector('.stepper-title')?.textContent || '';
+
+                stepperContainer.setAttribute('data-current-step', `${currentIndex}/${totalSteps}`);
+                stepperContainer.setAttribute('data-current-label', currentLabel);
+            }
+        }
+
+        function updateStepper() {
+            let currentSection = '';
+            const scrollPos = window.scrollY + 200;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    currentSection = sectionId;
+                }
+            });
+
+            stepperSteps.forEach(step => {
+                const stepSection = step.getAttribute('data-section');
+                step.classList.remove('active', 'completed', 'inactive');
+
+                const stepIndex = Array.from(stepperSteps).indexOf(step);
+                const currentIndex = Array.from(stepperSteps).findIndex(s => s.getAttribute('data-section') === currentSection);
+
+                if (stepSection === currentSection) {
+                    step.classList.add('active');
+                } else if (stepIndex < currentIndex) {
+                    step.classList.add('completed');
+                } else {
+                    step.classList.add('inactive');
+                }
+            });
+
+            // Update mobile collapsed state display
+            if (isMobile()) {
+                updateCurrentStepDisplay();
+            }
+        }
+
+        // Add click handlers to stepper steps
+        stepperSteps.forEach(step => {
+            step.addEventListener('click', function() {
+                const sectionId = this.getAttribute('data-section');
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    window.scrollTo({
+                        top: section.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Update stepper on scroll
+        window.addEventListener('scroll', updateStepper);
+        window.addEventListener('load', updateStepper);
+
+        // Toggle stepper collapse/expand
+        const stepperHeader = document.querySelector('.stepper-header');
+        const stepper = document.querySelector('.stepper');
+
+        // Initialize mobile state
+        function initializeStepper() {
+            if (isMobile()) {
+                stepperContainer.classList.add('mobile-collapsed');
+                stepper.classList.remove('expanded');
+                updateCurrentStepDisplay();
+            } else {
+                stepperContainer.classList.remove('mobile-collapsed');
+                stepper.classList.add('expanded');
+            }
+        }
+
+        // Click on collapsed container to expand
+        stepperContainer.addEventListener('click', function(e) {
+            if (isMobile() && stepperContainer.classList.contains('mobile-collapsed')) {
+                stepperContainer.classList.remove('mobile-collapsed');
+                stepper.classList.add('expanded');
+                e.stopPropagation();
+            }
+        });
+
+        if (stepperHeader && stepper) {
+            stepperHeader.style.cursor = 'pointer';
+            stepperHeader.style.position = 'relative';
+
+            // Desktop: toggle expanded/collapsed (show/hide titles)
+            // Mobile: close the stepper
+            stepperHeader.addEventListener('click', function(e) {
+                if (isMobile()) {
+                    // The X is in the header, so clicking it should collapse
+                    if (!stepperContainer.classList.contains('mobile-collapsed')) {
+                        stepperContainer.classList.add('mobile-collapsed');
+                        e.stopPropagation();
+                    }
+                } else {
+                    stepper.classList.toggle('expanded');
+                }
+            });
+        }
+
+        // Click outside to close on mobile
+        document.addEventListener('click', function(e) {
+            if (isMobile() && !stepperContainer.classList.contains('mobile-collapsed')) {
+                if (!stepperContainer.contains(e.target)) {
+                    stepperContainer.classList.add('mobile-collapsed');
+                }
+            }
+        });
+
+        // Initialize on load
+        initializeStepper();
+
+        // Re-initialize on resize
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(initializeStepper, 100);
+        });
+
+        // Detect if in iframe (modal) and add class to hide nav
+        if (window.self !== window.top) {
+            document.body.classList.add('in-modal');
+        }
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('.theme-icon');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to dark mode
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+
+        // Apply saved theme
+        if (savedTheme === 'light') {
+            html.setAttribute('data-theme', 'light');
+            themeIcon.textContent = '🌙';
+        } else {
+            html.removeAttribute('data-theme');
+            themeIcon.textContent = '☀️';
+        }
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+
+            if (currentTheme === 'light') {
+                // Switch to dark mode
+                html.removeAttribute('data-theme');
+                themeIcon.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                // Switch to light mode
+                html.setAttribute('data-theme', 'light');
+                themeIcon.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>

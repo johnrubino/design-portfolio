@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing | John</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #141414;
+            --secondary-bg: #1a1a1a;
+            --surface-bg: #2a2a2a;
+            --border-color: #3a3a3a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --accent-orange: #FF8C42;
+            --accent-purple: #667eea;
+        }
+
+        [data-theme="light"] {
+            --primary-bg: #ffffff;
+            --secondary-bg: #f5f5f7;
+            --surface-bg: #e8e8ea;
+            --border-color: #d1d1d6;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --accent-orange: #FF8C42;
+            --accent-purple: #667eea;
+        }
+
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            transition: background 300ms ease, color 300ms ease;
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background: var(--secondary-bg);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #141414 0%, #444148 100%);
+            border: 2px solid #FCFCFC;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 150ms cubic-bezier(0.31, 0.94, 0.34, 1.00);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--text-primary);
+        }
+
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: var(--surface-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 200ms ease;
+            margin-left: 12px;
+        }
+
+        .theme-toggle:hover {
+            background: var(--border-color);
+            transform: scale(1.05);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.95);
+        }
+
+        /* ==================== MAIN CONTENT ==================== */
+        .main-content {
+            margin-top: 64px;
+            padding: 80px 32px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ==================== PAGE HEADER ==================== */
+        .page-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .page-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .page-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .substack-link {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+            padding: 0 28px;
+            height: 48px;
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #141414 0%, #444148 100%);
+            color: #FFF;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 
+                0 8px 25px 0 rgba(0, 0, 0, 0.30),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.15),
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.4),
+                0 1px 2px 0 rgba(255, 255, 255, 0.1);
+            text-decoration: none;
+            transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1.00);
+            overflow: visible;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .substack-link::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 8px;
+            padding: 2px;
+            background: radial-gradient(circle at 50% 0%, #FCFCFC 0%, #757A7C 100%);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .substack-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.12) 0%, 
+                rgba(255, 255, 255, 0.04) 50%,
+                transparent 100%);
+            border-radius: 6px 6px 0 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .substack-link span {
+            position: relative;
+            z-index: 3;
+        }
+
+        .substack-link:hover {
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #1c1c1c 0%, #4f4c54 100%);
+            transform: translateY(-3px);
+            box-shadow: 
+                0 14px 38px 0 rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.3),
+                0 2px 4px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        .substack-link:hover::after {
+            background: radial-gradient(circle at 50% 0%, #FFFFFF 0%, #9a9fa1 100%);
+        }
+
+        .substack-link:hover::before {
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.18) 0%, 
+                rgba(255, 255, 255, 0.08) 50%,
+                transparent 100%);
+        }
+
+        .substack-link:active {
+            transform: translateY(1px);
+            box-shadow: 
+                0 2px 8px 0 rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 0 rgba(0, 0, 0, 0.4),
+                inset 0 -1px 0 0 rgba(255, 255, 255, 0.1),
+                inset 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #0d0d0d 0%, #3a373f 100%);
+        }
+
+        /* ==================== FILTERS ==================== */
+        .filter-section {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+
+        .filter-button {
+            position: relative;
+            padding: 0 20px;
+            height: 36px;
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #141414 0%, #444148 100%);
+            color: #FFF;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 
+                0 8px 25px 0 rgba(0, 0, 0, 0.30),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.15),
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.4),
+                0 1px 2px 0 rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1.00);
+            overflow: visible;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .filter-button::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 8px;
+            padding: 2px;
+            background: radial-gradient(circle at 50% 0%, #FCFCFC 0%, #757A7C 100%);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .filter-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.12) 0%, 
+                rgba(255, 255, 255, 0.04) 50%,
+                transparent 100%);
+            border-radius: 6px 6px 0 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .filter-button:hover {
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #1c1c1c 0%, #4f4c54 100%);
+            transform: translateY(-3px);
+            box-shadow: 
+                0 14px 38px 0 rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.3),
+                0 2px 4px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        .filter-button:hover::after {
+            background: radial-gradient(circle at 50% 0%, #FFFFFF 0%, #9a9fa1 100%);
+        }
+
+        .filter-button:hover::before {
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.18) 0%, 
+                rgba(255, 255, 255, 0.08) 50%,
+                transparent 100%);
+        }
+
+        .filter-button.active {
+            background: radial-gradient(circle at 50% 30%, #667eea 0%, #5c72d4 50%, #5166be 100%);
+            box-shadow: 
+                0 1px 4px 0 rgba(0, 0, 0, 0.3),
+                inset 0 1px 3px 0 rgba(0, 0, 0, 0.4),
+                inset 0 -0.5px 0 0 rgba(102, 126, 234, 0.3),
+                0 0 12px 1px rgba(102, 126, 234, 0.5);
+            transform: translateY(1px);
+        }
+
+        .filter-button.active::before {
+            background: linear-gradient(180deg, 
+                rgba(0, 0, 0, 0.3) 0%, 
+                transparent 100%);
+        }
+
+        /* ==================== ARTICLES GRID ==================== */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        /* ==================== ARTICLE CARD ==================== */
+        .article-card {
+            position: relative;
+            background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ea 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 
+                0 8px 24px 0 rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.8),
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.15);
+            transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1.00);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .article-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.4) 0%, 
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .article-card::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0) 0%,
+                rgba(102, 126, 234, 0) 100%);
+            opacity: 0;
+            transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1.00);
+            pointer-events: none;
+            z-index: -1;
+            box-shadow: 
+                0 0 0 0 rgba(102, 126, 234, 0),
+                0 0 0 0 rgba(102, 126, 234, 0);
+        }
+
+        .article-card:hover {
+            border: 1px solid rgba(102, 126, 234, 0.6);
+        }
+
+        .article-card:hover::after {
+            opacity: 1;
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0.3) 0%,
+                rgba(118, 75, 162, 0.3) 100%);
+            box-shadow: 
+                0 0 20px 4px rgba(102, 126, 234, 0.6),
+                0 0 40px 8px rgba(102, 126, 234, 0.3),
+                inset 0 0 20px 2px rgba(102, 126, 234, 0.2);
+        }
+
+        .article-header {
+            padding: 24px 24px 16px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .article-category {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-purple);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .article-date {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .article-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            line-height: 1.3;
+            color: #1a1a1a;
+        }
+
+        .article-excerpt {
+            font-size: 15px;
+            color: #444;
+            line-height: 1.6;
+            padding: 0 24px 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .article-footer {
+            padding: 16px 24px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+
+        .read-time {
+            font-size: 13px;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .read-more {
+            font-size: 14px;
+            color: var(--accent-purple);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 150ms cubic-bezier(0.31, 0.94, 0.34, 1.00);
+        }
+
+        .article-card:hover .read-more {
+            gap: 10px;
+        }
+
+        /* ==================== FEATURED ARTICLE ==================== */
+        .featured-article {
+            position: relative;
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ea 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            box-shadow:
+                0 8px 24px 0 rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.8),
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.15);
+            transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1.00);
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+        }
+
+        .featured-article::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.4) 0%, 
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .featured-article::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0) 0%,
+                rgba(102, 126, 234, 0) 100%);
+            opacity: 0;
+            transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1.00);
+            pointer-events: none;
+            z-index: -1;
+            box-shadow: 
+                0 0 0 0 rgba(102, 126, 234, 0),
+                0 0 0 0 rgba(102, 126, 234, 0);
+        }
+
+        .featured-article:hover {
+            border: 1px solid rgba(102, 126, 234, 0.6);
+        }
+
+        .featured-article:hover::after {
+            opacity: 1;
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0.3) 0%,
+                rgba(118, 75, 162, 0.3) 100%);
+            box-shadow: 
+                0 0 20px 4px rgba(102, 126, 234, 0.6),
+                0 0 40px 8px rgba(102, 126, 234, 0.3),
+                inset 0 0 20px 2px rgba(102, 126, 234, 0.2);
+        }
+
+        .featured-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, 
+                transparent 0%, 
+                rgba(0, 0, 0, 0.1) 100%);
+        }
+
+        .featured-placeholder {
+            font-size: 120px;
+            opacity: 0.3;
+            position: relative;
+            z-index: 2;
+        }
+
+        .featured-content {
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .featured-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(255, 140, 66, 0.9);
+            color: var(--primary-bg);
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            width: fit-content;
+            box-shadow: 0 2px 8px rgba(255, 140, 66, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .featured-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+            color: #1a1a1a;
+        }
+
+        .featured-excerpt {
+            font-size: 16px;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        /* ==================== NEWSLETTER SECTION ==================== */
+        .newsletter-section {
+            margin-top: 80px;
+            padding: 48px;
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .newsletter-icon {
+            font-size: 48px;
+            margin-bottom: 24px;
+        }
+
+        .newsletter-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .newsletter-description {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 14px 20px;
+            background: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 15px;
+            color: var(--text-primary);
+            transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1.00);
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .newsletter-button {
+            position: relative;
+            padding: 0 28px;
+            height: 48px;
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #141414 0%, #444148 100%);
+            color: #FFF;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 
+                0 8px 25px 0 rgba(0, 0, 0, 0.30),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.15),
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.4),
+                0 1px 2px 0 rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1.00);
+            overflow: visible;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .newsletter-button::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 8px;
+            padding: 2px;
+            background: radial-gradient(circle at 50% 0%, #FCFCFC 0%, #757A7C 100%);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .newsletter-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.12) 0%, 
+                rgba(255, 255, 255, 0.04) 50%,
+                transparent 100%);
+            border-radius: 6px 6px 0 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .newsletter-button:hover {
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #1c1c1c 0%, #4f4c54 100%);
+            transform: translateY(-3px);
+            box-shadow: 
+                0 14px 38px 0 rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.3),
+                0 2px 4px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        .newsletter-button:hover::after {
+            background: radial-gradient(circle at 50% 0%, #FFFFFF 0%, #9a9fa1 100%);
+        }
+
+        .newsletter-button:hover::before {
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.18) 0%, 
+                rgba(255, 255, 255, 0.08) 50%,
+                transparent 100%);
+        }
+
+        .newsletter-button:active {
+            transform: translateY(1px);
+            box-shadow: 
+                0 2px 8px 0 rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 0 rgba(0, 0, 0, 0.4),
+                inset 0 -1px 0 0 rgba(255, 255, 255, 0.1),
+                inset 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #0d0d0d 0%, #3a373f 100%);
+        }
+
+        /* ==================== FOOTER ==================== */
+        .site-footer {
+            background: var(--secondary-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 48px 32px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 150ms cubic-bezier(0.31, 0.94, 0.34, 1.00);
+        }
+
+        .footer-link:hover {
+            color: var(--text-primary);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 36px;
+            }
+
+            .featured-article {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-image {
+                min-height: 240px;
+            }
+
+            .featured-content {
+                padding: 32px 24px;
+            }
+
+            .featured-title {
+                font-size: 24px;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-section {
+                padding: 32px 24px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-header">
+        <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">J</div>
+            <span>John</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="writing.html" class="nav-link active">Writing</a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="theme-icon">☀️</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title">Thoughts on Design & Technology</h1>
+            <p class="page-subtitle">
+                Exploring the future of design, AI, and human-centered technology through short, thoughtful reflections that blend provocation with practicality.
+            </p>
+            <a href="https://johnrubino.substack.com" class="substack-link" target="_blank">
+                <span>✍️</span> Subscribe on Substack
+            </a>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <button class="filter-button active">All</button>
+            <button class="filter-button">Design Systems</button>
+            <button class="filter-button">AI & Design</button>
+            <button class="filter-button">Process & Tools</button>
+            <button class="filter-button">Leadership</button>
+        </div>
+
+        <!-- Articles Grid -->
+        <div class="articles-grid">
+            <!-- Articles will load from Substack -->
+            <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text-secondary);">
+                <div style="font-size: 48px; margin-bottom: 16px;">📚</div>
+                <p>Loading articles from Substack...</p>
+            </div>
+        </div>
+
+        <!-- Newsletter Section -->
+        <div class="newsletter-section">
+            <div class="newsletter-icon">📬</div>
+            <h2 class="newsletter-title">Stay Updated</h2>
+            <p class="newsletter-description">
+                Get the latest articles on design, AI, and the future of creative work delivered to your inbox. No spam, just thoughtful ideas.
+            </p>
+            <form class="newsletter-form" onsubmit="event.preventDefault();">
+                <input 
+                    type="email" 
+                    class="newsletter-input" 
+                    placeholder="Enter your email"
+                    required
+                >
+                <button type="submit" class="newsletter-button">Subscribe</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p class="footer-text">© 2025 John Rubino | Product Designer</p>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/john-rubino/" class="footer-link" target="_blank">LinkedIn</a>
+                <a href="https://johnrubino.substack.com" class="footer-link" target="_blank">Substack</a>
+                <a href="mailto:john@example.com" class="footer-link">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Fetch Substack articles
+        const SUBSTACK_URL = 'https://johnrubino.substack.com';
+        const RSS_FEED_URL = `${SUBSTACK_URL}/feed`;
+
+        let allArticles = [];
+        let currentFilter = 'All';
+
+        async function fetchSubstackArticles() {
+            try {
+                // Use a CORS proxy to fetch the RSS feed
+                const proxyUrl = 'https://api.allorigins.win/raw?url=';
+                const response = await fetch(proxyUrl + encodeURIComponent(RSS_FEED_URL));
+                const xmlText = await response.text();
+
+                // Parse XML
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(xmlText, 'text/xml');
+
+                // Extract articles
+                const items = xml.querySelectorAll('item');
+                allArticles = Array.from(items).map(item => {
+                    const title = item.querySelector('title')?.textContent || '';
+                    const link = item.querySelector('link')?.textContent || '';
+                    const pubDate = item.querySelector('pubDate')?.textContent || '';
+                    const description = item.querySelector('description')?.textContent || '';
+                    const categories = Array.from(item.querySelectorAll('category')).map(cat => cat.textContent);
+
+                    // Clean up description (remove HTML tags)
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = description;
+                    const cleanDescription = tempDiv.textContent || tempDiv.innerText || '';
+
+                    // Format date
+                    const date = new Date(pubDate);
+                    const formattedDate = date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+
+                    // Estimate read time (average reading speed: 200 words per minute)
+                    const wordCount = cleanDescription.split(/\s+/).length;
+                    const readTime = Math.max(1, Math.round(wordCount / 200));
+
+                    // Determine category
+                    let category = 'Design Systems'; // default
+                    if (categories.length > 0) {
+                        category = categories[0];
+                    } else {
+                        // Try to infer from title/description
+                        const text = (title + ' ' + cleanDescription).toLowerCase();
+                        if (text.includes('ai') || text.includes('artificial intelligence')) {
+                            category = 'AI & Design';
+                        } else if (text.includes('process') || text.includes('tool') || text.includes('workflow')) {
+                            category = 'Process & Tools';
+                        } else if (text.includes('leadership') || text.includes('mentor')) {
+                            category = 'Leadership';
+                        }
+                    }
+
+                    return {
+                        title,
+                        link,
+                        date: formattedDate,
+                        description: cleanDescription.substring(0, 200) + '...',
+                        category,
+                        readTime
+                    };
+                });
+
+                displayArticles();
+
+            } catch (error) {
+                console.error('Error fetching Substack articles:', error);
+                // Keep placeholder articles if fetch fails
+            }
+        }
+
+        function displayArticles() {
+            const articlesGrid = document.querySelector('.articles-grid');
+
+            // Filter articles
+            const filteredArticles = currentFilter === 'All'
+                ? allArticles
+                : allArticles.filter(article => article.category === currentFilter);
+
+            if (filteredArticles.length === 0 && allArticles.length === 0) {
+                // Show message if no articles loaded
+                articlesGrid.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text-secondary);">
+                        <div style="font-size: 48px; margin-bottom: 16px;">📝</div>
+                        <p>No articles found. Visit <a href="https://johnrubino.substack.com" target="_blank" style="color: var(--accent-purple); text-decoration: none;">Substack</a> to read the latest posts.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            if (filteredArticles.length === 0) {
+                // Show message if filter returns no results
+                articlesGrid.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text-secondary);">
+                        <div style="font-size: 48px; margin-bottom: 16px;">🔍</div>
+                        <p>No articles found in this category.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Clear existing articles
+            articlesGrid.innerHTML = '';
+
+            // Create featured article (first one)
+            const featured = filteredArticles[0];
+            const featuredHTML = `
+                <a href="${featured.link}" class="featured-article" target="_blank" rel="noopener noreferrer">
+                    <div class="featured-image">
+                        <div class="featured-placeholder">✍️</div>
+                    </div>
+                    <div class="featured-content">
+                        <div class="featured-badge">⭐ Featured</div>
+                        <h2 class="featured-title">${featured.title}</h2>
+                        <p class="featured-excerpt">${featured.description}</p>
+                        <div class="article-meta">
+                            <span class="article-category">${featured.category}</span>
+                            <span class="article-date">${featured.date}</span>
+                            <span class="read-time">📖 ${featured.readTime} min read</span>
+                        </div>
+                    </div>
+                </a>
+            `;
+            articlesGrid.innerHTML += featuredHTML;
+
+            // Create regular article cards (skip first one since it's featured)
+            filteredArticles.slice(1).forEach(article => {
+                const cardHTML = `
+                    <a href="${article.link}" class="article-card" target="_blank" rel="noopener noreferrer">
+                        <div class="article-header">
+                            <div class="article-meta">
+                                <span class="article-category">${article.category}</span>
+                                <span class="article-date">${article.date}</span>
+                            </div>
+                            <h3 class="article-title">${article.title}</h3>
+                        </div>
+                        <p class="article-excerpt">${article.description}</p>
+                        <div class="article-footer">
+                            <span class="read-time">📖 ${article.readTime} min read</span>
+                            <span class="read-more">Read on Substack →</span>
+                        </div>
+                    </a>
+                `;
+                articlesGrid.innerHTML += cardHTML;
+            });
+        }
+
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-button');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                currentFilter = this.textContent;
+                displayArticles();
+            });
+        });
+
+        // Newsletter form submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = this.querySelector('.newsletter-input').value;
+                // Redirect to Substack subscribe page
+                window.open(`${SUBSTACK_URL}/subscribe`, '_blank');
+                this.reset();
+            });
+        }
+
+        // Load articles on page load
+        fetchSubstackArticles();
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('.theme-icon');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to dark mode
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+
+        // Apply saved theme
+        if (savedTheme === 'light') {
+            html.setAttribute('data-theme', 'light');
+            themeIcon.textContent = '🌙';
+        } else {
+            html.removeAttribute('data-theme');
+            themeIcon.textContent = '☀️';
+        }
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+
+            if (currentTheme === 'light') {
+                // Switch to dark mode
+                html.removeAttribute('data-theme');
+                themeIcon.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                // Switch to light mode
+                html.setAttribute('data-theme', 'light');
+                themeIcon.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>
