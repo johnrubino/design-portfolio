@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case Study: Fully Paid Lending | John Rubino</title>
+    <title>Case Study: Fully Paid Lending | John</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -37,35 +40,650 @@
             font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: var(--primary-bg);
             color: var(--text-primary);
-            padding: 80px 40px;
-            max-width: 1200px;
-            margin: 0 auto;
+            min-height: 100vh;
             transition: background 300ms ease, color 300ms ease;
         }
 
-        h1 {
-            font-size: 48px;
+        /* ==================== NAVIGATION ==================== */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background: var(--secondary-bg);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #141414 0%, #444148 100%);
+            border: 2px solid #FCFCFC;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 150ms cubic-bezier(0.31, 0.94, 0.34, 1.00);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: var(--surface-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 200ms ease;
+            margin-left: 12px;
+        }
+
+        .theme-toggle:hover {
+            background: var(--border-color);
+            transform: scale(1.05);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.95);
+        }
+
+        /* ==================== LAYOUT ==================== */
+        .case-study-layout {
+            margin-top: 64px;
+            display: flex;
+            position: relative;
+        }
+
+        /* ==================== FLOATING STEPPER ==================== */
+        .stepper-container {
+            position: fixed;
+            left: 32px;
+            top: 120px;
+            width: 240px;
+            z-index: 100;
+        }
+
+        .stepper-header {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
             margin-bottom: 24px;
         }
 
-        p {
-            font-size: 18px;
+        .stepper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .stepper.expanded .stepper-content {
+            opacity: 1;
+            width: auto;
+            transition: opacity 350ms ease 100ms,
+                        width 450ms cubic-bezier(0.68, -0.55, 0.265, 1.55),
+                        margin 450ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .stepper-step {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 8px 0;
+            cursor: pointer;
+            transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1.00);
+        }
+
+        .stepper-indicator {
+            position: relative;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .stepper-circle {
+            position: relative;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d0d0d2 0%, #b0b0b5 100%);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            box-shadow:
+                0 2px 8px 0 rgba(0, 0, 0, 0.25),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.5),
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
+            transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1.00);
+        }
+
+        .stepper-circle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(180deg,
+                rgba(255, 255, 255, 0.6) 0%,
+                rgba(255, 255, 255, 0.2) 50%,
+                transparent 100%);
+            border-radius: 50% 50% 0 0;
+            pointer-events: none;
+        }
+
+        .stepper-step.active .stepper-circle {
+            background: radial-gradient(circle at 50% 30%,
+                #FF8C42 0%,
+                #FF6B35 50%,
+                #D94A1A 100%);
+            border: 2px solid rgba(255, 140, 66, 0.8);
+            box-shadow:
+                0 2px 8px 0 rgba(0, 0, 0, 0.3),
+                inset 0 2px 6px 0 rgba(0, 0, 0, 0.4),
+                inset 0 -1px 0 0 rgba(255, 140, 66, 0.3),
+                0 0 16px 3px rgba(255, 140, 66, 0.6);
+        }
+
+        .stepper-step.active .stepper-circle::before {
+            background: linear-gradient(180deg,
+                rgba(0, 0, 0, 0.2) 0%,
+                transparent 100%);
+        }
+
+        .stepper-step.completed .stepper-circle {
+            background: radial-gradient(circle at 50% 30%,
+                #667eea 0%,
+                #5a67d8 100%);
+            border: 2px solid rgba(102, 126, 234, 0.8);
+            box-shadow:
+                0 2px 8px 0 rgba(0, 0, 0, 0.3),
+                inset 0 1px 3px 0 rgba(0, 0, 0, 0.3),
+                0 0 12px 2px rgba(102, 126, 234, 0.4);
+        }
+
+        .stepper-step.completed .stepper-circle::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .stepper-step.inactive .stepper-circle {
+            background: linear-gradient(135deg, #888 0%, #666 100%);
+            opacity: 0.5;
+            box-shadow:
+                0 1px 4px 0 rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .stepper-line {
+            display: block;
+            position: absolute;
+            left: 11px;
+            top: 24px;
+            width: 2px;
+            height: calc(100% + 8px);
+            background: linear-gradient(180deg,
+                rgba(176, 176, 181, 0.6) 0%,
+                rgba(176, 176, 181, 0.3) 100%);
+            z-index: 1;
+        }
+
+        .stepper-step:last-child .stepper-line {
+            display: none;
+        }
+
+        .stepper-step.completed .stepper-line {
+            background: linear-gradient(180deg,
+                rgba(102, 126, 234, 0.6) 0%,
+                rgba(102, 126, 234, 0.3) 100%);
+        }
+
+        .stepper-step.active .stepper-line {
+            background: linear-gradient(180deg,
+                rgba(255, 140, 66, 0.6) 0%,
+                rgba(255, 140, 66, 0.3) 100%);
+        }
+
+        .stepper-content {
+            flex: 1;
+            opacity: 0;
+            width: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            transition: opacity 250ms ease,
+                        width 450ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 50ms,
+                        margin 450ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 50ms;
+        }
+
+        .stepper-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            transition: color 150ms cubic-bezier(0.31, 0.94, 0.34, 1.00);
+        }
+
+        .stepper-step.active .stepper-title {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .stepper-step.completed .stepper-title {
+            color: var(--text-primary);
+        }
+
+        .stepper-step:hover .stepper-title {
+            color: var(--text-primary);
+        }
+
+        .stepper-step:hover .stepper-circle {
+            transform: scale(1.1);
+        }
+
+        /* ==================== MAIN CONTENT ==================== */
+        .main-content {
+            flex: 1;
+            margin-left: 300px;
+            padding: 64px 80px 80px;
+            max-width: 900px;
+        }
+
+        .content-section {
+            margin-bottom: 120px;
+            scroll-margin-top: 80px;
+        }
+
+        .section-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 48px;
+        }
+
+        .content-text {
+            font-size: 16px;
             line-height: 1.7;
             color: var(--text-secondary);
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
-        .coming-soon {
+        h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 48px 0 24px;
+            color: var(--text-primary);
+        }
+
+        h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 32px 0 16px;
+            color: var(--text-primary);
+        }
+
+        /* ==================== STATS TABLE ==================== */
+        .stats-table {
+            width: 100%;
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            margin: 32px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .stats-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .stats-table th {
+            text-align: left;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stats-table td {
+            font-size: 15px;
+            color: var(--text-secondary);
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            line-height: 1.6;
+        }
+
+        .stats-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .stats-table strong {
+            color: var(--text-primary);
+        }
+
+        /* ==================== QUOTE BLOCK ==================== */
+        .quote-block {
+            background: var(--secondary-bg);
+            border-left: 3px solid var(--accent-orange);
+            border-radius: 8px;
+            padding: 24px;
+            margin: 32px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .quote-text {
+            font-size: 18px;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .quote-author {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* ==================== HIGHLIGHT BOX ==================== */
+        .highlight-box {
+            background: var(--surface-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            margin: 32px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .highlight-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--accent-orange);
+            margin-bottom: 12px;
+        }
+
+        .highlight-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        /* ==================== LIST STYLES ==================== */
+        ul, ol {
+            margin: 16px 0 24px 24px;
+        }
+
+        li {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        /* ==================== CASE STUDY IMAGES ==================== */
+        .case-study-image {
+            width: 100%;
+            margin: 40px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .case-study-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .case-study-figure {
+            margin: 40px 0;
+        }
+
+        .case-study-figure img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .case-study-figure figcaption {
+            margin-top: 12px;
+            font-size: 14px;
+            color: var(--text-secondary);
             text-align: center;
-            padding: 120px 40px;
+            font-style: italic;
         }
 
-        .emoji {
-            font-size: 120px;
-            margin-bottom: 32px;
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
         }
 
-        /* Hide navigation when in modal */
+        .image-grid img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            transition: transform 200ms ease;
+        }
+
+        .image-grid img:hover {
+            transform: scale(1.02);
+        }
+
+        /* ==================== IMAGE PLACEHOLDER ==================== */
+        .image-placeholder {
+            width: 100%;
+            margin: 40px 0;
+            padding: 60px 40px;
+            background: var(--surface-bg);
+            border: 2px dashed var(--border-color);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .image-placeholder-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        .image-placeholder-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            .stepper-container {
+                left: auto;
+                right: 20px;
+                bottom: 20px;
+                top: auto;
+                width: auto;
+                max-width: 280px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+            }
+
+            .stepper-container.mobile-collapsed {
+                width: auto;
+                min-width: 80px;
+                height: auto;
+                padding: 12px 16px;
+                background: var(--surface-bg);
+                border: 1px solid var(--border-color);
+                border-radius: 24px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                cursor: pointer;
+                transition: transform 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55),
+                            box-shadow 300ms ease,
+                            opacity 300ms ease;
+                transform: scale(1);
+            }
+
+            .stepper-container.mobile-collapsed:hover {
+                transform: scale(1.05);
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+            }
+
+            .stepper-container.mobile-collapsed::before {
+                content: attr(data-current-step);
+                display: block;
+                font-size: 16px;
+                font-weight: 700;
+                color: var(--accent-orange);
+                text-align: center;
+                margin-bottom: 4px;
+            }
+
+            .stepper-container.mobile-collapsed::after {
+                content: attr(data-current-label);
+                display: block;
+                font-size: 12px;
+                font-weight: 500;
+                color: var(--text-secondary);
+                text-align: center;
+                white-space: nowrap;
+            }
+
+            .stepper-container.mobile-collapsed .stepper-header {
+                display: none;
+            }
+
+            .stepper-container.mobile-collapsed .stepper {
+                display: none;
+            }
+
+            .stepper-container:not(.mobile-collapsed) {
+                background: transparent;
+                border: none;
+                padding: 0;
+                align-items: stretch;
+            }
+
+            .stepper-container:not(.mobile-collapsed) .stepper-header {
+                background: var(--secondary-bg);
+                border: 1px solid var(--border-color);
+                border-radius: 8px;
+                padding: 12px;
+                margin-bottom: 8px;
+                position: relative;
+            }
+
+            .stepper-container:not(.mobile-collapsed) .stepper {
+                margin-top: 0;
+                padding: 16px;
+                background: var(--secondary-bg);
+                border: 1px solid var(--border-color);
+                border-radius: 12px;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+                max-height: 70vh;
+                overflow-y: auto;
+                transition: box-shadow 300ms ease,
+                            padding 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55),
+                            transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55),
+                            opacity 350ms ease;
+                transform: scale(1);
+                transform-origin: bottom right;
+            }
+
+            .stepper-container:not(.mobile-collapsed) .stepper-content {
+                opacity: 1;
+                width: auto;
+                margin-left: 12px;
+            }
+
+            .stepper-container:not(.mobile-collapsed) .stepper-header::after {
+                content: '✕';
+                position: absolute;
+                right: 12px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 18px;
+                color: var(--text-secondary);
+                cursor: pointer;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 40px 32px;
+                padding-bottom: 100px;
+            }
+        }
+
+        /* ==================== HIDE NAV IN MODAL ==================== */
         .in-modal .nav-header {
             display: none !important;
         }
@@ -73,29 +691,791 @@
         .in-modal .case-study-layout {
             margin-top: 0 !important;
         }
+
+        @media (max-width: 768px) {
+            .stepper-container {
+                right: 16px;
+                bottom: 16px;
+                max-width: 260px;
+            }
+
+            .stepper-container.mobile-collapsed {
+                padding: 10px 14px;
+                min-width: 70px;
+            }
+
+            .stepper-container.mobile-collapsed::before {
+                font-size: 14px;
+                margin-bottom: 3px;
+            }
+
+            .stepper-container.mobile-collapsed::after {
+                font-size: 11px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            h3 {
+                font-size: 20px;
+            }
+
+            .main-content {
+                padding: 32px 24px;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="coming-soon">
-        <div class="emoji">💰</div>
-        <h1>Fully Paid Lending</h1>
-        <p>This case study is currently being prepared.</p>
-        <p>Content coming soon...</p>
+    <!-- Navigation -->
+    <nav class="nav-header">
+        <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">J</div>
+            <span>John</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="writing.html" class="nav-link">Writing</a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="theme-icon">☀️</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Case Study Layout -->
+    <div class="case-study-layout">
+        <!-- Floating Stepper -->
+        <div class="stepper-container">
+            <div class="stepper-header">FPL Case Study</div>
+            <div class="stepper expanded">
+                <div class="stepper-step active" data-section="overview">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Overview</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="setup">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">The Setup</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="research">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Research</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="reframing">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Reframing</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="design">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">The Design</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="constraints">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Constraints</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="outcome">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Outcome</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="reflection">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Reflection</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Section: Overview -->
+            <section id="overview" class="content-section">
+                <div class="section-icon">💰</div>
+                <h1 class="section-title">Turning Overlooked Revenue into Action</h1>
+                <p class="section-subtitle">Fully Paid Lending lets advisors earn fees by lending their clients' shares—but the tool designed to surface these opportunities was collecting dust. I led the redesign of an underutilized NetX360 feature into something advisors would actually use.</p>
+
+                <div class="stats-table">
+                    <table>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>Details</th>
+                        </tr>
+                        <tr>
+                            <td><strong>My Role</strong></td>
+                            <td>Lead Studio Designer</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Team</strong></td>
+                            <td>Design Lead, Development Lead, 2 Developers, Product SME, Project Lead</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Timeline</strong></td>
+                            <td>1 year (kickoff to client release)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Outcome</strong></td>
+                            <td>Shipped February 2026</td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Section: The Setup -->
+            <section id="setup" class="content-section">
+                <div class="section-icon">⚡</div>
+                <h1 class="section-title">The Tool No One Used</h1>
+
+                <p class="content-text">
+                    Fully Paid Lending is a straightforward value proposition: advisors can lend shares their clients already own and generate passive revenue. BNY Pershing had a tool to help advisors identify these opportunities—but adoption was dismal.
+                </p>
+
+                <p class="content-text">
+                    The existing Opportunity View page in NetX360 had all the data. It showed potential revenue, participating clients, and historical performance. On paper, it should have been valuable. In practice, advisors were ignoring it entirely.
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">"The tool had the data. It just made users work too hard to extract value from it."</p>
+                </div>
+
+                <!--
+                ===== IMAGE PLACEHOLDER =====
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/legacy-opportunity-view.png" alt="Legacy Opportunity View interface">
+                    <figcaption>The existing interface centered on a bubble visualization that research revealed users were skipping entirely.</figcaption>
+                </figure>
+                -->
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">🖼️</div>
+                    <p class="image-placeholder-text">Screenshot of the legacy Opportunity View interface showing the bubble visualization, cluttered layout, and dated UI</p>
+                </div>
+            </section>
+
+            <!-- Section: Research -->
+            <section id="research" class="content-section">
+                <div class="section-icon">🔍</div>
+                <h1 class="section-title">Listening to the Workarounds</h1>
+
+                <p class="content-text">
+                    Without pre-existing insights, I partnered with our research team to understand how advisors were actually engaging with the tool. We conducted research with participants across different roles—from advisors managing individual client relationships to home office managers overseeing entire networks.
+                </p>
+
+                <p class="content-text">
+                    The findings were clear: users had developed elaborate workarounds because the interface wasn't meeting their needs.
+                </p>
+
+                <!--
+                ===== IMAGE PLACEHOLDER =====
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/research-findings.png" alt="Research findings summary">
+                    <figcaption>Key insights from user research revealing consistent pain points across participant types.</figcaption>
+                </figure>
+                -->
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">📊</div>
+                    <p class="image-placeholder-text">Research findings summary or affinity map showing key themes</p>
+                </div>
+
+                <h2>Bubbles Were Decoration</h2>
+
+                <p class="content-text">
+                    The interface's centerpiece was a bubble visualization—larger bubbles indicated bigger opportunities. The assumption was that visual hierarchy would help advisors prioritize.
+                </p>
+
+                <p class="content-text">
+                    Reality was different. Users understood what the bubbles represented, but found drilling into each one inefficient. Most skipped the visualization entirely and exported everything to Excel, where they could sort, filter, and cross-reference with other tools like Bloomberg.
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">"Some users do not engage with the bubbles at all and rely on Excel exports."</p>
+                </div>
+
+                <!--
+                ===== IMAGE PLACEHOLDER =====
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/bubble-visualization.png" alt="Legacy bubble visualization">
+                    <figcaption>Users understood larger bubbles meant bigger opportunities—but the interaction model failed them.</figcaption>
+                </figure>
+                -->
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">🫧</div>
+                    <p class="image-placeholder-text">Close-up of legacy bubble visualization</p>
+                </div>
+
+                <h2>The Data Wasn't Trusted</h2>
+
+                <p class="content-text">
+                    Advisors needed context the tool didn't provide. They wanted to assess opportunity validity—factors like security utilization and trading frequency—but the interface showed potential revenue without explaining how it was calculated.
+                </p>
+
+                <p class="content-text">
+                    Some felt the system assumed static rates that didn't reflect daily market changes. Others questioned whether the numbers were realistic at all. Without transparency, advisors were hesitant to act on what they saw.
+                </p>
+
+                <!--
+                ===== IMAGE PLACEHOLDER =====
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">❓</div>
+                    <p class="image-placeholder-text">Research quote or finding about data trust issues</p>
+                </div>
+                -->
+
+                <h2>Friction Killed Enrollment</h2>
+
+                <p class="content-text">
+                    Even when advisors identified opportunities worth pursuing, the enrollment process stopped them cold. Onboarding clients into the lending program required manual emails, document uploads, and back-and-forth that created unnecessary friction.
+                </p>
+
+                <p class="content-text">
+                    The tool could show you the opportunity. It couldn't help you capture it.
+                </p>
+            </section>
+
+            <!-- Section: Reframing the Problem -->
+            <section id="reframing" class="content-section">
+                <div class="section-icon">🎯</div>
+                <h1 class="section-title">Reframing the Problem</h1>
+
+                <p class="content-text">
+                    The research painted a clear picture: this wasn't a feature problem. It was a usability problem compounded by a trust problem.
+                </p>
+
+                <p class="content-text">
+                    The original interface asked users to interact with data in ways that didn't match their mental models. It prioritized visualization over utility. It obscured methodology instead of revealing it. And it dead-ended at the moment of action.
+                </p>
+
+                <!--
+                ===== IMAGE PLACEHOLDER =====
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/journey-map.png" alt="Journey map showing pain points">
+                    <figcaption>Mapping the breakdown points revealed that problems clustered around data interpretation, navigation efficiency, and enrollment friction.</figcaption>
+                </figure>
+                -->
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">🗺️</div>
+                    <p class="image-placeholder-text">Journey map or problem framework showing pain points across the experience</p>
+                </div>
+
+                <p class="content-text">
+                    The core design challenge became:
+                </p>
+
+                <div class="highlight-box">
+                    <h4 class="highlight-title">The Core Question</h4>
+                    <p class="highlight-text">"How do you surface dense financial data in a way that supports quick scanning and deep investigation—without forcing users into a separate tool?"</p>
+                </div>
+            </section>
+
+            <!-- Section: The Design -->
+            <section id="design" class="content-section">
+                <div class="section-icon">✨</div>
+                <h1 class="section-title">From Visualization to Information</h1>
+
+                <p class="content-text">
+                    The most significant design decision was killing the bubble visualization entirely.
+                </p>
+
+                <p class="content-text">
+                    Research showed users were bypassing it for Excel exports. They wanted to scan across offices and advisors quickly, drill into specific positions when needed, and take action without leaving context. Bubbles didn't support any of these behaviors.
+                </p>
+
+                <p class="content-text">
+                    I explored multiple directions—bar charts, various table configurations, hybrid approaches—before landing on an expandable nested table as the primary interface.
+                </p>
+
+                <!--
+                ===== IMAGE PLACEHOLDER =====
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/explorations-grid.png" alt="Early design explorations">
+                    <figcaption>Early explorations tested different ways to represent the same data. The expandable table emerged as the strongest pattern for supporting both scanning and investigation.</figcaption>
+                </figure>
+                -->
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">🎨</div>
+                    <p class="image-placeholder-text">Grid showing early explorations—bar chart versions, table iterations, alternative layouts</p>
+                </div>
+
+                <h2>The Nested Table</h2>
+
+                <p class="content-text">
+                    The final design uses a three-level hierarchy: Office → Advisor → Investor. Users can scan across the top level to identify high-opportunity offices, expand to see which advisors are driving those numbers, and drill further to individual investor positions.
+                </p>
+
+                <p class="content-text">
+                    This pattern solved several problems simultaneously:
+                </p>
+
+                <ul>
+                    <li><strong>Scanning:</strong> Managers can quickly compare performance across their network without clicking into separate views</li>
+                    <li><strong>Context preservation:</strong> Expanding a row keeps surrounding data visible, unlike the old drill-down flow that lost context with each click</li>
+                    <li><strong>Flexibility:</strong> The same structure works for both manager and advisor views, reducing cognitive load when switching between perspectives</li>
+                </ul>
+
+                <!--
+                ===== IMAGE PLACEHOLDER =====
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/nested-table-final.png" alt="Final nested table design">
+                    <figcaption>The expandable table lets users drill from office to advisor to investor without losing context.</figcaption>
+                </figure>
+                -->
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">📋</div>
+                    <p class="image-placeholder-text">Final design showing the nested table in collapsed state with one row expanded</p>
+                </div>
+
+                <h2>Reclaiming the Space Above the Fold</h2>
+
+                <p class="content-text">
+                    A consistent complaint across BNY Pershing products was content being pushed below the scroll. The legacy FPL page stacked filters, tabs, summary statistics, and navigation elements—leaving actual data buried.
+                </p>
+
+                <p class="content-text">
+                    I audited every element above the fold and challenged whether it earned its placement.
+                </p>
+
+                <!--
+                ===== IMAGE PLACEHOLDER =====
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/before-after-fold.png" alt="Before/after comparison">
+                    <figcaption>The legacy interface (left) buried actionable data below multiple navigation layers. The redesign (right) prioritizes the table.</figcaption>
+                </figure>
+                -->
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">↕️</div>
+                    <p class="image-placeholder-text">Before/after comparison showing the legacy header-heavy layout versus the streamlined redesign</p>
+                </div>
+
+                <h3>What Got Removed</h3>
+
+                <p class="content-text">
+                    <strong>The IBD/Office dropdown filters.</strong> These duplicated functionality now handled by the table's expandable hierarchy and inline filtering.
+                </p>
+
+                <p class="content-text">
+                    <strong>The separate "Top Opportunities" section.</strong> Valuable content, but it competed with the primary table. I moved this to a dedicated "View by Ticker" tab where users seeking specific securities could find them intentionally.
+                </p>
+
+                <p class="content-text">
+                    <strong>The Participating/Non-Participating tab split.</strong> Instead of forcing users to toggle between views, I added Enrolled and Not Enrolled columns inline. One view, complete picture.
+                </p>
+
+                <!--
+                ===== IMAGE PLACEHOLDER =====
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/inline-status-columns.png" alt="Consolidated filter approach">
+                    <figcaption>Enrollment status is now visible at a glance rather than hidden behind tab navigation.</figcaption>
+                </figure>
+                -->
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">✅</div>
+                    <p class="image-placeholder-text">Annotated screenshot showing the consolidated filter approach with inline status columns</p>
+                </div>
+
+                <h3>What Got Added</h3>
+
+                <p class="content-text">
+                    <strong>Sparklines for performance trends.</strong> A small inline visualization showing YTD performance lets users spot patterns without leaving the table. Clicking opens a modal with the full chart—progressive disclosure that keeps the primary view scannable.
+                </p>
+
+                <!--
+                ===== IMAGE PLACEHOLDER =====
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/sparklines-modal.png" alt="Sparkline detail and modal">
+                    <figcaption>Sparklines provide trend information at a glance. The modal reveals full detail on demand.</figcaption>
+                </figure>
+                -->
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">📈</div>
+                    <p class="image-placeholder-text">Detail shot of sparkline in table cell, plus the expanded modal chart view</p>
+                </div>
+
+                <p class="content-text">
+                    <strong>A "Learn and Invite" tab.</strong> Consolidating program information and the enrollment flow in one place addressed the friction that killed adoption. Advisors can understand the program and take action without leaving the tool.
+                </p>
+
+                <!--
+                ===== IMAGE PLACEHOLDER =====
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/learn-invite-tab.png" alt="Learn and Invite tab design">
+                    <figcaption>Reducing enrollment friction from manual email workflows to an integrated flow.</figcaption>
+                </figure>
+                -->
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">📩</div>
+                    <p class="image-placeholder-text">Learn and Invite tab design showing program context and enrollment CTA</p>
+                </div>
+            </section>
+
+            <!-- Section: Navigating Constraints -->
+            <section id="constraints" class="content-section">
+                <div class="section-icon">🚧</div>
+                <h1 class="section-title">Navigating Constraints</h1>
+
+                <h2>Adapting to Bad Data</h2>
+
+                <p class="content-text">
+                    Midway through the project, we discovered a data quality issue that threatened the design. Office names in the source system were often duplicated or inconsistent—two different offices could share identical names, creating confusion when displayed in the table.
+                </p>
+
+                <p class="content-text">
+                    Rather than surface confusing labels and hope users figured it out, I proposed switching to Office Code as the primary identifier. It's less human-readable than a name, but it's unambiguous. The office name remains visible as secondary information.
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">"Small decisions that prevent real confusion downstream are as important as the big structural ones."</p>
+                </div>
+
+                <!--
+                ===== IMAGE PLACEHOLDER =====
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/office-code-column.png" alt="Office Code column detail">
+                    <figcaption>Using Office Code as the primary identifier eliminated ambiguity caused by duplicate office names in the source data.</figcaption>
+                </figure>
+                -->
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">🏢</div>
+                    <p class="image-placeholder-text">Table detail showing Office Code column with name as secondary info</p>
+                </div>
+
+                <h2>Navigating Changing Requirements</h2>
+
+                <p class="content-text">
+                    No design survives contact with reality unchanged. Throughout the project, new requirements emerged that needed to fit within the established design framework.
+                </p>
+
+                <p class="content-text">
+                    The Margin to Cash conversion flow was added after our core designs were locked. Advisors needed to convert Type 2 (margin) accounts to Type 1 (eligible) before clients could participate. This required visual indicators showing account type, conversion status, and clear calls to action—all without disrupting the table structure we'd validated.
+                </p>
+
+                <!--
+                ===== IMAGE PLACEHOLDER =====
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/margin-conversion-flow.png" alt="Margin to cash conversion flow">
+                    <figcaption>Late requirements for account type conversion were integrated into the existing table pattern rather than bolted on as a separate flow.</figcaption>
+                </figure>
+                -->
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">🔄</div>
+                    <p class="image-placeholder-text">Table showing Type 2 indicator and conversion CTA, or the flow for margin-to-cash conversion</p>
+                </div>
+            </section>
+
+            <!-- Section: Outcome -->
+            <section id="outcome" class="content-section">
+                <div class="section-icon">🎉</div>
+                <h1 class="section-title">The Outcome</h1>
+
+                <p class="content-text">
+                    The redesigned Fully Paid Lending page shipped to clients in February 2026. While we're still gathering post-launch feedback, every design decision was validated through iterative review with both internal stakeholders and anticipated client needs.
+                </p>
+
+                <p class="content-text">
+                    The redesign directly addresses every major pain point from research:
+                </p>
+
+                <div class="stats-table">
+                    <table>
+                        <tr>
+                            <th>Research Finding</th>
+                            <th>Design Response</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Bubble visualization ignored</strong></td>
+                            <td>Replaced with scannable nested table</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Drill-down lost context</strong></td>
+                            <td>Expandable rows preserve surrounding data</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Content buried below scroll</strong></td>
+                            <td>Consolidated hierarchy, removed redundant elements</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Participation status unclear</strong></td>
+                            <td>Inline Enrolled/Not Enrolled columns</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Top opportunities hard to find</strong></td>
+                            <td>Dedicated "View by Ticker" tab</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Enrollment friction</strong></td>
+                            <td>Integrated "Learn and Invite" flow</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Data trust issues</strong></td>
+                            <td>Transparent methodology, progressive disclosure</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!--
+                ===== IMAGE PLACEHOLDER =====
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/final-design-full.png" alt="Final design full page view">
+                    <figcaption>The final design: a scannable, expandable table with inline status, integrated enrollment, and dedicated views for different user goals.</figcaption>
+                </figure>
+                -->
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">🖥️</div>
+                    <p class="image-placeholder-text">Final design - full page view showing the complete redesigned interface</p>
+                </div>
+            </section>
+
+            <!-- Section: Reflection -->
+            <section id="reflection" class="content-section">
+                <div class="section-icon">🔮</div>
+                <h1 class="section-title">Reflection</h1>
+
+                <p class="content-text">
+                    This project reinforced something I keep relearning: <strong>"underutilized" is usually a design problem wearing a feature costume.</strong>
+                </p>
+
+                <p class="content-text">
+                    The original FPL page had the data. It even had the right <em>idea</em>—help advisors find revenue opportunities. But it presented information in ways that didn't match how users actually worked. They needed tables, not bubbles. They needed inline context, not drill-down journeys. They needed to act, not just observe.
+                </p>
+
+                <p class="content-text">
+                    The biggest lever wasn't adding features. It was removing friction and consolidating information so the tool could get out of the way of the work.
+                </p>
+
+                <!--
+                ===== IMAGE PLACEHOLDER =====
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/transformation-summary.png" alt="Before/after transformation">
+                    <figcaption>From overlooked to actionable: the full transformation of the Fully Paid Lending experience.</figcaption>
+                </figure>
+                -->
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">✨</div>
+                    <p class="image-placeholder-text">Side-by-side before/after showing the transformation</p>
+                </div>
+            </section>
+        </main>
     </div>
 
     <script>
+        // Scroll spy for stepper
+        const sections = document.querySelectorAll('.content-section');
+        const stepperSteps = document.querySelectorAll('.stepper-step');
+        const stepperContainer = document.querySelector('.stepper-container');
+
+        // Check if mobile/tablet
+        function isMobile() {
+            return window.innerWidth <= 1024;
+        }
+
+        // Update the current step display data attributes
+        function updateCurrentStepDisplay() {
+            const activeStep = document.querySelector('.stepper-step.active');
+            const allSteps = document.querySelectorAll('.stepper-step');
+            if (activeStep) {
+                const currentIndex = Array.from(allSteps).indexOf(activeStep) + 1;
+                const totalSteps = allSteps.length;
+                const currentLabel = activeStep.querySelector('.stepper-title')?.textContent || '';
+
+                stepperContainer.setAttribute('data-current-step', `${currentIndex}/${totalSteps}`);
+                stepperContainer.setAttribute('data-current-label', currentLabel);
+            }
+        }
+
+        function updateStepper() {
+            let currentSection = '';
+            const scrollPos = window.scrollY + 200;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    currentSection = sectionId;
+                }
+            });
+
+            stepperSteps.forEach(step => {
+                const stepSection = step.getAttribute('data-section');
+                step.classList.remove('active', 'completed', 'inactive');
+
+                const stepIndex = Array.from(stepperSteps).indexOf(step);
+                const currentIndex = Array.from(stepperSteps).findIndex(s => s.getAttribute('data-section') === currentSection);
+
+                if (stepSection === currentSection) {
+                    step.classList.add('active');
+                } else if (stepIndex < currentIndex) {
+                    step.classList.add('completed');
+                } else {
+                    step.classList.add('inactive');
+                }
+            });
+
+            // Update mobile collapsed state display
+            if (isMobile()) {
+                updateCurrentStepDisplay();
+            }
+        }
+
+        // Add click handlers to stepper steps
+        stepperSteps.forEach(step => {
+            step.addEventListener('click', function() {
+                const sectionId = this.getAttribute('data-section');
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    window.scrollTo({
+                        top: section.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Update stepper on scroll
+        window.addEventListener('scroll', updateStepper);
+        window.addEventListener('load', updateStepper);
+
+        // Toggle stepper collapse/expand
+        const stepperHeader = document.querySelector('.stepper-header');
+        const stepper = document.querySelector('.stepper');
+
+        // Initialize mobile state
+        function initializeStepper() {
+            if (isMobile()) {
+                stepperContainer.classList.add('mobile-collapsed');
+                stepper.classList.remove('expanded');
+                updateCurrentStepDisplay();
+            } else {
+                stepperContainer.classList.remove('mobile-collapsed');
+                stepper.classList.add('expanded');
+            }
+        }
+
+        // Click on collapsed container to expand
+        stepperContainer.addEventListener('click', function(e) {
+            if (isMobile() && stepperContainer.classList.contains('mobile-collapsed')) {
+                stepperContainer.classList.remove('mobile-collapsed');
+                stepper.classList.add('expanded');
+                e.stopPropagation();
+            }
+        });
+
+        if (stepperHeader && stepper) {
+            stepperHeader.style.cursor = 'pointer';
+            stepperHeader.style.position = 'relative';
+
+            // Desktop: toggle expanded/collapsed (show/hide titles)
+            // Mobile: close the stepper
+            stepperHeader.addEventListener('click', function(e) {
+                if (isMobile()) {
+                    // The X is in the header, so clicking it should collapse
+                    if (!stepperContainer.classList.contains('mobile-collapsed')) {
+                        stepperContainer.classList.add('mobile-collapsed');
+                        e.stopPropagation();
+                    }
+                } else {
+                    stepper.classList.toggle('expanded');
+                }
+            });
+        }
+
+        // Click outside to close on mobile
+        document.addEventListener('click', function(e) {
+            if (isMobile() && !stepperContainer.classList.contains('mobile-collapsed')) {
+                if (!stepperContainer.contains(e.target)) {
+                    stepperContainer.classList.add('mobile-collapsed');
+                }
+            }
+        });
+
+        // Initialize on load
+        initializeStepper();
+
+        // Re-initialize on resize
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(initializeStepper, 100);
+        });
+
         // Detect if in iframe (modal) and add class to hide nav
         if (window.self !== window.top) {
             document.body.classList.add('in-modal');
         }
 
-        // Apply theme from localStorage
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('.theme-icon');
         const html = document.documentElement;
+
+        // Check for saved theme preference or default to dark mode
         const savedTheme = localStorage.getItem('theme') || 'dark';
 
+        // Apply saved theme
         if (savedTheme === 'light') {
             html.setAttribute('data-theme', 'light');
+            themeIcon.textContent = '🌙';
+        } else {
+            html.removeAttribute('data-theme');
+            themeIcon.textContent = '☀️';
         }
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+
+            if (currentTheme === 'light') {
+                // Switch to dark mode
+                html.removeAttribute('data-theme');
+                themeIcon.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                // Switch to light mode
+                html.setAttribute('data-theme', 'light');
+                themeIcon.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        });
     </script>
 </body>
 </html>
