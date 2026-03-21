@@ -1005,9 +1005,11 @@
             resizeTimeout = setTimeout(initializeStepper, 100);
         });
 
-        // Detect if in iframe (modal) and add class to hide nav
+        // Hide nav when loaded inside the bottom sheet iframe
         if (window.self !== window.top) {
             document.body.classList.add('in-modal');
+            const nav = document.querySelector('.nav-header');
+            if (nav) nav.style.display = 'none';
         }
 
         // Theme Toggle
