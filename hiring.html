@@ -9,20 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="design-system.css">
     <style>
-        /* Fix: access modal hidden by default */
-        .access-modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(8px);
-            z-index: 3000;
-            align-items: center;
-            justify-content: center;
-        }
-        .access-modal-overlay.active { display: flex; }
-
-        /* Fix: prevent global .card-content light gradient from showing */
+        /* card-content: no background bleed from design-system */
         .portfolio-card .card-content {
             background: transparent !important;
             padding: 0 !important;
@@ -30,37 +17,14 @@
             z-index: auto !important;
         }
 
-        /* Fix: card-image-placeholder fills the image area */
-        .card-image-placeholder {
+        /* card-image gradient placeholder for BNY cards */
+        .card-image-gradient {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
         }
 
-        /* Fix: lock overlay centered on image */
-        .lock-icon-overlay {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255,255,255,0.4);
-        }
-        .lock-icon-overlay svg { width: 40px; height: 40px; }
-
-        /* Fix: NDA badge positioned on image */
-        .nda-badge {
-            position: absolute;
-            bottom: 12px;
-            left: 12px;
-            font-size: 11px;
-            color: rgba(255,255,255,0.6);
-            background: rgba(0,0,0,0.4);
-            padding: 4px 10px;
-            border-radius: 4px;
-        }
-
-        /* Fix: card-tag styling */
+        /* card-tag styling */
         .card-tag {
             display: inline-block;
             padding: 3px 10px;
@@ -71,6 +35,96 @@
             font-weight: 500;
             color: #667eea;
             margin-right: 6px;
+        }
+
+        /* ── Bottom sheet overlay ── */
+        .hiring-page .modal-overlay {
+            position: fixed !important;
+            inset: 0 !important;
+            background: rgba(0,0,0,0.6) !important;
+            backdrop-filter: blur(8px) !important;
+            -webkit-backdrop-filter: blur(8px) !important;
+            z-index: 2000 !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            transition: opacity 300ms ease, visibility 300ms ease !important;
+            display: block !important;
+        }
+        .hiring-page .modal-overlay.active {
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: all !important;
+        }
+
+        /* ── Bottom sheet container — matches spec ── */
+        .hiring-page .modal-container {
+            position: fixed !important;
+            bottom: 0 !important;
+            left: 50% !important;
+            transform: translateX(-50%) translateY(100%) !important;
+            display: flex !important;
+            width: 1440px !important;
+            max-width: 100% !important;
+            height: 1024px !important;
+            max-height: 92vh !important;
+            flex-direction: column !important;
+            align-items: flex-end !important;
+            gap: 16px !important;
+            background: #0f0f14 !important;
+            border-radius: 20px 20px 0 0 !important;
+            border: 1px solid rgba(255,255,255,0.10) !important;
+            border-bottom: none !important;
+            box-shadow: 0 -16px 60px rgba(0,0,0,0.7) !important;
+            overflow: hidden !important;
+            transition: transform 420ms cubic-bezier(0.32, 0.72, 0, 1) !important;
+            padding: 0 !important;
+        }
+        .hiring-page .modal-overlay.active .modal-container {
+            transform: translateX(-50%) translateY(0) !important;
+        }
+
+        /* header stretches full width */
+        .hiring-page .modal-header {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            width: 100% !important;
+            padding: 16px 24px !important;
+            border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+            background: #141418 !important;
+            flex-shrink: 0 !important;
+            box-sizing: border-box !important;
+        }
+
+        /* iframe content area fills remaining space */
+        .hiring-page .modal-content {
+            flex: 1 !important;
+            width: 100% !important;
+            overflow: hidden !important;
+            position: relative !important;
+        }
+        .hiring-page .modal-content iframe {
+            width: 100% !important;
+            height: 100% !important;
+            border: none !important;
+            display: block !important;
+        }
+
+        /* drag handle above header */
+        .sheet-handle {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 12px 0 0;
+            flex-shrink: 0;
+            cursor: grab;
+        }
+        .sheet-handle-bar {
+            width: 40px;
+            height: 4px;
+            border-radius: 2px;
+            background: rgba(255,255,255,0.2);
         }
     </style>
 </head>
@@ -138,15 +192,9 @@
                 <!-- Portfolio View -->
                 <div class="content-view active" id="portfolioView">
                     <div class="portfolio-grid">
-                        <a class="portfolio-card locked" href="#" data-case="future-of-wealth-advisory">
+                        <a class="portfolio-card" href="#" data-case="future-of-wealth-advisory">
                             <div class="card-image">
-                                <div class="card-image-placeholder"></div>
-                                <div class="lock-icon-overlay">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="nda-badge">🔒 NDA Protected</span>
+                                <div class="card-image-gradient"></div>
                             </div>
                             <div class="card-content">
                                 <div class="card-tags">
@@ -155,19 +203,13 @@
                                 </div>
                                 <h3 class="card-title">Future of Wealth Advisory</h3>
                                 <p class="card-description">Reimagined account opening and asset movement workflows for a platform consolidation, designing the To-Do List pattern and collapsing stepper to make complex processes navigable.</p>
-                                <span class="btn-tertiary">Request Access</span>
+                                <span class="btn-tertiary">View Case Study</span>
                             </div>
                         </a>
 
-                        <a class="portfolio-card locked" href="#" data-case="fully-paid-lending">
+                        <a class="portfolio-card" href="#" data-case="fully-paid-lending">
                             <div class="card-image">
-                                <div class="card-image-placeholder"></div>
-                                <div class="lock-icon-overlay">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="nda-badge">🔒 NDA Protected</span>
+                                <div class="card-image-gradient"></div>
                             </div>
                             <div class="card-content">
                                 <div class="card-tags">
@@ -176,7 +218,7 @@
                                 </div>
                                 <h3 class="card-title">Fully Paid Lending</h3>
                                 <p class="card-description">Streamlined the fully paid lending process to help advisors access liquidity for clients while maintaining compliance and reducing operational risk.</p>
-                                <span class="btn-tertiary">Request Access</span>
+                                <span class="btn-tertiary">View Case Study</span>
                             </div>
                         </a>
 
@@ -263,41 +305,10 @@
         </main>
     </div>
 
-    <!-- Access Request Modal -->
-    <div class="access-modal-overlay" id="accessModal">
-        <div class="access-modal">
-            <div class="access-modal-header">
-                <div>
-                    <div class="access-modal-title">Request Portfolio Access</div>
-                    <div class="access-modal-subtitle">I'll follow up within 24 hours.</div>
-                </div>
-                <button class="access-modal-close" id="accessModalClose" aria-label="Close">&times;</button>
-            </div>
-            <form class="access-form" id="accessForm">
-                <div class="form-group">
-                    <label class="form-label" for="accessName">Name <span style="color:#FF8C42">*</span></label>
-                    <input class="form-input" type="text" id="accessName" required placeholder="Your name">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="accessEmail">Email <span style="color:#FF8C42">*</span></label>
-                    <input class="form-input" type="email" id="accessEmail" required placeholder="you@company.com">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="accessCompany">Company / Role</label>
-                    <input class="form-input" type="text" id="accessCompany" placeholder="e.g. Product Manager at Acme">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="accessMessage">Message</label>
-                    <textarea class="form-textarea" id="accessMessage" placeholder="Tell me what you're working on"></textarea>
-                </div>
-                <button type="submit" class="access-form-submit">Request Access</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Case Study Modal -->
+    <!-- Case Study Bottom Sheet -->
     <div class="modal-overlay" id="caseStudyModal">
         <div class="modal-container">
+            <div class="sheet-handle"><div class="sheet-handle-bar"></div></div>
             <div class="modal-header">
                 <div class="modal-header-left">
                     <div class="modal-title" id="modalTitle">Case Study</div>
@@ -454,54 +465,10 @@
             else if (e.key === 'ArrowRight' && currentCaseIndex < caseStudies.length - 1) navigateToCase(currentCaseIndex + 1);
         });
 
-        // ==================== ACCESS REQUEST MODAL ====================
-        const accessModal = document.getElementById('accessModal');
-        const accessModalClose = document.getElementById('accessModalClose');
-        const accessForm = document.getElementById('accessForm');
-
-        function openAccessModal() {
-            accessModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            setTimeout(() => document.getElementById('accessName').focus(), 100);
-        }
-
-        function closeAccessModal() {
-            accessModal.classList.remove('active');
-            document.body.style.overflow = '';
-            accessForm.reset();
-        }
-
-        accessModalClose.addEventListener('click', closeAccessModal);
-        accessModal.addEventListener('click', (e) => { if (e.target === accessModal) closeAccessModal(); });
-
-        document.addEventListener('keydown', (e) => {
-            if (accessModal.classList.contains('active') && e.key === 'Escape') closeAccessModal();
-        });
-
-        accessForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('accessName').value.trim();
-            const email = document.getElementById('accessEmail').value.trim();
-            const company = document.getElementById('accessCompany').value.trim();
-            const message = document.getElementById('accessMessage').value.trim();
-
-            const subject = encodeURIComponent(`Portfolio Access Request — ${name}`);
-            const body = encodeURIComponent(
-                `Name: ${name}\nEmail: ${email}\nCompany / Role: ${company || 'Not provided'}\n\nMessage:\n${message || 'No message provided.'}`
-            );
-
-            window.open(`mailto:johnrubinodesign@gmail.com?subject=${subject}&body=${body}`);
-            closeAccessModal();
-        });
-
         document.querySelectorAll('.portfolio-card').forEach(card => {
             card.addEventListener('click', (e) => {
                 e.preventDefault();
-                if (card.classList.contains('locked')) {
-                    openAccessModal();
-                } else {
-                    openModal(card.dataset.case);
-                }
+                openModal(card.dataset.case);
             });
         });
 
