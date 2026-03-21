@@ -420,13 +420,9 @@
                 <div class="sheet-drag-handle"></div>
                 <button class="sheet-close-x" id="modalClose" aria-label="Close">&#x2715;</button>
             </div>
-            <!-- Header: title + open in new tab -->
+            <!-- Header: title -->
             <div class="sheet-header-row">
                 <div class="sheet-case-title" id="modalTitle">Case Study</div>
-                <a class="sheet-open-btn" id="openInTab" href="#" target="_blank" rel="noopener noreferrer">
-                    Open in tab
-                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 9L9 2M9 2H5M9 2V6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </a>
             </div>
             <!-- Iframe content area -->
             <div class="modal-content">
@@ -504,7 +500,6 @@
         const modalTitle   = document.getElementById('modalTitle');
         const modalClose   = document.getElementById('modalClose');
         const modalLoading = document.getElementById('modalLoading');
-        const openInTab    = document.getElementById('openInTab');
         const footerLabel  = document.getElementById('sheetFooterLabel');
         const prevCaseBtn  = document.getElementById('prevCase');
         const nextCaseBtn  = document.getElementById('nextCase');
@@ -518,7 +513,6 @@
             loadingTimeout = setTimeout(() => modalLoading.classList.add('active'), 300);
             modalTitle.textContent = cs.title;
             footerLabel.textContent = cs.subtitle;
-            openInTab.href = cs.url;
             modalIframe.src = cs.url;
             window.location.hash = cs.id;
             document.body.style.overflow = 'hidden';
@@ -542,7 +536,6 @@
             modalLoading.classList.add('active');
             modalTitle.textContent = cs.title;
             footerLabel.textContent = cs.subtitle;
-            openInTab.href = cs.url;
             modalIframe.src = cs.url;
             window.location.hash = cs.id;
             updateNavButtons();
