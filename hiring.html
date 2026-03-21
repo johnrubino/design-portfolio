@@ -3,489 +3,1344 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Rubino | Product Designer</title>
+    <title>John | Product Designer | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="design-system.css">
     <style>
-        /* Fix: access modal hidden by default */
-        .access-modal-overlay {
-            display: none;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #141414;
+            --secondary-bg: #1a1a1a;
+            --surface-bg: #2a2a2a;
+            --border-color: #3a3a3a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --accent-orange: #FF8C42;
+            --accent-purple: #667eea;
+        }
+
+        [data-theme="light"] {
+            --primary-bg: #ffffff;
+            --secondary-bg: #f5f5f7;
+            --surface-bg: #e8e8ea;
+            --border-color: #d1d1d6;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --accent-orange: #FF8C42;
+            --accent-purple: #667eea;
+        }
+
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            transition: background 300ms ease, color 300ms ease;
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        .nav-header {
             position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(8px);
-            z-index: 3000;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background: var(--secondary-bg);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #141414 0%, #444148 100%);
+            border: 2px solid #FCFCFC;
+            border-radius: 8px;
+            display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
         }
-        .access-modal-overlay.active { display: flex; }
 
-        /* Bottom sheet for case studies — iframe fills content area */
-        .bottom-sheet { max-height: 90vh; }
-        .bottom-sheet-content.sheet-iframe-content {
-            padding: 0;
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 150ms cubic-bezier(0.31, 0.94, 0.34, 1.00);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            color: var(--text-primary);
+        }
+
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: var(--surface-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 200ms ease;
+            margin-left: 12px;
+        }
+
+        .theme-toggle:hover {
+            background: var(--border-color);
+            transform: scale(1.05);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.95);
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            margin-top: 64px;
+            min-height: calc(100vh - 64px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 32px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--surface-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-orange);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero-title {
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 48px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ==================== BUTTONS ==================== */
+        .btn-primary {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 0 28px;
+            height: 48px;
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #141414 0%, #444148 100%);
+            color: #FFF;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 
+                0 8px 25px 0 rgba(0, 0, 0, 0.30),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.15),
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.4),
+                0 1px 2px 0 rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1.00);
+            text-decoration: none;
+            overflow: visible;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 8px;
+            padding: 2px;
+            background: radial-gradient(circle at 50% 0%, #FCFCFC 0%, #757A7C 100%);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.12) 0%, 
+                rgba(255, 255, 255, 0.04) 50%,
+                transparent 100%);
+            border-radius: 6px 6px 0 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .btn-primary span {
+            position: relative;
+            z-index: 3;
+        }
+
+        .btn-primary:hover {
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #1c1c1c 0%, #4f4c54 100%);
+            transform: translateY(-3px);
+            box-shadow: 
+                0 14px 38px 0 rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.3),
+                0 2px 4px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-primary:hover::after {
+            background: radial-gradient(circle at 50% 0%, #FFFFFF 0%, #9a9fa1 100%);
+        }
+
+        .btn-primary:hover::before {
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.18) 0%, 
+                rgba(255, 255, 255, 0.08) 50%,
+                transparent 100%);
+        }
+
+        .btn-primary:active {
+            transform: translateY(1px);
+            box-shadow: 
+                0 2px 8px 0 rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 0 rgba(0, 0, 0, 0.4),
+                inset 0 -1px 0 0 rgba(255, 255, 255, 0.1),
+                inset 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #0d0d0d 0%, #3a373f 100%);
+        }
+
+        .btn-secondary {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 0 28px;
+            height: 48px;
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #141414 0%, #444148 100%);
+            color: #FFF;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 
+                0 8px 25px 0 rgba(0, 0, 0, 0.30),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.15),
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.4),
+                0 1px 2px 0 rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1.00);
+            text-decoration: none;
+            overflow: visible;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-secondary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 8px;
+            padding: 2px;
+            background: radial-gradient(circle at 50% 0%, #FCFCFC 0%, #757A7C 100%);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.12) 0%, 
+                rgba(255, 255, 255, 0.04) 50%,
+                transparent 100%);
+            border-radius: 6px 6px 0 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .btn-secondary span {
+            position: relative;
+            z-index: 3;
+        }
+
+        .btn-secondary:hover {
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #1c1c1c 0%, #4f4c54 100%);
+            transform: translateY(-3px);
+            box-shadow: 
+                0 14px 38px 0 rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.3),
+                0 2px 4px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-secondary:hover::after {
+            background: radial-gradient(circle at 50% 0%, #FFFFFF 0%, #9a9fa1 100%);
+        }
+
+        .btn-secondary:hover::before {
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.18) 0%, 
+                rgba(255, 255, 255, 0.08) 50%,
+                transparent 100%);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(1px);
+            box-shadow: 
+                0 2px 8px 0 rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 0 rgba(0, 0, 0, 0.4),
+                inset 0 -1px 0 0 rgba(255, 255, 255, 0.1),
+                inset 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+            background: radial-gradient(85.82% 49.08% at 49.41% 51.35%, #0d0d0d 0%, #3a373f 100%);
+        }
+
+        /* ==================== FEATURED WORK ==================== */
+        .featured-section {
+            padding: 80px 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        /* ==================== CARDS ==================== */
+        .card {
+            position: relative;
+            background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ea 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow:
+                0 8px 24px 0 rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.8),
+                inset 0 -1px 0 0 rgba(0, 0, 0, 0.15);
+            transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1.00);
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.4) 0%, 
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0) 0%,
+                rgba(102, 126, 234, 0) 100%);
+            opacity: 0;
+            transition: all 200ms cubic-bezier(0.34, 0.80, 0.34, 1.00);
+            pointer-events: none;
+            z-index: -1;
+            box-shadow: 
+                0 0 0 0 rgba(102, 126, 234, 0),
+                0 0 0 0 rgba(102, 126, 234, 0);
+        }
+
+        .card:hover {
+            border: 1px solid rgba(102, 126, 234, 0.6);
+        }
+
+        .card:hover::after {
+            opacity: 1;
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0.3) 0%,
+                rgba(118, 75, 162, 0.3) 100%);
+            box-shadow: 
+                0 0 20px 4px rgba(102, 126, 234, 0.6),
+                0 0 40px 8px rgba(102, 126, 234, 0.3),
+                inset 0 0 20px 2px rgba(102, 126, 234, 0.2);
+        }
+
+        .card-image {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .card-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, 
+                transparent 0%, 
+                rgba(0, 0, 0, 0.1) 100%);
+        }
+
+        .card-placeholder {
+            font-size: 64px;
+            opacity: 0.3;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-content {
+            position: relative;
+            padding: 24px;
+            z-index: 2;
+            background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ea 100%);
+        }
+
+        .card-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-purple);
+            margin-bottom: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .card-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
+        .card-description {
+            font-size: 15px;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        /* ==================== SKILLS SECTION ==================== */
+        .skills-section {
+            padding: 80px 32px;
+            background: var(--secondary-bg);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .skill-card {
+            background: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .skill-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--surface-bg);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .skill-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .skill-description {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ==================== FOOTER ==================== */
+        .site-footer {
+            background: var(--secondary-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 48px 32px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 150ms cubic-bezier(0.31, 0.94, 0.34, 1.00);
+        }
+
+        .footer-link:hover {
+            color: var(--text-primary);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 40px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* ==================== CASE STUDY MODAL ==================== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 300ms ease, visibility 300ms ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-container {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 3%;
+            background: var(--primary-bg);
+            border-radius: 24px 24px 0 0;
+            box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.6);
+            transform: translateY(100%);
+            transition: transform 400ms cubic-bezier(0.34, 0.88, 0.34, 1.00);
             overflow: hidden;
             display: flex;
             flex-direction: column;
         }
-        #sheetIframe {
-            width: 100%;
+
+        .modal-overlay.active .modal-container {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border-color);
+            background: var(--secondary-bg);
+            flex-shrink: 0;
+            gap: 16px;
+        }
+
+        .modal-header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             flex: 1;
-            border: none;
-            display: block;
+            min-width: 0;
         }
 
-        /* card-tag styling */
-        .card-tag {
-            display: inline-block;
-            padding: 3px 10px;
-            background: rgba(102,126,234,0.12);
-            border: 1px solid rgba(102,126,234,0.3);
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 500;
-            color: #667eea;
-            margin-right: 6px;
+        .modal-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
-        /* Gradient placeholder for cards without screenshots */
-        .card-image-gradient {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        .modal-header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .modal-close {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--surface-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            font-size: 20px;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        .card-image-gradient .gradient-label {
-            font-size: 11px;
-            font-weight: 500;
-            color: rgba(255,255,255,0.25);
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
+            transition: all 200ms ease;
+            flex-shrink: 0;
         }
 
-        /* Loading spinner inside bottom sheet */
-        .sheet-loading {
-            display: none;
+        .modal-close:hover {
+            background: var(--border-color);
+            transform: scale(1.05);
+        }
+
+        .modal-header-nav {
+            display: flex;
+            gap: 8px;
+        }
+
+        .modal-content {
+            flex: 1;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .modal-navigation {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 24px;
+            border-top: 1px solid var(--border-color);
+            background: var(--secondary-bg);
+            flex-shrink: 0;
+        }
+
+        .nav-case-button {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: var(--surface-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 200ms ease;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .nav-case-button:hover:not(:disabled) {
+            background: var(--border-color);
+        }
+
+        .nav-case-button:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        /* Loading Spinner */
+        .modal-loading {
             position: absolute;
             inset: 0;
+            display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--bg, #0a0a0f);
+            background: var(--primary-bg);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 200ms ease, visibility 200ms ease;
         }
-        .sheet-loading.active { display: flex; }
-        .sheet-loading .spinner {
-            width: 32px;
-            height: 32px;
-            border: 2px solid rgba(102,126,234,0.2);
-            border-top-color: #667eea;
+
+        .modal-loading.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid var(--border-color);
+            border-top-color: var(--accent-orange);
             border-radius: 50%;
-            animation: spin 0.7s linear infinite;
+            animation: spin 800ms linear infinite;
         }
-        @keyframes spin { to { transform: rotate(360deg); } }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .modal-container {
+                top: 2%;
+            }
+
+            .modal-header {
+                padding: 12px 16px;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .modal-header-left {
+                flex: 1;
+                min-width: 0;
+                order: 1;
+            }
+
+            .modal-title {
+                font-size: 14px;
+            }
+
+            .modal-header-right {
+                display: contents;
+            }
+
+            .modal-header-nav {
+                order: 3;
+                width: 100%;
+                gap: 8px;
+            }
+
+            .nav-case-button {
+                flex: 1;
+                justify-content: center;
+                font-size: 12px;
+                padding: 8px 12px;
+            }
+
+            .modal-close {
+                order: 2;
+                width: 32px;
+                height: 32px;
+                font-size: 18px;
+            }
+        }
     </style>
 </head>
-<body class="hiring-page">
-    <div class="dashboard">
-        <!-- Sidebar -->
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-logo">
-                <div class="logo-avatar">JR</div>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-header">
+        <a href="hiring.html" class="nav-logo">
+            <div class="nav-logo-icon">J</div>
+            <span>John</span>
+        </a>
+        <div class="nav-links">
+            <a href="hiring.html" class="nav-link active">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="writing.html" class="nav-link">Writing</a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="theme-icon">☀️</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="status-dot"></span>
+                Available for new opportunities
             </div>
-            <nav class="sidebar-nav">
-                <a class="nav-item active" data-view="portfolio">
-                    <span class="nav-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
-                        </svg>
-                    </span>
-                    Portfolio
+            <h1 class="hero-title">Product Designer Solving 0-to-1 Problems for AI-Native Startups</h1>
+            <p class="hero-subtitle">
+                I help founders build AI-native products with real social impact. By day, I design scalable systems at BNY Pershing. By night, I'm angel investing and exploring the future of AI + design on Substack.
+            </p>
+            <div class="hero-cta">
+                <a href="about.html" class="btn-primary">
+                    View My Work
+                    <span>→</span>
                 </a>
-                <a class="nav-item" data-view="writing">
-                    <span class="nav-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                        </svg>
-                    </span>
-                    Writing
+                <a href="writing.html" class="btn-secondary">
+                    Read My Thoughts
                 </a>
-                <a class="nav-item" data-view="about">
-                    <span class="nav-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2v-9a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2"/>
-                        </svg>
-                    </span>
-                    About
-                </a>
-            </nav>
-            <div class="sidebar-footer">
-                <button class="theme-toggle-sidebar" id="themeToggle">
-                    <span class="nav-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" id="themeIcon">
-                            <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-                        </svg>
-                    </span>
-                    Toggle theme
-                </button>
             </div>
-        </aside>
+        </div>
+    </section>
 
-        <!-- Sidebar overlay for mobile -->
-        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <!-- Featured Work -->
+    <section class="featured-section">
+        <div class="section-header">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Designing systems and experiences that scale</p>
+        </div>
+        <div class="work-grid">
+            <a href="case-study-nao.html" class="card">
+                <div class="card-image">
+                    <!-- Replace with: <img src="images/case-studies/nao/hero.png" alt="NAO Platform"> -->
+                    <div class="card-placeholder">🏦</div>
+                </div>
+                <div class="card-content">
+                    <div class="card-tag">BNY PERSHING</div>
+                    <h3 class="card-title">New Account Opening</h3>
+                    <p class="card-description">
+                        Streamlined workflows and design system implementation for a critical wealth services process, reducing completion time and improving advisor experience.
+                    </p>
+                </div>
+            </a>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Mobile Header -->
-            <div class="mobile-header">
-                <div class="logo-avatar" style="width: 40px; height: 40px; font-size: 16px;">JR</div>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
+            <a href="case-study-asset-movement.html" class="card">
+                <div class="card-image">
+                    <!-- Replace with: <img src="images/case-studies/asset-movement/hero.png" alt="Asset Movement Platform"> -->
+                    <div class="card-placeholder">💎</div>
+                </div>
+                <div class="card-content">
+                    <div class="card-tag">BNY PERSHING</div>
+                    <h3 class="card-title">Asset Movement</h3>
+                    <p class="card-description">
+                        Designed intuitive interfaces for complex financial transfers, balancing regulatory requirements with user needs across clearing and servicing pods.
+                    </p>
+                </div>
+            </a>
+
+            <a href="case-study-fully-paid-lending.html" class="card">
+                <div class="card-image">
+                    <!-- Replace with: <img src="images/case-studies/fpl/hero.png" alt="Fully Paid Lending Platform"> -->
+                    <div class="card-placeholder">💰</div>
+                </div>
+                <div class="card-content">
+                    <div class="card-tag">BNY PERSHING</div>
+                    <h3 class="card-title">Fully Paid Lending</h3>
+                    <p class="card-description">
+                        Streamlined the fully paid lending process to help advisors access liquidity for clients while maintaining compliance and reducing operational risk.
+                    </p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <div class="skills-container">
+            <div class="section-header">
+                <h2 class="section-title">How I Work</h2>
+                <p class="section-subtitle">Strategic systems thinking meets hands-on execution</p>
             </div>
-
-            <div class="content-container">
-                <!-- Portfolio View -->
-                <div class="content-view active" id="portfolioView">
-                    <div class="portfolio-grid">
-
-                        <a class="portfolio-card" href="#" data-case="future-of-wealth-advisory">
-                            <div class="card-image">
-                                <div class="card-image-gradient">
-                                    <span class="gradient-label">BNY Pershing</span>
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <div class="card-tags">
-                                    <span class="card-tag">Featured</span>
-                                    <span class="card-tag">BNY Pershing</span>
-                                </div>
-                                <h3 class="card-title">Future of Wealth Advisory</h3>
-                                <p class="card-description">Reimagined account opening and asset movement workflows for a platform consolidation, designing the To-Do List pattern and collapsing stepper to make complex processes navigable.</p>
-                                <span class="btn-tertiary">View Case Study</span>
-                            </div>
-                        </a>
-
-                        <a class="portfolio-card" href="#" data-case="fully-paid-lending">
-                            <div class="card-image">
-                                <div class="card-image-gradient">
-                                    <span class="gradient-label">BNY Pershing</span>
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <div class="card-tags">
-                                    <span class="card-tag">Featured</span>
-                                    <span class="card-tag">BNY Pershing</span>
-                                </div>
-                                <h3 class="card-title">Fully Paid Lending</h3>
-                                <p class="card-description">Streamlined the fully paid lending process to help advisors access liquidity for clients while maintaining compliance and reducing operational risk.</p>
-                                <span class="btn-tertiary">View Case Study</span>
-                            </div>
-                        </a>
-
-                        <a class="portfolio-card" href="#" data-case="purple-panda-rentals">
-                            <div class="card-image">
-                                <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62c766abb767dba81d22d0dd_PPR%20Project%20Tile.png" alt="Purple Panda Rentals">
-                            </div>
-                            <div class="card-content">
-                                <div class="card-tags">
-                                    <span class="card-tag">Featured</span>
-                                    <span class="card-tag">Founder Project</span>
-                                </div>
-                                <h3 class="card-title">Purple Panda Rentals</h3>
-                                <p class="card-description">Founded a rental platform for college students, designing the mobile app from research through validated prototypes with 270 survey respondents.</p>
-                                <span class="btn-tertiary">View Case Study</span>
-                            </div>
-                        </a>
-
-                    </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3 class="skill-title">Design Systems</h3>
+                    <p class="skill-description">
+                        Building scalable component libraries and style guides that create consistency across products while empowering teams to move faster.
+                    </p>
                 </div>
 
-                <!-- Writing View -->
-                <div class="content-view" id="writingView">
-                    <div class="writing-header">
-                        <h1 class="writing-title">Thoughts on Design &amp; Technology</h1>
-                        <p class="writing-subtitle">Exploring the future of design, AI, and human-centered technology through short, thoughtful reflections.</p>
-                        <a href="https://johnrubino.substack.com" class="substack-link" target="_blank">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16M4 8h16M4 12l8 6 8-6"/>
-                            </svg>
-                            Subscribe on Substack
-                        </a>
-                    </div>
-                    <div class="articles-grid" id="articlesGrid">
-                        <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-secondary);">
-                            <p>Loading articles from Substack...</p>
-                        </div>
-                    </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🔄</div>
+                    <h3 class="skill-title">Process Innovation</h3>
+                    <p class="skill-description">
+                        Championing modern workflows through Figma Dev Mode adoption, AI integration, and improved design-to-development handoff processes.
+                    </p>
                 </div>
 
-                <!-- About View -->
-                <div class="content-view" id="aboutView">
-                    <div class="about-header">
-                        <h1 class="about-title">About Me</h1>
-                    </div>
-                    <div class="about-content">
-                        <div class="about-section">
-                            <h3 class="about-section-title">Background</h3>
-                            <p class="about-text">I'm a Product Designer solving 0-to-1 problems for AI-native startups. By day, I design scalable systems at BNY Pershing. By night, I'm angel investing and exploring the future of AI + design.</p>
-                            <p class="about-text">I help founders build AI-native products with real social impact through strategic design thinking and hands-on execution.</p>
-                        </div>
-                        <div class="about-section">
-                            <h3 class="about-section-title">Connect</h3>
-                            <p class="about-text">I'm always interested in discussing design, AI, and product strategy. Feel free to reach out.</p>
-                            <div class="about-links">
-                                <a href="https://www.linkedin.com/in/john-rubino/" class="about-link" target="_blank">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                    </svg>
-                                    LinkedIn
-                                </a>
-                                <a href="mailto:johnrubinodesign@gmail.com" class="about-link">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                    </svg>
-                                    Email
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🤝</div>
+                    <h3 class="skill-title">Cross-Functional Leadership</h3>
+                    <p class="skill-description">
+                        Bridging product, engineering, and design through clear communication, documentation, and proactive collaboration across disciplines.
+                    </p>
                 </div>
-            </div>
 
-            <!-- Footer -->
-            <footer class="site-footer">
-                <div class="footer-content">
-                    <p class="footer-text">&copy; 2025 John Rubino | Product Designer</p>
-                    <div class="footer-links">
-                        <a href="https://www.linkedin.com/in/john-rubino/" class="footer-link" target="_blank">LinkedIn</a>
-                        <a href="https://johnrubino.substack.com" class="footer-link" target="_blank">Substack</a>
-                        <a href="mailto:johnrubinodesign@gmail.com" class="footer-link">Contact</a>
-                    </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📚</div>
+                    <h3 class="skill-title">Mentorship & Knowledge Sharing</h3>
+                    <p class="skill-description">
+                        Growing team capabilities through mentorship, share-outs, and building cross-team relationships that strengthen the broader design org.
+                    </p>
                 </div>
-            </footer>
-        </main>
-    </div>
 
-    <!-- Case Study Bottom Sheet -->
-    <div class="bottom-sheet-overlay" id="caseStudySheet">
-        <div class="bottom-sheet">
-            <div class="bottom-sheet-handle">
-                <div class="bottom-sheet-handle-bar"></div>
-            </div>
-            <div class="bottom-sheet-header">
-                <div>
-                    <div class="bottom-sheet-title" id="sheetTitle">Case Study</div>
-                    <div class="bottom-sheet-subtitle" id="sheetSubtitle">Portfolio</div>
+                <div class="skill-card">
+                    <div class="skill-icon">🚀</div>
+                    <h3 class="skill-title">Venture Design</h3>
+                    <p class="skill-description">
+                        Applying entrepreneurial thinking to design challenges, exploring AI-native experiences and product strategy through Colllective Design.
+                    </p>
                 </div>
-                <button class="bottom-sheet-close" id="sheetClose" aria-label="Close">&times;</button>
+
+                <div class="skill-card">
+                    <div class="skill-icon">✍️</div>
+                    <h3 class="skill-title">Design Thinking</h3>
+                    <p class="skill-description">
+                        Publishing reflections on the future of design, AI, and human-centered technology through the Design Thinker Substack.
+                    </p>
+                </div>
             </div>
-            <div class="bottom-sheet-content sheet-iframe-content">
-                <div class="sheet-loading" id="sheetLoading">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p class="footer-text">© 2025 John Rubino | Product Designer</p>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/john-rubino/" class="footer-link" target="_blank">LinkedIn</a>
+                <a href="https://johnrubino.substack.com" class="footer-link" target="_blank">Substack</a>
+                <a href="mailto:john@example.com" class="footer-link">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Case Study Modal -->
+    <div class="modal-overlay" id="caseStudyModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <div class="modal-header-left">
+                    <div class="modal-title" id="modalTitle">Case Study</div>
+                </div>
+                <div class="modal-header-right">
+                    <div class="modal-header-nav">
+                        <button class="nav-case-button" id="prevCase">
+                            ← <span id="prevCaseTitle">Previous</span>
+                        </button>
+                        <button class="nav-case-button" id="nextCase">
+                            <span id="nextCaseTitle">Next</span> →
+                        </button>
+                    </div>
+                    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+                </div>
+            </div>
+            <div class="modal-content">
+                <div class="modal-loading" id="modalLoading">
                     <div class="spinner"></div>
                 </div>
-                <iframe id="sheetIframe" title="Case Study"></iframe>
+                <iframe id="modalIframe" title="Case Study"></iframe>
             </div>
         </div>
     </div>
 
     <script>
-        // ==================== ACCESS PASS SYSTEM ====================
-        localStorage.setItem('portfolioAccess', 'hiring');
+        // ==================== CASE STUDY MODAL SYSTEM ====================
 
-        // ==================== VIEW SWITCHING ====================
-        const navItems = document.querySelectorAll('.nav-item[data-view]');
-        const contentViews = document.querySelectorAll('.content-view');
-
-        navItems.forEach(item => {
-            item.addEventListener('click', (e) => {
-                e.preventDefault();
-                const viewId = item.dataset.view;
-
-                navItems.forEach(nav => nav.classList.remove('active'));
-                item.classList.add('active');
-
-                contentViews.forEach(view => view.classList.remove('active'));
-                document.getElementById(viewId + 'View').classList.add('active');
-
-                sidebar.classList.remove('open');
-                sidebarOverlay.classList.remove('active');
-            });
-        });
-
-        // ==================== MOBILE MENU ====================
-        const sidebar = document.getElementById('sidebar');
-        const sidebarOverlay = document.getElementById('sidebarOverlay');
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-
-        mobileMenuBtn?.addEventListener('click', () => {
-            sidebar.classList.toggle('open');
-            sidebarOverlay.classList.toggle('active');
-        });
-
-        sidebarOverlay?.addEventListener('click', () => {
-            sidebar.classList.remove('open');
-            sidebarOverlay.classList.remove('active');
-        });
-
-        // ==================== CASE STUDY BOTTOM SHEET ====================
         const caseStudies = [
-            { id: 'future-of-wealth-advisory', title: 'Future of Wealth Advisory', subtitle: 'BNY Pershing', url: 'case-study-future-of-wealth-advisory.html' },
-            { id: 'fully-paid-lending', title: 'Fully Paid Lending', subtitle: 'BNY Pershing', url: 'case-study-fully-paid-lending.html' },
-            { id: 'purple-panda-rentals', title: 'Purple Panda Rentals', subtitle: 'Founder Project', url: 'case-study-purple-panda-rentals.html' }
+            {
+                id: 'nao',
+                title: 'New Account Opening',
+                url: 'case-study-nao.html'
+            },
+            {
+                id: 'asset-movement',
+                title: 'Asset Movement',
+                url: 'case-study-asset-movement.html'
+            },
+            {
+                id: 'fully-paid-lending',
+                title: 'Fully Paid Lending',
+                url: 'case-study-fully-paid-lending.html'
+            }
         ];
 
         let currentCaseIndex = 0;
+        let scrollPosition = 0;
+        let loadingTimeout = null;
 
-        const sheet = document.getElementById('caseStudySheet');
-        const sheetIframe = document.getElementById('sheetIframe');
-        const sheetTitle = document.getElementById('sheetTitle');
-        const sheetSubtitle = document.getElementById('sheetSubtitle');
-        const sheetClose = document.getElementById('sheetClose');
-        const sheetLoading = document.getElementById('sheetLoading');
+        const modal = document.getElementById('caseStudyModal');
+        const modalIframe = document.getElementById('modalIframe');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalClose = document.getElementById('modalClose');
+        const modalLoading = document.getElementById('modalLoading');
+        const prevCaseBtn = document.getElementById('prevCase');
+        const nextCaseBtn = document.getElementById('nextCase');
+        const prevCaseTitle = document.getElementById('prevCaseTitle');
+        const nextCaseTitle = document.getElementById('nextCaseTitle');
 
-        function openSheet(caseId) {
-            const idx = caseStudies.findIndex(c => c.id === caseId);
-            if (idx === -1) return;
-            currentCaseIndex = idx;
-            const cs = caseStudies[idx];
+        // Open modal
+        function openModal(caseId) {
+            // Save scroll position
+            scrollPosition = window.scrollY;
 
-            sheetTitle.textContent = cs.title;
-            sheetSubtitle.textContent = cs.subtitle;
-            sheetLoading.classList.add('active');
-            sheetIframe.src = cs.url;
+            // Find case index
+            currentCaseIndex = caseStudies.findIndex(c => c.id === caseId);
+            if (currentCaseIndex === -1) return;
 
+            const caseStudy = caseStudies[currentCaseIndex];
+
+            // Show loading spinner after 300ms
+            loadingTimeout = setTimeout(() => {
+                modalLoading.classList.add('active');
+            }, 300);
+
+            // Update modal title
+            modalTitle.textContent = caseStudy.title;
+
+            // Load case study in iframe
+            modalIframe.src = caseStudy.url;
+
+            // Update hash
+            window.location.hash = caseStudy.id;
+
+            // Show modal
             document.body.style.overflow = 'hidden';
-            sheet.classList.add('open');
-            window.location.hash = cs.id;
+            modal.classList.add('active');
+
+            // Update navigation buttons
+            updateNavButtons();
         }
 
-        function closeSheet() {
-            sheet.classList.remove('open');
+        // Close modal
+        function closeModal() {
+            // Clear loading timeout
+            clearTimeout(loadingTimeout);
+            modalLoading.classList.remove('active');
+
+            // Hide modal
+            modal.classList.remove('active');
             document.body.style.overflow = '';
-            setTimeout(() => { sheetIframe.src = ''; }, 400);
+
+            // Clear iframe
+            setTimeout(() => {
+                modalIframe.src = '';
+            }, 400);
+
+            // Remove hash
             history.pushState('', document.title, window.location.pathname + window.location.search);
+
+            // Restore scroll position
+            window.scrollTo(0, scrollPosition);
         }
 
-        sheetIframe.addEventListener('load', () => {
-            sheetLoading.classList.remove('active');
+        // Navigate to case
+        function navigateToCase(index) {
+            if (index < 0 || index >= caseStudies.length) return;
+
+            const caseStudy = caseStudies[index];
+            currentCaseIndex = index;
+
+            // Show loading
+            modalLoading.classList.add('active');
+
+            // Update title
+            modalTitle.textContent = caseStudy.title;
+
+            // Load new case
+            modalIframe.src = caseStudy.url;
+
+            // Update hash
+            window.location.hash = caseStudy.id;
+
+            // Update navigation buttons
+            updateNavButtons();
+        }
+
+        // Update navigation buttons
+        function updateNavButtons() {
+            // Previous button
+            if (currentCaseIndex > 0) {
+                prevCaseBtn.disabled = false;
+                prevCaseTitle.textContent = caseStudies[currentCaseIndex - 1].title;
+            } else {
+                prevCaseBtn.disabled = true;
+                prevCaseTitle.textContent = 'Previous';
+            }
+
+            // Next button
+            if (currentCaseIndex < caseStudies.length - 1) {
+                nextCaseBtn.disabled = false;
+                nextCaseTitle.textContent = caseStudies[currentCaseIndex + 1].title;
+            } else {
+                nextCaseBtn.disabled = true;
+                nextCaseTitle.textContent = 'Next';
+            }
+        }
+
+        // Iframe load event - hide spinner
+        modalIframe.addEventListener('load', () => {
+            clearTimeout(loadingTimeout);
+            modalLoading.classList.remove('active');
         });
 
-        sheetClose.addEventListener('click', closeSheet);
+        // Close button
+        modalClose.addEventListener('click', closeModal);
 
-        sheet.addEventListener('click', (e) => {
-            if (e.target === sheet) closeSheet();
+        // Click outside to close
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
         });
 
+        // Navigation buttons
+        prevCaseBtn.addEventListener('click', () => {
+            navigateToCase(currentCaseIndex - 1);
+        });
+
+        nextCaseBtn.addEventListener('click', () => {
+            navigateToCase(currentCaseIndex + 1);
+        });
+
+        // Keyboard shortcuts
         document.addEventListener('keydown', (e) => {
-            if (sheet.classList.contains('open') && e.key === 'Escape') closeSheet();
+            if (!modal.classList.contains('active')) return;
+
+            if (e.key === 'Escape') {
+                closeModal();
+            } else if (e.key === 'ArrowLeft') {
+                if (currentCaseIndex > 0) {
+                    navigateToCase(currentCaseIndex - 1);
+                }
+            } else if (e.key === 'ArrowRight') {
+                if (currentCaseIndex < caseStudies.length - 1) {
+                    navigateToCase(currentCaseIndex + 1);
+                }
+            }
         });
 
-        document.querySelectorAll('.portfolio-card').forEach(card => {
-            card.addEventListener('click', (e) => {
-                e.preventDefault();
-                openSheet(card.dataset.case);
+        // Grant portfolio access pass
+        localStorage.setItem('portfolioAccess', 'hiring');
+
+        // Intercept case study links
+        document.addEventListener('DOMContentLoaded', () => {
+            const caseLinks = document.querySelectorAll('a[href^="case-study-"]');
+
+            caseLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    const href = link.getAttribute('href');
+                    const caseId = href.replace('case-study-', '').replace('.html', '');
+
+                    openModal(caseId);
+                });
             });
+
+            // Check for hash on load
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                const caseStudy = caseStudies.find(c => c.id === hash);
+                if (caseStudy) {
+                    setTimeout(() => openModal(hash), 100);
+                }
+            }
         });
 
-        const initHash = window.location.hash.substring(1);
-        if (initHash) {
-            const cs = caseStudies.find(c => c.id === initHash);
-            if (cs) setTimeout(() => openSheet(initHash), 100);
-        }
-
+        // Handle hash changes
         window.addEventListener('hashchange', () => {
             const hash = window.location.hash.substring(1);
-            if (!hash && sheet.classList.contains('open')) closeSheet();
-            else if (hash && !sheet.classList.contains('open')) openSheet(hash);
+
+            if (!hash && modal.classList.contains('active')) {
+                closeModal();
+            } else if (hash && !modal.classList.contains('active')) {
+                openModal(hash);
+            }
         });
 
-        // ==================== SUBSTACK ARTICLES ====================
-        const SUBSTACK_URL = 'https://johnrubino.substack.com';
-        const RSS_FEED_URL = `${SUBSTACK_URL}/feed`;
-
-        async function fetchSubstackArticles() {
-            try {
-                const proxyUrl = 'https://api.allorigins.win/raw?url=';
-                const response = await fetch(proxyUrl + encodeURIComponent(RSS_FEED_URL));
-                const xmlText = await response.text();
-
-                const parser = new DOMParser();
-                const xml = parser.parseFromString(xmlText, 'text/xml');
-
-                const items = xml.querySelectorAll('item');
-                const articles = Array.from(items).slice(0, 6).map(item => {
-                    const title = item.querySelector('title')?.textContent || '';
-                    const link = item.querySelector('link')?.textContent || '';
-                    const description = item.querySelector('description')?.textContent || '';
-
-                    const tempDiv = document.createElement('div');
-                    tempDiv.innerHTML = description;
-                    const cleanDescription = (tempDiv.textContent || '').substring(0, 150) + '...';
-
-                    return { title, link, description: cleanDescription };
-                });
-
-                displayArticles(articles);
-            } catch (error) {
-                console.error('Error fetching Substack articles:', error);
-                document.getElementById('articlesGrid').innerHTML = `
-                    <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-secondary);">
-                        <p>Visit <a href="https://johnrubino.substack.com" target="_blank" style="color: var(--accent-purple);">Substack</a> to read the latest posts.</p>
-                    </div>
-                `;
-            }
-        }
-
-        function displayArticles(articles) {
-            const grid = document.getElementById('articlesGrid');
-            if (articles.length === 0) {
-                grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-secondary);"><p>No articles found.</p></div>';
-                return;
-            }
-
-            grid.innerHTML = articles.map(article => `
-                <a href="${article.link}" class="article-card" target="_blank" rel="noopener noreferrer">
-                    <span class="article-category">Article</span>
-                    <h3 class="article-title">${article.title}</h3>
-                    <p class="article-excerpt">${article.description}</p>
-                </a>
-            `).join('');
-        }
-
-        fetchSubstackArticles();
-
-        // ==================== THEME TOGGLE ====================
+        // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
-        const themeIconSvg = document.getElementById('themeIcon');
+        const themeIcon = themeToggle.querySelector('.theme-icon');
         const html = document.documentElement;
 
+        // Check for saved theme preference or default to dark mode
         const savedTheme = localStorage.getItem('theme') || 'dark';
 
-        const sunPath = 'M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z';
-        const moonPath = 'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z';
-
+        // Apply saved theme
         if (savedTheme === 'light') {
             html.setAttribute('data-theme', 'light');
-            themeIconSvg.innerHTML = `<path d="${moonPath}"/>`;
+            themeIcon.textContent = '🌙';
         } else {
             html.removeAttribute('data-theme');
-            themeIconSvg.innerHTML = `<path d="${sunPath}"/>`;
+            themeIcon.textContent = '☀️';
         }
 
+        // Toggle theme
         themeToggle.addEventListener('click', () => {
             const currentTheme = html.getAttribute('data-theme');
+
             if (currentTheme === 'light') {
+                // Switch to dark mode
                 html.removeAttribute('data-theme');
-                themeIconSvg.innerHTML = `<path d="${sunPath}"/>`;
+                themeIcon.textContent = '☀️';
                 localStorage.setItem('theme', 'dark');
             } else {
+                // Switch to light mode
                 html.setAttribute('data-theme', 'light');
-                themeIconSvg.innerHTML = `<path d="${moonPath}"/>`;
+                themeIcon.textContent = '🌙';
                 localStorage.setItem('theme', 'light');
             }
         });
