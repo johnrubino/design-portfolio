@@ -8,6 +8,71 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="design-system.css">
+    <style>
+        /* Fix: access modal hidden by default */
+        .access-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+        }
+        .access-modal-overlay.active { display: flex; }
+
+        /* Fix: prevent global .card-content light gradient from showing */
+        .portfolio-card .card-content {
+            background: transparent !important;
+            padding: 0 !important;
+            position: static !important;
+            z-index: auto !important;
+        }
+
+        /* Fix: card-image-placeholder fills the image area */
+        .card-image-placeholder {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        /* Fix: lock overlay centered on image */
+        .lock-icon-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.4);
+        }
+        .lock-icon-overlay svg { width: 40px; height: 40px; }
+
+        /* Fix: NDA badge positioned on image */
+        .nda-badge {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            font-size: 11px;
+            color: rgba(255,255,255,0.6);
+            background: rgba(0,0,0,0.4);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        /* Fix: card-tag styling */
+        .card-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            background: rgba(102,126,234,0.12);
+            border: 1px solid rgba(102,126,234,0.3);
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+            color: #667eea;
+            margin-right: 6px;
+        }
+    </style>
 </head>
 <body class="hiring-page">
     <div class="dashboard">
@@ -73,21 +138,45 @@
                 <!-- Portfolio View -->
                 <div class="content-view active" id="portfolioView">
                     <div class="portfolio-grid">
-                        <a class="portfolio-card" href="#" data-case="future-of-wealth-advisory">
-                            <div class="card-image"></div>
+                        <a class="portfolio-card locked" href="#" data-case="future-of-wealth-advisory">
+                            <div class="card-image">
+                                <div class="card-image-placeholder"></div>
+                                <div class="lock-icon-overlay">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                    </svg>
+                                </div>
+                                <span class="nda-badge">🔒 NDA Protected</span>
+                            </div>
                             <div class="card-content">
+                                <div class="card-tags">
+                                    <span class="card-tag">Featured</span>
+                                    <span class="card-tag">BNY Pershing</span>
+                                </div>
                                 <h3 class="card-title">Future of Wealth Advisory</h3>
                                 <p class="card-description">Reimagined account opening and asset movement workflows for a platform consolidation, designing the To-Do List pattern and collapsing stepper to make complex processes navigable.</p>
-                                <span class="btn-tertiary">Read more</span>
+                                <span class="btn-tertiary">Request Access</span>
                             </div>
                         </a>
 
-                        <a class="portfolio-card" href="#" data-case="fully-paid-lending">
-                            <div class="card-image"></div>
+                        <a class="portfolio-card locked" href="#" data-case="fully-paid-lending">
+                            <div class="card-image">
+                                <div class="card-image-placeholder"></div>
+                                <div class="lock-icon-overlay">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                    </svg>
+                                </div>
+                                <span class="nda-badge">🔒 NDA Protected</span>
+                            </div>
                             <div class="card-content">
+                                <div class="card-tags">
+                                    <span class="card-tag">Featured</span>
+                                    <span class="card-tag">BNY Pershing</span>
+                                </div>
                                 <h3 class="card-title">Fully Paid Lending</h3>
                                 <p class="card-description">Streamlined the fully paid lending process to help advisors access liquidity for clients while maintaining compliance and reducing operational risk.</p>
-                                <span class="btn-tertiary">Read more</span>
+                                <span class="btn-tertiary">Request Access</span>
                             </div>
                         </a>
 
@@ -247,15 +336,12 @@
                 e.preventDefault();
                 const viewId = item.dataset.view;
 
-                // Update nav active state
                 navItems.forEach(nav => nav.classList.remove('active'));
                 item.classList.add('active');
 
-                // Show corresponding view
                 contentViews.forEach(view => view.classList.remove('active'));
                 document.getElementById(viewId + 'View').classList.add('active');
 
-                // Close mobile sidebar if open
                 sidebar.classList.remove('open');
                 sidebarOverlay.classList.remove('active');
             });
@@ -278,21 +364,9 @@
 
         // ==================== CASE STUDY MODAL SYSTEM ====================
         const caseStudies = [
-            {
-                id: 'future-of-wealth-advisory',
-                title: 'Future of Wealth Advisory',
-                url: 'case-study-future-of-wealth-advisory.html'
-            },
-            {
-                id: 'fully-paid-lending',
-                title: 'Fully Paid Lending',
-                url: 'case-study-fully-paid-lending.html'
-            },
-            {
-                id: 'purple-panda-rentals',
-                title: 'Purple Panda Rentals',
-                url: 'case-study-purple-panda-rentals.html'
-            }
+            { id: 'future-of-wealth-advisory', title: 'Future of Wealth Advisory', url: 'case-study-future-of-wealth-advisory.html' },
+            { id: 'fully-paid-lending', title: 'Fully Paid Lending', url: 'case-study-fully-paid-lending.html' },
+            { id: 'purple-panda-rentals', title: 'Purple Panda Rentals', url: 'case-study-purple-panda-rentals.html' }
         ];
 
         let currentCaseIndex = 0;
@@ -315,9 +389,7 @@
             if (currentCaseIndex === -1) return;
 
             const caseStudy = caseStudies[currentCaseIndex];
-            loadingTimeout = setTimeout(() => {
-                modalLoading.classList.add('active');
-            }, 300);
+            loadingTimeout = setTimeout(() => { modalLoading.classList.add('active'); }, 300);
 
             modalTitle.textContent = caseStudy.title;
             modalIframe.src = caseStudy.url;
@@ -371,11 +443,7 @@
         });
 
         modalClose.addEventListener('click', closeModal);
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
-        });
-
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
         prevCaseBtn.addEventListener('click', () => navigateToCase(currentCaseIndex - 1));
         nextCaseBtn.addEventListener('click', () => navigateToCase(currentCaseIndex + 1));
 
@@ -404,10 +472,7 @@
         }
 
         accessModalClose.addEventListener('click', closeAccessModal);
-
-        accessModal.addEventListener('click', (e) => {
-            if (e.target === accessModal) closeAccessModal();
-        });
+        accessModal.addEventListener('click', (e) => { if (e.target === accessModal) closeAccessModal(); });
 
         document.addEventListener('keydown', (e) => {
             if (accessModal.classList.contains('active') && e.key === 'Escape') closeAccessModal();
@@ -429,27 +494,23 @@
             closeAccessModal();
         });
 
-        // Intercept portfolio card clicks
         document.querySelectorAll('.portfolio-card').forEach(card => {
             card.addEventListener('click', (e) => {
                 e.preventDefault();
                 if (card.classList.contains('locked')) {
                     openAccessModal();
                 } else {
-                    const caseId = card.dataset.case;
-                    openModal(caseId);
+                    openModal(card.dataset.case);
                 }
             });
         });
 
-        // Check for hash on load
         const hash = window.location.hash.substring(1);
         if (hash) {
             const caseStudy = caseStudies.find(c => c.id === hash);
             if (caseStudy) setTimeout(() => openModal(hash), 100);
         }
 
-        // Handle hash changes
         window.addEventListener('hashchange', () => {
             const hash = window.location.hash.substring(1);
             if (!hash && modal.classList.contains('active')) closeModal();
@@ -496,11 +557,7 @@
         function displayArticles(articles) {
             const grid = document.getElementById('articlesGrid');
             if (articles.length === 0) {
-                grid.innerHTML = `
-                    <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-secondary);">
-                        <p>No articles found.</p>
-                    </div>
-                `;
+                grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-secondary);"><p>No articles found.</p></div>';
                 return;
             }
 
@@ -535,7 +592,6 @@
 
         themeToggle.addEventListener('click', () => {
             const currentTheme = html.getAttribute('data-theme');
-
             if (currentTheme === 'light') {
                 html.removeAttribute('data-theme');
                 themeIconSvg.innerHTML = `<path d="${sunPath}"/>`;
