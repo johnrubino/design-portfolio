@@ -37,13 +37,13 @@
             margin-right: 6px;
         }
 
-        /* ── Bottom sheet overlay ── */
+        /* ── Bottom sheet: overlay backdrop ── */
         .hiring-page .modal-overlay {
             position: fixed !important;
             inset: 0 !important;
-            background: rgba(0,0,0,0.6) !important;
-            backdrop-filter: blur(8px) !important;
-            -webkit-backdrop-filter: blur(8px) !important;
+            background: rgba(0,0,0,0.55) !important;
+            backdrop-filter: blur(6px) !important;
+            -webkit-backdrop-filter: blur(6px) !important;
             z-index: 2000 !important;
             opacity: 0 !important;
             visibility: hidden !important;
@@ -57,52 +57,107 @@
             pointer-events: all !important;
         }
 
-        /* ── Bottom sheet container — matches spec ── */
+        /* ── Bottom sheet: container ── */
         .hiring-page .modal-container {
             position: fixed !important;
             bottom: 0 !important;
             left: 50% !important;
             transform: translateX(-50%) translateY(100%) !important;
+            width: min(1440px, 100%) !important;
+            height: 92vh !important;
             display: flex !important;
-            width: 1440px !important;
-            max-width: 100% !important;
-            height: 1024px !important;
-            max-height: 92vh !important;
             flex-direction: column !important;
-            align-items: flex-end !important;
-            gap: 16px !important;
-            background: #0f0f14 !important;
-            border-radius: 20px 20px 0 0 !important;
-            border: 1px solid rgba(255,255,255,0.10) !important;
+            align-items: stretch !important;
+            gap: 0 !important;
+            background: #0d0d12 !important;
+            border-radius: 16px 16px 0 0 !important;
+            border: 1px solid rgba(255,255,255,0.09) !important;
             border-bottom: none !important;
-            box-shadow: 0 -16px 60px rgba(0,0,0,0.7) !important;
+            box-shadow: 0 -20px 80px rgba(0,0,0,0.7) !important;
             overflow: hidden !important;
-            transition: transform 420ms cubic-bezier(0.32, 0.72, 0, 1) !important;
+            transition: transform 400ms cubic-bezier(0.32, 0.72, 0, 1) !important;
             padding: 0 !important;
         }
         .hiring-page .modal-overlay.active .modal-container {
             transform: translateX(-50%) translateY(0) !important;
         }
 
-        /* header stretches full width */
-        .hiring-page .modal-header {
-            display: flex !important;
-            align-items: center !important;
-            justify-content: space-between !important;
-            width: 100% !important;
-            padding: 16px 24px !important;
-            border-bottom: 1px solid rgba(255,255,255,0.08) !important;
-            background: #141418 !important;
-            flex-shrink: 0 !important;
-            box-sizing: border-box !important;
+        /* Top strip: drag handle + close button */
+        .sheet-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            height: 40px;
+            flex-shrink: 0;
+            background: #0d0d12;
         }
+        .sheet-drag-handle {
+            width: 36px;
+            height: 4px;
+            border-radius: 2px;
+            background: rgba(255,255,255,0.18);
+        }
+        .sheet-close-x {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 160ms ease, color 160ms ease;
+        }
+        .sheet-close-x:hover { background: rgba(255,255,255,0.18); color: #fff; }
 
-        /* iframe content area fills remaining space */
+        /* Header row: title + open-in-tab button */
+        .sheet-header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            background: #13131a;
+            flex-shrink: 0;
+        }
+        .sheet-case-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #f0ede8;
+            letter-spacing: -0.01em;
+        }
+        .sheet-open-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 6px;
+            background: transparent;
+            color: rgba(255,255,255,0.6);
+            font-size: 12px;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: border-color 160ms ease, color 160ms ease;
+        }
+        .sheet-open-btn:hover { border-color: rgba(255,255,255,0.3); color: #fff; }
+
+        /* Iframe content fills remaining height */
         .hiring-page .modal-content {
             flex: 1 !important;
             width: 100% !important;
             overflow: hidden !important;
             position: relative !important;
+            background: #0d0d12 !important;
         }
         .hiring-page .modal-content iframe {
             width: 100% !important;
@@ -111,21 +166,73 @@
             display: block !important;
         }
 
-        /* drag handle above header */
-        .sheet-handle {
-            width: 100%;
+        /* Footer row: category label + prev/next buttons */
+        .sheet-footer-row {
             display: flex;
-            justify-content: center;
-            padding: 12px 0 0;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 24px;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            background: #13131a;
             flex-shrink: 0;
-            cursor: grab;
         }
-        .sheet-handle-bar {
-            width: 40px;
-            height: 4px;
-            border-radius: 2px;
-            background: rgba(255,255,255,0.2);
+        .sheet-footer-label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.35);
+            letter-spacing: 0.04em;
         }
+        .sheet-footer-nav {
+            display: flex;
+            gap: 8px;
+        }
+        .sheet-nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 160ms ease;
+            white-space: nowrap;
+        }
+        .sheet-nav-btn.outline {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.6);
+        }
+        .sheet-nav-btn.outline:hover:not(:disabled) { border-color: rgba(255,255,255,0.3); color: #fff; }
+        .sheet-nav-btn.primary {
+            background: #667eea;
+            border: 1px solid #667eea;
+            color: #fff;
+        }
+        .sheet-nav-btn.primary:hover:not(:disabled) { background: #7b91f0; }
+        .sheet-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+        /* Loading spinner */
+        .modal-loading {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0d0d12;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 200ms ease, visibility 200ms ease;
+        }
+        .modal-loading.active { opacity: 1; visibility: visible; }
+        .spinner {
+            width: 36px;
+            height: 36px;
+            border: 2px solid rgba(102,126,234,0.2);
+            border-top-color: #667eea;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 </head>
 <body class="hiring-page">
@@ -308,28 +415,37 @@
     <!-- Case Study Bottom Sheet -->
     <div class="modal-overlay" id="caseStudyModal">
         <div class="modal-container">
-            <div class="sheet-handle"><div class="sheet-handle-bar"></div></div>
-            <div class="modal-header">
-                <div class="modal-header-left">
-                    <div class="modal-title" id="modalTitle">Case Study</div>
-                </div>
-                <div class="modal-header-right">
-                    <div class="modal-header-nav">
-                        <button class="nav-case-button" id="prevCase">
-                            &larr; <span id="prevCaseTitle">Previous</span>
-                        </button>
-                        <button class="nav-case-button" id="nextCase">
-                            <span id="nextCaseTitle">Next</span> &rarr;
-                        </button>
-                    </div>
-                    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
-                </div>
+            <!-- Top strip: drag handle + close -->
+            <div class="sheet-topbar">
+                <div class="sheet-drag-handle"></div>
+                <button class="sheet-close-x" id="modalClose" aria-label="Close">&#x2715;</button>
             </div>
+            <!-- Header: title + open in new tab -->
+            <div class="sheet-header-row">
+                <div class="sheet-case-title" id="modalTitle">Case Study</div>
+                <a class="sheet-open-btn" id="openInTab" href="#" target="_blank" rel="noopener noreferrer">
+                    Open in tab
+                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 9L9 2M9 2H5M9 2V6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+            <!-- Iframe content area -->
             <div class="modal-content">
                 <div class="modal-loading" id="modalLoading">
                     <div class="spinner"></div>
                 </div>
                 <iframe id="modalIframe" title="Case Study"></iframe>
+            </div>
+            <!-- Footer: label + prev/next -->
+            <div class="sheet-footer-row">
+                <span class="sheet-footer-label" id="sheetFooterLabel">Portfolio</span>
+                <div class="sheet-footer-nav">
+                    <button class="sheet-nav-btn outline" id="prevCase" disabled>
+                        &larr; <span id="prevCaseTitle">Previous</span>
+                    </button>
+                    <button class="sheet-nav-btn primary" id="nextCase">
+                        <span id="nextCaseTitle">Next</span> &rarr;
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -373,38 +489,38 @@
             sidebarOverlay.classList.remove('active');
         });
 
-        // ==================== CASE STUDY MODAL SYSTEM ====================
+        // ==================== CASE STUDY BOTTOM SHEET ====================
         const caseStudies = [
-            { id: 'future-of-wealth-advisory', title: 'Future of Wealth Advisory', url: 'case-study-future-of-wealth-advisory.html' },
-            { id: 'fully-paid-lending', title: 'Fully Paid Lending', url: 'case-study-fully-paid-lending.html' },
-            { id: 'purple-panda-rentals', title: 'Purple Panda Rentals', url: 'case-study-purple-panda-rentals.html' }
+            { id: 'future-of-wealth-advisory', title: 'Future of Wealth Advisory', subtitle: 'BNY Pershing', url: 'case-study-future-of-wealth-advisory.html' },
+            { id: 'fully-paid-lending',         title: 'Fully Paid Lending',         subtitle: 'BNY Pershing', url: 'case-study-fully-paid-lending.html' },
+            { id: 'purple-panda-rentals',        title: 'Purple Panda Rentals',        subtitle: 'Founder Project', url: 'case-study-purple-panda-rentals.html' }
         ];
 
         let currentCaseIndex = 0;
-        let scrollPosition = 0;
         let loadingTimeout = null;
 
-        const modal = document.getElementById('caseStudyModal');
-        const modalIframe = document.getElementById('modalIframe');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalClose = document.getElementById('modalClose');
+        const modal        = document.getElementById('caseStudyModal');
+        const modalIframe  = document.getElementById('modalIframe');
+        const modalTitle   = document.getElementById('modalTitle');
+        const modalClose   = document.getElementById('modalClose');
         const modalLoading = document.getElementById('modalLoading');
-        const prevCaseBtn = document.getElementById('prevCase');
-        const nextCaseBtn = document.getElementById('nextCase');
+        const openInTab    = document.getElementById('openInTab');
+        const footerLabel  = document.getElementById('sheetFooterLabel');
+        const prevCaseBtn  = document.getElementById('prevCase');
+        const nextCaseBtn  = document.getElementById('nextCase');
         const prevCaseTitle = document.getElementById('prevCaseTitle');
         const nextCaseTitle = document.getElementById('nextCaseTitle');
 
         function openModal(caseId) {
-            scrollPosition = window.scrollY;
             currentCaseIndex = caseStudies.findIndex(c => c.id === caseId);
             if (currentCaseIndex === -1) return;
-
-            const caseStudy = caseStudies[currentCaseIndex];
-            loadingTimeout = setTimeout(() => { modalLoading.classList.add('active'); }, 300);
-
-            modalTitle.textContent = caseStudy.title;
-            modalIframe.src = caseStudy.url;
-            window.location.hash = caseStudy.id;
+            const cs = caseStudies[currentCaseIndex];
+            loadingTimeout = setTimeout(() => modalLoading.classList.add('active'), 300);
+            modalTitle.textContent = cs.title;
+            footerLabel.textContent = cs.subtitle;
+            openInTab.href = cs.url;
+            modalIframe.src = cs.url;
+            window.location.hash = cs.id;
             document.body.style.overflow = 'hidden';
             modal.classList.add('active');
             updateNavButtons();
@@ -415,44 +531,31 @@
             modalLoading.classList.remove('active');
             modal.classList.remove('active');
             document.body.style.overflow = '';
-            setTimeout(() => { modalIframe.src = ''; }, 400);
+            setTimeout(() => { modalIframe.src = ''; }, 420);
             history.pushState('', document.title, window.location.pathname + window.location.search);
-            window.scrollTo(0, scrollPosition);
         }
 
         function navigateToCase(index) {
             if (index < 0 || index >= caseStudies.length) return;
-            const caseStudy = caseStudies[index];
+            const cs = caseStudies[index];
             currentCaseIndex = index;
             modalLoading.classList.add('active');
-            modalTitle.textContent = caseStudy.title;
-            modalIframe.src = caseStudy.url;
-            window.location.hash = caseStudy.id;
+            modalTitle.textContent = cs.title;
+            footerLabel.textContent = cs.subtitle;
+            openInTab.href = cs.url;
+            modalIframe.src = cs.url;
+            window.location.hash = cs.id;
             updateNavButtons();
         }
 
         function updateNavButtons() {
-            if (currentCaseIndex > 0) {
-                prevCaseBtn.disabled = false;
-                prevCaseTitle.textContent = caseStudies[currentCaseIndex - 1].title;
-            } else {
-                prevCaseBtn.disabled = true;
-                prevCaseTitle.textContent = 'Previous';
-            }
-            if (currentCaseIndex < caseStudies.length - 1) {
-                nextCaseBtn.disabled = false;
-                nextCaseTitle.textContent = caseStudies[currentCaseIndex + 1].title;
-            } else {
-                nextCaseBtn.disabled = true;
-                nextCaseTitle.textContent = 'Next';
-            }
+            prevCaseBtn.disabled = currentCaseIndex === 0;
+            prevCaseTitle.textContent = currentCaseIndex > 0 ? caseStudies[currentCaseIndex - 1].title : 'Previous';
+            nextCaseBtn.disabled = currentCaseIndex === caseStudies.length - 1;
+            nextCaseTitle.textContent = currentCaseIndex < caseStudies.length - 1 ? caseStudies[currentCaseIndex + 1].title : 'Next';
         }
 
-        modalIframe.addEventListener('load', () => {
-            clearTimeout(loadingTimeout);
-            modalLoading.classList.remove('active');
-        });
-
+        modalIframe.addEventListener('load', () => { clearTimeout(loadingTimeout); modalLoading.classList.remove('active'); });
         modalClose.addEventListener('click', closeModal);
         modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
         prevCaseBtn.addEventListener('click', () => navigateToCase(currentCaseIndex - 1));
@@ -461,8 +564,8 @@
         document.addEventListener('keydown', (e) => {
             if (!modal.classList.contains('active')) return;
             if (e.key === 'Escape') closeModal();
-            else if (e.key === 'ArrowLeft' && currentCaseIndex > 0) navigateToCase(currentCaseIndex - 1);
-            else if (e.key === 'ArrowRight' && currentCaseIndex < caseStudies.length - 1) navigateToCase(currentCaseIndex + 1);
+            else if (e.key === 'ArrowLeft') navigateToCase(currentCaseIndex - 1);
+            else if (e.key === 'ArrowRight') navigateToCase(currentCaseIndex + 1);
         });
 
         document.querySelectorAll('.portfolio-card').forEach(card => {
