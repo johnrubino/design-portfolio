@@ -3,234 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | John</title>
+    <title>About — John Rubino</title>
+    <meta name="description" content="Senior Product Designer solving 0-to-1 problems for AI-native startups. Enterprise UX lead at BNY Pershing. Founder of Colllective Design.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="design-system.css">
 </head>
 <body class="about-page">
-    <!-- Navigation -->
-    <nav class="nav-header">
+
+    <nav class="nav">
         <a href="index.html" class="nav-logo">
-            <div class="nav-logo-icon">J</div>
-            <span>John</span>
+            <div class="nav-logo-mark">JR</div>
+            John Rubino
         </a>
         <div class="nav-links">
             <a href="index.html" class="nav-link">Home</a>
             <a href="about.html" class="nav-link active">About</a>
             <a href="writing.html" class="nav-link">Writing</a>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                <span class="theme-icon">☀️</span>
-            </button>
+            <a href="mailto:johnrubinodesign@gmail.com" class="nav-cta">Get In Touch &rarr;</a>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Profile Header -->
-        <div class="profile-header" style="text-align: center; margin-bottom: 64px;">
-            <div class="hero-badge animate-in" style="display: inline-flex; margin-bottom: 24px;">
-                <span class="status-dot"></span>
-                Available for new opportunities
+    <!-- Hero -->
+    <section class="about-page-hero">
+        <div class="hero-eyebrow">
+            <span class="hero-dot"></span>
+            Available for new opportunities
+        </div>
+        <h1 class="about-page-name">John<br>Rubino</h1>
+        <p class="about-page-bio">
+            Product designer driven by impact. I specialize in solving <strong>0-to-1 problems</strong> — the messy, ambiguous challenges that come with creating something from nothing.
+        </p>
+        <div class="about-page-links">
+            <a href="https://www.linkedin.com/in/john-rubino/" target="_blank" class="btn-ghost">
+                LinkedIn
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="https://johnrubino.substack.com" target="_blank" class="btn-ghost">
+                Substack
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="mailto:johnrubinodesign@gmail.com" class="btn-primary">
+                Email Me
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Stats Strip -->
+    <div class="about-stats-strip reveal">
+        <div class="about-stats-inner">
+            <div class="hero-stat">
+                <div class="stat-value">8+</div>
+                <div class="stat-label">Years Experience</div>
             </div>
-            <h1 class="hero-title animate-in animate-in-delay-1" style="margin-bottom: 16px;">John Rubino</h1>
-            <p class="hero-subtitle animate-in animate-in-delay-2" style="margin-bottom: 32px;">Product Designer solving 0-to-1 problems for AI-native startups</p>
-            <div class="hero-cta animate-in animate-in-delay-3">
-                <a href="https://www.linkedin.com/in/john-rubino/" class="btn-glass" target="_blank">
-                    🔗 LinkedIn
-                </a>
-                <a href="https://johnrubino.substack.com" class="btn-glass-purple" target="_blank">
-                    ✍️ Substack
-                </a>
-                <a href="mailto:johnrubinodesign@gmail.com" class="btn-ghost">
-                    📧 Email
-                </a>
+            <div class="hero-stat">
+                <div class="stat-value">3</div>
+                <div class="stat-label">Enterprise Platforms</div>
+            </div>
+            <div class="hero-stat">
+                <div class="stat-value">$1T+</div>
+                <div class="stat-label">AUM Context</div>
+            </div>
+            <div class="hero-stat">
+                <div class="stat-value">0&rarr;1</div>
+                <div class="stat-label">Venture Design</div>
             </div>
         </div>
+    </div>
 
-        <!-- Overview Section -->
-        <section class="content-section">
-            <h2 class="section-title">
-                <span class="section-icon">👋</span>
-                About Me
-            </h2>
-            <p class="content-paragraph">
-                I'm a product designer driven by impact—building technology that reshapes the world for the better. I specialize in solving 0-to-1 problems: the messy, ambiguous challenges that come with creating something from nothing.
+    <!-- About Me -->
+    <section class="about-content-section reveal">
+        <div class="about-section-label">
+            <div class="section-label">Background</div>
+        </div>
+        <div class="about-section-body">
+            <h2 class="about-section-heading">Building at the edge of<br>enterprise and ambition.</h2>
+            <p class="about-section-text">
+                By day, I'm at BNY Pershing, where I was on the ground floor of Wove — a complete rebuild of the bank's financial platform. I've spent years bridging legacy software with modern UX, making complex financial workflows accessible while maintaining the technical rigor advisors and firms require. This taught me how to design systems that scale.
             </p>
-            <p class="content-paragraph">
-                By day, I'm at BNY Pershing, where I was on the ground floor of Wove—a complete rebuild of the bank's financial platform. I've spent years bridging legacy software with modern UX, making complex financial workflows accessible while maintaining the technical rigor advisors and firms require. This taught me how to design systems that scale.
-            </p>
-            <p class="content-paragraph">
+            <p class="about-section-text">
                 But my real passion is working with founders building AI-native products that create meaningful impact. I bring enterprise-level systems thinking to early-stage startups, helping them navigate the chaos of product-market fit while building foundations that won't break as they scale.
             </p>
-        </section>
+        </div>
+    </section>
 
-        <!-- AI & Technology Section -->
-        <section class="content-section">
-            <h2 class="section-title">
-                <span class="section-icon">🤖</span>
-                AI-Native Design
-            </h2>
-            <p class="content-paragraph">
-                I don't just design around AI—I build with it. I'm hands-on with AI tools, exploring how they can fundamentally change how we think about product development. This isn't about adding chatbots to existing interfaces. It's about rethinking products from the ground up when AI is a core assumption.
+    <!-- AI Native Design -->
+    <section class="about-content-section reveal">
+        <div class="about-section-label">
+            <div class="section-label">AI-Native Design</div>
+        </div>
+        <div class="about-section-body">
+            <h2 class="about-section-heading">I don't just design around AI —<br>I build with it.</h2>
+            <p class="about-section-text">
+                I'm hands-on with AI tools, exploring how they can fundamentally change how we think about product development. This isn't about adding chatbots to existing interfaces. It's about rethinking products from the ground up when AI is a core assumption.
             </p>
-
-            <div class="highlight-box">
-                <h3 class="highlight-title">Writing About What I'm Building</h3>
-                <p class="highlight-text">
-                    On my Substack, I share what I'm learning about AI tools, design systems, and UX. I write about building with AI, not just theorizing about it. It's where I work through ideas in public and explore where design is heading.
-                </p>
+            <div class="about-highlight reveal reveal-delay-1">
+                <div class="about-highlight-label">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1.2"/><path d="M5 3v2l1.5 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                    Design Thinker &middot; Substack
+                </div>
+                <p class="about-highlight-text">On my Substack, I share what I'm learning about AI tools, design systems, and UX. I write about building with AI, not just theorizing about it — working through ideas in public and exploring where design is heading.</p>
+                <a href="https://johnrubino.substack.com" target="_blank" class="writing-link" style="margin-top:4px;">
+                    Read the newsletter
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
             </div>
-
-            <p class="content-paragraph">
+            <p class="about-section-text">
                 I completed "Designing and Building AI Products and Services" through Emeritus (2024) to formalize what I was already doing: experimenting, building, and pushing the boundaries of what's possible when AI is native to the product experience.
             </p>
-        </section>
+        </div>
+    </section>
 
-        <!-- Startup Ecosystem Section -->
-        <section class="content-section">
-            <h2 class="section-title">
-                <span class="section-icon">💼</span>
-                The Startup Ecosystem
-            </h2>
-            <p class="content-paragraph">
-                I'm not just designing for startups—I'm investing in them. As a member of Angel Squad and an affiliate of Hustle Fund, I'm actively angel investing and working toward accreditation to expand into private equity. This gives me a unique perspective: I understand the founder journey from both sides of the table.
+    <!-- Startup Ecosystem -->
+    <section class="about-content-section reveal">
+        <div class="about-section-label">
+            <div class="section-label">Startup Ecosystem</div>
+        </div>
+        <div class="about-section-body">
+            <h2 class="about-section-heading">I'm not just designing for startups —<br>I'm investing in them.</h2>
+            <p class="about-section-text">
+                As a member of Angel Squad and an affiliate of Hustle Fund, I'm actively angel investing and working toward accreditation to expand into private equity. This gives me a unique perspective: I understand the founder journey from both sides of the table.
             </p>
-
-            <div class="highlight-box">
-                <h3 class="highlight-title">Why This Matters for Founders</h3>
-                <p class="highlight-text">
-                    I speak your language. I know what metrics matter, what investors look for, and how to build products that scale. I'm not just a designer-for-hire—I'm a partner who gets the full picture of what you're trying to build.
-                </p>
+            <div class="about-highlight reveal reveal-delay-1">
+                <div class="about-highlight-label">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1.2"/><path d="M3 5l1.5 1.5L7 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Why This Matters for Founders
+                </div>
+                <p class="about-highlight-text">I speak your language. I know what metrics matter, what investors look for, and how to build products that scale. I'm not just a designer-for-hire — I'm a partner who gets the full picture of what you're trying to build.</p>
             </div>
-
-            <p class="content-paragraph">
+            <p class="about-section-text">
                 Whether you're pre-seed, raising your Series A, or somewhere in between, I've seen enough cap tables and pitch decks to understand the constraints you're operating under. Let's build something that moves the needle.
             </p>
-        </section>
+        </div>
+    </section>
 
-        <!-- What Drives Me Section -->
-        <section class="content-section">
-            <h2 class="section-title">
-                <span class="section-icon">🌟</span>
-                What Drives Me
-            </h2>
-            <p class="content-paragraph">
-                Impact. That's what gets me out of bed. I'm energized by 0-to-1 problems—the kind where there's no playbook, no template, no obvious answer. These are the problems that require you to think from first principles and create something genuinely new.
+    <!-- What Drives Me -->
+    <section class="about-content-section reveal">
+        <div class="about-section-label">
+            <div class="section-label">What Drives Me</div>
+        </div>
+        <div class="about-section-body">
+            <h2 class="about-section-heading">Impact. That's what<br>gets me out of bed.</h2>
+            <p class="about-section-text">
+                I'm energized by 0-to-1 problems — the kind where there's no playbook, no template, no obvious answer. These are the problems that require you to think from first principles and create something genuinely new.
             </p>
-            <p class="content-paragraph">
+            <p class="about-section-text">
                 I'm drawn to projects with social impact. Technology that makes healthcare more accessible, education more equitable, climate action more achievable. If your product exists to make the world measurably better, we should talk.
             </p>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-value">🚀</div>
-                    <p class="stat-label">0-to-1 Problem Solver</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">🤖</div>
-                    <p class="stat-label">AI-Native Product Thinker</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">🌍</div>
-                    <p class="stat-label">Impact-Driven Builder</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">💡</div>
-                    <p class="stat-label">Startup Ecosystem Investor</p>
-                </div>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Skills Section -->
-        <section class="content-section">
-            <h2 class="section-title">
-                <span class="section-icon">⚡</span>
-                How I Can Help
-            </h2>
-            <p class="content-paragraph">
-                I bring enterprise-grade systems thinking to early-stage startups. Here's what that looks like in practice:
+    <!-- Skills -->
+    <section class="about-content-section reveal">
+        <div class="about-section-label">
+            <div class="section-label">How I Can Help</div>
+        </div>
+        <div class="about-section-body">
+            <h2 class="about-section-heading">Enterprise-grade systems thinking<br>for early-stage problems.</h2>
+            <p class="about-section-text">Here's what that looks like in practice:</p>
+            <div class="about-skills-grid">
+                <span class="tag purple">AI-Native Product Design</span>
+                <span class="tag purple">0-to-1 Product Strategy</span>
+                <span class="tag purple">Design Systems</span>
+                <span class="tag purple">Enterprise UX</span>
+                <span class="tag purple">Complex Workflows</span>
+                <span class="tag purple">Legacy System Modernization</span>
+                <span class="tag purple">Startup Product-Market Fit</span>
+                <span class="tag purple">Figma &amp; AI Tools</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Let's Work Together -->
+    <section class="about-content-section reveal">
+        <div class="about-section-label">
+            <div class="section-label">Let's Work Together</div>
+        </div>
+        <div class="about-section-body">
+            <h2 class="about-section-heading">Selective about who I work with —<br>because I want it to matter.</h2>
+            <p class="about-section-text">
+                I'm open to working with founders on their next big idea — especially if you're building AI-native products with real social impact.
             </p>
-            <div class="skills-tags">
-                <span class="tag tag-purple">AI-Native Product Design</span>
-                <span class="tag tag-purple">0-to-1 Product Strategy</span>
-                <span class="tag tag-purple">Design Systems</span>
-                <span class="tag tag-purple">Enterprise UX</span>
-                <span class="tag tag-purple">Complex Workflows</span>
-                <span class="tag tag-purple">Legacy System Modernization</span>
-                <span class="tag tag-purple">Startup Product-Market Fit</span>
-                <span class="tag tag-purple">Figma & AI Tools</span>
+            <div class="about-highlight reveal reveal-delay-1">
+                <div class="about-highlight-label">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1.2"/><path d="M3 5l1.5 1.5L7 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Ideal Projects
+                </div>
+                <p class="about-highlight-text">You're a founder building an AI-native product. You're solving a 0-to-1 problem. Your product creates meaningful impact — healthcare, education, climate, accessibility, equity. You need a design partner who gets both the startup journey and how to build systems that scale.</p>
             </div>
-        </section>
-
-        <!-- Let's Work Together Section -->
-        <section class="content-section">
-            <h2 class="section-title">
-                <span class="section-icon">🚀</span>
-                Let's Work Together
-            </h2>
-            <p class="content-paragraph">
-                I'm open to working with founders on their next big idea—especially if you're building AI-native products with real social impact. I'm selective about who I work with because I want to invest my time in projects that matter.
-            </p>
-
-            <div class="highlight-box">
-                <h3 class="highlight-title">Ideal Projects</h3>
-                <p class="highlight-text">
-                    You're a founder building an AI-native product. You're solving a 0-to-1 problem. Your product creates meaningful impact (healthcare, education, climate, accessibility, equity). You need a design partner who gets both the startup journey and how to build systems that scale.
-                </p>
-            </div>
-
-            <p class="content-paragraph">
+            <p class="about-section-text">
                 If that sounds like you, let's talk. I bring enterprise rigor without enterprise bureaucracy. I understand the constraints of early-stage startups because I'm in that world as an investor. And I'm genuinely excited about pushing the boundaries of what's possible with AI.
             </p>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-content">
-            <p class="footer-text">© 2025 John Rubino | Product Designer</p>
-            <div class="footer-links">
-                <a href="https://www.linkedin.com/in/john-rubino/" class="footer-link" target="_blank">LinkedIn</a>
-                <a href="https://johnrubino.substack.com" class="footer-link" target="_blank">Substack</a>
-                <a href="mailto:johnrubinodesign@gmail.com" class="footer-link">Contact</a>
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-inner reveal">
+            <h2 class="cta-heading">Let's build something that matters.</h2>
+            <p class="cta-sub">Open to senior design roles, fractional leadership, and AI-native engagements through Colllective.</p>
+            <div class="cta-actions">
+                <a href="mailto:johnrubinodesign@gmail.com?subject=Let's%20Connect" class="btn-primary">
+                    Get In Touch
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/john-rubino/" target="_blank" class="btn-ghost">LinkedIn</a>
+                <a href="index.html" class="btn-ghost">View Work</a>
             </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-left">&copy; 2025 John Rubino &middot; Product Designer &middot; New York</div>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/john-rubino/" target="_blank" class="footer-link">LinkedIn</a>
+            <a href="https://johnrubino.substack.com" target="_blank" class="footer-link">Substack</a>
+            <a href="about.html" class="footer-link">About</a>
+            <a href="mailto:johnrubinodesign@gmail.com" class="footer-link">Contact</a>
         </div>
     </footer>
 
     <script>
-        // Theme Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = themeToggle.querySelector('.theme-icon');
-        const html = document.documentElement;
+        const observer = new IntersectionObserver(
+            (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+            { threshold: 0.08, rootMargin: '0px 0px -50px 0px' }
+        );
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Check for saved theme preference or default to dark mode
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-
-        // Apply saved theme
-        if (savedTheme === 'light') {
-            html.setAttribute('data-theme', 'light');
-            themeIcon.textContent = '🌙';
-        } else {
-            html.removeAttribute('data-theme');
-            themeIcon.textContent = '☀️';
-        }
-
-        // Toggle theme
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-
-            if (currentTheme === 'light') {
-                // Switch to dark mode
-                html.removeAttribute('data-theme');
-                themeIcon.textContent = '☀️';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                // Switch to light mode
-                html.setAttribute('data-theme', 'light');
-                themeIcon.textContent = '🌙';
-                localStorage.setItem('theme', 'light');
-            }
+        const nav = document.querySelector('.nav');
+        window.addEventListener('scroll', () => {
+            nav.style.borderBottomColor = window.scrollY > 80 ? 'rgba(255,255,255,0.10)' : 'rgba(255,255,255,0.07)';
         });
     </script>
 </body>

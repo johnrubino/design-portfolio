@@ -3,116 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Writing | John</title>
+    <title>Writing — John Rubino</title>
+    <meta name="description" content="Thoughts on design, AI, and the future of creative work. Short, provocative essays from a senior product designer.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="design-system.css">
 </head>
 <body class="writing-page">
-    <!-- Navigation -->
-    <nav class="nav-header">
+
+    <nav class="nav">
         <a href="index.html" class="nav-logo">
-            <div class="nav-logo-icon">J</div>
-            <span>John</span>
+            <div class="nav-logo-mark">JR</div>
+            John Rubino
         </a>
         <div class="nav-links">
             <a href="index.html" class="nav-link">Home</a>
             <a href="about.html" class="nav-link">About</a>
             <a href="writing.html" class="nav-link active">Writing</a>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                <span class="theme-icon">☀️</span>
-            </button>
+            <a href="mailto:johnrubinodesign@gmail.com" class="nav-cta">Get In Touch &rarr;</a>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Page Header -->
-        <div class="page-header" style="text-align: center; margin-bottom: 48px;">
-            <div class="hero-badge animate-in" style="display: inline-flex; margin-bottom: 24px;">
-                <span class="status-dot"></span>
-                Design Thinker
-            </div>
-            <h1 class="hero-title animate-in animate-in-delay-1" style="margin-bottom: 16px;">Thoughts on Design & Technology</h1>
-            <p class="hero-subtitle animate-in animate-in-delay-2" style="margin-bottom: 32px;">
-                Exploring the future of design, AI, and human-centered technology through short, thoughtful reflections that blend provocation with practicality.
-            </p>
-            <a href="https://johnrubino.substack.com" class="btn-glass-purple animate-in animate-in-delay-3" target="_blank">
-                ✍️ Subscribe on Substack
+    <!-- Hero -->
+    <section class="writing-page-hero">
+        <div class="hero-eyebrow">
+            <span class="hero-dot"></span>
+            Design Thinker &middot; Substack
+        </div>
+        <h1 class="writing-page-title">Thoughts on Design<br>&amp; Technology</h1>
+        <p class="writing-page-subtitle">
+            Exploring the future of design, AI, and human-centered technology through short, thoughtful reflections that blend provocation with practicality.
+        </p>
+        <div class="writing-page-actions">
+            <a href="https://johnrubino.substack.com" target="_blank" class="btn-primary">
+                Subscribe on Substack
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
         </div>
+    </section>
 
-        <!-- Filter Section -->
-        <div class="filter-section">
-            <span class="tag tag-purple filter-button active">All</span>
-            <span class="tag tag-default filter-button">Design Systems</span>
-            <span class="tag tag-default filter-button">AI & Design</span>
-            <span class="tag tag-default filter-button">Process & Tools</span>
-            <span class="tag tag-default filter-button">Leadership</span>
+    <!-- Main Content -->
+    <main class="writing-main">
+
+        <!-- Filters -->
+        <div class="writing-filters">
+            <button class="filter-btn active" data-filter="All">All</button>
+            <button class="filter-btn" data-filter="Design Systems">Design Systems</button>
+            <button class="filter-btn" data-filter="AI & Design">AI &amp; Design</button>
+            <button class="filter-btn" data-filter="Process & Tools">Process &amp; Tools</button>
+            <button class="filter-btn" data-filter="Leadership">Leadership</button>
         </div>
 
         <!-- Articles Grid -->
-        <div class="articles-grid">
-            <!-- Articles will load from Substack -->
-            <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text-secondary);">
-                <div style="font-size: 48px; margin-bottom: 16px;">📚</div>
-                <p>Loading articles from Substack...</p>
+        <div class="writing-grid" id="articlesGrid">
+            <div class="writing-loading">
+                <div class="writing-loading-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" opacity="0.3"/><path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+                <p>Loading articles from Substack&hellip;</p>
             </div>
         </div>
 
-        <!-- Newsletter Section -->
-        <div class="newsletter-section">
-            <div class="newsletter-icon">📬</div>
-            <h2 class="newsletter-title">Stay Updated</h2>
-            <p class="newsletter-description">
-                Get the latest articles on design, AI, and the future of creative work delivered to your inbox. No spam, just thoughtful ideas.
-            </p>
-            <form class="newsletter-form" onsubmit="event.preventDefault();">
-                <input 
-                    type="email" 
-                    class="newsletter-input" 
-                    placeholder="Enter your email"
-                    required
-                >
-                <button type="submit" class="newsletter-button btn-glass">Subscribe</button>
-            </form>
+        <!-- Newsletter CTA -->
+        <div class="writing-cta reveal">
+            <p class="writing-cta-title">Ideas delivered to your inbox.</p>
+            <p class="writing-cta-sub">The latest on design, AI, and the future of creative work. No spam — just thoughtful ideas worth your time.</p>
+            <a href="https://johnrubino.substack.com" target="_blank" class="btn-primary">
+                Subscribe on Substack
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
         </div>
+
     </main>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-content">
-            <p class="footer-text">© 2025 John Rubino | Product Designer</p>
-            <div class="footer-links">
-                <a href="https://www.linkedin.com/in/john-rubino/" class="footer-link" target="_blank">LinkedIn</a>
-                <a href="https://johnrubino.substack.com" class="footer-link" target="_blank">Substack</a>
-                <a href="mailto:john@example.com" class="footer-link">Contact</a>
-            </div>
+    <footer class="footer">
+        <div class="footer-left">&copy; 2025 John Rubino &middot; Product Designer &middot; New York</div>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/john-rubino/" target="_blank" class="footer-link">LinkedIn</a>
+            <a href="https://johnrubino.substack.com" target="_blank" class="footer-link">Substack</a>
+            <a href="about.html" class="footer-link">About</a>
+            <a href="mailto:johnrubinodesign@gmail.com" class="footer-link">Contact</a>
         </div>
     </footer>
 
     <script>
-        // Fetch Substack articles
+        // Reveal on scroll
+        const observer = new IntersectionObserver(
+            (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+            { threshold: 0.08, rootMargin: '0px 0px -50px 0px' }
+        );
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        const nav = document.querySelector('.nav');
+        window.addEventListener('scroll', () => {
+            nav.style.borderBottomColor = window.scrollY > 80 ? 'rgba(255,255,255,0.10)' : 'rgba(255,255,255,0.07)';
+        });
+
+        // Substack RSS
         const SUBSTACK_URL = 'https://johnrubino.substack.com';
-        const RSS_FEED_URL = `${SUBSTACK_URL}/feed`;
+        const RSS_FEED_URL = SUBSTACK_URL + '/feed';
 
         let allArticles = [];
         let currentFilter = 'All';
 
         async function fetchSubstackArticles() {
             try {
-                // Use a CORS proxy to fetch the RSS feed
                 const proxyUrl = 'https://api.allorigins.win/raw?url=';
                 const response = await fetch(proxyUrl + encodeURIComponent(RSS_FEED_URL));
                 const xmlText = await response.text();
 
-                // Parse XML
                 const parser = new DOMParser();
                 const xml = parser.parseFromString(xmlText, 'text/xml');
-
-                // Extract articles
                 const items = xml.querySelectorAll('item');
+
                 allArticles = Array.from(items).map(item => {
                     const title = item.querySelector('title')?.textContent || '';
                     const link = item.querySelector('link')?.textContent || '';
@@ -120,25 +124,20 @@
                     const description = item.querySelector('description')?.textContent || '';
                     const categories = Array.from(item.querySelectorAll('category')).map(cat => cat.textContent);
 
-                    // Clean up description (remove HTML tags)
                     const tempDiv = document.createElement('div');
                     tempDiv.innerHTML = description;
                     const cleanDescription = tempDiv.textContent || tempDiv.innerText || '';
 
-                    // Format date
                     const date = new Date(pubDate);
                     const formattedDate = date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 
-                    // Estimate read time (average reading speed: 200 words per minute)
                     const wordCount = cleanDescription.split(/\s+/).length;
                     const readTime = Math.max(1, Math.round(wordCount / 200));
 
-                    // Determine category
-                    let category = 'Design Systems'; // default
+                    let category = 'Design Systems';
                     if (categories.length > 0) {
                         category = categories[0];
                     } else {
-                        // Try to infer from title/description
                         const text = (title + ' ' + cleanDescription).toLowerCase();
                         if (text.includes('ai') || text.includes('artificial intelligence')) {
                             category = 'AI & Design';
@@ -149,164 +148,90 @@
                         }
                     }
 
-                    return {
-                        title,
-                        link,
-                        date: formattedDate,
-                        description: cleanDescription.substring(0, 200) + '...',
-                        category,
-                        readTime
-                    };
+                    return { title, link, date: formattedDate, description: cleanDescription.substring(0, 200) + '...', category, readTime };
                 });
 
                 displayArticles();
-
             } catch (error) {
                 console.error('Error fetching Substack articles:', error);
-                // Keep placeholder articles if fetch fails
+                showFallback();
             }
+        }
+
+        function showFallback() {
+            const grid = document.getElementById('articlesGrid');
+            grid.innerHTML = '<div class="writing-empty"><p>Couldn\'t load articles automatically. Visit <a href="' + SUBSTACK_URL + '" target="_blank">Substack</a> to read the latest posts.</p></div>';
         }
 
         function displayArticles() {
-            const articlesGrid = document.querySelector('.articles-grid');
+            const grid = document.getElementById('articlesGrid');
 
-            // Filter articles
-            const filteredArticles = currentFilter === 'All'
+            const filtered = currentFilter === 'All'
                 ? allArticles
-                : allArticles.filter(article => article.category === currentFilter);
+                : allArticles.filter(a => a.category === currentFilter);
 
-            if (filteredArticles.length === 0 && allArticles.length === 0) {
-                // Show message if no articles loaded
-                articlesGrid.innerHTML = `
-                    <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text-secondary);">
-                        <div style="font-size: 48px; margin-bottom: 16px;">📝</div>
-                        <p>No articles found. Visit <a href="https://johnrubino.substack.com" target="_blank" style="color: var(--accent-purple); text-decoration: none;">Substack</a> to read the latest posts.</p>
-                    </div>
-                `;
+            if (allArticles.length === 0) { showFallback(); return; }
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '<div class="writing-empty"><p>No articles found in this category.</p></div>';
                 return;
             }
 
-            if (filteredArticles.length === 0) {
-                // Show message if filter returns no results
-                articlesGrid.innerHTML = `
-                    <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text-secondary);">
-                        <div style="font-size: 48px; margin-bottom: 16px;">🔍</div>
-                        <p>No articles found in this category.</p>
-                    </div>
-                `;
-                return;
-            }
+            grid.innerHTML = '';
 
-            // Clear existing articles
-            articlesGrid.innerHTML = '';
+            // Featured (first article spans full width)
+            const featured = filtered[0];
+            const featuredEl = document.createElement('a');
+            featuredEl.href = featured.link;
+            featuredEl.target = '_blank';
+            featuredEl.rel = 'noopener noreferrer';
+            featuredEl.className = 'writing-card featured';
+            featuredEl.innerHTML =
+                '<div class="writing-card-eyebrow" style="display:flex;gap:8px;align-items:center;">' +
+                    '<span class="tag orange">Featured</span>' +
+                    '<span class="tag">' + featured.category + '</span>' +
+                '</div>' +
+                '<h2 class="writing-card-title">' + featured.title + '</h2>' +
+                '<p class="writing-card-excerpt">' + featured.description + '</p>' +
+                '<div class="writing-card-meta">' +
+                    '<span class="writing-card-date">' + featured.date + '</span>' +
+                    '<span class="writing-card-read">' + featured.readTime + ' min read</span>' +
+                    '<span class="writing-link" style="margin-left:auto;">Read on Substack' +
+                        '<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+                    '</span>' +
+                '</div>';
+            grid.appendChild(featuredEl);
 
-            // Create featured article (first one)
-            const featured = filteredArticles[0];
-            const featuredHTML = `
-                <a href="${featured.link}" class="card" target="_blank" rel="noopener noreferrer" style="grid-column: 1 / -1;">
-                    <div class="card-image">
-                        <div class="card-placeholder">✍️</div>
-                    </div>
-                    <div class="card-content">
-                        <span class="tag tag-orange" style="margin-bottom: 12px; display: inline-flex;">⭐ Featured</span>
-                        <h2 class="card-title">${featured.title}</h2>
-                        <p class="card-description">${featured.description}</p>
-                        <div style="display: flex; gap: 12px; align-items: center; margin-top: 16px; flex-wrap: wrap;">
-                            <span class="tag tag-purple">${featured.category}</span>
-                            <span style="font-size: 13px; color: var(--text-secondary);">${featured.date}</span>
-                            <span style="font-size: 13px; color: var(--text-secondary);">📖 ${featured.readTime} min read</span>
-                        </div>
-                    </div>
-                </a>
-            `;
-            articlesGrid.innerHTML += featuredHTML;
-
-            // Create regular article cards (skip first one since it's featured)
-            filteredArticles.slice(1).forEach(article => {
-                const cardHTML = `
-                    <a href="${article.link}" class="card" target="_blank" rel="noopener noreferrer">
-                        <div class="card-content">
-                            <span class="tag tag-purple" style="margin-bottom: 12px; display: inline-flex;">${article.category}</span>
-                            <h3 class="card-title">${article.title}</h3>
-                            <p class="card-description">${article.description}</p>
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px; font-size: 13px; color: var(--text-secondary);">
-                                <span>📖 ${article.readTime} min read</span>
-                                <span>Read on Substack →</span>
-                            </div>
-                        </div>
-                    </a>
-                `;
-                articlesGrid.innerHTML += cardHTML;
+            // Regular cards
+            filtered.slice(1).forEach(article => {
+                const card = document.createElement('a');
+                card.href = article.link;
+                card.target = '_blank';
+                card.rel = 'noopener noreferrer';
+                card.className = 'writing-card';
+                card.innerHTML =
+                    '<div class="writing-card-eyebrow"><span class="tag purple">' + article.category + '</span></div>' +
+                    '<h3 class="writing-card-title">' + article.title + '</h3>' +
+                    '<p class="writing-card-excerpt">' + article.description + '</p>' +
+                    '<div class="writing-card-meta">' +
+                        '<span class="writing-card-date">' + article.date + '</span>' +
+                        '<span class="writing-card-read">' + article.readTime + ' min read</span>' +
+                    '</div>';
+                grid.appendChild(card);
             });
         }
 
-        // Filter functionality
-        const filterButtons = document.querySelectorAll('.filter-button');
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                // Reset all buttons to default tag style
-                filterButtons.forEach(btn => {
-                    btn.classList.remove('active', 'tag-purple');
-                    btn.classList.add('tag-default');
-                });
-                // Activate clicked button
-                this.classList.remove('tag-default');
-                this.classList.add('active', 'tag-purple');
-
-                currentFilter = this.textContent.trim();
+        // Filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentFilter = this.dataset.filter;
                 displayArticles();
             });
         });
 
-        // Newsletter form submission
-        const newsletterForm = document.querySelector('.newsletter-form');
-        if (newsletterForm) {
-            newsletterForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const email = this.querySelector('.newsletter-input').value;
-                // Redirect to Substack subscribe page
-                window.open(`${SUBSTACK_URL}/subscribe`, '_blank');
-                this.reset();
-            });
-        }
-
-        // Load articles on page load
         fetchSubstackArticles();
-
-        // Theme Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = themeToggle.querySelector('.theme-icon');
-        const html = document.documentElement;
-
-        // Check for saved theme preference or default to dark mode
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-
-        // Apply saved theme
-        if (savedTheme === 'light') {
-            html.setAttribute('data-theme', 'light');
-            themeIcon.textContent = '🌙';
-        } else {
-            html.removeAttribute('data-theme');
-            themeIcon.textContent = '☀️';
-        }
-
-        // Toggle theme
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-
-            if (currentTheme === 'light') {
-                // Switch to dark mode
-                html.removeAttribute('data-theme');
-                themeIcon.textContent = '☀️';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                // Switch to light mode
-                html.setAttribute('data-theme', 'light');
-                themeIcon.textContent = '🌙';
-                localStorage.setItem('theme', 'light');
-            }
-        });
     </script>
 </body>
 </html>
