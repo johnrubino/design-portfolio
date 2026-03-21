@@ -3,99 +3,690 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case Study: Fully Paid Lending | John Rubino</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-bg: #141414;
-            --secondary-bg: #1a1a1a;
-            --surface-bg: #2a2a2a;
-            --border-color: #3a3a3a;
-            --text-primary: #ffffff;
-            --text-secondary: #b0b0b0;
-            --accent-orange: #FF8C42;
-            --accent-purple: #667eea;
-        }
-
-        [data-theme="light"] {
-            --primary-bg: #ffffff;
-            --secondary-bg: #f5f5f7;
-            --surface-bg: #e8e8ea;
-            --border-color: #d1d1d6;
-            --text-primary: #1a1a1a;
-            --text-secondary: #666666;
-            --accent-orange: #FF8C42;
-            --accent-purple: #667eea;
-        }
-
-        body {
-            font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--primary-bg);
-            color: var(--text-primary);
-            padding: 80px 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-            transition: background 300ms ease, color 300ms ease;
-        }
-
-        h1 {
-            font-size: 48px;
-            margin-bottom: 24px;
-        }
-
-        p {
-            font-size: 18px;
-            line-height: 1.7;
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-        }
-
-        .coming-soon {
-            text-align: center;
-            padding: 120px 40px;
-        }
-
-        .emoji {
-            font-size: 120px;
-            margin-bottom: 32px;
-        }
-
-        /* Hide navigation when in modal */
-        .in-modal .nav-header {
-            display: none !important;
-        }
-
-        .in-modal .case-study-layout {
-            margin-top: 0 !important;
-        }
-    </style>
+    <title>Case Study: Fully Paid Lending | John</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="design-system.css">
 </head>
 <body>
-    <div class="coming-soon">
-        <div class="emoji">💰</div>
-        <h1>Fully Paid Lending</h1>
-        <p>This case study is currently being prepared.</p>
-        <p>Content coming soon...</p>
+    <!-- Navigation -->
+    <nav class="nav-header">
+        <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">J</div>
+            <span>John</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="writing.html" class="nav-link">Writing</a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="theme-icon">☀️</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Case Study Layout -->
+    <div class="case-study-layout">
+        <!-- Floating Stepper -->
+        <div class="stepper-container">
+            <div class="stepper-header">FPL Case Study</div>
+            <div class="stepper expanded">
+                <div class="stepper-step active" data-section="overview">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Overview</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="setup">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">The Setup</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="research">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Research</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="reframing">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Reframing</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="design">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">The Design</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="constraints">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Constraints</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="outcome">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Outcome</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="reflection">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Reflection</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Section: Overview -->
+            <section id="overview" class="content-section">
+                <div class="section-icon">💰</div>
+                <h1 class="section-title">Turning Overlooked Revenue into Action</h1>
+                <p class="section-subtitle">Fully Paid Lending lets advisors earn fees by lending their clients' shares—but the tool designed to surface these opportunities was collecting dust. I led the redesign of an underutilized NetX360 feature into something advisors would actually use.</p>
+
+                <div class="stats-table">
+                    <table>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>Details</th>
+                        </tr>
+                        <tr>
+                            <td><strong>My Role</strong></td>
+                            <td>Lead Studio Designer</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Team</strong></td>
+                            <td>Design Lead, Development Lead, 2 Developers, Product SME, Project Lead</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Timeline</strong></td>
+                            <td>1 year (kickoff to client release)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Outcome</strong></td>
+                            <td>Shipped February 2026</td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Section: The Setup -->
+            <section id="setup" class="content-section">
+                <div class="section-icon">⚡</div>
+                <h1 class="section-title">The Tool No One Used</h1>
+
+                <p class="content-text">
+                    Fully Paid Lending is a straightforward value proposition: advisors can lend shares their clients already own and generate passive revenue. BNY Pershing had a tool to help advisors identify these opportunities—but adoption was dismal.
+                </p>
+
+                <p class="content-text">
+                    The existing Opportunity View page in NetX360 had all the data. It showed potential revenue, participating clients, and historical performance. On paper, it should have been valuable. In practice, advisors were ignoring it entirely.
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">"The tool had the data. It just made users work too hard to extract value from it."</p>
+                </div>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/legacy-opportunity-view.png" alt="Legacy Opportunity View interface">
+                    <figcaption>The existing interface centered on a bubble visualization that research revealed users were skipping entirely.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Section: Research -->
+            <section id="research" class="content-section">
+                <div class="section-icon">🔍</div>
+                <h1 class="section-title">Listening to the Workarounds</h1>
+
+                <p class="content-text">
+                    Without pre-existing insights, I partnered with our research team to understand how advisors were actually engaging with the tool. We conducted research with participants across different roles—from advisors managing individual client relationships to home office managers overseeing entire networks.
+                </p>
+
+                <p class="content-text">
+                    The findings were clear: users had developed elaborate workarounds because the interface wasn't meeting their needs.
+                </p>
+
+                <!--
+                ===== IMAGE PLACEHOLDER =====
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/research-findings.png" alt="Research findings summary">
+                    <figcaption>Key insights from user research revealing consistent pain points across participant types.</figcaption>
+                </figure>
+                -->
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">📊</div>
+                    <p class="image-placeholder-text">Research findings summary or affinity map showing key themes</p>
+                </div>
+
+                <h2>Bubbles Were Decoration</h2>
+
+                <p class="content-text">
+                    The interface's centerpiece was a bubble visualization—larger bubbles indicated bigger opportunities. The assumption was that visual hierarchy would help advisors prioritize.
+                </p>
+
+                <p class="content-text">
+                    Reality was different. Users understood what the bubbles represented, but found drilling into each one inefficient. Most skipped the visualization entirely and exported everything to Excel, where they could sort, filter, and cross-reference with other tools like Bloomberg.
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">"Some users do not engage with the bubbles at all and rely on Excel exports."</p>
+                </div>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/bubble-interaction.png" alt="Legacy bubble visualization">
+                    <figcaption>Users understood larger bubbles meant bigger opportunities—but the interaction model failed them.</figcaption>
+                </figure>
+
+                <h2>The Data Wasn't Trusted</h2>
+
+                <p class="content-text">
+                    Advisors needed context the tool didn't provide. They wanted to assess opportunity validity—factors like security utilization and trading frequency—but the interface showed potential revenue without explaining how it was calculated.
+                </p>
+
+                <p class="content-text">
+                    Some felt the system assumed static rates that didn't reflect daily market changes. Others questioned whether the numbers were realistic at all. Without transparency, advisors were hesitant to act on what they saw.
+                </p>
+
+                <!--
+                ===== IMAGE PLACEHOLDER =====
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">❓</div>
+                    <p class="image-placeholder-text">Research quote or finding about data trust issues</p>
+                </div>
+                -->
+
+                <h2>Friction Killed Enrollment</h2>
+
+                <p class="content-text">
+                    Even when advisors identified opportunities worth pursuing, the enrollment process stopped them cold. Onboarding clients into the lending program required manual emails, document uploads, and back-and-forth that created unnecessary friction.
+                </p>
+
+                <p class="content-text">
+                    The tool could show you the opportunity. It couldn't help you capture it.
+                </p>
+            </section>
+
+            <!-- Section: Reframing the Problem -->
+            <section id="reframing" class="content-section">
+                <div class="section-icon">🎯</div>
+                <h1 class="section-title">Reframing the Problem</h1>
+
+                <p class="content-text">
+                    The research painted a clear picture: this wasn't a feature problem. It was a usability problem compounded by a trust problem.
+                </p>
+
+                <p class="content-text">
+                    The original interface asked users to interact with data in ways that didn't match their mental models. It prioritized visualization over utility. It obscured methodology instead of revealing it. And it dead-ended at the moment of action.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/journey-map.png" alt="Journey map showing pain points">
+                    <figcaption>Mapping the breakdown points revealed that problems clustered around data interpretation, navigation efficiency, and enrollment friction.</figcaption>
+                </figure>
+
+                <p class="content-text">
+                    The core design challenge became:
+                </p>
+
+                <div class="highlight-box">
+                    <h4 class="highlight-title">The Core Question</h4>
+                    <p class="highlight-text">"How do you surface dense financial data in a way that supports quick scanning and deep investigation—without forcing users into a separate tool?"</p>
+                </div>
+            </section>
+
+            <!-- Section: The Design -->
+            <section id="design" class="content-section">
+                <div class="section-icon">✨</div>
+                <h1 class="section-title">From Visualization to Information</h1>
+
+                <p class="content-text">
+                    The most significant design decision was killing the bubble visualization entirely.
+                </p>
+
+                <p class="content-text">
+                    Research showed users were bypassing it for Excel exports. They wanted to scan across offices and advisors quickly, drill into specific positions when needed, and take action without leaving context. Bubbles didn't support any of these behaviors.
+                </p>
+
+                <p class="content-text">
+                    I explored multiple directions—bar charts, various table configurations, hybrid approaches—before landing on an expandable nested table as the primary interface.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/early-explorations.png" alt="Early design explorations">
+                    <figcaption>Early explorations tested different ways to represent the same data. The expandable table emerged as the strongest pattern for supporting both scanning and investigation.</figcaption>
+                </figure>
+
+                <h2>The Nested Table</h2>
+
+                <p class="content-text">
+                    The final design uses a three-level hierarchy: Office → Advisor → Investor. Users can scan across the top level to identify high-opportunity offices, expand to see which advisors are driving those numbers, and drill further to individual investor positions.
+                </p>
+
+                <p class="content-text">
+                    This pattern solved several problems simultaneously:
+                </p>
+
+                <ul>
+                    <li><strong>Scanning:</strong> Managers can quickly compare performance across their network without clicking into separate views</li>
+                    <li><strong>Context preservation:</strong> Expanding a row keeps surrounding data visible, unlike the old drill-down flow that lost context with each click</li>
+                    <li><strong>Flexibility:</strong> The same structure works for both manager and advisor views, reducing cognitive load when switching between perspectives</li>
+                </ul>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/nested-table-design.png" alt="Final nested table design">
+                    <figcaption>The expandable table lets users drill from office to advisor to investor without losing context.</figcaption>
+                </figure>
+
+                <h2>Reclaiming the Space Above the Fold</h2>
+
+                <p class="content-text">
+                    A consistent complaint across BNY Pershing products was content being pushed below the scroll. The legacy FPL page stacked filters, tabs, summary statistics, and navigation elements—leaving actual data buried.
+                </p>
+
+                <p class="content-text">
+                    I audited every element above the fold and challenged whether it earned its placement.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/before-after.png" alt="Before/after comparison">
+                    <figcaption>The legacy interface (left) buried actionable data below multiple navigation layers. The redesign (right) prioritizes the table.</figcaption>
+                </figure>
+
+                <h3>What Got Removed</h3>
+
+                <p class="content-text">
+                    <strong>The IBD/Office dropdown filters.</strong> These duplicated functionality now handled by the table's expandable hierarchy and inline filtering.
+                </p>
+
+                <p class="content-text">
+                    <strong>The separate "Top Opportunities" section.</strong> Valuable content, but it competed with the primary table. I moved this to a dedicated "View by Ticker" tab where users seeking specific securities could find them intentionally.
+                </p>
+
+                <p class="content-text">
+                    <strong>The Participating/Non-Participating tab split.</strong> Instead of forcing users to toggle between views, I added Enrolled and Not Enrolled columns inline. One view, complete picture.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/annotated-filter-screenshot.png" alt="Consolidated filter approach">
+                    <figcaption>Enrollment status is now visible at a glance rather than hidden behind tab navigation.</figcaption>
+                </figure>
+
+                <h3>What Got Added</h3>
+
+                <p class="content-text">
+                    <strong>Sparklines for performance trends.</strong> A small inline visualization showing YTD performance lets users spot patterns without leaving the table. Clicking opens a modal with the full chart—progressive disclosure that keeps the primary view scannable.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/performance-ytd-details-modal.png" alt="Sparkline detail and modal">
+                    <figcaption>Sparklines provide trend information at a glance. The modal reveals full detail on demand.</figcaption>
+                </figure>
+
+                <p class="content-text">
+                    <strong>A "Learn and Invite" tab.</strong> Consolidating program information and the enrollment flow in one place addressed the friction that killed adoption. Advisors can understand the program and take action without leaving the tool.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/Learn-invite-page.png" alt="Learn and Invite tab design">
+                    <figcaption>Reducing enrollment friction from manual email workflows to an integrated flow.</figcaption>
+                </figure>
+
+                <h2>From Insight to Action</h2>
+
+                <p class="content-text">
+                    Identifying opportunities is only valuable if users can act on them. The legacy enrollment process required manual emails and document uploads—friction that meant opportunities sat untouched.
+                </p>
+
+                <p class="content-text">
+                    The invite worksheet lets users select eligible accounts directly from the table and send enrollment forms in a single flow. Status is visible inline (Enrolled, Not Enrolled, partial enrollment states), and users can preview the actual agreement before sending.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/invite-worksheet-forms-previewed.png" alt="Invite worksheet with accounts selected and form preview">
+                    <figcaption>Enrollment integrated into the workflow: select accounts, preview forms, invite—no context switching.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Section: Outcome -->
+            <section id="outcome" class="content-section">
+                <div class="section-icon">🎉</div>
+                <h1 class="section-title">The Outcome</h1>
+
+                <p class="content-text">
+                    The redesigned Fully Paid Lending page shipped to clients in February 2026. While we're still gathering post-launch feedback, every design decision was validated through iterative review with both internal stakeholders and anticipated client needs.
+                </p>
+
+                <p class="content-text">
+                    The redesign directly addresses every major pain point from research:
+                </p>
+
+                <div class="stats-table">
+                    <table>
+                        <tr>
+                            <th>Research Finding</th>
+                            <th>Design Response</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Bubble visualization ignored</strong></td>
+                            <td>Replaced with scannable nested table</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Drill-down lost context</strong></td>
+                            <td>Expandable rows preserve surrounding data</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Content buried below scroll</strong></td>
+                            <td>Consolidated hierarchy, removed redundant elements</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Participation status unclear</strong></td>
+                            <td>Inline Enrolled/Not Enrolled columns</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Top opportunities hard to find</strong></td>
+                            <td>Dedicated "View by Ticker" tab</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Enrollment friction</strong></td>
+                            <td>Integrated "Learn and Invite" flow</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Data trust issues</strong></td>
+                            <td>Transparent methodology, progressive disclosure</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/final-design.png" alt="Final design full page view">
+                    <figcaption>The final design: a scannable, expandable table with inline status, integrated enrollment, and dedicated views for different user goals.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Section: Reflection -->
+            <section id="reflection" class="content-section">
+                <div class="section-icon">🔮</div>
+                <h1 class="section-title">Reflection</h1>
+
+                <p class="content-text">
+                    This project reinforced something I keep relearning: <strong>"underutilized" is usually a design problem wearing a feature costume.</strong>
+                </p>
+
+                <p class="content-text">
+                    The original FPL page had the data. It even had the right <em>idea</em>—help advisors find revenue opportunities. But it presented information in ways that didn't match how users actually worked. They needed tables, not bubbles. They needed inline context, not drill-down journeys. They needed to act, not just observe.
+                </p>
+
+                <p class="content-text">
+                    The biggest lever wasn't adding features. It was removing friction and consolidating information so the tool could get out of the way of the work.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/before-after-final-design.png" alt="Before/after transformation">
+                    <figcaption>From overlooked to actionable: the full transformation of the Fully Paid Lending experience.</figcaption>
+                </figure>
+            </section>
+        </main>
+    </div>
+
+    <!-- Image Lightbox -->
+    <div class="lightbox-overlay" id="lightbox">
+        <button class="lightbox-close" aria-label="Close">✕</button>
+        <img class="lightbox-image" id="lightboxImage" src="" alt="">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
     </div>
 
     <script>
+        // ==================== IMAGE LIGHTBOX ====================
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const lightboxClose = lightbox.querySelector('.lightbox-close');
+
+        // Add click handlers to all case study images
+        document.querySelectorAll('.case-study-figure img, .case-study-image img, .image-grid img').forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImage.src = img.src;
+                lightboxImage.alt = img.alt;
+
+                // Get caption from figcaption if available
+                const figcaption = img.closest('figure')?.querySelector('figcaption');
+                if (figcaption) {
+                    lightboxCaption.textContent = figcaption.textContent;
+                    lightboxCaption.style.display = 'block';
+                } else {
+                    lightboxCaption.style.display = 'none';
+                }
+
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+
+        // Scroll spy for stepper
+        const sections = document.querySelectorAll('.content-section');
+        const stepperSteps = document.querySelectorAll('.stepper-step');
+        const stepperContainer = document.querySelector('.stepper-container');
+
+        // Check if mobile/tablet
+        function isMobile() {
+            return window.innerWidth <= 1024;
+        }
+
+        // Update the current step display data attributes
+        function updateCurrentStepDisplay() {
+            const activeStep = document.querySelector('.stepper-step.active');
+            const allSteps = document.querySelectorAll('.stepper-step');
+            if (activeStep) {
+                const currentIndex = Array.from(allSteps).indexOf(activeStep) + 1;
+                const totalSteps = allSteps.length;
+                const currentLabel = activeStep.querySelector('.stepper-title')?.textContent || '';
+
+                stepperContainer.setAttribute('data-current-step', `${currentIndex}/${totalSteps}`);
+                stepperContainer.setAttribute('data-current-label', currentLabel);
+            }
+        }
+
+        function updateStepper() {
+            let currentSection = '';
+            const scrollPos = window.scrollY + 200;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    currentSection = sectionId;
+                }
+            });
+
+            stepperSteps.forEach(step => {
+                const stepSection = step.getAttribute('data-section');
+                step.classList.remove('active', 'completed', 'inactive');
+
+                const stepIndex = Array.from(stepperSteps).indexOf(step);
+                const currentIndex = Array.from(stepperSteps).findIndex(s => s.getAttribute('data-section') === currentSection);
+
+                if (stepSection === currentSection) {
+                    step.classList.add('active');
+                } else if (stepIndex < currentIndex) {
+                    step.classList.add('completed');
+                } else {
+                    step.classList.add('inactive');
+                }
+            });
+
+            // Update mobile collapsed state display
+            if (isMobile()) {
+                updateCurrentStepDisplay();
+            }
+        }
+
+        // Add click handlers to stepper steps
+        stepperSteps.forEach(step => {
+            step.addEventListener('click', function() {
+                const sectionId = this.getAttribute('data-section');
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    window.scrollTo({
+                        top: section.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Update stepper on scroll
+        window.addEventListener('scroll', updateStepper);
+        window.addEventListener('load', updateStepper);
+
+        // Toggle stepper collapse/expand
+        const stepperHeader = document.querySelector('.stepper-header');
+        const stepper = document.querySelector('.stepper');
+
+        // Initialize mobile state
+        function initializeStepper() {
+            if (isMobile()) {
+                stepperContainer.classList.add('mobile-collapsed');
+                stepper.classList.remove('expanded');
+                updateCurrentStepDisplay();
+            } else {
+                stepperContainer.classList.remove('mobile-collapsed');
+                stepper.classList.add('expanded');
+            }
+        }
+
+        // Click on collapsed container to expand
+        stepperContainer.addEventListener('click', function(e) {
+            if (isMobile() && stepperContainer.classList.contains('mobile-collapsed')) {
+                stepperContainer.classList.remove('mobile-collapsed');
+                stepper.classList.add('expanded');
+                e.stopPropagation();
+            }
+        });
+
+        if (stepperHeader && stepper) {
+            stepperHeader.style.cursor = 'pointer';
+            stepperHeader.style.position = 'relative';
+
+            // Desktop: toggle expanded/collapsed (show/hide titles)
+            // Mobile: close the stepper
+            stepperHeader.addEventListener('click', function(e) {
+                if (isMobile()) {
+                    // The X is in the header, so clicking it should collapse
+                    if (!stepperContainer.classList.contains('mobile-collapsed')) {
+                        stepperContainer.classList.add('mobile-collapsed');
+                        e.stopPropagation();
+                    }
+                } else {
+                    stepper.classList.toggle('expanded');
+                }
+            });
+        }
+
+        // Click outside to close on mobile
+        document.addEventListener('click', function(e) {
+            if (isMobile() && !stepperContainer.classList.contains('mobile-collapsed')) {
+                if (!stepperContainer.contains(e.target)) {
+                    stepperContainer.classList.add('mobile-collapsed');
+                }
+            }
+        });
+
+        // Initialize on load
+        initializeStepper();
+
+        // Re-initialize on resize
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(initializeStepper, 100);
+        });
+
         // Detect if in iframe (modal) and add class to hide nav
         if (window.self !== window.top) {
             document.body.classList.add('in-modal');
         }
 
-        // Apply theme from localStorage
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('.theme-icon');
         const html = document.documentElement;
+
+        // Check for saved theme preference or default to dark mode
         const savedTheme = localStorage.getItem('theme') || 'dark';
 
+        // Apply saved theme
         if (savedTheme === 'light') {
             html.setAttribute('data-theme', 'light');
+            themeIcon.textContent = '🌙';
+        } else {
+            html.removeAttribute('data-theme');
+            themeIcon.textContent = '☀️';
         }
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+
+            if (currentTheme === 'light') {
+                // Switch to dark mode
+                html.removeAttribute('data-theme');
+                themeIcon.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                // Switch to light mode
+                html.setAttribute('data-theme', 'light');
+                themeIcon.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        });
     </script>
 </body>
 </html>
