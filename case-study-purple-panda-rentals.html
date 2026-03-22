@@ -615,11 +615,14 @@
             resizeTimeout = setTimeout(initializeStepper, 100);
         });
 
-        // Hide nav when loaded inside the bottom sheet iframe
+        // Hide nav and expand layout when loaded inside the sheet iframe
         if (window.self !== window.top) {
             document.body.classList.add('in-modal');
             const nav = document.querySelector('.nav-header');
             if (nav) nav.style.display = 'none';
+            const s = document.createElement('style');
+            s.textContent = '.content-section{max-width:none!important}.case-study-layout .main-content{max-width:none!important}';
+            document.head.appendChild(s);
         }
 
         // Theme Toggle

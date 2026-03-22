@@ -9,22 +9,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="design-system.css">
     <style>
-        /* card-content: no background bleed from design-system */
+        /* ── Card overrides ── */
         .portfolio-card .card-content {
             background: transparent !important;
             padding: 0 !important;
             position: static !important;
             z-index: auto !important;
         }
-
-        /* card-image gradient placeholder for BNY cards */
         .card-image-gradient {
             position: absolute;
             inset: 0;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
         }
-
-        /* card-tag styling */
         .card-tag {
             display: inline-block;
             padding: 3px 10px;
@@ -37,154 +33,203 @@
             margin-right: 6px;
         }
 
-        /* ── Bottom sheet: overlay backdrop ── */
+        /* ── Backdrop + positioning context (Humaan SmoothModal architecture) ── */
         .hiring-page .modal-overlay {
-            position: fixed !important;
-            inset: 0 !important;
-            background: rgba(0,0,0,0.55) !important;
-            backdrop-filter: blur(6px) !important;
-            -webkit-backdrop-filter: blur(6px) !important;
-            z-index: 2000 !important;
-            opacity: 0 !important;
-            visibility: hidden !important;
-            pointer-events: none !important;
-            transition: opacity 300ms ease, visibility 300ms ease !important;
-            display: block !important;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
         }
         .hiring-page .modal-overlay.active {
-            opacity: 1 !important;
-            visibility: visible !important;
-            pointer-events: all !important;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: all;
         }
 
-        /* ── Bottom sheet: container ── */
+        /* ── Panel — peek state: inset via left/right/top offsets ── */
         .hiring-page .modal-container {
-            position: fixed !important;
-            bottom: 0 !important;
-            left: 50% !important;
-            transform: translateX(-50%) translateY(100%) !important;
-            width: min(1440px, 100%) !important;
-            height: 92vh !important;
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: stretch !important;
-            gap: 0 !important;
-            background: #0d0d12 !important;
-            border-radius: 16px 16px 0 0 !important;
-            border: 1px solid rgba(255,255,255,0.09) !important;
-            border-bottom: none !important;
-            box-shadow: 0 -20px 80px rgba(0,0,0,0.7) !important;
-            overflow: hidden !important;
-            transition: transform 400ms cubic-bezier(0.32, 0.72, 0, 1) !important;
-            padding: 0 !important;
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            bottom: 0;
+            top: 12vh;
+            border-radius: 24px 24px 0 0;
+            background: var(--surface, #f5f4f0);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            z-index: 1;
+            transform: translateY(calc(100% + 2px));
+            transition:
+                transform 0.8s cubic-bezier(0.87, 0, 0.13, 1),
+                left 0.35s ease,
+                right 0.35s ease,
+                top 0.35s ease,
+                border-radius 0.35s ease;
         }
         .hiring-page .modal-overlay.active .modal-container {
-            transform: translateX(-50%) translateY(0) !important;
+            transform: translateY(0);
         }
 
-        /* Top strip: drag handle + close button */
-        .sheet-topbar {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            height: 40px;
-            flex-shrink: 0;
-            background: #0d0d12;
+        /* ── Panel — expanded state: offsets collapse to 0 (scroll-triggered) ── */
+        .hiring-page .modal-container.sheet--expanded {
+            left: 0;
+            right: 0;
+            top: 0;
+            border-radius: 0;
         }
-        .sheet-drag-handle {
-            width: 36px;
-            height: 4px;
-            border-radius: 2px;
-            background: rgba(255,255,255,0.18);
-        }
+
+        /* ── Close button — absolute inside sheet container ── */
         .sheet-close-x {
             position: absolute;
-            right: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 28px;
-            height: 28px;
+            top: 16px;
+            right: 20px;
+            z-index: 10;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.1);
+            background: rgba(0,0,0,0.75);
             border: none;
-            color: rgba(255,255,255,0.7);
-            font-size: 14px;
+            color: #fff;
+            font-size: 16px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 160ms ease, color 160ms ease;
-        }
-        .sheet-close-x:hover { background: rgba(255,255,255,0.18); color: #fff; }
-
-        /* Header row: title + open-in-tab button */
-        .sheet-header-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px 24px;
-            border-bottom: 1px solid rgba(255,255,255,0.07);
-            background: #13131a;
+            transition: background 160ms ease;
             flex-shrink: 0;
         }
-        .sheet-case-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: #f0ede8;
-            letter-spacing: -0.01em;
+        .sheet-close-x:hover { background: rgba(0,0,0,0.9); }
+
+        /* ── Content panel (replaces iframe) ── */
+        .sheet-content-panel {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            background: var(--bg, #0d0d12);
         }
-        .sheet-open-btn {
-            display: inline-flex;
+
+        /* ── Slim custom scrollbar ── */
+        .sheet-content-panel::-webkit-scrollbar { width: 3px; }
+        .sheet-content-panel::-webkit-scrollbar-track { background: transparent; }
+        .sheet-content-panel::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.15);
+            border-radius: 2px;
+        }
+        .sheet-content-panel::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* ── Loading state inside panel ── */
+        .sheet-panel-loading {
+            display: flex;
             align-items: center;
-            gap: 6px;
-            padding: 6px 14px;
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 6px;
-            background: transparent;
-            color: rgba(255,255,255,0.6);
-            font-size: 12px;
-            font-weight: 500;
-            text-decoration: none;
-            cursor: pointer;
-            transition: border-color 160ms ease, color 160ms ease;
-        }
-        .sheet-open-btn:hover { border-color: rgba(255,255,255,0.3); color: #fff; }
-
-        /* Iframe content fills remaining height */
-        .hiring-page .modal-content {
-            flex: 1 !important;
-            width: 100% !important;
-            overflow: hidden !important;
-            position: relative !important;
-            background: #0d0d12 !important;
-        }
-        .hiring-page .modal-content iframe {
-            width: 100% !important;
-            height: 100% !important;
-            border: none !important;
-            display: block !important;
+            justify-content: center;
+            height: 100%;
+            min-height: 300px;
         }
 
-        /* Footer row: category label + prev/next buttons */
+        /* ── Case study layout overrides when rendered inside sheet ── */
+        .sheet-content-panel .case-study-layout {
+            padding-top: 0;
+            min-height: 100%;
+            align-items: stretch;
+        }
+        .sheet-content-panel .stepper-container {
+            position: sticky;
+            top: 0;
+            align-self: stretch;
+            height: 100vh;
+            max-height: 100vh;
+            overflow: hidden;
+        }
+        .sheet-content-panel .case-study-layout .main-content {
+            overflow: visible !important;
+            height: auto !important;
+            max-width: none !important;
+            padding: 48px 56px !important;
+        }
+        .sheet-content-panel .content-section {
+            max-width: none !important;
+        }
+
+        /* ── Stepper connector lines ── */
+        .sheet-content-panel .stepper-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+            width: 24px;
+        }
+        .sheet-content-panel .stepper-line {
+            width: 1.5px;
+            flex: 1;
+            min-height: 14px;
+            background: var(--border-color, rgba(255,255,255,0.12));
+            margin-top: 4px;
+        }
+        .sheet-content-panel .stepper-step:last-child .stepper-line { display: none; }
+        .sheet-content-panel .stepper-step.active .stepper-line,
+        .sheet-content-panel .stepper-step.completed .stepper-line {
+            background: rgba(102,126,234,0.4);
+        }
+
+        /* ── Image visual treatment inside sheet ── */
+        .sheet-content-panel .case-study-figure {
+            margin: 20px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-color, rgba(255,255,255,0.08));
+            background: rgba(255,255,255,0.03);
+        }
+        .sheet-content-panel .case-study-figure img {
+            width: 100%;
+            max-height: 320px;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        /* Two consecutive figures → side by side */
+        .sheet-content-panel .case-study-figure:has(+ .case-study-figure) {
+            float: left;
+            width: calc(50% - 8px);
+            margin-right: 16px;
+        }
+        .sheet-content-panel .case-study-figure + .case-study-figure {
+            float: left;
+            width: calc(50% - 8px);
+            clear: none;
+        }
+        .sheet-content-panel .case-study-figure + .case-study-figure + * { clear: both; }
+        .sheet-content-panel .case-study-figure + .case-study-figure + .case-study-figure {
+            clear: both;
+            float: none;
+            width: 100%;
+        }
+
+        /* ── Footer: prev/next navigation ── */
+        .sheet-footer-label { display: none; }
         .sheet-footer-row {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-end;
             padding: 12px 24px;
             border-top: 1px solid rgba(255,255,255,0.07);
-            background: #13131a;
+            background: #111118;
             flex-shrink: 0;
         }
-        .sheet-footer-label {
-            font-size: 12px;
-            color: rgba(255,255,255,0.35);
-            letter-spacing: 0.04em;
+        [data-theme="light"] .sheet-footer-row {
+            background: #f4f4f7;
+            border-top-color: rgba(0,0,0,0.08);
         }
-        .sheet-footer-nav {
-            display: flex;
-            gap: 8px;
-        }
+        .sheet-footer-nav { display: flex; gap: 8px; }
         .sheet-nav-btn {
             display: inline-flex;
             align-items: center;
@@ -202,28 +247,20 @@
             border: 1px solid rgba(255,255,255,0.15);
             color: rgba(255,255,255,0.6);
         }
-        .sheet-nav-btn.outline:hover:not(:disabled) { border-color: rgba(255,255,255,0.3); color: #fff; }
-        .sheet-nav-btn.primary {
-            background: #667eea;
-            border: 1px solid #667eea;
-            color: #fff;
+        [data-theme="light"] .sheet-nav-btn.outline {
+            border-color: rgba(0,0,0,0.18);
+            color: rgba(0,0,0,0.6);
         }
+        [data-theme="light"] .sheet-nav-btn.outline:hover:not(:disabled) {
+            border-color: rgba(0,0,0,0.35);
+            color: #000;
+        }
+        .sheet-nav-btn.outline:hover:not(:disabled) { border-color: rgba(255,255,255,0.3); color: #fff; }
+        .sheet-nav-btn.primary { background: #667eea; border: 1px solid #667eea; color: #fff; }
         .sheet-nav-btn.primary:hover:not(:disabled) { background: #7b91f0; }
         .sheet-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
 
-        /* Loading spinner */
-        .modal-loading {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #0d0d12;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 200ms ease, visibility 200ms ease;
-        }
-        .modal-loading.active { opacity: 1; visibility: visible; }
+        /* ── Spinner (used in sheet-panel-loading) ── */
         .spinner {
             width: 36px;
             height: 36px;
@@ -412,25 +449,1632 @@
         </main>
     </div>
 
-    <!-- Case Study Bottom Sheet -->
-    <div class="modal-overlay" id="caseStudyModal">
-        <div class="modal-container">
-            <!-- Top strip: drag handle + close -->
-            <div class="sheet-topbar">
-                <div class="sheet-drag-handle"></div>
-                <button class="sheet-close-x" id="modalClose" aria-label="Close">&#x2715;</button>
-            </div>
-            <!-- Header: title -->
-            <div class="sheet-header-row">
-                <div class="sheet-case-title" id="modalTitle">Case Study</div>
-            </div>
-            <!-- Iframe content area -->
-            <div class="modal-content">
-                <div class="modal-loading" id="modalLoading">
-                    <div class="spinner"></div>
+    <!-- Pre-embedded case study content (avoids fetch() CORS on file://) -->
+    <div id="case-content-future-of-wealth-advisory" style="display:none">
+        <div class="case-study-layout">
+        <!-- Floating Stepper -->
+        <div class="stepper-container">
+            <div class="stepper-header">Wealth Advisory</div>
+            <div class="stepper expanded">
+                <div class="stepper-step active" data-section="overview">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Overview</div>
+                    </div>
                 </div>
-                <iframe id="modalIframe" title="Case Study"></iframe>
+                <div class="stepper-step inactive" data-section="research">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Research</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="nao-problem">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Account Opening</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="nao-exploration">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">NAO Exploration</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="asset-movement">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Asset Movement</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="am-solution">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">AM Solution</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="outcome">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Outcome</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="reflection">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Reflection</div>
+                    </div>
+                </div>
             </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- ==================== OVERVIEW ==================== -->
+            <section id="overview" class="content-section">
+                <div class="section-icon">🔄</div>
+                <h1 class="section-title">Designing for a System in Transition</h1>
+                <p class="section-subtitle">BNY Pershing was consolidating two platforms into one. I helped reimagine how advisors open accounts and move assets—two workflows that touch millions of dollars daily but were failing users at every turn.</p>
+
+                <div class="stats-table">
+                    <table>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>Details</th>
+                        </tr>
+                        <tr>
+                            <td><strong>My Role</strong></td>
+                            <td>Studio Designer (collaborative team, I designed the To-Do List pattern for NAO and the collapsing stepper for Asset Movement)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Team</strong></td>
+                            <td>2 Studio Designers, Design Lead, Product Partners, User Research Team</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Timeline</strong></td>
+                            <td>~8 months</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Outcome</strong></td>
+                            <td>Validated designs ready for future development as platform consolidation continues</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h2>Two platforms, one future</h2>
+
+                <p class="content-text">
+                    BNY Pershing's Wealth Services group operates two platforms: NetX360+, a legacy system used by traditional broker-dealers and their advisors, and Wove, a newer platform built for RIAs. The company's strategy is to eventually consolidate these into a single unified experience—Wove—with different features white-labeled based on client needs.
+                </p>
+
+                <p class="content-text">
+                    But you can't flip a switch. NetX360 has decades of features that Wove doesn't yet support. The transition happens piece by piece, workflow by workflow.
+                </p>
+
+                <p class="content-text">
+                    Our team was asked to envision what two critical workflows—New Account Opening and Asset Movement—should look like in this future state. Not incremental improvements to the legacy system, but a rethinking of how these experiences should work when built from the ground up.
+                </p>
+
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">🔀</div>
+                    <p class="image-placeholder-text">Platform context diagram or visual showing NetX360 → Wove transition</p>
+                </div>
+            </section>
+
+            <!-- ==================== RESEARCH ==================== -->
+            <section id="research" class="content-section">
+                <div class="section-icon">🔍</div>
+                <h1 class="section-title">The Research Revealed a Common Enemy</h1>
+
+                <p class="content-text">
+                    Before diving into solutions, our research team conducted extensive discovery. The Custody Client Research surveyed clients across key personas—advisors, operations, client associates, compliance managers, and senior leaders. A separate NAO Design Validation study conducted moderated sessions with advisors, CSAs, and home office personas to understand the current experience in depth.
+                </p>
+
+                <p class="content-text">
+                    The findings were stark. When asked to rate pain points across all their responsibilities, advisors rated <strong>"Onboard clients and/or open accounts" as the single highest pain point</strong>—higher than trading, transfers, or any other task.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/platform-vision/custody-client-research-summary.png" alt="Advisor and Portfolio Manager Persona pain point ratings showing onboarding as highest">
+                    <figcaption>Quantitative research confirmed what interviews revealed: account opening was the most painful task advisors faced.</figcaption>
+                </figure>
+
+                <p class="content-text">The primary challenge was clear:</p>
+
+                <div class="quote-block">
+                    <p class="quote-text">"Manual and repetitive work emerged as a significant hurdle across various operational aspects."</p>
+                </div>
+
+                <p class="content-text">
+                    But the research went deeper than that headline. Four themes emerged that would directly shape our design approach:
+                </p>
+
+                <ol>
+                    <li><strong>Intuitiveness &gt; Efficiency</strong> — Reducing human input (including calls to reps, tech engineers, help desks) is critical. Intuitiveness directly correlates to speed.</li>
+                    <li><strong>Integration &amp; Interoperability</strong> — Users want data entered once and populated throughout. They want connection to their existing tools.</li>
+                    <li><strong>Less is more</strong> — Users want to complete only required fields. Less input means more time saved, more brainpower for other tasks.</li>
+                    <li><strong>Information Organization</strong> — Users want systematic ways to track information, clearer communication about what's required vs. missing, and progress visibility.</li>
+                </ol>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/platform-vision/problem-framework-synthesizing-research.png" alt="Expectations for Account Opening showing the four themes">
+                    <figcaption>Research synthesized into four design principles: intuitiveness, integration, minimalism, and organization.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Part One Divider -->
+            <div class="part-divider">
+                <div class="part-label">Part One</div>
+                <div class="part-title">New Account Opening</div>
+            </div>
+
+            <!-- ==================== NAO PROBLEM ==================== -->
+            <section id="nao-problem" class="content-section">
+                <div class="section-icon">📝</div>
+                <h1 class="section-title">A Form Pretending to Be a Workflow</h1>
+
+                <h2>Ten tools, thirty days</h2>
+
+                <p class="content-text">
+                    The research revealed something striking: <strong>participants reported using at least 10 separate tools</strong> as part of their account opening processes—Wealthbox, eMoney, Advent APX, Juncture, Envestnet, DST, NetX360, email, cloud storage, and handwritten notes.
+                </p>
+
+                <p class="content-text">
+                    The process took anywhere from <strong>3 to 30 days</strong> depending on account type, compliance requirements, firm-specific processes, and how much back-and-forth was needed to gather client information.
+                </p>
+
+                <p class="content-text">
+                    This wasn't a usability problem. It was an ecosystem problem.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/platform-vision/Intergration and Interoperability slide.png" alt="Integration and Interoperability research slide showing the 10+ tools advisors use">
+                    <figcaption>Research finding: advisors juggled 10+ tools with no unified workflow</figcaption>
+                </figure>
+
+                <h2>A form pretending to be a workflow</h2>
+
+                <p class="content-text">
+                    In NetX360, account opening presented itself as a 5-step process: Getting Started, Enter Account Info, Review Clients &amp; Accounts, Choose Forms &amp; Signature, Submit.
+                </p>
+
+                <p class="content-text">
+                    The reality was different. Behind "Enter Account Info" sat a seemingly endless scrolling form—dozens of fields spanning client details, account attributes, regulatory requirements, custodian features, and more. Users had no way to know how much was left, what was required versus optional, or whether they'd missed something critical.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/platform-vision/legacy-netx360-interface.png" alt="Legacy NetX360 NAO interface showing the 5-step wizard and the massive scrolling form">
+                    <figcaption>The legacy interface: a 5-step wizard hiding a monolithic form. Users had no visibility into progress or sub-tasks.</figcaption>
+                </figure>
+
+                <h2>"Once you get started, you just want to get through it"</h2>
+
+                <p class="content-text">
+                    The research mapped the full journey across six phases: Setup → Prepare → Input → Get signature → Check Status &amp; Resolve Issues → Locate new account. Pain points clustered at every phase, but the worst were at "Check Status &amp; Resolve Issues"—where NIGOs (Not In Good Order rejections) piled up.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/platform-vision/COB-process-flowchart.png" alt="Client Onboarding - Experience flow and pain points across six phases">
+                    <figcaption>Pain points mapped across six phases. NIGO issues clustered at status checking, where users struggled to understand what was wrong and who could fix it.</figcaption>
+                </figure>
+
+                <p class="content-text">The problems were specific and consistent across firms:</p>
+
+                <p class="content-text">
+                    <strong>Configuration didn't flow.</strong> When users copied an existing client's configuration, details like e-delivery preferences wouldn't carry over. Joint account configurations would apply to one account but not the other.
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">"My eDelivery preferences, I should be able to do that across the board for everybody or my additional account information—none of this ever flows over. I want it to be the same across everybody across all account types. I can tell you this is very, very time consuming."</p>
+                    <p class="quote-author">— First Command</p>
+                </div>
+
+                <p class="content-text">
+                    <strong>Systems didn't talk to each other.</strong> Users worked in parallel systems—NetX360 open alongside their CRM—manually syncing status between tools.
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">"Our CRM doesn't talk to NetX360 at all, so they're advisors basically doing it in parallel. They've got NetX360 open, and they've got the CRM open, so they have a Pershing account assigned to them, they go upload the documents into NetX360 to kick off this account opening. Then update my workflow and now the account got opened. In the CRM they mark the account got open, account open date."</p>
+                    <p class="quote-author">— Ops Manager, Captrust</p>
+                </div>
+
+                <p class="content-text">
+                    <strong>Multiple accounts meant multiple envelopes.</strong> Opening five accounts for a client meant sending five separate signature envelopes—a frustration that should have been simple to solve.
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">"If we have multiple accounts, we'll open multiple accounts. We would like to have instead of five different envelopes go, if it's five different accounts, have one envelope go."</p>
+                    <p class="quote-author">— COO, Davenport</p>
+                </div>
+
+                <h2>The cognitive load problem</h2>
+
+                <p class="content-text">
+                    Research revealed that users were drowning in information from disparate sources. Different terms were used across different experiences. Each tool had its own learning curve. Compliance minimums varied by firm.
+                </p>
+
+                <p class="content-text">What users wanted was clear:</p>
+
+                <ul>
+                    <li><strong>Information tips</strong> when they had questions about a term or step</li>
+                    <li><strong>The ability to "toggle on" optional requirements</strong> if they had that information</li>
+                    <li><strong>Checklists of missing or required info</strong> so they could track what was pending</li>
+                    <li><strong>The ability to send forms to clients</strong> for signatures or to gather missing information</li>
+                </ul>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/platform-vision/Congnitive Load Slide.png" alt="Cognitive Load research slide showing user pain points around cognitive burden">
+                    <figcaption>Research: advisors described the onboarding process as cognitively exhausting</figcaption>
+                </figure>
+
+                <h2>The information gap</h2>
+
+                <p class="content-text">
+                    Research surfaced another critical finding: advisors rarely have all the information they need during onboarding. They collect what they can, then have to chase clients for missing details—income verification, beneficiary information, regulatory disclosures.
+                </p>
+
+                <p class="content-text">
+                    Users wanted to <strong>move through the process with missing or pending information</strong>, then easily enter it when they had it. They wanted integration with their CRM and financial planning tools. And they wanted the ability to send forms to clients directly rather than playing telephone with sensitive data.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/platform-vision/Validation Research Pre-Flow.png" alt="Journey research slide showing what users want to experience through the onboarding flow">
+                    <figcaption>Validation research: mapping the user journey and experience gaps</figcaption>
+                </figure>
+
+                <h2>Reframing the problem</h2>
+
+                <p class="content-text">
+                    The research painted a clear picture. This wasn't about making forms shorter or interfaces prettier. It was about four fundamental problems:
+                </p>
+
+                <ol>
+                    <li><strong>Visibility</strong> — Users couldn't see where they were, what was done, or what was blocking them</li>
+                    <li><strong>Flexibility</strong> — Linear forms didn't match non-linear work; users needed to jump around</li>
+                    <li><strong>Integration</strong> — 10+ tools meant constant context-switching and manual data entry</li>
+                    <li><strong>Communication</strong> — Missing information required chasing clients through separate channels</li>
+                </ol>
+
+                <p class="content-text">
+                    Our design benchmark became the "Turbo Tax-like experience" that research participants referenced—guided, intuitive, and flexible enough to handle complexity without hiding it.
+                </p>
+
+                <div class="highlight-box">
+                    <h4 class="highlight-title">The Core Question</h4>
+                    <p class="highlight-text">"How might we make a complex, multi-participant workflow navigable without hiding its true complexity?"</p>
+                </div>
+            </section>
+
+            <!-- ==================== NAO EXPLORATION ==================== -->
+            <section id="nao-exploration" class="content-section">
+                <div class="section-icon">🔭</div>
+                <h1 class="section-title">Exploring the Solution Space</h1>
+
+                <p class="content-text">
+                    Before landing on a final direction, we systematically explored different patterns across multiple dimensions. The research gave us clear problems to solve; now we needed to find the right structural approach.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/platform-vision/Wireframes Grouping.png" alt="Full wireframe exploration grid showing multiple NAO navigation pattern approaches">
+                    <figcaption>Exploration phase: mapping competing navigation patterns before selecting a direction</figcaption>
+                </figure>
+
+                <h2>Pre-flow: Reducing complexity before it starts</h2>
+
+                <p class="content-text">
+                    One insight from research was that users spent too much time configuring accounts that could have been set up faster with the right upfront questions. We explored a pre-flow pattern that would capture key decisions—custodian, account type, sub-type—before entering the main form.
+                </p>
+
+                <p class="content-text">
+                    This served two purposes: it reduced the number of irrelevant fields users would see (by filtering based on account type), and it gave users a sense of momentum before hitting the longer form sections.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/platform-vision/Wireframe Preflow.png" alt="Pre-flow wireframes showing Custodian → Account Type → Sub Type progression">
+                    <figcaption>Pre-flow: upfront configuration reduces irrelevant fields before the main form</figcaption>
+                </figure>
+
+                <h2>Navigation patterns: Three competing approaches</h2>
+
+                <p class="content-text">For the core flow, we explored three distinct navigation patterns:</p>
+
+                <h3>Approach 1: Sidebar stepper</h3>
+
+                <p class="content-text">
+                    A traditional stepped sidebar showing major sections (Client Details, Account Details, Documents, Funding Instructions, Review). Linear, familiar, but limited visibility into sub-tasks.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/platform-vision/Wireframe.png" alt="Sidebar stepper wireframe approach showing traditional step-by-step linear navigation">
+                    <figcaption>Approach 1: sidebar stepper — familiar but limited visibility into sub-tasks</figcaption>
+                </figure>
+
+                <h3>Approach 2: To-Do dashboard</h3>
+
+                <p class="content-text">
+                    A fundamentally different model—presenting the entire workflow as a task list with progress percentages. Sections would show completion status and expand to reveal remaining items. This approached NAO as a project to manage rather than a form to fill out.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/platform-vision/Wireframe 2.png" alt="To-Do dashboard wireframe approach presenting NAO as a task list with progress percentages">
+                    <figcaption>Approach 2: To-Do dashboard — NAO as a project to manage, not a form to fill</figcaption>
+                </figure>
+
+                <h3>Approach 3: Full-page form with progress</h3>
+
+                <p class="content-text">
+                    Keeping the form as the primary experience but adding progress indicators and section navigation. Less structural change, more incremental improvement.
+                </p>
+
+                <h2>The questions we were solving for</h2>
+
+                <p class="content-text">The exploration phase surfaced key design questions we needed to answer:</p>
+
+                <ul>
+                    <li><strong>Where should the To-Do list / stepper be on the page?</strong> Sidebar? Top? Collapsible?</li>
+                    <li><strong>Where is the "Next" button?</strong> Fixed at bottom? Inline with content? In the navigation?</li>
+                    <li><strong>How do we handle sub-flows?</strong> Modal? Full page? Dedicated flow?</li>
+                    <li><strong>What's the right level of granularity?</strong> Major sections only? Every field group?</li>
+                </ul>
+
+                <p class="content-text">
+                    These weren't just visual decisions—they had implications for how users would understand and navigate the complexity.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/platform-vision/Wireframe Send to client toogle.png" alt="Wireframe detail showing open design questions around send-to-client toggle placement">
+                    <figcaption>Open exploration questions: where does the "Next" button live? How do we handle sub-flows?</figcaption>
+                </figure>
+
+                <h2>The collaborative flow</h2>
+
+                <p class="content-text">
+                    One exploration directly addressed the research finding about advisors lacking complete information. We designed a flow where advisors could invite clients to fill in their own protected personal information (PPI)—things like Social Security numbers, income details, and financial information that clients might not want to share verbally.
+                </p>
+
+                <p class="content-text">
+                    The flow branched: advisors would collect basic contact information, then send a secure link to clients. Clients would fill in their section, the data would merge into the account, and both parties could see what was complete and what was pending.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/platform-vision/NAO vision proposed flow.png" alt="Proposed collaborative flow diagram showing advisor and client parallel paths merging at account completion">
+                    <figcaption>Collaborative flow: advisor collects contact info, sends secure link to client, data merges automatically</figcaption>
+                </figure>
+
+                <p class="content-text">
+                    This concept influenced the final design—the "Send to client" toggle that appears on form sections came directly from this exploration.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/platform-vision/Wireframe Send to client toogle.png" alt="Send to client toggle shown in context within the Contact and Personal information form section">
+                    <figcaption>"Send to client" toggle: advisors can hand off sensitive data entry to the client directly</figcaption>
+                </figure>
+
+                <h2>The To-Do List pattern emerges</h2>
+
+                <p class="content-text">
+                    After exploring multiple approaches, the To-Do List pattern emerged as the strongest solution. It combined the progress visibility of the dashboard approach with the navigational clarity of the sidebar stepper.
+                </p>
+
+                <p class="content-text">
+                    The key insight: instead of either a linear stepper OR a task dashboard, we could have both—a persistent navigation that shows every section, with completion status visible at a glance and the ability to jump to any section at any time.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/platform-vision/To do list high fidelity design.png" alt="Final NAO To-Do List design in high fidelity showing the persistent navigation with completion status">
+                    <figcaption>Final NAO design: persistent To-Do list combining progress visibility with non-linear navigation</figcaption>
+                </figure>
+
+                <h2>KYC: A research-driven separation</h2>
+
+                <p class="content-text">
+                    One specific change came directly from validation research. Users told us that Know Your Customer (KYC) information—broker dealer affiliations, regulatory disclosures—should be separate from basic client details. These were compliance requirements that felt out of place mixed in with contact information.
+                </p>
+
+                <p class="content-text">
+                    In early explorations, KYC fields were embedded within Client Details. Based on feedback, we separated KYC into its own section with clear sub-categories: Broker Dealer Affiliations and Regulatory.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/platform-vision/KYC Section Design.png" alt="KYC as a separate section in the NAO design, with Broker Dealer Affiliations and Regulatory sub-categories">
+                    <figcaption>KYC separated into its own section — research-driven change that removed compliance fields from client details</figcaption>
+                </figure>
+
+                <h2>Validating with clients</h2>
+
+                <p class="content-text">
+                    We tested the designs with 9 participants from both Pershing clients (Citi, Davenport, Lincoln, HTK, Ameriprise) and non-Pershing firms (Neuberger Berman, Treasure Valley Financial Planning, NYLife Securities, T. Rowe Price).
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/platform-vision/Validation Research Summary slide.png" alt="Validation research summary showing 4 features tested, 9 participants across Pershing and non-Pershing firms, 6 key insights">
+                    <figcaption>Validation study: 4 features, 9 participants, 6 insights — Pershing and non-Pershing firms</figcaption>
+                </figure>
+
+                <h3>What worked</h3>
+
+                <p class="content-text">
+                    The To-Do List resonated immediately. Participants called it "a useful roadmap for tracking progress" and "a helpful checklist to guide users through the process." They valued being able to verify completion of each step and navigate non-linearly.
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">"The to-do list palpably reduced user cognitive load by indicating progress, location, and completion of steps in the NAO process."</p>
+                </div>
+
+                <p class="content-text">
+                    The pre-flow logic landed. Participants understood the setup questions, found the entry points clear, and intuited features like "copy existing clients" without explanation.
+                </p>
+
+                <h3>What needed refinement</h3>
+
+                <p class="content-text">
+                    Groups and groupings caused confusion—the account type selection needed clearer organization. KYC placement was validated as correct in our revision. And "Submit" didn't mean "created"—we were conflating submission with completion.
+                </p>
+            </section>
+
+            <!-- Part Two Divider -->
+            <div class="part-divider">
+                <div class="part-label">Part Two</div>
+                <div class="part-title">Asset Movement</div>
+            </div>
+
+            <!-- ==================== ASSET MOVEMENT ==================== -->
+            <section id="asset-movement" class="content-section">
+                <div class="section-icon">💸</div>
+                <h1 class="section-title">Where Is This Money Going?</h1>
+
+                <p class="content-text">
+                    Asset Movement has a different shape than account opening. It's more transactional—move money from here to there—but the legacy experience made even this simple concept feel dangerous.
+                </p>
+
+                <p class="content-text">
+                    Users entered Asset Movement from multiple places depending on how they'd been trained: the Balance screen, the Profile tab, or Servicing Asset Movement. Forms lived on a different screen than the asset movement itself, forcing reviewers to manually match documents to requests.
+                </p>
+
+                <p class="content-text">The deepest pain point was directional confusion:</p>
+
+                <div class="quote-block">
+                    <p class="quote-text">"I'm scared somebody's going to click 'to' and send somewhere totally different because you didn't choose what you were trying to do from the beginning."</p>
+                </div>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/platform-vision/Asset Movement pain points slide.png" alt="Asset Movement experience flow and pain points diagram across multiple entry points and user types">
+                    <figcaption>Asset Movement pain points: multiple entry points, fragmented forms, directional confusion</figcaption>
+                </figure>
+
+                <h2>Two personas, two approaches</h2>
+
+                <p class="content-text">Our research identified two distinct user types with different needs:</p>
+
+                <p class="content-text">
+                    <strong>Advisors</strong> initiated transfers occasionally, needed guidance through the process, and cared most about not making mistakes with client money.
+                </p>
+
+                <p class="content-text">
+                    <strong>Home Office / Operations staff</strong> processed transfers all day, every day. They needed speed and efficiency—the ability to see everything at once and move fast.
+                </p>
+
+                <p class="content-text">
+                    We explored designs for both personas, knowing we might need different experiences or a flexible system that could adapt.
+                </p>
+
+                <h2>Exploring the power user experience</h2>
+
+                <p class="content-text">
+                    For operations staff, we explored a single-page approach where everything was visible at once: Assets, Schedule, Method, and Documents all on one screen with a Transfer Details sidebar showing the running summary.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/platform-vision/Asset Movement Wireframes power user approach.png" alt="Power user single-page wireframe showing Assets, Schedule, Method, and Documents all visible simultaneously">
+                    <figcaption>Power user exploration: everything visible at once — speed over step-by-step guidance</figcaption>
+                </figure>
+
+                <p class="content-text">
+                    This approach prioritized speed and scannability. Users could see the entire transfer at a glance, fill in what they needed, and submit without stepping through multiple pages.
+                </p>
+
+                <p class="content-text">
+                    However, we ultimately paused development on the power user experience to focus on the advisor flow. The advisor persona had clearer near-term priority, and the patterns we established there could inform the power user experience later.
+                </p>
+            </section>
+
+            <!-- ==================== AM SOLUTION ==================== -->
+            <section id="am-solution" class="content-section">
+                <div class="section-icon">🔧</div>
+                <h1 class="section-title">The Collapsing Stepper</h1>
+
+                <h2>The worksheet stepper: First iteration</h2>
+
+                <p class="content-text">
+                    For advisors, our first iteration used a worksheet approach with a horizontal stepper: Accounts → Assets → Schedule → Method → Documents → Submit. Each step was a separate page within a modal.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/platform-vision/Asset Movement Horizontal Stepper Design.png" alt="V1 Asset Movement designs showing the modal with horizontal stepper: Accounts, Assets, Schedule, Method, Documents, Submit">
+                    <figcaption>V1: horizontal stepper in a modal — step-by-step but lacking full-picture visibility</figcaption>
+                </figure>
+
+                <p class="content-text">We tested this approach and received mixed feedback:</p>
+
+                <ul>
+                    <li>Users liked the step-by-step guidance</li>
+                    <li>But the document step caused confusion—users thought it was a summary, not a signature requirement</li>
+                    <li>Firms had different requirements for documentation and verbal authorization</li>
+                    <li>Users expected documents to be sent to clients for signature, not signed by the advisor</li>
+                    <li>The separation of steps made it hard to see the full picture</li>
+                </ul>
+
+                <div class="quote-block">
+                    <p class="quote-text">"Thought Documents section was a summary page of transfer."</p>
+                </div>
+
+                <div class="quote-block">
+                    <p class="quote-text">"Expected after submitting that the documents would be sent to client to sign."</p>
+                </div>
+
+                <h2>The collapsing stepper: Second iteration</h2>
+
+                <p class="content-text">
+                    Based on feedback, I redesigned the step structure as a vertical collapsing pattern. Instead of separate pages, each step lives inline on the same screen. As users complete a step, it collapses into a summary card showing just the essential information—with an Edit button to go back if needed.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/platform-vision/Asset Movement V2.png" alt="V2 Asset Movement design showing the collapsing stepper — each completed step collapses into a summary card">
+                    <figcaption>V2: collapsing stepper — completed steps collapse to summaries, building the full picture as you go</figcaption>
+                </figure>
+
+                <p class="content-text">This solved multiple problems:</p>
+
+                <p class="content-text">
+                    <strong>Progressive summary building.</strong> As each step completes, it collapses to show just the essential info. By Review, users see the full transfer picture without scrolling back through steps.
+                </p>
+
+                <p class="content-text">
+                    <strong>Edit without losing context.</strong> Every completed step has an Edit button. Users can go back without starting over or losing work.
+                </p>
+
+                <p class="content-text">
+                    <strong>Direction always visible.</strong> Once accounts are confirmed, "Hayden Oswin Individual → JP Morgan Chase" stays locked at the top. No more fear of sending money somewhere unintended.
+                </p>
+
+                <p class="content-text">
+                    <strong>Saved Instructions at point of need.</strong> Research showed users wanted to reuse common transfers. Now they see saved and recently used instructions immediately when selecting the destination.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/platform-vision/Asset Movement Transfer to dropdown.png" alt="Transfer To dropdown showing Saved Instructions and Recently Used sections for quick re-use">
+                    <figcaption>Saved Instructions surfaced at point of need — eliminates manual re-entry for common transfers</figcaption>
+                </figure>
+
+                <h2>Method follows asset type</h2>
+
+                <p class="content-text">
+                    One key change came from our design lead: instead of asking for the transfer method upfront, we ask what assets are being transferred first. The available methods then filter based on what makes sense for that asset type.
+                </p>
+
+                <p class="content-text">
+                    This prevents impossible combinations and removes cognitive load from users who might not know which methods apply to their situation.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/platform-vision/Asset Movement method design.png" alt="Method step showing ACH, Check, and Wire transfer options with estimated time and cost for each">
+                    <figcaption>Method step: options filter by asset type — users see only what's valid for their transfer</figcaption>
+                </figure>
+            </section>
+
+            <!-- ==================== OUTCOME ==================== -->
+            <section id="outcome" class="content-section">
+                <div class="section-icon">🎯</div>
+                <h1 class="section-title">The Common Thread</h1>
+
+                <p class="content-text">
+                    Looking across both workflows, the design principles are consistent:
+                </p>
+
+                <div class="stats-table">
+                    <table>
+                        <tr>
+                            <th>Principle</th>
+                            <th>NAO Implementation</th>
+                            <th>Asset Movement Implementation</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Make progress visible</strong></td>
+                            <td>To-Do List with completion states</td>
+                            <td>Collapsing stepper with summary cards</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Support non-linear work</strong></td>
+                            <td>Click any section to jump</td>
+                            <td>Edit buttons on every completed step</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Show the full picture</strong></td>
+                            <td>Nested sections reveal scope</td>
+                            <td>Progressive summary builds to Review</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Surface what users need</strong></td>
+                            <td>Pre-flow captures key decisions</td>
+                            <td>Saved Instructions at destination selection</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Be honest about complexity</strong></td>
+                            <td>All steps visible upfront</td>
+                            <td>All steps visible, collapsing as completed</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <p class="content-text">
+                    The underlying insight is the same: in complex workflows, the answer isn't to hide complexity. It's to make complexity navigable.
+                </p>
+
+                <h2>The outcome</h2>
+
+                <p class="content-text">
+                    Neither workflow shipped—not because the designs failed, but because they're vision work for a platform still being built. Wove's core features need to come first. These designs are validated and documented, ready for implementation when the roadmap prioritizes them.
+                </p>
+
+                <p class="content-text"><strong>For NAO:</strong></p>
+
+                <div class="stats-table">
+                    <table>
+                        <tr>
+                            <th>Research Finding</th>
+                            <th>Design Response</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Users can't track progress across multi-participant workflows</strong></td>
+                            <td>To-Do List shows completion status for every section</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Linear forms hide true complexity</strong></td>
+                            <td>Non-linear navigation lets users jump to any section</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Advisors rarely have all client information</strong></td>
+                            <td>Collaborative flow with "Send to client" capability</td>
+                        </tr>
+                        <tr>
+                            <td><strong>KYC feels out of place in client details</strong></td>
+                            <td>Separated KYC into dedicated section</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Configuration doesn't copy correctly</strong></td>
+                            <td>Pre-flow captures key decisions before the main flow</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <p class="content-text"><strong>For Asset Movement:</strong></p>
+
+                <div class="stats-table">
+                    <table>
+                        <tr>
+                            <th>Research Finding</th>
+                            <th>Design Response</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Direction confusion causes fear</strong></td>
+                            <td>From/To visible at all times, locked after confirmation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Document step confused with summary</strong></td>
+                            <td>Clearer labeling and progressive disclosure</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Firms have different authorization requirements</strong></td>
+                            <td>Flexible document handling</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Repetitive transfers require manual re-entry</strong></td>
+                            <td>Saved Instructions and Recently Used surfaced at point of need</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="image-grid" style="grid-template-columns: 1fr 1fr; gap: 24px; margin: 40px 0;">
+                    <figure class="case-study-figure" style="margin: 0;">
+                        <img src="images/case-studies/platform-vision/To do list high fidelity design.png" alt="NAO final design — To-Do List workflow in high fidelity showing persistent navigation and completion tracking">
+                        <figcaption>NAO — To-Do List workflow</figcaption>
+                    </figure>
+                    <figure class="case-study-figure" style="margin: 0;">
+                        <img src="images/case-studies/platform-vision/Asset Movement V2.png" alt="Asset Movement final design — Collapsing stepper showing progressive disclosure and summary cards">
+                        <figcaption>Asset Movement — Collapsing Stepper</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <!-- ==================== REFLECTION ==================== -->
+            <section id="reflection" class="content-section">
+                <div class="section-icon">🔮</div>
+                <h1 class="section-title">Reflection</h1>
+
+                <p class="content-text">
+                    This project taught me the difference between designing a feature and designing for a system in transition.
+                </p>
+
+                <p class="content-text">
+                    We weren't just improving forms. We were establishing patterns that would need to scale across an entire platform consolidation. The To-Do List and collapsing stepper aren't just solutions for NAO and Asset Movement—they're approaches to making any complex workflow navigable.
+                </p>
+
+                <p class="content-text">
+                    The exploration phase was critical. We didn't jump to the To-Do List pattern—we arrived at it by systematically evaluating alternatives against research findings. The dashboard approach, the sidebar stepper, the collaborative flow—each exploration taught us something about what users needed and what the structure had to support.
+                </p>
+
+                <p class="content-text">
+                    The hardest part was designing for a future we couldn't fully see. Wove will evolve. Requirements will change. What we could do was establish principles flexible enough to adapt: make progress visible, support non-linear work, show the full picture, surface what users need, and be honest about complexity.
+                </p>
+
+                <p class="content-text">
+                    <strong>Vision work doesn't always ship immediately. But it shapes what's possible when the time comes.</strong>
+                </p>
+            </section>
+
+        </main>
+    </div>
+    </div>
+    <div id="case-content-fully-paid-lending" style="display:none">
+        <div class="case-study-layout">
+        <!-- Floating Stepper -->
+        <div class="stepper-container">
+            <div class="stepper-header">FPL Case Study</div>
+            <div class="stepper expanded">
+                <div class="stepper-step active" data-section="overview">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Overview</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="setup">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">The Setup</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="research">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Research</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="reframing">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Reframing</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="design">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">The Design</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="constraints">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Constraints</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="outcome">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Outcome</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="reflection">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Reflection</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Section: Overview -->
+            <section id="overview" class="content-section">
+                <div class="section-icon">💰</div>
+                <h1 class="section-title">Turning Overlooked Revenue into Action</h1>
+                <p class="section-subtitle">Fully Paid Lending lets advisors earn fees by lending their clients' shares—but the tool designed to surface these opportunities was collecting dust. I led the redesign of an underutilized NetX360 feature into something advisors would actually use.</p>
+
+                <div class="stats-table">
+                    <table>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>Details</th>
+                        </tr>
+                        <tr>
+                            <td><strong>My Role</strong></td>
+                            <td>Lead Studio Designer</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Team</strong></td>
+                            <td>Design Lead, Development Lead, 2 Developers, Product SME, Project Lead</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Timeline</strong></td>
+                            <td>1 year (kickoff to client release)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Outcome</strong></td>
+                            <td>Shipped February 2026</td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Section: The Setup -->
+            <section id="setup" class="content-section">
+                <div class="section-icon">⚡</div>
+                <h1 class="section-title">The Tool No One Used</h1>
+
+                <p class="content-text">
+                    Fully Paid Lending is a straightforward value proposition: advisors can lend shares their clients already own and generate passive revenue. BNY Pershing had a tool to help advisors identify these opportunities—but adoption was dismal.
+                </p>
+
+                <p class="content-text">
+                    The existing Opportunity View page in NetX360 had all the data. It showed potential revenue, participating clients, and historical performance. On paper, it should have been valuable. In practice, advisors were ignoring it entirely.
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">"The tool had the data. It just made users work too hard to extract value from it."</p>
+                </div>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/legacy-opportunity-view.png" alt="Legacy Opportunity View interface">
+                    <figcaption>The existing interface centered on a bubble visualization that research revealed users were skipping entirely.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Section: Research -->
+            <section id="research" class="content-section">
+                <div class="section-icon">🔍</div>
+                <h1 class="section-title">Listening to the Workarounds</h1>
+
+                <p class="content-text">
+                    Without pre-existing insights, I partnered with our research team to understand how advisors were actually engaging with the tool. We conducted research with participants across different roles—from advisors managing individual client relationships to home office managers overseeing entire networks.
+                </p>
+
+                <p class="content-text">
+                    The findings were clear: users had developed elaborate workarounds because the interface wasn't meeting their needs.
+                </p>
+
+                <!--
+                ===== IMAGE PLACEHOLDER =====
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/research-findings.png" alt="Research findings summary">
+                    <figcaption>Key insights from user research revealing consistent pain points across participant types.</figcaption>
+                </figure>
+                -->
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">📊</div>
+                    <p class="image-placeholder-text">Research findings summary or affinity map showing key themes</p>
+                </div>
+
+                <h2>Bubbles Were Decoration</h2>
+
+                <p class="content-text">
+                    The interface's centerpiece was a bubble visualization—larger bubbles indicated bigger opportunities. The assumption was that visual hierarchy would help advisors prioritize.
+                </p>
+
+                <p class="content-text">
+                    Reality was different. Users understood what the bubbles represented, but found drilling into each one inefficient. Most skipped the visualization entirely and exported everything to Excel, where they could sort, filter, and cross-reference with other tools like Bloomberg.
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">"Some users do not engage with the bubbles at all and rely on Excel exports."</p>
+                </div>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/bubble-interaction.png" alt="Legacy bubble visualization">
+                    <figcaption>Users understood larger bubbles meant bigger opportunities—but the interaction model failed them.</figcaption>
+                </figure>
+
+                <h2>The Data Wasn't Trusted</h2>
+
+                <p class="content-text">
+                    Advisors needed context the tool didn't provide. They wanted to assess opportunity validity—factors like security utilization and trading frequency—but the interface showed potential revenue without explaining how it was calculated.
+                </p>
+
+                <p class="content-text">
+                    Some felt the system assumed static rates that didn't reflect daily market changes. Others questioned whether the numbers were realistic at all. Without transparency, advisors were hesitant to act on what they saw.
+                </p>
+
+                <!--
+                ===== IMAGE PLACEHOLDER =====
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">❓</div>
+                    <p class="image-placeholder-text">Research quote or finding about data trust issues</p>
+                </div>
+                -->
+
+                <h2>Friction Killed Enrollment</h2>
+
+                <p class="content-text">
+                    Even when advisors identified opportunities worth pursuing, the enrollment process stopped them cold. Onboarding clients into the lending program required manual emails, document uploads, and back-and-forth that created unnecessary friction.
+                </p>
+
+                <p class="content-text">
+                    The tool could show you the opportunity. It couldn't help you capture it.
+                </p>
+            </section>
+
+            <!-- Section: Reframing the Problem -->
+            <section id="reframing" class="content-section">
+                <div class="section-icon">🎯</div>
+                <h1 class="section-title">Reframing the Problem</h1>
+
+                <p class="content-text">
+                    The research painted a clear picture: this wasn't a feature problem. It was a usability problem compounded by a trust problem.
+                </p>
+
+                <p class="content-text">
+                    The original interface asked users to interact with data in ways that didn't match their mental models. It prioritized visualization over utility. It obscured methodology instead of revealing it. And it dead-ended at the moment of action.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/journey-map.png" alt="Journey map showing pain points">
+                    <figcaption>Mapping the breakdown points revealed that problems clustered around data interpretation, navigation efficiency, and enrollment friction.</figcaption>
+                </figure>
+
+                <p class="content-text">
+                    The core design challenge became:
+                </p>
+
+                <div class="highlight-box">
+                    <h4 class="highlight-title">The Core Question</h4>
+                    <p class="highlight-text">"How do you surface dense financial data in a way that supports quick scanning and deep investigation—without forcing users into a separate tool?"</p>
+                </div>
+            </section>
+
+            <!-- Section: The Design -->
+            <section id="design" class="content-section">
+                <div class="section-icon">✨</div>
+                <h1 class="section-title">From Visualization to Information</h1>
+
+                <p class="content-text">
+                    The most significant design decision was killing the bubble visualization entirely.
+                </p>
+
+                <p class="content-text">
+                    Research showed users were bypassing it for Excel exports. They wanted to scan across offices and advisors quickly, drill into specific positions when needed, and take action without leaving context. Bubbles didn't support any of these behaviors.
+                </p>
+
+                <p class="content-text">
+                    I explored multiple directions—bar charts, various table configurations, hybrid approaches—before landing on an expandable nested table as the primary interface.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/early-explorations.png" alt="Early design explorations">
+                    <figcaption>Early explorations tested different ways to represent the same data. The expandable table emerged as the strongest pattern for supporting both scanning and investigation.</figcaption>
+                </figure>
+
+                <h2>The Nested Table</h2>
+
+                <p class="content-text">
+                    The final design uses a three-level hierarchy: Office → Advisor → Investor. Users can scan across the top level to identify high-opportunity offices, expand to see which advisors are driving those numbers, and drill further to individual investor positions.
+                </p>
+
+                <p class="content-text">
+                    This pattern solved several problems simultaneously:
+                </p>
+
+                <ul>
+                    <li><strong>Scanning:</strong> Managers can quickly compare performance across their network without clicking into separate views</li>
+                    <li><strong>Context preservation:</strong> Expanding a row keeps surrounding data visible, unlike the old drill-down flow that lost context with each click</li>
+                    <li><strong>Flexibility:</strong> The same structure works for both manager and advisor views, reducing cognitive load when switching between perspectives</li>
+                </ul>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/nested-table-design.png" alt="Final nested table design">
+                    <figcaption>The expandable table lets users drill from office to advisor to investor without losing context.</figcaption>
+                </figure>
+
+                <h2>Reclaiming the Space Above the Fold</h2>
+
+                <p class="content-text">
+                    A consistent complaint across BNY Pershing products was content being pushed below the scroll. The legacy FPL page stacked filters, tabs, summary statistics, and navigation elements—leaving actual data buried.
+                </p>
+
+                <p class="content-text">
+                    I audited every element above the fold and challenged whether it earned its placement.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/before-after.png" alt="Before/after comparison">
+                    <figcaption>The legacy interface (left) buried actionable data below multiple navigation layers. The redesign (right) prioritizes the table.</figcaption>
+                </figure>
+
+                <h3>What Got Removed</h3>
+
+                <p class="content-text">
+                    <strong>The IBD/Office dropdown filters.</strong> These duplicated functionality now handled by the table's expandable hierarchy and inline filtering.
+                </p>
+
+                <p class="content-text">
+                    <strong>The separate "Top Opportunities" section.</strong> Valuable content, but it competed with the primary table. I moved this to a dedicated "View by Ticker" tab where users seeking specific securities could find them intentionally.
+                </p>
+
+                <p class="content-text">
+                    <strong>The Participating/Non-Participating tab split.</strong> Instead of forcing users to toggle between views, I added Enrolled and Not Enrolled columns inline. One view, complete picture.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/annotated-filter-screenshot.png" alt="Consolidated filter approach">
+                    <figcaption>Enrollment status is now visible at a glance rather than hidden behind tab navigation.</figcaption>
+                </figure>
+
+                <h3>What Got Added</h3>
+
+                <p class="content-text">
+                    <strong>Sparklines for performance trends.</strong> A small inline visualization showing YTD performance lets users spot patterns without leaving the table. Clicking opens a modal with the full chart—progressive disclosure that keeps the primary view scannable.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/performance-ytd-details-modal.png" alt="Sparkline detail and modal">
+                    <figcaption>Sparklines provide trend information at a glance. The modal reveals full detail on demand.</figcaption>
+                </figure>
+
+                <p class="content-text">
+                    <strong>A "Learn and Invite" tab.</strong> Consolidating program information and the enrollment flow in one place addressed the friction that killed adoption. Advisors can understand the program and take action without leaving the tool.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/Learn-invite-page.png" alt="Learn and Invite tab design">
+                    <figcaption>Reducing enrollment friction from manual email workflows to an integrated flow.</figcaption>
+                </figure>
+
+                <h2>From Insight to Action</h2>
+
+                <p class="content-text">
+                    Identifying opportunities is only valuable if users can act on them. The legacy enrollment process required manual emails and document uploads—friction that meant opportunities sat untouched.
+                </p>
+
+                <p class="content-text">
+                    The invite worksheet lets users select eligible accounts directly from the table and send enrollment forms in a single flow. Status is visible inline (Enrolled, Not Enrolled, partial enrollment states), and users can preview the actual agreement before sending.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/invite-worksheet-forms-previewed.png" alt="Invite worksheet with accounts selected and form preview">
+                    <figcaption>Enrollment integrated into the workflow: select accounts, preview forms, invite—no context switching.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Section: Outcome -->
+            <section id="outcome" class="content-section">
+                <div class="section-icon">🎉</div>
+                <h1 class="section-title">The Outcome</h1>
+
+                <p class="content-text">
+                    The redesigned Fully Paid Lending page shipped to clients in February 2026. While we're still gathering post-launch feedback, every design decision was validated through iterative review with both internal stakeholders and anticipated client needs.
+                </p>
+
+                <p class="content-text">
+                    The redesign directly addresses every major pain point from research:
+                </p>
+
+                <div class="stats-table">
+                    <table>
+                        <tr>
+                            <th>Research Finding</th>
+                            <th>Design Response</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Bubble visualization ignored</strong></td>
+                            <td>Replaced with scannable nested table</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Drill-down lost context</strong></td>
+                            <td>Expandable rows preserve surrounding data</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Content buried below scroll</strong></td>
+                            <td>Consolidated hierarchy, removed redundant elements</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Participation status unclear</strong></td>
+                            <td>Inline Enrolled/Not Enrolled columns</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Top opportunities hard to find</strong></td>
+                            <td>Dedicated "View by Ticker" tab</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Enrollment friction</strong></td>
+                            <td>Integrated "Learn and Invite" flow</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Data trust issues</strong></td>
+                            <td>Transparent methodology, progressive disclosure</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/final-design.png" alt="Final design full page view">
+                    <figcaption>The final design: a scannable, expandable table with inline status, integrated enrollment, and dedicated views for different user goals.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Section: Reflection -->
+            <section id="reflection" class="content-section">
+                <div class="section-icon">🔮</div>
+                <h1 class="section-title">Reflection</h1>
+
+                <p class="content-text">
+                    This project reinforced something I keep relearning: <strong>"underutilized" is usually a design problem wearing a feature costume.</strong>
+                </p>
+
+                <p class="content-text">
+                    The original FPL page had the data. It even had the right <em>idea</em>—help advisors find revenue opportunities. But it presented information in ways that didn't match how users actually worked. They needed tables, not bubbles. They needed inline context, not drill-down journeys. They needed to act, not just observe.
+                </p>
+
+                <p class="content-text">
+                    The biggest lever wasn't adding features. It was removing friction and consolidating information so the tool could get out of the way of the work.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/before-after-final-design.png" alt="Before/after transformation">
+                    <figcaption>From overlooked to actionable: the full transformation of the Fully Paid Lending experience.</figcaption>
+                </figure>
+            </section>
+        </main>
+    </div>
+    </div>
+    <div id="case-content-purple-panda-rentals" style="display:none">
+        <div class="case-study-layout">
+        <!-- Floating Stepper -->
+        <div class="stepper-container">
+            <div class="stepper-header">Purple Panda</div>
+            <div class="stepper expanded">
+                <div class="stepper-step active" data-section="overview">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Overview</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="problem">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">The Problem</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="research">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Research</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="competition">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Competition</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="design">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Design</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="testing">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Testing</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="iteration">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                        <div class="stepper-line"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Iteration</div>
+                    </div>
+                </div>
+                <div class="stepper-step inactive" data-section="reflection">
+                    <div class="stepper-indicator">
+                        <div class="stepper-circle"></div>
+                    </div>
+                    <div class="stepper-content">
+                        <div class="stepper-title">Reflection</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Section: Overview -->
+            <section id="overview" class="content-section">
+                <div class="section-icon">🏠</div>
+                <h1 class="section-title">Building the Platform I Wished Existed</h1>
+                <p class="section-subtitle">Every college student faces the same problem: finding off-campus housing is chaos. I didn't just design a solution—I founded a company to build it. Purple Panda Rentals is the rental platform I wished existed when I was a student.</p>
+
+                <div class="stats-table">
+                    <table>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>Details</th>
+                        </tr>
+                        <tr>
+                            <td><strong>My Role</strong></td>
+                            <td>Founder & Product Designer</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Timeline</strong></td>
+                            <td>2 months (mobile app design)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Research</strong></td>
+                            <td>4 interviews, 270 survey respondents</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Outcome</strong></td>
+                            <td>Validated mobile app design for launched platform</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <figure class="case-study-figure">
+                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62cf45073e1ab40bf02c3b5c_ppr-logo-stk-trs%201%20(5).png" alt="Purple Panda Rentals logo">
+                    <figcaption>Purple Panda Rentals: a rental platform built for how college students actually search.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Section: Problem -->
+            <section id="problem" class="content-section">
+                <div class="section-icon">😤</div>
+                <h1 class="section-title">The Problem Was Personal</h1>
+
+                <p class="content-text">
+                    Finding off-campus housing as a college student is a mess. You're competing with other students for limited listings, negotiating with landlords who don't take you seriously, and trying to coordinate move-in dates around academic calendars that don't align with standard lease terms.
+                </p>
+
+                <p class="content-text">
+                    I lived this. So did everyone I knew. The options were Zillow (not built for students), Craigslist (sketchy), or word-of-mouth (limited). None of them understood the specific needs of college renters.
+                </p>
+
+                <p class="content-text">
+                    So I started Purple Panda Rentals—a rental listing platform built specifically for college students. The website launched in December 2023. The next step was mobile.
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">"Along with saving money, students benefit from the independence and housing flexibility that off-campus housing provides."</p>
+                </div>
+            </section>
+
+            <!-- Section: Research -->
+            <section id="research" class="content-section">
+                <div class="section-icon">🔍</div>
+                <h1 class="section-title">Validating the Problem at Scale</h1>
+
+                <p class="content-text">
+                    Before designing the mobile app, I needed to confirm my assumptions weren't just my own experience. I ran a nationwide survey with 270 college students and conducted interviews with four former students about their leasing and searching habits.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62d01f7f8fcf241fc7b11175_Chart_Q7_220713%201%20(5).png" alt="Survey results - first steps when searching">
+                    <figcaption>What are your first steps when looking for off-campus housing?</figcaption>
+                </figure>
+
+                <figure class="case-study-figure">
+                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62d01fb0fdd89d4cebeedd9e_Chart_Q5_220713%201%20(1).png" alt="Survey results - important factors">
+                    <figcaption>What's important to you in off-campus housing?</figcaption>
+                </figure>
+
+                <h2>What I Expected</h2>
+
+                <p class="content-text">
+                    The survey confirmed what I suspected:
+                </p>
+
+                <ul>
+                    <li><strong>76%</strong> currently live off-campus</li>
+                    <li><strong>53%</strong> use Zillow to find housing (a tool not built for them)</li>
+                    <li><strong>57%</strong> said proximity to campus was the most important factor</li>
+                    <li><strong>51%</strong> said rental price was the deciding factor</li>
+                </ul>
+
+                <p class="content-text">
+                    Students were using generic tools because nothing better existed.
+                </p>
+
+                <h2>What Surprised Me</h2>
+
+                <p class="content-text">
+                    The survey also revealed pain points I hadn't fully appreciated:
+                </p>
+
+                <ul>
+                    <li><strong>81%</strong> prefer to stay in one apartment for multiple semesters—stability matters more than I assumed</li>
+                    <li><strong>42%</strong> found it frustrating to find someone to sublease their apartment between semesters</li>
+                    <li><strong>34%</strong> had maintenance and landlord issues with no way to vet reputation beforehand</li>
+                    <li><strong>15%</strong> struggled to calculate total cost when rent, utilities, and living expenses were listed separately</li>
+                </ul>
+
+                <p class="content-text">
+                    The sublease problem was bigger than I expected. Students weren't just looking for housing—they needed to offload housing when plans changed.
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">"Finding a student to sublease their apartment was frustrating between semesters."</p>
+                </div>
+
+                <figure class="case-study-figure">
+                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62ffc328e0b6dd8d755979e6_Interviews%20and%20Findings%20(1).png" alt="Interview findings">
+                    <figcaption>User interviews revealed consistent themes: affordability, proximity, safety, and responsive landlords.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Section: Competition -->
+            <section id="competition" class="content-section">
+                <div class="section-icon">🎯</div>
+                <h1 class="section-title">The Competitive Gap</h1>
+
+                <p class="content-text">
+                    I audited both direct competitors (student-focused platforms like College Pads) and indirect competitors (Zillow, Apartments.com). The pattern was clear:
+                </p>
+
+                <p class="content-text">
+                    <strong>Mainstream platforms</strong> had the best user experience and largest inventory—but no student-specific features.
+                </p>
+
+                <p class="content-text">
+                    <strong>Student platforms</strong> had relevant features—but clunky interfaces and limited listings.
+                </p>
+
+                <p class="content-text">
+                    No one had married Zillow's usability with features tailored to the college experience.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62d07effcc31f148bf5a21d7_Competitive%20Analysis.png" alt="Competitive analysis">
+                    <figcaption>The opportunity: combine mainstream usability with student-specific features.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Section: Design -->
+            <section id="design" class="content-section">
+                <div class="section-icon">✨</div>
+                <h1 class="section-title">Designing the Mobile Experience</h1>
+
+                <p class="content-text">
+                    With the research foundation set, I moved into designing the mobile app. The website was live; now students needed to search on the go.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62c830b1b6c8b3393861a5a3_PPR%20-%20Mobile%20App%202.png" alt="Site map">
+                    <figcaption>Information architecture balancing familiar real estate patterns with student-specific features.</figcaption>
+                </figure>
+
+                <h2>The Sublease Decision</h2>
+
+                <p class="content-text">
+                    When defining the app's scope, I faced a tradeoff: include a sublease section or a roommate matcher? Both had value. I couldn't do both well in the initial release.
+                </p>
+
+                <p class="content-text">
+                    The research made the call. <strong>42%</strong> of students found subleasing frustrating—a concrete pain point with high frequency. Roommate matching got positive feedback in interviews, but sublease functionality addressed a more urgent, more frequent need.
+                </p>
+
+                <p class="content-text">
+                    I prioritized sublease. Roommate matching went on the roadmap for future releases.
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">"Based on the students I researched, a sublease section prioritized over finding a roommate. This finding surprised me."</p>
+                </div>
+
+                <figure class="case-study-figure">
+                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62c832bbf0b9137c393accbd_9702fe384ee456c61d572ad00e265969.png" alt="Task flow">
+                    <figcaption>User flow designed around the core job: find a listing, evaluate it, save it for later.</figcaption>
+                </figure>
+
+                <h2>The UI System</h2>
+
+                <p class="content-text">
+                    Purple Panda's brand was already established from the website—bright, approachable, student-friendly. The mobile app needed to extend that identity while meeting iOS conventions.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62cf44bfe4e81422522d7820_Group%2048%20(1).png" alt="UI kit">
+                    <figcaption>Design system built to maintain brand consistency across web and mobile.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Section: Testing -->
+            <section id="testing" class="content-section">
+                <div class="section-icon">🧪</div>
+                <h1 class="section-title">Testing with Real Users</h1>
+
+                <p class="content-text">
+                    I built three prototypes in Figma and ran usability tests through Maze with 17 participants. Three tasks, representing the core use cases:
+                </p>
+
+                <ol>
+                    <li><strong>Create an account</strong> and complete onboarding</li>
+                    <li><strong>Search with filters</strong> and favorite a listing</li>
+                    <li><strong>Find a sublease</strong> and message the student</li>
+                </ol>
+
+                <h2>What Worked</h2>
+
+                <p class="content-text">
+                    <strong>Task 1: Account creation</strong> — 100% success rate. Onboarding questions were appropriate and completion time was adequate.
+                </p>
+
+                <h2>What Didn't</h2>
+
+                <p class="content-text">
+                    <strong>Task 2: Search and favorite</strong> — 85% success rate. Users struggled with the filter screen (clicking text instead of toggles) and couldn't easily see the heart icon for favoriting.
+                </p>
+
+                <p class="content-text">
+                    <strong>Task 3: Sublease and messaging</strong> — 63% success rate. Users couldn't find their way back to the inbox after sending a message. The back arrow was too subtle.
+                </p>
+
+                <p class="content-text">
+                    The problems were specific and fixable. I iterated.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62d2e8e35bbb749c8e5a0981_Iterations%20Task%202%20NEW.png" alt="Iterations for Task 2">
+                    <figcaption>Task 2 iterations: navigation menu, header layout, and filter functionality improvements.</figcaption>
+                </figure>
+
+                <figure class="case-study-figure">
+                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62d2e8e55bbb7407285a0982_Iterations%20Task%203%20NEW.png" alt="Iterations for Task 3">
+                    <figcaption>Task 3 iterations: nav menu functionality and pop-up modal improvements.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Section: Iteration -->
+            <section id="iteration" class="content-section">
+                <div class="section-icon">📈</div>
+                <h1 class="section-title">After Iteration</h1>
+
+                <p class="content-text">
+                    I ran the tests again with the updated designs.
+                </p>
+
+                <div class="stats-table">
+                    <table>
+                        <tr>
+                            <th>Task</th>
+                            <th>Before</th>
+                            <th>After</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Search and favorite</strong></td>
+                            <td>85%</td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sublease and messaging</strong></td>
+                            <td>63%</td>
+                            <td>100%</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <p class="content-text">
+                    The changes worked. But testing also surfaced a deeper issue I hadn't fully solved: <strong>trust</strong>.
+                </p>
+
+                <p class="content-text">
+                    Users questioned whether they could trust a stranger subletting an apartment. Security and reputation weren't addressed in the current design. For future iterations, I noted the need for verified student profiles or review systems—features that would take more than UI changes to implement properly.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62d5a4b89261e7c52607ca97_Affinity%20Map%20(3).png" alt="Affinity map from usability testing">
+                    <figcaption>Affinity mapping user feedback to guide design iterations.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Section: Reflection -->
+            <section id="reflection" class="content-section">
+                <div class="section-icon">🔮</div>
+                <h1 class="section-title">Reflection</h1>
+
+                <p class="content-text">
+                    Purple Panda taught me the difference between designing for a prompt and designing for a real problem.
+                </p>
+
+                <p class="content-text">
+                    When you're the founder, there's no brief to fall back on. You have to define the problem yourself, validate it with real people, and make tradeoffs that affect a real business. The sublease vs. roommate decision wasn't academic—it determined what the product would actually do.
+                </p>
+
+                <p class="content-text">
+                    The usability testing reinforced something I keep relearning: you can't predict where users will struggle. I thought the filter screen was straightforward. Users disagreed. The only way to find out is to put the design in front of real people and watch what happens.
+                </p>
+
+                <p class="content-text">
+                    <strong>What's next:</strong> the publisher side of the platform (for landlords listing properties) and the trust features that testing revealed were missing. Building a product is never done—you just ship what you can and keep learning.
+                </p>
+
+                <figure class="case-study-figure">
+                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62c766abb767dba81d22d0dd_PPR%20Project%20Tile.png" alt="Purple Panda project hero">
+                    <figcaption>Purple Panda Rentals: from personal frustration to launched platform.</figcaption>
+                </figure>
+            </section>
+        </main>
+    </div>
+    </div>
+        <!-- Case Study Sheet -->
+    <div class="modal-overlay" id="caseStudyModal">
+        <div class="modal-container" id="caseStudySheet">
+            <!-- Close button anchored to sheet (position: absolute, container is position: relative) -->
+            <button class="sheet-close-x" id="modalClose" aria-label="Close">&#x2715;</button>
+            <!-- Case study content renders here directly (no iframe) -->
+            <div class="sheet-content-panel" id="sheetContentPanel"></div>
             <!-- Footer: label + prev/next -->
             <div class="sheet-footer-row">
                 <span class="sheet-footer-label" id="sheetFooterLabel">Portfolio</span>
@@ -493,52 +2137,128 @@
         ];
 
         let currentCaseIndex = 0;
-        let loadingTimeout = null;
 
-        const modal        = document.getElementById('caseStudyModal');
-        const modalIframe  = document.getElementById('modalIframe');
-        const modalTitle   = document.getElementById('modalTitle');
-        const modalClose   = document.getElementById('modalClose');
-        const modalLoading = document.getElementById('modalLoading');
-        const footerLabel  = document.getElementById('sheetFooterLabel');
-        const prevCaseBtn  = document.getElementById('prevCase');
-        const nextCaseBtn  = document.getElementById('nextCase');
-        const prevCaseTitle = document.getElementById('prevCaseTitle');
-        const nextCaseTitle = document.getElementById('nextCaseTitle');
+        const modal             = document.getElementById('caseStudyModal');
+        const modalContainer    = document.getElementById('caseStudySheet');
+        const sheetContentPanel = document.getElementById('sheetContentPanel');
+        const modalClose        = document.getElementById('modalClose');
+        const footerLabel       = document.getElementById('sheetFooterLabel');
+        const prevCaseBtn       = document.getElementById('prevCase');
+        const nextCaseBtn       = document.getElementById('nextCase');
+        const prevCaseTitle     = document.getElementById('prevCaseTitle');
+        const nextCaseTitle     = document.getElementById('nextCaseTitle');
 
+        // ── Synchronous content lookup from pre-embedded divs ──
+        function getCaseContent(id) {
+            const el = document.getElementById('case-content-' + id);
+            return el ? el.innerHTML : '<p style="padding:40px;color:var(--text)">Content unavailable.</p>';
+        }
+
+        // ── Stepper: re-initialized each time content loads ──
+        function initSheetStepper(panel) {
+            const sections = Array.from(panel.querySelectorAll('.content-section[id]'));
+            const steps    = Array.from(panel.querySelectorAll('.stepper-step'));
+            if (!sections.length || !steps.length) return;
+
+            function updateActive() {
+                const panelTop = panel.getBoundingClientRect().top;
+                let activeSectionId = sections[0].id;
+                sections.forEach(sec => {
+                    if (sec.getBoundingClientRect().top - panelTop <= 120) activeSectionId = sec.id;
+                });
+                steps.forEach(step => {
+                    const match = step.dataset.section === activeSectionId;
+                    step.classList.toggle('active', match);
+                    step.classList.toggle('inactive', !match);
+                });
+            }
+
+            steps.forEach(step => {
+                step.addEventListener('click', () => {
+                    const sec = panel.querySelector('#' + step.dataset.section);
+                    if (sec) {
+                        const offset = sec.getBoundingClientRect().top
+                            - panel.getBoundingClientRect().top
+                            + panel.scrollTop - 24;
+                        panel.scrollTo({ top: offset, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            panel.addEventListener('scroll', updateActive, { passive: true });
+            updateActive();
+        }
+
+        // ── Scroll-to-expand listener ──
+        let activeScrollPanel   = null;
+        let activeScrollHandler = null;
+
+        function detachScrollListener() {
+            if (activeScrollPanel && activeScrollHandler) {
+                activeScrollPanel.removeEventListener('scroll', activeScrollHandler);
+                activeScrollPanel = null;
+                activeScrollHandler = null;
+            }
+        }
+
+        function attachExpandListener(panel) {
+            detachScrollListener();
+            setTimeout(() => {
+                console.log('scroll listener attached to: sheetContentPanel');
+                activeScrollHandler = () => {
+                    if (panel.scrollTop > 10) {
+                        modalContainer.classList.add('sheet--expanded');
+                    } else {
+                        modalContainer.classList.remove('sheet--expanded');
+                    }
+                };
+                activeScrollPanel = panel;
+                panel.addEventListener('scroll', activeScrollHandler, { passive: true });
+            }, 50);
+        }
+
+        // ── Load content into panel (synchronous — reads pre-embedded divs) ──
+        function loadContent(cs) {
+            detachScrollListener();
+            modalContainer.classList.remove('sheet--expanded');
+            sheetContentPanel.innerHTML = getCaseContent(cs.id);
+            sheetContentPanel.scrollTop = 0;
+            initSheetStepper(sheetContentPanel);
+            attachExpandListener(sheetContentPanel);
+        }
+
+        // ── Open / close / navigate ──
         function openModal(caseId) {
             currentCaseIndex = caseStudies.findIndex(c => c.id === caseId);
             if (currentCaseIndex === -1) return;
             const cs = caseStudies[currentCaseIndex];
-            loadingTimeout = setTimeout(() => modalLoading.classList.add('active'), 300);
-            modalTitle.textContent = cs.title;
             footerLabel.textContent = cs.subtitle;
-            modalIframe.src = cs.url;
             window.location.hash = cs.id;
             document.body.style.overflow = 'hidden';
             modal.classList.add('active');
+            modalContainer.classList.add('sheet--open');
             updateNavButtons();
+            loadContent(cs);
         }
 
         function closeModal() {
-            clearTimeout(loadingTimeout);
-            modalLoading.classList.remove('active');
+            detachScrollListener();
             modal.classList.remove('active');
+            modalContainer.classList.remove('sheet--open');
+            modalContainer.classList.remove('sheet--expanded');
             document.body.style.overflow = '';
-            setTimeout(() => { modalIframe.src = ''; }, 420);
+            sheetContentPanel.innerHTML = '';
             history.pushState('', document.title, window.location.pathname + window.location.search);
         }
 
         function navigateToCase(index) {
             if (index < 0 || index >= caseStudies.length) return;
-            const cs = caseStudies[index];
             currentCaseIndex = index;
-            modalLoading.classList.add('active');
-            modalTitle.textContent = cs.title;
+            const cs = caseStudies[index];
             footerLabel.textContent = cs.subtitle;
-            modalIframe.src = cs.url;
             window.location.hash = cs.id;
             updateNavButtons();
+            loadContent(cs);
         }
 
         function updateNavButtons() {
@@ -548,7 +2268,6 @@
             nextCaseTitle.textContent = currentCaseIndex < caseStudies.length - 1 ? caseStudies[currentCaseIndex + 1].title : 'Next';
         }
 
-        modalIframe.addEventListener('load', () => { clearTimeout(loadingTimeout); modalLoading.classList.remove('active'); });
         modalClose.addEventListener('click', closeModal);
         modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
         prevCaseBtn.addEventListener('click', () => navigateToCase(currentCaseIndex - 1));
