@@ -1940,7 +1940,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 8%;
+    object-position: center 12%;
     display: block;
 }
 .about-page-eyebrow { font-family: var(--font-mono); font-size: 10px; color: var(--text-3); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
@@ -4067,6 +4067,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     .about-page-hero       { padding: 120px 32px 60px; flex-direction: column; gap: 40px; }
     .about-page-hero-left  { width: 100%; height: 360px; }
     .about-page-avatar     { border-radius: 16px; }
+    .about-page-avatar img { object-position: center top; }
     .about-stats-inner     { padding: 0 32px; }
     .about-content-section { padding: 48px 32px; grid-template-columns: 1fr; gap: 32px; }
     .about-section-label   { position: static; }
@@ -4109,6 +4110,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     .about-page-hero       { padding: 100px 16px 48px; gap: 32px; }
     .about-page-hero-left  { height: 280px; }
     .about-page-avatar     { border-radius: 12px; }
+    .about-page-avatar img { object-position: center top; }
     .about-stats-inner     { padding: 0 16px; flex-wrap: wrap; }
     .about-stats-inner .hero-stat { flex: 1 1 50%; }
     .about-content-section { padding: 40px 16px; }
