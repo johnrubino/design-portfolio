@@ -1908,7 +1908,6 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 .about-page-hero {
     padding: 120px 320px 100px;
     border-bottom: 1px solid var(--border);
-    max-width: 860px;
 }
 /* Avatar — circular portrait above the greeting */
 .about-page-avatar {
