@@ -1905,7 +1905,29 @@ textarea.form-input { resize: vertical; min-height: 80px; }
    ============================================================ */
 
 .about-page { background: var(--bg); }
-.about-page-hero { padding: 160px 320px 100px; border-bottom: 1px solid var(--border); }
+.about-page-hero {
+    padding: 160px 320px 100px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+.about-page-hero-content { flex: 1; min-width: 0; }
+.about-page-hero-photo {
+    flex-shrink: 0;
+    width: 300px;
+    height: 380px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.06);
+}
+.about-page-hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+}
 .about-page-eyebrow { font-family: var(--font-mono); font-size: 10px; color: var(--text-3); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
 .about-page-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--text-3); }
 .about-page-name { font-family: var(--font-display); font-size: clamp(48px, 5.5vw, 82px); font-weight: 500; line-height: 1.05; letter-spacing: -0.02em; color: var(--text); margin-bottom: 40px; }
@@ -4006,6 +4028,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     .lp-gradient-section   { padding-left: 60px; padding-right: 60px; }
     .lp-footer             { padding-left: 60px; padding-right: 60px; }
     .about-page-hero       { padding-left: 60px; padding-right: 60px; }
+    .about-page-hero-photo { width: 260px; height: 340px; }
     .about-stats-inner     { padding-left: 60px; padding-right: 60px; }
     .about-content-section { padding-left: 60px; padding-right: 60px; }
     .writing-page-hero     { padding-left: 60px; padding-right: 60px; }
@@ -4027,7 +4050,8 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     .lp-companies          { padding: 64px 32px; }
     .lp-gradient-section   { padding: 80px 32px; border-radius: 40px 40px 0 0; }
     .lp-footer             { padding: 24px 32px; }
-    .about-page-hero       { padding: 120px 32px 60px; }
+    .about-page-hero       { padding: 120px 32px 60px; flex-direction: column; align-items: flex-start; gap: 48px; }
+    .about-page-hero-photo { width: 100%; height: 320px; }
     .about-stats-inner     { padding: 0 32px; }
     .about-content-section { padding: 48px 32px; grid-template-columns: 1fr; gap: 32px; }
     .about-section-label   { position: static; }
@@ -4067,7 +4091,8 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     .lp-gradient-section   { padding: 60px 16px; border-radius: 24px 24px 0 0; }
     .lp-footer             { padding: 20px 16px; flex-direction: column; align-items: flex-start; gap: 12px; }
     .lp-footer-links       { gap: 16px; }
-    .about-page-hero       { padding: 100px 16px 48px; }
+    .about-page-hero       { padding: 100px 16px 48px; gap: 32px; }
+    .about-page-hero-photo { height: 260px; }
     .about-stats-inner     { padding: 0 16px; flex-wrap: wrap; }
     .about-stats-inner .hero-stat { flex: 1 1 50%; }
     .about-content-section { padding: 40px 16px; }
