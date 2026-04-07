@@ -512,41 +512,22 @@
                 });
             }
 
-            // 1. Substack public API — CORS headers set by Substack
+            // 1. Own Vercel proxy — server-side fetch, no CORS issues
             try {
-                const res  = await fetch(`${SUBSTACK}/api/v1/posts?limit=4`, { headers: { 'Accept': 'application/json' } });
-                const data = await res.json();
-                const posts = Array.isArray(data) ? data : (data.posts || []);
-                if (posts.length) {
-                    renderItems(posts.map(p => ({
-                        title: p.title || '',
-                        link:  p.canonical_url || `${SUBSTACK}/p/${p.slug}`,
-                        date:  p.post_date || ''
-                    })));
+                const res = await fetch('/api/substack');
+                if (res.ok) {
+                    renderItems(parseRSS(await res.text()));
                     return;
                 }
             } catch (_) {}
 
-            // 2. Substack archive endpoint (alternate API path)
-            try {
-                const res  = await fetch(`${SUBSTACK}/api/v1/archive?sort=new&limit=4`, { headers: { 'Accept': 'application/json' } });
-                const data = await res.json();
-                const posts = Array.isArray(data) ? data : [];
-                if (posts.length) {
-                    renderItems(posts.map(p => ({
-                        title: p.title || '',
-                        link:  p.canonical_url || `${SUBSTACK}/p/${p.slug}`,
-                        date:  p.post_date || ''
-                    })));
-                    return;
-                }
-            } catch (_) {}
-
-            // 3. Direct RSS — works if Substack allows cross-origin (varies by browser/host)
+            // 2. Direct RSS — fallback if running outside Vercel (e.g. local dev)
             try {
                 const res = await fetch(`${SUBSTACK}/feed`);
-                renderItems(parseRSS(await res.text()));
-                return;
+                if (res.ok) {
+                    renderItems(parseRSS(await res.text()));
+                    return;
+                }
             } catch (_) {}
 
             showError();
