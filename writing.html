@@ -38,10 +38,6 @@
 
     <!-- Hero -->
     <section class="writing-page-hero">
-        <div class="hero-eyebrow">
-            <span class="hero-dot"></span>
-            Design Thinker &middot; Substack
-        </div>
         <h1 class="writing-page-title">Thoughts on Design<br>&amp; Technology</h1>
         <p class="writing-page-subtitle">
             Exploring the future of design, AI, and human-centered technology through short, thoughtful reflections that blend provocation with practicality.
@@ -121,9 +117,16 @@
 
         async function fetchSubstackArticles() {
             try {
-                const proxyUrl = 'https://api.allorigins.win/raw?url=';
-                const response = await fetch(proxyUrl + encodeURIComponent(RSS_FEED_URL));
-                const xmlText = await response.text();
+                // Use Vercel proxy (same-origin, no CORS issues); fall back to direct fetch
+                let xmlText;
+                try {
+                    const r = await fetch('/api/substack');
+                    if (!r.ok) throw new Error();
+                    xmlText = await r.text();
+                } catch (_) {
+                    const r = await fetch(RSS_FEED_URL);
+                    xmlText = await r.text();
+                }
 
                 const parser = new DOMParser();
                 const xml = parser.parseFromString(xmlText, 'text/xml');
@@ -131,7 +134,8 @@
 
                 allArticles = Array.from(items).map(item => {
                     const title = item.querySelector('title')?.textContent || '';
-                    const link = item.querySelector('link')?.textContent || '';
+                    const linkEl = item.querySelector('link');
+                    const link = (linkEl?.nextSibling?.nodeValue || linkEl?.textContent || '').trim();
                     const pubDate = item.querySelector('pubDate')?.textContent || '';
                     const description = item.querySelector('description')?.textContent || '';
                     const categories = Array.from(item.querySelectorAll('category')).map(cat => cat.textContent);
