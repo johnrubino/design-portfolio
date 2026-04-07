@@ -7,23 +7,34 @@
     <meta name="description" content="Thoughts on design, AI, and the future of creative work. Short, provocative essays from a senior product designer.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="design-system.css">
 </head>
-<body class="writing-page">
+<body class="writing-page landing-page">
 
-    <nav class="nav">
-        <a href="index.html" class="nav-logo">
-            <div class="nav-logo-mark">JR</div>
-            John Rubino
-        </a>
-        <div class="nav-links">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="about.html" class="nav-link">About</a>
-            <a href="writing.html" class="nav-link active">Writing</a>
-            <a href="mailto:johnrubinodesign@gmail.com" class="nav-cta">Get In Touch &rarr;</a>
+    <nav class="lp-nav">
+        <div class="lp-nav-logo-group">
+            <a href="index.html" class="lp-nav-logo" aria-label="John Rubino">JR</a>
+            <div class="lp-nav-links">
+                <a href="about.html" class="lp-nav-item">About</a>
+                <a href="writing.html" class="lp-nav-item active">Writing</a>
+            </div>
         </div>
+        <a href="mailto:johnrubinodesign@gmail.com" class="lp-btn-primary">Get in touch</a>
+        <button class="lp-hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
+
+    <!-- ── Mobile menu ── -->
+    <div class="lp-mobile-menu" role="navigation" aria-label="Mobile navigation">
+        <div class="lp-mobile-menu-inner">
+            <a href="about.html" class="lp-mobile-nav-item">About</a>
+            <a href="writing.html" class="lp-mobile-nav-item active">Writing</a>
+            <div class="lp-mobile-menu-divider"></div>
+            <a href="mailto:johnrubinodesign@gmail.com" class="lp-btn-primary lp-mobile-cta">Get in touch</a>
+        </div>
+    </div>
 
     <!-- Hero -->
     <section class="writing-page-hero">
@@ -36,7 +47,7 @@
             Exploring the future of design, AI, and human-centered technology through short, thoughtful reflections that blend provocation with practicality.
         </p>
         <div class="writing-page-actions">
-            <a href="https://johnrubino.substack.com" target="_blank" class="btn-primary">
+            <a href="https://johnrubino.substack.com" target="_blank" rel="noopener" class="lp-btn-primary">
                 Subscribe on Substack
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
@@ -69,7 +80,7 @@
         <div class="writing-cta reveal">
             <p class="writing-cta-title">Ideas delivered to your inbox.</p>
             <p class="writing-cta-sub">The latest on design, AI, and the future of creative work. No spam — just thoughtful ideas worth your time.</p>
-            <a href="https://johnrubino.substack.com" target="_blank" class="btn-primary">
+            <a href="https://johnrubino.substack.com" target="_blank" rel="noopener" class="lp-btn-primary">
                 Subscribe on Substack
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
@@ -77,28 +88,29 @@
 
     </main>
 
-    <footer class="footer">
-        <div class="footer-left">&copy; 2025 John Rubino &middot; Product Designer &middot; New York</div>
-        <div class="footer-links">
-            <a href="https://www.linkedin.com/in/john-rubino/" target="_blank" class="footer-link">LinkedIn</a>
-            <a href="https://johnrubino.substack.com" target="_blank" class="footer-link">Substack</a>
-            <a href="about.html" class="footer-link">About</a>
-            <a href="mailto:johnrubinodesign@gmail.com" class="footer-link">Contact</a>
+    <footer class="lp-footer">
+        <div class="lp-footer-copy">&copy; 2026 John Rubino &middot; Product Designer &middot; New York</div>
+        <div class="lp-footer-links">
+            <a href="https://www.linkedin.com/in/john-rubino/" target="_blank" rel="noopener" class="lp-footer-link">LinkedIn</a>
+            <a href="https://johnrubino.substack.com" target="_blank" rel="noopener" class="lp-footer-link">Substack</a>
+            <a href="about.html" class="lp-footer-link">About</a>
+            <a href="mailto:johnrubinodesign@gmail.com" class="lp-footer-link">Contact</a>
         </div>
     </footer>
 
     <script>
-        // Reveal on scroll
         const observer = new IntersectionObserver(
             (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
             { threshold: 0.08, rootMargin: '0px 0px -50px 0px' }
         );
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        const nav = document.querySelector('.nav');
+        const nav = document.querySelector('.lp-nav');
         window.addEventListener('scroll', () => {
-            nav.style.borderBottomColor = window.scrollY > 80 ? 'rgba(255,255,255,0.10)' : 'rgba(255,255,255,0.07)';
-        });
+            nav.style.borderBottomColor = window.scrollY > 40
+                ? 'rgba(176,176,208,0.3)'
+                : 'rgba(255,255,255,0.1)';
+        }, { passive: true });
 
         // Substack RSS
         const SUBSTACK_URL = 'https://johnrubino.substack.com';
@@ -188,8 +200,8 @@
             featuredEl.className = 'writing-card featured';
             featuredEl.innerHTML =
                 '<div class="writing-card-eyebrow" style="display:flex;gap:8px;align-items:center;">' +
-                    '<span class="tag orange">Featured</span>' +
-                    '<span class="tag">' + featured.category + '</span>' +
+                    '<span class="lp-tag" style="color:var(--lp-primary);border:1px solid rgba(100,119,248,0.3);background:rgba(100,119,248,0.08);padding:3px 10px;border-radius:5px;font-size:10px;">Featured</span>' +
+                    '<span class="lp-tag" style="padding:3px 10px;border-radius:5px;font-size:10px;">' + featured.category + '</span>' +
                 '</div>' +
                 '<h2 class="writing-card-title">' + featured.title + '</h2>' +
                 '<p class="writing-card-excerpt">' + featured.description + '</p>' +
@@ -210,7 +222,7 @@
                 card.rel = 'noopener noreferrer';
                 card.className = 'writing-card';
                 card.innerHTML =
-                    '<div class="writing-card-eyebrow"><span class="tag purple">' + article.category + '</span></div>' +
+                    '<div class="writing-card-eyebrow"><span class="lp-tag" style="color:var(--lp-primary);font-size:10px;">' + article.category + '</span></div>' +
                     '<h3 class="writing-card-title">' + article.title + '</h3>' +
                     '<p class="writing-card-excerpt">' + article.description + '</p>' +
                     '<div class="writing-card-meta">' +
@@ -232,6 +244,23 @@
         });
 
         fetchSubstackArticles();
+    </script>
+
+    <script>
+        (function () {
+            const btn  = document.querySelector('.lp-hamburger');
+            const menu = document.querySelector('.lp-mobile-menu');
+            const nav  = document.querySelector('.lp-nav');
+            if (!btn || !menu) return;
+            function open()  { btn.setAttribute('aria-expanded','true');  menu.classList.add('open'); }
+            function close() { btn.setAttribute('aria-expanded','false'); menu.classList.remove('open'); }
+            btn.addEventListener('click', () => menu.classList.contains('open') ? close() : open());
+            menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+            document.addEventListener('click', e => {
+                if (!nav.contains(e.target) && !menu.contains(e.target)) close();
+            });
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+        })();
     </script>
 </body>
 </html>

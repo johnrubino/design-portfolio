@@ -7,423 +7,550 @@
     <meta name="description" content="Senior Product Designer specializing in enterprise UX, AI-native workflows, and design systems at scale. Currently at BNY Pershing. Founder of Colllective Design.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="design-system.css">
 </head>
-<body>
+<body class="landing-page">
 
-    <nav class="nav">
-        <a href="index.html" class="nav-logo">
-            <div class="nav-logo-mark">JR</div>
-            John Rubino
-        </a>
-        <div class="nav-links">
-            <a href="index.html" class="nav-link active">Home</a>
-            <a href="about.html" class="nav-link">About</a>
-            <a href="writing.html" class="nav-link">Writing</a>
-            <a href="mailto:johnrubinodesign@gmail.com" class="nav-cta">Get In Touch &rarr;</a>
+    <!-- ── Navigation ── -->
+    <nav class="lp-nav">
+        <div class="lp-nav-logo-group">
+            <a href="index.html" class="lp-nav-logo" aria-label="John Rubino">JR</a>
+            <div class="lp-nav-links">
+                <a href="about.html" class="lp-nav-item">About</a>
+                <a href="writing.html" class="lp-nav-item">Writing</a>
+            </div>
         </div>
+        <a href="#work" class="lp-btn-primary">View work</a>
+        <button class="lp-hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
 
-    <section class="hero">
-        <div class="hero-inner">
-            <div class="hero-eyebrow">
-                <span class="hero-dot"></span>
-                Available for new opportunities
-            </div>
-            <h1 class="hero-name">
-                <span>JOHN</span>
-                <span>RUBINO</span>
-            </h1>
-            <p class="hero-role">Senior Product Designer</p>
-            <p class="hero-bio">
-                <strong>Enterprise UX</strong> for complex financial systems.
-                <strong>AI-native workflows</strong> through Colllective Design.
-                <strong>Design systems</strong> that scale across teams and platforms.
-            </p>
-            <div class="hero-stats reveal">
-                <div class="hero-stat">
-                    <div class="stat-value">8+</div>
-                    <div class="stat-label">Years Experience</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="stat-value">3</div>
-                    <div class="stat-label">Enterprise Platforms</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="stat-value">$1T+</div>
-                    <div class="stat-label">AUM Context</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="stat-value">0&rarr;1</div>
-                    <div class="stat-label">Venture Design</div>
-                </div>
-            </div>
-            <div class="hero-actions">
-                <a href="#work" class="btn-primary">
-                    View Selected Work
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </a>
-                <a href="mailto:johnrubinodesign@gmail.com" class="btn-ghost">
-                    Start a Conversation
-                </a>
-            </div>
-        </div>
-        <div class="hero-scroll">
-            <div class="scroll-line"></div>
-            Scroll
-        </div>
-    </section>
-
-    <div class="ticker-wrap">
-        <div class="ticker-track">
-            <span class="ticker-item"><span class="ticker-dot"></span>Design Systems</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Enterprise UX</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>AI-Native Workflows</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>0-to-1 Products</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Figma Expert</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Cross-Functional Leadership</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Research &amp; Validation</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Venture Design</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Design Ops</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Wealth Services UX</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Design Systems</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Enterprise UX</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>AI-Native Workflows</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>0-to-1 Products</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Figma Expert</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Cross-Functional Leadership</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Research &amp; Validation</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Venture Design</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Design Ops</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Wealth Services UX</span>
+    <!-- ── Mobile menu ── -->
+    <div class="lp-mobile-menu" role="navigation" aria-label="Mobile navigation">
+        <div class="lp-mobile-menu-inner">
+            <a href="about.html" class="lp-mobile-nav-item">About</a>
+            <a href="writing.html" class="lp-mobile-nav-item">Writing</a>
+            <div class="lp-mobile-menu-divider"></div>
+            <a href="#work" class="lp-btn-primary lp-mobile-cta">View work</a>
         </div>
     </div>
 
-    <section class="companies reveal">
-        <div class="companies-inner">
-            <p class="companies-label">Currently shipping for</p>
-            <div class="companies-grid">
-                <div class="company-card">
-                    <div class="company-eyebrow">Day role &middot; New York, NY</div>
-                    <div class="company-name">BNY Pershing</div>
-                    <div class="company-role">Senior Product Designer within the Wealth Services group &mdash; Clearing &amp; Servicing Pods. Designing complex financial workflows for advisors managing institutional-scale assets.</div>
-                    <div class="company-tags">
-                        <span class="tag purple">Enterprise UX</span>
-                        <span class="tag">Wealth Services</span>
-                        <span class="tag">Design Systems</span>
-                        <span class="tag">Fintech</span>
+    <!-- ── Hero + Ticker container ── -->
+    <div>
+        <section class="lp-hero">
+            <div class="lp-hero-inner">
+
+                <!-- Availability chip -->
+                <div class="lp-chip-row">
+                    <div class="lp-chip">
+                        <span class="lp-chip-dot"></span>
+                        <span class="lp-chip-text">Not available for new opportunities</span>
+                    </div>
+
+                    <!-- Name + title -->
+                    <h1 class="lp-name">John Rubino</h1>
+                    <p class="lp-designer-title">Senior Product Designer</p>
+                </div>
+
+                <!-- Bio -->
+                <p class="lp-bio">Enterprise UX for complex financial systems. AI-native workflows through Colllective Design.</p>
+
+                <!-- Buttons -->
+                <div class="lp-btn-group">
+                    <a href="#work" class="lp-btn-primary">View work</a>
+                    <a href="mailto:johnrubinodesign@gmail.com" class="lp-btn-link">Get in touch</a>
+                </div>
+
+                <!-- Stats bar -->
+                <div class="lp-stats-bar">
+                    <div class="lp-stat">
+                        <div class="lp-stat-value">4+</div>
+                        <div class="lp-stat-label">Years Experience</div>
+                    </div>
+                    <div class="lp-stat">
+                        <div class="lp-stat-value">3</div>
+                        <div class="lp-stat-label">Enterprise Platforms</div>
+                    </div>
+                    <div class="lp-stat">
+                        <div class="lp-stat-value">$1T+</div>
+                        <div class="lp-stat-label">AUM Context</div>
+                    </div>
+                    <div class="lp-stat">
+                        <div class="lp-stat-value">0&rarr;1</div>
+                        <div class="lp-stat-label">Venture Design</div>
                     </div>
                 </div>
-                <div class="company-card">
-                    <div class="company-eyebrow">Founder &middot; Design Agency</div>
-                    <div class="company-name">Colllective Design</div>
-                    <div class="company-role">AI-native UX design agency focused on venture design, product strategy, and 0-to-1 product development. Helping founders build intelligent, human-centered products.</div>
-                    <div class="company-tags">
-                        <span class="tag orange">AI-Native</span>
-                        <span class="tag">Venture Design</span>
-                        <span class="tag">Product Strategy</span>
-                        <span class="tag gold">0-to-1</span>
-                    </div>
+
+            </div>
+        </section>
+
+        <!-- ── Skills ticker ── -->
+        <div class="lp-ticker" aria-hidden="true">
+            <div class="lp-ticker-track">
+                <span class="lp-ticker-item"><span class="lp-ticker-dot"></span>Design Systems</span>
+                <span class="lp-ticker-item"><span class="lp-ticker-dot"></span>Enterprise UX</span>
+                <span class="lp-ticker-item"><span class="lp-ticker-dot"></span>AI-Native Workflows</span>
+                <span class="lp-ticker-item"><span class="lp-ticker-dot"></span>0-to-1 Products</span>
+                <span class="lp-ticker-item"><span class="lp-ticker-dot"></span>Figma Expert</span>
+                <span class="lp-ticker-item"><span class="lp-ticker-dot"></span>Cross-Functional Leadership</span>
+                <span class="lp-ticker-item"><span class="lp-ticker-dot"></span>Research &amp; Validation</span>
+                <span class="lp-ticker-item"><span class="lp-ticker-dot"></span>Venture Design</span>
+                <span class="lp-ticker-item"><span class="lp-ticker-dot"></span>Design Ops</span>
+                <span class="lp-ticker-item"><span class="lp-ticker-dot"></span>Wealth Services UX</span>
+                <!-- duplicate for seamless loop -->
+                <span class="lp-ticker-item"><span class="lp-ticker-dot"></span>Design Systems</span>
+                <span class="lp-ticker-item"><span class="lp-ticker-dot"></span>Enterprise UX</span>
+                <span class="lp-ticker-item"><span class="lp-ticker-dot"></span>AI-Native Workflows</span>
+                <span class="lp-ticker-item"><span class="lp-ticker-dot"></span>0-to-1 Products</span>
+                <span class="lp-ticker-item"><span class="lp-ticker-dot"></span>Figma Expert</span>
+                <span class="lp-ticker-item"><span class="lp-ticker-dot"></span>Cross-Functional Leadership</span>
+                <span class="lp-ticker-item"><span class="lp-ticker-dot"></span>Research &amp; Validation</span>
+                <span class="lp-ticker-item"><span class="lp-ticker-dot"></span>Venture Design</span>
+                <span class="lp-ticker-item"><span class="lp-ticker-dot"></span>Design Ops</span>
+                <span class="lp-ticker-item"><span class="lp-ticker-dot"></span>Wealth Services UX</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Currently Shipping ── -->
+    <section class="lp-companies">
+        <p class="lp-companies-label">Currently shipping for</p>
+        <div class="lp-companies-grid">
+
+            <div class="lp-company-card">
+                <div class="lp-company-eyebrow">Day role &middot; New York, NY</div>
+                <h2 class="lp-company-name">BNY Pershing</h2>
+                <p class="lp-company-desc">Senior Product Designer within the Wealth Services group &mdash; Clearing &amp; Servicing Pods. Designing complex financial workflows for advisors managing institutional-scale assets.</p>
+                <div class="lp-company-tags">
+                    <span class="lp-tag">Enterprise UX</span>
+                    <span class="lp-tag-divider"></span>
+                    <span class="lp-tag">Wealth Services</span>
+                    <span class="lp-tag-divider"></span>
+                    <span class="lp-tag">Design Systems</span>
+                    <span class="lp-tag-divider"></span>
+                    <span class="lp-tag">Fintech</span>
                 </div>
             </div>
+
+            <div class="lp-company-card">
+                <div class="lp-company-eyebrow">Advisor &middot; Design Agency</div>
+                <h2 class="lp-company-name">Colllective Design</h2>
+                <p class="lp-company-desc">AI-native UX design agency focused on venture design, product strategy, and 0-to-1 product development. Helping founders build intelligent, human-centered products.</p>
+                <div class="lp-company-tags">
+                    <span class="lp-tag">AI-Native</span>
+                    <span class="lp-tag-divider"></span>
+                    <span class="lp-tag">Venture Design</span>
+                    <span class="lp-tag-divider"></span>
+                    <span class="lp-tag">Product Strategy</span>
+                    <span class="lp-tag-divider"></span>
+                    <span class="lp-tag">0-to-1</span>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <section class="work-section" id="work">
-        <div class="work-header reveal">
-            <div class="section-label">Selected Work</div>
-            <h2 class="section-heading">Enterprise-grade problems,<br>human-centered solutions.</h2>
-            <p class="section-subheading">All case studies are protected under NDA. Request access to review full process documentation, research synthesis, and high-fidelity design artifacts.</p>
-        </div>
-        <div class="case-studies">
-            <div class="case-study reveal" onclick="openModal('New Account Opening &mdash; BNY Pershing')">
-                <div class="cs-meta">
-                    <div class="cs-eyebrow">BNY Pershing &middot; Wealth Services</div>
-                    <h3 class="cs-title">New Account Opening</h3>
-                    <p class="cs-description">End-to-end redesign of the account opening workflow for financial advisors on the Pershing platform. Integrated years of research, journey mapping, and design validation into a cohesive system that dramatically reduces completion time and operational error rates.</p>
-                    <div class="cs-footer">
-                        <div class="cs-detail"><span class="cs-detail-label">ROLE:</span><span class="cs-detail-value">Sr. Product Designer</span></div>
-                        <div class="cs-detail"><span class="cs-detail-label">YEAR:</span><span class="cs-detail-value">2022&ndash;2024</span></div>
-                        <div class="cs-detail"><span class="cs-detail-label">SCOPE:</span><span class="cs-detail-value">Research &rarr; System</span></div>
-                    </div>
-                    <a class="cs-access" onclick="openModal('New Account Opening'); event.stopPropagation();">
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="2" y="5" width="8" height="6" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M4 5V3.5a2 2 0 014 0V5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-                        Request Access
-                    </a>
+    <!-- ── Gradient section: Work + Writing + CTA ── -->
+    <section class="lp-gradient-section">
+
+        <!-- Selected Work -->
+        <div class="lp-work" id="work">
+            <div class="lp-work-header">
+                <div class="lp-section-label-row">
+                    <span class="lp-section-label">Selected Work</span>
+                    <span class="lp-section-label-dash"></span>
                 </div>
-                <div class="cs-lock-badge">
-                    <div class="lock-indicator">
-                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><rect x="1.5" y="4.5" width="7" height="5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M3 4.5V3a2 2 0 014 0v1.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
-                        NDA Protected
-                    </div>
-                    <div class="impact-pill">&uarr; 40% faster completion</div>
-                </div>
+                <h2 class="lp-section-heading">Enterprise-grade<br>problems,<br>human-centered<br>solutions.</h2>
+                <p class="lp-section-subtext">All case studies are protected under NDA. Request access to review full process documentation, research synthesis, and high-fidelity design artifacts.</p>
             </div>
 
-            <div class="case-study reveal reveal-delay-1" onclick="openModal('Asset Movement &mdash; BNY Pershing')">
-                <div class="cs-meta">
-                    <div class="cs-eyebrow">BNY Pershing &middot; Clearing &amp; Servicing</div>
-                    <h3 class="cs-title">Asset Movement</h3>
-                    <p class="cs-description">Redesigned the asset transfer and movement interfaces for a platform handling institutional-scale financial transactions. Balanced regulatory requirements, compliance constraints, and user cognitive load across multiple advisor workflows.</p>
-                    <div class="cs-footer">
-                        <div class="cs-detail"><span class="cs-detail-label">ROLE:</span><span class="cs-detail-value">Sr. Product Designer</span></div>
-                        <div class="cs-detail"><span class="cs-detail-label">YEAR:</span><span class="cs-detail-value">2023</span></div>
-                        <div class="cs-detail"><span class="cs-detail-label">SCOPE:</span><span class="cs-detail-value">UX Strategy &rarr; Delivery</span></div>
-                    </div>
-                    <a class="cs-access" onclick="openModal('Asset Movement'); event.stopPropagation();">
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="2" y="5" width="8" height="6" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M4 5V3.5a2 2 0 014 0V5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-                        Request Access
-                    </a>
-                </div>
-                <div class="cs-lock-badge">
-                    <div class="lock-indicator">
-                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><rect x="1.5" y="4.5" width="7" height="5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M3 4.5V3a2 2 0 014 0v1.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
-                        NDA Protected
-                    </div>
-                    <div class="impact-pill">&darr; Error rate reduced</div>
-                </div>
-            </div>
+            <!-- Carousel -->
+            <div class="lp-carousel-container">
+                <div class="lp-carousel-viewport">
+                    <div class="lp-carousel" id="lpCarousel">
 
-            <div class="case-study reveal reveal-delay-2" onclick="openModal('Fully Paid Lending &mdash; BNY Pershing')">
-                <div class="cs-meta">
-                    <div class="cs-eyebrow">BNY Pershing &middot; Wealth Services</div>
-                    <h3 class="cs-title">Fully Paid Lending</h3>
-                    <p class="cs-description">Streamlined the fully paid lending program experience, enabling financial advisors to unlock liquidity for clients while maintaining compliance and reducing operational risk. Designed complex eligibility, disclosure, and agreement flows with clarity at every step.</p>
-                    <div class="cs-footer">
-                        <div class="cs-detail"><span class="cs-detail-label">ROLE:</span><span class="cs-detail-value">Sr. Product Designer</span></div>
-                        <div class="cs-detail"><span class="cs-detail-label">YEAR:</span><span class="cs-detail-value">2023&ndash;2024</span></div>
-                        <div class="cs-detail"><span class="cs-detail-label">SCOPE:</span><span class="cs-detail-value">0-to-1 Workflow Design</span></div>
-                    </div>
-                    <a class="cs-access" onclick="openModal('Fully Paid Lending'); event.stopPropagation();">
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="2" y="5" width="8" height="6" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M4 5V3.5a2 2 0 014 0V5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-                        Request Access
-                    </a>
-                </div>
-                <div class="cs-lock-badge">
-                    <div class="lock-indicator">
-                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><rect x="1.5" y="4.5" width="7" height="5" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M3 4.5V3a2 2 0 014 0v1.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
-                        NDA Protected
-                    </div>
-                    <div class="impact-pill">&uarr; Advisor adoption rate</div>
-                </div>
-            </div>
-        </div>
-    </section>
+                        <!-- Card 1: Future of Wealth Advisory -->
+                        <div class="lp-cs-card">
+                            <div class="lp-cs-img-bg">
+                                <img src="images/case-studies/platform-vision/To do list high fidelity design.png" alt="Future of Wealth Advisory — NAO To-Do List final design">
+                            </div>
+                            <div class="lp-cs-glass">
+                                <div class="lp-cs-glass-inner">
+                                    <div class="lp-cs-glass-text">
+                                        <p class="lp-cs-eyebrow">BNY Pershing &middot; Wealth Services</p>
+                                        <h3 class="lp-cs-title">Future of Wealth Advisory</h3>
+                                        <p class="lp-cs-desc">Reimagined account opening and asset movement workflows for a platform consolidation, designing the To-Do List pattern and collapsing stepper.</p>
+                                    </div>
+                                    <div class="lp-cs-glass-actions">
+                                        <span class="lp-cs-nda">NDA Protected</span>
+                                        <a href="mailto:johnrubinodesign@gmail.com?subject=Portfolio%20Access%20Request%20%E2%80%94%20Future%20of%20Wealth%20Advisory&body=Hi%20John%2C%0A%0AI%27d%20like%20to%20request%20access%20to%20your%20case%20study%3A%20Future%20of%20Wealth%20Advisory.%0A%0ALooking%20forward%20to%20connecting." class="lp-btn-request">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1.5" y="4.5" width="9" height="7" rx="1.5" stroke="white" stroke-width="1.2"/><path d="M4 4.5V3a2 2 0 014 0v1.5" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
+                                            Request Access
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-    <section class="capabilities-section">
-        <div class="capabilities-layout">
-            <div class="cap-sticky reveal">
-                <div class="section-label">What I Bring</div>
-                <h2 class="section-heading" style="font-size:clamp(28px,3.2vw,40px); margin-bottom:36px;">A full-stack<br>design capability.</h2>
-                <div class="cap-list">
-                    <div class="cap-item">
-                        <div class="cap-icon">&#x2B21;</div>
-                        <div class="cap-body">
-                            <div class="cap-title">Design Systems</div>
-                            <div class="cap-desc">Scalable component libraries and token-based systems that create consistency and velocity across teams.</div>
-                            <div class="cap-tag">Figma &middot; Tokens &middot; Dev Handoff</div>
+                        <!-- Card 2: Fully Paid Lending -->
+                        <div class="lp-cs-card">
+                            <div class="lp-cs-img-bg">
+                                <img src="images/case-studies/fpl/final-design.png" alt="Fully Paid Lending — final design">
+                            </div>
+                            <div class="lp-cs-glass">
+                                <div class="lp-cs-glass-inner">
+                                    <div class="lp-cs-glass-text">
+                                        <p class="lp-cs-eyebrow">BNY Pershing &middot; Wealth Services</p>
+                                        <h3 class="lp-cs-title">Fully Paid Lending</h3>
+                                        <p class="lp-cs-desc">Streamlined the fully paid lending program experience, enabling advisors to unlock liquidity for clients while maintaining compliance.</p>
+                                    </div>
+                                    <div class="lp-cs-glass-actions">
+                                        <span class="lp-cs-nda">NDA Protected</span>
+                                        <a href="mailto:johnrubinodesign@gmail.com?subject=Portfolio%20Access%20Request%20%E2%80%94%20Fully%20Paid%20Lending&body=Hi%20John%2C%0A%0AI%27d%20like%20to%20request%20access%20to%20your%20case%20study%3A%20Fully%20Paid%20Lending.%0A%0ALooking%20forward%20to%20connecting." class="lp-btn-request">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1.5" y="4.5" width="9" height="7" rx="1.5" stroke="white" stroke-width="1.2"/><path d="M4 4.5V3a2 2 0 014 0v1.5" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
+                                            Request Access
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="cap-item">
-                        <div class="cap-icon">&#x25C8;</div>
-                        <div class="cap-body">
-                            <div class="cap-title">AI-Native UX</div>
-                            <div class="cap-desc">Designing intelligent product experiences where AI augments, not complicates, the human workflow.</div>
-                            <div class="cap-tag">LLM Products &middot; Agentic UX</div>
-                        </div>
-                    </div>
-                    <div class="cap-item">
-                        <div class="cap-icon">&#x25CE;</div>
-                        <div class="cap-body">
-                            <div class="cap-title">Enterprise UX Strategy</div>
-                            <div class="cap-desc">Complex B2B workflow design &mdash; research, journey mapping, and systematic validation at scale.</div>
-                            <div class="cap-tag">B2B &middot; Financial Services</div>
-                        </div>
-                    </div>
-                    <div class="cap-item">
-                        <div class="cap-icon">&#x27E1;</div>
-                        <div class="cap-body">
-                            <div class="cap-title">Cross-Functional Leadership</div>
-                            <div class="cap-desc">Bridging product, engineering, and design &mdash; from kickoff to shipped, with clear process and documentation.</div>
-                            <div class="cap-tag">Design Ops &middot; Mentorship</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="process-steps reveal reveal-delay-2">
-                <div class="section-label" style="margin-bottom:40px;">How I Work</div>
-                <div class="process-step">
-                    <div class="step-number">01</div>
-                    <div class="step-content">
-                        <div class="step-title">Understand the System</div>
-                        <div class="step-desc">Before touching a frame, I map the full ecosystem &mdash; user needs, business context, technical constraints, and existing patterns. Zooming out first ensures every design decision is grounded in real-world complexity, not assumptions.</div>
+                        <!-- Card 3: Purple Panda Rentals -->
+                        <div class="lp-cs-card">
+                            <div class="lp-cs-img-bg">
+                                <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62c766abb767dba81d22d0dd_PPR%20Project%20Tile.png" alt="Purple Panda Rentals — mobile app design">
+                            </div>
+                            <div class="lp-cs-glass">
+                                <div class="lp-cs-glass-inner">
+                                    <div class="lp-cs-glass-text">
+                                        <p class="lp-cs-eyebrow">Founder Project &middot; Mobile</p>
+                                        <h3 class="lp-cs-title">Purple Panda Rentals</h3>
+                                        <p class="lp-cs-desc">Founded a rental platform for college students, designing the mobile app from research through validated prototypes with 270 survey respondents.</p>
+                                    </div>
+                                    <div class="lp-cs-glass-actions">
+                                        <a href="case-study-purple-panda-rentals.html" class="lp-btn-request">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                            View Case Study
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-                <div class="step-divider"></div>
-                <div class="process-step">
-                    <div class="step-number">02</div>
-                    <div class="step-content">
-                        <div class="step-title">Research as Foundation</div>
-                        <div class="step-desc">I treat research not as a phase but as a continuous input. Journey maps, usability sessions, and longitudinal synthesis inform every decision and become the source of truth that keeps teams aligned long after launch.</div>
-                    </div>
-                </div>
-                <div class="step-divider"></div>
-                <div class="process-step">
-                    <div class="step-number">03</div>
-                    <div class="step-content">
-                        <div class="step-title">Design for Scale, Not Screens</div>
-                        <div class="step-desc">Every component is designed with system thinking. I build with reuse, consistency, and developer ergonomics in mind &mdash; so what I deliver doesn't just look good in a prototype, it performs in production.</div>
-                    </div>
-                </div>
-                <div class="step-divider"></div>
-                <div class="process-step">
-                    <div class="step-number">04</div>
-                    <div class="step-content">
-                        <div class="step-title">Close the Loop</div>
-                        <div class="step-desc">Post-launch, I measure against the research goals that started the work. Real impact means tracking whether the design actually moved the needle &mdash; and iterating when it hasn't. Design is never done; it's just shipped.</div>
-                    </div>
+
+                <!-- Dot indicators -->
+                <div class="lp-carousel-dots" role="tablist" aria-label="Case studies">
+                    <button class="lp-dot active" data-index="0" aria-label="Slide 1" aria-selected="true"></button>
+                    <button class="lp-dot" data-index="1" aria-label="Slide 2" aria-selected="false"></button>
+                    <button class="lp-dot" data-index="2" aria-label="Slide 3" aria-selected="false"></button>
                 </div>
             </div>
         </div>
-    </section>
 
-    <section class="writing-section">
-        <div class="writing-inner">
-            <div class="reveal">
-                <div class="section-label">Thought Leadership</div>
-                <h2 class="section-heading">Writing at the intersection<br>of design, AI, and work's future.</h2>
-            </div>
-            <div class="writing-layout reveal reveal-delay-1">
-                <div class="writing-feature">
-                    <div class="writing-feature-label">
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2"/><path d="M6 3v3l2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-                        Design Thinker &middot; Substack
+        <!-- Writing -->
+        <div class="lp-writing">
+            <div class="lp-section-label">Thought Leadership</div>
+            <h2 class="lp-writing-heading">Writing at the intersection<br>of design, AI, and work's future.</h2>
+
+            <div class="lp-writing-grid">
+                <div class="lp-writing-feature">
+                    <p class="lp-writing-eyebrow">Design Thinker &middot; Substack</p>
+                    <div>
+                        <h3 class="lp-writing-title">Where Design Meets<br>What's Next</h3>
                     </div>
-                    <h3 class="writing-feature-title">Where Design Meets What's Next</h3>
-                    <p class="writing-feature-desc">Short, provocative essays on the future of design practice, AI as creative infrastructure, and building sustainable design careers in a rapidly changing industry.</p>
-                    <a href="https://johnrubino.substack.com" target="_blank" class="writing-link">
+                    <p class="lp-writing-desc">Short, provocative essays on the future of design practice, AI as creative infrastructure, and building sustainable design careers in a rapidly changing industry.</p>
+                    <a href="https://johnrubino.substack.com" target="_blank" rel="noopener" class="lp-btn-outline">
                         Read on Substack
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </a>
                 </div>
-                <div class="writing-posts">
-                    <div class="writing-post-item">
-                        <div class="post-date">Design Thinker</div>
-                        <div class="post-title">The Designer Who Learns to Prompt Will Lead the Next Decade</div>
-                    </div>
-                    <div class="writing-post-item">
-                        <div class="post-date">Design Thinker</div>
-                        <div class="post-title">Why Enterprise Design Is the Hardest Problem in the Industry</div>
-                    </div>
-                    <div class="writing-post-item">
-                        <div class="post-date">Design Thinker</div>
-                        <div class="post-title">Design Systems Aren't About Components &mdash; They're About Culture</div>
-                    </div>
-                    <div class="writing-post-item">
-                        <div class="post-date">Design Thinker</div>
-                        <div class="post-title">What Building a Studio Taught Me About Product Design Fundamentals</div>
-                    </div>
+
+                <div class="lp-writing-posts" id="lpWritingPosts">
+                    <div class="lp-post-loading">Loading latest articles&hellip;</div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <section class="cta-section">
-        <div class="cta-inner reveal">
-            <h2 class="cta-heading">Let's build something that matters.</h2>
-            <p class="cta-sub">Open to senior product design roles, fractional design leadership, and AI-native product engagements through Colllective.</p>
-            <div class="cta-actions">
-                <a href="mailto:johnrubinodesign@gmail.com?subject=Let's%20Connect" class="btn-primary">
-                    Get In Touch
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </a>
-                <a href="https://www.linkedin.com/in/john-rubino/" target="_blank" class="btn-ghost">LinkedIn</a>
-                <a href="hiring.html" class="btn-ghost">Hiring? View Case Studies</a>
-            </div>
+        <!-- CTA -->
+        <div class="lp-cta">
+            <h2 class="lp-cta-heading">Let's build<br>something<br>that matters.</h2>
+            <p class="lp-cta-sub">Open to senior product design roles, fractional design leadership, and AI-native product engagements through Colllective.</p>
+            <a href="mailto:johnrubinodesign@gmail.com?subject=Let%27s%20Connect" class="lp-btn-primary">Get in touch</a>
         </div>
+
     </section>
 
-    <footer class="footer">
-        <div class="footer-left">&copy; 2025 John Rubino &middot; Product Designer &middot; New York</div>
-        <div class="footer-links">
-            <a href="https://www.linkedin.com/in/john-rubino/" target="_blank" class="footer-link">LinkedIn</a>
-            <a href="https://johnrubino.substack.com" target="_blank" class="footer-link">Substack</a>
-            <a href="about.html" class="footer-link">About</a>
-            <a href="mailto:johnrubinodesign@gmail.com" class="footer-link">Contact</a>
+    <!-- ── Footer ── -->
+    <footer class="lp-footer">
+        <div class="lp-footer-copy">&copy; 2026 John Rubino &middot; Product Designer &middot; New York</div>
+        <div class="lp-footer-links">
+            <a href="https://www.linkedin.com/in/john-rubino/" target="_blank" rel="noopener" class="lp-footer-link">LinkedIn</a>
+            <a href="https://johnrubino.substack.com" target="_blank" rel="noopener" class="lp-footer-link">Substack</a>
+            <a href="about.html" class="lp-footer-link">About</a>
+            <a href="mailto:johnrubinodesign@gmail.com" class="lp-footer-link">Contact</a>
         </div>
     </footer>
 
-    <div class="modal-overlay" id="modalOverlay" onclick="closeModalOnOverlay(event)">
-        <div class="modal">
-            <div class="modal-header">
-                <div>
-                    <div class="modal-title">Request Access</div>
-                    <div class="modal-subtitle" id="modalCaseStudy">NDA-protected case study</div>
-                </div>
-                <button class="modal-close" onclick="closeModal()">&times;</button>
-            </div>
-            <form class="modal-form" onsubmit="submitAccessRequest(event)">
-                <div class="form-field">
-                    <label class="form-label" for="modal-name">Full Name</label>
-                    <input class="form-input" id="modal-name" type="text" placeholder="Your name" required>
-                </div>
-                <div class="form-field">
-                    <label class="form-label" for="modal-email">Work Email</label>
-                    <input class="form-input" id="modal-email" type="email" placeholder="you@company.com" required>
-                </div>
-                <div class="form-field">
-                    <label class="form-label" for="modal-company">Company / Role</label>
-                    <input class="form-input" id="modal-company" type="text" placeholder="e.g. Hiring Manager at Acme Co.">
-                </div>
-                <div class="form-field">
-                    <label class="form-label" for="modal-message">Note (optional)</label>
-                    <textarea class="form-input" id="modal-message" placeholder="What are you looking to review?"></textarea>
-                </div>
-                <button type="submit" class="modal-submit">Send Access Request &rarr;</button>
-            </form>
-        </div>
-    </div>
-
     <script>
-        const observer = new IntersectionObserver(
-            (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-            { threshold: 0.08, rootMargin: '0px 0px -50px 0px' }
-        );
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        // ── Carousel ──
+        const carousel  = document.getElementById('lpCarousel');
+        const viewport  = carousel.parentElement;
+        const dots      = document.querySelectorAll('.lp-dot');
+        const TOTAL     = carousel.children.length; // 3 real cards
 
-        const nav = document.querySelector('.nav');
-        window.addEventListener('scroll', () => {
-            nav.style.borderBottomColor = window.scrollY > 80 ? 'rgba(255,255,255,0.10)' : 'rgba(255,255,255,0.07)';
-        });
+        // Build infinite track: [clone-last][card0][card1][card2][clone-first]
+        const realCards  = Array.from(carousel.children);
+        const cloneLast  = realCards[TOTAL - 1].cloneNode(true);
+        const cloneFirst = realCards[0].cloneNode(true);
+        cloneLast.setAttribute('aria-hidden', 'true');
+        cloneFirst.setAttribute('aria-hidden', 'true');
+        carousel.insertBefore(cloneLast, realCards[0]); // prepend clone of last
+        carousel.appendChild(cloneFirst);               // append clone of first
+        // Track: [0=clone-last] [1=card0] [2=card1] [3=card2] [4=clone-first]
 
-        let currentCaseStudy = '';
-        function openModal(name) {
-            currentCaseStudy = name;
-            document.getElementById('modalCaseStudy').textContent = name;
-            document.getElementById('modalOverlay').classList.add('open');
-            document.body.style.overflow = 'hidden';
+        let current      = 0;    // logical index 0–2
+        let transitioning = false;
+
+        // Dynamic card width + gap — reads from DOM so CSS breakpoints drive layout
+        const trackIdx   = l  => l + 1;
+        function cardW()  { return carousel.children[1].offsetWidth; }
+        function cardGap() { return parseFloat(getComputedStyle(carousel).gap) || 32; }
+        const calcOffset = ti => {
+            const cw = cardW(), gap = cardGap();
+            return -ti * (cw + gap) + (viewport.offsetWidth - cw) / 2;
+        };
+
+        function setPos(ti, animate) {
+            carousel.style.transition = animate
+                ? 'transform 480ms cubic-bezier(0.25,0.46,0.45,0.94)'
+                : 'none';
+            carousel.style.transform = `translateX(${calcOffset(ti)}px)`;
         }
-        function closeModal() {
-            document.getElementById('modalOverlay').classList.remove('open');
-            document.body.style.overflow = '';
+
+        function syncDots(logical) {
+            dots.forEach((d, i) => {
+                d.classList.toggle('active', i === logical);
+                d.setAttribute('aria-selected', i === logical);
+            });
         }
-        function closeModalOnOverlay(e) {
-            if (e.target === document.getElementById('modalOverlay')) closeModal();
+
+        // Navigate to a real card (direct, no wrap animation)
+        function goTo(logical, animate = true) {
+            if (transitioning) return;
+            current = ((logical % TOTAL) + TOTAL) % TOTAL;
+            setPos(trackIdx(current), animate);
+            syncDots(current);
         }
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-        function submitAccessRequest(e) {
+
+        // Animate to a clone position, then silently snap to the real card
+        function wrapTo(cloneTi, realLogical) {
+            if (transitioning) return;
+            transitioning = true;
+            current = realLogical;
+            setPos(cloneTi, true);
+            syncDots(realLogical);
+            carousel.addEventListener('transitionend', function snap() {
+                carousel.removeEventListener('transitionend', snap);
+                setPos(trackIdx(realLogical), false);
+                transitioning = false;
+            }, { once: true });
+        }
+
+        function prev() {
+            if (current === 0)          wrapTo(0,        TOTAL - 1); // → clone-last → real-last
+            else                        goTo(current - 1);
+        }
+        function next() {
+            if (current === TOTAL - 1)  wrapTo(TOTAL + 1, 0);        // → clone-first → real-first
+            else                        goTo(current + 1);
+        }
+
+        // Initialise — no animation on load
+        goTo(0, false);
+
+        // ── Dot clicks ──
+        dots.forEach(btn => btn.addEventListener('click', () => goTo(+btn.dataset.index)));
+
+        // ── Resize: recompute offset, no animation ──
+        window.addEventListener('resize', () => setPos(trackIdx(current), false), { passive: true });
+
+        // ── Mouse wheel ──
+        let wheelLock = false;
+        viewport.addEventListener('wheel', e => {
             e.preventDefault();
-            const name = document.getElementById('modal-name').value;
-            const email = document.getElementById('modal-email').value;
-            const company = document.getElementById('modal-company').value;
-            const message = document.getElementById('modal-message').value;
-            const subject = encodeURIComponent('Portfolio Access Request — ' + currentCaseStudy);
-            const body = encodeURIComponent('Hi John,\n\nI\'d like to request access to your case study: ' + currentCaseStudy + '\n\nName: ' + name + '\nEmail: ' + email + '\nCompany / Role: ' + company + '\n\nNote: ' + message + '\n\nLooking forward to connecting.');
-            window.location.href = 'mailto:johnrubinodesign@gmail.com?subject=' + subject + '&body=' + body;
-            closeModal();
+            if (wheelLock || transitioning) return;
+            const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+            if      (delta >  20) { next(); wheelLock = true; }
+            else if (delta < -20) { prev(); wheelLock = true; }
+            if (wheelLock) setTimeout(() => { wheelLock = false; }, 650);
+        }, { passive: false });
+
+        // ── Drag (mouse + touch) ──
+        let dragStartX     = null;
+        let dragStartOff   = null;
+        let dragIsHoriz    = null;
+        let touchStartY    = 0;
+
+        function onDragStart(x) {
+            if (transitioning) return;
+            dragStartX   = x;
+            dragStartOff = calcOffset(trackIdx(current));
+            dragIsHoriz  = null;
+            carousel.style.transition = 'none';
+            viewport.classList.add('is-dragging');
         }
+
+        function onDragMove(x, absdy) {
+            if (dragStartX === null) return;
+            const dx = x - dragStartX;
+            if (dragIsHoriz === null && (Math.abs(dx) > 6 || absdy > 6)) {
+                dragIsHoriz = Math.abs(dx) >= absdy;
+            }
+            if (!dragIsHoriz) return;
+            carousel.style.transform = `translateX(${dragStartOff + dx}px)`;
+        }
+
+        function onDragEnd(x) {
+            if (dragStartX === null) return;
+            const dx = x - dragStartX;
+            dragStartX = null;
+            viewport.classList.remove('is-dragging');
+            if (!dragIsHoriz) return;
+            if      (dx < -50) next();
+            else if (dx >  50) prev();
+            else               goTo(current); // snap back to centre
+        }
+
+        // Mouse
+        viewport.addEventListener('mousedown', e => { e.preventDefault(); onDragStart(e.clientX); });
+        window.addEventListener('mousemove',   e => { if (dragStartX !== null) onDragMove(e.clientX, 0); });
+        window.addEventListener('mouseup',     e => onDragEnd(e.clientX));
+
+        // Touch
+        viewport.addEventListener('touchstart', e => {
+            touchStartY = e.touches[0].clientY;
+            onDragStart(e.touches[0].clientX);
+        }, { passive: true });
+        viewport.addEventListener('touchmove', e => {
+            const absdy = Math.abs(e.touches[0].clientY - touchStartY);
+            onDragMove(e.touches[0].clientX, absdy);
+            if (dragIsHoriz) e.preventDefault(); // block page scroll only when dragging carousel
+        }, { passive: false });
+        viewport.addEventListener('touchend', e => onDragEnd(e.changedTouches[0].clientX));
+
+        // ── Nav border on scroll ──
+        const nav = document.querySelector('.lp-nav');
+        window.addEventListener('scroll', () => {
+            nav.style.borderBottomColor = window.scrollY > 40
+                ? 'rgba(176,176,208,0.3)'
+                : 'rgba(255,255,255,0.1)';
+        }, { passive: true });
+
+        // ── Mobile menu ──
+        (function () {
+            const btn   = document.querySelector('.lp-hamburger');
+            const menu  = document.querySelector('.lp-mobile-menu');
+            const navEl = document.querySelector('.lp-nav');
+            if (!btn || !menu) return;
+            function open()  { btn.setAttribute('aria-expanded','true');  menu.classList.add('open'); }
+            function close() { btn.setAttribute('aria-expanded','false'); menu.classList.remove('open'); }
+            btn.addEventListener('click', () => menu.classList.contains('open') ? close() : open());
+            menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+            document.addEventListener('click', e => {
+                if (!navEl.contains(e.target) && !menu.contains(e.target)) close();
+            });
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+        })();
+
+        // ── Latest 4 Substack posts ──
+        (async function fetchLatestPosts() {
+            const container = document.getElementById('lpWritingPosts');
+            if (!container) return;
+
+            const SUBSTACK = 'https://johnrubino.substack.com';
+            const LINK_ICON = `<svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1 10L10 1M10 1H4M10 1V7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+            const SKELETON = `<div class="lp-post-skeleton"><div class="lp-post-skeleton-body"><div class="lp-post-skeleton-line title"></div><div class="lp-post-skeleton-line date"></div></div><div class="lp-post-skeleton-pill"></div></div>`;
+
+            // Show skeletons immediately
+            container.innerHTML = SKELETON + SKELETON + SKELETON + SKELETON;
+
+            function renderItems(items) {
+                container.innerHTML = items.slice(0, 4).map(({ title, link, date }) => {
+                    const fmt = date ? new Date(date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) : '';
+                    return `<a href="${link}" target="_blank" rel="noopener noreferrer" class="lp-post-item">
+                        <div class="lp-post-item-body">
+                            <span class="lp-post-item-title">${title}</span>
+                            ${fmt ? `<span class="lp-post-item-date">${fmt}</span>` : ''}
+                        </div>
+                        <span class="lp-post-item-cta">Read article ${LINK_ICON}</span>
+                    </a>`;
+                }).join('');
+            }
+
+            function showError() {
+                container.innerHTML = `<div class="lp-post-loading">Couldn't load articles — <a href="${SUBSTACK}" target="_blank" rel="noopener" style="color:var(--lp-primary);text-decoration:underline;">read on Substack</a></div>`;
+            }
+
+            // Helper: parse RSS XML nodes into items
+            function parseRSS(text) {
+                const xml   = new DOMParser().parseFromString(text, 'text/xml');
+                const nodes = Array.from(xml.querySelectorAll('item'));
+                if (!nodes.length) throw new Error('no items');
+                return nodes.map(n => {
+                    // <link> in RSS is a text node sibling, not element content
+                    const linkEl   = n.querySelector('link');
+                    const link     = (linkEl?.nextSibling?.nodeValue || linkEl?.textContent || '').trim();
+                    return {
+                        title: n.querySelector('title')?.textContent?.trim() || '',
+                        link:  link || '#',
+                        date:  n.querySelector('pubDate')?.textContent || ''
+                    };
+                });
+            }
+
+            // 1. Substack public API — CORS headers set by Substack
+            try {
+                const res  = await fetch(`${SUBSTACK}/api/v1/posts?limit=4`, { headers: { 'Accept': 'application/json' } });
+                const data = await res.json();
+                const posts = Array.isArray(data) ? data : (data.posts || []);
+                if (posts.length) {
+                    renderItems(posts.map(p => ({
+                        title: p.title || '',
+                        link:  p.canonical_url || `${SUBSTACK}/p/${p.slug}`,
+                        date:  p.post_date || ''
+                    })));
+                    return;
+                }
+            } catch (_) {}
+
+            // 2. Substack archive endpoint (alternate API path)
+            try {
+                const res  = await fetch(`${SUBSTACK}/api/v1/archive?sort=new&limit=4`, { headers: { 'Accept': 'application/json' } });
+                const data = await res.json();
+                const posts = Array.isArray(data) ? data : [];
+                if (posts.length) {
+                    renderItems(posts.map(p => ({
+                        title: p.title || '',
+                        link:  p.canonical_url || `${SUBSTACK}/p/${p.slug}`,
+                        date:  p.post_date || ''
+                    })));
+                    return;
+                }
+            } catch (_) {}
+
+            // 3. Direct RSS — works if Substack allows cross-origin (varies by browser/host)
+            try {
+                const res = await fetch(`${SUBSTACK}/feed`);
+                renderItems(parseRSS(await res.text()));
+                return;
+            } catch (_) {}
+
+            showError();
+        })();
     </script>
 </body>
 </html>

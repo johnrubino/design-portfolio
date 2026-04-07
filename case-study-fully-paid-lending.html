@@ -6,24 +6,19 @@
     <title>Case Study: Fully Paid Lending | John</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="design-system.css">
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="nav-header">
-        <a href="index.html" class="nav-logo">
-            <div class="nav-logo-icon">J</div>
-            <span>John</span>
-        </a>
-        <div class="nav-links">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="about.html" class="nav-link">About</a>
-            <a href="writing.html" class="nav-link">Writing</a>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                <span class="theme-icon">☀️</span>
-            </button>
+<body class="landing-page">
+    <nav class="lp-nav">
+        <div class="lp-nav-logo-group">
+            <a href="index.html" class="lp-nav-logo" aria-label="John Rubino">JR</a>
+            <div class="lp-nav-links">
+                <a href="about.html" class="lp-nav-item">About</a>
+                <a href="writing.html" class="lp-nav-item">Writing</a>
+            </div>
         </div>
+        <a href="mailto:johnrubinodesign@gmail.com" class="lp-btn-primary">Get in touch</a>
     </nav>
 
     <!-- Case Study Layout -->
@@ -659,39 +654,16 @@
             document.head.appendChild(s);
         }
 
-        // Theme Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = themeToggle.querySelector('.theme-icon');
-        const html = document.documentElement;
-
-        // Check for saved theme preference or default to dark mode
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-
-        // Apply saved theme
-        if (savedTheme === 'light') {
-            html.setAttribute('data-theme', 'light');
-            themeIcon.textContent = '🌙';
-        } else {
-            html.removeAttribute('data-theme');
-            themeIcon.textContent = '☀️';
-        }
-
-        // Toggle theme
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-
-            if (currentTheme === 'light') {
-                // Switch to dark mode
-                html.removeAttribute('data-theme');
-                themeIcon.textContent = '☀️';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                // Switch to light mode
-                html.setAttribute('data-theme', 'light');
-                themeIcon.textContent = '🌙';
-                localStorage.setItem('theme', 'light');
-            }
-        });
     </script>
+
+    <footer class="lp-footer">
+        <div class="lp-footer-copy">&copy; 2026 John Rubino &middot; Product Designer &middot; New York</div>
+        <div class="lp-footer-links">
+            <a href="https://www.linkedin.com/in/john-rubino/" target="_blank" rel="noopener" class="lp-footer-link">LinkedIn</a>
+            <a href="https://johnrubino.substack.com" target="_blank" rel="noopener" class="lp-footer-link">Substack</a>
+            <a href="about.html" class="lp-footer-link">About</a>
+            <a href="mailto:johnrubinodesign@gmail.com" class="lp-footer-link">Contact</a>
+        </div>
+    </footer>
 </body>
 </html>

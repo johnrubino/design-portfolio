@@ -6,30 +6,71 @@
     <title>Case Study: Asset Movement | John Rubino</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="design-system.css">
+    <style>
+        .lp-coming-soon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 68px - 81px);
+            gap: 16px;
+            padding: 80px 32px;
+            text-align: center;
+        }
+        .lp-coming-soon-label {
+            font-family: var(--lp-font-ui);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--lp-text-muted);
+        }
+        .lp-coming-soon h1 {
+            font-family: var(--lp-font-display);
+            font-size: clamp(40px, 6vw, 72px);
+            font-weight: 700;
+            color: var(--lp-text-dark);
+            letter-spacing: -2px;
+            margin: 0;
+        }
+        .lp-coming-soon p {
+            font-family: var(--lp-font-ui);
+            font-size: 18px;
+            color: var(--lp-text-body);
+            max-width: 480px;
+            line-height: 1.6;
+            margin: 0;
+        }
+    </style>
 </head>
-<body class="asset-movement-page">
-    <div class="coming-soon">
-        <div class="emoji">💎</div>
+<body class="landing-page">
+    <nav class="lp-nav">
+        <div class="lp-nav-logo-group">
+            <a href="index.html" class="lp-nav-logo" aria-label="John Rubino">JR</a>
+            <div class="lp-nav-links">
+                <a href="about.html" class="lp-nav-item">About</a>
+                <a href="writing.html" class="lp-nav-item">Writing</a>
+            </div>
+        </div>
+        <a href="mailto:johnrubinodesign@gmail.com" class="lp-btn-primary">Get in touch</a>
+    </nav>
+
+    <div class="lp-coming-soon">
+        <p class="lp-coming-soon-label">BNY Pershing &middot; Clearing &amp; Servicing</p>
         <h1>Asset Movement</h1>
-        <p>This case study is currently being prepared.</p>
-        <p>Content coming soon...</p>
+        <p>This case study is currently being prepared. Check back soon, or request access to discuss the work directly.</p>
+        <a href="mailto:johnrubinodesign@gmail.com?subject=Asset%20Movement%20Case%20Study" class="lp-btn-primary" style="margin-top:8px;">Request Access</a>
     </div>
 
-    <script>
-        // Detect if in iframe (modal) and add class to hide nav
-        if (window.self !== window.top) {
-            document.body.classList.add('in-modal');
-        }
-
-        // Apply theme from localStorage
-        const html = document.documentElement;
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-
-        if (savedTheme === 'light') {
-            html.setAttribute('data-theme', 'light');
-        }
-    </script>
+    <footer class="lp-footer">
+        <div class="lp-footer-copy">&copy; 2026 John Rubino &middot; Product Designer &middot; New York</div>
+        <div class="lp-footer-links">
+            <a href="https://www.linkedin.com/in/john-rubino/" target="_blank" rel="noopener" class="lp-footer-link">LinkedIn</a>
+            <a href="https://johnrubino.substack.com" target="_blank" rel="noopener" class="lp-footer-link">Substack</a>
+            <a href="about.html" class="lp-footer-link">About</a>
+            <a href="mailto:johnrubinodesign@gmail.com" class="lp-footer-link">Contact</a>
+        </div>
+    </footer>
 </body>
 </html>
