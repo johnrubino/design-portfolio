@@ -1911,12 +1911,12 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 }
 /* Avatar — circular portrait above the greeting */
 .about-page-avatar {
-    width: 88px;
-    height: 88px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 32px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
     image-rendering: smooth;
 }
 .about-page-avatar img {
