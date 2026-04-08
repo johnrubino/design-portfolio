@@ -2593,19 +2593,26 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 }
 .lp-mobile-menu.open .lp-mobile-cta { opacity:1; transform:translateY(0); transition-delay:190ms; }
 
-/* ── ≤425px: mobile — hamburger only, no island ── */
+/* ── ≤425px: mobile — hamburger only, solid nav fill ── */
 @media (max-width: 425px) {
-    .lp-nav .lp-nav-links          { display: none; }
+    .lp-nav .lp-nav-links           { display: none; }
     .lp-nav-inner > .lp-btn-primary { display: none; }
-    .lp-hamburger                  { display: flex; }
-    /* Disable island on mobile — hamburger menu handles navigation */
+    .lp-hamburger                   { display: flex; }
+    /* Solid frosted fill on the nav itself — always visible on mobile */
+    .lp-nav {
+        background: rgba(255,255,255,0.88);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom-color: rgba(0,0,0,0.08);
+    }
+    /* Disable island on inner — nav handles the fill */
     .lp-nav-inner                  { padding: 0; }
-    .lp-nav.scrolled               { border-bottom-color: rgba(0,0,0,0.07); padding-top: 0; }
+    .lp-nav.scrolled               { padding-top: 0; }
     .lp-nav.scrolled .lp-nav-inner {
         border-radius: 0;
         background: transparent;
         backdrop-filter: none;
-        -webkit-backdrop-filter: none;
+        -webkit-backdrop-filter: blur(0px);
         box-shadow: none;
         border-color: transparent;
     }
