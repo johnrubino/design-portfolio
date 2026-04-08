@@ -2593,12 +2593,22 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 }
 .lp-mobile-menu.open .lp-mobile-cta { opacity:1; transform:translateY(0); transition-delay:190ms; }
 
-/* ── Show hamburger at ≤425px ── */
-/* Higher specificity (.lp-nav .lp-nav-links) overrides the base .lp-nav-links { display: flex } */
+/* ── ≤425px: mobile — hamburger only, no island ── */
 @media (max-width: 425px) {
-    .lp-nav .lp-nav-links     { display: none; }
-    .lp-nav > .lp-btn-primary { display: none; }
-    .lp-hamburger             { display: flex; }
+    .lp-nav .lp-nav-links          { display: none; }
+    .lp-nav-inner > .lp-btn-primary { display: none; }
+    .lp-hamburger                  { display: flex; }
+    /* Disable island on mobile — hamburger menu handles navigation */
+    .lp-nav-inner                  { padding: 0; }
+    .lp-nav.scrolled               { border-bottom-color: rgba(0,0,0,0.07); padding-top: 0; }
+    .lp-nav.scrolled .lp-nav-inner {
+        border-radius: 0;
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        box-shadow: none;
+        border-color: transparent;
+    }
 }
 /* Always hide mobile menu above 425px */
 @media (min-width: 426px) {
@@ -4068,18 +4078,8 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     }
 }
 
-/* ── ≤1024px: tablet/mobile — no island, plain nav ── */
+/* ── ≤1024px: tablet ── */
 @media (max-width: 1024px) {
-    .lp-nav.scrolled { border-bottom-color: rgba(0,0,0,0.07); padding-top: 0; }
-    .lp-nav-inner    { padding: 0; }
-    .lp-nav.scrolled .lp-nav-inner {
-        border-radius: 0;
-        background: transparent;
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-        box-shadow: none;
-        border-color: transparent;
-    }
     /* Margins → 32px */
     .lp-nav                { padding-left: 32px; padding-right: 32px; }
     .lp-hero               { padding-left: 32px; padding-right: 32px; }
