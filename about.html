@@ -13,17 +13,19 @@
 <body class="about-page landing-page">
 
     <nav class="lp-nav">
-        <div class="lp-nav-logo-group">
-            <a href="index.html" class="lp-nav-logo" aria-label="John Rubino">JR</a>
-            <div class="lp-nav-links">
-                <a href="about.html" class="lp-nav-item active">About</a>
-                <a href="writing.html" class="lp-nav-item">Writing</a>
+        <div class="lp-nav-inner">
+            <div class="lp-nav-logo-group">
+                <a href="index.html" class="lp-nav-logo" aria-label="John Rubino">JR</a>
+                <div class="lp-nav-links">
+                    <a href="about.html" class="lp-nav-item active">About</a>
+                    <a href="writing.html" class="lp-nav-item">Writing</a>
+                </div>
             </div>
+            <a href="mailto:johnrubinodesign@gmail.com" class="lp-btn-primary">Get in touch</a>
+            <button class="lp-hamburger" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-        <a href="mailto:johnrubinodesign@gmail.com" class="lp-btn-primary">Get in touch</a>
-        <button class="lp-hamburger" aria-label="Open menu" aria-expanded="false">
-            <span></span><span></span><span></span>
-        </button>
     </nav>
 
     <!-- ── Mobile menu ── -->
@@ -247,13 +249,6 @@
         );
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        const nav = document.querySelector('.lp-nav');
-        window.addEventListener('scroll', () => {
-            nav.style.borderBottomColor = window.scrollY > 40
-                ? 'rgba(176,176,208,0.3)'
-                : 'rgba(255,255,255,0.1)';
-        }, { passive: true });
-
         // ── Mobile menu ──
         (function () {
             const btn  = document.querySelector('.lp-hamburger');
@@ -270,5 +265,6 @@
             document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
         })();
     </script>
+    <script src="design-system.js"></script>
 </body>
 </html>

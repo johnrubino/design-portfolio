@@ -6,621 +6,63 @@
     <title>Case Study: Purple Panda Rentals | John</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="design-system.css">
+    <style>
+        .lp-coming-soon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 68px - 81px);
+            gap: 16px;
+            padding: 80px 32px;
+            text-align: center;
+        }
+        .lp-coming-soon-label {
+            font-family: var(--lp-font-ui);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--lp-text-muted);
+        }
+        .lp-coming-soon h1 {
+            font-family: var(--lp-font-display);
+            font-size: clamp(40px, 6vw, 72px);
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin: 0;
+        }
+        .lp-coming-soon p {
+            font-family: var(--lp-font-ui);
+            font-size: 18px;
+            color: var(--lp-text-body);
+            max-width: 480px;
+            line-height: 1.6;
+            margin: 0;
+        }
+    </style>
 </head>
 <body class="landing-page">
     <nav class="lp-nav">
-        <div class="lp-nav-logo-group">
-            <a href="index.html" class="lp-nav-logo" aria-label="John Rubino">JR</a>
-            <div class="lp-nav-links">
-                <a href="about.html" class="lp-nav-item">About</a>
-                <a href="writing.html" class="lp-nav-item">Writing</a>
+        <div class="lp-nav-inner">
+            <div class="lp-nav-logo-group">
+                <a href="index.html" class="lp-nav-logo" aria-label="John Rubino">JR</a>
+                <div class="lp-nav-links">
+                    <a href="about.html" class="lp-nav-item">About</a>
+                    <a href="writing.html" class="lp-nav-item">Writing</a>
+                </div>
             </div>
+            <a href="mailto:johnrubinodesign@gmail.com" class="lp-btn-primary">Get in touch</a>
         </div>
-        <a href="mailto:johnrubinodesign@gmail.com" class="lp-btn-primary">Get in touch</a>
     </nav>
 
-    <!-- Case Study Layout -->
-    <div class="case-study-layout">
-        <!-- Floating Stepper -->
-        <div class="stepper-container">
-            <div class="stepper-header">Purple Panda</div>
-            <div class="stepper expanded">
-                <div class="stepper-step active" data-section="overview">
-                    <div class="stepper-indicator">
-                        <div class="stepper-circle"></div>
-                        <div class="stepper-line"></div>
-                    </div>
-                    <div class="stepper-content">
-                        <div class="stepper-title">Overview</div>
-                    </div>
-                </div>
-                <div class="stepper-step inactive" data-section="problem">
-                    <div class="stepper-indicator">
-                        <div class="stepper-circle"></div>
-                        <div class="stepper-line"></div>
-                    </div>
-                    <div class="stepper-content">
-                        <div class="stepper-title">The Problem</div>
-                    </div>
-                </div>
-                <div class="stepper-step inactive" data-section="research">
-                    <div class="stepper-indicator">
-                        <div class="stepper-circle"></div>
-                        <div class="stepper-line"></div>
-                    </div>
-                    <div class="stepper-content">
-                        <div class="stepper-title">Research</div>
-                    </div>
-                </div>
-                <div class="stepper-step inactive" data-section="competition">
-                    <div class="stepper-indicator">
-                        <div class="stepper-circle"></div>
-                        <div class="stepper-line"></div>
-                    </div>
-                    <div class="stepper-content">
-                        <div class="stepper-title">Competition</div>
-                    </div>
-                </div>
-                <div class="stepper-step inactive" data-section="design">
-                    <div class="stepper-indicator">
-                        <div class="stepper-circle"></div>
-                        <div class="stepper-line"></div>
-                    </div>
-                    <div class="stepper-content">
-                        <div class="stepper-title">Design</div>
-                    </div>
-                </div>
-                <div class="stepper-step inactive" data-section="testing">
-                    <div class="stepper-indicator">
-                        <div class="stepper-circle"></div>
-                        <div class="stepper-line"></div>
-                    </div>
-                    <div class="stepper-content">
-                        <div class="stepper-title">Testing</div>
-                    </div>
-                </div>
-                <div class="stepper-step inactive" data-section="iteration">
-                    <div class="stepper-indicator">
-                        <div class="stepper-circle"></div>
-                        <div class="stepper-line"></div>
-                    </div>
-                    <div class="stepper-content">
-                        <div class="stepper-title">Iteration</div>
-                    </div>
-                </div>
-                <div class="stepper-step inactive" data-section="reflection">
-                    <div class="stepper-indicator">
-                        <div class="stepper-circle"></div>
-                    </div>
-                    <div class="stepper-content">
-                        <div class="stepper-title">Reflection</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Section: Overview -->
-            <section id="overview" class="content-section">
-                <div class="section-icon">🏠</div>
-                <h1 class="section-title">Building the Platform I Wished Existed</h1>
-                <p class="section-subtitle">Every college student faces the same problem: finding off-campus housing is chaos. I didn't just design a solution—I founded a company to build it. Purple Panda Rentals is the rental platform I wished existed when I was a student.</p>
-
-                <div class="stats-table">
-                    <table>
-                        <tr>
-                            <th>Dimension</th>
-                            <th>Details</th>
-                        </tr>
-                        <tr>
-                            <td><strong>My Role</strong></td>
-                            <td>Founder & Product Designer</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Timeline</strong></td>
-                            <td>2 months (mobile app design)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Research</strong></td>
-                            <td>4 interviews, 270 survey respondents</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Outcome</strong></td>
-                            <td>Validated mobile app design for launched platform</td>
-                        </tr>
-                    </table>
-                </div>
-
-                <figure class="case-study-figure">
-                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62cf45073e1ab40bf02c3b5c_ppr-logo-stk-trs%201%20(5).png" alt="Purple Panda Rentals logo">
-                    <figcaption>Purple Panda Rentals: a rental platform built for how college students actually search.</figcaption>
-                </figure>
-            </section>
-
-            <!-- Section: Problem -->
-            <section id="problem" class="content-section">
-                <div class="section-icon">😤</div>
-                <h1 class="section-title">The Problem Was Personal</h1>
-
-                <p class="content-text">
-                    Finding off-campus housing as a college student is a mess. You're competing with other students for limited listings, negotiating with landlords who don't take you seriously, and trying to coordinate move-in dates around academic calendars that don't align with standard lease terms.
-                </p>
-
-                <p class="content-text">
-                    I lived this. So did everyone I knew. The options were Zillow (not built for students), Craigslist (sketchy), or word-of-mouth (limited). None of them understood the specific needs of college renters.
-                </p>
-
-                <p class="content-text">
-                    So I started Purple Panda Rentals—a rental listing platform built specifically for college students. The website launched in December 2023. The next step was mobile.
-                </p>
-
-                <div class="quote-block">
-                    <p class="quote-text">"Along with saving money, students benefit from the independence and housing flexibility that off-campus housing provides."</p>
-                </div>
-            </section>
-
-            <!-- Section: Research -->
-            <section id="research" class="content-section">
-                <div class="section-icon">🔍</div>
-                <h1 class="section-title">Validating the Problem at Scale</h1>
-
-                <p class="content-text">
-                    Before designing the mobile app, I needed to confirm my assumptions weren't just my own experience. I ran a nationwide survey with 270 college students and conducted interviews with four former students about their leasing and searching habits.
-                </p>
-
-                <figure class="case-study-figure">
-                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62d01f7f8fcf241fc7b11175_Chart_Q7_220713%201%20(5).png" alt="Survey results - first steps when searching">
-                    <figcaption>What are your first steps when looking for off-campus housing?</figcaption>
-                </figure>
-
-                <figure class="case-study-figure">
-                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62d01fb0fdd89d4cebeedd9e_Chart_Q5_220713%201%20(1).png" alt="Survey results - important factors">
-                    <figcaption>What's important to you in off-campus housing?</figcaption>
-                </figure>
-
-                <h2>What I Expected</h2>
-
-                <p class="content-text">
-                    The survey confirmed what I suspected:
-                </p>
-
-                <ul>
-                    <li><strong>76%</strong> currently live off-campus</li>
-                    <li><strong>53%</strong> use Zillow to find housing (a tool not built for them)</li>
-                    <li><strong>57%</strong> said proximity to campus was the most important factor</li>
-                    <li><strong>51%</strong> said rental price was the deciding factor</li>
-                </ul>
-
-                <p class="content-text">
-                    Students were using generic tools because nothing better existed.
-                </p>
-
-                <h2>What Surprised Me</h2>
-
-                <p class="content-text">
-                    The survey also revealed pain points I hadn't fully appreciated:
-                </p>
-
-                <ul>
-                    <li><strong>81%</strong> prefer to stay in one apartment for multiple semesters—stability matters more than I assumed</li>
-                    <li><strong>42%</strong> found it frustrating to find someone to sublease their apartment between semesters</li>
-                    <li><strong>34%</strong> had maintenance and landlord issues with no way to vet reputation beforehand</li>
-                    <li><strong>15%</strong> struggled to calculate total cost when rent, utilities, and living expenses were listed separately</li>
-                </ul>
-
-                <p class="content-text">
-                    The sublease problem was bigger than I expected. Students weren't just looking for housing—they needed to offload housing when plans changed.
-                </p>
-
-                <div class="quote-block">
-                    <p class="quote-text">"Finding a student to sublease their apartment was frustrating between semesters."</p>
-                </div>
-
-                <figure class="case-study-figure">
-                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62ffc328e0b6dd8d755979e6_Interviews%20and%20Findings%20(1).png" alt="Interview findings">
-                    <figcaption>User interviews revealed consistent themes: affordability, proximity, safety, and responsive landlords.</figcaption>
-                </figure>
-            </section>
-
-            <!-- Section: Competition -->
-            <section id="competition" class="content-section">
-                <div class="section-icon">🎯</div>
-                <h1 class="section-title">The Competitive Gap</h1>
-
-                <p class="content-text">
-                    I audited both direct competitors (student-focused platforms like College Pads) and indirect competitors (Zillow, Apartments.com). The pattern was clear:
-                </p>
-
-                <p class="content-text">
-                    <strong>Mainstream platforms</strong> had the best user experience and largest inventory—but no student-specific features.
-                </p>
-
-                <p class="content-text">
-                    <strong>Student platforms</strong> had relevant features—but clunky interfaces and limited listings.
-                </p>
-
-                <p class="content-text">
-                    No one had married Zillow's usability with features tailored to the college experience.
-                </p>
-
-                <figure class="case-study-figure">
-                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62d07effcc31f148bf5a21d7_Competitive%20Analysis.png" alt="Competitive analysis">
-                    <figcaption>The opportunity: combine mainstream usability with student-specific features.</figcaption>
-                </figure>
-            </section>
-
-            <!-- Section: Design -->
-            <section id="design" class="content-section">
-                <div class="section-icon">✨</div>
-                <h1 class="section-title">Designing the Mobile Experience</h1>
-
-                <p class="content-text">
-                    With the research foundation set, I moved into designing the mobile app. The website was live; now students needed to search on the go.
-                </p>
-
-                <figure class="case-study-figure">
-                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62c830b1b6c8b3393861a5a3_PPR%20-%20Mobile%20App%202.png" alt="Site map">
-                    <figcaption>Information architecture balancing familiar real estate patterns with student-specific features.</figcaption>
-                </figure>
-
-                <h2>The Sublease Decision</h2>
-
-                <p class="content-text">
-                    When defining the app's scope, I faced a tradeoff: include a sublease section or a roommate matcher? Both had value. I couldn't do both well in the initial release.
-                </p>
-
-                <p class="content-text">
-                    The research made the call. <strong>42%</strong> of students found subleasing frustrating—a concrete pain point with high frequency. Roommate matching got positive feedback in interviews, but sublease functionality addressed a more urgent, more frequent need.
-                </p>
-
-                <p class="content-text">
-                    I prioritized sublease. Roommate matching went on the roadmap for future releases.
-                </p>
-
-                <div class="quote-block">
-                    <p class="quote-text">"Based on the students I researched, a sublease section prioritized over finding a roommate. This finding surprised me."</p>
-                </div>
-
-                <figure class="case-study-figure">
-                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62c832bbf0b9137c393accbd_9702fe384ee456c61d572ad00e265969.png" alt="Task flow">
-                    <figcaption>User flow designed around the core job: find a listing, evaluate it, save it for later.</figcaption>
-                </figure>
-
-                <h2>The UI System</h2>
-
-                <p class="content-text">
-                    Purple Panda's brand was already established from the website—bright, approachable, student-friendly. The mobile app needed to extend that identity while meeting iOS conventions.
-                </p>
-
-                <figure class="case-study-figure">
-                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62cf44bfe4e81422522d7820_Group%2048%20(1).png" alt="UI kit">
-                    <figcaption>Design system built to maintain brand consistency across web and mobile.</figcaption>
-                </figure>
-            </section>
-
-            <!-- Section: Testing -->
-            <section id="testing" class="content-section">
-                <div class="section-icon">🧪</div>
-                <h1 class="section-title">Testing with Real Users</h1>
-
-                <p class="content-text">
-                    I built three prototypes in Figma and ran usability tests through Maze with 17 participants. Three tasks, representing the core use cases:
-                </p>
-
-                <ol>
-                    <li><strong>Create an account</strong> and complete onboarding</li>
-                    <li><strong>Search with filters</strong> and favorite a listing</li>
-                    <li><strong>Find a sublease</strong> and message the student</li>
-                </ol>
-
-                <h2>What Worked</h2>
-
-                <p class="content-text">
-                    <strong>Task 1: Account creation</strong> — 100% success rate. Onboarding questions were appropriate and completion time was adequate.
-                </p>
-
-                <h2>What Didn't</h2>
-
-                <p class="content-text">
-                    <strong>Task 2: Search and favorite</strong> — 85% success rate. Users struggled with the filter screen (clicking text instead of toggles) and couldn't easily see the heart icon for favoriting.
-                </p>
-
-                <p class="content-text">
-                    <strong>Task 3: Sublease and messaging</strong> — 63% success rate. Users couldn't find their way back to the inbox after sending a message. The back arrow was too subtle.
-                </p>
-
-                <p class="content-text">
-                    The problems were specific and fixable. I iterated.
-                </p>
-
-                <figure class="case-study-figure">
-                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62d2e8e35bbb749c8e5a0981_Iterations%20Task%202%20NEW.png" alt="Iterations for Task 2">
-                    <figcaption>Task 2 iterations: navigation menu, header layout, and filter functionality improvements.</figcaption>
-                </figure>
-
-                <figure class="case-study-figure">
-                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62d2e8e55bbb7407285a0982_Iterations%20Task%203%20NEW.png" alt="Iterations for Task 3">
-                    <figcaption>Task 3 iterations: nav menu functionality and pop-up modal improvements.</figcaption>
-                </figure>
-            </section>
-
-            <!-- Section: Iteration -->
-            <section id="iteration" class="content-section">
-                <div class="section-icon">📈</div>
-                <h1 class="section-title">After Iteration</h1>
-
-                <p class="content-text">
-                    I ran the tests again with the updated designs.
-                </p>
-
-                <div class="stats-table">
-                    <table>
-                        <tr>
-                            <th>Task</th>
-                            <th>Before</th>
-                            <th>After</th>
-                        </tr>
-                        <tr>
-                            <td><strong>Search and favorite</strong></td>
-                            <td>85%</td>
-                            <td>100%</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Sublease and messaging</strong></td>
-                            <td>63%</td>
-                            <td>100%</td>
-                        </tr>
-                    </table>
-                </div>
-
-                <p class="content-text">
-                    The changes worked. But testing also surfaced a deeper issue I hadn't fully solved: <strong>trust</strong>.
-                </p>
-
-                <p class="content-text">
-                    Users questioned whether they could trust a stranger subletting an apartment. Security and reputation weren't addressed in the current design. For future iterations, I noted the need for verified student profiles or review systems—features that would take more than UI changes to implement properly.
-                </p>
-
-                <figure class="case-study-figure">
-                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62d5a4b89261e7c52607ca97_Affinity%20Map%20(3).png" alt="Affinity map from usability testing">
-                    <figcaption>Affinity mapping user feedback to guide design iterations.</figcaption>
-                </figure>
-            </section>
-
-            <!-- Section: Reflection -->
-            <section id="reflection" class="content-section">
-                <div class="section-icon">🔮</div>
-                <h1 class="section-title">Reflection</h1>
-
-                <p class="content-text">
-                    Purple Panda taught me the difference between designing for a prompt and designing for a real problem.
-                </p>
-
-                <p class="content-text">
-                    When you're the founder, there's no brief to fall back on. You have to define the problem yourself, validate it with real people, and make tradeoffs that affect a real business. The sublease vs. roommate decision wasn't academic—it determined what the product would actually do.
-                </p>
-
-                <p class="content-text">
-                    The usability testing reinforced something I keep relearning: you can't predict where users will struggle. I thought the filter screen was straightforward. Users disagreed. The only way to find out is to put the design in front of real people and watch what happens.
-                </p>
-
-                <p class="content-text">
-                    <strong>What's next:</strong> the publisher side of the platform (for landlords listing properties) and the trust features that testing revealed were missing. Building a product is never done—you just ship what you can and keep learning.
-                </p>
-
-                <figure class="case-study-figure">
-                    <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62c766abb767dba81d22d0dd_PPR%20Project%20Tile.png" alt="Purple Panda project hero">
-                    <figcaption>Purple Panda Rentals: from personal frustration to launched platform.</figcaption>
-                </figure>
-            </section>
-        </main>
+    <div class="lp-coming-soon">
+        <p class="lp-coming-soon-label">Consumer &middot; Rental Marketplace</p>
+        <h1>Purple Panda Rentals</h1>
+        <p>This case study is currently in progress. Request access to discuss the work directly.</p>
+        <a href="mailto:johnrubinodesign@gmail.com?subject=Purple%20Panda%20Rentals%20Case%20Study" class="lp-btn-primary" style="margin-top:8px;">Request Access</a>
     </div>
-
-    <!-- Image Lightbox -->
-    <div class="lightbox-overlay" id="lightbox">
-        <button class="lightbox-close" aria-label="Close">&#10005;</button>
-        <img class="lightbox-image" id="lightboxImage" src="" alt="">
-        <div class="lightbox-caption" id="lightboxCaption"></div>
-    </div>
-
-    <script>
-        // ==================== IMAGE LIGHTBOX ====================
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImage = document.getElementById('lightboxImage');
-        const lightboxCaption = document.getElementById('lightboxCaption');
-        const lightboxClose = lightbox.querySelector('.lightbox-close');
-
-        // Add click handlers to all case study images
-        document.querySelectorAll('.case-study-figure img, .case-study-image img, .image-grid img').forEach(img => {
-            img.addEventListener('click', () => {
-                lightboxImage.src = img.src;
-                lightboxImage.alt = img.alt;
-
-                // Get caption from figcaption if available
-                const figcaption = img.closest('figure')?.querySelector('figcaption');
-                if (figcaption) {
-                    lightboxCaption.textContent = figcaption.textContent;
-                    lightboxCaption.style.display = 'block';
-                } else {
-                    lightboxCaption.style.display = 'none';
-                }
-
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        // Close lightbox
-        function closeLightbox() {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        lightboxClose.addEventListener('click', closeLightbox);
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) closeLightbox();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-                closeLightbox();
-            }
-        });
-
-        // Scroll spy for stepper
-        const sections = document.querySelectorAll('.content-section');
-        const stepperSteps = document.querySelectorAll('.stepper-step');
-        const stepperContainer = document.querySelector('.stepper-container');
-
-        // Check if mobile/tablet
-        function isMobile() {
-            return window.innerWidth <= 1024;
-        }
-
-        // Update the current step display data attributes
-        function updateCurrentStepDisplay() {
-            const activeStep = document.querySelector('.stepper-step.active');
-            const allSteps = document.querySelectorAll('.stepper-step');
-            if (activeStep) {
-                const currentIndex = Array.from(allSteps).indexOf(activeStep) + 1;
-                const totalSteps = allSteps.length;
-                const currentLabel = activeStep.querySelector('.stepper-title')?.textContent || '';
-
-                stepperContainer.setAttribute('data-current-step', `${currentIndex}/${totalSteps}`);
-                stepperContainer.setAttribute('data-current-label', currentLabel);
-            }
-        }
-
-        function updateStepper() {
-            let currentSection = '';
-            const scrollPos = window.scrollY + 200;
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-
-                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                    currentSection = sectionId;
-                }
-            });
-
-            stepperSteps.forEach(step => {
-                const stepSection = step.getAttribute('data-section');
-                step.classList.remove('active', 'completed', 'inactive');
-
-                const stepIndex = Array.from(stepperSteps).indexOf(step);
-                const currentIndex = Array.from(stepperSteps).findIndex(s => s.getAttribute('data-section') === currentSection);
-
-                if (stepSection === currentSection) {
-                    step.classList.add('active');
-                } else if (stepIndex < currentIndex) {
-                    step.classList.add('completed');
-                } else {
-                    step.classList.add('inactive');
-                }
-            });
-
-            // Update mobile collapsed state display
-            if (isMobile()) {
-                updateCurrentStepDisplay();
-            }
-        }
-
-        // Add click handlers to stepper steps
-        stepperSteps.forEach(step => {
-            step.addEventListener('click', function() {
-                const sectionId = this.getAttribute('data-section');
-                const section = document.getElementById(sectionId);
-                if (section) {
-                    window.scrollTo({
-                        top: section.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Update stepper on scroll
-        window.addEventListener('scroll', updateStepper);
-        window.addEventListener('load', updateStepper);
-
-        // Toggle stepper collapse/expand
-        const stepperHeader = document.querySelector('.stepper-header');
-        const stepper = document.querySelector('.stepper');
-
-        // Initialize mobile state
-        function initializeStepper() {
-            if (isMobile()) {
-                stepperContainer.classList.add('mobile-collapsed');
-                stepper.classList.remove('expanded');
-                updateCurrentStepDisplay();
-            } else {
-                stepperContainer.classList.remove('mobile-collapsed');
-                stepper.classList.add('expanded');
-            }
-        }
-
-        // Click on collapsed container to expand
-        stepperContainer.addEventListener('click', function(e) {
-            if (isMobile() && stepperContainer.classList.contains('mobile-collapsed')) {
-                stepperContainer.classList.remove('mobile-collapsed');
-                stepper.classList.add('expanded');
-                e.stopPropagation();
-            }
-        });
-
-        if (stepperHeader && stepper) {
-            stepperHeader.style.cursor = 'pointer';
-            stepperHeader.style.position = 'relative';
-
-            // Desktop: toggle expanded/collapsed (show/hide titles)
-            // Mobile: close the stepper
-            stepperHeader.addEventListener('click', function(e) {
-                if (isMobile()) {
-                    // The X is in the header, so clicking it should collapse
-                    if (!stepperContainer.classList.contains('mobile-collapsed')) {
-                        stepperContainer.classList.add('mobile-collapsed');
-                        e.stopPropagation();
-                    }
-                } else {
-                    stepper.classList.toggle('expanded');
-                }
-            });
-        }
-
-        // Click outside to close on mobile
-        document.addEventListener('click', function(e) {
-            if (isMobile() && !stepperContainer.classList.contains('mobile-collapsed')) {
-                if (!stepperContainer.contains(e.target)) {
-                    stepperContainer.classList.add('mobile-collapsed');
-                }
-            }
-        });
-
-        // Initialize on load
-        initializeStepper();
-
-        // Re-initialize on resize
-        let resizeTimeout;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(initializeStepper, 100);
-        });
-
-        // Hide nav and expand layout when loaded inside the sheet iframe
-        if (window.self !== window.top) {
-            document.body.classList.add('in-modal');
-            const nav = document.querySelector('.nav-header');
-            if (nav) nav.style.display = 'none';
-            const s = document.createElement('style');
-            s.textContent = '.content-section{max-width:none!important}.case-study-layout .main-content{max-width:none!important}';
-            document.head.appendChild(s);
-        }
-
-    </script>
 
     <footer class="lp-footer">
         <div class="lp-footer-copy">&copy; 2026 John Rubino &middot; Product Designer &middot; New York</div>
@@ -631,5 +73,6 @@
             <a href="mailto:johnrubinodesign@gmail.com" class="lp-footer-link">Contact</a>
         </div>
     </footer>
+    <script src="design-system.js"></script>
 </body>
 </html>
