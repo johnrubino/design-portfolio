@@ -571,7 +571,7 @@
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="var(--lp-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </div>
                 <h3>Request sent!</h3>
-                <p>Your email client should have opened with a pre-filled message. If not, email me directly at <a href="mailto:johnrubinodesign@gmail.com" style="color:var(--lp-primary)">johnrubinodesign@gmail.com</a>.</p>
+                <p>Your request has been sent! I'll be in touch within 1–2 business days.</p>
                 <button class="lp-btn-primary" id="accessSuccessClose" style="margin-top:8px;">Done</button>
             </div>
         </div>
@@ -635,19 +635,34 @@
             }
             if (!valid) return;
 
-            const subject = encodeURIComponent('Portfolio Access Request — ' + currentCase);
-            const body = encodeURIComponent(
-                'Hi John,\n\n' +
-                'Name: ' + name + '\n' +
-                'Email: ' + email + '\n' +
-                (company ? 'Company: ' + company + '\n' : '') +
-                '\nReason for requesting access:\n' + (message || '(not provided)') +
-                '\n\nLooking forward to connecting.'
-            );
-            window.location.href = 'mailto:johnrubinodesign@gmail.com?cc=john.rubino87%40gmail.com&subject=' + subject + '&body=' + body;
+            const submitBtn = form.querySelector('[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending…';
 
-            formView.style.display = 'none';
-            success.style.display  = 'flex';
+            fetch('https://formsubmit.co/ajax/johnrubinodesign@gmail.com', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    name:    name,
+                    email:   email,
+                    company: company || '—',
+                    message: message || '(not provided)',
+                    _subject: 'Portfolio Access Request — ' + currentCase,
+                    _cc:      'john.rubino87@gmail.com',
+                    _template: 'table',
+                    _captcha:  'false'
+                })
+            })
+            .then(function (res) { return res.json(); })
+            .then(function (data) {
+                formView.style.display = 'none';
+                success.style.display  = 'flex';
+            })
+            .catch(function () {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Request';
+                alert('Something went wrong. Please email me directly at johnrubinodesign@gmail.com');
+            });
         });
     })();
     </script>
