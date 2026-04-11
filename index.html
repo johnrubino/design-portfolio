@@ -531,5 +531,125 @@
         })();
     </script>
     <script src="design-system.js"></script>
+
+    <!-- ── Request Access Modal ── -->
+    <div class="access-overlay" id="accessOverlay" role="dialog" aria-modal="true" aria-labelledby="accessModalHeading">
+        <div class="access-modal">
+            <button class="access-modal-close" id="accessModalClose" aria-label="Close">&times;</button>
+
+            <!-- Form view -->
+            <div id="accessFormView">
+                <p class="access-modal-heading" id="accessModalHeading">Request Access</p>
+                <p class="access-modal-sub">Requesting access to <span class="access-modal-case" id="accessCaseLabel"></span>. Fill in your details and I'll get back to you.</p>
+                <form class="access-form" id="accessForm" novalidate>
+                    <div class="access-field">
+                        <label class="access-label" for="accessName">Name <span style="color:#e53e3e">*</span></label>
+                        <input class="access-input" id="accessName" type="text" placeholder="Your name" autocomplete="name" />
+                    </div>
+                    <div class="access-field">
+                        <label class="access-label" for="accessEmail">Email <span style="color:#e53e3e">*</span></label>
+                        <input class="access-input" id="accessEmail" type="email" placeholder="you@company.com" autocomplete="email" />
+                    </div>
+                    <div class="access-field">
+                        <label class="access-label" for="accessCompany">Company <span class="optional">(optional)</span></label>
+                        <input class="access-input" id="accessCompany" type="text" placeholder="Company name" autocomplete="organization" />
+                    </div>
+                    <div class="access-field">
+                        <label class="access-label" for="accessMessage">Why are you requesting access?</label>
+                        <textarea class="access-textarea" id="accessMessage" placeholder="Tell me a bit about your interest or project…"></textarea>
+                    </div>
+                    <div class="access-form-footer">
+                        <span class="access-form-note">I'll reply within 1–2 business days.</span>
+                        <button type="submit" class="lp-btn-primary">Send Request</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Success view -->
+            <div class="access-success" id="accessSuccess">
+                <div class="access-success-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="var(--lp-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3>Request sent!</h3>
+                <p>Your email client should have opened with a pre-filled message. If not, email me directly at <a href="mailto:johnrubinodesign@gmail.com" style="color:var(--lp-primary)">johnrubinodesign@gmail.com</a>.</p>
+                <button class="lp-btn-primary" id="accessSuccessClose" style="margin-top:8px;">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function () {
+        const overlay   = document.getElementById('accessOverlay');
+        const closeBtn  = document.getElementById('accessModalClose');
+        const formView  = document.getElementById('accessFormView');
+        const success   = document.getElementById('accessSuccess');
+        const caseLabel = document.getElementById('accessCaseLabel');
+        const form      = document.getElementById('accessForm');
+        let currentCase = '';
+
+        function openModal(caseName) {
+            currentCase = caseName;
+            caseLabel.textContent = caseName;
+            formView.style.display = '';
+            success.style.display  = 'none';
+            form.reset();
+            ['accessName','accessEmail'].forEach(id => document.getElementById(id).classList.remove('error'));
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => document.getElementById('accessName').focus(), 300);
+        }
+
+        function closeModal() {
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // Intercept all Request Access mailto links
+        document.querySelectorAll('.lp-btn-request[href^="mailto:"]').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                const subject = decodeURIComponent((this.href.match(/subject=([^&]*)/) || [])[1] || '');
+                const caseName = subject.replace('Portfolio Access Request — ', '').trim() || 'this case study';
+                openModal(caseName);
+            });
+        });
+
+        closeBtn.addEventListener('click', closeModal);
+        document.getElementById('accessSuccessClose').addEventListener('click', closeModal);
+        overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name    = document.getElementById('accessName').value.trim();
+            const email   = document.getElementById('accessEmail').value.trim();
+            const company = document.getElementById('accessCompany').value.trim();
+            const message = document.getElementById('accessMessage').value.trim();
+
+            let valid = true;
+            ['accessName','accessEmail'].forEach(id => document.getElementById(id).classList.remove('error'));
+
+            if (!name)  { document.getElementById('accessName').classList.add('error');  valid = false; }
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                document.getElementById('accessEmail').classList.add('error'); valid = false;
+            }
+            if (!valid) return;
+
+            const subject = encodeURIComponent('Portfolio Access Request — ' + currentCase);
+            const body = encodeURIComponent(
+                'Hi John,\n\n' +
+                'Name: ' + name + '\n' +
+                'Email: ' + email + '\n' +
+                (company ? 'Company: ' + company + '\n' : '') +
+                '\nReason for requesting access:\n' + (message || '(not provided)') +
+                '\n\nLooking forward to connecting.'
+            );
+            window.location.href = 'mailto:johnrubinodesign@gmail.com?subject=' + subject + '&body=' + body;
+
+            formView.style.display = 'none';
+            success.style.display  = 'flex';
+        });
+    })();
+    </script>
 </body>
 </html>

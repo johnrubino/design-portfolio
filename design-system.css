@@ -4233,3 +4233,160 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     .lp-cs-nda             { text-align: center; }
 }
 
+/* ══════════════════════════════════════════
+   Request Access Modal
+══════════════════════════════════════════ */
+.access-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10,10,20,0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 280ms ease;
+}
+.access-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+}
+.access-modal {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.08);
+    position: relative;
+    transform: translateY(16px) scale(0.98);
+    transition: transform 280ms cubic-bezier(0.34,1.56,0.64,1), opacity 280ms ease;
+    opacity: 0;
+}
+.access-overlay.open .access-modal {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+.access-modal-close {
+    position: absolute;
+    top: 16px; right: 16px;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0,0,0,0.06);
+    color: var(--lp-text-dark);
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 150ms ease;
+}
+.access-modal-close:hover { background: rgba(0,0,0,0.12); }
+.access-modal-heading {
+    font-family: var(--lp-font-display);
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--lp-text-dark);
+    margin: 0 0 6px;
+    letter-spacing: -0.5px;
+}
+.access-modal-sub {
+    font-family: var(--lp-font-ui);
+    font-size: 14px;
+    color: var(--lp-text-muted);
+    margin: 0 0 28px;
+    line-height: 1.5;
+}
+.access-modal-case {
+    font-weight: 600;
+    color: var(--lp-primary);
+}
+.access-form { display: flex; flex-direction: column; gap: 16px; }
+.access-field { display: flex; flex-direction: column; gap: 6px; }
+.access-label {
+    font-family: var(--lp-font-ui);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--lp-text-dark);
+}
+.access-label .optional {
+    font-weight: 400;
+    color: var(--lp-text-muted);
+    margin-left: 4px;
+}
+.access-input,
+.access-textarea {
+    font-family: var(--lp-font-ui);
+    font-size: 14px;
+    color: var(--lp-text-dark);
+    background: #f7f7fb;
+    border: 1.5px solid rgba(0,0,0,0.1);
+    border-radius: 10px;
+    padding: 11px 14px;
+    outline: none;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+    width: 100%;
+    box-sizing: border-box;
+    resize: none;
+}
+.access-input::placeholder,
+.access-textarea::placeholder { color: var(--lp-text-muted); }
+.access-input:focus,
+.access-textarea:focus {
+    border-color: var(--lp-primary);
+    box-shadow: 0 0 0 3px rgba(100,119,248,0.12);
+    background: #fff;
+}
+.access-input.error { border-color: #e53e3e; box-shadow: 0 0 0 3px rgba(229,62,62,0.1); }
+.access-textarea { min-height: 96px; }
+.access-form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 4px;
+}
+.access-form-note {
+    font-family: var(--lp-font-ui);
+    font-size: 12px;
+    color: var(--lp-text-muted);
+}
+/* Success state */
+.access-success {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    padding: 16px 0 8px;
+}
+.access-success-icon {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: rgba(100,119,248,0.1);
+    display: flex; align-items: center; justify-content: center;
+}
+.access-success h3 {
+    font-family: var(--lp-font-display);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--lp-text-dark);
+    margin: 0;
+}
+.access-success p {
+    font-family: var(--lp-font-ui);
+    font-size: 14px;
+    color: var(--lp-text-muted);
+    margin: 0;
+    line-height: 1.6;
+}
+@media (max-width: 540px) {
+    .access-modal { padding: 28px 20px; }
+    .access-form-footer { flex-direction: column; align-items: stretch; }
+    .access-form-footer .lp-btn-primary { justify-content: center; }
+}
+
