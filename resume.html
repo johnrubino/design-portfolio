@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résumé | John Rubino</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="design-system.css">
+    <style>
+        /* ── Resume page wrapper ── */
+        .resume-page body {
+            background: var(--lp-bg);
+        }
+
+        .resume-wrap {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 96px 40px 120px;
+        }
+
+        /* ── Resume header ── */
+        .resume-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 56px;
+            gap: 32px;
+        }
+
+        .resume-header-left {}
+
+        .resume-name {
+            font-family: var(--lp-font-display);
+            font-size: clamp(40px, 6vw, 64px);
+            font-weight: 700;
+            color: var(--lp-text-dark);
+            letter-spacing: -1.5px;
+            line-height: 1.05;
+            margin: 0 0 14px;
+        }
+
+        .resume-tagline {
+            font-family: var(--lp-font-ui);
+            font-size: 15px;
+            color: var(--lp-text-body);
+            line-height: 1.6;
+            max-width: 520px;
+            margin: 0;
+        }
+
+        .resume-header-actions {
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+            padding-top: 6px;
+        }
+
+        /* ── Two-column grid ── */
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 1fr 272px;
+            gap: 0 64px;
+            align-items: start;
+        }
+
+        /* ── Section chrome ── */
+        .resume-section {
+            margin-bottom: 48px;
+        }
+
+        .resume-section-label {
+            font-family: var(--lp-font-ui);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--lp-primary);
+            margin: 0 0 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--lp-border-light);
+        }
+
+        /* ── Experience entries ── */
+        .resume-role {
+            margin-bottom: 36px;
+        }
+
+        .resume-role:last-child {
+            margin-bottom: 0;
+        }
+
+        .resume-role-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 4px 16px;
+            margin-bottom: 6px;
+        }
+
+        .resume-company-row {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .resume-company {
+            font-family: var(--lp-font-ui);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--lp-text-dark);
+        }
+
+        .resume-role-divider {
+            width: 1px;
+            height: 12px;
+            background: var(--lp-border);
+            display: inline-block;
+            vertical-align: middle;
+            flex-shrink: 0;
+        }
+
+        .resume-role-title {
+            font-family: var(--lp-font-ui);
+            font-size: 14px;
+            color: var(--lp-text-muted);
+        }
+
+        .resume-dates {
+            font-family: var(--lp-font-ui);
+            font-size: 13px;
+            color: var(--lp-text-dim);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .resume-role-desc {
+            font-family: var(--lp-font-ui);
+            font-size: 14px;
+            color: var(--lp-text-body);
+            line-height: 1.7;
+            margin: 8px 0 12px;
+        }
+
+        .resume-bullets {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .resume-bullets li {
+            font-family: var(--lp-font-ui);
+            font-size: 14px;
+            color: var(--lp-text-body);
+            line-height: 1.65;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .resume-bullets li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 9px;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--lp-primary);
+            opacity: 0.6;
+        }
+
+        /* ── Right column ── */
+        .resume-right {
+            position: sticky;
+            top: 96px;
+        }
+
+        /* ── Contact ── */
+        .resume-contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .resume-contact-link {
+            font-family: var(--lp-font-ui);
+            font-size: 13px;
+            color: var(--lp-text-body);
+            text-decoration: none;
+            transition: color 200ms ease;
+        }
+
+        .resume-contact-link:hover {
+            color: var(--lp-primary);
+        }
+
+        /* ── Education / Certifications ── */
+        .resume-edu-item {
+            margin-bottom: 20px;
+        }
+
+        .resume-edu-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .resume-edu-school {
+            font-family: var(--lp-font-ui);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--lp-text-dark);
+            margin: 0 0 2px;
+        }
+
+        .resume-edu-year {
+            font-family: var(--lp-font-ui);
+            font-size: 12px;
+            color: var(--lp-text-dim);
+            margin: 0 0 2px;
+        }
+
+        .resume-edu-degree {
+            font-family: var(--lp-font-ui);
+            font-size: 13px;
+            color: var(--lp-text-body);
+            margin: 0;
+        }
+
+        /* ── Superpowers tags ── */
+        .resume-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .resume-tag {
+            font-family: var(--lp-font-ui);
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--lp-primary);
+            background: rgba(100, 119, 248, 0.08);
+            border: 1px solid rgba(100, 119, 248, 0.18);
+            border-radius: 20px;
+            padding: 4px 12px;
+            letter-spacing: 0.2px;
+        }
+
+        /* ── Print button ── */
+        .resume-print-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--lp-font-ui);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--lp-text-muted);
+            background: transparent;
+            border: 1px solid var(--lp-border-light);
+            border-radius: 6px;
+            padding: 0 14px;
+            height: 36px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: color 200ms ease, border-color 200ms ease, background 200ms ease;
+        }
+
+        .resume-print-btn:hover {
+            color: var(--lp-text-dark);
+            border-color: var(--lp-border);
+            background: rgba(0,0,0,0.03);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .resume-wrap { padding: 80px 24px 80px; }
+            .resume-header { flex-direction: column; gap: 20px; }
+            .resume-grid { grid-template-columns: 1fr; gap: 0; }
+            .resume-right { position: static; }
+            .resume-dates { width: 100%; }
+        }
+
+        @media (max-width: 480px) {
+            .resume-wrap { padding: 72px 16px 64px; }
+        }
+
+        /* ── Print styles ── */
+        @media print {
+            .lp-nav, .lp-footer, .resume-header-actions { display: none !important; }
+            .resume-wrap { padding: 32px 0; }
+            .resume-right { position: static; }
+            body { background: white; }
+            .resume-name { font-size: 40px; }
+        }
+    </style>
+</head>
+<body class="landing-page">
+
+    <!-- ── Nav ── -->
+    <nav class="lp-nav">
+        <div class="lp-nav-inner">
+            <div class="lp-nav-logo-group">
+                <a href="index.html" class="lp-nav-logo" aria-label="John Rubino">JR</a>
+                <div class="lp-nav-links">
+                    <a href="index.html" class="lp-nav-item">Home</a>
+                    <a href="about.html" class="lp-nav-item">About</a>
+                    <a href="writing.html" class="lp-nav-item">Writing</a>
+                    <a href="resume.html" class="lp-nav-item active">Résumé</a>
+                </div>
+            </div>
+            <a href="index.html#work" class="lp-btn-primary">View work</a>
+            <button class="lp-hamburger" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ── Mobile menu ── -->
+    <div class="lp-mobile-menu" role="navigation" aria-label="Mobile navigation">
+        <div class="lp-mobile-menu-inner">
+            <a href="index.html" class="lp-mobile-nav-item">Home</a>
+            <a href="about.html" class="lp-mobile-nav-item">About</a>
+            <a href="writing.html" class="lp-mobile-nav-item">Writing</a>
+            <a href="resume.html" class="lp-mobile-nav-item active">Résumé</a>
+            <div class="lp-mobile-menu-divider"></div>
+            <a href="index.html#work" class="lp-btn-primary lp-mobile-cta">View work</a>
+        </div>
+    </div>
+
+    <!-- ── Page content ── -->
+    <div class="resume-wrap">
+
+        <!-- Header -->
+        <header class="resume-header">
+            <div class="resume-header-left">
+                <h1 class="resume-name">John Rubino</h1>
+                <p class="resume-tagline">Product designer in NYC with 4+ years of experience in enterprise fintech, AI product design, and 0-to-1 venture work.</p>
+            </div>
+            <div class="resume-header-actions">
+                <button class="resume-print-btn" onclick="window.print()">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M3.5 5V1.5h7V5M3.5 10.5H2A.5.5 0 0 1 1.5 10V6.5A.5.5 0 0 1 2 6h10a.5.5 0 0 1 .5.5V10a.5.5 0 0 1-.5.5h-1.5M3.5 8h7v4.5h-7V8Z" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Print
+                </button>
+            </div>
+        </header>
+
+        <!-- Two-column grid -->
+        <div class="resume-grid">
+
+            <!-- ── Left: Experience ── -->
+            <main>
+                <section class="resume-section">
+                    <h2 class="resume-section-label">Experience</h2>
+
+                    <!-- BNY Pershing -->
+                    <div class="resume-role">
+                        <div class="resume-role-header">
+                            <div class="resume-company-row">
+                                <span class="resume-company">BNY | Pershing</span>
+                                <span class="resume-role-divider"></span>
+                                <span class="resume-role-title">Product Designer &middot; Wealth Services</span>
+                            </div>
+                            <span class="resume-dates">Sep 2023 – Present</span>
+                        </div>
+                        <p class="resume-role-desc">Enterprise wealth management platform serving institutional clients and financial advisors. Contributed to a multi-year platform overhaul rebuilding core advisory workflows from the ground up across New Account Opening, Asset Movement, and Fully Paid Lending.</p>
+                        <ul class="resume-bullets">
+                            <li>Co-led a complete rebuild of New Account Opening (NAO) and Asset Movement — redesigning the information architecture, interaction model, and end-to-end flows for two flagship advisor workflows within a future-state banking vision platform</li>
+                            <li>Served as primary designer on a full redesign of Fully Paid Lending — simplifying a structurally complex lending product to reduce friction, improve advisor comprehension, and drive program participation</li>
+                            <li>Champion AI tooling adoption across the design org — workshopping emerging tools, establishing usage frameworks, and modeling an AI-augmented design practice for the broader team</li>
+                        </ul>
+                    </div>
+
+                    <!-- Colllective -->
+                    <div class="resume-role">
+                        <div class="resume-role-header">
+                            <div class="resume-company-row">
+                                <span class="resume-company">Colllective Design</span>
+                                <span class="resume-role-divider"></span>
+                                <span class="resume-role-title">Design Advisor</span>
+                            </div>
+                            <span class="resume-dates">2024 – Present</span>
+                        </div>
+                        <p class="resume-role-desc">Advising early-stage startups at the intersection of AI and product design — shaping 0-to-1 product strategy, UX architecture, and go-to-market design for founders building in emerging technology.</p>
+                    </div>
+
+                    <!-- Purple Panda -->
+                    <div class="resume-role">
+                        <div class="resume-role-header">
+                            <div class="resume-company-row">
+                                <span class="resume-company">Purple Panda Rentals</span>
+                                <span class="resume-role-divider"></span>
+                                <span class="resume-role-title">Product Designer &amp; Founder</span>
+                            </div>
+                            <span class="resume-dates">Sep 2020 – Feb 2023</span>
+                        </div>
+                        <p class="resume-role-desc">Designed and launched a consumer rental search platform from 0 to 1 — 100+ sign-ups, 20% referral increase through research-driven UX improvements.</p>
+                    </div>
+                </section>
+            </main>
+
+            <!-- ── Right: Contact / Education / Certs / Superpowers ── -->
+            <aside class="resume-right">
+
+                <!-- Contact -->
+                <section class="resume-section">
+                    <h2 class="resume-section-label">Contact</h2>
+                    <div class="resume-contact-list">
+                        <a href="https://johnrubino.design" target="_blank" rel="noopener" class="resume-contact-link">johnrubino.design</a>
+                        <a href="mailto:johnrubinodesign@gmail.com" class="resume-contact-link lp-btn-contact">johnrubinodesign@gmail.com</a>
+                        <a href="https://www.linkedin.com/in/john-rubino/" target="_blank" rel="noopener" class="resume-contact-link">linkedin.com/in/john-rubino</a>
+                        <a href="https://johnrubino.substack.com" target="_blank" rel="noopener" class="resume-contact-link">johnrubino.substack.com</a>
+                    </div>
+                </section>
+
+                <!-- Education -->
+                <section class="resume-section">
+                    <h2 class="resume-section-label">Education</h2>
+                    <div class="resume-edu-item">
+                        <p class="resume-edu-school">College of Staten Island</p>
+                        <p class="resume-edu-year">2014 – 2019</p>
+                        <p class="resume-edu-degree">B.A. Music Technology</p>
+                    </div>
+                    <div class="resume-edu-item">
+                        <p class="resume-edu-school">Designlab UX Academy</p>
+                        <p class="resume-edu-year">2022</p>
+                        <p class="resume-edu-degree">UX/UI Design Certificate &mdash; 440 hours</p>
+                    </div>
+                </section>
+
+                <!-- Certifications -->
+                <section class="resume-section">
+                    <h2 class="resume-section-label">Certifications</h2>
+                    <div class="resume-edu-item">
+                        <p class="resume-edu-school">Emeritus</p>
+                        <p class="resume-edu-year">2024</p>
+                        <p class="resume-edu-degree">Designing and Building AI Products and Services</p>
+                    </div>
+                </section>
+
+                <!-- Superpowers -->
+                <section class="resume-section">
+                    <h2 class="resume-section-label">Superpowers</h2>
+                    <div class="resume-tags">
+                        <span class="resume-tag">Systems Thinker</span>
+                        <span class="resume-tag">AI-Native Practitioner</span>
+                        <span class="resume-tag">0-to-1 Operator</span>
+                    </div>
+                </section>
+
+            </aside>
+        </div>
+    </div>
+
+    <!-- ── Footer ── -->
+    <footer class="lp-footer">
+        <div class="lp-footer-copy">&copy; 2026 John Rubino &middot; Product Designer &middot; New York</div>
+        <div class="lp-footer-links">
+            <a href="https://www.linkedin.com/in/john-rubino/" target="_blank" rel="noopener" class="lp-footer-link">LinkedIn</a>
+            <a href="https://johnrubino.substack.com" target="_blank" rel="noopener" class="lp-footer-link">Substack</a>
+            <a href="about.html" class="lp-footer-link">About</a>
+            <a href="mailto:johnrubinodesign@gmail.com" class="lp-footer-link lp-btn-contact">Contact</a>
+        </div>
+    </footer>
+
+    <script src="design-system.js"></script>
+</body>
+</html>
