@@ -485,41 +485,57 @@
             btn.disabled = true;
             btn.innerHTML = SPIN_ICON + ' Generating…';
 
-            // Clone the resume content off-screen — never touches the visible page
+            // Use a hidden measurer to get the content height at PDF width,
+            // so we can create a custom single-page PDF format.
+            const PDF_WIDTH_PX = 816; // letter width at 96dpi
             const source = document.querySelector('.resume-wrap');
-            const clone  = source.cloneNode(true);
 
-            // Remove the download button from the clone
-            const cloneActions = clone.querySelector('.resume-header-actions');
-            if (cloneActions) cloneActions.remove();
-
-            Object.assign(clone.style, {
-                position:   'absolute',
-                left:       '-10000px',
-                top:        '0',
-                width:      '800px',
-                padding:    '40px 48px 48px',
-                background: '#fff',
-                boxSizing:  'border-box'
+            const measurer = source.cloneNode(true);
+            Object.assign(measurer.style, {
+                position:      'absolute',
+                top:           '0',
+                left:          '0',
+                width:         PDF_WIDTH_PX + 'px',
+                padding:       '40px 56px',
+                boxSizing:     'border-box',
+                visibility:    'hidden',
+                pointerEvents: 'none',
+                background:    '#fff'
             });
-            document.body.appendChild(clone);
+            const measurerActions = measurer.querySelector('.resume-header-actions');
+            if (measurerActions) measurerActions.remove();
+            document.body.appendChild(measurer);
 
-            // Wait two frames so the browser fully lays out the clone
             requestAnimationFrame(() => requestAnimationFrame(() => {
-                const w   = clone.offsetWidth;
-                const h   = clone.offsetHeight;
-                // px → mm at 96 dpi
-                const mmW = w * 0.264583;
-                const mmH = h * 0.264583;
+                const mmW = PDF_WIDTH_PX * 0.264583;
+                const mmH = measurer.offsetHeight * 0.264583;
+                document.body.removeChild(measurer);
 
+                // html2canvas onclone modifies the internal render copy —
+                // the visible page is never touched, so there is no flash.
                 html2pdf().set({
                     margin:      0,
                     filename:    'john-rubino-resume.pdf',
                     image:       { type: 'jpeg', quality: 0.98 },
-                    html2canvas: { scale: 2, useCORS: true, letterRendering: true, width: w },
-                    jsPDF:       { unit: 'mm', format: [mmW, mmH], orientation: 'portrait' }
-                }).from(clone).save().then(function () {
-                    document.body.removeChild(clone);
+                    html2canvas: {
+                        scale:          2,
+                        useCORS:        true,
+                        letterRendering: true,
+                        onclone: function (clonedDoc) {
+                            const wrap = clonedDoc.querySelector('.resume-wrap');
+                            if (wrap) {
+                                wrap.style.setProperty('padding',    '40px 56px',  'important');
+                                wrap.style.setProperty('max-width',  'none',       'important');
+                                wrap.style.setProperty('margin',     '0',          'important');
+                                wrap.style.setProperty('background', '#fff',       'important');
+                            }
+                            // Hide button inside the rendered clone
+                            const actions = clonedDoc.querySelector('.resume-header-actions');
+                            if (actions) actions.style.setProperty('display', 'none', 'important');
+                        }
+                    },
+                    jsPDF: { unit: 'mm', format: [mmW, mmH], orientation: 'portrait' }
+                }).from(source).save().then(function () {
                     btn.disabled = false;
                     btn.innerHTML = DOWNLOAD_ICON + ' Download PDF';
                 });
