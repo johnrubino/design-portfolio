@@ -3121,7 +3121,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     content: '';
     position: absolute;
     top: 0;
-    height: 360px; /* card height exactly */
+    height: 480px; /* card height exactly */
     width: 269px;
     pointer-events: none;
     z-index: 4;
@@ -3151,9 +3151,9 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 }
 /* ── Case study card ── */
 .lp-cs-card {
-    width: 772px;
+    width: 960px;
     flex-shrink: 0;
-    height: 360px;
+    height: 480px;
     border: 1px solid #e9eaeb;
     border-radius: 8px;
     overflow: hidden;
@@ -3458,8 +3458,8 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     position: absolute;
     left: 23px;
     right: 24px;
-    top: 150px;
-    height: 185px;
+    top: 210px;
+    height: 245px;
     border-radius: 16px;
     background: rgba(255,255,255,0.4);
     backdrop-filter: blur(16px);
@@ -4157,7 +4157,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     /* One card fills the viewport with 16px breathing room each side */
     .lp-cs-card {
         width: calc(100vw - 32px);
-        height: 300px;
+        height: 380px;
     }
     /* Tighter gap — JS reads this via getComputedStyle to recalculate centering */
     .lp-carousel { gap: 12px; }
