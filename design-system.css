@@ -1969,11 +1969,11 @@ textarea.form-input { resize: vertical; min-height: 80px; }
    ============================================================ */
 
 .writing-page { background: var(--bg); }
-.writing-page-hero { padding: 160px 320px 80px; border-bottom: 1px solid var(--border); }
+.writing-page-hero { padding: 160px 320px 40px; border-bottom: 1px solid var(--border); }
 .writing-page-title { font-family: var(--font-display); font-size: clamp(48px, 5.5vw, 82px); font-weight: 500; line-height: 1.05; letter-spacing: -0.02em; color: var(--text); margin-bottom: 28px; }
-.writing-page-subtitle { font-size: 18px; color: var(--text-2); line-height: 1.65; max-width: 560px; margin-bottom: 40px; }
+.writing-page-subtitle { font-size: 18px; color: var(--text-2); line-height: 1.65; max-width: 560px; margin-bottom: 0; }
 .writing-page-actions { display: flex; gap: 12px; align-items: center; }
-.writing-main { padding: 64px 320px; }
+.writing-main { padding: 40px 320px; }
 .writing-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 48px; }
 .filter-btn { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); padding: 6px 14px; border: 1px solid var(--border); border-radius: 100px; background: transparent; cursor: pointer; transition: all 180ms ease; letter-spacing: 0.06em; text-transform: uppercase; }
 .filter-btn:hover { color: var(--text-2); border-color: var(--border-mid); }
@@ -4100,8 +4100,8 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     .about-stats-inner     { padding: 0 32px; }
     .about-content-section { padding: 48px 32px; grid-template-columns: 1fr; gap: 32px; }
     .about-section-label   { position: static; }
-    .writing-page-hero     { padding: 120px 32px 60px; }
-    .writing-main          { padding: 48px 32px; }
+    .writing-page-hero     { padding: 120px 32px 32px; }
+    .writing-main          { padding: 32px 32px; }
 
     /* Carousel */
     .lp-carousel-container {
@@ -4143,8 +4143,8 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     .about-stats-inner     { padding: 0 16px; flex-wrap: wrap; }
     .about-stats-inner .hero-stat { flex: 1 1 50%; }
     .about-content-section { padding: 40px 16px; }
-    .writing-page-hero     { padding: 100px 16px 48px; }
-    .writing-main          { padding: 32px 16px; }
+    .writing-page-hero     { padding: 100px 16px 28px; }
+    .writing-main          { padding: 28px 16px; }
     .writing-grid          { grid-template-columns: 1fr; }
     .writing-card.featured { grid-column: 1; }
 
