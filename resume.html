@@ -15,9 +15,7 @@
         }
 
         .resume-wrap {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 96px 40px 120px;
+            padding: 96px 320px 120px;
         }
 
         /* ── Resume header ── */
@@ -250,7 +248,7 @@
             letter-spacing: 0.2px;
         }
 
-        /* ── Print button ── */
+        /* ── Download button ── */
         .resume-print-btn {
             display: inline-flex;
             align-items: center;
@@ -276,8 +274,16 @@
         }
 
         /* ── Responsive ── */
+        @media (max-width: 1280px) {
+            .resume-wrap { padding: 96px 60px 120px; }
+        }
+
+        @media (max-width: 1024px) {
+            .resume-wrap { padding: 96px 32px 100px; }
+        }
+
         @media (max-width: 768px) {
-            .resume-wrap { padding: 80px 24px 80px; }
+            .resume-wrap { padding: 80px 32px 80px; }
             .resume-header { flex-direction: column; gap: 20px; }
             .resume-grid { grid-template-columns: 1fr; gap: 0; }
             .resume-right { position: static; }
@@ -341,11 +347,11 @@
                 <p class="resume-tagline">Product designer in NYC with 4+ years of experience in enterprise fintech, AI product design, and 0-to-1 venture work.</p>
             </div>
             <div class="resume-header-actions">
-                <button class="resume-print-btn" onclick="window.print()">
+                <button class="resume-print-btn" id="resumeDownloadBtn" onclick="downloadResumePDF()">
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <path d="M3.5 5V1.5h7V5M3.5 10.5H2A.5.5 0 0 1 1.5 10V6.5A.5.5 0 0 1 2 6h10a.5.5 0 0 1 .5.5V10a.5.5 0 0 1-.5.5h-1.5M3.5 8h7v4.5h-7V8Z" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7 1v8M4 6l3 3 3-3M2 10.5v1A.5.5 0 0 0 2.5 12h9a.5.5 0 0 0 .5-.5v-1" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    Print
+                    Download PDF
                 </button>
             </div>
         </header>
@@ -469,5 +475,39 @@
     </footer>
 
     <script src="design-system.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        function downloadResumePDF() {
+            const btn = document.getElementById('resumeDownloadBtn');
+            btn.disabled = true;
+            btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.25" opacity="0.3"/><path d="M7 1.5a5.5 5.5 0 0 1 5.5 5.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg> Generating…`;
+
+            // Hide elements that shouldn't appear in the PDF
+            const nav    = document.querySelector('.lp-nav');
+            const menu   = document.querySelector('.lp-mobile-menu');
+            const footer = document.querySelector('.lp-footer');
+            const actions = document.querySelector('.resume-header-actions');
+            [nav, menu, footer, actions].forEach(el => { if (el) el.style.display = 'none'; });
+
+            const element = document.querySelector('.resume-wrap');
+            // Temporarily reset padding so PDF uses tight margins
+            const origPadding = element.style.padding;
+            element.style.padding = '24px 32px 32px';
+
+            html2pdf().set({
+                margin: 0,
+                filename: 'john-rubino-resume.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, letterRendering: true },
+                jsPDF: { unit: 'mm', format: 'letter', orientation: 'portrait' }
+            }).from(element).save().then(function () {
+                // Restore hidden elements
+                [nav, menu, footer, actions].forEach(el => { if (el) el.style.display = ''; });
+                element.style.padding = origPadding;
+                btn.disabled = false;
+                btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M2 10.5v1A.5.5 0 0 0 2.5 12h9a.5.5 0 0 0 .5-.5v-1" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg> Download PDF`;
+            });
+        }
+    </script>
 </body>
 </html>
