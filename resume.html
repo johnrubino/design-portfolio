@@ -23,7 +23,7 @@
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
-            margin-bottom: 56px;
+            margin-bottom: 0;
             gap: 32px;
         }
 
@@ -33,7 +33,7 @@
             font-family: var(--lp-font-display);
             font-size: clamp(40px, 6vw, 64px);
             font-weight: 700;
-            color: var(--lp-text-dark);
+            color: var(--lp-primary);
             letter-spacing: -1.5px;
             line-height: 1.05;
             margin: 0 0 14px;
@@ -45,6 +45,12 @@
             color: var(--lp-text-body);
             line-height: 1.6;
             max-width: 520px;
+            margin: 0 0 32px;
+        }
+
+        .resume-header-divider {
+            border: none;
+            border-top: 1px solid var(--lp-border-light);
             margin: 0;
         }
 
@@ -61,6 +67,7 @@
             grid-template-columns: 1fr 272px;
             gap: 0 64px;
             align-items: start;
+            margin-top: 40px;
         }
 
         /* ── Section chrome ── */
@@ -70,13 +77,12 @@
 
         .resume-section-label {
             font-family: var(--lp-font-ui);
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.2px;
             color: var(--lp-primary);
-            margin: 0 0 20px;
-            padding-bottom: 12px;
+            margin: 0 0 16px;
+            padding-bottom: 10px;
             border-bottom: 1px solid var(--lp-border-light);
         }
 
@@ -229,23 +235,18 @@
             margin: 0;
         }
 
-        /* ── Superpowers tags ── */
+        /* ── Superpowers list ── */
         .resume-tags {
             display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
+            flex-direction: column;
+            gap: 6px;
         }
 
         .resume-tag {
             font-family: var(--lp-font-ui);
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--lp-primary);
-            background: rgba(100, 119, 248, 0.08);
-            border: 1px solid rgba(100, 119, 248, 0.18);
-            border-radius: 20px;
-            padding: 4px 12px;
-            letter-spacing: 0.2px;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--lp-text-body);
         }
 
         /* ── Download button ── */
@@ -355,6 +356,8 @@
                 </a>
             </div>
         </header>
+
+        <hr class="resume-header-divider">
 
         <!-- Two-column grid -->
         <div class="resume-grid">
