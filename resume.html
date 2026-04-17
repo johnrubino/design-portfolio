@@ -494,14 +494,13 @@
             if (cloneActions) cloneActions.remove();
 
             Object.assign(clone.style, {
-                position:   'fixed',
-                top:        '-9999px',
-                left:       '0',
+                position:   'absolute',
+                left:       '-10000px',
+                top:        '0',
                 width:      '800px',
                 padding:    '40px 48px 48px',
                 background: '#fff',
-                boxSizing:  'border-box',
-                zIndex:     '-1'
+                boxSizing:  'border-box'
             });
             document.body.appendChild(clone);
 
