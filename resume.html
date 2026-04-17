@@ -485,53 +485,63 @@
             btn.disabled = true;
             btn.innerHTML = SPIN_ICON + ' Generating…';
 
-            // Use a hidden measurer to get the content height at PDF width,
-            // so we can create a custom single-page PDF format.
-            const PDF_WIDTH_PX = 816; // letter width at 96dpi
+            const PDF_PX_W = 900;
+            const PDF_PADDING = '48px 64px';
             const source = document.querySelector('.resume-wrap');
 
+            // Measure content height at PDF width using a hidden clone
             const measurer = source.cloneNode(true);
+            measurer.querySelector('.resume-header-actions')?.remove();
             Object.assign(measurer.style, {
                 position:      'absolute',
                 top:           '0',
                 left:          '0',
-                width:         PDF_WIDTH_PX + 'px',
-                padding:       '40px 56px',
+                width:         PDF_PX_W + 'px',
+                padding:       PDF_PADDING,
                 boxSizing:     'border-box',
                 visibility:    'hidden',
                 pointerEvents: 'none',
                 background:    '#fff'
             });
-            const measurerActions = measurer.querySelector('.resume-header-actions');
-            if (measurerActions) measurerActions.remove();
             document.body.appendChild(measurer);
 
             requestAnimationFrame(() => requestAnimationFrame(() => {
-                const mmW = PDF_WIDTH_PX * 0.264583;
+                const mmW = PDF_PX_W * 0.264583;
                 const mmH = measurer.offsetHeight * 0.264583;
                 document.body.removeChild(measurer);
 
-                // html2canvas onclone modifies the internal render copy —
-                // the visible page is never touched, so there is no flash.
                 html2pdf().set({
                     margin:      0,
                     filename:    'john-rubino-resume.pdf',
                     image:       { type: 'jpeg', quality: 0.98 },
                     html2canvas: {
-                        scale:          2,
-                        useCORS:        true,
+                        scale:           2,
+                        useCORS:         true,
                         letterRendering: true,
+                        // Force html2canvas to simulate a PDF_PX_W viewport
+                        // so CSS layout matches what the measurer computed
+                        windowWidth:     PDF_PX_W,
                         onclone: function (clonedDoc) {
+                            // Force body width to match simulated viewport
+                            clonedDoc.body.style.setProperty('width',    PDF_PX_W + 'px', 'important');
+                            clonedDoc.body.style.setProperty('overflow', 'visible',        'important');
+
+                            // Tighten resume-wrap margins
                             const wrap = clonedDoc.querySelector('.resume-wrap');
                             if (wrap) {
-                                wrap.style.setProperty('padding',    '40px 56px',  'important');
-                                wrap.style.setProperty('max-width',  'none',       'important');
-                                wrap.style.setProperty('margin',     '0',          'important');
-                                wrap.style.setProperty('background', '#fff',       'important');
+                                wrap.style.setProperty('padding',    PDF_PADDING, 'important');
+                                wrap.style.setProperty('max-width',  'none',      'important');
+                                wrap.style.setProperty('margin',     '0',         'important');
+                                wrap.style.setProperty('background', '#fff',      'important');
                             }
-                            // Hide button inside the rendered clone
-                            const actions = clonedDoc.querySelector('.resume-header-actions');
-                            if (actions) actions.style.setProperty('display', 'none', 'important');
+
+                            // Hide everything except the resume content
+                            ['.lp-nav', '.lp-mobile-menu', '.lp-footer',
+                             '.resume-header-actions', '#resumeDownloadBtn'
+                            ].forEach(function (sel) {
+                                const el = clonedDoc.querySelector(sel);
+                                if (el) el.style.setProperty('display', 'none', 'important');
+                            });
                         }
                     },
                     jsPDF: { unit: 'mm', format: [mmW, mmH], orientation: 'portrait' }
