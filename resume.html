@@ -18,16 +18,17 @@
             padding: 96px 320px 120px;
         }
 
-        /* ── Resume header ── */
-        .resume-header {
+        /* ── Top action bar (download button) ── */
+        .resume-top-bar {
             display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            margin-bottom: 0;
-            gap: 32px;
+            justify-content: flex-end;
+            margin-bottom: 32px;
         }
 
-        .resume-header-left {}
+        /* ── Name block sits inside left grid column ── */
+        .resume-name-block {
+            margin-bottom: 40px;
+        }
 
         .resume-name {
             font-family: var(--lp-font-display);
@@ -45,20 +46,7 @@
             color: var(--lp-text-body);
             line-height: 1.6;
             max-width: 520px;
-            margin: 0 0 32px;
-        }
-
-        .resume-header-divider {
-            border: none;
-            border-top: 1px solid var(--lp-border-light);
             margin: 0;
-        }
-
-        .resume-header-actions {
-            display: flex;
-            gap: 10px;
-            flex-shrink: 0;
-            padding-top: 6px;
         }
 
         /* ── Two-column grid ── */
@@ -67,23 +55,22 @@
             grid-template-columns: 1fr 272px;
             gap: 0 64px;
             align-items: start;
-            margin-top: 40px;
         }
 
         /* ── Section chrome ── */
         .resume-section {
-            margin-bottom: 48px;
+            margin-bottom: 40px;
         }
 
         .resume-section-label {
-            font-family: var(--lp-font-ui);
+            font-family: var(--lp-font-display);
             font-size: 13px;
-            font-weight: 500;
-            letter-spacing: 0.2px;
+            font-weight: 600;
+            letter-spacing: 0;
             color: var(--lp-primary);
-            margin: 0 0 16px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--lp-border-light);
+            margin: 0 0 14px;
+            padding-top: 12px;
+            border-top: 1px solid var(--lp-border-light);
         }
 
         /* ── Experience entries ── */
@@ -285,7 +272,6 @@
 
         @media (max-width: 768px) {
             .resume-wrap { padding: 80px 32px 80px; }
-            .resume-header { flex-direction: column; gap: 20px; }
             .resume-grid { grid-template-columns: 1fr; gap: 0; }
             .resume-right { position: static; }
             .resume-dates { width: 100%; }
@@ -297,7 +283,7 @@
 
         /* ── Print styles ── */
         @media print {
-            .lp-nav, .lp-footer, .resume-header-actions { display: none !important; }
+            .lp-nav, .lp-footer, .resume-top-bar { display: none !important; }
             .resume-wrap { padding: 32px 0; }
             .resume-right { position: static; }
             body { background: white; }
@@ -341,29 +327,25 @@
     <!-- ── Page content ── -->
     <div class="resume-wrap">
 
-        <!-- Header -->
-        <header class="resume-header">
-            <div class="resume-header-left">
-                <h1 class="resume-name">John Rubino</h1>
-                <p class="resume-tagline">Product designer in NYC with 4+ years of experience in enterprise fintech, AI product design, and 0-to-1 venture work.</p>
-            </div>
-            <div class="resume-header-actions">
-                <a class="resume-print-btn" href="john-rubino-resume.pdf" download="john-rubino-resume.pdf">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <path d="M7 1v8M4 6l3 3 3-3M2 10.5v1A.5.5 0 0 0 2.5 12h9a.5.5 0 0 0 .5-.5v-1" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    Download PDF
-                </a>
-            </div>
-        </header>
+        <!-- Download action bar -->
+        <div class="resume-top-bar">
+            <a class="resume-print-btn" href="john-rubino-resume.pdf" download="john-rubino-resume.pdf">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M7 1v8M4 6l3 3 3-3M2 10.5v1A.5.5 0 0 0 2.5 12h9a.5.5 0 0 0 .5-.5v-1" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Download PDF
+            </a>
+        </div>
 
-        <hr class="resume-header-divider">
-
-        <!-- Two-column grid -->
+        <!-- Two-column grid — name block sits inside left column so Contact aligns with it -->
         <div class="resume-grid">
 
-            <!-- ── Left: Experience ── -->
+            <!-- ── Left: Name + Experience ── -->
             <main>
+                <div class="resume-name-block">
+                    <h1 class="resume-name">John Rubino</h1>
+                    <p class="resume-tagline">Product designer in NYC with 4+ years of experience in enterprise fintech, AI product design, and 0-to-1 venture work.</p>
+                </div>
                 <section class="resume-section">
                     <h2 class="resume-section-label">Experience</h2>
 
@@ -411,6 +393,7 @@
                         <p class="resume-role-desc">Designed and launched a consumer rental search platform from 0 to 1 — 100+ sign-ups, 20% referral increase through research-driven UX improvements.</p>
                     </div>
                 </section>
+
             </main>
 
             <!-- ── Right: Contact / Education / Certs / Superpowers ── -->
