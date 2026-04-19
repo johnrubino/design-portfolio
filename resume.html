@@ -25,9 +25,13 @@
             margin-bottom: 32px;
         }
 
-        /* ── Name block sits inside left grid column ── */
-        .resume-name-block {
-            margin-bottom: 40px;
+        /* ── Masthead: name left + contact right, same columns as grid ── */
+        .resume-masthead {
+            display: grid;
+            grid-template-columns: 1fr 272px;
+            gap: 0 64px;
+            align-items: start;
+            margin-bottom: 0;
         }
 
         .resume-name {
@@ -49,12 +53,19 @@
             margin: 0;
         }
 
-        /* ── Two-column grid ── */
+        /* Contact sits in masthead right column — no top border */
+        .resume-masthead-contact .resume-section-label {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        /* ── Two-column grid: Experience left, Education+ right ── */
         .resume-grid {
             display: grid;
             grid-template-columns: 1fr 272px;
             gap: 0 64px;
             align-items: start;
+            margin-top: 40px;
         }
 
         /* ── Section chrome ── */
@@ -272,7 +283,8 @@
 
         @media (max-width: 768px) {
             .resume-wrap { padding: 80px 32px 80px; }
-            .resume-grid { grid-template-columns: 1fr; gap: 0; }
+            .resume-masthead { grid-template-columns: 1fr; gap: 24px 0; }
+            .resume-grid { grid-template-columns: 1fr; gap: 0; margin-top: 0; }
             .resume-right { position: static; }
             .resume-dates { width: 100%; }
         }
@@ -337,15 +349,31 @@
             </a>
         </div>
 
-        <!-- Two-column grid — name block sits inside left column so Contact aligns with it -->
+        <!-- Masthead: name left, contact right — same column widths as grid below -->
+        <div class="resume-masthead">
+            <div>
+                <h1 class="resume-name">John Rubino</h1>
+                <p class="resume-tagline">Product designer in NYC with 4+ years of experience in enterprise fintech, AI product design, and 0-to-1 venture work.</p>
+            </div>
+            <aside class="resume-masthead-contact">
+                <section class="resume-section">
+                    <h2 class="resume-section-label">Contact</h2>
+                    <div class="resume-contact-list">
+                        <a href="https://johnrubino.design" target="_blank" rel="noopener" class="resume-contact-link">johnrubino.design</a>
+                        <a href="mailto:johnrubinodesign@gmail.com" class="resume-contact-link lp-btn-contact">johnrubinodesign@gmail.com</a>
+                        <a href="https://www.linkedin.com/in/john-rubino/" target="_blank" rel="noopener" class="resume-contact-link">linkedin.com/in/john-rubino</a>
+                        <a href="https://johnrubino.substack.com" target="_blank" rel="noopener" class="resume-contact-link">johnrubino.substack.com</a>
+                    </div>
+                </section>
+            </aside>
+        </div>
+
+        <!-- Two-column grid: Experience (left) + Education/Certs/Superpowers (right) -->
+        <!-- Both columns start at same Y → divider lines align perfectly -->
         <div class="resume-grid">
 
-            <!-- ── Left: Name + Experience ── -->
+            <!-- ── Left: Experience ── -->
             <main>
-                <div class="resume-name-block">
-                    <h1 class="resume-name">John Rubino</h1>
-                    <p class="resume-tagline">Product designer in NYC with 4+ years of experience in enterprise fintech, AI product design, and 0-to-1 venture work.</p>
-                </div>
                 <section class="resume-section">
                     <h2 class="resume-section-label">Experience</h2>
 
@@ -396,19 +424,8 @@
 
             </main>
 
-            <!-- ── Right: Contact / Education / Certs / Superpowers ── -->
+            <!-- ── Right: Education / Certs / Superpowers ── -->
             <aside class="resume-right">
-
-                <!-- Contact -->
-                <section class="resume-section">
-                    <h2 class="resume-section-label">Contact</h2>
-                    <div class="resume-contact-list">
-                        <a href="https://johnrubino.design" target="_blank" rel="noopener" class="resume-contact-link">johnrubino.design</a>
-                        <a href="mailto:johnrubinodesign@gmail.com" class="resume-contact-link lp-btn-contact">johnrubinodesign@gmail.com</a>
-                        <a href="https://www.linkedin.com/in/john-rubino/" target="_blank" rel="noopener" class="resume-contact-link">linkedin.com/in/john-rubino</a>
-                        <a href="https://johnrubino.substack.com" target="_blank" rel="noopener" class="resume-contact-link">johnrubino.substack.com</a>
-                    </div>
-                </section>
 
                 <!-- Education -->
                 <section class="resume-section">
