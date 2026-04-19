@@ -3,451 +3,792 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Rubino | Product Designer</title>
+    <title>John Rubino — Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="design-system.css">
     <style>
-        /* ── Card overrides ── */
-        .portfolio-card .card-content {
-            background: transparent !important;
-            padding: 0 !important;
-            position: static !important;
-            z-index: auto !important;
+        /* ── Dashboard shell ─────────────────────────────────────────────── */
+        .hiring-page {
+            background: var(--bg);
+            font-family: var(--lp-font-ui);
+            color: var(--text);
+            min-height: 100dvh;
         }
-        .card-image-gradient {
-            position: absolute;
+
+        /* ── Token gate ──────────────────────────────────────────────────── */
+        .token-gate {
+            position: fixed;
             inset: 0;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            z-index: 9999;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.4s ease;
         }
-        .card-tag {
+        .token-gate.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .gate-inner {
+            text-align: center;
+            padding: 40px 24px;
+            max-width: 360px;
+            width: 100%;
+        }
+        .gate-spinner {
+            width: 32px;
+            height: 32px;
+            border: 2px solid rgba(102,126,234,0.15);
+            border-top-color: var(--purple);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            margin: 0 auto 16px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .gate-icon {
+            width: 52px;
+            height: 52px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .gate-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+        .gate-sub {
+            font-size: 13px;
+            color: var(--text-2);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        .gate-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--purple);
+            color: #fff;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            font-family: var(--lp-font-ui);
+            transition: background 160ms ease;
+        }
+        .gate-btn:hover { background: #7b91f0; }
+
+        /* ── Dashboard layout ────────────────────────────────────────────── */
+        .dashboard {
+            display: flex;
+            min-height: 100dvh;
+        }
+
+        /* ── Sidebar ─────────────────────────────────────────────────────── */
+        .sidebar {
+            width: 220px;
+            flex-shrink: 0;
+            background: var(--bg-2);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            position: sticky;
+            top: 0;
+            height: 100dvh;
+            overflow: hidden;
+        }
+        .sidebar-logo {
+            padding: 24px 20px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        .sidebar-logo-mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            background: var(--purple);
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+            font-family: var(--lp-font-ui);
+            letter-spacing: -0.02em;
+            text-decoration: none;
+        }
+        .sidebar-nav {
+            flex: 1;
+            padding: 12px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-2);
+            cursor: pointer;
+            transition: all 150ms ease;
+            text-decoration: none;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+        }
+        .nav-item:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+        .nav-item.active { color: #fff; background: rgba(102,126,234,0.12); }
+        .nav-item.active .nav-icon-wrap { color: var(--purple); }
+        .nav-icon-wrap { width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .nav-icon-wrap svg { width: 16px; height: 16px; }
+
+        /* Sidebar footer: company + expiry badge */
+        .sidebar-footer {
+            padding: 16px;
+            border-top: 1px solid var(--border);
+        }
+        .sidebar-company {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-2);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 6px;
+        }
+        .sidebar-company-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+        .sidebar-expiry {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 8px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            font-size: 11px;
+            color: var(--text-2);
+        }
+        .sidebar-expiry svg { opacity: 0.5; }
+
+        /* ── Main content ────────────────────────────────────────────────── */
+        .dashboard-main {
+            flex: 1;
+            overflow-y: auto;
+            background: var(--bg);
+        }
+        .content-view {
+            display: none;
+            padding: 40px 48px;
+            max-width: 900px;
+        }
+        .content-view.active { display: block; }
+
+        /* View header */
+        .view-header {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+        .view-eyebrow {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--purple);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+        .view-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: -0.03em;
+            margin-bottom: 6px;
+        }
+        .view-sub {
+            font-size: 14px;
+            color: var(--text-2);
+            line-height: 1.5;
+        }
+
+        /* ── Portfolio grid ──────────────────────────────────────────────── */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .portfolio-grid .portfolio-card:first-child {
+            grid-column: 1 / -1;
+        }
+        .portfolio-card {
+            background: var(--bg-2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            transition: border-color 200ms ease, transform 200ms ease;
+        }
+        .portfolio-card:hover {
+            border-color: var(--border-mid);
+            transform: translateY(-2px);
+        }
+        .portfolio-card-img {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            position: relative;
+        }
+        .portfolio-card:first-child .portfolio-card-img { height: 260px; }
+        .portfolio-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+        }
+        .portfolio-card-body {
+            padding: 20px;
+        }
+        .portfolio-card-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+        .portfolio-tag {
             display: inline-block;
-            padding: 3px 10px;
-            background: rgba(102,126,234,0.12);
-            border: 1px solid rgba(102,126,234,0.3);
+            padding: 2px 8px;
+            background: rgba(102,126,234,0.1);
+            border: 1px solid rgba(102,126,234,0.2);
             border-radius: 4px;
             font-size: 11px;
             font-weight: 500;
-            color: #667eea;
-            margin-right: 6px;
+            color: var(--purple);
+        }
+        .portfolio-tag.nda {
+            background: rgba(255,255,255,0.04);
+            border-color: rgba(255,255,255,0.1);
+            color: var(--text-2);
+        }
+        .portfolio-card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: -0.02em;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+        .portfolio-card-desc {
+            font-size: 13px;
+            color: var(--text-2);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .portfolio-card-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--purple);
         }
 
-        /* ── Backdrop + positioning context (Humaan SmoothModal architecture) ── */
+        /* ── Writing view ────────────────────────────────────────────────── */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        .article-card {
+            background: var(--bg-2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            text-decoration: none;
+            display: block;
+            transition: border-color 160ms ease;
+        }
+        .article-card:hover { border-color: var(--border-mid); }
+        .article-tag {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--purple);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .article-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            line-height: 1.4;
+            margin-bottom: 6px;
+        }
+        .article-excerpt {
+            font-size: 12px;
+            color: var(--text-2);
+            line-height: 1.5;
+        }
+        .articles-loading {
+            grid-column: 1 / -1;
+            padding: 40px;
+            text-align: center;
+            color: var(--text-2);
+            font-size: 13px;
+        }
+
+        /* ── About view ──────────────────────────────────────────────────── */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .about-block {
+            background: var(--bg-2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 24px;
+        }
+        .about-block.full { grid-column: 1 / -1; }
+        .about-block-label {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--purple);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+        }
+        .about-block-text {
+            font-size: 13px;
+            color: var(--text-2);
+            line-height: 1.7;
+        }
+        .about-block-text + .about-block-text { margin-top: 10px; }
+        .about-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .about-skill-tag {
+            padding: 4px 10px;
+            background: rgba(102,126,234,0.08);
+            border: 1px solid rgba(102,126,234,0.18);
+            border-radius: 5px;
+            font-size: 12px;
+            color: var(--text);
+        }
+        .about-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+        }
+        .about-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 7px;
+            font-size: 12px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 150ms ease;
+        }
+        .about-link-btn.primary { background: var(--purple); color: #fff; }
+        .about-link-btn.primary:hover { background: #7b91f0; }
+        .about-link-btn.outline { background: transparent; border: 1px solid var(--border-mid); color: var(--text); }
+        .about-link-btn.outline:hover { border-color: var(--border-strong); }
+
+        /* Stats row in about */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .stat-block {
+            background: var(--bg-2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 18px 16px;
+            text-align: center;
+        }
+        .stat-val { font-size: 22px; font-weight: 600; color: #fff; letter-spacing: -0.03em; margin-bottom: 4px; }
+        .stat-lbl { font-size: 11px; color: var(--text-2); }
+
+        /* ── Modal system ────────────────────────────────────────────────── */
         .hiring-page .modal-overlay {
             position: fixed;
             inset: 0;
             z-index: 1000;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0,0,0,0.6);
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
-            transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
         }
         .hiring-page .modal-overlay.active {
             opacity: 1;
             visibility: visible;
             pointer-events: all;
         }
-
-        /* ── Panel — peek state: inset via left/right/top offsets ── */
         .hiring-page .modal-container {
             position: absolute;
-            left: 16px;
-            right: 16px;
-            bottom: 0;
-            top: 12vh;
-            border-radius: 24px 24px 0 0;
-            background: var(--surface, #f5f4f0);
+            left: 16px; right: 16px; bottom: 0; top: 12vh;
+            border-radius: 20px 20px 0 0;
+            background: var(--bg);
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            z-index: 1;
             transform: translateY(calc(100% + 2px));
-            transition:
-                transform 0.8s cubic-bezier(0.87, 0, 0.13, 1),
-                left 0.35s ease,
-                right 0.35s ease,
-                top 0.35s ease,
-                border-radius 0.35s ease;
+            transition: transform 0.8s cubic-bezier(0.87,0,0.13,1), left .35s ease, right .35s ease, top .35s ease, border-radius .35s ease;
         }
-        .hiring-page .modal-overlay.active .modal-container {
-            transform: translateY(0);
-        }
-
-        /* ── Panel — expanded state: offsets collapse to 0 (scroll-triggered) ── */
-        .hiring-page .modal-container.sheet--expanded {
-            left: 0;
-            right: 0;
-            top: 0;
-            border-radius: 0;
-        }
-
-        /* ── Close button — absolute inside sheet container ── */
+        .hiring-page .modal-overlay.active .modal-container { transform: translateY(0); }
+        .hiring-page .modal-container.sheet--expanded { left: 0; right: 0; top: 0; border-radius: 0; }
         .sheet-close-x {
-            position: absolute;
-            top: 16px;
-            right: 20px;
-            z-index: 10;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(0,0,0,0.75);
-            border: none;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 160ms ease;
-            flex-shrink: 0;
+            position: absolute; top: 14px; right: 16px; z-index: 10;
+            width: 36px; height: 36px; border-radius: 50%;
+            background: rgba(255,255,255,0.1); border: none; color: #fff;
+            font-size: 14px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 150ms ease;
         }
-        .sheet-close-x:hover { background: rgba(0,0,0,0.9); }
-
-        /* ── Content panel (replaces iframe) ── */
+        .sheet-close-x:hover { background: rgba(255,255,255,0.18); }
         .sheet-content-panel {
-            flex: 1;
-            overflow-y: auto;
-            overflow-x: hidden;
+            flex: 1; overflow-y: auto; overflow-x: hidden;
             -webkit-overflow-scrolling: touch;
-            background: var(--bg, #0d0d12);
+            background: var(--bg);
         }
-
-        /* ── Slim custom scrollbar ── */
         .sheet-content-panel::-webkit-scrollbar { width: 3px; }
         .sheet-content-panel::-webkit-scrollbar-track { background: transparent; }
-        .sheet-content-panel::-webkit-scrollbar-thumb {
-            background: rgba(255,255,255,0.15);
-            border-radius: 2px;
-        }
-        .sheet-content-panel::-webkit-scrollbar-thumb:hover {
-            background: rgba(255,255,255,0.3);
-        }
-
-        /* ── Loading state inside panel ── */
-        .sheet-panel-loading {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            min-height: 300px;
-        }
-
-        /* ── Case study layout overrides when rendered inside sheet ── */
-        .sheet-content-panel .case-study-layout {
-            padding-top: 0;
-            min-height: 100%;
-            align-items: stretch;
-        }
-        .sheet-content-panel .stepper-container {
-            position: sticky;
-            top: 0;
-            align-self: stretch;
-            height: 100vh;
-            max-height: 100vh;
-            overflow: hidden;
-        }
-        .sheet-content-panel .case-study-layout .main-content {
-            overflow: visible !important;
-            height: auto !important;
-            max-width: none !important;
-            padding: 48px 56px !important;
-        }
-        .sheet-content-panel .content-section {
-            max-width: none !important;
-        }
-
-        /* ── Stepper connector lines ── */
-        .sheet-content-panel .stepper-indicator {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex-shrink: 0;
-            width: 24px;
-        }
-        .sheet-content-panel .stepper-line {
-            width: 1.5px;
-            flex: 1;
-            min-height: 14px;
-            background: var(--border-color, rgba(255,255,255,0.12));
-            margin-top: 4px;
-        }
-        .sheet-content-panel .stepper-step:last-child .stepper-line { display: none; }
-        .sheet-content-panel .stepper-step.active .stepper-line,
-        .sheet-content-panel .stepper-step.completed .stepper-line {
-            background: rgba(102,126,234,0.4);
-        }
-
-        /* ── Image visual treatment inside sheet ── */
-        .sheet-content-panel .case-study-figure {
-            margin: 20px 0;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid var(--border-color, rgba(255,255,255,0.08));
-            background: rgba(255,255,255,0.03);
-        }
-        .sheet-content-panel .case-study-figure img {
-            width: 100%;
-            max-height: 320px;
-            object-fit: contain;
-            object-position: center;
-            display: block;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        /* Two consecutive figures → side by side */
-        .sheet-content-panel .case-study-figure:has(+ .case-study-figure) {
-            float: left;
-            width: calc(50% - 8px);
-            margin-right: 16px;
-        }
-        .sheet-content-panel .case-study-figure + .case-study-figure {
-            float: left;
-            width: calc(50% - 8px);
-            clear: none;
-        }
-        .sheet-content-panel .case-study-figure + .case-study-figure + * { clear: both; }
-        .sheet-content-panel .case-study-figure + .case-study-figure + .case-study-figure {
-            clear: both;
-            float: none;
-            width: 100%;
-        }
-
-        /* ── Footer: prev/next navigation ── */
-        .sheet-footer-label { display: none; }
+        .sheet-content-panel::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 2px; }
         .sheet-footer-row {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 12px 24px;
-            border-top: 1px solid rgba(255,255,255,0.07);
-            background: #111118;
-            flex-shrink: 0;
+            display: flex; align-items: center; justify-content: flex-end;
+            padding: 10px 20px; border-top: 1px solid var(--border);
+            background: var(--bg-2); flex-shrink: 0;
         }
-        [data-theme="light"] .sheet-footer-row {
-            background: #f4f4f7;
-            border-top-color: rgba(0,0,0,0.08);
-        }
+        .sheet-footer-label { display: none; }
         .sheet-footer-nav { display: flex; gap: 8px; }
         .sheet-nav-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 7px 16px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 160ms ease;
-            white-space: nowrap;
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 7px 14px; border-radius: 6px; font-size: 12px; font-weight: 500;
+            cursor: pointer; transition: all 150ms ease; white-space: nowrap;
         }
-        .sheet-nav-btn.outline {
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.15);
-            color: rgba(255,255,255,0.6);
-        }
-        [data-theme="light"] .sheet-nav-btn.outline {
-            border-color: rgba(0,0,0,0.18);
-            color: rgba(0,0,0,0.6);
-        }
-        [data-theme="light"] .sheet-nav-btn.outline:hover:not(:disabled) {
-            border-color: rgba(0,0,0,0.35);
-            color: #000;
-        }
-        .sheet-nav-btn.outline:hover:not(:disabled) { border-color: rgba(255,255,255,0.3); color: #fff; }
-        .sheet-nav-btn.primary { background: #667eea; border: 1px solid #667eea; color: #fff; }
+        .sheet-nav-btn.outline { background: transparent; border: 1px solid var(--border-mid); color: var(--text-2); }
+        .sheet-nav-btn.outline:hover:not(:disabled) { border-color: var(--border-strong); color: var(--text); }
+        .sheet-nav-btn.primary { background: var(--purple); border: 1px solid var(--purple); color: #fff; }
         .sheet-nav-btn.primary:hover:not(:disabled) { background: #7b91f0; }
         .sheet-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
 
-        /* ── Spinner (used in sheet-panel-loading) ── */
-        .spinner {
-            width: 36px;
-            height: 36px;
-            border: 2px solid rgba(102,126,234,0.2);
-            border-top-color: #667eea;
-            border-radius: 50%;
-            animation: spin 0.7s linear infinite;
+        /* Case study layout inside sheet */
+        .sheet-content-panel .case-study-layout { padding-top: 0; min-height: 100%; align-items: stretch; }
+        .sheet-content-panel .stepper-container { position: sticky; top: 0; align-self: stretch; height: 100vh; max-height: 100vh; overflow: hidden; }
+        .sheet-content-panel .case-study-layout .main-content { overflow: visible !important; height: auto !important; max-width: none !important; padding: 48px 56px !important; }
+        .sheet-content-panel .content-section { max-width: none !important; }
+        .sheet-content-panel .stepper-indicator { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 24px; }
+        .sheet-content-panel .stepper-line { width: 1.5px; flex: 1; min-height: 14px; background: var(--border-color, rgba(255,255,255,0.12)); margin-top: 4px; }
+        .sheet-content-panel .stepper-step:last-child .stepper-line { display: none; }
+        .sheet-content-panel .stepper-step.active .stepper-line,
+        .sheet-content-panel .stepper-step.completed .stepper-line { background: rgba(102,126,234,0.4); }
+        .sheet-content-panel .case-study-figure { margin: 20px 0; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); }
+        .sheet-content-panel .case-study-figure img { width: 100%; max-height: 320px; object-fit: contain; display: block; padding: 20px; box-sizing: border-box; }
+        .sheet-content-panel .case-study-figure:has(+ .case-study-figure) { float: left; width: calc(50% - 8px); margin-right: 16px; }
+        .sheet-content-panel .case-study-figure + .case-study-figure { float: left; width: calc(50% - 8px); clear: none; }
+        .sheet-content-panel .case-study-figure + .case-study-figure + * { clear: both; }
+        .sheet-content-panel .case-study-figure + .case-study-figure + .case-study-figure { clear: both; float: none; width: 100%; }
+
+        /* ── Mobile ──────────────────────────────────────────────────────── */
+        .mobile-header {
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            background: var(--bg-2);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        @keyframes spin { to { transform: rotate(360deg); } }
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+            padding: 4px;
+        }
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 400;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                position: fixed;
+                top: 0; left: 0; bottom: 0;
+                z-index: 500;
+                transform: translateX(-100%);
+                transition: transform 280ms cubic-bezier(0.25,0.46,0.45,0.94);
+            }
+            .sidebar.open { transform: translateX(0); }
+            .sidebar-overlay.active { display: block; }
+            .mobile-header { display: flex; }
+            .dashboard { flex-direction: column; }
+            .content-view { padding: 24px 20px; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .portfolio-grid .portfolio-card:first-child { grid-column: 1; }
+            .articles-grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; }
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 1100px) {
+            .content-view { padding: 32px 32px; }
+        }
     </style>
 </head>
 <body class="hiring-page">
-    <div class="dashboard">
-        <!-- Sidebar -->
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-logo">
-                <div class="logo-avatar">JR</div>
-            </div>
-            <nav class="sidebar-nav">
-                <a class="nav-item active" data-view="portfolio">
-                    <span class="nav-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
-                        </svg>
-                    </span>
-                    Portfolio
-                </a>
-                <a class="nav-item" data-view="writing">
-                    <span class="nav-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                        </svg>
-                    </span>
-                    Writing
-                </a>
-                <a class="nav-item" data-view="about">
-                    <span class="nav-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2v-9a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2"/>
-                        </svg>
-                    </span>
-                    About
-                </a>
-            </nav>
-            <div class="sidebar-footer">
-                <button class="theme-toggle-sidebar" id="themeToggle">
-                    <span class="nav-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" id="themeIcon">
-                            <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-                        </svg>
-                    </span>
-                    Toggle theme
-                </button>
-            </div>
-        </aside>
 
-        <!-- Sidebar overlay for mobile -->
-        <div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Mobile Header -->
-            <div class="mobile-header">
-                <div class="logo-avatar" style="width: 40px; height: 40px; font-size: 16px;">JR</div>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
-            </div>
-
-            <div class="content-container">
-                <!-- Portfolio View -->
-                <div class="content-view active" id="portfolioView">
-                    <div class="portfolio-grid">
-                        <a class="portfolio-card" href="#" data-case="future-of-wealth-advisory">
-                            <div class="card-image">
-                                <div class="card-image-gradient"></div>
-                            </div>
-                            <div class="card-content">
-                                <div class="card-tags">
-                                    <span class="card-tag">Featured</span>
-                                    <span class="card-tag">BNY Pershing</span>
-                                </div>
-                                <h3 class="card-title">Future of Wealth Advisory</h3>
-                                <p class="card-description">Reimagined account opening and asset movement workflows for a platform consolidation, designing the To-Do List pattern and collapsing stepper to make complex processes navigable.</p>
-                                <span class="btn-tertiary">View Case Study</span>
-                            </div>
-                        </a>
-
-                        <a class="portfolio-card" href="#" data-case="fully-paid-lending">
-                            <div class="card-image">
-                                <div class="card-image-gradient"></div>
-                            </div>
-                            <div class="card-content">
-                                <div class="card-tags">
-                                    <span class="card-tag">Featured</span>
-                                    <span class="card-tag">BNY Pershing</span>
-                                </div>
-                                <h3 class="card-title">Fully Paid Lending</h3>
-                                <p class="card-description">Streamlined the fully paid lending process to help advisors access liquidity for clients while maintaining compliance and reducing operational risk.</p>
-                                <span class="btn-tertiary">View Case Study</span>
-                            </div>
-                        </a>
-
-                        <a class="portfolio-card" href="case-study-purple-panda-rentals.html" data-case="purple-panda-rentals">
-                            <div class="card-image">
-                                <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62c766abb767dba81d22d0dd_PPR%20Project%20Tile.png" alt="Purple Panda Rentals">
-                            </div>
-                            <div class="card-content">
-                                <div class="card-tags">
-                                    <span class="card-tag">Featured</span>
-                                    <span class="card-tag">Founder Project</span>
-                                </div>
-                                <h3 class="card-title">Purple Panda Rentals</h3>
-                                <p class="card-description">Founded a rental platform for college students, designing the mobile app from research through validated prototypes with 270 survey respondents.</p>
-                                <span class="btn-tertiary">Read more</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Writing View -->
-                <div class="content-view" id="writingView">
-                    <div class="writing-header">
-                        <h1 class="writing-title">Thoughts on Design & Technology</h1>
-                        <p class="writing-subtitle">Exploring the future of design, AI, and human-centered technology through short, thoughtful reflections.</p>
-                        <a href="https://johnrubino.substack.com" class="substack-link" target="_blank">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16M4 8h16M4 12l8 6 8-6"/>
-                            </svg>
-                            Subscribe on Substack
-                        </a>
-                    </div>
-                    <div class="articles-grid" id="articlesGrid">
-                        <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-secondary);">
-                            <p>Loading articles from Substack...</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- About View -->
-                <div class="content-view" id="aboutView">
-                    <div class="about-header">
-                        <h1 class="about-title">About Me</h1>
-                    </div>
-                    <div class="about-content">
-                        <div class="about-section">
-                            <h3 class="about-section-title">Background</h3>
-                            <p class="about-text">I'm a Product Designer solving 0-to-1 problems for AI-native startups. By day, I design scalable systems at BNY Pershing. By night, I'm angel investing and exploring the future of AI + design.</p>
-                            <p class="about-text">I help founders build AI-native products with real social impact through strategic design thinking and hands-on execution.</p>
-                        </div>
-                        <div class="about-section">
-                            <h3 class="about-section-title">Connect</h3>
-                            <p class="about-text">I'm always interested in discussing design, AI, and product strategy. Feel free to reach out.</p>
-                            <div class="about-links">
-                                <a href="https://www.linkedin.com/in/john-rubino/" class="about-link" target="_blank">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                    </svg>
-                                    LinkedIn
-                                </a>
-                                <a href="mailto:johnrubinodesign@gmail.com" class="about-link">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                    </svg>
-                                    Email
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Footer -->
-            <footer class="site-footer">
-                <div class="footer-content">
-                    <p class="footer-text">&copy; 2025 John Rubino | Product Designer</p>
-                    <div class="footer-links">
-                        <a href="https://www.linkedin.com/in/john-rubino/" class="footer-link" target="_blank">LinkedIn</a>
-                        <a href="https://johnrubino.substack.com" class="footer-link" target="_blank">Substack</a>
-                        <a href="mailto:johnrubinodesign@gmail.com" class="footer-link">Contact</a>
-                    </div>
-                </div>
-            </footer>
-        </main>
+<!-- ── Token gate (visible on load until /api/verify responds) ────────────── -->
+<div class="token-gate" id="tokenGate">
+    <div class="gate-inner" id="gateLoading">
+        <div class="gate-spinner"></div>
+        <p style="font-size:13px;color:var(--text-2);">Verifying access&hellip;</p>
     </div>
+    <div class="gate-inner" id="gateExpired" style="display:none">
+        <div class="gate-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3" stroke-linecap="round"/></svg>
+        </div>
+        <p class="gate-title">This link has expired</p>
+        <p class="gate-sub">The portfolio link you're using is no longer active. Reach out to John directly to request a new one.</p>
+        <a href="mailto:johnrubinodesign@gmail.com?subject=Portfolio%20Access%20Request&body=Hi%20John%2C%0A%0AI%27d%20like%20to%20request%20a%20new%20portfolio%20link.%0A%0AThanks" class="gate-btn">Request a new link</a>
+    </div>
+    <div class="gate-inner" id="gateError" style="display:none">
+        <div class="gate-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+        </div>
+        <p class="gate-title">Invalid link</p>
+        <p class="gate-sub">This link doesn't look right. Make sure you're using the full URL from John's application.</p>
+        <a href="mailto:johnrubinodesign@gmail.com?subject=Portfolio%20Link%20Issue" class="gate-btn">Contact John</a>
+    </div>
+</div>
+
+<!-- ── Dashboard (hidden until token verified) ───────────────────────────── -->
+<div class="dashboard" id="dashboard" style="display:none">
+
+    <!-- Sidebar overlay (mobile) -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <span class="sidebar-logo-mark">JR</span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <button class="nav-item active" data-view="portfolio">
+                <span class="nav-icon-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+                </span>
+                Portfolio
+            </button>
+            <button class="nav-item" data-view="writing">
+                <span class="nav-icon-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                </span>
+                Writing
+            </button>
+            <button class="nav-item" data-view="about">
+                <span class="nav-icon-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </span>
+                About
+            </button>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p class="sidebar-company">Prepared for</p>
+            <p class="sidebar-company-name" id="sidebarCompany">&hellip;</p>
+            <span class="sidebar-expiry">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3" stroke-linecap="round"/></svg>
+                <span id="sidebarExpiry">Loading&hellip;</span>
+            </span>
+        </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="dashboard-main" id="dashboardMain">
+
+        <!-- Mobile header -->
+        <div class="mobile-header">
+            <span class="sidebar-logo-mark" style="width:32px;height:32px;font-size:12px;">JR</span>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+
+        <!-- ── Portfolio view ─────────────────────────────────────── -->
+        <div class="content-view active" id="portfolioView">
+            <div class="view-header">
+                <p class="view-eyebrow">Case Studies</p>
+                <h1 class="view-title">Selected Work</h1>
+                <p class="view-sub">Enterprise-grade problems, human-centered solutions. Click any card to read the full case study.</p>
+            </div>
+
+            <div class="portfolio-grid">
+
+                <!-- Card 1 -->
+                <a class="portfolio-card" href="#" data-case="future-of-wealth-advisory">
+                    <div class="portfolio-card-img">
+                        <img src="images/case-studies/platform-vision/To do list high fidelity design.png" alt="Future of Wealth Advisory">
+                    </div>
+                    <div class="portfolio-card-body">
+                        <div class="portfolio-card-tags">
+                            <span class="portfolio-tag">BNY Pershing</span>
+                            <span class="portfolio-tag">Wealth Services</span>
+                            <span class="portfolio-tag nda">NDA</span>
+                        </div>
+                        <h3 class="portfolio-card-title">Future of Wealth Advisory</h3>
+                        <p class="portfolio-card-desc">Reimagined account opening and asset movement workflows for a platform consolidation. Designed the To-Do List pattern and collapsing stepper to make complex multi-step processes navigable for advisors managing institutional-scale assets.</p>
+                        <span class="portfolio-card-action">
+                            Open case study
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Card 2 -->
+                <a class="portfolio-card" href="#" data-case="fully-paid-lending">
+                    <div class="portfolio-card-img">
+                        <img src="images/case-studies/fpl/final-design.png" alt="Fully Paid Lending">
+                    </div>
+                    <div class="portfolio-card-body">
+                        <div class="portfolio-card-tags">
+                            <span class="portfolio-tag">BNY Pershing</span>
+                            <span class="portfolio-tag nda">NDA</span>
+                        </div>
+                        <h3 class="portfolio-card-title">Fully Paid Lending</h3>
+                        <p class="portfolio-card-desc">Streamlined the fully paid lending program to help advisors unlock liquidity for clients while maintaining compliance and reducing operational risk.</p>
+                        <span class="portfolio-card-action">
+                            Open case study
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Card 3 -->
+                <a class="portfolio-card" href="#" data-case="purple-panda-rentals">
+                    <div class="portfolio-card-img">
+                        <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62c766abb767dba81d22d0dd_PPR%20Project%20Tile.png" alt="Purple Panda Rentals">
+                    </div>
+                    <div class="portfolio-card-body">
+                        <div class="portfolio-card-tags">
+                            <span class="portfolio-tag">Founder Project</span>
+                            <span class="portfolio-tag">Mobile</span>
+                        </div>
+                        <h3 class="portfolio-card-title">Purple Panda Rentals</h3>
+                        <p class="portfolio-card-desc">Founded a rental marketplace for college students — designed the mobile app end-to-end, from research and synthesis to validated prototypes with 270 survey respondents.</p>
+                        <span class="portfolio-card-action">
+                            Open case study
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- ── Writing view ───────────────────────────────────────── -->
+        <div class="content-view" id="writingView">
+            <div class="view-header">
+                <p class="view-eyebrow">Design Thinker &middot; Substack</p>
+                <h1 class="view-title">Writing</h1>
+                <p class="view-sub">Short, provocative essays on the future of design practice, AI as creative infrastructure, and building sustainable design careers.</p>
+            </div>
+            <div class="articles-grid" id="articlesGrid">
+                <div class="articles-loading">Loading from Substack&hellip;</div>
+            </div>
+        </div>
+
+        <!-- ── About view ─────────────────────────────────────────── -->
+        <div class="content-view" id="aboutView">
+            <div class="view-header">
+                <p class="view-eyebrow">Background</p>
+                <h1 class="view-title">John Rubino</h1>
+                <p class="view-sub">Senior Product Designer &middot; New York</p>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-block"><div class="stat-val">4+</div><div class="stat-lbl">Years Experience</div></div>
+                <div class="stat-block"><div class="stat-val">3</div><div class="stat-lbl">Enterprise Platforms</div></div>
+                <div class="stat-block"><div class="stat-val">$1T+</div><div class="stat-lbl">AUM Context</div></div>
+                <div class="stat-block"><div class="stat-val">0&rarr;1</div><div class="stat-lbl">Venture Design</div></div>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-block full">
+                    <p class="about-block-label">Background</p>
+                    <p class="about-block-text">I've spent 4+ years turning ambiguous, high-stakes problems into products people actually use — from rebuilding a $1T+ financial platform at BNY Pershing to partnering with early-stage founders on their 0-to-1 moments.</p>
+                    <p class="about-block-text">By day I'm at BNY Pershing, where I was on the ground floor of Wove — a complete rebuild of the bank's wealth platform. I bridge legacy software with modern UX, making complex financial workflows accessible while maintaining the technical rigor advisors require.</p>
+                </div>
+                <div class="about-block">
+                    <p class="about-block-label">AI-Native Design</p>
+                    <p class="about-block-text">I'm hands-on with AI tools, exploring how they can fundamentally change product development. I completed "Designing and Building AI Products and Services" through Emeritus (2024). I build with AI, not just theorize about it.</p>
+                </div>
+                <div class="about-block">
+                    <p class="about-block-label">Startup Ecosystem</p>
+                    <p class="about-block-text">Member of Angel Squad, affiliate of Hustle Fund — actively angel investing. I understand the founder journey from both sides of the table: I know what metrics matter and how to build products that scale.</p>
+                </div>
+                <div class="about-block full">
+                    <p class="about-block-label">How I Can Help</p>
+                    <div class="about-skills">
+                        <span class="about-skill-tag">AI-Native Product Design</span>
+                        <span class="about-skill-tag">0-to-1 Product Strategy</span>
+                        <span class="about-skill-tag">Design Systems</span>
+                        <span class="about-skill-tag">Enterprise UX</span>
+                        <span class="about-skill-tag">Complex Workflows</span>
+                        <span class="about-skill-tag">Legacy System Modernization</span>
+                        <span class="about-skill-tag">Figma &amp; AI Tools</span>
+                        <span class="about-skill-tag">Cross-Functional Leadership</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-links">
+                <a href="mailto:johnrubinodesign@gmail.com" class="about-link-btn primary">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    Get in touch
+                </a>
+                <a href="https://www.linkedin.com/in/john-rubino/" target="_blank" rel="noopener" class="about-link-btn outline">LinkedIn</a>
+                <a href="https://johnrubino.substack.com" target="_blank" rel="noopener" class="about-link-btn outline">Substack</a>
+            </div>
+        </div>
+
+    </div><!-- /dashboard-main -->
+</div><!-- /dashboard -->
 
     <!-- Pre-embedded case study content (avoids fetch() CORS on file://) -->
     <div id="case-content-future-of-wealth-advisory" style="display:none">
@@ -2090,301 +2431,232 @@
         </div>
     </div>
 
-    <script>
-        // ==================== ACCESS PASS SYSTEM ====================
-        localStorage.setItem('portfolioAccess', 'hiring');
+<!-- Case Study Modal -->
+<div class="modal-overlay" id="caseStudyModal">
+    <div class="modal-container" id="caseStudySheet">
+        <button class="sheet-close-x" id="modalClose" aria-label="Close">&#x2715;</button>
+        <div class="sheet-content-panel" id="sheetContentPanel"></div>
+        <div class="sheet-footer-row">
+            <span class="sheet-footer-label" id="sheetFooterLabel"></span>
+            <div class="sheet-footer-nav">
+                <button class="sheet-nav-btn outline" id="prevCase" disabled>&larr; <span id="prevCaseTitle">Previous</span></button>
+                <button class="sheet-nav-btn primary" id="nextCase"><span id="nextCaseTitle">Next</span> &rarr;</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-        // ==================== VIEW SWITCHING ====================
-        const navItems = document.querySelectorAll('.nav-item[data-view]');
-        const contentViews = document.querySelectorAll('.content-view');
 
-        navItems.forEach(item => {
-            item.addEventListener('click', (e) => {
-                e.preventDefault();
-                const viewId = item.dataset.view;
+<script>
+    // ── Token verification ──────────────────────────────────────────────────
+    (async function verifyAccess() {
+        const params = new URLSearchParams(window.location.search);
+        const token  = params.get('t');
 
-                navItems.forEach(nav => nav.classList.remove('active'));
-                item.classList.add('active');
+        function showGate(stateId) {
+            document.getElementById('gateLoading').style.display  = 'none';
+            document.getElementById('gateExpired').style.display  = 'none';
+            document.getElementById('gateError').style.display    = 'none';
+            document.getElementById(stateId).style.display        = 'block';
+        }
 
-                contentViews.forEach(view => view.classList.remove('active'));
-                document.getElementById(viewId + 'View').classList.add('active');
+        function revealDashboard(company, expDate) {
+            document.getElementById('sidebarCompany').textContent = company;
+            document.getElementById('sidebarExpiry').textContent  = 'Expires ' + expDate;
+            document.getElementById('dashboard').style.display    = 'flex';
+            const gate = document.getElementById('tokenGate');
+            gate.classList.add('hidden');
+            setTimeout(() => gate.remove(), 500);
+        }
 
-                sidebar.classList.remove('open');
-                sidebarOverlay.classList.remove('active');
-            });
+        if (!token) { showGate('gateError'); return; }
+
+        try {
+            const res  = await fetch('/api/verify?t=' + encodeURIComponent(token));
+            const data = await res.json();
+
+            if (data.valid) {
+                revealDashboard(data.company, data.expDate);
+            } else if (data.reason === 'expired') {
+                showGate('gateExpired');
+            } else {
+                showGate('gateError');
+            }
+        } catch (_) {
+            // If API is unreachable (e.g. local dev without Vercel), fall through
+            // and show dashboard anyway for local testing
+            if (window.location.hostname === 'localhost' || window.location.protocol === 'file:') {
+                revealDashboard('Preview', 'N/A (local dev)');
+            } else {
+                showGate('gateError');
+            }
+        }
+    })();
+
+    // ── View switching ──────────────────────────────────────────────────────
+    document.querySelectorAll('.nav-item[data-view]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.nav-item').forEach(function(b) { b.classList.remove('active'); });
+            document.querySelectorAll('.content-view').forEach(function(v) { v.classList.remove('active'); });
+            btn.classList.add('active');
+            document.getElementById(btn.dataset.view + 'View').classList.add('active');
+            // Close mobile sidebar
+            document.getElementById('sidebar').classList.remove('open');
+            document.getElementById('sidebarOverlay').classList.remove('active');
         });
+    });
 
-        // ==================== MOBILE MENU ====================
-        const sidebar = document.getElementById('sidebar');
-        const sidebarOverlay = document.getElementById('sidebarOverlay');
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-
-        mobileMenuBtn?.addEventListener('click', () => {
+    // ── Mobile sidebar ──────────────────────────────────────────────────────
+    var mobileBtn     = document.getElementById('mobileMenuBtn');
+    var sidebar       = document.getElementById('sidebar');
+    var sidebarOverlay = document.getElementById('sidebarOverlay');
+    if (mobileBtn) {
+        mobileBtn.addEventListener('click', function() {
             sidebar.classList.toggle('open');
             sidebarOverlay.classList.toggle('active');
         });
-
-        sidebarOverlay?.addEventListener('click', () => {
+    }
+    if (sidebarOverlay) {
+        sidebarOverlay.addEventListener('click', function() {
             sidebar.classList.remove('open');
             sidebarOverlay.classList.remove('active');
         });
+    }
 
-        // ==================== CASE STUDY BOTTOM SHEET ====================
-        const caseStudies = [
-            { id: 'future-of-wealth-advisory', title: 'Future of Wealth Advisory', subtitle: 'BNY Pershing', url: 'case-study-future-of-wealth-advisory.html' },
-            { id: 'fully-paid-lending',         title: 'Fully Paid Lending',         subtitle: 'BNY Pershing', url: 'case-study-fully-paid-lending.html' },
-            { id: 'purple-panda-rentals',        title: 'Purple Panda Rentals',        subtitle: 'Founder Project', url: 'case-study-purple-panda-rentals.html' }
-        ];
+    // ── Substack articles ───────────────────────────────────────────────────
+    (async function loadArticles() {
+        var grid = document.getElementById('articlesGrid');
+        if (!grid) return;
+        var SUBSTACK = 'https://johnrubino.substack.com';
 
-        let currentCaseIndex = 0;
-
-        const modal             = document.getElementById('caseStudyModal');
-        const modalContainer    = document.getElementById('caseStudySheet');
-        const sheetContentPanel = document.getElementById('sheetContentPanel');
-        const modalClose        = document.getElementById('modalClose');
-        const footerLabel       = document.getElementById('sheetFooterLabel');
-        const prevCaseBtn       = document.getElementById('prevCase');
-        const nextCaseBtn       = document.getElementById('nextCase');
-        const prevCaseTitle     = document.getElementById('prevCaseTitle');
-        const nextCaseTitle     = document.getElementById('nextCaseTitle');
-
-        // ── Synchronous content lookup from pre-embedded divs ──
-        function getCaseContent(id) {
-            const el = document.getElementById('case-content-' + id);
-            return el ? el.innerHTML : '<p style="padding:40px;color:var(--text)">Content unavailable.</p>';
-        }
-
-        // ── Stepper: re-initialized each time content loads ──
-        function initSheetStepper(panel) {
-            const sections = Array.from(panel.querySelectorAll('.content-section[id]'));
-            const steps    = Array.from(panel.querySelectorAll('.stepper-step'));
-            if (!sections.length || !steps.length) return;
-
-            function updateActive() {
-                const panelTop = panel.getBoundingClientRect().top;
-                let activeSectionId = sections[0].id;
-                sections.forEach(sec => {
-                    if (sec.getBoundingClientRect().top - panelTop <= 120) activeSectionId = sec.id;
-                });
-                steps.forEach(step => {
-                    const match = step.dataset.section === activeSectionId;
-                    step.classList.toggle('active', match);
-                    step.classList.toggle('inactive', !match);
-                });
-            }
-
-            steps.forEach(step => {
-                step.addEventListener('click', () => {
-                    const sec = panel.querySelector('#' + step.dataset.section);
-                    if (sec) {
-                        const offset = sec.getBoundingClientRect().top
-                            - panel.getBoundingClientRect().top
-                            + panel.scrollTop - 24;
-                        panel.scrollTo({ top: offset, behavior: 'smooth' });
-                    }
-                });
-            });
-
-            panel.addEventListener('scroll', updateActive, { passive: true });
-            updateActive();
-        }
-
-        // ── Scroll-to-expand listener ──
-        let activeScrollPanel   = null;
-        let activeScrollHandler = null;
-
-        function detachScrollListener() {
-            if (activeScrollPanel && activeScrollHandler) {
-                activeScrollPanel.removeEventListener('scroll', activeScrollHandler);
-                activeScrollPanel = null;
-                activeScrollHandler = null;
-            }
-        }
-
-        function attachExpandListener(panel) {
-            detachScrollListener();
-            setTimeout(() => {
-                console.log('scroll listener attached to: sheetContentPanel');
-                activeScrollHandler = () => {
-                    if (panel.scrollTop > 10) {
-                        modalContainer.classList.add('sheet--expanded');
-                    } else {
-                        modalContainer.classList.remove('sheet--expanded');
-                    }
+        function parseRSS(text) {
+            var xml   = new DOMParser().parseFromString(text, 'text/xml');
+            var nodes = Array.from(xml.querySelectorAll('item'));
+            return nodes.map(function(n) {
+                var linkEl = n.querySelector('link');
+                return {
+                    title: (n.querySelector('title') && n.querySelector('title').textContent.trim()) || '',
+                    link:  ((linkEl && linkEl.nextSibling && linkEl.nextSibling.nodeValue) || (linkEl && linkEl.textContent) || '').trim() || '#'
                 };
-                activeScrollPanel = panel;
-                panel.addEventListener('scroll', activeScrollHandler, { passive: true });
-            }, 50);
+            });
         }
 
-        // ── Load content into panel (synchronous — reads pre-embedded divs) ──
-        function loadContent(cs) {
-            detachScrollListener();
-            modalContainer.classList.remove('sheet--expanded');
-            sheetContentPanel.innerHTML = getCaseContent(cs.id);
-            sheetContentPanel.scrollTop = 0;
-            initSheetStepper(sheetContentPanel);
-            attachExpandListener(sheetContentPanel);
+        function render(items) {
+            grid.innerHTML = items.slice(0, 6).map(function(item) {
+                return '<a href="' + item.link + '" target="_blank" rel="noopener noreferrer" class="article-card">' +
+                    '<span class="article-tag">Article</span>' +
+                    '<h3 class="article-title">' + item.title + '</h3>' +
+                    '</a>';
+            }).join('');
         }
 
-        // ── Open / close / navigate ──
-        function openModal(caseId) {
-            currentCaseIndex = caseStudies.findIndex(c => c.id === caseId);
-            if (currentCaseIndex === -1) return;
-            const cs = caseStudies[currentCaseIndex];
-            footerLabel.textContent = cs.subtitle;
-            window.location.hash = cs.id;
-            document.body.style.overflow = 'hidden';
-            modal.classList.add('active');
-            modalContainer.classList.add('sheet--open');
-            updateNavButtons();
-            loadContent(cs);
+        try { var r = await fetch('/api/substack'); if (r.ok) { render(parseRSS(await r.text())); return; } } catch (_) {}
+        try { var r2 = await fetch(SUBSTACK + '/feed'); if (r2.ok) { render(parseRSS(await r2.text())); return; } } catch (_) {}
+        grid.innerHTML = '<div class="articles-loading">Visit <a href="' + SUBSTACK + '" target="_blank" style="color:var(--purple)">Substack</a> to read the latest posts.</div>';
+    })();
+
+    // ── Case study modal ────────────────────────────────────────────────────
+    var caseStudies = [
+        { id: 'future-of-wealth-advisory', title: 'Future of Wealth Advisory', subtitle: 'BNY Pershing' },
+        { id: 'fully-paid-lending',         title: 'Fully Paid Lending',         subtitle: 'BNY Pershing' },
+        { id: 'purple-panda-rentals',        title: 'Purple Panda Rentals',        subtitle: 'Founder Project' }
+    ];
+    var currentCaseIndex = 0;
+
+    var csModal        = document.getElementById('caseStudyModal');
+    var csSheet        = document.getElementById('caseStudySheet');
+    var csPanel        = document.getElementById('sheetContentPanel');
+    var csClose        = document.getElementById('modalClose');
+    var csFooterLabel  = document.getElementById('sheetFooterLabel');
+    var prevBtn        = document.getElementById('prevCase');
+    var nextBtn        = document.getElementById('nextCase');
+    var prevTitle      = document.getElementById('prevCaseTitle');
+    var nextTitle      = document.getElementById('nextCaseTitle');
+
+    var scrollPanel = null, scrollHandler = null;
+    function detach() { if (scrollPanel) { scrollPanel.removeEventListener('scroll', scrollHandler); scrollPanel = null; scrollHandler = null; } }
+    function attachExpand(panel) {
+        detach();
+        setTimeout(function() {
+            scrollHandler = function() { csSheet.classList.toggle('sheet--expanded', panel.scrollTop > 10); };
+            scrollPanel = panel;
+            panel.addEventListener('scroll', scrollHandler, { passive: true });
+        }, 50);
+    }
+
+    function initStepper(panel) {
+        var sections = Array.from(panel.querySelectorAll('.content-section[id]'));
+        var steps    = Array.from(panel.querySelectorAll('.stepper-step'));
+        if (!sections.length || !steps.length) return;
+        function update() {
+            var pt = panel.getBoundingClientRect().top, active = sections[0].id;
+            sections.forEach(function(s) { if (s.getBoundingClientRect().top - pt <= 120) active = s.id; });
+            steps.forEach(function(st) { var m = st.dataset.section === active; st.classList.toggle('active', m); st.classList.toggle('inactive', !m); });
         }
-
-        function closeModal() {
-            detachScrollListener();
-            modal.classList.remove('active');
-            modalContainer.classList.remove('sheet--open');
-            modalContainer.classList.remove('sheet--expanded');
-            document.body.style.overflow = '';
-            sheetContentPanel.innerHTML = '';
-            history.pushState('', document.title, window.location.pathname + window.location.search);
-        }
-
-        function navigateToCase(index) {
-            if (index < 0 || index >= caseStudies.length) return;
-            currentCaseIndex = index;
-            const cs = caseStudies[index];
-            footerLabel.textContent = cs.subtitle;
-            window.location.hash = cs.id;
-            updateNavButtons();
-            loadContent(cs);
-        }
-
-        function updateNavButtons() {
-            prevCaseBtn.disabled = currentCaseIndex === 0;
-            prevCaseTitle.textContent = currentCaseIndex > 0 ? caseStudies[currentCaseIndex - 1].title : 'Previous';
-            nextCaseBtn.disabled = currentCaseIndex === caseStudies.length - 1;
-            nextCaseTitle.textContent = currentCaseIndex < caseStudies.length - 1 ? caseStudies[currentCaseIndex + 1].title : 'Next';
-        }
-
-        modalClose.addEventListener('click', closeModal);
-        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-        prevCaseBtn.addEventListener('click', () => navigateToCase(currentCaseIndex - 1));
-        nextCaseBtn.addEventListener('click', () => navigateToCase(currentCaseIndex + 1));
-
-        document.addEventListener('keydown', (e) => {
-            if (!modal.classList.contains('active')) return;
-            if (e.key === 'Escape') closeModal();
-            else if (e.key === 'ArrowLeft') navigateToCase(currentCaseIndex - 1);
-            else if (e.key === 'ArrowRight') navigateToCase(currentCaseIndex + 1);
-        });
-
-        document.querySelectorAll('.portfolio-card').forEach(card => {
-            card.addEventListener('click', (e) => {
-                e.preventDefault();
-                openModal(card.dataset.case);
+        steps.forEach(function(st) {
+            st.addEventListener('click', function() {
+                var sec = panel.querySelector('#' + st.dataset.section);
+                if (sec) panel.scrollTo({ top: sec.getBoundingClientRect().top - panel.getBoundingClientRect().top + panel.scrollTop - 24, behavior: 'smooth' });
             });
         });
+        panel.addEventListener('scroll', update, { passive: true });
+        update();
+    }
 
-        const hash = window.location.hash.substring(1);
-        if (hash) {
-            const caseStudy = caseStudies.find(c => c.id === hash);
-            if (caseStudy) setTimeout(() => openModal(hash), 100);
-        }
+    function loadCase(cs) {
+        detach(); csSheet.classList.remove('sheet--expanded');
+        var el = document.getElementById('case-content-' + cs.id);
+        csPanel.innerHTML = el ? el.innerHTML : '<p style="padding:40px;color:var(--text-2)">Content unavailable.</p>';
+        csPanel.scrollTop = 0;
+        initStepper(csPanel);
+        attachExpand(csPanel);
+    }
 
-        window.addEventListener('hashchange', () => {
-            const hash = window.location.hash.substring(1);
-            if (!hash && modal.classList.contains('active')) closeModal();
-            else if (hash && !modal.classList.contains('active')) openModal(hash);
-        });
+    function updateNav() {
+        prevBtn.disabled = currentCaseIndex === 0;
+        prevTitle.textContent = currentCaseIndex > 0 ? caseStudies[currentCaseIndex - 1].title : 'Previous';
+        nextBtn.disabled = currentCaseIndex === caseStudies.length - 1;
+        nextTitle.textContent = currentCaseIndex < caseStudies.length - 1 ? caseStudies[currentCaseIndex + 1].title : 'Next';
+    }
 
-        // ==================== SUBSTACK ARTICLES ====================
-        const SUBSTACK_URL = 'https://johnrubino.substack.com';
-        const RSS_FEED_URL = `${SUBSTACK_URL}/feed`;
+    function openModal(caseId) {
+        var idx = caseStudies.findIndex(function(c) { return c.id === caseId; });
+        if (idx === -1) return;
+        currentCaseIndex = idx;
+        csFooterLabel.textContent = caseStudies[idx].subtitle;
+        window.location.hash = caseId;
+        document.body.style.overflow = 'hidden';
+        csModal.classList.add('active');
+        updateNav();
+        loadCase(caseStudies[idx]);
+    }
 
-        async function fetchSubstackArticles() {
-            try {
-                const proxyUrl = 'https://api.allorigins.win/raw?url=';
-                const response = await fetch(proxyUrl + encodeURIComponent(RSS_FEED_URL));
-                const xmlText = await response.text();
+    function closeModal() {
+        detach(); csModal.classList.remove('active'); csSheet.classList.remove('sheet--expanded');
+        document.body.style.overflow = ''; csPanel.innerHTML = '';
+        history.pushState('', document.title, window.location.pathname + window.location.search);
+    }
 
-                const parser = new DOMParser();
-                const xml = parser.parseFromString(xmlText, 'text/xml');
+    csClose.addEventListener('click', closeModal);
+    csModal.addEventListener('click', function(e) { if (e.target === csModal) closeModal(); });
+    prevBtn.addEventListener('click', function() { if (currentCaseIndex > 0) { currentCaseIndex--; csFooterLabel.textContent = caseStudies[currentCaseIndex].subtitle; window.location.hash = caseStudies[currentCaseIndex].id; updateNav(); loadCase(caseStudies[currentCaseIndex]); } });
+    nextBtn.addEventListener('click', function() { if (currentCaseIndex < caseStudies.length - 1) { currentCaseIndex++; csFooterLabel.textContent = caseStudies[currentCaseIndex].subtitle; window.location.hash = caseStudies[currentCaseIndex].id; updateNav(); loadCase(caseStudies[currentCaseIndex]); } });
+    document.addEventListener('keydown', function(e) { if (!csModal.classList.contains('active')) return; if (e.key === 'Escape') closeModal(); else if (e.key === 'ArrowLeft' && currentCaseIndex > 0) prevBtn.click(); else if (e.key === 'ArrowRight' && currentCaseIndex < caseStudies.length - 1) nextBtn.click(); });
 
-                const items = xml.querySelectorAll('item');
-                const articles = Array.from(items).slice(0, 6).map(item => {
-                    const title = item.querySelector('title')?.textContent || '';
-                    const link = item.querySelector('link')?.textContent || '';
-                    const description = item.querySelector('description')?.textContent || '';
+    document.querySelectorAll('.portfolio-card[data-case]').forEach(function(card) {
+        card.addEventListener('click', function(e) { e.preventDefault(); openModal(card.dataset.case); });
+    });
 
-                    const tempDiv = document.createElement('div');
-                    tempDiv.innerHTML = description;
-                    const cleanDescription = (tempDiv.textContent || '').substring(0, 150) + '...';
-
-                    return { title, link, description: cleanDescription };
-                });
-
-                displayArticles(articles);
-            } catch (error) {
-                console.error('Error fetching Substack articles:', error);
-                document.getElementById('articlesGrid').innerHTML = `
-                    <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-secondary);">
-                        <p>Visit <a href="https://johnrubino.substack.com" target="_blank" style="color: var(--accent-purple);">Substack</a> to read the latest posts.</p>
-                    </div>
-                `;
-            }
-        }
-
-        function displayArticles(articles) {
-            const grid = document.getElementById('articlesGrid');
-            if (articles.length === 0) {
-                grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-secondary);"><p>No articles found.</p></div>';
-                return;
-            }
-
-            grid.innerHTML = articles.map(article => `
-                <a href="${article.link}" class="article-card" target="_blank" rel="noopener noreferrer">
-                    <span class="article-category">Article</span>
-                    <h3 class="article-title">${article.title}</h3>
-                    <p class="article-excerpt">${article.description}</p>
-                </a>
-            `).join('');
-        }
-
-        fetchSubstackArticles();
-
-        // ==================== THEME TOGGLE ====================
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIconSvg = document.getElementById('themeIcon');
-        const html = document.documentElement;
-
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-
-        const sunPath = 'M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z';
-        const moonPath = 'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z';
-
-        if (savedTheme === 'light') {
-            html.setAttribute('data-theme', 'light');
-            themeIconSvg.innerHTML = `<path d="${moonPath}"/>`;
-        } else {
-            html.removeAttribute('data-theme');
-            themeIconSvg.innerHTML = `<path d="${sunPath}"/>`;
-        }
-
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-            if (currentTheme === 'light') {
-                html.removeAttribute('data-theme');
-                themeIconSvg.innerHTML = `<path d="${sunPath}"/>`;
-                localStorage.setItem('theme', 'dark');
-            } else {
-                html.setAttribute('data-theme', 'light');
-                themeIconSvg.innerHTML = `<path d="${moonPath}"/>`;
-                localStorage.setItem('theme', 'light');
-            }
-        });
-    </script>
-    <script src="design-system.js"></script>
+    var initHash = window.location.hash.substring(1);
+    if (initHash && caseStudies.find(function(c) { return c.id === initHash; })) {
+        setTimeout(function() { openModal(initHash); }, 300);
+    }
+    window.addEventListener('hashchange', function() {
+        var h = window.location.hash.substring(1);
+        if (!h && csModal.classList.contains('active')) closeModal();
+        else if (h && !csModal.classList.contains('active') && caseStudies.find(function(c) { return c.id === h; })) openModal(h);
+    });
+</script>
+<script src="design-system.js"></script>
 </body>
 </html>
