@@ -194,12 +194,14 @@
             overflow-y: auto;
             background: var(--bg);
         }
-        .hiring-page .content-view {
+        .content-view {
             display: none;
             padding: 40px 48px;
-            max-width: 900px;
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
         }
-        .hiring-page .content-view.active { display: block; }
+        .content-view.active { display: block; }
 
         /* View header */
         .view-header {
@@ -229,15 +231,12 @@
         }
 
         /* ── Portfolio grid ──────────────────────────────────────────────── */
-        .hiring-page .portfolio-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+        .portfolio-grid {
+            display: flex;
+            flex-direction: column;
             gap: 16px;
         }
-        .hiring-page .portfolio-grid .portfolio-card:first-child {
-            grid-column: 1 / -1;
-        }
-        .hiring-page .portfolio-card {
+        .portfolio-card {
             background: var(--bg-2);
             border: 1px solid var(--border);
             border-radius: 12px;
@@ -246,14 +245,10 @@
             text-decoration: none;
             display: block;
             transition: border-color 200ms ease, transform 200ms ease;
-            padding: 0;
-            align-items: unset;
-            gap: unset;
         }
-        .hiring-page .portfolio-card:hover {
+        .portfolio-card:hover {
             border-color: var(--border-mid);
             transform: translateY(-2px);
-            background: var(--bg-2);
         }
         .portfolio-card-img {
             width: 100%;
@@ -262,7 +257,7 @@
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             position: relative;
         }
-        .hiring-page .portfolio-card:first-child .portfolio-card-img { height: 260px; }
+        .portfolio-card-img { height: 200px; }
         .portfolio-card-img img {
             width: 100%;
             height: 100%;
@@ -524,7 +519,7 @@
         .sheet-content-panel .case-study-figure + .case-study-figure + .case-study-figure { clear: both; float: none; width: 100%; }
 
         /* ── Mobile ──────────────────────────────────────────────────────── */
-        .hiring-page .mobile-header {
+        .mobile-header {
             display: none;
             align-items: center;
             justify-content: space-between;
@@ -560,17 +555,15 @@
             }
             .sidebar.open { transform: translateX(0); }
             .sidebar-overlay.active { display: block; }
-            .hiring-page .mobile-header { display: flex; }
+            .mobile-header { display: flex; }
             .dashboard { flex-direction: column; }
-            .hiring-page .content-view { padding: 24px 20px; }
-            .hiring-page .portfolio-grid { grid-template-columns: 1fr; }
-            .hiring-page .portfolio-grid .portfolio-card:first-child { grid-column: 1; }
+            .content-view { padding: 24px 20px; }
             .articles-grid { grid-template-columns: 1fr; }
             .about-grid { grid-template-columns: 1fr; }
             .stats-row { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 1100px) {
-            .hiring-page .content-view { padding: 32px 32px; }
+            .content-view { padding: 32px 32px; }
         }
     </style>
 </head>
