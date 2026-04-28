@@ -131,18 +131,21 @@ export default async function handler(req, res) {
     const browser = ua.includes('Edg') ? 'Edge' : ua.includes('Chrome') ? 'Chrome' : ua.includes('Firefox') ? 'Firefox' : ua.includes('Safari') ? 'Safari' : 'Browser';
     const device  = isMob ? 'Mobile' : 'Desktop';
     const now     = new Date();
+    const kvKey   = `hire:${payload.id}`;
 
-    // ── Geo + KV + Email in parallel ───────────────────────────────────────
-    const [location] = await Promise.all([getLocation(ip)]);
+    // ── Geo + KV read in parallel ───────────────────────────────────────────
+    const [location, existing] = await Promise.all([
+        getLocation(ip),
+        kvGet(kvKey)
+    ]);
 
-    // KV: read existing log, append new view
-    const kvKey    = `hire:${payload.id}`;
-    const existing = await kvGet(kvKey) || { company: payload.co, views: [] };
-    existing.views.push({ ts: now.toISOString(), ip, location, device, browser });
-    const viewCount = existing.views.length;
-    await kvSet(kvKey, existing);
+    // KV: append new view and write back (fire-and-forget)
+    const log = existing || { company: payload.co, views: [] };
+    log.views.push({ ts: now.toISOString(), ip, location, device, browser });
+    const viewCount = log.views.length;
+    kvSet(kvKey, log);
 
-    // Email (fire-and-forget — don't await so response stays fast)
+    // Email (fire-and-forget)
     sendNotification({ company: payload.co, viewCount, location, device, browser, expDate, now });
 
     return res.status(200).json({
