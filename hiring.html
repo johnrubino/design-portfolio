@@ -507,10 +507,54 @@
         .sheet-content-panel .case-study-layout .main-content { overflow: visible !important; height: auto !important; max-width: none !important; padding: 48px 56px !important; }
         .sheet-content-panel .content-section { max-width: none !important; }
         .sheet-content-panel .stepper-indicator { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 24px; }
-        .sheet-content-panel .stepper-line { width: 1.5px; flex: 1; min-height: 14px; background: var(--border-color, rgba(255,255,255,0.12)); margin-top: 4px; }
+        /* ── Fix stepper connector gap ── */
+        .sheet-content-panel .stepper-step { padding: 0; }
+        .sheet-content-panel .stepper-content { padding: 3px 0 18px; }
+        .sheet-content-panel .stepper-line { width: 1.5px; flex: 1; min-height: 14px; background: rgba(255,255,255,0.12); margin-top: 0; }
         .sheet-content-panel .stepper-step:last-child .stepper-line { display: none; }
         .sheet-content-panel .stepper-step.active .stepper-line,
         .sheet-content-panel .stepper-step.completed .stepper-line { background: rgba(102,126,234,0.4); }
+
+        /* ── Sheet footer hidden (nav lives in-content now) ── */
+        .sheet-footer-row { display: none; }
+
+        /* ── Next case study section ── */
+        .case-next-section { border-top: 1px solid var(--border); padding: 48px 0 64px; margin-top: 24px; }
+        .case-next-eyebrow { font-size: 11px; font-weight: 500; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; }
+        .case-next-card { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 12px; cursor: pointer; text-decoration: none; color: inherit; transition: border-color 180ms ease, background 180ms ease, transform 180ms ease; }
+        .case-next-card:hover { border-color: rgba(102,126,234,0.5); background: rgba(102,126,234,0.06); transform: translateY(-1px); }
+        .case-next-meta { font-size: 11px; font-weight: 500; color: var(--purple); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+        .case-next-title { font-size: 18px; font-weight: 600; color: #fff; letter-spacing: -0.02em; }
+        .case-next-sub { font-size: 13px; color: var(--text-2); margin-top: 3px; }
+        .case-next-arrow { color: var(--purple); flex-shrink: 0; margin-left: 16px; }
+
+        /* ── Mobile stepper FAB ── */
+        .stepper-fab { display: none; position: absolute; bottom: 24px; right: 20px; z-index: 200; }
+        .stepper-fab-menu { position: absolute; bottom: calc(100% + 10px); right: 0; min-width: 210px; background: var(--bg-2); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 8px; box-shadow: 0 12px 40px rgba(0,0,0,0.6); display: none; flex-direction: column; gap: 2px; }
+        .stepper-fab.open .stepper-fab-menu { display: flex; }
+        .stepper-fab-item { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 8px; cursor: pointer; transition: background 130ms ease; }
+        .stepper-fab-item:hover { background: rgba(255,255,255,0.05); }
+        .stepper-fab-item.active { background: rgba(102,126,234,0.12); }
+        .stepper-fab-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.15); border: 1.5px solid rgba(255,255,255,0.25); flex-shrink: 0; transition: background 150ms, border-color 150ms; }
+        .stepper-fab-item.active .stepper-fab-dot,
+        .stepper-fab-item.completed .stepper-fab-dot { background: var(--purple); border-color: var(--purple); }
+        .stepper-fab-item-title { font-size: 13px; color: var(--text-2); line-height: 1.3; }
+        .stepper-fab-item.active .stepper-fab-item-title { color: var(--text); font-weight: 500; }
+        .stepper-fab-pill { display: flex; align-items: center; gap: 10px; padding: 8px 14px 8px 8px; background: var(--bg-2); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; cursor: pointer; box-shadow: 0 4px 24px rgba(0,0,0,0.5); transition: background 150ms ease; user-select: none; }
+        .stepper-fab-pill:hover { background: var(--bg-3); }
+        .stepper-fab-ring { position: relative; width: 32px; height: 32px; flex-shrink: 0; }
+        .stepper-fab-ring svg { transform: rotate(-90deg); width: 32px; height: 32px; }
+        .stepper-fab-ring .ring-bg { fill: none; stroke: rgba(255,255,255,0.08); stroke-width: 2.5; }
+        .stepper-fab-ring .ring-fill { fill: none; stroke: var(--purple); stroke-width: 2.5; stroke-linecap: round; transition: stroke-dashoffset 300ms ease; }
+        .stepper-fab-ring-num { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: #fff; }
+        .stepper-fab-label { font-size: 13px; font-weight: 500; color: var(--text); white-space: nowrap; }
+        .stepper-fab-chevron { width: 14px; height: 14px; color: var(--text-2); transition: transform 200ms ease; flex-shrink: 0; }
+        .stepper-fab.open .stepper-fab-chevron { transform: rotate(180deg); }
+        @media (max-width: 900px) {
+            .stepper-fab { display: block; }
+            .sheet-content-panel .stepper-container { display: none; }
+            .sheet-content-panel .case-study-layout .main-content { padding: 32px 24px !important; }
+        }
         .sheet-content-panel .case-study-figure { margin: 20px 0; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); }
         .sheet-content-panel .case-study-figure img { width: 100%; max-height: 320px; object-fit: contain; display: block; padding: 20px; box-sizing: border-box; }
         .sheet-content-panel .case-study-figure:has(+ .case-study-figure) { float: left; width: calc(50% - 8px); margin-right: 16px; }
@@ -1573,6 +1617,18 @@
                 </p>
             </section>
 
+            <div class="case-next-section">
+                <div class="case-next-eyebrow">Up next</div>
+                <a class="case-next-card" data-open-case="fully-paid-lending">
+                    <div>
+                        <div class="case-next-meta">Next case study</div>
+                        <div class="case-next-title">Fully Paid Lending</div>
+                        <div class="case-next-sub">BNY Pershing</div>
+                    </div>
+                    <svg class="case-next-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+            </div>
+
         </main>
     </div>
     </div>
@@ -2005,6 +2061,19 @@
                     <figcaption>From overlooked to actionable: the full transformation of the Fully Paid Lending experience.</figcaption>
                 </figure>
             </section>
+
+            <div class="case-next-section">
+                <div class="case-next-eyebrow">Up next</div>
+                <a class="case-next-card" data-open-case="purple-panda-rentals">
+                    <div>
+                        <div class="case-next-meta">Next case study</div>
+                        <div class="case-next-title">Purple Panda Rentals</div>
+                        <div class="case-next-sub">Founder Project</div>
+                    </div>
+                    <svg class="case-next-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+            </div>
+
         </main>
     </div>
     </div>
@@ -2403,41 +2472,45 @@
                     <figcaption>Purple Panda Rentals: from personal frustration to launched platform.</figcaption>
                 </figure>
             </section>
+
+            <div class="case-next-section">
+                <div class="case-next-eyebrow">Start over</div>
+                <a class="case-next-card" data-open-case="future-of-wealth-advisory">
+                    <div>
+                        <div class="case-next-meta">Back to first</div>
+                        <div class="case-next-title">Future of Wealth Advisory</div>
+                        <div class="case-next-sub">BNY Pershing</div>
+                    </div>
+                    <svg class="case-next-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+            </div>
+
         </main>
     </div>
     </div>
-        <!-- Case Study Sheet -->
-    <div class="modal-overlay" id="caseStudyModal">
-        <div class="modal-container" id="caseStudySheet">
-            <!-- Close button anchored to sheet (position: absolute, container is position: relative) -->
-            <button class="sheet-close-x" id="modalClose" aria-label="Close">&#x2715;</button>
-            <!-- Case study content renders here directly (no iframe) -->
-            <div class="sheet-content-panel" id="sheetContentPanel"></div>
-            <!-- Footer: label + prev/next -->
-            <div class="sheet-footer-row">
-                <span class="sheet-footer-label" id="sheetFooterLabel">Portfolio</span>
-                <div class="sheet-footer-nav">
-                    <button class="sheet-nav-btn outline" id="prevCase" disabled>
-                        &larr; <span id="prevCaseTitle">Previous</span>
-                    </button>
-                    <button class="sheet-nav-btn primary" id="nextCase">
-                        <span id="nextCaseTitle">Next</span> &rarr;
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-<!-- Case Study Modal -->
+<!-- Case Study Sheet -->
 <div class="modal-overlay" id="caseStudyModal">
     <div class="modal-container" id="caseStudySheet">
         <button class="sheet-close-x" id="modalClose" aria-label="Close">&#x2715;</button>
         <div class="sheet-content-panel" id="sheetContentPanel"></div>
+        <!-- Hidden footer kept for JS nav refs -->
         <div class="sheet-footer-row">
             <span class="sheet-footer-label" id="sheetFooterLabel"></span>
             <div class="sheet-footer-nav">
                 <button class="sheet-nav-btn outline" id="prevCase" disabled>&larr; <span id="prevCaseTitle">Previous</span></button>
                 <button class="sheet-nav-btn primary" id="nextCase"><span id="nextCaseTitle">Next</span> &rarr;</button>
+            </div>
+        </div>
+        <!-- Mobile stepper FAB -->
+        <div class="stepper-fab" id="stepperFab">
+            <div class="stepper-fab-menu" id="stepperFabMenu"></div>
+            <div class="stepper-fab-pill" id="stepperFabPill">
+                <div class="stepper-fab-ring">
+                    <svg viewBox="0 0 32 32"><circle class="ring-bg" cx="16" cy="16" r="12"/><circle class="ring-fill" id="fabRingFill" cx="16" cy="16" r="12" stroke-dasharray="75.4" stroke-dashoffset="75.4"/></svg>
+                    <span class="stepper-fab-ring-num" id="fabStepNum">1</span>
+                </div>
+                <span class="stepper-fab-label" id="fabStepLabel">Overview</span>
+                <svg class="stepper-fab-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
             </div>
         </div>
     </div>
@@ -2581,6 +2654,53 @@
         }, 50);
     }
 
+    // ── Stepper FAB ────────────────────────────────────────────────────────────
+    var fab       = document.getElementById('stepperFab');
+    var fabMenu   = document.getElementById('stepperFabMenu');
+    var fabPill   = document.getElementById('stepperFabPill');
+    var fabNum    = document.getElementById('fabStepNum');
+    var fabLabel  = document.getElementById('fabStepLabel');
+    var fabRing   = document.getElementById('fabRingFill');
+    var fabOpen   = false;
+    var CIRC      = 75.4; // 2π × 12
+
+    fabPill.addEventListener('click', function(e) {
+        e.stopPropagation();
+        fabOpen = !fabOpen;
+        fab.classList.toggle('open', fabOpen);
+    });
+    document.addEventListener('click', function() {
+        if (fabOpen) { fabOpen = false; fab.classList.remove('open'); }
+    });
+
+    function updateFab(steps, sections, panel) {
+        var total = steps.length;
+        var activeIdx = 0;
+        steps.forEach(function(st, i) { if (st.classList.contains('active')) activeIdx = i; });
+        var activeStep = steps[activeIdx];
+
+        fabNum.textContent = activeIdx + 1;
+        fabLabel.textContent = activeStep ? (activeStep.querySelector('.stepper-title') || {}).textContent || '' : '';
+        var pct = total > 1 ? activeIdx / (total - 1) : 1;
+        fabRing.style.strokeDashoffset = CIRC * (1 - pct);
+
+        // Rebuild menu items
+        fabMenu.innerHTML = '';
+        steps.forEach(function(st, i) {
+            var title = (st.querySelector('.stepper-title') || {}).textContent || '';
+            var item = document.createElement('div');
+            item.className = 'stepper-fab-item' + (i === activeIdx ? ' active' : (i < activeIdx ? ' completed' : ''));
+            item.innerHTML = '<span class="stepper-fab-dot"></span><span class="stepper-fab-item-title">' + title + '</span>';
+            item.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var sec = panel.querySelector('#' + st.dataset.section);
+                if (sec) panel.scrollTo({ top: sec.getBoundingClientRect().top - panel.getBoundingClientRect().top + panel.scrollTop - 24, behavior: 'smooth' });
+                fabOpen = false; fab.classList.remove('open');
+            });
+            fabMenu.appendChild(item);
+        });
+    }
+
     function initStepper(panel) {
         var sections = Array.from(panel.querySelectorAll('.content-section[id]'));
         var steps    = Array.from(panel.querySelectorAll('.stepper-step'));
@@ -2589,6 +2709,7 @@
             var pt = panel.getBoundingClientRect().top, active = sections[0].id;
             sections.forEach(function(s) { if (s.getBoundingClientRect().top - pt <= 120) active = s.id; });
             steps.forEach(function(st) { var m = st.dataset.section === active; st.classList.toggle('active', m); st.classList.toggle('inactive', !m); });
+            updateFab(steps, sections, panel);
         }
         steps.forEach(function(st) {
             st.addEventListener('click', function() {
@@ -2607,6 +2728,20 @@
         csPanel.scrollTop = 0;
         initStepper(csPanel);
         attachExpand(csPanel);
+        // Wire up in-content next-case buttons
+        csPanel.querySelectorAll('.case-next-card[data-open-case]').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                var targetId = btn.dataset.openCase;
+                var idx = caseStudies.findIndex(function(c) { return c.id === targetId; });
+                if (idx === -1) return;
+                currentCaseIndex = idx;
+                csFooterLabel.textContent = caseStudies[idx].subtitle;
+                window.location.hash = caseStudies[idx].id;
+                updateNav();
+                loadCase(caseStudies[idx]);
+            });
+        });
     }
 
     function updateNav() {
