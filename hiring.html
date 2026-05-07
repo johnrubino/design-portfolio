@@ -502,6 +502,14 @@
         .sheet-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
 
         /* Case study layout inside sheet */
+        /* ── Typography: match index.html system ── */
+        .sheet-content-panel .section-title { font-family: var(--lp-font-display) !important; font-weight: 500 !important; letter-spacing: -0.02em !important; }
+        .sheet-content-panel .section-subtitle,
+        .sheet-content-panel .content-text,
+        .sheet-content-panel .case-study-layout h2,
+        .sheet-content-panel .case-study-layout h3,
+        .sheet-content-panel .case-study-layout h4,
+        .sheet-content-panel .case-study-layout li { font-family: var(--lp-font-ui) !important; }
         .sheet-content-panel .case-study-layout { padding-top: 0; min-height: 100%; align-items: stretch; }
         .sheet-content-panel .stepper-container { position: sticky; top: 0; align-self: stretch; height: 100vh; max-height: 100vh; overflow: hidden; }
         .sheet-content-panel .case-study-layout .main-content { overflow: visible !important; height: auto !important; max-width: none !important; padding: 48px 56px !important; }
