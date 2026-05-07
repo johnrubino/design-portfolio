@@ -513,7 +513,7 @@
         .sheet-content-panel .case-study-layout { padding-top: 0; min-height: 100%; align-items: stretch; }
         .sheet-content-panel .stepper-container { position: sticky; top: 0; align-self: stretch; height: 100vh; max-height: 100vh; overflow: hidden; }
         .sheet-content-panel .case-study-layout .main-content { overflow: visible !important; height: auto !important; max-width: none !important; padding: 48px 56px !important; }
-        .sheet-content-panel .content-section { max-width: 680px !important; margin-left: auto !important; margin-right: auto !important; }
+        .sheet-content-panel .content-section { max-width: 800px !important; margin-left: auto !important; margin-right: auto !important; }
         .sheet-content-panel .stepper-indicator { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 24px; }
         /* ── Fix stepper connector gap ── */
         .sheet-content-panel .stepper-step { padding: 0; }
@@ -565,11 +565,7 @@
             .sheet-content-panel .case-study-layout .main-content { padding: 32px 24px !important; }
         }
         .sheet-content-panel .case-study-figure { margin: 24px 0; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); }
-        .sheet-content-panel .case-study-figure img { width: 100%; max-height: 480px; object-fit: cover; object-position: top; display: block; }
-        .sheet-content-panel .case-study-figure:has(+ .case-study-figure) { float: left; width: calc(50% - 8px); margin-right: 16px; }
-        .sheet-content-panel .case-study-figure + .case-study-figure { float: left; width: calc(50% - 8px); clear: none; }
-        .sheet-content-panel .case-study-figure + .case-study-figure + * { clear: both; }
-        .sheet-content-panel .case-study-figure + .case-study-figure + .case-study-figure { clear: both; float: none; width: 100%; }
+        .sheet-content-panel .case-study-figure img { width: 100%; height: auto; display: block; }
 
         /* ── Mobile ──────────────────────────────────────────────────────── */
         .mobile-header {
