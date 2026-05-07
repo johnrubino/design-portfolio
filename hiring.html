@@ -513,7 +513,21 @@
         .sheet-content-panel .case-study-layout { padding-top: 0; min-height: 100%; align-items: stretch; }
         .sheet-content-panel .stepper-container { position: sticky; top: 0; align-self: stretch; height: 100vh; max-height: 100vh; overflow: hidden; }
         .sheet-content-panel .case-study-layout .main-content { overflow: visible !important; height: auto !important; max-width: none !important; padding: 48px 56px !important; }
-        .sheet-content-panel .content-section { max-width: 800px !important; margin-left: auto !important; margin-right: auto !important; }
+        /* Text column: 800px centered. Images: full content area width. */
+        .sheet-content-panel .content-section { max-width: none !important; margin-left: 0 !important; margin-right: 0 !important; }
+        .sheet-content-panel .section-icon,
+        .sheet-content-panel .section-title,
+        .sheet-content-panel .section-subtitle,
+        .sheet-content-panel .content-text,
+        .sheet-content-panel .case-study-layout h2,
+        .sheet-content-panel .case-study-layout h3,
+        .sheet-content-panel .case-study-layout h4,
+        .sheet-content-panel .case-study-layout ul,
+        .sheet-content-panel .case-study-layout ol,
+        .sheet-content-panel .quote-block,
+        .sheet-content-panel .highlight-box,
+        .sheet-content-panel .stats-table,
+        .sheet-content-panel .image-placeholder { max-width: 800px; margin-left: auto; margin-right: auto; }
         .sheet-content-panel .stepper-indicator { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 24px; }
         /* ── Fix stepper connector gap ── */
         .sheet-content-panel .stepper-step { padding: 0; }
@@ -565,7 +579,7 @@
             .sheet-content-panel .case-study-layout .main-content { padding: 32px 24px !important; }
         }
         .sheet-content-panel .case-study-figure { margin: 24px 0; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); }
-        .sheet-content-panel .case-study-figure img { width: 100%; height: auto; display: block; }
+        .sheet-content-panel .case-study-figure img { width: 100%; height: auto; display: block; cursor: zoom-in; }
 
         /* ── Mobile ──────────────────────────────────────────────────────── */
         .mobile-header {
