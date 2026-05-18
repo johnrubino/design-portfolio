@@ -14,6 +14,19 @@ async function kvGet(key) {
     } catch { return null; }
 }
 
+// Resolve a 6-char short code to its full token string
+async function kvResolveShortCode(code) {
+    if (!process.env.KV_REST_API_URL) return null;
+    try {
+        const r = await fetch(
+            `${process.env.KV_REST_API_URL}/get/${encodeURIComponent('short:' + code)}`,
+            { headers: { Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}` } }
+        );
+        const j = await r.json();
+        return j.result || null;
+    } catch { return null; }
+}
+
 async function kvSet(key, value) {
     if (!process.env.KV_REST_API_URL) return;
     try {
@@ -95,8 +108,15 @@ export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Cache-Control', 'no-store');
 
-    const { t: token } = req.query;
+    let { t: token } = req.query;
     if (!token) return res.status(400).json({ valid: false, reason: 'no_token' });
+
+    // Short codes (no '.' separator) resolve to a full token via KV
+    if (!token.includes('.')) {
+        const resolved = await kvResolveShortCode(token);
+        if (!resolved) return res.status(401).json({ valid: false, reason: 'invalid' });
+        token = resolved;
+    }
 
     const secret = process.env.HIRING_SECRET;
     if (!secret) return res.status(500).json({ valid: false, reason: 'server_error' });
