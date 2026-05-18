@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labs — John Rubino</title>
+    <meta name="description" content="Side projects and experiments by John Rubino — a product designer who builds tools to solve problems he has.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.29.0/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="design-system.css">
+</head>
+<body class="landing-page">
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ── Navigation ── -->
+    <nav class="lp-nav">
+        <div class="lp-nav-inner">
+            <div class="lp-nav-logo-group">
+                <a href="index.html" class="lp-nav-logo" aria-label="John Rubino">JR</a>
+                <div class="lp-nav-links">
+                    <a href="index.html" class="lp-nav-item">Home</a>
+                    <a href="labs.html" class="lp-nav-item active"><i class="ti ti-flask"></i> Labs</a>
+                    <a href="about.html" class="lp-nav-item">About</a>
+                    <a href="writing.html" class="lp-nav-item">Writing</a>
+                    <a href="resume.html" class="lp-nav-item">Résumé</a>
+                </div>
+            </div>
+            <a href="mailto:johnrubinodesign@gmail.com" class="lp-btn-primary lp-btn-contact">Get in touch</a>
+            <button class="lp-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="lpMobileMenu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ── Mobile menu ── -->
+    <div class="lp-mobile-menu" id="lpMobileMenu" role="navigation" aria-label="Mobile navigation" aria-hidden="true">
+        <div class="lp-mobile-menu-inner">
+            <a href="index.html" class="lp-mobile-nav-item">Home</a>
+            <a href="labs.html" class="lp-mobile-nav-item active"><i class="ti ti-flask"></i> Labs</a>
+            <a href="about.html" class="lp-mobile-nav-item">About</a>
+            <a href="writing.html" class="lp-mobile-nav-item">Writing</a>
+            <a href="resume.html" class="lp-mobile-nav-item">Résumé</a>
+            <div class="lp-mobile-menu-divider"></div>
+            <a href="mailto:johnrubinodesign@gmail.com" class="lp-btn-primary lp-mobile-cta lp-btn-contact">Get in touch</a>
+        </div>
+    </div>
+
+    <!-- ── Main content ── -->
+    <main id="main-content">
+
+        <!-- ── Hero ── -->
+        <div class="labs-hero">
+            <div class="labs-hero-title-row">
+                <h1 class="labs-hero-title">Labs</h1>
+                <span class="labs-pulse-dot" aria-hidden="true"></span>
+            </div>
+            <p class="labs-hero-subtitle">Things I build to solve problems I have. Some ship. Some don't. All of them teach me something.</p>
+        </div>
+
+        <!-- ── Card grid ── -->
+        <div class="labs-grid">
+
+            <!-- Navori — Shipped, clickable -->
+            <div class="labs-card labs-card-clickable"
+                 id="navoriCard"
+                 tabindex="0"
+                 role="button"
+                 aria-label="Open Navori case study"
+                 aria-haspopup="dialog">
+                <div class="labs-card-header">
+                    <div class="labs-card-icon"><i class="ti ti-route"></i></div>
+                    <span class="labs-card-status labs-status-shipped">Shipped</span>
+                </div>
+                <div class="labs-card-body">
+                    <h2 class="labs-card-title">Navori</h2>
+                    <p class="labs-card-desc">A lightweight tool for tracking where you left off across multiple long-running projects — built because I kept losing context between deep work sessions.</p>
+                </div>
+                <div class="labs-card-action-row">
+                    <span class="labs-card-action">Read the story <i class="ti ti-arrow-right"></i></span>
+                </div>
+                <div class="labs-card-footer">
+                    <span class="labs-footer-label">Stack</span>
+                    <div class="labs-stack-tags">
+                        <span class="labs-stack-tag">Next.js</span>
+                        <span class="labs-stack-tag">Supabase</span>
+                        <span class="labs-stack-tag">Vercel</span>
+                        <span class="labs-stack-tag">Figma</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Music Maker — Concept -->
+            <div class="labs-card">
+                <div class="labs-card-header">
+                    <div class="labs-card-icon"><i class="ti ti-music"></i></div>
+                    <span class="labs-card-status labs-status-concept">Concept</span>
+                </div>
+                <div class="labs-card-body">
+                    <h2 class="labs-card-title">Music Maker</h2>
+                    <p class="labs-card-desc">A browser-based sequencer that makes it easy to sketch musical ideas without knowing how to play an instrument. Still figuring out the right interaction model.</p>
+                </div>
+                <div class="labs-card-footer">
+                    <span class="labs-footer-label">Stack</span>
+                    <div class="labs-stack-tags">
+                        <span class="labs-stack-tag">Web Audio API</span>
+                        <span class="labs-stack-tag">React</span>
+                        <span class="labs-stack-tag">Tone.js</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Knowledge Co-op — Concept -->
+            <div class="labs-card">
+                <div class="labs-card-header">
+                    <div class="labs-card-icon"><i class="ti ti-brain"></i></div>
+                    <span class="labs-card-status labs-status-concept">Concept</span>
+                </div>
+                <div class="labs-card-body">
+                    <h2 class="labs-card-title">AI Knowledge Co-op</h2>
+                    <p class="labs-card-desc">A shared context layer for design teams — where institutional knowledge, critique, and past decisions live alongside your AI assistant instead of getting buried in Notion.</p>
+                </div>
+                <div class="labs-card-footer">
+                    <span class="labs-footer-label">Stack</span>
+                    <div class="labs-stack-tags">
+                        <span class="labs-stack-tag">Claude API</span>
+                        <span class="labs-stack-tag">pgvector</span>
+                        <span class="labs-stack-tag">Next.js</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Placeholder card -->
+            <div class="labs-card-placeholder" aria-hidden="true">
+                <div class="labs-placeholder-icon">+</div>
+                <span class="labs-placeholder-label">next build</span>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- ── Footer ── -->
+    <footer class="lp-footer">
+        <div class="lp-footer-copy">&copy; 2026 John Rubino &middot; Product Designer &middot; New York</div>
+        <div class="lp-footer-links">
+            <a href="https://www.linkedin.com/in/john-rubino/" target="_blank" rel="noopener" class="lp-footer-link">LinkedIn<span class="sr-only"> (opens in new tab)</span></a>
+            <a href="https://johnrubino.substack.com" target="_blank" rel="noopener" class="lp-footer-link">Substack<span class="sr-only"> (opens in new tab)</span></a>
+            <a href="about.html" class="lp-footer-link">About</a>
+            <a href="mailto:johnrubinodesign@gmail.com" class="lp-footer-link lp-btn-contact">Contact</a>
+        </div>
+    </footer>
+
+    <!-- ── Navori case study modal ── -->
+    <div class="labs-modal-overlay" id="navoriModal" role="dialog" aria-modal="true" aria-labelledby="navoriModalTitle">
+        <div class="labs-modal-container">
+
+            <button class="labs-modal-close" id="navoriModalClose" aria-label="Close modal">
+                <i class="ti ti-x"></i>
+            </button>
+
+            <div class="labs-modal-panel" id="navoriModalPanel">
+                <div class="case-study-layout">
+
+                    <!-- Stepper -->
+                    <div class="stepper-container">
+                        <div class="stepper-steps" id="navoriStepper">
+                            <div class="stepper-header">Navori</div>
+                            <div class="stepper-step active" data-section="navori-overview">
+                                <div class="stepper-indicator">
+                                    <div class="stepper-circle"></div>
+                                    <div class="stepper-line"></div>
+                                </div>
+                                <div class="stepper-content">
+                                    <div class="stepper-title">Overview</div>
+                                </div>
+                            </div>
+                            <div class="stepper-step inactive" data-section="navori-problem">
+                                <div class="stepper-indicator">
+                                    <div class="stepper-circle"></div>
+                                    <div class="stepper-line"></div>
+                                </div>
+                                <div class="stepper-content">
+                                    <div class="stepper-title">The Problem</div>
+                                </div>
+                            </div>
+                            <div class="stepper-step inactive" data-section="navori-system">
+                                <div class="stepper-indicator">
+                                    <div class="stepper-circle"></div>
+                                    <div class="stepper-line"></div>
+                                </div>
+                                <div class="stepper-content">
+                                    <div class="stepper-title">The System</div>
+                                </div>
+                            </div>
+                            <div class="stepper-step inactive" data-section="navori-interface">
+                                <div class="stepper-indicator">
+                                    <div class="stepper-circle"></div>
+                                    <div class="stepper-line"></div>
+                                </div>
+                                <div class="stepper-content">
+                                    <div class="stepper-title">The Interface</div>
+                                </div>
+                            </div>
+                            <div class="stepper-step inactive" data-section="navori-reflection">
+                                <div class="stepper-indicator">
+                                    <div class="stepper-circle"></div>
+                                </div>
+                                <div class="stepper-content">
+                                    <div class="stepper-title">Reflection</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main content -->
+                    <main class="main-content" id="navoriModalTitle">
+
+                        <!-- Overview -->
+                        <section id="navori-overview" class="content-section">
+                            <div class="section-icon">🧭</div>
+                            <h1 class="section-title">Where Did I Leave Off?</h1>
+                            <p class="section-subtitle">Navori is a lightweight context-tracking tool I built to solve a recurring problem: losing my train of thought across multiple long-running projects.</p>
+
+                            <div class="stats-table">
+                                <table>
+                                    <tr>
+                                        <th>Dimension</th>
+                                        <th>Details</th>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Type</strong></td>
+                                        <td>Personal Side Project</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Role</strong></td>
+                                        <td>Solo — Design &amp; Development</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Timeline</strong></td>
+                                        <td>6 weeks (design to launch)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Status</strong></td>
+                                        <td>Shipped — active daily use</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="image-placeholder">
+                                <p>Product overview — Navori home view</p>
+                            </div>
+                        </section>
+
+                        <!-- The Problem -->
+                        <section id="navori-problem" class="content-section">
+                            <div class="section-icon">⚡</div>
+                            <h1 class="section-title">Context Evaporates</h1>
+
+                            <p class="content-text">
+                                I work across multiple long-running projects simultaneously — client work, side builds, writing. When I return to a project after days away, I spend a surprising amount of time reconstructing where I was: which decisions were in-flight, what I was about to try, what dead ends I'd already ruled out.
+                            </p>
+                            <p class="content-text">
+                                Notes apps were too freeform. Task managers tracked what to do, not what state I was in. The closest substitute was a sticky note on my monitor — which doesn't scale, doesn't persist, and doesn't travel.
+                            </p>
+
+                            <div class="quote-block">
+                                <p class="quote-text">"The problem isn't remembering what to do next. It's remembering what you were thinking when you left."</p>
+                            </div>
+
+                            <div class="image-placeholder">
+                                <p>Problem space mapping — the gap between task management, notes, and context state</p>
+                            </div>
+                        </section>
+
+                        <!-- The System -->
+                        <section id="navori-system" class="content-section">
+                            <div class="section-icon">⚙️</div>
+                            <h1 class="section-title">A Checkpoint, Not a Todo List</h1>
+
+                            <p class="content-text">
+                                The core model is a "checkpoint" — a short-form state capture you fill in before closing out a project session. Three fields: what was I doing, what's the immediate next decision, any blockers.
+                            </p>
+                            <p class="content-text">
+                                When you return, you don't scan Notion or reconstruct Slack threads — you read your own last checkpoint. Thirty seconds to write, thirty seconds to read. The overhead needed to be low enough that it would actually get used.
+                            </p>
+
+                            <div class="highlight-box">
+                                <div class="highlight-title">Core design constraint</div>
+                                <div class="highlight-text">If saving a checkpoint takes longer than reconstructing context organically, the tool fails. Friction is the only real enemy of a habit-forming utility.</div>
+                            </div>
+
+                            <div class="image-placeholder">
+                                <p>Data model — project, checkpoint, and state relationship</p>
+                            </div>
+                            <div class="image-placeholder">
+                                <p>Checkpoint form — three-field capture pattern</p>
+                            </div>
+                        </section>
+
+                        <!-- The Interface -->
+                        <section id="navori-interface" class="content-section">
+                            <div class="section-icon">✨</div>
+                            <h1 class="section-title">Calm by Default</h1>
+
+                            <p class="content-text">
+                                The interface needed to feel minimal and fast — not another dashboard to manage. The home view shows projects sorted by last activity, with each card displaying the most recent checkpoint inline. No drilling required to see where you are.
+                            </p>
+                            <p class="content-text">
+                                Adding a checkpoint is a modal with three short fields. Auto-saves as you type. Keyboard-first throughout — the entire flow runs without touching a mouse. Opening a project, writing a checkpoint, and closing out in under 20 seconds was the target.
+                            </p>
+
+                            <div class="image-placeholder">
+                                <p>Home view — project list with inline checkpoint preview</p>
+                            </div>
+                            <div class="image-placeholder">
+                                <p>Checkpoint entry — modal with live save</p>
+                            </div>
+                            <div class="image-placeholder">
+                                <p>Project detail — checkpoint history timeline</p>
+                            </div>
+                        </section>
+
+                        <!-- Reflection -->
+                        <section id="navori-reflection" class="content-section">
+                            <div class="section-icon">🔮</div>
+                            <h1 class="section-title">What Building It Taught Me</h1>
+
+                            <p class="content-text">
+                                This was the first product I shipped end-to-end solo — design, frontend, backend, deployment. The technical ceiling on design decisions was lower than I expected, which forced a useful discipline: if I couldn't build it in a day, it probably wasn't the right idea.
+                            </p>
+                            <p class="content-text">
+                                The most interesting design problem ended up being the checkpoint form itself. Early versions had five fields — too many. Three is the right number. Two feels incomplete; four becomes a form. Three is a ritual.
+                            </p>
+                            <p class="content-text">
+                                I use Navori every day. That's the only metric that matters for something built to solve your own problem.
+                            </p>
+                        </section>
+
+                    </main>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="design-system.js"></script>
+    <script>
+    // ── Mobile menu ──
+    (function () {
+        const btn   = document.querySelector('.lp-hamburger');
+        const menu  = document.querySelector('.lp-mobile-menu');
+        const navEl = document.querySelector('.lp-nav');
+        if (!btn || !menu) return;
+        function open()  { btn.setAttribute('aria-expanded', 'true');  menu.removeAttribute('aria-hidden'); menu.classList.add('open'); }
+        function close() { btn.setAttribute('aria-expanded', 'false'); menu.setAttribute('aria-hidden', 'true'); menu.classList.remove('open'); }
+        btn.addEventListener('click', () => menu.classList.contains('open') ? close() : open());
+        menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+        document.addEventListener('click', e => {
+            if (!navEl.contains(e.target) && !menu.contains(e.target)) close();
+        });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+    })();
+
+    // ── Navori modal ──
+    (function () {
+        const overlay   = document.getElementById('navoriModal');
+        const closeBtn  = document.getElementById('navoriModalClose');
+        const panel     = document.getElementById('navoriModalPanel');
+        const card      = document.getElementById('navoriCard');
+        const stepper   = document.getElementById('navoriStepper');
+        let lastFocused = null;
+
+        const sectionIds = [
+            'navori-overview',
+            'navori-problem',
+            'navori-system',
+            'navori-interface',
+            'navori-reflection'
+        ];
+
+        function openModal() {
+            lastFocused = document.activeElement;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            document.addEventListener('keydown', onKey);
+            panel.scrollTop = 0;
+            syncStepper();
+            setTimeout(() => closeBtn.focus(), 300);
+        }
+
+        function closeModal() {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+            document.removeEventListener('keydown', onKey);
+            if (lastFocused) { lastFocused.focus(); lastFocused = null; }
+        }
+
+        function onKey(e) {
+            if (e.key === 'Escape') closeModal();
+        }
+
+        function syncStepper() {
+            const scrollTop = panel.scrollTop;
+            let activeIdx = 0;
+
+            sectionIds.forEach((id, i) => {
+                const el = panel.querySelector('#' + id);
+                if (el && el.offsetTop - 100 <= scrollTop) activeIdx = i;
+            });
+
+            stepper.querySelectorAll('.stepper-step').forEach((step, i) => {
+                step.classList.remove('active', 'completed', 'inactive');
+                if      (i < activeIdx)  step.classList.add('completed');
+                else if (i === activeIdx) step.classList.add('active');
+                else                     step.classList.add('inactive');
+            });
+        }
+
+        // Stepper click → scroll to section
+        stepper.querySelectorAll('.stepper-step').forEach((step, i) => {
+            step.style.cursor = 'pointer';
+            step.addEventListener('click', () => {
+                const el = panel.querySelector('#' + sectionIds[i]);
+                if (el) panel.scrollTo({ top: el.offsetTop - 40, behavior: 'smooth' });
+            });
+        });
+
+        card.addEventListener('click', openModal);
+        card.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(); }
+        });
+        closeBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+        panel.addEventListener('scroll', syncStepper, { passive: true });
+    })();
+    </script>
+
+</body>
+</html>
