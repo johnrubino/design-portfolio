@@ -25,6 +25,8 @@
     --lp-border-light:  #e9eaeb;
     --lp-card-bg:       #ffffff;
     --lp-section-bg:    #e2e5fe;
+    --lp-purple-mid:     #6477F8;
+    --lp-purple-mid-rgb: 100, 119, 248;
     --lp-font-display:  'Optima', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
     --lp-font-ui:       'Geist', 'Inter', -apple-system, sans-serif;
 
@@ -2364,7 +2366,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     box-shadow:
         0 8px 32px rgba(0,0,0,0.10),
         /* Blue-purple outer glow */
-        0 12px 40px rgba(100,119,248,0.18),
+        0 12px 40px rgba(var(--lp-purple-mid-rgb),0.18),
         inset 0 1px 0 rgba(255,255,255,0.5),
         inset 0 -1px 0 rgba(255,255,255,0.1),
         inset 0 0 12px 6px rgba(255,255,255,0.6);
@@ -2444,7 +2446,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     background: var(--lp-primary);
     border-radius: 2px;
 }
-.lp-mobile-nav-item:hover { background: rgba(100,119,248,0.07); color: var(--lp-primary); }
+.lp-mobile-nav-item:hover { background: rgba(var(--lp-purple-mid-rgb),0.07); color: var(--lp-primary); }
 /* Staggered entrance */
 .lp-mobile-menu.open .lp-mobile-nav-item:nth-child(1) { opacity:1; transform:translateY(0); transition-delay: 70ms; }
 .lp-mobile-menu.open .lp-mobile-nav-item:nth-child(2) { opacity:1; transform:translateY(0); transition-delay:110ms; }
@@ -2602,7 +2604,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     border-radius: 8px;
     transition: background 150ms ease;
 }
-.lp-btn-link:hover { background: rgba(100,119,248,0.06); }
+.lp-btn-link:hover { background: rgba(var(--lp-purple-mid-rgb),0.06); }
 .lp-btn-outline {
     display: inline-flex;
     align-items: center;
@@ -2618,7 +2620,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     text-decoration: none;
     transition: background 150ms ease;
 }
-.lp-btn-outline:hover { background: rgba(100,119,248,0.06); }
+.lp-btn-outline:hover { background: rgba(var(--lp-purple-mid-rgb),0.06); }
 
 /* ── Hero section ── */
 .lp-hero {
@@ -3170,7 +3172,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     background: rgba(255,255,255,0.06);
 }
 .lp-cs-ui-sidebar-item.active {
-    background: rgba(100,119,248,0.25);
+    background: rgba(var(--lp-purple-mid-rgb),0.25);
 }
 /* Main content area */
 .lp-cs-ui-main {
@@ -3582,7 +3584,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     cursor: pointer;
 }
 .lp-post-item:last-child { border-bottom: none; }
-.lp-post-item:hover { background: rgba(100,119,248,0.05); }
+.lp-post-item:hover { background: rgba(var(--lp-purple-mid-rgb),0.05); }
 .lp-post-item-body {
     display: flex;
     flex-direction: column;
@@ -3614,8 +3616,8 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     font-size: 11px;
     font-weight: 500;
     color: var(--lp-primary);
-    border: 1px solid rgba(100,119,248,0.3);
-    background: rgba(100,119,248,0.07);
+    border: 1px solid rgba(var(--lp-purple-mid-rgb),0.3);
+    background: rgba(var(--lp-purple-mid-rgb),0.07);
     padding: 5px 12px;
     border-radius: 20px;
     white-space: nowrap;
@@ -3813,8 +3815,8 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 }
 .landing-page .about-skills-grid .tag.purple {
     color: var(--lp-primary);
-    border-color: rgba(100,119,248,0.3);
-    background: rgba(100,119,248,0.06);
+    border-color: rgba(var(--lp-purple-mid-rgb),0.3);
+    background: rgba(var(--lp-purple-mid-rgb),0.06);
 }
 .landing-page .writing-link {
     color: var(--lp-primary);
@@ -3855,8 +3857,8 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 }
 .landing-page .filter-btn.active {
     color: var(--lp-primary);
-    border-color: rgba(100,119,248,0.4);
-    background: rgba(100,119,248,0.06);
+    border-color: rgba(var(--lp-purple-mid-rgb),0.4);
+    background: rgba(var(--lp-purple-mid-rgb),0.06);
 }
 .landing-page .writing-grid {
     background: var(--lp-border-light);
@@ -4224,7 +4226,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 .access-input:focus,
 .access-textarea:focus {
     border-color: var(--lp-primary);
-    box-shadow: 0 0 0 3px rgba(100,119,248,0.12);
+    box-shadow: 0 0 0 3px rgba(var(--lp-purple-mid-rgb),0.12);
     background: #fff;
 }
 .access-input.error { border-color: #e53e3e; box-shadow: 0 0 0 3px rgba(229,62,62,0.1); }
@@ -4253,7 +4255,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 .access-success-icon {
     width: 52px; height: 52px;
     border-radius: 50%;
-    background: rgba(100,119,248,0.1);
+    background: rgba(var(--lp-purple-mid-rgb),0.1);
     display: flex; align-items: center; justify-content: center;
 }
 .access-success h3 {
@@ -4401,7 +4403,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(100, 119, 248, 0.4), transparent);
+    background: linear-gradient(90deg, transparent, rgba(var(--lp-purple-mid-rgb),0.4), transparent);
     pointer-events: none;
     z-index: 1;
 }
@@ -4410,7 +4412,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     transition: border-color 200ms ease, transform 200ms ease;
 }
 .labs-card-clickable:hover {
-    border-color: rgba(100, 119, 248, 0.4);
+    border-color: rgba(var(--lp-purple-mid-rgb),0.4);
     transform: translateY(-3px);
 }
 
@@ -4423,14 +4425,14 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 }
 .labs-card-icon {
     width: 38px; height: 38px;
-    background: rgba(100, 119, 248, 0.12);
-    border: 1px solid rgba(100, 119, 248, 0.2);
+    background: rgba(var(--lp-purple-mid-rgb),0.12);
+    border: 1px solid rgba(var(--lp-purple-mid-rgb),0.2);
     border-radius: 9px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 17px;
-    color: rgba(100, 119, 248, 0.9);
+    color: rgba(var(--lp-purple-mid-rgb),0.9);
     flex-shrink: 0;
 }
 .labs-card-icon .ti { font-size: 17px; }
@@ -4493,12 +4495,12 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     gap: 5px;
     font-family: var(--font-mono);
     font-size: 11px;
-    color: rgba(100, 119, 248, 0.7);
+    color: rgba(var(--lp-purple-mid-rgb),0.7);
     letter-spacing: 0.05em;
     transition: color 150ms ease, gap 150ms ease;
 }
 .labs-card-clickable:hover .labs-card-action {
-    color: rgba(100, 119, 248, 1);
+    color: rgba(var(--lp-purple-mid-rgb),1);
     gap: 9px;
 }
 
@@ -4521,9 +4523,9 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 .labs-stack-tag {
     font-family: var(--font-mono);
     font-size: 10px;
-    color: rgba(100, 119, 248, 0.8);
-    background: rgba(100, 119, 248, 0.08);
-    border: 1px solid rgba(100, 119, 248, 0.16);
+    color: rgba(var(--lp-purple-mid-rgb),0.8);
+    background: rgba(var(--lp-purple-mid-rgb),0.08);
+    border: 1px solid rgba(var(--lp-purple-mid-rgb),0.16);
     border-radius: 5px;
     padding: 3px 8px;
     letter-spacing: 0.03em;
