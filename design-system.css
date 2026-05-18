@@ -4651,10 +4651,22 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 .labs-modal-panel .case-study-figure { margin: 24px auto; max-width: 1040px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); }
 .labs-modal-panel .case-study-figure img { width: 100%; height: auto; display: block; cursor: zoom-in; }
 
-/* ── Labs modal: light-mode background on landing-page bodies ── */
+/* ── Labs modal: light-mode overrides on landing-page bodies ── */
 .landing-page .labs-modal-container { background: var(--lp-bg); }
 .landing-page .labs-modal-panel { background: var(--lp-bg); }
 .landing-page .labs-modal-panel .case-study-layout .main-content { background: var(--lp-bg); }
+/* Close button visible on light bg */
+.landing-page .labs-modal-close { color: var(--lp-text-dark); background: rgba(0,0,0,0.06); }
+.landing-page .labs-modal-close:hover { background: rgba(0,0,0,0.12); }
+/* Body text readable on light bg */
+.landing-page .labs-modal-panel .content-text { color: var(--lp-text-body); }
+.landing-page .labs-modal-panel .case-study-layout .section-subtitle { color: var(--lp-text-body); }
+.landing-page .labs-modal-panel .quote-text { color: var(--lp-text-dark); }
+/* Stepper lines visible on light bg */
+.landing-page .labs-modal-panel .stepper-line { background: var(--lp-border-light); }
+.landing-page .labs-modal-panel .stepper-step.active .stepper-line { background: rgba(102,126,234,0.35); }
+/* Stepper hover — readable on light bg */
+.landing-page .labs-modal-panel .stepper-step:hover .stepper-title { color: var(--lp-primary); }
 
 @media (max-width: 900px) {
     .labs-modal-panel .stepper-container { display: none; }

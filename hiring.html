@@ -3253,10 +3253,8 @@
                 if (el && el.offsetTop - 100 <= scrollTop) activeIdx = i;
             });
             stepper.querySelectorAll('.stepper-step').forEach(function (step, i) {
-                step.classList.remove('active', 'completed', 'inactive');
-                if      (i < activeIdx)  step.classList.add('completed');
-                else if (i === activeIdx) step.classList.add('active');
-                else                     step.classList.add('inactive');
+                step.classList.toggle('active',   i === activeIdx);
+                step.classList.toggle('inactive', i !== activeIdx);
             });
         }
 
