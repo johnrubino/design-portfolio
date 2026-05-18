@@ -884,11 +884,11 @@
                      aria-haspopup="dialog">
                     <div class="labs-card-header">
                         <div class="labs-card-icon"><i class="ti ti-route"></i></div>
-                        <span class="labs-card-status labs-status-shipped">Shipped</span>
+                        <span class="labs-card-status labs-status-building">Building</span>
                     </div>
                     <div class="labs-card-body">
                         <h2 class="labs-card-title">Navori</h2>
-                        <p class="labs-card-desc">A lightweight tool for tracking where you left off across multiple long-running projects — built because I kept losing context between deep work sessions.</p>
+                        <p class="labs-card-desc">A personal AI operating system built around four specialized agents — designed to replace fragmented productivity tools with something that actually knows where you left off.</p>
                     </div>
                     <div class="labs-card-action-row">
                         <span class="labs-card-action">Read the story <i class="ti ti-arrow-right"></i></span>
@@ -896,10 +896,10 @@
                     <div class="labs-card-footer">
                         <span class="labs-footer-label">Stack</span>
                         <div class="labs-stack-tags">
-                            <span class="labs-stack-tag">Next.js</span>
-                            <span class="labs-stack-tag">Supabase</span>
-                            <span class="labs-stack-tag">Vercel</span>
-                            <span class="labs-stack-tag">Figma</span>
+                            <span class="labs-stack-tag">Claude</span>
+                            <span class="labs-stack-tag">Claude Code</span>
+                            <span class="labs-stack-tag">SwiftUI</span>
+                            <span class="labs-stack-tag">OpenCLAW</span>
                         </div>
                     </div>
                 </div>
@@ -3139,12 +3139,19 @@
                             </div>
                             <div class="stepper-content"><div class="stepper-title">The System</div></div>
                         </div>
-                        <div class="stepper-step inactive" data-section="hn-interface">
+                        <div class="stepper-step inactive" data-section="hn-chat">
                             <div class="stepper-indicator">
                                 <div class="stepper-circle"></div>
                                 <div class="stepper-line"></div>
                             </div>
-                            <div class="stepper-content"><div class="stepper-title">The Interface</div></div>
+                            <div class="stepper-content"><div class="stepper-title">Chat Isn't Enough</div></div>
+                        </div>
+                        <div class="stepper-step inactive" data-section="hn-design">
+                            <div class="stepper-indicator">
+                                <div class="stepper-circle"></div>
+                                <div class="stepper-line"></div>
+                            </div>
+                            <div class="stepper-content"><div class="stepper-title">The Design</div></div>
                         </div>
                         <div class="stepper-step inactive" data-section="hn-reflection">
                             <div class="stepper-indicator">
@@ -3158,52 +3165,74 @@
                 <main class="main-content" id="hiringNavoriTitle">
                     <section id="hn-overview" class="content-section">
                         <div class="section-icon">🧭</div>
-                        <h1 class="section-title">Where Did I Leave Off?</h1>
-                        <p class="section-subtitle">Navori is a lightweight context-tracking tool I built to solve a recurring problem: losing my train of thought across multiple long-running projects.</p>
+                        <h1 class="section-title">An Agentic Operating System for Life</h1>
+                        <p class="section-subtitle">Navori is a personal AI infrastructure project — a system of specialized agents that work together to manage goals, learning, strategy, and daily priorities.</p>
                         <div class="stats-table"><table>
                             <tr><th>Dimension</th><th>Details</th></tr>
-                            <tr><td><strong>Type</strong></td><td>Personal Side Project</td></tr>
                             <tr><td><strong>Role</strong></td><td>Solo — Design &amp; Development</td></tr>
-                            <tr><td><strong>Timeline</strong></td><td>6 weeks (design to launch)</td></tr>
-                            <tr><td><strong>Status</strong></td><td>Shipped — active daily use</td></tr>
+                            <tr><td><strong>Tools</strong></td><td>Claude, Claude Code, SwiftUI, OpenCLAW</td></tr>
+                            <tr><td><strong>Timeline</strong></td><td>12 weeks (and counting)</td></tr>
+                            <tr><td><strong>Status</strong></td><td>In active development</td></tr>
                         </table></div>
-                        <div class="image-placeholder"><p>Product overview — Navori home view</p></div>
+                        <p class="content-text">I'm building this in the open — it's already my daily driver. The backend is mostly stable. The iOS app is in progress. The interesting question isn't "can I build this?" — it's "what should an agentic operating system for a person actually do?"</p>
                     </section>
                     <section id="hn-problem" class="content-section">
                         <div class="section-icon">⚡</div>
-                        <h1 class="section-title">Context Evaporates</h1>
-                        <p class="content-text">I work across multiple long-running projects simultaneously — client work, side builds, writing. When I return to a project after days away, I spend a surprising amount of time reconstructing where I was: which decisions were in-flight, what I was about to try, what dead ends I'd already ruled out.</p>
-                        <p class="content-text">Notes apps were too freeform. Task managers tracked what to do, not what state I was in. The closest substitute was a sticky note on my monitor — which doesn't scale, doesn't persist, and doesn't travel.</p>
-                        <div class="quote-block"><p class="quote-text">"The problem isn't remembering what to do next. It's remembering what you were thinking when you left."</p></div>
-                        <div class="image-placeholder"><p>Problem space mapping — the gap between task management, notes, and context state</p></div>
+                        <h1 class="section-title">Fragmentation &amp; Overwhelm</h1>
+                        <p class="content-text">I was running my life across Notion, Apple Notes, a finance spreadsheet, a reading list, a goal tracker, and a handful of group chats. Everything was technically tracked. Nothing was connected. Every week felt like re-orienting from scratch.</p>
+                        <p class="content-text">Three problems kept coming up. Context switching costs — by the time I opened the right app and found the right note, the thought was gone. Tools that don't know you — every app starts from zero. No app knows what I care about, what I'm working toward, or what I was thinking yesterday. And an offline-first desire — I don't want to depend on cloud sync for my own thinking. I want it local, fast, and mine.</p>
+                        <div class="quote-block"><p class="quote-text">"I didn't want a smarter to-do list. I wanted something that already knew where I left off — and could help me think."</p></div>
                     </section>
                     <section id="hn-system" class="content-section">
                         <div class="section-icon">⚙️</div>
-                        <h1 class="section-title">A Checkpoint, Not a Todo List</h1>
-                        <p class="content-text">The core model is a "checkpoint" — a short-form state capture you fill in before closing out a project session. Three fields: what was I doing, what's the immediate next decision, any blockers.</p>
-                        <p class="content-text">When you return, you don't scan Notion or reconstruct Slack threads — you read your own last checkpoint. Thirty seconds to write, thirty seconds to read. The overhead needed to be low enough that it would actually get used.</p>
+                        <h1 class="section-title">The Framework: OpenCLAW</h1>
+                        <p class="content-text">OpenCLAW (Context-Layered Agent Workflow) is the orchestration layer I built for Navori. Each agent has a specific domain, a persistent memory layer, and a defined relationship to the others. I'm not trying to build one AI that does everything — I'm building a team.</p>
                         <div class="highlight-box">
-                            <div class="highlight-title">Core design constraint</div>
-                            <div class="highlight-text">If saving a checkpoint takes longer than reconstructing context organically, the tool fails. Friction is the only real enemy of a habit-forming utility.</div>
+                            <div class="highlight-title">Penn — Life OS Agent</div>
+                            <div class="highlight-text">Tracks goals, habits, weekly priorities, and long-term direction. Penn is the connective tissue — it knows what matters and can surface it across contexts.</div>
                         </div>
-                        <div class="image-placeholder"><p>Data model — project, checkpoint, and state relationship</p></div>
-                        <div class="image-placeholder"><p>Checkpoint form — three-field capture pattern</p></div>
+                        <div class="highlight-box">
+                            <div class="highlight-title">BNY Strategist — Finance Agent</div>
+                            <div class="highlight-text">Manages budgets, tracks spending, models scenarios, and surfaces financial decisions. Connects to Penn so financial goals and life goals aren't siloed.</div>
+                        </div>
+                        <div class="highlight-box">
+                            <div class="highlight-title">Design Thinker — Professional Agent</div>
+                            <div class="highlight-text">Helps me think through design problems, prepare for client conversations, and synthesize feedback. Persistent memory of past projects means it gets more useful over time.</div>
+                        </div>
+                        <div class="highlight-box">
+                            <div class="highlight-title">Learning Assistant — Knowledge Agent</div>
+                            <div class="highlight-text">Manages my reading list, synthesizes key ideas from articles and books, and connects new knowledge to active goals. No more reading something important and forgetting it.</div>
+                        </div>
+                        <div class="quote-block"><p class="quote-text">"The agents aren't tools you invoke. They're advisors you consult."</p></div>
                     </section>
-                    <section id="hn-interface" class="content-section">
+                    <section id="hn-chat" class="content-section">
+                        <div class="section-icon">💬</div>
+                        <h1 class="section-title">Chat Isn't Enough</h1>
+                        <p class="content-text">The first version of Navori ran entirely through Telegram bots. It worked — I used it every day. But the ceiling became obvious fast. A chat thread is a bad UI for anything that benefits from structure: goal tracking, financial summaries, habit streaks. You can't scan a conversation. You can't see patterns. You can't build habits around something that feels ephemeral.</p>
+                        <p class="content-text">I needed a surface, not a thread. The agents needed a home — somewhere persistent that could show me the state of my life at a glance, not just respond to my queries.</p>
+                        <div class="quote-block"><p class="quote-text">"A chat thread is a river. A dashboard is a lake."</p></div>
+                        <p class="content-text">That realization drove the iOS app. The backend agents stay the same. The interface becomes the layer that makes their output legible — morning briefs, goal progress, domain tabs. The chat is still there for when you need to think out loud. But the default view is structure, not conversation.</p>
+                    </section>
+                    <section id="hn-design" class="content-section">
                         <div class="section-icon">✨</div>
-                        <h1 class="section-title">Calm by Default</h1>
-                        <p class="content-text">The interface needed to feel minimal and fast — not another dashboard to manage. The home view shows projects sorted by last activity, with each card displaying the most recent checkpoint inline. No drilling required to see where you are.</p>
-                        <p class="content-text">Adding a checkpoint is a modal with three short fields. Auto-saves as you type. Keyboard-first throughout — the entire flow runs without touching a mouse. Opening a project, writing a checkpoint, and closing out in under 20 seconds was the target.</p>
-                        <div class="image-placeholder"><p>Home view — project list with inline checkpoint preview</p></div>
-                        <div class="image-placeholder"><p>Checkpoint entry — modal with live save</p></div>
-                        <div class="image-placeholder"><p>Project detail — checkpoint history timeline</p></div>
+                        <h1 class="section-title">Key Interface Decisions</h1>
+                        <p class="content-text">The iOS app is organized around two tabs: Today and Agents.</p>
+                        <p class="content-text">Today is the command center — a morning brief generated by Penn each day, your three active priorities, a Goal Pulse (a compact view of all goals and their momentum), and a quick-capture field. It's designed to be a 60-second daily read.</p>
+                        <p class="content-text">Agents is where you go deep. Each agent has its own sub-tab: Finance, Design, Learning. Each sub-tab surfaces that agent's persistent output — budget status, reading queue, project notes — and gives you a direct chat interface when you want to go further.</p>
+                        <div class="highlight-box">
+                            <div class="highlight-title">Design system choices</div>
+                            <div class="highlight-text">San Francisco system font, adaptive light/dark, 4pt grid. No custom typefaces, no decorative flourishes. The agents are the product — the UI should be invisible.</div>
+                        </div>
+                        <div class="quote-block"><p class="quote-text">"A great tool shouldn't feel like productivity software. It should feel like clarity."</p></div>
                     </section>
                     <section id="hn-reflection" class="content-section">
                         <div class="section-icon">🔮</div>
-                        <h1 class="section-title">What Building It Taught Me</h1>
-                        <p class="content-text">This was the first product I shipped end-to-end solo — design, frontend, backend, deployment. The technical ceiling on design decisions was lower than I expected, which forced a useful discipline: if I couldn't build it in a day, it probably wasn't the right idea.</p>
-                        <p class="content-text">The most interesting design problem ended up being the checkpoint form itself. Early versions had five fields — too many. Three is the right number. Two feels incomplete; four becomes a form. Three is a ritual.</p>
-                        <p class="content-text">I use Navori every day. That's the only metric that matters for something built to solve your own problem.</p>
+                        <h1 class="section-title">What This Reveals About How I Think</h1>
+                        <p class="content-text">I didn't start with a design brief. I started with a problem I had every morning. The agents came before the interface — I spent the first six weeks just getting the backend right before writing a single SwiftUI view.</p>
+                        <p class="content-text">That sequencing matters. A lot of AI products start with the chat interface and bolt on "intelligence" later. Navori started with the intelligence and is now building the surface. The result is an app that feels grounded — because every UI decision is driven by what the agents actually produce, not by what a dashboard is supposed to look like.</p>
+                        <p class="content-text">Speed as a constraint: I built the first working version in ten days using Claude Code almost exclusively. I'm a designer who codes — not a developer who designs. That changes the calculus. I'm not fighting the tooling; I'm using it to compress the gap between idea and artifact.</p>
+                        <div class="quote-block"><p class="quote-text">"The most important design decision wasn't a UI component — it was choosing to build an agent framework before building an interface."</p></div>
+                        <p class="content-text">What Navori is really testing is whether agentic interfaces can feel personal instead of generic. Most AI tools feel like they could belong to anyone. Navori is trying to feel like it belongs to me — and through that specificity, become more useful than anything built for everyone.</p>
                     </section>
                 </main>
             </div>
@@ -3220,7 +3249,7 @@
         var closeBtn  = document.getElementById('hiringNavoriClose');
         var panel     = document.getElementById('hiringNavoriPanel');
         var stepper   = document.getElementById('hiringNavoriStepper');
-        var sectionIds = ['hn-overview', 'hn-problem', 'hn-system', 'hn-interface', 'hn-reflection'];
+        var sectionIds = ['hn-overview', 'hn-problem', 'hn-system', 'hn-chat', 'hn-design', 'hn-reflection'];
         var lastFocused = null;
 
         function openModal() {
