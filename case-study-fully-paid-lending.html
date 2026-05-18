@@ -75,15 +75,6 @@
                         <div class="stepper-title">The Design</div>
                     </div>
                 </div>
-                <div class="stepper-step inactive" data-section="constraints">
-                    <div class="stepper-indicator">
-                        <div class="stepper-circle"></div>
-                        <div class="stepper-line"></div>
-                    </div>
-                    <div class="stepper-content">
-                        <div class="stepper-title">Constraints</div>
-                    </div>
-                </div>
                 <div class="stepper-step inactive" data-section="outcome">
                     <div class="stepper-indicator">
                         <div class="stepper-circle"></div>
@@ -154,11 +145,6 @@
                 <div class="quote-block">
                     <p class="quote-text">"The tool had the data. It just made users work too hard to extract value from it."</p>
                 </div>
-
-                <figure class="case-study-figure">
-                    <img src="images/case-studies/fpl/legacy-opportunity-view.png" alt="Legacy Opportunity View interface">
-                    <figcaption>The existing interface centered on a bubble visualization that research revealed users were skipping entirely.</figcaption>
-                </figure>
             </section>
 
             <!-- Section: Research -->
@@ -167,33 +153,25 @@
                 <h1 class="section-title">Listening to the Workarounds</h1>
 
                 <p class="content-text">
-                    Without pre-existing insights, I partnered with our research team to understand how advisors were actually engaging with the tool. We conducted research with participants across different roles—from advisors managing individual client relationships to home office managers overseeing entire networks.
+                    Without pre-existing research on the FPL experience, I partnered with our research team to conduct moderated interviews with six participants across five firms—prime brokerage, operations, relationship management, and securities lending roles at BTIG, Citi Wealth, RL Lafferty, Pershing, Vantax, and Cetera.
                 </p>
 
                 <p class="content-text">
-                    The findings were clear: users had developed elaborate workarounds because the interface wasn't meeting their needs.
+                    The research objective was specific: understand how users currently interact with Opportunity View in NetX360, identify which features are meeting their needs, and uncover where the tool was falling short. What we found wasn't a list of missing features. It was a picture of a tool users had learned to work around—and the specific points where it was losing them.
                 </p>
-
-                <!--
-                ===== IMAGE PLACEHOLDER =====
-                <figure class="case-study-figure">
-                    <img src="images/case-studies/fpl/research-findings.png" alt="Research findings summary">
-                    <figcaption>Key insights from user research revealing consistent pain points across participant types.</figcaption>
-                </figure>
-                -->
-                <div class="image-placeholder">
-                    <div class="image-placeholder-icon">📊</div>
-                    <p class="image-placeholder-text">Research findings summary or affinity map showing key themes</p>
-                </div>
 
                 <h2>Bubbles Were Decoration</h2>
 
                 <p class="content-text">
-                    The interface's centerpiece was a bubble visualization—larger bubbles indicated bigger opportunities. The assumption was that visual hierarchy would help advisors prioritize.
+                    The interface's centerpiece was a bubble visualization—larger bubbles indicated bigger opportunities. The assumption built into the design was that visual hierarchy would help advisors prioritize at a glance.
                 </p>
 
                 <p class="content-text">
-                    Reality was different. Users understood what the bubbles represented, but found drilling into each one inefficient. Most skipped the visualization entirely and exported everything to Excel, where they could sort, filter, and cross-reference with other tools like Bloomberg.
+                    The reality was more complicated. Users understood what the bubbles represented, but most found drilling into individual bubbles inefficient. Identifying which account position corresponded to which opportunity required clicking through separate views with no persistent context—by the time users reached the position level, they'd lost sight of the opportunity that sent them there.
+                </p>
+
+                <p class="content-text">
+                    Most participants resolved this by exporting everything to Excel, where they could sort, filter, and cross-reference with Bloomberg at their own pace. Some skipped the bubble visualization entirely and went straight to the export. The Historical View—a feature designed to show trend data over time—was largely ignored. Most users weren't aware of its value or hadn't found a workflow that incorporated it.
                 </p>
 
                 <div class="quote-block">
@@ -202,35 +180,63 @@
 
                 <figure class="case-study-figure">
                     <img src="images/case-studies/fpl/bubble-interaction.png" alt="Legacy bubble visualization">
-                    <figcaption>Users understood larger bubbles meant bigger opportunities—but the interaction model failed them.</figcaption>
+                    <figcaption>Legacy bubble visualization—users understood larger bubbles meant bigger opportunities, but the interaction model required drilling into each one individually with no way to compare across positions.</figcaption>
                 </figure>
 
-                <h2>The Data Wasn't Trusted</h2>
+                <h2>The Numbers Raised More Questions Than Answers</h2>
 
                 <p class="content-text">
-                    Advisors needed context the tool didn't provide. They wanted to assess opportunity validity—factors like security utilization and trading frequency—but the interface showed potential revenue without explaining how it was calculated.
+                    Even when users engaged with the data, they couldn't fully trust what they were seeing. The interface showed estimated revenue potential but didn't explain how those figures were calculated. Several participants suspected the tool was assuming static lending rates—figures that didn't reflect daily market changes. Others believed the revenue estimates represented maximum possible conditions rather than realistic projections, which meant any number the tool surfaced needed to be verified before it could inform a client conversation.
                 </p>
 
                 <p class="content-text">
-                    Some felt the system assumed static rates that didn't reflect daily market changes. Others questioned whether the numbers were realistic at all. Without transparency, advisors were hesitant to act on what they saw.
+                    Users needed additional context to assess opportunity validity: security utilization, trading frequency, short interest data, real-time loan rates. None of this was available in the interface.
                 </p>
 
-                <!--
-                ===== IMAGE PLACEHOLDER =====
-                <div class="image-placeholder">
-                    <div class="image-placeholder-icon">❓</div>
-                    <p class="image-placeholder-text">Research quote or finding about data trust issues</p>
+                <p class="content-text">
+                    The most telling workaround: some participants were reaching out to internal contacts at BNY Pershing to validate opportunities before acting on them. The tool existed precisely to remove that step. Instead, it had made it necessary.
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">"Some feel that Opportunity View assumes static rates, which may not reflect daily market changes."</p>
                 </div>
-                -->
+
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">📈</div>
+                    <p class="image-placeholder-text">Data points above the fold in the legacy interface—revenue tracking and participant data were present, but no methodology context explained how figures were calculated or what assumptions they reflected.</p>
+                </div>
 
                 <h2>Friction Killed Enrollment</h2>
 
                 <p class="content-text">
-                    Even when advisors identified opportunities worth pursuing, the enrollment process stopped them cold. Onboarding clients into the lending program required manual emails, document uploads, and back-and-forth that created unnecessary friction.
+                    Both problems above assumed a user who was willing to act. But the third finding revealed that even advisors who identified a credible opportunity had nowhere to go with it.
                 </p>
 
                 <p class="content-text">
-                    The tool could show you the opportunity. It couldn't help you capture it.
+                    Onboarding a client into the lending program required manually emailing documents, collecting signatures outside the platform, and uploading completed agreements back in. Each step introduced delay and the possibility of something getting lost. The tool could show you the opportunity. It couldn't help you capture it.
+                </p>
+
+                <p class="content-text">
+                    Users who did pursue enrollment described the process as operationally burdensome enough to make them reconsider whether the opportunity was worth it—especially for smaller positions where the revenue upside didn't justify the overhead.
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">"The process for onboarding clients into the lending program is inefficient. Users must manually email and upload documents, creating unnecessary friction."</p>
+                </div>
+
+                <figure class="case-study-figure">
+                    <img src="images/case-studies/fpl/journey-map.png" alt="Journey map showing pain points">
+                    <figcaption>Journey map showing pain points—problems clustered around data interpretation, navigation efficiency, and enrollment friction, with the enrollment step functioning as a hard stop for action.</figcaption>
+                </figure>
+
+                <h2>What the Research Pointed Toward</h2>
+
+                <p class="content-text">
+                    Taken together, the findings described a tool that was failing users at three distinct moments: when they tried to scan for opportunities, when they tried to evaluate them, and when they tried to act on them. The problems weren't isolated—they compounded. A tool that required Excel exports to be usable, couldn't explain its own numbers, and dead-ended at enrollment wasn't going to get adopted no matter how good the underlying data was.
+                </p>
+
+                <p class="content-text">
+                    The research conclusion was direct: enhancements focused on improved data accuracy, streamlined processes, and better usability would significantly increase adoption and effectiveness. That became the brief.
                 </p>
             </section>
 
@@ -248,7 +254,7 @@
                 </p>
 
                 <figure class="case-study-figure">
-                    <img src="images/case-studies/fpl/journey-map.png" alt="Journey map showing pain points">
+                    <img src="images/case-studies/fpl/journey-map.png" alt="Journey map showing breakdown points">
                     <figcaption>Mapping the breakdown points revealed that problems clustered around data interpretation, navigation efficiency, and enrollment friction.</figcaption>
                 </figure>
 
@@ -281,7 +287,7 @@
 
                 <figure class="case-study-figure">
                     <img src="images/case-studies/fpl/early-explorations.png" alt="Early design explorations">
-                    <figcaption>Early explorations tested different ways to represent the same data. The expandable table emerged as the strongest pattern for supporting both scanning and investigation.</figcaption>
+                    <figcaption>Early design explorations—testing different ways to represent the same data. The expandable table emerged as the strongest pattern for supporting both scanning and investigation.</figcaption>
                 </figure>
 
                 <h2>The Nested Table</h2>
@@ -302,7 +308,7 @@
 
                 <figure class="case-study-figure">
                     <img src="images/case-studies/fpl/nested-table-design.png" alt="Final nested table design">
-                    <figcaption>The expandable table lets users drill from office to advisor to investor without losing context.</figcaption>
+                    <figcaption>Final nested table design—the expandable table lets users drill from office to advisor to investor without losing context.</figcaption>
                 </figure>
 
                 <h2>Reclaiming the Space Above the Fold</h2>
@@ -317,7 +323,7 @@
 
                 <figure class="case-study-figure">
                     <img src="images/case-studies/fpl/before-after.png" alt="Before/after comparison">
-                    <figcaption>The legacy interface (left) buried actionable data below multiple navigation layers. The redesign (right) prioritizes the table.</figcaption>
+                    <figcaption>Before/after comparison—the legacy interface buried actionable data below multiple navigation layers. The redesign prioritizes the table.</figcaption>
                 </figure>
 
                 <h3>What Got Removed</h3>
@@ -327,16 +333,16 @@
                 </p>
 
                 <p class="content-text">
-                    <strong>The separate "Top Opportunities" section.</strong> Valuable content, but it competed with the primary table. I moved this to a dedicated "View by Ticker" tab where users seeking specific securities could find them intentionally.
+                    <strong>The separate "Top Opportunities" section.</strong> Valuable content, but it competed with the primary table. Moved to a dedicated "View by Ticker" tab where users seeking specific securities could find them intentionally.
                 </p>
 
                 <p class="content-text">
-                    <strong>The Participating/Non-Participating tab split.</strong> Instead of forcing users to toggle between views, I added Enrolled and Not Enrolled columns inline. One view, complete picture.
+                    <strong>The Participating/Non-Participating tab split.</strong> Instead of forcing users to toggle between views, Enrolled and Not Enrolled columns are now inline. One view, complete picture.
                 </p>
 
                 <figure class="case-study-figure">
                     <img src="images/case-studies/fpl/annotated-filter-screenshot.png" alt="Consolidated filter approach">
-                    <figcaption>Enrollment status is now visible at a glance rather than hidden behind tab navigation.</figcaption>
+                    <figcaption>Consolidated filter approach—enrollment status is now visible at a glance rather than hidden behind tab navigation.</figcaption>
                 </figure>
 
                 <h3>What Got Added</h3>
@@ -347,7 +353,7 @@
 
                 <figure class="case-study-figure">
                     <img src="images/case-studies/fpl/performance-ytd-details-modal.png" alt="Sparkline detail and modal">
-                    <figcaption>Sparklines provide trend information at a glance. The modal reveals full detail on demand.</figcaption>
+                    <figcaption>Sparkline detail and modal—sparklines provide trend information at a glance. The modal reveals full detail on demand.</figcaption>
                 </figure>
 
                 <p class="content-text">
@@ -356,7 +362,7 @@
 
                 <figure class="case-study-figure">
                     <img src="images/case-studies/fpl/Learn-invite-page.png" alt="Learn and Invite tab design">
-                    <figcaption>Reducing enrollment friction from manual email workflows to an integrated flow.</figcaption>
+                    <figcaption>Learn and Invite tab design—reducing enrollment friction from manual email workflows to an integrated flow.</figcaption>
                 </figure>
 
                 <h2>From Insight to Action</h2>
@@ -371,7 +377,7 @@
 
                 <figure class="case-study-figure">
                     <img src="images/case-studies/fpl/invite-worksheet-forms-previewed.png" alt="Invite worksheet with accounts selected and form preview">
-                    <figcaption>Enrollment integrated into the workflow: select accounts, preview forms, invite—no context switching.</figcaption>
+                    <figcaption>Invite worksheet with accounts selected and form preview—enrollment integrated into the workflow: select accounts, preview forms, invite—no context switching.</figcaption>
                 </figure>
             </section>
 
@@ -381,53 +387,119 @@
                 <h1 class="section-title">The Outcome</h1>
 
                 <p class="content-text">
-                    The redesigned Fully Paid Lending page shipped to clients in February 2026. While we're still gathering post-launch feedback, every design decision was validated through iterative review with both internal stakeholders and anticipated client needs.
+                    The redesigned Fully Paid Lending experience shipped to all Introducing Broker-Dealers in February 2026—a full end-to-end rollout of a digitally enabled lending experience built to help IBDs unlock new revenue streams and deliver differentiated value to their advisors and investors.
                 </p>
 
                 <p class="content-text">
-                    The redesign directly addresses every major pain point from research:
+                    The launch marked the completion of a feature that had gone from an underutilized data page to a commercial priority. Client Executive teams across BNY Pershing were briefed to position FPL as a strategic revenue lever—for both the IBD and their end investors.
                 </p>
+
+                <h2>What Shipped</h2>
+
+                <p class="content-text">
+                    The final experience delivered three integrated capabilities:
+                </p>
+
+                <p class="content-text">
+                    <strong>Opportunity Identification</strong> — full visibility into eligible investor holdings, estimated incremental revenue potential, enhanced security-level search across accounts, and the ability to upload off-platform positions for assessment.
+                </p>
+
+                <p class="content-text">
+                    <strong>Digital E-Signature &amp; Consent Workflow</strong> — advisor-initiated digital enrollment with individual and bulk invitation capability, a one-click enrollment experience, and a full audit trail to support compliance and reduce operational friction.
+                </p>
+
+                <p class="content-text">
+                    <strong>Participant &amp; Revenue Visibility</strong> — real-time view of active FPL participants and revenue generated at the position level.
+                </p>
+
+                <h2>Proof of Concept: $49,900 in One Day</h2>
+
+                <p class="content-text">
+                    The most direct validation came from the March 2026 beta, which ran with five IBDs who had participated in designing and testing the application. One transaction during that beta captured exactly what the redesign was built to enable.
+                </p>
+
+                <p class="content-text">
+                    A product partner from the Collateral Funding and Trading team flagged a significant rate spike on a security held by one of the beta IBD's clients—the rate had moved from -2% to between -50% and -99%. The IBD reached out to the client, who had previously been hesitant to enroll at the lower rate. The client signed, uploaded the agreement, and it was processed the same day.
+                </p>
+
+                <p class="content-text">
+                    The client then moved additional shares of the same security to Pershing, increasing the lendable position beyond what had originally been identified in the Opportunity View. By the following morning, the entire position—$27 million—had been lent at an average rate of -91%.
+                </p>
+
+                <div class="highlight-box">
+                    <h4 class="highlight-title">Beta Result</h4>
+                    <p class="highlight-text">The client earned $49,900 in a single day. The IBD earned $10,700. Pershing earned $10,700.</p>
+                </div>
+
+                <div class="quote-block">
+                    <p class="quote-text">"I am very happy to report that we were able to monetize on an opportunity that was identified in the new Opportunity View. This is a great story about the value of this tool."</p>
+                    <p class="quote-attribution">— Product Partner, Collateral Funding and Trading Team</p>
+                </div>
+
+                <h2>Why This Maps Back to the Design</h2>
+
+                <p class="content-text">
+                    This outcome didn't happen because the data existed. The data had always existed. It happened because the redesign made that data actionable at the right moment.
+                </p>
+
+                <p class="content-text">
+                    The rate spike was surfaced through the opportunity identification layer—the advisor would not have caught a move of that magnitude without the tool flagging it. The enrollment happened quickly because the friction that previously killed adoption had been replaced by a single integrated flow. And the client moving more assets to Pershing was a downstream consequence of a positive, low-friction experience—an outcome that couldn't have been designed for directly, but that a well-designed tool made possible.
+                </p>
+
+                <p class="content-text">
+                    The beta context matters here. Five IBDs co-designed and tested this application before launch. This wasn't a tool shipped into the wild and hoped for the best—it was shaped by the people who would use it, which is why it was ready to support a real transaction from day one of the broader rollout.
+                </p>
+
+                <h2>Research Findings to Design Outcomes</h2>
 
                 <div class="stats-table">
                     <table>
                         <tr>
                             <th>Research Finding</th>
                             <th>Design Response</th>
+                            <th>Outcome</th>
                         </tr>
                         <tr>
                             <td><strong>Bubble visualization ignored</strong></td>
                             <td>Replaced with scannable nested table</td>
+                            <td>Opportunity scanning became primary workflow</td>
                         </tr>
                         <tr>
                             <td><strong>Drill-down lost context</strong></td>
                             <td>Expandable rows preserve surrounding data</td>
+                            <td>Managers can compare across offices without losing place</td>
                         </tr>
                         <tr>
                             <td><strong>Content buried below scroll</strong></td>
                             <td>Consolidated hierarchy, removed redundant elements</td>
+                            <td>Actionable data visible above the fold</td>
                         </tr>
                         <tr>
                             <td><strong>Participation status unclear</strong></td>
                             <td>Inline Enrolled/Not Enrolled columns</td>
+                            <td>Status visible without tab navigation</td>
                         </tr>
                         <tr>
                             <td><strong>Top opportunities hard to find</strong></td>
                             <td>Dedicated "View by Ticker" tab</td>
+                            <td>Targeted security search available on demand</td>
                         </tr>
                         <tr>
                             <td><strong>Enrollment friction</strong></td>
                             <td>Integrated "Learn and Invite" flow</td>
+                            <td>Client signed and enrolled same day as opportunity surfaced</td>
                         </tr>
                         <tr>
                             <td><strong>Data trust issues</strong></td>
                             <td>Transparent methodology, progressive disclosure</td>
+                            <td>Advisors acting on tool output rather than exporting to Excel</td>
                         </tr>
                     </table>
                 </div>
 
                 <figure class="case-study-figure">
                     <img src="images/case-studies/fpl/final-design.png" alt="Final design full page view">
-                    <figcaption>The final design: a scannable, expandable table with inline status, integrated enrollment, and dedicated views for different user goals.</figcaption>
+                    <figcaption>Final design full page view—the final Fully Paid Lending experience: scannable, actionable, and built around how advisors actually work.</figcaption>
                 </figure>
             </section>
 
@@ -446,6 +518,14 @@
 
                 <p class="content-text">
                     The biggest lever wasn't adding features. It was removing friction and consolidating information so the tool could get out of the way of the work.
+                </p>
+
+                <p class="content-text">
+                    What the beta outcome confirmed was something harder to design for directly: trust. The client who had been hesitant at -2% signed at -91% not because the rate changed—it was always going to change. It happened because the advisor had a tool that surfaced the opportunity credibly and in time to act. That's what transparency of methodology and real-time visibility actually buys you—not just usability, but confidence in the numbers. And confidence is what turns a passive data page into a revenue instrument.
+                </p>
+
+                <p class="content-text">
+                    The five IBDs who co-designed this application didn't just help us build a better tool. They made sure the tool was trusted before it was launched. That trust is what made the first real transaction possible.
                 </p>
 
                 <figure class="case-study-figure">
