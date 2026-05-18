@@ -12,6 +12,8 @@
 </head>
 <body class="landing-page">
 
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- ── Navigation ── -->
     <nav class="lp-nav">
         <div class="lp-nav-inner">
@@ -25,14 +27,14 @@
                 </div>
             </div>
             <a href="#work" class="lp-btn-primary">View work</a>
-            <button class="lp-hamburger" aria-label="Open menu" aria-expanded="false">
+            <button class="lp-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="lpMobileMenu">
                 <span></span><span></span><span></span>
             </button>
         </div>
     </nav>
 
     <!-- ── Mobile menu ── -->
-    <div class="lp-mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <div class="lp-mobile-menu" id="lpMobileMenu" role="navigation" aria-label="Mobile navigation" aria-hidden="true">
         <div class="lp-mobile-menu-inner">
             <a href="index.html" class="lp-mobile-nav-item active">Home</a>
             <a href="about.html" class="lp-mobile-nav-item">About</a>
@@ -43,9 +45,12 @@
         </div>
     </div>
 
+    <!-- ── Main content ── -->
+    <main id="main-content">
+
     <!-- ── Hero + Ticker container ── -->
     <div>
-        <section class="lp-hero">
+        <section class="lp-hero" aria-label="Introduction">
             <div class="lp-hero-inner">
 
                 <!-- Name + title -->
@@ -115,7 +120,7 @@
     </div>
 
     <!-- ── Currently Shipping ── -->
-    <section class="lp-companies">
+    <section class="lp-companies" aria-label="Currently shipping for">
         <p class="lp-companies-label">Currently shipping for</p>
         <div class="lp-companies-grid">
 
@@ -166,7 +171,7 @@
     </section>
 
     <!-- ── Gradient section: Work + Writing + CTA ── -->
-    <section class="lp-gradient-section">
+    <section class="lp-gradient-section" aria-label="Work, writing and contact">
 
         <!-- Selected Work -->
         <div class="lp-work" id="work">
@@ -199,7 +204,7 @@
                                     <div class="lp-cs-glass-actions">
                                         <span class="lp-cs-nda">NDA Protected</span>
                                         <a href="mailto:johnrubinodesign@gmail.com?subject=Portfolio%20Access%20Request%20%E2%80%94%20Future%20of%20Wealth%20Advisory&body=Hi%20John%2C%0A%0AI%27d%20like%20to%20request%20access%20to%20your%20case%20study%3A%20Future%20of%20Wealth%20Advisory.%0A%0ALooking%20forward%20to%20connecting." class="lp-btn-request">
-                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1.5" y="4.5" width="9" height="7" rx="1.5" stroke="white" stroke-width="1.2"/><path d="M4 4.5V3a2 2 0 014 0v1.5" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><rect x="1.5" y="4.5" width="9" height="7" rx="1.5" stroke="white" stroke-width="1.2"/><path d="M4 4.5V3a2 2 0 014 0v1.5" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
                                             Request Access
                                         </a>
                                     </div>
@@ -222,7 +227,7 @@
                                     <div class="lp-cs-glass-actions">
                                         <span class="lp-cs-nda">NDA Protected</span>
                                         <a href="mailto:johnrubinodesign@gmail.com?subject=Portfolio%20Access%20Request%20%E2%80%94%20Fully%20Paid%20Lending&body=Hi%20John%2C%0A%0AI%27d%20like%20to%20request%20access%20to%20your%20case%20study%3A%20Fully%20Paid%20Lending.%0A%0ALooking%20forward%20to%20connecting." class="lp-btn-request">
-                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1.5" y="4.5" width="9" height="7" rx="1.5" stroke="white" stroke-width="1.2"/><path d="M4 4.5V3a2 2 0 014 0v1.5" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><rect x="1.5" y="4.5" width="9" height="7" rx="1.5" stroke="white" stroke-width="1.2"/><path d="M4 4.5V3a2 2 0 014 0v1.5" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
                                             Request Access
                                         </a>
                                     </div>
@@ -245,7 +250,7 @@
                                     <div class="lp-cs-glass-actions">
                                         <span class="lp-cs-nda">In Progress</span>
                                         <a href="mailto:johnrubinodesign@gmail.com?subject=Portfolio%20Access%20Request%20%E2%80%94%20Purple%20Panda%20Rentals&body=Hi%20John%2C%0A%0AI%27d%20like%20to%20request%20access%20to%20your%20case%20study%3A%20Purple%20Panda%20Rentals.%0A%0ALooking%20forward%20to%20connecting." class="lp-btn-request">
-                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1.5" y="4.5" width="9" height="7" rx="1.5" stroke="white" stroke-width="1.2"/><path d="M4 4.5V3a2 2 0 014 0v1.5" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><rect x="1.5" y="4.5" width="9" height="7" rx="1.5" stroke="white" stroke-width="1.2"/><path d="M4 4.5V3a2 2 0 014 0v1.5" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
                                             Request Access
                                         </a>
                                     </div>
@@ -258,9 +263,9 @@
 
                 <!-- Dot indicators -->
                 <div class="lp-carousel-dots" role="tablist" aria-label="Case studies">
-                    <button class="lp-dot active" data-index="0" aria-label="Slide 1" aria-selected="true"></button>
-                    <button class="lp-dot" data-index="1" aria-label="Slide 2" aria-selected="false"></button>
-                    <button class="lp-dot" data-index="2" aria-label="Slide 3" aria-selected="false"></button>
+                    <button role="tab" class="lp-dot active" data-index="0" aria-label="Future of Wealth Advisory" aria-selected="true"></button>
+                    <button role="tab" class="lp-dot" data-index="1" aria-label="Fully Paid Lending" aria-selected="false"></button>
+                    <button role="tab" class="lp-dot" data-index="2" aria-label="Purple Panda Rentals" aria-selected="false"></button>
                 </div>
             </div>
         </div>
@@ -279,7 +284,8 @@
                     <p class="lp-writing-desc">Short, provocative essays on the future of design practice, AI as creative infrastructure, and building sustainable design careers in a rapidly changing industry.</p>
                     <a href="https://johnrubino.substack.com" target="_blank" rel="noopener" class="lp-btn-outline">
                         Read on Substack
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span class="sr-only">(opens in new tab)</span>
                     </a>
                 </div>
 
@@ -298,12 +304,14 @@
 
     </section>
 
+    </main><!-- /main-content -->
+
     <!-- ── Footer ── -->
     <footer class="lp-footer">
         <div class="lp-footer-copy">&copy; 2026 John Rubino &middot; Product Designer &middot; New York</div>
         <div class="lp-footer-links">
-            <a href="https://www.linkedin.com/in/john-rubino/" target="_blank" rel="noopener" class="lp-footer-link">LinkedIn</a>
-            <a href="https://johnrubino.substack.com" target="_blank" rel="noopener" class="lp-footer-link">Substack</a>
+            <a href="https://www.linkedin.com/in/john-rubino/" target="_blank" rel="noopener" class="lp-footer-link">LinkedIn<span class="sr-only"> (opens in new tab)</span></a>
+            <a href="https://johnrubino.substack.com" target="_blank" rel="noopener" class="lp-footer-link">Substack<span class="sr-only"> (opens in new tab)</span></a>
             <a href="about.html" class="lp-footer-link">About</a>
             <a href="mailto:johnrubinodesign@gmail.com" class="lp-footer-link lp-btn-contact">Contact</a>
         </div>
@@ -462,8 +470,8 @@
             const menu  = document.querySelector('.lp-mobile-menu');
             const navEl = document.querySelector('.lp-nav');
             if (!btn || !menu) return;
-            function open()  { btn.setAttribute('aria-expanded','true');  menu.classList.add('open'); }
-            function close() { btn.setAttribute('aria-expanded','false'); menu.classList.remove('open'); }
+            function open()  { btn.setAttribute('aria-expanded','true');  menu.removeAttribute('aria-hidden'); menu.classList.add('open'); }
+            function close() { btn.setAttribute('aria-expanded','false'); menu.setAttribute('aria-hidden','true'); menu.classList.remove('open'); }
             btn.addEventListener('click', () => menu.classList.contains('open') ? close() : open());
             menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
             document.addEventListener('click', e => {
@@ -550,14 +558,17 @@
             <div id="accessFormView">
                 <p class="access-modal-heading" id="accessModalHeading">Request Access</p>
                 <p class="access-modal-sub">Requesting access to <span class="access-modal-case" id="accessCaseLabel"></span>. Fill in your details and I'll get back to you.</p>
-                <form class="access-form" id="accessForm" novalidate>
+                <form class="access-form" id="accessForm" novalidate aria-describedby="required-note">
+                    <p id="required-note" class="sr-only">Fields marked with an asterisk are required.</p>
                     <div class="access-field">
-                        <label class="access-label" for="accessName">Name <span style="color:#e53e3e">*</span></label>
-                        <input class="access-input" id="accessName" type="text" placeholder="Your name" autocomplete="name" />
+                        <label class="access-label" for="accessName">Name <abbr title="required" aria-hidden="true" style="color:#e53e3e;text-decoration:none">*</abbr></label>
+                        <input class="access-input" id="accessName" type="text" placeholder="Your name" autocomplete="name" required aria-required="true" aria-describedby="accessName-error" />
+                        <span id="accessName-error" class="field-error" role="alert" hidden></span>
                     </div>
                     <div class="access-field">
-                        <label class="access-label" for="accessEmail">Email <span style="color:#e53e3e">*</span></label>
-                        <input class="access-input" id="accessEmail" type="email" placeholder="you@company.com" autocomplete="email" />
+                        <label class="access-label" for="accessEmail">Email <abbr title="required" aria-hidden="true" style="color:#e53e3e;text-decoration:none">*</abbr></label>
+                        <input class="access-input" id="accessEmail" type="email" placeholder="you@company.com" autocomplete="email" required aria-required="true" aria-describedby="accessEmail-error" />
+                        <span id="accessEmail-error" class="field-error" role="alert" hidden></span>
                     </div>
                     <div class="access-field">
                         <label class="access-label" for="accessCompany">Company <span class="optional">(optional)</span></label>
@@ -576,8 +587,8 @@
 
             <!-- Success view -->
             <div class="access-success" id="accessSuccess">
-                <div class="access-success-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="var(--lp-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div class="access-success-icon" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="var(--lp-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </div>
                 <h3>Request sent!</h3>
                 <p>Your request has been sent! I'll be in touch within 1–2 business days.</p>
@@ -595,22 +606,61 @@
         const caseLabel = document.getElementById('accessCaseLabel');
         const form      = document.getElementById('accessForm');
         let currentCase = '';
+        let lastFocused = null;
+
+        // ── Focus trap ──
+        function trapFocus(e) {
+            if (e.key !== 'Tab') return;
+            const focusable = Array.from(overlay.querySelectorAll(
+                'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+            ));
+            const first = focusable[0], last = focusable[focusable.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault(); last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault(); first.focus();
+            }
+        }
+
+        // ── Error helpers ──
+        function setError(id, message) {
+            const input = document.getElementById(id);
+            const err   = document.getElementById(id + '-error');
+            input.classList.add('error');
+            input.setAttribute('aria-invalid', 'true');
+            err.textContent = message;
+            err.hidden = false;
+        }
+
+        function clearErrors() {
+            ['accessName', 'accessEmail'].forEach(id => {
+                const input = document.getElementById(id);
+                const err   = document.getElementById(id + '-error');
+                input.classList.remove('error');
+                input.removeAttribute('aria-invalid');
+                if (err) { err.hidden = true; err.textContent = ''; }
+            });
+        }
 
         function openModal(caseName) {
+            lastFocused = document.activeElement;
             currentCase = caseName;
             caseLabel.textContent = caseName;
             formView.style.display = '';
             success.style.display  = 'none';
             form.reset();
-            ['accessName','accessEmail'].forEach(id => document.getElementById(id).classList.remove('error'));
+            clearErrors();
             overlay.classList.add('open');
             document.body.style.overflow = 'hidden';
+            overlay.addEventListener('keydown', trapFocus);
             setTimeout(() => document.getElementById('accessName').focus(), 300);
         }
 
         function closeModal() {
             overlay.classList.remove('open');
             document.body.style.overflow = '';
+            overlay.removeEventListener('keydown', trapFocus);
+            if (lastFocused) { lastFocused.focus(); lastFocused = null; }
         }
 
         // Intercept all Request Access mailto links
@@ -635,14 +685,21 @@
             const company = document.getElementById('accessCompany').value.trim();
             const message = document.getElementById('accessMessage').value.trim();
 
+            clearErrors();
             let valid = true;
-            ['accessName','accessEmail'].forEach(id => document.getElementById(id).classList.remove('error'));
+            let firstInvalid = null;
 
-            if (!name)  { document.getElementById('accessName').classList.add('error');  valid = false; }
-            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                document.getElementById('accessEmail').classList.add('error'); valid = false;
+            if (!name) {
+                setError('accessName', 'Name is required.');
+                valid = false;
+                if (!firstInvalid) firstInvalid = document.getElementById('accessName');
             }
-            if (!valid) return;
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                setError('accessEmail', email ? 'Please enter a valid email address.' : 'Email is required.');
+                valid = false;
+                if (!firstInvalid) firstInvalid = document.getElementById('accessEmail');
+            }
+            if (!valid) { firstInvalid.focus(); return; }
 
             const submitBtn = form.querySelector('[type="submit"]');
             submitBtn.disabled = true;
@@ -666,6 +723,7 @@
             .then(function (data) {
                 formView.style.display = 'none';
                 success.style.display  = 'flex';
+                document.getElementById('accessSuccessClose').focus();
             })
             .catch(function () {
                 submitBtn.disabled = false;

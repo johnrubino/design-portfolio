@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Rubino — Portfolio</title>
+    <title>John Rubino — Hiring Portfolio</title>
+    <meta name="description" content="John Rubino's private hiring portfolio — Senior Product Designer specializing in enterprise UX, AI-native workflows, and design systems.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -245,6 +246,14 @@
             text-decoration: none;
             display: block;
             transition: border-color 200ms ease, transform 200ms ease;
+            /* button reset */
+            width: 100%;
+            text-align: left;
+            font: inherit;
+            color: inherit;
+            padding: 0;
+            -webkit-appearance: none;
+            appearance: none;
         }
         .portfolio-card:hover {
             border-color: var(--border-mid);
@@ -542,7 +551,7 @@
 
         /* ── Next case study section ── */
         .case-next-section { border-top: 1px solid var(--border); padding: 48px 0 64px; margin-top: 24px; }
-        .case-next-eyebrow { font-size: 11px; font-weight: 500; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; }
+        .case-next-eyebrow { font-size: 11px; font-weight: 500; color: var(--text-2); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; }
         .case-next-card { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 12px; cursor: pointer; text-decoration: none; color: inherit; transition: border-color 180ms ease, background 180ms ease, transform 180ms ease; }
         .case-next-card:hover { border-color: rgba(102,126,234,0.5); background: rgba(102,126,234,0.06); transform: translateY(-1px); }
         .case-next-meta { font-size: 11px; font-weight: 500; color: var(--purple); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
@@ -632,6 +641,8 @@
 </head>
 <body class="hiring-page">
 
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
 <!-- ── Token gate (visible on load until /api/verify responds) ────────────── -->
 <div class="token-gate" id="tokenGate">
     <div class="gate-inner" id="gateLoading">
@@ -663,26 +674,26 @@
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <!-- Sidebar -->
-    <aside class="sidebar" id="sidebar">
+    <aside class="sidebar" id="sidebar" aria-label="Portfolio navigation">
         <div class="sidebar-logo">
             <span class="sidebar-logo-mark">JR</span>
         </div>
 
         <nav class="sidebar-nav">
-            <button class="nav-item active" data-view="portfolio">
-                <span class="nav-icon-wrap">
+            <button class="nav-item active" data-view="portfolio" aria-current="true">
+                <span class="nav-icon-wrap" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
                 </span>
                 Portfolio
             </button>
             <button class="nav-item" data-view="writing">
-                <span class="nav-icon-wrap">
+                <span class="nav-icon-wrap" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
                 </span>
                 Writing
             </button>
             <button class="nav-item" data-view="about">
-                <span class="nav-icon-wrap">
+                <span class="nav-icon-wrap" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                 </span>
                 About
@@ -700,12 +711,12 @@
     </aside>
 
     <!-- Main -->
-    <div class="dashboard-main" id="dashboardMain">
+    <main class="dashboard-main" id="main-content">
 
         <!-- Mobile header -->
         <div class="mobile-header">
             <span class="sidebar-logo-mark" style="width:32px;height:32px;font-size:12px;">JR</span>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="sidebar">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
         </div>
@@ -721,9 +732,9 @@
             <div class="portfolio-grid">
 
                 <!-- Card 1 -->
-                <a class="portfolio-card" href="#" data-case="future-of-wealth-advisory">
+                <button class="portfolio-card" type="button" data-case="future-of-wealth-advisory" aria-label="Open Future of Wealth Advisory case study">
                     <div class="portfolio-card-img">
-                        <img src="images/case-studies/platform-vision/To do list high fidelity design.png" alt="Future of Wealth Advisory">
+                        <img src="images/case-studies/platform-vision/To do list high fidelity design.png" alt="Future of Wealth Advisory — NAO To-Do List final design" aria-hidden="true">
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-tags">
@@ -733,17 +744,17 @@
                         </div>
                         <h3 class="portfolio-card-title">Future of Wealth Advisory</h3>
                         <p class="portfolio-card-desc">Reimagined account opening and asset movement workflows for a platform consolidation. Designed the To-Do List pattern and collapsing stepper to make complex multi-step processes navigable for advisors managing institutional-scale assets.</p>
-                        <span class="portfolio-card-action">
+                        <span class="portfolio-card-action" aria-hidden="true">
                             Open case study
-                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </span>
                     </div>
-                </a>
+                </button>
 
                 <!-- Card 2 -->
-                <a class="portfolio-card" href="#" data-case="fully-paid-lending">
+                <button class="portfolio-card" type="button" data-case="fully-paid-lending" aria-label="Open Fully Paid Lending case study">
                     <div class="portfolio-card-img">
-                        <img src="images/case-studies/fpl/final-design.png" alt="Fully Paid Lending">
+                        <img src="images/case-studies/fpl/final-design.png" alt="Fully Paid Lending — final design" aria-hidden="true">
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-tags">
@@ -752,17 +763,17 @@
                         </div>
                         <h3 class="portfolio-card-title">Fully Paid Lending</h3>
                         <p class="portfolio-card-desc">Streamlined the fully paid lending program to help advisors unlock liquidity for clients while maintaining compliance and reducing operational risk.</p>
-                        <span class="portfolio-card-action">
+                        <span class="portfolio-card-action" aria-hidden="true">
                             Open case study
-                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </span>
                     </div>
-                </a>
+                </button>
 
                 <!-- Card 3 -->
-                <a class="portfolio-card" href="#" data-case="purple-panda-rentals">
+                <button class="portfolio-card" type="button" data-case="purple-panda-rentals" aria-label="Open Purple Panda Rentals case study">
                     <div class="portfolio-card-img">
-                        <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62c766abb767dba81d22d0dd_PPR%20Project%20Tile.png" alt="Purple Panda Rentals">
+                        <img src="https://cdn.prod.website-files.com/622fe18ddfe161dde58c0960/62c766abb767dba81d22d0dd_PPR%20Project%20Tile.png" alt="Purple Panda Rentals — mobile app design" aria-hidden="true">
                     </div>
                     <div class="portfolio-card-body">
                         <div class="portfolio-card-tags">
@@ -771,12 +782,12 @@
                         </div>
                         <h3 class="portfolio-card-title">Purple Panda Rentals</h3>
                         <p class="portfolio-card-desc">Founded a rental marketplace for college students — designed the mobile app end-to-end, from research and synthesis to validated prototypes with 270 survey respondents.</p>
-                        <span class="portfolio-card-action">
+                        <span class="portfolio-card-action" aria-hidden="true">
                             Open case study
-                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </span>
                     </div>
-                </a>
+                </button>
 
             </div>
         </div>
@@ -842,12 +853,12 @@
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                     Get in touch
                 </a>
-                <a href="https://www.linkedin.com/in/john-rubino/" target="_blank" rel="noopener" class="about-link-btn outline">LinkedIn</a>
-                <a href="https://johnrubino.substack.com" target="_blank" rel="noopener" class="about-link-btn outline">Substack</a>
+                <a href="https://www.linkedin.com/in/john-rubino/" target="_blank" rel="noopener" class="about-link-btn outline">LinkedIn<span class="sr-only"> (opens in new tab)</span></a>
+                <a href="https://johnrubino.substack.com" target="_blank" rel="noopener" class="about-link-btn outline">Substack<span class="sr-only"> (opens in new tab)</span></a>
             </div>
         </div>
 
-    </div><!-- /dashboard-main -->
+    </main><!-- /dashboard-main -->
 </div><!-- /dashboard -->
 
     <!-- Pre-embedded case study content (avoids fetch() CORS on file://) -->
@@ -2545,9 +2556,10 @@
     </div>
     </div>
 <!-- Case Study Sheet -->
-<div class="modal-overlay" id="caseStudyModal">
+<div class="modal-overlay" id="caseStudyModal" role="dialog" aria-modal="true" aria-labelledby="caseStudyModalTitle">
     <div class="modal-container" id="caseStudySheet">
-        <button class="sheet-close-x" id="modalClose" aria-label="Close">&#x2715;</button>
+        <h2 id="caseStudyModalTitle" class="sr-only"></h2>
+        <button class="sheet-close-x" id="modalClose" aria-label="Close case study">&#x2715;</button>
         <div class="sheet-content-panel" id="sheetContentPanel"></div>
         <!-- Hidden footer kept for JS nav refs -->
         <div class="sheet-footer-row">
@@ -2622,13 +2634,20 @@
     // ── View switching ──────────────────────────────────────────────────────
     document.querySelectorAll('.nav-item[data-view]').forEach(function(btn) {
         btn.addEventListener('click', function() {
-            document.querySelectorAll('.nav-item').forEach(function(b) { b.classList.remove('active'); });
+            document.querySelectorAll('.nav-item').forEach(function(b) {
+                b.classList.remove('active');
+                b.removeAttribute('aria-current');
+            });
             document.querySelectorAll('.content-view').forEach(function(v) { v.classList.remove('active'); });
             btn.classList.add('active');
+            btn.setAttribute('aria-current', 'true');
             document.getElementById(btn.dataset.view + 'View').classList.add('active');
             // Close mobile sidebar
-            document.getElementById('sidebar').classList.remove('open');
-            document.getElementById('sidebarOverlay').classList.remove('active');
+            var sb = document.getElementById('sidebar');
+            var so = document.getElementById('sidebarOverlay');
+            sb.classList.remove('open');
+            so.classList.remove('active');
+            if (mobileBtn) mobileBtn.setAttribute('aria-expanded', 'false');
         });
     });
 
@@ -2638,14 +2657,16 @@
     var sidebarOverlay = document.getElementById('sidebarOverlay');
     if (mobileBtn) {
         mobileBtn.addEventListener('click', function() {
-            sidebar.classList.toggle('open');
-            sidebarOverlay.classList.toggle('active');
+            var isOpen = sidebar.classList.toggle('open');
+            sidebarOverlay.classList.toggle('active', isOpen);
+            mobileBtn.setAttribute('aria-expanded', String(isOpen));
         });
     }
     if (sidebarOverlay) {
         sidebarOverlay.addEventListener('click', function() {
             sidebar.classList.remove('open');
             sidebarOverlay.classList.remove('active');
+            mobileBtn.setAttribute('aria-expanded', 'false');
         });
     }
 
@@ -2699,6 +2720,23 @@
     var prevTitle      = document.getElementById('prevCaseTitle');
     var nextTitle      = document.getElementById('nextCaseTitle');
 
+    var lastFocused = null;
+
+    // ── Focus trap for case study modal ──
+    function hiringTrapFocus(e) {
+        if (e.key !== 'Tab') return;
+        var focusable = Array.from(csModal.querySelectorAll(
+            'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+        )).filter(function(el) { return el.offsetParent !== null; });
+        if (!focusable.length) return;
+        var first = focusable[0], last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault(); first.focus();
+        }
+    }
+
     var scrollPanel = null, scrollHandler = null;
     function detach() { if (scrollPanel) { scrollPanel.removeEventListener('scroll', scrollHandler); scrollPanel = null; scrollHandler = null; } }
     function attachExpand(panel) {
@@ -2744,9 +2782,18 @@
         fabMenu.innerHTML = '';
         steps.forEach(function(st, i) {
             var title = (st.querySelector('.stepper-title') || {}).textContent || '';
-            var item = document.createElement('div');
+            var item = document.createElement('button');
+            item.type = 'button';
             item.className = 'stepper-fab-item' + (i === activeIdx ? ' active' : (i < activeIdx ? ' completed' : ''));
-            item.innerHTML = '<span class="stepper-fab-dot"></span><span class="stepper-fab-item-title">' + title + '</span>';
+            item.setAttribute('aria-label', 'Go to ' + title);
+            var dot = document.createElement('span');
+            dot.className = 'stepper-fab-dot';
+            dot.setAttribute('aria-hidden', 'true');
+            var label = document.createElement('span');
+            label.className = 'stepper-fab-item-title';
+            label.textContent = title;
+            item.appendChild(dot);
+            item.appendChild(label);
             item.addEventListener('click', function(e) {
                 e.stopPropagation();
                 var sec = panel.querySelector('#' + st.dataset.section);
@@ -2764,13 +2811,28 @@
         function update() {
             var pt = panel.getBoundingClientRect().top, active = sections[0].id;
             sections.forEach(function(s) { if (s.getBoundingClientRect().top - pt <= 120) active = s.id; });
-            steps.forEach(function(st) { var m = st.dataset.section === active; st.classList.toggle('active', m); st.classList.toggle('inactive', !m); });
+            steps.forEach(function(st) {
+                var m = st.dataset.section === active;
+                st.classList.toggle('active', m);
+                st.classList.toggle('inactive', !m);
+                st.setAttribute('aria-current', m ? 'step' : 'false');
+            });
             updateFab(steps, sections, panel);
         }
         steps.forEach(function(st) {
-            st.addEventListener('click', function() {
+            // Make each step keyboard accessible
+            st.setAttribute('role', 'button');
+            st.setAttribute('tabindex', '0');
+            var title = (st.querySelector('.stepper-title') || {}).textContent || '';
+            st.setAttribute('aria-label', 'Go to ' + title);
+
+            function scrollToSection() {
                 var sec = panel.querySelector('#' + st.dataset.section);
                 if (sec) panel.scrollTo({ top: sec.getBoundingClientRect().top - panel.getBoundingClientRect().top + panel.scrollTop - 24, behavior: 'smooth' });
+            }
+            st.addEventListener('click', scrollToSection);
+            st.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); scrollToSection(); }
             });
         });
         panel.addEventListener('scroll', update, { passive: true });
@@ -2810,19 +2872,25 @@
     function openModal(caseId) {
         var idx = caseStudies.findIndex(function(c) { return c.id === caseId; });
         if (idx === -1) return;
+        lastFocused = document.activeElement;
         currentCaseIndex = idx;
         csFooterLabel.textContent = caseStudies[idx].subtitle;
+        document.getElementById('caseStudyModalTitle').textContent = caseStudies[idx].title;
         window.location.hash = caseId;
         document.body.style.overflow = 'hidden';
         csModal.classList.add('active');
+        csModal.addEventListener('keydown', hiringTrapFocus);
         updateNav();
         loadCase(caseStudies[idx]);
+        setTimeout(function() { csClose.focus(); }, 100);
     }
 
     function closeModal() {
         detach(); csModal.classList.remove('active'); csSheet.classList.remove('sheet--expanded');
         document.body.style.overflow = ''; csPanel.innerHTML = '';
+        csModal.removeEventListener('keydown', hiringTrapFocus);
         history.pushState('', document.title, window.location.pathname + window.location.search);
+        if (lastFocused) { lastFocused.focus(); lastFocused = null; }
     }
 
     csClose.addEventListener('click', closeModal);
@@ -2832,7 +2900,7 @@
     document.addEventListener('keydown', function(e) { if (!csModal.classList.contains('active')) return; if (e.key === 'Escape') closeModal(); else if (e.key === 'ArrowLeft' && currentCaseIndex > 0) prevBtn.click(); else if (e.key === 'ArrowRight' && currentCaseIndex < caseStudies.length - 1) nextBtn.click(); });
 
     document.querySelectorAll('.portfolio-card[data-case]').forEach(function(card) {
-        card.addEventListener('click', function(e) { e.preventDefault(); openModal(card.dataset.case); });
+        card.addEventListener('click', function() { openModal(card.dataset.case); });
     });
 
     var initHash = window.location.hash.substring(1);
