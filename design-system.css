@@ -4590,9 +4590,10 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     display: flex;
     flex-direction: column;
     transform: translateY(calc(100% + 2px));
-    transition: transform 0.8s cubic-bezier(0.87, 0, 0.13, 1);
+    transition: transform 0.8s cubic-bezier(0.87, 0, 0.13, 1), left .35s ease, right .35s ease, top .35s ease, border-radius .35s ease;
 }
 .labs-modal-overlay.active .labs-modal-container { transform: translateY(0); }
+.labs-modal-container.labs-modal-expanded { left: 0; right: 0; top: 0; border-radius: 0; }
 .labs-modal-close {
     position: absolute;
     top: 14px; right: 16px;
@@ -4650,29 +4651,10 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 .labs-modal-panel .case-study-figure { margin: 24px auto; max-width: 1040px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); }
 .labs-modal-panel .case-study-figure img { width: 100%; height: auto; display: block; cursor: zoom-in; }
 
-/* ── Force dark theme inside labs modal on landing-page bodies ── */
-.landing-page .labs-modal-panel .stepper-container {
-    background: #141414 !important;
-    border-right-color: rgba(255,255,255,0.08) !important;
-    top: 0 !important;
-    height: 100% !important;
-}
-.landing-page .labs-modal-panel .stepper-header { color: #808080 !important; }
-.landing-page .labs-modal-panel .stepper-circle { border-color: rgba(255,255,255,0.2) !important; background: linear-gradient(135deg, #d0d0d2 0%, #b0b0b5 100%) !important; }
-.landing-page .labs-modal-panel .stepper-title { color: #a0a0a0 !important; }
-.landing-page .labs-modal-panel .stepper-step.active .stepper-circle { border-color: rgba(255,140,66,0.8) !important; background: radial-gradient(circle at 50% 30%, #FF8C42 0%, #FF6B35 50%, #D94A1A 100%) !important; }
-.landing-page .labs-modal-panel .stepper-step.active .stepper-title { color: #fff !important; font-weight: 500 !important; }
-.landing-page .labs-modal-panel .stepper-step.completed .stepper-circle { background: radial-gradient(circle at 50% 30%, #667eea 0%, #5a67d8 100%) !important; border-color: rgba(102,126,234,0.8) !important; }
-.landing-page .labs-modal-panel .case-study-layout .main-content { background: var(--bg) !important; }
-.landing-page .labs-modal-panel .content-section { border-bottom-color: rgba(255,255,255,0.08) !important; }
-.landing-page .labs-modal-panel .case-study-layout .section-title { color: #f0ede8 !important; font-family: var(--lp-font-ui) !important; }
-.landing-page .labs-modal-panel .highlight-box { background: #1c1c1c !important; border-color: rgba(255,255,255,0.08) !important; border-left-color: var(--accent-purple) !important; }
-.landing-page .labs-modal-panel .highlight-title { color: var(--accent-purple) !important; }
-.landing-page .labs-modal-panel .highlight-text { color: #f0ede8 !important; }
-.landing-page .labs-modal-panel .stats-table table { border-color: rgba(255,255,255,0.08) !important; }
-.landing-page .labs-modal-panel .stats-table th { background: #2a2a2a !important; color: #b0b0b0 !important; border-bottom-color: rgba(255,255,255,0.08) !important; }
-.landing-page .labs-modal-panel .stats-table td { color: #fff !important; border-bottom-color: rgba(255,255,255,0.08) !important; }
-.landing-page .labs-modal-panel .stats-table td:first-child { background: #1c1c1c !important; color: #b0b0b0 !important; }
+/* ── Labs modal: light-mode background on landing-page bodies ── */
+.landing-page .labs-modal-container { background: var(--lp-bg); }
+.landing-page .labs-modal-panel { background: var(--lp-bg); }
+.landing-page .labs-modal-panel .case-study-layout .main-content { background: var(--lp-bg); }
 
 @media (max-width: 900px) {
     .labs-modal-panel .stepper-container { display: none; }

@@ -3105,71 +3105,6 @@
         else if (h && !csModal.classList.contains('active') && caseStudies.find(function(c) { return c.id === h; })) openModal(h);
     });
 
-    // ── Labs / Navori modal (separate from portfolio case study system) ──────
-    (function () {
-        var hiringNavoriCard    = document.getElementById('hiringNavoriCard');
-        var hiringNavoriModal   = document.getElementById('hiringNavoriModal');
-        var hiringNavoriClose   = document.getElementById('hiringNavoriClose');
-        var hiringNavoriPanel   = document.getElementById('hiringNavoriPanel');
-        var hiringNavoriStepper = document.getElementById('hiringNavoriStepper');
-        if (!hiringNavoriCard || !hiringNavoriModal) return;
-
-        var sectionIds = [
-            'hn-overview', 'hn-problem', 'hn-system', 'hn-interface', 'hn-reflection'
-        ];
-        var lastFocused = null;
-
-        function openNavoriModal() {
-            lastFocused = document.activeElement;
-            hiringNavoriModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            hiringNavoriPanel.scrollTop = 0;
-            syncNavoriStepper();
-            setTimeout(function () { hiringNavoriClose.focus(); }, 300);
-        }
-
-        function closeNavoriModal() {
-            hiringNavoriModal.classList.remove('active');
-            document.body.style.overflow = '';
-            if (lastFocused) { lastFocused.focus(); lastFocused = null; }
-        }
-
-        function syncNavoriStepper() {
-            var scrollTop = hiringNavoriPanel.scrollTop;
-            var activeIdx = 0;
-            sectionIds.forEach(function (id, i) {
-                var el = hiringNavoriPanel.querySelector('#' + id);
-                if (el && el.offsetTop - 100 <= scrollTop) activeIdx = i;
-            });
-            hiringNavoriStepper.querySelectorAll('.stepper-step').forEach(function (step, i) {
-                step.classList.remove('active', 'completed', 'inactive');
-                if      (i < activeIdx)  step.classList.add('completed');
-                else if (i === activeIdx) step.classList.add('active');
-                else                     step.classList.add('inactive');
-            });
-        }
-
-        hiringNavoriStepper.querySelectorAll('.stepper-step').forEach(function (step, i) {
-            step.style.cursor = 'pointer';
-            step.addEventListener('click', function () {
-                var el = hiringNavoriPanel.querySelector('#' + sectionIds[i]);
-                if (el) hiringNavoriPanel.scrollTo({ top: el.offsetTop - 40, behavior: 'smooth' });
-            });
-        });
-
-        hiringNavoriCard.addEventListener('click', openNavoriModal);
-        hiringNavoriCard.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openNavoriModal(); }
-        });
-        hiringNavoriClose.addEventListener('click', closeNavoriModal);
-        hiringNavoriModal.addEventListener('click', function (e) {
-            if (e.target === hiringNavoriModal) closeNavoriModal();
-        });
-        hiringNavoriPanel.addEventListener('scroll', syncNavoriStepper, { passive: true });
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && hiringNavoriModal.classList.contains('active')) closeNavoriModal();
-        });
-    })();
 </script>
 <!-- ── Hiring: Navori Labs modal ── -->
 <div class="labs-modal-overlay" id="hiringNavoriModal" role="dialog" aria-modal="true" aria-labelledby="hiringNavoriTitle">
@@ -3276,6 +3211,75 @@
     </div>
 </div>
 
+<script>
+    // ── Labs / Navori modal ──
+    (function () {
+        var card      = document.getElementById('hiringNavoriCard');
+        var modal     = document.getElementById('hiringNavoriModal');
+        var container = modal.querySelector('.labs-modal-container');
+        var closeBtn  = document.getElementById('hiringNavoriClose');
+        var panel     = document.getElementById('hiringNavoriPanel');
+        var stepper   = document.getElementById('hiringNavoriStepper');
+        var sectionIds = ['hn-overview', 'hn-problem', 'hn-system', 'hn-interface', 'hn-reflection'];
+        var lastFocused = null;
+
+        function openModal() {
+            lastFocused = document.activeElement;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            panel.scrollTop = 0;
+            container.classList.remove('labs-modal-expanded');
+            syncStepper();
+            setTimeout(function () { closeBtn.focus(); }, 300);
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            container.classList.remove('labs-modal-expanded');
+            document.body.style.overflow = '';
+            if (lastFocused) { lastFocused.focus(); lastFocused = null; }
+        }
+
+        function onScroll() {
+            container.classList.toggle('labs-modal-expanded', panel.scrollTop > 10);
+            syncStepper();
+        }
+
+        function syncStepper() {
+            var scrollTop = panel.scrollTop;
+            var activeIdx = 0;
+            sectionIds.forEach(function (id, i) {
+                var el = panel.querySelector('#' + id);
+                if (el && el.offsetTop - 100 <= scrollTop) activeIdx = i;
+            });
+            stepper.querySelectorAll('.stepper-step').forEach(function (step, i) {
+                step.classList.remove('active', 'completed', 'inactive');
+                if      (i < activeIdx)  step.classList.add('completed');
+                else if (i === activeIdx) step.classList.add('active');
+                else                     step.classList.add('inactive');
+            });
+        }
+
+        stepper.querySelectorAll('.stepper-step').forEach(function (step, i) {
+            step.style.cursor = 'pointer';
+            step.addEventListener('click', function () {
+                var el = panel.querySelector('#' + sectionIds[i]);
+                if (el) panel.scrollTo({ top: el.offsetTop - 40, behavior: 'smooth' });
+            });
+        });
+
+        card.addEventListener('click', openModal);
+        card.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(); }
+        });
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+        panel.addEventListener('scroll', onScroll, { passive: true });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+        });
+    })();
+</script>
 <script src="design-system.js"></script>
 </body>
 </html>

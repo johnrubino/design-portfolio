@@ -366,12 +366,13 @@
 
     // ── Navori modal ──
     (function () {
-        const overlay   = document.getElementById('navoriModal');
-        const closeBtn  = document.getElementById('navoriModalClose');
-        const panel     = document.getElementById('navoriModalPanel');
-        const card      = document.getElementById('navoriCard');
-        const stepper   = document.getElementById('navoriStepper');
-        let lastFocused = null;
+        const overlay    = document.getElementById('navoriModal');
+        const container  = overlay.querySelector('.labs-modal-container');
+        const closeBtn   = document.getElementById('navoriModalClose');
+        const panel      = document.getElementById('navoriModalPanel');
+        const card       = document.getElementById('navoriCard');
+        const stepper    = document.getElementById('navoriStepper');
+        let lastFocused  = null;
 
         const sectionIds = [
             'navori-overview',
@@ -387,12 +388,14 @@
             document.body.style.overflow = 'hidden';
             document.addEventListener('keydown', onKey);
             panel.scrollTop = 0;
+            container.classList.remove('labs-modal-expanded');
             syncStepper();
             setTimeout(() => closeBtn.focus(), 300);
         }
 
         function closeModal() {
             overlay.classList.remove('active');
+            container.classList.remove('labs-modal-expanded');
             document.body.style.overflow = '';
             document.removeEventListener('keydown', onKey);
             if (lastFocused) { lastFocused.focus(); lastFocused = null; }
@@ -402,15 +405,18 @@
             if (e.key === 'Escape') closeModal();
         }
 
+        function onScroll() {
+            container.classList.toggle('labs-modal-expanded', panel.scrollTop > 10);
+            syncStepper();
+        }
+
         function syncStepper() {
             const scrollTop = panel.scrollTop;
             let activeIdx = 0;
-
             sectionIds.forEach((id, i) => {
                 const el = panel.querySelector('#' + id);
                 if (el && el.offsetTop - 100 <= scrollTop) activeIdx = i;
             });
-
             stepper.querySelectorAll('.stepper-step').forEach((step, i) => {
                 step.classList.remove('active', 'completed', 'inactive');
                 if      (i < activeIdx)  step.classList.add('completed');
@@ -419,7 +425,6 @@
             });
         }
 
-        // Stepper click → scroll to section
         stepper.querySelectorAll('.stepper-step').forEach((step, i) => {
             step.style.cursor = 'pointer';
             step.addEventListener('click', () => {
@@ -434,7 +439,7 @@
         });
         closeBtn.addEventListener('click', closeModal);
         overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
-        panel.addEventListener('scroll', syncStepper, { passive: true });
+        panel.addEventListener('scroll', onScroll, { passive: true });
     })();
     </script>
 
