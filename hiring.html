@@ -3144,7 +3144,7 @@
                                 <div class="stepper-circle"></div>
                                 <div class="stepper-line"></div>
                             </div>
-                            <div class="stepper-content"><div class="stepper-title">Chat Isn't Enough</div></div>
+                            <div class="stepper-content"><div class="stepper-title">Why a Native App</div></div>
                         </div>
                         <div class="stepper-step inactive" data-section="hn-design">
                             <div class="stepper-indicator">
@@ -3165,74 +3165,109 @@
                 <main class="main-content" id="hiringNavoriTitle">
                     <section id="hn-overview" class="content-section">
                         <div class="section-icon">🧭</div>
-                        <h1 class="section-title">An Agentic Operating System for Life</h1>
-                        <p class="section-subtitle">Navori is a personal AI infrastructure project — a system of specialized agents that work together to manage goals, learning, strategy, and daily priorities.</p>
+                        <h1 class="section-title">Designing My Own Agentic Interface</h1>
+                        <p class="section-subtitle">A personal agentic system that actually knew me. Not a chatbot. Not another productivity app. A framework I owned, running on my own hardware, that could get smarter about my goals over time.</p>
                         <div class="stats-table"><table>
                             <tr><th>Dimension</th><th>Details</th></tr>
-                            <tr><td><strong>Role</strong></td><td>Solo — Design &amp; Development</td></tr>
+                            <tr><td><strong>Role</strong></td><td>Designer &amp; Builder</td></tr>
                             <tr><td><strong>Tools</strong></td><td>Claude, Claude Code, SwiftUI, OpenCLAW</td></tr>
-                            <tr><td><strong>Timeline</strong></td><td>12 weeks (and counting)</td></tr>
-                            <tr><td><strong>Status</strong></td><td>In active development</td></tr>
+                            <tr><td><strong>Timeline</strong></td><td>2 weeks (nights &amp; weekends)</td></tr>
+                            <tr><td><strong>Status</strong></td><td>Shipped &amp; In Active Use</td></tr>
                         </table></div>
-                        <p class="content-text">I'm building this in the open — it's already my daily driver. The backend is mostly stable. The iOS app is in progress. The interesting question isn't "can I build this?" — it's "what should an agentic operating system for a person actually do?"</p>
+                        <p class="content-text">When OpenCLAW launched in early 2026, I saw it as the missing piece for something I'd been wanting to build: a personal agentic system that actually knew me. Not a chatbot. Not another productivity app. A framework I owned, running on my own hardware, that could get smarter about my goals over time. I built the framework in two weeks alongside my full-time role at BNY. Then I built a native iOS app to live inside it — because the interface I was using wasn't good enough for what the system had become.</p>
                     </section>
                     <section id="hn-problem" class="content-section">
-                        <div class="section-icon">⚡</div>
-                        <h1 class="section-title">Fragmentation &amp; Overwhelm</h1>
-                        <p class="content-text">I was running my life across Notion, Apple Notes, a finance spreadsheet, a reading list, a goal tracker, and a handful of group chats. Everything was technically tracked. Nothing was connected. Every week felt like re-orienting from scratch.</p>
-                        <p class="content-text">Three problems kept coming up. Context switching costs — by the time I opened the right app and found the right note, the thought was gone. Tools that don't know you — every app starts from zero. No app knows what I care about, what I'm working toward, or what I was thinking yesterday. And an offline-first desire — I don't want to depend on cloud sync for my own thinking. I want it local, fast, and mine.</p>
-                        <div class="quote-block"><p class="quote-text">"I didn't want a smarter to-do list. I wanted something that already knew where I left off — and could help me think."</p></div>
+                        <div class="section-icon">🧩</div>
+                        <h1 class="section-title">Nothing Knew Me</h1>
+                        <p class="content-text">I wasn't drowning in tools. I was drowning in context-switching between them.</p>
+                        <p class="content-text">Design questions in one Claude project. Work strategy in another. Writing drafts scattered across Notion and half-finished conversations. A firehose of AI and design content with no way to filter what actually mattered to my trajectory. Every conversation started from zero. I repeated context constantly. Nothing compounded.</p>
+                        <p class="content-text">The deeper frustration was control. I wanted a system that lived on my own devices, updated over time, and gave me a coherent picture of what mattered — without syncing my thinking to someone else's servers.</p>
+                        <p class="content-text">OpenCLAW gave me the architecture to build that.</p>
+                        <div class="highlight-box">
+                            <div class="highlight-title">📸 Image placeholder</div>
+                            <div class="highlight-text">Fragmentation diagram — multiple Claude project windows, Notion, and Telegram shown as disconnected nodes with no connective tissue between them. Clean, annotated system map. Muted palette, node-and-edge style.</div>
+                        </div>
                     </section>
                     <section id="hn-system" class="content-section">
                         <div class="section-icon">⚙️</div>
-                        <h1 class="section-title">The Framework: OpenCLAW</h1>
-                        <p class="content-text">OpenCLAW (Context-Layered Agent Workflow) is the orchestration layer I built for Navori. Each agent has a specific domain, a persistent memory layer, and a defined relationship to the others. I'm not trying to build one AI that does everything — I'm building a team.</p>
+                        <h1 class="section-title">Four Agents, One System</h1>
+                        <p class="content-text">Before writing any code, I sat down with Claude and designed the agent structure. The core decision was to separate concerns from the start — four specialized agents rather than one assistant trying to do everything.</p>
                         <div class="highlight-box">
-                            <div class="highlight-title">Penn — Life OS Agent</div>
-                            <div class="highlight-text">Tracks goals, habits, weekly priorities, and long-term direction. Penn is the connective tissue — it knows what matters and can surface it across contexts.</div>
+                            <div class="highlight-title">Penn — Router</div>
+                            <div class="highlight-text">Routes everything. Every message gets triaged by Penn, which determines which agent should handle it and routes accordingly. Lightweight by design — Penn doesn't do much besides connect the system.</div>
                         </div>
                         <div class="highlight-box">
-                            <div class="highlight-title">BNY Strategist — Finance Agent</div>
-                            <div class="highlight-text">Manages budgets, tracks spending, models scenarios, and surfaces financial decisions. Connects to Penn so financial goals and life goals aren't siloed.</div>
+                            <div class="highlight-title">BNY Strategist — Work Context</div>
+                            <div class="highlight-text">Owns my work context. Builds and maintains identity cards for the people I work with — updated each time I mention someone or drop in a meeting note. Keeps a running picture of key relationships and projects that I'd otherwise be rebuilding from memory.</div>
                         </div>
                         <div class="highlight-box">
-                            <div class="highlight-title">Design Thinker — Professional Agent</div>
-                            <div class="highlight-text">Helps me think through design problems, prepare for client conversations, and synthesize feedback. Persistent memory of past projects means it gets more useful over time.</div>
+                            <div class="highlight-title">Design Thinker — Writing Partner</div>
+                            <div class="highlight-text">Holds drafts, ideas, and thinking patterns. Connected to the Design Thinker Substack workflow — I can read an article through the Learning Assistant, spark an idea, and route directly to Design Thinker to develop it.</div>
                         </div>
                         <div class="highlight-box">
-                            <div class="highlight-title">Learning Assistant — Knowledge Agent</div>
-                            <div class="highlight-text">Manages my reading list, synthesizes key ideas from articles and books, and connects new knowledge to active goals. No more reading something important and forgetting it.</div>
+                            <div class="highlight-title">Learning Assistant — Firehose Filter</div>
+                            <div class="highlight-text">Pulls from 30+ RSS feeds across AI, design, and startups. Reads everything, surfaces what's relevant to my specific trajectory, and generates digests with TL;DRs. The content finds me, filtered to what matters.</div>
                         </div>
-                        <div class="quote-block"><p class="quote-text">"The agents aren't tools you invoke. They're advisors you consult."</p></div>
+                        <p class="content-text">The whole system runs on my Windows PC via a gateway and REST API, with Tailscale for secure remote access from anywhere.</p>
+                        <div class="highlight-box">
+                            <div class="highlight-title">📸 Image placeholder</div>
+                            <div class="highlight-text">Architecture diagram — Penn at center as router, with directional arrows flowing out to BNY Strategist, Design Thinker, and Learning Assistant. A second layer shows the infrastructure: Windows PC gateway, REST API, Tailscale remote connection.</div>
+                        </div>
                     </section>
                     <section id="hn-chat" class="content-section">
-                        <div class="section-icon">💬</div>
-                        <h1 class="section-title">Chat Isn't Enough</h1>
-                        <p class="content-text">The first version of Navori ran entirely through Telegram bots. It worked — I used it every day. But the ceiling became obvious fast. A chat thread is a bad UI for anything that benefits from structure: goal tracking, financial summaries, habit streaks. You can't scan a conversation. You can't see patterns. You can't build habits around something that feels ephemeral.</p>
-                        <p class="content-text">I needed a surface, not a thread. The agents needed a home — somewhere persistent that could show me the state of my life at a glance, not just respond to my queries.</p>
-                        <div class="quote-block"><p class="quote-text">"A chat thread is a river. A dashboard is a lake."</p></div>
-                        <p class="content-text">That realization drove the iOS app. The backend agents stay the same. The interface becomes the layer that makes their output legible — morning briefs, goal progress, domain tabs. The chat is still there for when you need to think out loud. But the default view is structure, not conversation.</p>
+                        <div class="section-icon">📱</div>
+                        <h1 class="section-title">Why a Native App: Chat Isn't Enough</h1>
+                        <p class="content-text">Telegram worked — eventually. Getting Penn to reliably route messages to the right agent took iteration, but it got there. The problem wasn't that Telegram broke. It was that chat is the wrong interface for living inside a system.</p>
+                        <p class="content-text">Everything landed in a single thread. When cron jobs fired — weekly digests, Monday briefs, content pipeline outputs — the results scrolled past and disappeared. I couldn't see my work context alongside my learning queue alongside Penn's weekly synthesis without prompting each one separately. There was no spatial view. No push notifications when something time-sensitive surfaced.</p>
+                        <p class="content-text">I needed something I carried with me that felt less like a conversation and more like a dashboard — one that surfaced what mattered without me having to ask.</p>
+                        <p class="content-text">So I built Navori.</p>
+                        <div class="highlight-box">
+                            <div class="highlight-title">📸 Image placeholder</div>
+                            <div class="highlight-text">Side-by-side comparison — Telegram single chat thread on the left with annotations pointing to key limitations (linear scroll, no spatial view, cron outputs disappearing). Navori structured tab view on the right showing the contrast. Both shown inside iPhone frames.</div>
+                        </div>
                     </section>
                     <section id="hn-design" class="content-section">
                         <div class="section-icon">✨</div>
-                        <h1 class="section-title">Key Interface Decisions</h1>
-                        <p class="content-text">The iOS app is organized around two tabs: Today and Agents.</p>
-                        <p class="content-text">Today is the command center — a morning brief generated by Penn each day, your three active priorities, a Goal Pulse (a compact view of all goals and their momentum), and a quick-capture field. It's designed to be a 60-second daily read.</p>
-                        <p class="content-text">Agents is where you go deep. Each agent has its own sub-tab: Finance, Design, Learning. Each sub-tab surfaces that agent's persistent output — budget status, reading queue, project notes — and gives you a direct chat interface when you want to go further.</p>
+                        <h1 class="section-title">Key Decisions</h1>
+                        <p class="content-text"><strong>The priority was connection, not visual polish.</strong></p>
+                        <p class="content-text">The hardest part of this project wasn't the UI — it was getting the iOS app to reliably communicate with the OpenCLAW gateway running on my PC. The connection follows a specific handshake protocol: connect → challenge/nonce → hello-ok → then chat with the appropriate agentId. Getting that handshake right, and building fallback logic that tries local WiFi first then drops to Tailscale, was the real design and engineering challenge. Everything visual came second.</p>
                         <div class="highlight-box">
-                            <div class="highlight-title">Design system choices</div>
-                            <div class="highlight-text">San Francisco system font, adaptive light/dark, 4pt grid. No custom typefaces, no decorative flourishes. The agents are the product — the UI should be invisible.</div>
+                            <div class="highlight-title">📸 Image placeholder</div>
+                            <div class="highlight-text">Connection architecture diagram — iOS app on the left, arrow to local WiFi (192.168.1.x) with a fallback arrow branching down to Tailscale (100.97.x.x), both paths converging at the Windows PC gateway. The WiFi/Tailscale status indicator shown as a callout.</div>
                         </div>
-                        <div class="quote-block"><p class="quote-text">"A great tool shouldn't feel like productivity software. It should feel like clarity."</p></div>
+                        <p class="content-text"><strong>Four tabs reflecting four agent domains.</strong></p>
+                        <p class="content-text">Today, Work, Write, Learn. Each tab surfaces the output of its corresponding agent in a structured view rather than a chat thread — projects and relationships from BNY Strategist, draft ideas from Design Thinker, curated articles from Learning Assistant, and Penn's daily synthesis at the top of Today.</p>
+                        <div class="highlight-box">
+                            <div class="highlight-title">📸 Image placeholder</div>
+                            <div class="highlight-text">iPhone mockup showing the tab bar with all four tabs visible — Today, Work, Write, Learn — with Today as the active state. Content shown: Penn's synthesis card at the top, three nudges, four action items, and the six-domain Goal Pulse grid below.</div>
+                        </div>
+                        <p class="content-text"><strong>Push notifications for cron job outputs.</strong></p>
+                        <p class="content-text">The Monday Brief and weekly Learning Digest were the primary reason I needed to move beyond Telegram. Scheduled outputs that arrive while I'm working needed to interrupt me — not disappear into a scroll. Notifications made the system feel alive rather than passive.</p>
+                        <div class="highlight-box">
+                            <div class="highlight-title">📸 Image placeholder</div>
+                            <div class="highlight-text">iPhone lock screen mockup showing a Navori push notification — "Your Monday Brief is ready" or "Weekly Learning Digest — 7 articles flagged for you."</div>
+                        </div>
+                        <p class="content-text"><strong>The weekly check-in as a deliberate ritual.</strong></p>
+                        <p class="content-text">Every Friday, a card surfaces a short reflection prompt. It's a small interaction with a real behavioral intent: feeding structured reflection back into the agents so the system compounds rather than stays static.</p>
+                        <div class="highlight-box">
+                            <div class="highlight-title">📸 Image placeholder</div>
+                            <div class="highlight-text">Two-state comparison — the prominent Friday check-in card (full card, reflection prompt visible, clear CTA) alongside the subtle non-Friday link state (small inline text link, de-emphasized).</div>
+                        </div>
+                        <p class="content-text"><strong>Connection transparency.</strong></p>
+                        <p class="content-text">A small indicator shows whether the app is talking to the gateway over local WiFi or Tailscale. A minor detail, but it mattered for my own trust in the system — I always knew its state.</p>
+                        <div class="highlight-box">
+                            <div class="highlight-title">📸 Image placeholder</div>
+                            <div class="highlight-text">Close-up callout of the connection indicator — small dot in the corner of the app, green for local WiFi, blue for Tailscale. Annotated to explain what each state means.</div>
+                        </div>
                     </section>
                     <section id="hn-reflection" class="content-section">
-                        <div class="section-icon">🔮</div>
-                        <h1 class="section-title">What This Reveals About How I Think</h1>
-                        <p class="content-text">I didn't start with a design brief. I started with a problem I had every morning. The agents came before the interface — I spent the first six weeks just getting the backend right before writing a single SwiftUI view.</p>
-                        <p class="content-text">That sequencing matters. A lot of AI products start with the chat interface and bolt on "intelligence" later. Navori started with the intelligence and is now building the surface. The result is an app that feels grounded — because every UI decision is driven by what the agents actually produce, not by what a dashboard is supposed to look like.</p>
-                        <p class="content-text">Speed as a constraint: I built the first working version in ten days using Claude Code almost exclusively. I'm a designer who codes — not a developer who designs. That changes the calculus. I'm not fighting the tooling; I'm using it to compress the gap between idea and artifact.</p>
-                        <div class="quote-block"><p class="quote-text">"The most important design decision wasn't a UI component — it was choosing to build an agent framework before building an interface."</p></div>
-                        <p class="content-text">What Navori is really testing is whether agentic interfaces can feel personal instead of generic. Most AI tools feel like they could belong to anyone. Navori is trying to feel like it belongs to me — and through that specificity, become more useful than anything built for everyone.</p>
+                        <div class="section-icon">🪞</div>
+                        <h1 class="section-title">Reflection</h1>
+                        <p class="content-text">The most important decision in this project wasn't a UI choice. It was the architecture decision to separate agent concerns from the start. Each agent owning its own memory and domain meant the system could grow without becoming a monolith. Penn staying lightweight as a router rather than a heavy orchestrator meant it stayed fast. These are product decisions as much as technical ones — and getting them right at the beginning is what made the app genuinely useful rather than just technically interesting.</p>
+                        <div class="quote-block"><p class="quote-text">"Agentic interfaces require a fundamentally different design vocabulary than conversational ones. Chat assumes you'll ask. Agents can surface."</p></div>
+                        <p class="content-text">The design job shifts from "how do I make this interaction clear?" to "what does the user need to see before they even know to ask?" That's a different problem — and one that's going to matter increasingly as AI moves from assistants to systems that act on your behalf.</p>
+                        <p class="content-text">I'm still building. The work agent has real limitations without integration into my work machine. Several features — piping cron job outputs directly into the app feed, in-app insight tracking after the weekly digest — are on the roadmap. But the system is useful today, which is the only bar that matters.</p>
+                        <p class="content-text">That instinct — ship something real, learn from using it, keep building — is what I want to bring into my next role.</p>
                     </section>
                 </main>
             </div>
