@@ -1,5 +1,21 @@
 // Shared interactions for all pages
 
+// ── Mobile menu (hamburger) ──
+(function () {
+    const btn   = document.querySelector('.lp-hamburger');
+    const menu  = document.querySelector('.lp-mobile-menu');
+    const navEl = document.querySelector('.lp-nav');
+    if (!btn || !menu) return;
+    function open()  { btn.setAttribute('aria-expanded', 'true');  menu.removeAttribute('aria-hidden'); menu.classList.add('open'); }
+    function close() { btn.setAttribute('aria-expanded', 'false'); menu.setAttribute('aria-hidden', 'true'); menu.classList.remove('open'); }
+    btn.addEventListener('click', () => menu.classList.contains('open') ? close() : open());
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    document.addEventListener('click', e => {
+        if (!navEl.contains(e.target) && !menu.contains(e.target)) close();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+})();
+
 // ── Floating nav island on scroll ──
 (function () {
     const nav = document.querySelector('.lp-nav');
