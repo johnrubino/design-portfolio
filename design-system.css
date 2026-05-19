@@ -4350,9 +4350,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 
 /* ── Labs hero ── */
 .labs-hero {
-    padding: 148px 40px 72px;
-    max-width: 1160px;
-    margin: 0 auto;
+    padding: 148px 320px 72px;
 }
 .labs-hero-title-row {
     display: inline-flex;
@@ -4392,9 +4390,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 
 /* ── Labs card grid ── */
 .labs-grid {
-    max-width: 1160px;
-    margin: 0 auto;
-    padding: 0 40px 120px;
+    padding: 0 320px 120px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 16px;
@@ -4695,16 +4691,12 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     .labs-hero { padding-left: 60px; padding-right: 60px; }
 }
 @media (max-width: 1024px) {
-    .labs-hero { padding-top: 120px; padding-left: 60px; padding-right: 60px; }
-    .labs-grid { padding-left: 60px; padding-right: 60px; padding-bottom: 80px; }
+    .labs-hero { padding-top: 120px; padding-left: 32px; padding-right: 32px; }
+    .labs-grid { padding-left: 32px; padding-right: 32px; padding-bottom: 80px; }
 }
 @media (max-width: 768px) {
-    .labs-hero { padding: 100px 32px 48px; }
-    .labs-grid { grid-template-columns: 1fr; padding-left: 32px; padding-right: 32px; }
-}
-@media (max-width: 425px) {
-    .labs-hero { padding: 96px 20px 40px; }
-    .labs-grid { padding-left: 20px; padding-right: 20px; }
+    .labs-hero { padding: 100px 16px 48px; }
+    .labs-grid { grid-template-columns: 1fr; padding-left: 16px; padding-right: 16px; }
 }
 
 /* ── Mobile nav stagger: 4th and 5th items ── */
