@@ -4350,7 +4350,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 
 /* ── Labs hero ── */
 .labs-hero {
-    padding: 148px 320px 72px;
+    padding: 148px 320px 24px;
 }
 .labs-hero-title-row {
     display: inline-flex;
@@ -4695,7 +4695,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     .labs-grid { padding-left: 32px; padding-right: 32px; padding-bottom: 80px; }
 }
 @media (max-width: 768px) {
-    .labs-hero { padding: 100px 16px 48px; }
+    .labs-hero { padding: 100px 16px 24px; }
     .labs-grid { grid-template-columns: 1fr; padding-left: 16px; padding-right: 16px; }
 }
 
