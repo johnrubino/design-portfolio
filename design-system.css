@@ -2484,8 +2484,8 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 }
 .lp-mobile-menu.open .lp-mobile-cta { opacity:1; transform:translateY(0); transition-delay:190ms; }
 
-/* ── ≤425px: mobile — hamburger only, solid nav fill ── */
-@media (max-width: 425px) {
+/* ── ≤558px: mobile — hamburger only, solid nav fill ── */
+@media (max-width: 558px) {
     .lp-nav .lp-nav-links           { display: none; }
     .lp-nav-inner > .lp-btn-primary { display: none; }
     .lp-hamburger                   { display: flex; }
@@ -2508,8 +2508,8 @@ textarea.form-input { resize: vertical; min-height: 80px; }
         border-color: transparent;
     }
 }
-/* Always hide mobile menu above 425px */
-@media (min-width: 426px) {
+/* Always hide mobile menu above 558px */
+@media (min-width: 559px) {
     .lp-mobile-menu { display: none !important; }
     .lp-hamburger   { display: none !important; }
 }
