@@ -1,0 +1,59 @@
+<svg width="100%" height="100%" viewBox="0 0 60 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+
+    <!-- P1 (right chevron) — brighter facet, catches more light -->
+    <linearGradient id="g1" x1="24" y1="2.5" x2="57.5" y2="21.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#CDD4FF"/>
+      <stop offset="25%"  stop-color="#8C9DFF"/>
+      <stop offset="55%"  stop-color="#5060D8"/>
+      <stop offset="100%" stop-color="#1A2480"/>
+    </linearGradient>
+
+    <!-- P2 (left chevron) — darker facet, secondary plane -->
+    <linearGradient id="g2" x1="2.5" y1="2.5" x2="33" y2="21.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#8898FF"/>
+      <stop offset="40%"  stop-color="#4A5AC8"/>
+      <stop offset="75%"  stop-color="#2C3AA0"/>
+      <stop offset="100%" stop-color="#101870"/>
+    </linearGradient>
+
+    <!-- Gloss: overhead ambient light hitting the top surface -->
+    <linearGradient id="gloss" x1="0" y1="2.5" x2="0" y2="13" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="white" stop-opacity="0.28"/>
+      <stop offset="55%"  stop-color="white" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+
+  </defs>
+
+  <!-- Drop shadow layer -->
+  <g transform="translate(3.2, 3.2)" opacity="0.35">
+    <path d="M36.3341 6.26691L28.9587 19H21.7095L32.7095 0L54.7095 0L51.0797 6.26691L36.3341 6.26691Z" fill="#050A40"/>
+    <path d="M15.9667 12.6178L3.69799 12.8228L0 18.9673L19.434 18.6232L30.6226 0.00709L23.4659 0.12953L15.9667 12.6178Z" fill="#050A40"/>
+  </g>
+
+  <!-- Base metallic gradient fill -->
+  <g transform="translate(2.5, 2.5)">
+    <path d="M36.3341 6.26691L28.9587 19H21.7095L32.7095 0L54.7095 0L51.0797 6.26691L36.3341 6.26691Z" fill="url(#g1)"/>
+    <path d="M15.9667 12.6178L3.69799 12.8228L0 18.9673L19.434 18.6232L30.6226 0.00709L23.4659 0.12953L15.9667 12.6178Z" fill="url(#g2)"/>
+  </g>
+
+  <!-- Gloss overlay -->
+  <g transform="translate(2.5, 2.5)">
+    <path d="M36.3341 6.26691L28.9587 19H21.7095L32.7095 0L54.7095 0L51.0797 6.26691L36.3341 6.26691Z" fill="url(#gloss)"/>
+    <path d="M15.9667 12.6178L3.69799 12.8228L0 18.9673L19.434 18.6232L30.6226 0.00709L23.4659 0.12953L15.9667 12.6178Z" fill="url(#gloss)"/>
+  </g>
+
+  <!-- Top edge highlight — light catch on the bevel rim -->
+  <g transform="translate(2.5, 2.5)" fill="none" stroke="rgba(255,255,255,0.38)" stroke-width="0.4">
+    <path d="M36.3341 6.26691L28.9587 19H21.7095L32.7095 0L54.7095 0L51.0797 6.26691L36.3341 6.26691Z"/>
+    <path d="M15.9667 12.6178L3.69799 12.8228L0 18.9673L19.434 18.6232L30.6226 0.00709L23.4659 0.12953L15.9667 12.6178Z"/>
+  </g>
+
+  <!-- Bottom shadow edge stroke -->
+  <g transform="translate(2.5, 2.5)" fill="none" stroke="rgba(5,10,60,0.4)" stroke-width="0.2">
+    <path d="M36.3341 6.26691L28.9587 19H21.7095L32.7095 0L54.7095 0L51.0797 6.26691L36.3341 6.26691Z"/>
+    <path d="M15.9667 12.6178L3.69799 12.8228L0 18.9673L19.434 18.6232L30.6226 0.00709L23.4659 0.12953L15.9667 12.6178Z"/>
+  </g>
+
+</svg>
