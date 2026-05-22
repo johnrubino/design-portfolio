@@ -560,27 +560,128 @@
         .case-next-sub { font-size: 13px; color: var(--text-2); margin-top: 3px; }
         .case-next-arrow { color: var(--purple); flex-shrink: 0; margin-left: 16px; }
 
-        /* ── Mobile stepper FAB ── */
-        .stepper-fab { display: none; position: absolute; bottom: 24px; right: 20px; z-index: 200; }
-        .stepper-fab-menu { position: absolute; bottom: calc(100% + 10px); right: 0; min-width: 210px; background: var(--bg-2); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 8px; box-shadow: 0 12px 40px rgba(0,0,0,0.6); display: none; flex-direction: column; gap: 2px; }
+        /* ── Mobile stepper FAB — Analog Console Edition ── */
+
+        /* Wrapper — ambient orange bloom when menu is open */
+        .stepper-fab { display: none; position: absolute; bottom: 24px; right: 20px; z-index: 200; transition: filter 250ms ease; }
+        .stepper-fab.open { filter: drop-shadow(0 0 18px rgba(255,140,66,0.18)); }
+
+        /* Menu panel — dark anodized aluminum plate */
+        .stepper-fab-menu {
+            position: absolute; bottom: calc(100% + 10px); right: 0; min-width: 220px;
+            background: linear-gradient(180deg, #1e1e1e 0%, #161616 60%, #111111 100%);
+            border-top: 1px solid rgba(255,255,255,0.22);
+            border-right: 1px solid rgba(255,255,255,0.07);
+            border-bottom: 1px solid rgba(0,0,0,0.6);
+            border-left: 1px solid rgba(255,255,255,0.07);
+            border-radius: 14px; padding: 8px;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), inset 0 2px 4px rgba(255,255,255,0.03), inset 0 -1px 0 rgba(0,0,0,0.5), 0 16px 48px rgba(0,0,0,0.7), 0 4px 12px rgba(0,0,0,0.5);
+            display: none; flex-direction: column; gap: 2px; overflow: hidden;
+        }
         .stepper-fab.open .stepper-fab-menu { display: flex; }
-        .stepper-fab-item { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 8px; cursor: pointer; transition: background 130ms ease; background: transparent; border: none; outline: none; width: 100%; text-align: left; }
-        .stepper-fab-item:hover { background: rgba(255,255,255,0.05); }
-        .stepper-fab-item.active { background: rgba(255,140,66,0.12); }
-        .stepper-fab-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.15); border: 1.5px solid rgba(255,255,255,0.25); flex-shrink: 0; transition: background 150ms, border-color 150ms; }
-        .stepper-fab-item.active .stepper-fab-dot { background: var(--orange); border-color: var(--orange); }
-        .stepper-fab-item-title { font-size: 13px; color: var(--text-2); line-height: 1.3; }
-        .stepper-fab-item.active .stepper-fab-item-title { color: var(--orange); font-weight: 500; }
-        .stepper-fab-pill { display: flex; align-items: center; gap: 10px; padding: 8px 14px 8px 8px; background: var(--bg-2); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; cursor: pointer; box-shadow: 0 4px 24px rgba(0,0,0,0.5); transition: background 150ms ease; user-select: none; }
-        .stepper-fab-pill:hover { background: var(--bg-3); }
+
+        /* Noise grain texture — same feTurbulence technique as body::after in design-system.css */
+        .stepper-fab-menu::before {
+            content: ''; position: absolute; inset: 0; border-radius: inherit; z-index: 1; pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23grain)' opacity='1'/%3E%3C/svg%3E");
+            background-repeat: repeat; background-size: 200px 200px; opacity: 0.04;
+        }
+
+        /* Step item rows — console button rows */
+        .stepper-fab-item {
+            display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 6px; cursor: pointer;
+            background: transparent; border: none; outline: none; width: 100%; text-align: left;
+            position: relative; z-index: 2;
+            transition: background 120ms ease, box-shadow 120ms ease;
+        }
+        .stepper-fab-item:hover { background: rgba(255,255,255,0.04); }
+        .stepper-fab-item.active {
+            background: linear-gradient(90deg, rgba(255,140,66,0.10) 0%, rgba(255,140,66,0.05) 60%, transparent 100%);
+            box-shadow: inset 2px 0 0 rgba(255,140,66,0.85);
+        }
+        .stepper-fab-item.completed { background: transparent; }
+
+        /* LED indicator dots */
+        .stepper-fab-dot {
+            width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+            background: #0d0d0d; border: 1px solid rgba(255,255,255,0.10);
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.8), inset 0 0 3px rgba(0,0,0,0.6);
+            transition: background 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+        }
+        .stepper-fab-item.active .stepper-fab-dot {
+            background: var(--orange); border-color: rgba(255,160,80,0.9);
+            box-shadow: 0 0 0 1px rgba(255,140,66,0.3), 0 0 5px 1px rgba(255,140,66,0.9), 0 0 10px 2px rgba(255,140,66,0.4), 0 0 16px 4px rgba(255,100,20,0.2), inset 0 1px 1px rgba(255,220,150,0.6);
+        }
+        .stepper-fab-item.completed .stepper-fab-dot {
+            background: rgba(180,90,20,0.55); border-color: rgba(200,110,30,0.4);
+            box-shadow: 0 0 4px rgba(255,140,66,0.25), inset 0 1px 1px rgba(0,0,0,0.5);
+        }
+
+        /* Item title text — sits above grain layer */
+        .stepper-fab-item-title { font-size: 13px; color: var(--text-2); line-height: 1.3; position: relative; z-index: 2; transition: color 150ms ease; }
+        .stepper-fab-item.active .stepper-fab-item-title { color: #FFAB6E; font-weight: 500; letter-spacing: 0.01em; }
+        .stepper-fab-item.completed .stepper-fab-item-title { color: rgba(160,160,160,0.7); }
+
+        /* FAB pill — machined metal capsule */
+        .stepper-fab-pill {
+            display: flex; align-items: center; gap: 10px; padding: 8px 14px 8px 8px;
+            background: linear-gradient(180deg, #252525 0%, #1a1a1a 40%, #111111 100%);
+            border-top: 1px solid rgba(255,255,255,0.26);
+            border-right: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(0,0,0,0.7);
+            border-left: 1px solid rgba(255,255,255,0.08);
+            border-radius: 100px; cursor: pointer; user-select: none;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.10), 0 6px 28px rgba(0,0,0,0.65), 0 2px 6px rgba(0,0,0,0.45);
+            transition: background 150ms ease, box-shadow 200ms ease;
+        }
+        .stepper-fab-pill:hover {
+            background: linear-gradient(180deg, #2e2e2e 0%, #1f1f1f 40%, #141414 100%);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), 0 6px 28px rgba(0,0,0,0.65), 0 2px 6px rgba(0,0,0,0.45), 0 0 12px rgba(255,140,66,0.08);
+        }
+        .stepper-fab.open .stepper-fab-pill {
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), 0 6px 28px rgba(0,0,0,0.65), 0 2px 6px rgba(0,0,0,0.45), 0 0 20px rgba(255,140,66,0.22), 0 0 8px rgba(255,140,66,0.14);
+        }
+
+        /* Progress ring */
         .stepper-fab-ring { position: relative; width: 32px; height: 32px; flex-shrink: 0; }
-        .stepper-fab-ring svg { transform: rotate(-90deg); width: 32px; height: 32px; }
-        .stepper-fab-ring .ring-bg { fill: none; stroke: rgba(255,255,255,0.08); stroke-width: 2.5; }
-        .stepper-fab-ring .ring-fill { fill: none; stroke: var(--purple); stroke-width: 2.5; stroke-linecap: round; transition: stroke-dashoffset 300ms ease; }
-        .stepper-fab-ring-num { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: #fff; }
-        .stepper-fab-label { font-size: 13px; font-weight: 500; color: var(--text); white-space: nowrap; }
-        .stepper-fab-chevron { width: 14px; height: 14px; color: var(--text-2); transition: transform 200ms ease; flex-shrink: 0; }
-        .stepper-fab.open .stepper-fab-chevron { transform: rotate(180deg); }
+        .stepper-fab-ring svg { transform: rotate(-90deg); width: 32px; height: 32px; overflow: visible; }
+        .stepper-fab-ring .ring-bg { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 2px; }
+        .stepper-fab-ring .ring-fill { fill: none; stroke: var(--orange); stroke-width: 2.5; stroke-linecap: round; transition: stroke-dashoffset 300ms ease; filter: drop-shadow(0 0 4px rgba(255,140,66,0.70)) drop-shadow(0 0 2px rgba(255,140,66,0.50)); }
+
+        /* Step number — monospace engraved counter */
+        .stepper-fab-ring-num { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; font-family: 'Courier New', Courier, monospace; font-variant-numeric: tabular-nums; color: rgba(240,237,232,0.95); text-shadow: 0 1px 2px rgba(0,0,0,0.8), 0 -1px 1px rgba(255,255,255,0.08); letter-spacing: -0.02em; }
+
+        /* Label — label-tape uppercase */
+        .stepper-fab-label { font-size: 12px; font-weight: 500; color: var(--text); white-space: nowrap; letter-spacing: 0.02em; text-transform: uppercase; }
+
+        /* Chevron — angular machined arrow */
+        .stepper-fab-chevron { width: 14px; height: 14px; color: rgba(200,195,188,0.7); stroke-width: 2.5; stroke-linecap: square; stroke-linejoin: miter; transition: transform 200ms ease, color 150ms ease; flex-shrink: 0; }
+        .stepper-fab.open .stepper-fab-chevron { transform: rotate(180deg); color: rgba(255,140,66,0.80); }
+
+        /* ── Light mode overrides — polished silver/platinum panel ── */
+        [data-theme="light"] .stepper-fab-menu {
+            background: linear-gradient(180deg, #e8e6e3 0%, #dddbd8 60%, #d0cec9 100%);
+            border-top: 1px solid rgba(255,255,255,0.90); border-right: 1px solid rgba(0,0,0,0.08); border-bottom: 1px solid rgba(0,0,0,0.18); border-left: 1px solid rgba(0,0,0,0.08);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.80), inset 0 2px 4px rgba(255,255,255,0.30), inset 0 -1px 0 rgba(0,0,0,0.12), 0 12px 36px rgba(0,0,0,0.22), 0 4px 10px rgba(0,0,0,0.14);
+        }
+        [data-theme="light"] .stepper-fab-menu::before { opacity: 0.02; }
+        [data-theme="light"] .stepper-fab-item:hover { background: rgba(0,0,0,0.05); }
+        [data-theme="light"] .stepper-fab-item.active { background: linear-gradient(90deg, rgba(255,140,66,0.14) 0%, rgba(255,140,66,0.06) 60%, transparent 100%); box-shadow: inset 2px 0 0 rgba(255,140,66,0.90); }
+        [data-theme="light"] .stepper-fab-dot { background: rgba(160,148,130,0.3); border: 1px solid rgba(0,0,0,0.15); box-shadow: inset 0 1px 2px rgba(0,0,0,0.25), inset 0 0 3px rgba(0,0,0,0.15); }
+        [data-theme="light"] .stepper-fab-item.active .stepper-fab-dot { background: var(--orange); border-color: rgba(255,160,80,0.9); box-shadow: 0 0 0 1px rgba(255,140,66,0.3), 0 0 5px 1px rgba(255,140,66,0.7), 0 0 10px 2px rgba(255,140,66,0.3), inset 0 1px 1px rgba(255,220,150,0.5); }
+        [data-theme="light"] .stepper-fab-item.completed .stepper-fab-dot { background: rgba(180,110,50,0.45); border-color: rgba(180,100,40,0.35); box-shadow: 0 0 3px rgba(200,120,50,0.20), inset 0 1px 1px rgba(255,255,255,0.3); }
+        [data-theme="light"] .stepper-fab-item-title { color: #555555; }
+        [data-theme="light"] .stepper-fab-item.active .stepper-fab-item-title { color: #c4620a; }
+        [data-theme="light"] .stepper-fab-item.completed .stepper-fab-item-title { color: rgba(100,95,88,0.65); }
+        [data-theme="light"] .stepper-fab-pill { background: linear-gradient(180deg, #e2e0dd 0%, #d4d2ce 40%, #c8c5c0 100%); border-top: 1px solid rgba(255,255,255,0.95); border-right: 1px solid rgba(0,0,0,0.10); border-bottom: 1px solid rgba(0,0,0,0.22); border-left: 1px solid rgba(0,0,0,0.10); box-shadow: inset 0 1px 0 rgba(255,255,255,0.70), 0 4px 18px rgba(0,0,0,0.22), 0 1px 4px rgba(0,0,0,0.16); }
+        [data-theme="light"] .stepper-fab-pill:hover { background: linear-gradient(180deg, #eceae7 0%, #dcdad6 40%, #d0cdc8 100%); }
+        [data-theme="light"] .stepper-fab.open .stepper-fab-pill { box-shadow: inset 0 1px 0 rgba(255,255,255,0.70), 0 4px 18px rgba(0,0,0,0.22), 0 0 16px rgba(255,140,66,0.20); }
+        [data-theme="light"] .stepper-fab-ring .ring-bg { stroke: rgba(0,0,0,0.12); }
+        [data-theme="light"] .stepper-fab-ring-num { color: rgba(30,25,20,0.85); text-shadow: 0 1px 1px rgba(255,255,255,0.7), 0 -1px 1px rgba(0,0,0,0.15); }
+        [data-theme="light"] .stepper-fab-label { color: #2a2724; }
+        [data-theme="light"] .stepper-fab-chevron { color: rgba(60,55,48,0.65); }
+        [data-theme="light"] .stepper-fab.open .stepper-fab-chevron { color: rgba(196,98,10,0.85); }
+
         @media (max-width: 900px) {
             .stepper-fab { display: block; }
             .sheet-content-panel .stepper-container { display: none; }
