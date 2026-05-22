@@ -58,17 +58,22 @@ export default async function handler(req, res) {
     const sig   = crypto.createHmac('sha256', secret).update(data).digest('base64url');
     const token = `${data}.${sig}`;
 
-    // Generate short code and store mapping in KV
-    const code = makeShortCode();
-    await kvStoreShortCode(code, token, daysNum * 86400);
-
     const host    = process.env.SITE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
     const expDate = new Date(payload.exp * 1000).toLocaleDateString('en-US', {
         weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
     });
 
+    // Use a short code only when KV is configured — otherwise fall back to the
+    // full signed token so the link works without a KV lookup.
+    let linkToken = token;
+    if (process.env.KV_REST_API_URL) {
+        const code = makeShortCode();
+        await kvStoreShortCode(code, token, daysNum * 86400);
+        linkToken = code;
+    }
+
     return res.status(200).json({
-        url:     `${host}/hiring.html?t=${code}`,
+        url:     `${host}/hiring?t=${linkToken}`,
         token,
         company,
         expires: expDate,
