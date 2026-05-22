@@ -2097,6 +2097,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 }
 
 .case-study-layout .section-title {
+    font-family: var(--lp-font-display);
     font-size: var(--text-xl);
     font-weight: 500;
     line-height: 1.2;
