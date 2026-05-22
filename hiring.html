@@ -538,9 +538,10 @@
         .sheet-content-panel .highlight-box,
         .sheet-content-panel .stats-table,
         .sheet-content-panel .image-placeholder { max-width: 800px; margin-left: auto; margin-right: auto; }
-        .sheet-content-panel .stepper-indicator { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 24px; }
+        .sheet-content-panel .stepper-indicator { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 16px; }
         /* ── Fix stepper connector gap ── */
-        .sheet-content-panel .stepper-step { padding: 0; }
+        .sheet-content-panel .stepper-step { padding: 4px 6px; border-radius: 6px; }
+        .sheet-content-panel .stepper-step:hover { background: rgba(255,255,255,0.04); }
         .sheet-content-panel .stepper-content { padding: 3px 0 18px; }
         .sheet-content-panel .stepper-line { width: 1.5px; flex: 1; min-height: 14px; background: rgba(255,255,255,0.12); margin-top: 0; }
         .sheet-content-panel .stepper-step:last-child .stepper-line { display: none; }

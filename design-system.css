@@ -1136,28 +1136,41 @@ body::after {
     gap: 16px;
     padding: 8px 0;
     cursor: pointer;
+    border-radius: 6px;
+    transition: background 130ms ease;
 }
+
+.stepper-step:hover { background: rgba(255, 255, 255, 0.04); }
 
 .stepper-circle {
     position: relative;
-    width: 24px;
-    height: 24px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
+    flex-shrink: 0;
     background: radial-gradient(circle at 50% 35%, #2a2a2a 0%, #141414 100%);
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.14),
         inset 0 -1px 0 rgba(0, 0, 0, 0.5),
-        inset 0 0 6px rgba(0, 0, 0, 0.4),
-        0 2px 8px rgba(0, 0, 0, 0.45);
-    transition: transform var(--duration-normal) var(--ease-out-back),
-                background var(--duration-normal) ease,
+        inset 0 0 4px rgba(0, 0, 0, 0.4),
+        0 2px 6px rgba(0, 0, 0, 0.45);
+    transition: background var(--duration-normal) ease,
                 border-color var(--duration-normal) ease,
                 box-shadow var(--duration-normal) ease;
     will-change: transform;
 }
 
-.stepper-step:hover .stepper-circle { transform: scale(1.15); }
+.stepper-step:hover .stepper-circle {
+    background: radial-gradient(circle at 50% 35%, #383838 0%, #1e1e1e 100%);
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.22),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.5),
+        inset 0 0 4px rgba(0, 0, 0, 0.3),
+        0 0 8px rgba(255, 255, 255, 0.07),
+        0 2px 6px rgba(0, 0, 0, 0.4);
+}
 
 .stepper-step.active .stepper-circle {
     background: radial-gradient(circle at 50% 30%, #FF8C42 0%, #FF6B35 50%, #D94A1A 100%);
@@ -1172,7 +1185,7 @@ body::after {
 .stepper-step.active .stepper-circle::after {
     content: '';
     position: absolute;
-    inset: -8px;
+    inset: -5px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(255, 140, 66, 0.35) 0%, transparent 70%);
     animation: pulse-dot 2s ease-in-out infinite;
@@ -1195,8 +1208,9 @@ body::after {
     left: 50%;
     transform: translate(-50%, -50%);
     color: rgba(255, 200, 120, 0.9);
-    font-size: var(--text-sm);
-    font-weight: 600;
+    font-size: 8px;
+    font-weight: 700;
+    line-height: 1;
 }
 
 .stepper-title {
@@ -1208,7 +1222,7 @@ body::after {
                 transform var(--duration-normal) var(--ease-out-back);
 }
 
-.stepper-step:hover .stepper-title { color: var(--text-primary); transform: translateX(4px); }
+.stepper-step:hover .stepper-title { color: var(--text-primary); }
 .stepper-step.active .stepper-title,
 .stepper-step.completed .stepper-title { color: var(--text-primary); }
 .stepper-step.active .stepper-title { letter-spacing: 0.01em; }
