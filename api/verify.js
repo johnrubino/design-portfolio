@@ -1,18 +1,7 @@
-// /api/verify — validates a hiring token, logs the view, fires an email notification
+// /api/verify — validates a hiring token, logs the open, fires an email notification
 // Called by hiring.html on every page load
 import crypto from 'crypto';
-
-// ── Vercel KV via REST (no npm package needed) ──────────────────────────────
-async function kvGet(key) {
-    if (!process.env.KV_REST_API_URL) return null;
-    try {
-        const r = await fetch(`${process.env.KV_REST_API_URL}/get/${encodeURIComponent(key)}`, {
-            headers: { Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}` }
-        });
-        const j = await r.json();
-        return j.result ? JSON.parse(j.result) : null;
-    } catch { return null; }
-}
+import { appendHiringView, kvGetJson, kvSetJson, kvSetNx } from '../lib/hiring-store.js';
 
 // Resolve a 6-char short code to its full token string
 async function kvResolveShortCode(code) {
@@ -27,32 +16,36 @@ async function kvResolveShortCode(code) {
     } catch { return null; }
 }
 
-async function kvSet(key, value) {
-    if (!process.env.KV_REST_API_URL) return;
-    try {
-        await fetch(`${process.env.KV_REST_API_URL}/set/${encodeURIComponent(key)}`, {
-            method: 'POST',
-            headers: {
-                Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ value: JSON.stringify(value) })
-        });
-    } catch { /* non-fatal */ }
+// Cheap bot filter — skip logging only; token still validates
+function isObviousBot(ua) {
+    if (!ua) return true;
+    return /bot|crawler|spider|preview|slurp|facebookexternalhit|whatsapp|telegram|discord|embedly|quora|pinterest|redditbot|linkedinbot|twitterbot|applebot|semrush|ahrefs|bytespider|gptbot|claudebot|curl|wget|python-requests|go-http-client|headless/i.test(ua);
 }
 
-// ── Geo lookup via ipapi.co (free, no key needed) ───────────────────────────
-async function getLocation(ip) {
-    if (!ip || ip === '::1' || ip.startsWith('127.')) return 'Local';
-    try {
-        const r = await fetch(`https://ipapi.co/${ip}/json/`, {
-            headers: { 'User-Agent': 'portfolio-tracker/1.0' }
-        });
-        if (!r.ok) return 'Unknown';
-        const g = await r.json();
-        if (g.city && g.country_name) return `${g.city}, ${g.country_name}`;
-        return g.country_name || 'Unknown';
-    } catch { return 'Unknown'; }
+function uaHash(ua) {
+    return crypto.createHash('sha256').update(ua || '').digest('hex').slice(0, 16);
+}
+
+function hourBucket(date) {
+    // UTC hour: YYYYMMDDHH
+    return date.toISOString().slice(0, 13).replace(/[-T]/g, '');
+}
+
+function geoFromHeaders(headers) {
+    const country = headers['x-vercel-ip-country'] || '';
+    const cityRaw = headers['x-vercel-ip-city'];
+    // City may be URL-encoded (e.g. New%20York)
+    let city = '';
+    if (cityRaw) {
+        try { city = decodeURIComponent(cityRaw); }
+        catch { city = cityRaw; }
+    }
+    return { country, city };
+}
+
+function locationLabel(country, city) {
+    if (city && country) return `${city}, ${country}`;
+    return city || country || 'Unknown';
 }
 
 // ── Resend email (REST, no npm) ──────────────────────────────────────────────
@@ -139,34 +132,77 @@ export default async function handler(req, res) {
         month: 'long', day: 'numeric', year: 'numeric'
     });
 
-    // Expired?
+    // Expired? Do not log as a company open.
     if (payload.exp < Math.floor(Date.now() / 1000)) {
         return res.status(200).json({ valid: false, reason: 'expired', company: payload.co, expDate });
     }
 
-    // ── Gather request context ──────────────────────────────────────────────
-    const ip      = (req.headers['x-forwarded-for'] || '').split(',')[0].trim() || req.socket?.remoteAddress || '';
+    // ── Gather request context (no raw IP stored) ───────────────────────────
     const ua      = req.headers['user-agent'] || '';
     const isMob   = /Mobile|Android|iPhone|iPad/.test(ua);
     const browser = ua.includes('Edg') ? 'Edge' : ua.includes('Chrome') ? 'Chrome' : ua.includes('Firefox') ? 'Firefox' : ua.includes('Safari') ? 'Safari' : 'Browser';
     const device  = isMob ? 'Mobile' : 'Desktop';
     const now     = new Date();
-    const kvKey   = `hire:${payload.id}`;
+    const { country, city } = geoFromHeaders(req.headers);
+    const path    = '/hiring';
+    const tokenId = payload.id || '';
 
-    // ── Geo + KV read in parallel ───────────────────────────────────────────
-    const [location, existing] = await Promise.all([
-        getLocation(ip),
-        kvGet(kvKey)
-    ]);
+    // Log only for humans; still return valid so the public UX is unchanged
+    let viewCount = 0;
+    const shouldLog = !isObviousBot(ua) && tokenId;
 
-    // KV: append new view and write back (fire-and-forget)
-    const log = existing || { company: payload.co, views: [] };
-    log.views.push({ ts: now.toISOString(), ip, location, device, browser });
-    const viewCount = log.views.length;
-    kvSet(kvKey, log);
+    if (shouldLog) {
+        // Dedupe: same token id + same UTC hour + same UA → one open
+        const dedupeKey = `hire:dedupe:${tokenId}:${hourBucket(now)}:${uaHash(ua)}`;
+        const isNew = await kvSetNx(dedupeKey, 2 * 3600);
 
-    // Email (fire-and-forget)
-    sendNotification({ company: payload.co, viewCount, location, device, browser, expDate, now });
+        if (isNew) {
+            const entry = {
+                company: payload.co,
+                tokenId,
+                ts: now.toISOString(),
+                country,
+                city,
+                ua: ua.slice(0, 200),
+                path
+            };
+
+            // Global newest-first list for /api/hiring-views
+            await appendHiringView(entry);
+
+            // Per-token tally (email + optional history) — no IP, no full token
+            const kvKey = `hire:${tokenId}`;
+            const existing = (await kvGetJson(kvKey)) || { company: payload.co, views: [] };
+            if (!Array.isArray(existing.views)) existing.views = [];
+            existing.company = payload.co;
+            existing.views.push({
+                ts: entry.ts,
+                country,
+                city,
+                device,
+                browser
+            });
+            // Cap per-token history
+            if (existing.views.length > 50) existing.views = existing.views.slice(-50);
+            await kvSetJson(kvKey, existing);
+            viewCount = existing.views.length;
+
+            // Email (await so serverless doesn't freeze early on hobby)
+            await sendNotification({
+                company: payload.co,
+                viewCount,
+                location: locationLabel(country, city),
+                device,
+                browser,
+                expDate,
+                now
+            });
+        } else {
+            // Duplicate refresh — report existing count if present
+            const existing = await kvGetJson(`hire:${tokenId}`);
+            viewCount = Array.isArray(existing?.views) ? existing.views.length : 0;
+        }
+    }
 
     return res.status(200).json({
         valid:     true,
