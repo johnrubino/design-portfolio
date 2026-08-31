@@ -94,6 +94,14 @@ If they open it again later:
 
 > **🔄 Figma viewed your portfolio again (3 total views)**
 
+### List recent opens (Jobi / admin)
+
+```
+https://yoursite.com/api/hiring-views?key=YOUR_ADMIN_KEY
+```
+
+Returns newest-first JSON opens recorded only for **valid, unexpired** tokens (deduped per token id + UTC hour + user-agent). Payload fields: `company`, `tokenId`, `ts`, `country`, `city`, `ua`, `path`. Reuses `ADMIN_KEY` — same secret as `/api/generate`. Storage is the existing Vercel KV / Upstash Redis store.
+
 ---
 
 ## Testing locally
