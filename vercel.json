@@ -2,8 +2,8 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/board/:jobId((?!job(?:\\.html)?$|jobs\\.json$)[^/]+)",
-      "destination": "/board/job.html?jobId=:jobId"
+      "source": "/board/:jobId((?!job$|jobs\\.json$)[^/]+)",
+      "destination": "/board/job?jobId=:jobId"
     }
   ]
 }
