@@ -332,46 +332,108 @@
         }
         .board-panel[hidden] { display: none; }
 
-        .board-section {
-            margin-bottom: 28px;
+        /* ── VET write-ups (TrueUp-shaped) ───────────────────────────────── */
+        .board-writeup {
+            margin-bottom: 40px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border);
         }
-        .board-section-title {
+        .board-writeup:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .board-writeup-title {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        .board-writeup-meta {
             font-size: 12px;
+            font-style: italic;
+            color: var(--text-3);
+            margin-bottom: 18px;
+        }
+        .board-writeup-seed {
+            font-style: normal;
+            margin-left: 6px;
+            padding: 1px 7px;
+            border-radius: 999px;
+            border: 1px solid var(--border-mid);
+            font-size: 10px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--text-3);
+        }
+        .board-writeup-kvs {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .board-writeup-kv {
+            font-size: 14px;
+            line-height: 1.45;
+            color: var(--text);
+        }
+        .board-writeup-kv strong {
+            font-weight: 600;
+            color: var(--text);
+            margin-right: 6px;
+        }
+        .board-writeup-summary {
+            font-size: 14px;
+            line-height: 1.55;
+            color: var(--text-2);
+            margin-bottom: 22px;
+        }
+        .board-writeup-h2 {
+            font-family: var(--lp-font-ui);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: var(--text);
+            margin: 22px 0 10px;
+        }
+        .board-scorecard {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+        .board-scorecard th,
+        .board-scorecard td {
+            text-align: left;
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+            line-height: 1.4;
+        }
+        .board-scorecard th {
+            font-size: 11px;
             font-weight: 600;
             letter-spacing: 0.04em;
             text-transform: uppercase;
             color: var(--text-3);
-            margin-bottom: 10px;
-        }
-        .board-gates {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            align-items: center;
-            margin-bottom: 14px;
-            padding: 10px 12px;
             background: var(--bg-2);
-            border: 1px solid var(--border);
-            border-radius: 8px;
+            border-bottom-color: var(--border-mid);
         }
-        .board-gate-badge {
-            font-size: 12px;
-            font-weight: 500;
-            padding: 3px 8px;
-            border-radius: 6px;
-            border: 1px solid var(--border-mid);
+        .board-scorecard td {
+            color: var(--text-2);
         }
-        .board-gate-badge.pass {
+        .board-scorecard td:first-child {
             color: var(--text);
-            background: var(--bg-3);
+            font-weight: 500;
+            white-space: nowrap;
         }
-        .board-gate-badge.fail {
-            color: var(--text-2);
-            background: transparent;
-        }
-        .board-fit-score {
-            font-size: 12px;
-            color: var(--text-2);
+        .board-scorecard .rating {
+            color: var(--text);
+            font-weight: 500;
+            white-space: nowrap;
         }
         .board-list {
             list-style: none;
@@ -399,6 +461,46 @@
         .board-list.is-gaps li::before {
             background: var(--text-2);
         }
+        .board-gap-kind {
+            display: inline;
+            font-size: 12px;
+            font-style: italic;
+            color: var(--text-3);
+            margin-left: 6px;
+        }
+        .board-gap-item {
+            margin-bottom: 28px;
+        }
+        .board-gap-item:last-child { margin-bottom: 0; }
+        .board-gap-headline {
+            font-family: var(--lp-font-ui);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
+            letter-spacing: -0.01em;
+        }
+        .board-gap-tag {
+            font-size: 12px;
+            font-style: italic;
+            color: var(--text-3);
+            margin-bottom: 12px;
+        }
+        .board-gap-addr {
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--text-2);
+            margin-bottom: 8px;
+        }
+        .board-gap-addr strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+        .board-writeup-empty {
+            font-size: 13px;
+            color: var(--text-3);
+            padding: 8px 0;
+        }
 
         .board-slot {
             padding: 14px 0;
@@ -420,6 +522,13 @@
             color: var(--text);
             text-decoration: underline;
             text-underline-offset: 2px;
+        }
+
+        @media (max-width: 640px) {
+            .board-scorecard { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .board-scorecard th:last-child,
+            .board-scorecard td:last-child { min-width: 160px; }
+            .board-writeup-title { font-size: 19px; }
         }
 
         /* Confirm sheet */
@@ -695,15 +804,8 @@
 
         function renderDetail() {
             const j = job;
-            const vet = j.vet || {};
             const land = j.land || {};
             const statusClass = j.status === 'interview' ? 'board-status is-interview' : 'board-status';
-            const why = (vet.whyFits || []).map(function (t) {
-                return '<li>' + escapeHtml(t) + '</li>';
-            }).join('');
-            const gaps = (vet.gaps || []).map(function (t) {
-                return '<li>' + escapeHtml(t) + '</li>';
-            }).join('');
 
             document.title = j.company + ' — Board';
 
@@ -742,25 +844,9 @@
                 '</div>' +
 
                 '<div class="board-panel" id="panelVet" role="tabpanel" aria-labelledby="tabVet">' +
-                '<section class="board-section">' +
-                '<h2 class="board-section-title">Am I a fit?</h2>' +
-                '<div class="board-gates">' +
-                '<span class="board-gate-badge ' + (vet.gatesPass ? 'pass' : 'fail') + '">' +
-                (vet.gatesPass ? 'Gates pass' : 'Gates fail') + '</span>' +
-                (vet.fitScore != null
-                    ? '<span class="board-fit-score">Fit score ' + escapeHtml(String(vet.fitScore)) + ' <span style="color:var(--text-3)">(secondary)</span></span>'
-                    : '') +
+                renderFitWriteup(j) +
+                renderGapAnalysisWriteup(j) +
                 '</div>' +
-                (why
-                    ? '<ul class="board-list">' + why + '</ul>'
-                    : '<p class="board-slot-empty">No fit notes yet.</p>') +
-                '</section>' +
-                '<section class="board-section">' +
-                '<h2 class="board-section-title">Gap analysis</h2>' +
-                (gaps
-                    ? '<ul class="board-list is-gaps">' + gaps + '</ul>'
-                    : '<p class="board-slot-empty">No gaps listed.</p>') +
-                '</section></div>' +
 
                 '<div class="board-panel" id="panelLand" role="tabpanel" aria-labelledby="tabLand" hidden>' +
                 landSlot('Résumé PDF', land.resumePath, true) +
@@ -774,6 +860,114 @@
             document.getElementById('tabVet').addEventListener('click', function () { setTab('vet'); });
             document.getElementById('tabLand').addEventListener('click', function () { setTab('land'); });
             renderActions();
+        }
+
+        function writeupMetaLine(obj) {
+            if (!obj) return '';
+            const date = formatDate(obj.generatedAt) || obj.generatedAt || '—';
+            const source = obj.source || 'TrueUp';
+            const seed = obj.seed
+                ? ' <span class="board-writeup-seed">Seed example</span>'
+                : '';
+            return '<p class="board-writeup-meta">Generated ' + escapeHtml(date) +
+                ' via ' + escapeHtml(source) + seed + '</p>';
+        }
+
+        function renderFitWriteup(j) {
+            const fit = j.fit;
+            if (!fit) {
+                return '<div class="board-writeup"><p class="board-writeup-empty">Fit write-up not yet — Jobi will add from TrueUp.</p></div>';
+            }
+            const title = 'Am I a fit for this role? — ' + (j.title || 'Role') + ' @ ' + (j.company || 'Company');
+            let html = '<section class="board-writeup" id="fitWriteup">' +
+                '<h2 class="board-writeup-title">' + escapeHtml(title) + '</h2>' +
+                writeupMetaLine(fit) +
+                '<div class="board-writeup-kvs">' +
+                (fit.score != null
+                    ? '<p class="board-writeup-kv"><strong>Fit score:</strong> ' + escapeHtml(String(fit.score)) + '</p>'
+                    : '') +
+                (fit.confidence
+                    ? '<p class="board-writeup-kv"><strong>Confidence:</strong> ' + escapeHtml(fit.confidence) + '</p>'
+                    : '') +
+                (fit.recommendation
+                    ? '<p class="board-writeup-kv"><strong>Recommendation:</strong> ' + escapeHtml(fit.recommendation) + '</p>'
+                    : '') +
+                '</div>';
+
+            if (fit.summary) {
+                html += '<p class="board-writeup-summary">' + escapeHtml(fit.summary) + '</p>';
+            }
+
+            if (fit.scorecard && fit.scorecard.length) {
+                html += '<h3 class="board-writeup-h2">Scorecard</h3>' +
+                    '<table class="board-scorecard">' +
+                    '<thead><tr><th>Dimension</th><th>Rating</th><th>Notes</th></tr></thead><tbody>' +
+                    fit.scorecard.map(function (row) {
+                        return '<tr>' +
+                            '<td>' + escapeHtml(row.dimension || '—') + '</td>' +
+                            '<td class="rating">' + escapeHtml(row.rating || '—') + '</td>' +
+                            '<td>' + escapeHtml(row.notes || '—') + '</td>' +
+                            '</tr>';
+                    }).join('') +
+                    '</tbody></table>';
+            }
+
+            if (fit.strengths && fit.strengths.length) {
+                html += '<h3 class="board-writeup-h2">Strengths</h3><ul class="board-list">' +
+                    fit.strengths.map(function (s) {
+                        return '<li>' + escapeHtml(s) + '</li>';
+                    }).join('') +
+                    '</ul>';
+            }
+
+            if (fit.gaps && fit.gaps.length) {
+                html += '<h3 class="board-writeup-h2">Gaps</h3><ul class="board-list is-gaps">' +
+                    fit.gaps.map(function (g) {
+                        if (typeof g === 'string') {
+                            return '<li>' + escapeHtml(g) + '</li>';
+                        }
+                        const kind = g.kind
+                            ? ' <span class="board-gap-kind">(' + escapeHtml(g.kind) + ')</span>'
+                            : '';
+                        return '<li>' + escapeHtml(g.text || '') + kind + '</li>';
+                    }).join('') +
+                    '</ul>';
+            }
+
+            html += '</section>';
+            return html;
+        }
+
+        function renderGapAnalysisWriteup(j) {
+            const ga = j.gapAnalysis;
+            if (!ga || !ga.gaps || !ga.gaps.length) {
+                return '<div class="board-writeup" id="gapWriteup"><p class="board-writeup-empty">Gap analysis not yet — Jobi will add from TrueUp.</p></div>';
+            }
+            const title = 'Gap analysis — ' + (j.title || 'Role') + ' @ ' + (j.company || 'Company');
+            let html = '<section class="board-writeup" id="gapWriteup">' +
+                '<h2 class="board-writeup-title">' + escapeHtml(title) + '</h2>' +
+                writeupMetaLine(ga);
+
+            ga.gaps.forEach(function (g, i) {
+                const n = i + 1;
+                html += '<article class="board-gap-item">' +
+                    '<h3 class="board-gap-headline">Gap ' + n + ': ' + escapeHtml(g.headline || '—') + '</h3>' +
+                    (g.kind
+                        ? '<p class="board-gap-tag">' + escapeHtml(g.kind) + '</p>'
+                        : '') +
+                    (g.interview
+                        ? '<p class="board-gap-addr"><strong>Address in an interview:</strong> ' +
+                          escapeHtml(g.interview) + '</p>'
+                        : '') +
+                    (g.longerTerm
+                        ? '<p class="board-gap-addr"><strong>Address longer-term:</strong> ' +
+                          escapeHtml(g.longerTerm) + '</p>'
+                        : '') +
+                    '</article>';
+            });
+
+            html += '</section>';
+            return html;
         }
 
         function setTab(name) {
