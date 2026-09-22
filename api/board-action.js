@@ -68,13 +68,26 @@ export default async function handler(req, res) {
     const payload = { jobId, action, source: 'board', receivedAt: new Date().toISOString() };
     console.log('[board-action]', JSON.stringify(payload));
 
-    // Optional forward when JOBI_WEBHOOK_URL is configured (server-only)
+    // Optional forward when JOBI_WEBHOOK_URL is configured (server-only).
+    // Jobi requires auth — never forward unauthenticated; never expose URL/key to the browser.
     const webhook = process.env.JOBI_WEBHOOK_URL;
+    const webhookKey = process.env.JOBI_WEBHOOK_KEY;
     if (webhook) {
+        if (!webhookKey) {
+            console.error('[board-action] JOBI_WEBHOOK_URL set but JOBI_WEBHOOK_KEY missing');
+            return res.status(500).json({
+                ok: false,
+                error: 'JOBI_WEBHOOK_KEY is required when JOBI_WEBHOOK_URL is set'
+            });
+        }
         try {
             await fetch(webhook, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${webhookKey}`,
+                    'X-Automation-Key': webhookKey
+                },
                 body: JSON.stringify(payload)
             });
         } catch (err) {
