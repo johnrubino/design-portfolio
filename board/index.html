@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board — John Rubino</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../design-system.css">
+    <style>
+        /* Board ops desk — portfolio tokens only (design-system.css). No Soft Orbit. */
+        .board-page {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--lp-font-ui);
+            min-height: 100dvh;
+        }
+
+        /* ── Gate ─────────────────────────────────────────────────────────── */
+        .board-gate {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.35s ease;
+        }
+        .board-gate.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .board-gate-inner {
+            text-align: center;
+            padding: 40px 24px;
+            max-width: 360px;
+            width: 100%;
+        }
+        .board-gate-spinner {
+            width: 28px;
+            height: 28px;
+            border: 2px solid var(--border-mid);
+            border-top-color: var(--text-2);
+            border-radius: 50%;
+            animation: board-spin 0.7s linear infinite;
+            margin: 0 auto 16px;
+        }
+        @keyframes board-spin { to { transform: rotate(360deg); } }
+        .board-gate-title {
+            font-family: var(--lp-font-display);
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        .board-gate-sub {
+            font-size: 13px;
+            color: var(--text-2);
+            line-height: 1.55;
+            margin-bottom: 20px;
+        }
+        .board-gate-form {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+        .board-gate-input {
+            flex: 1;
+            min-width: 0;
+            padding: 10px 12px;
+            background: var(--bg-2);
+            border: 1px solid var(--border-mid);
+            border-radius: 8px;
+            color: var(--text);
+            font-family: var(--lp-font-ui);
+            font-size: 13px;
+        }
+        .board-gate-input:focus {
+            outline: none;
+            border-color: var(--border-strong);
+        }
+        .board-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-family: var(--lp-font-ui);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1px solid transparent;
+            text-decoration: none;
+            transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+        }
+        .board-btn-primary {
+            background: var(--text);
+            color: var(--bg);
+        }
+        .board-btn-primary:hover {
+            opacity: 0.92;
+        }
+        .board-btn-secondary {
+            background: var(--bg-3);
+            color: var(--text);
+            border-color: var(--border-mid);
+        }
+        .board-btn-secondary:hover {
+            border-color: var(--border-strong);
+        }
+        .board-btn-quiet {
+            background: transparent;
+            color: var(--text-2);
+            border: none;
+            padding: 10px 12px;
+        }
+        .board-btn-quiet:hover {
+            color: var(--text);
+        }
+
+        /* ── Shell ────────────────────────────────────────────────────────── */
+        .board-shell {
+            display: none;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 28px 28px 64px;
+        }
+        .board-shell.visible { display: block; }
+
+        .board-top {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .board-brand {
+            font-family: var(--lp-font-display);
+            font-size: 28px;
+            font-weight: 500;
+            letter-spacing: -0.03em;
+            color: var(--text);
+            line-height: 1.1;
+        }
+        .board-top-meta {
+            font-size: 12px;
+            color: var(--text-2);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 14px;
+            align-items: center;
+        }
+        .board-top-meta .sep {
+            color: var(--text-3);
+        }
+        .board-preview-tag {
+            font-size: 11px;
+            color: var(--text-2);
+            border: 1px solid var(--border-mid);
+            border-radius: 999px;
+            padding: 2px 8px;
+        }
+
+        /* ── Filters ──────────────────────────────────────────────────────── */
+        .board-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        .board-chip {
+            font-family: var(--lp-font-ui);
+            font-size: 12px;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--border-mid);
+            background: transparent;
+            color: var(--text-2);
+            cursor: pointer;
+            transition: background 140ms ease, color 140ms ease, border-color 140ms ease;
+        }
+        .board-chip:hover {
+            color: var(--text);
+            border-color: var(--border-strong);
+        }
+        .board-chip[aria-pressed="true"] {
+            background: var(--bg-3);
+            color: var(--text);
+            border-color: var(--border-strong);
+        }
+
+        /* ── Ledger rows ──────────────────────────────────────────────────── */
+        .board-ledger {
+            border-top: 1px solid var(--border);
+        }
+        .board-row {
+            display: grid;
+            grid-template-columns: 16px minmax(0, 1fr) auto;
+            gap: 12px;
+            align-items: center;
+            min-height: 60px;
+            padding: 12px 4px;
+            border-bottom: 1px solid var(--border);
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            transition: background 140ms ease;
+        }
+        .board-row:hover {
+            background: var(--bg-2);
+        }
+        .board-row:focus-visible {
+            outline: 2px solid var(--border-strong);
+            outline-offset: -2px;
+        }
+        .board-pulse {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #2A9B8F;
+            box-shadow: 0 0 0 0 rgba(42, 155, 143, 0.45);
+            animation: board-pulse 1.8s ease-out infinite;
+            justify-self: center;
+        }
+        .board-pulse.is-off {
+            background: transparent;
+            box-shadow: none;
+            animation: none;
+        }
+        @keyframes board-pulse {
+            0%   { box-shadow: 0 0 0 0 rgba(42, 155, 143, 0.45); }
+            70%  { box-shadow: 0 0 0 8px rgba(42, 155, 143, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(42, 155, 143, 0); }
+        }
+        .board-row-main {
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .board-row-title-line {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 6px 10px;
+            min-width: 0;
+        }
+        .board-company {
+            font-family: var(--font-display);
+            font-size: 17px;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            line-height: 1.2;
+        }
+        .board-role {
+            font-family: var(--lp-font-ui);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-2);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
+        }
+        .board-row-meta {
+            font-size: 12px;
+            color: var(--text-3);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 0;
+            align-items: center;
+        }
+        .board-row-meta .board-meta-sep {
+            color: var(--text-3);
+            padding: 0 8px;
+            user-select: none;
+        }
+        .board-status {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: capitalize;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: var(--bg-3);
+            color: var(--text-2);
+            border: 1px solid var(--border);
+            white-space: nowrap;
+        }
+        .board-status.is-interview {
+            color: #2A9B8F;
+            border-color: rgba(42, 155, 143, 0.35);
+            background: rgba(42, 155, 143, 0.08);
+        }
+
+        /* ── States ───────────────────────────────────────────────────────── */
+        .board-state {
+            padding: 48px 8px;
+            text-align: center;
+            color: var(--text-2);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .board-state a {
+            color: var(--text);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        .board-skeleton .board-row {
+            pointer-events: none;
+            cursor: default;
+        }
+        .board-skel-bar {
+            height: 12px;
+            border-radius: 4px;
+            background: var(--bg-3);
+            animation: board-skel 1.2s ease-in-out infinite;
+        }
+        .board-skel-bar.w40 { width: 40%; }
+        .board-skel-bar.w60 { width: 60%; }
+        .board-skel-bar.w28 { width: 28%; margin-top: 8px; }
+        @keyframes board-skel {
+            0%, 100% { opacity: 0.45; }
+            50% { opacity: 0.85; }
+        }
+
+        @media (max-width: 640px) {
+            .board-shell { padding: 24px 20px 56px; }
+            .board-brand { font-size: 24px; }
+            .board-row {
+                grid-template-columns: 12px minmax(0, 1fr);
+                grid-template-rows: auto auto;
+            }
+            .board-row .board-status {
+                grid-column: 2;
+                justify-self: start;
+                margin-top: 2px;
+            }
+            .board-role { white-space: normal; }
+        }
+    </style>
+</head>
+<body class="board-page">
+    <div class="board-gate" id="boardGate" aria-live="polite">
+        <div class="board-gate-inner" id="gateLoading">
+            <div class="board-gate-spinner" aria-hidden="true"></div>
+            <p class="board-gate-title">Checking access</p>
+            <p class="board-gate-sub">Private ops desk — verifying key…</p>
+        </div>
+        <div class="board-gate-inner" id="gateForm" style="display:none">
+            <p class="board-gate-title">Board</p>
+            <p class="board-gate-sub">Enter the admin key, or open with <code>?key=</code> on the URL.</p>
+            <form class="board-gate-form" id="keyForm">
+                <input class="board-gate-input" id="keyInput" type="password" name="key" autocomplete="current-password" placeholder="Admin key" required>
+                <button type="submit" class="board-btn board-btn-primary">Enter</button>
+            </form>
+            <p class="board-gate-sub" id="gateError" style="display:none;margin-top:14px;margin-bottom:0;color:var(--text);"></p>
+        </div>
+    </div>
+
+    <main class="board-shell" id="boardShell">
+        <header class="board-top">
+            <h1 class="board-brand">Board</h1>
+            <div class="board-top-meta" id="boardMeta">
+                <span id="statusCounts">—</span>
+                <span class="sep" aria-hidden="true">·</span>
+                <span id="refreshHint">Loading…</span>
+            </div>
+        </header>
+
+        <div class="board-filters" role="toolbar" aria-label="Filter by status" id="filters">
+            <button type="button" class="board-chip" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="board-chip" data-filter="sourced" aria-pressed="false">Sourced</button>
+            <button type="button" class="board-chip" data-filter="vetted" aria-pressed="false">Vetted</button>
+            <button type="button" class="board-chip" data-filter="applying" aria-pressed="false">Applying</button>
+            <button type="button" class="board-chip" data-filter="sent" aria-pressed="false">Sent</button>
+            <button type="button" class="board-chip" data-filter="interview" aria-pressed="false">Interview</button>
+            <button type="button" class="board-chip" data-filter="closed" aria-pressed="false">Closed</button>
+        </div>
+
+        <div id="ledgerHost" class="board-ledger" aria-busy="true"></div>
+    </main>
+
+    <script>
+    (function () {
+        const STORAGE_KEY = 'boardAdminKey';
+        const FILTERS = ['all', 'sourced', 'vetted', 'applying', 'sent', 'interview', 'closed'];
+
+        let jobs = [];
+        let activeFilter = 'all';
+        let adminKey = null;
+        let preview = false;
+
+        const gate = document.getElementById('boardGate');
+        const shell = document.getElementById('boardShell');
+        const host = document.getElementById('ledgerHost');
+
+        function isLocalHost() {
+            const h = location.hostname;
+            return h === 'localhost' || h === '127.0.0.1';
+        }
+
+        function keyFromUrl() {
+            return new URLSearchParams(location.search).get('key');
+        }
+
+        function getStoredKey() {
+            try { return sessionStorage.getItem(STORAGE_KEY); } catch { return null; }
+        }
+
+        function storeKey(k) {
+            try { sessionStorage.setItem(STORAGE_KEY, k); } catch { /* ignore */ }
+        }
+
+        function showGateForm(msg) {
+            document.getElementById('gateLoading').style.display = 'none';
+            document.getElementById('gateForm').style.display = '';
+            const err = document.getElementById('gateError');
+            if (msg) {
+                err.style.display = '';
+                err.textContent = msg;
+            } else {
+                err.style.display = 'none';
+            }
+        }
+
+        function unlockShell() {
+            gate.classList.add('hidden');
+            shell.classList.add('visible');
+            setTimeout(function () { gate.remove(); }, 400);
+        }
+
+        async function verifyKey(key) {
+            const q = key ? ('?key=' + encodeURIComponent(key)) : '';
+            let res;
+            try {
+                res = await fetch('/api/board-auth' + q, { cache: 'no-store' });
+            } catch {
+                const err = new Error('API unavailable');
+                err.status = 0;
+                throw err;
+            }
+            // Static file servers (npx serve) return 404 for /api/* — treat as unavailable
+            if (res.status === 404) {
+                const err = new Error('API unavailable');
+                err.status = 404;
+                throw err;
+            }
+            const data = await res.json().catch(function () { return {}; });
+            if (!res.ok || !data.ok) {
+                const err = new Error(data.error || 'Unauthorized');
+                err.status = res.status;
+                throw err;
+            }
+            preview = Boolean(data.preview);
+            return true;
+        }
+
+        function allowLocalPreview(err) {
+            // Hiring microsite pattern: localhost works without a real token/API
+            return isLocalHost() && (!err.status || err.status === 404 || err.status >= 500);
+        }
+
+        async function gateCheck() {
+            const fromUrl = keyFromUrl();
+            if (fromUrl) {
+                adminKey = fromUrl;
+                storeKey(fromUrl);
+                // Drop key from URL after capture
+                const u = new URL(location.href);
+                u.searchParams.delete('key');
+                history.replaceState({}, '', u.pathname + u.search + u.hash);
+            } else {
+                adminKey = getStoredKey();
+            }
+
+            try {
+                await verifyKey(adminKey);
+                unlockShell();
+                loadJobs();
+            } catch (e) {
+                if (allowLocalPreview(e)) {
+                    preview = true;
+                    unlockShell();
+                    loadJobs();
+                    return;
+                }
+                showGateForm(e.message === 'Unauthorized' ? 'That key did not match.' : (e.message || 'Access denied.'));
+            }
+        }
+
+        document.getElementById('keyForm').addEventListener('submit', async function (ev) {
+            ev.preventDefault();
+            const k = document.getElementById('keyInput').value.trim();
+            if (!k) return;
+            document.getElementById('gateForm').style.display = 'none';
+            document.getElementById('gateLoading').style.display = '';
+            try {
+                await verifyKey(k);
+                adminKey = k;
+                storeKey(k);
+                unlockShell();
+                loadJobs();
+            } catch (e) {
+                if (allowLocalPreview(e)) {
+                    adminKey = k;
+                    storeKey(k);
+                    preview = true;
+                    unlockShell();
+                    loadJobs();
+                    return;
+                }
+                showGateForm(e.message === 'Unauthorized' ? 'That key did not match.' : (e.message || 'Access denied.'));
+            }
+        });
+
+        function ageLabel(iso) {
+            if (!iso) return '—';
+            const d = new Date(iso + (iso.length <= 10 ? 'T12:00:00' : ''));
+            if (Number.isNaN(d.getTime())) return iso;
+            const days = Math.floor((Date.now() - d.getTime()) / 86400000);
+            if (days <= 0) return 'today';
+            if (days === 1) return '1d';
+            return days + 'd';
+        }
+
+        function countByStatus(list) {
+            const c = {};
+            list.forEach(function (j) { c[j.status] = (c[j.status] || 0) + 1; });
+            const parts = Object.keys(c).sort().map(function (k) { return c[k] + ' ' + k; });
+            return parts.length ? parts.join(' · ') : '0 roles';
+        }
+
+        function renderSkeleton() {
+            host.setAttribute('aria-busy', 'true');
+            host.innerHTML = '<div class="board-skeleton">' +
+                [0, 1, 2].map(function () {
+                    return '<div class="board-row" aria-hidden="true">' +
+                        '<span class="board-pulse is-off"></span>' +
+                        '<div class="board-row-main">' +
+                        '<div class="board-skel-bar w40"></div>' +
+                        '<div class="board-skel-bar w60"></div>' +
+                        '<div class="board-skel-bar w28"></div>' +
+                        '</div></div>';
+                }).join('') + '</div>';
+        }
+
+        function renderEmpty() {
+            host.removeAttribute('aria-busy');
+            host.innerHTML = '<div class="board-state">No roles yet — Jobi will add from the morning watch.</div>';
+        }
+
+        function renderError(msg) {
+            host.removeAttribute('aria-busy');
+            host.innerHTML = '<div class="board-state">' + (msg || 'Could not load roles.') +
+                ' <a href="#" id="retryLink">Retry</a></div>';
+            document.getElementById('retryLink').addEventListener('click', function (e) {
+                e.preventDefault();
+                loadJobs();
+            });
+        }
+
+        function filteredJobs() {
+            if (activeFilter === 'all') return jobs;
+            return jobs.filter(function (j) { return j.status === activeFilter; });
+        }
+
+        function renderLedger() {
+            const list = filteredJobs();
+            document.getElementById('statusCounts').textContent = countByStatus(jobs);
+            const hint = document.getElementById('refreshHint');
+            hint.textContent = 'Seed · ' + new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+            if (preview && !document.getElementById('previewTag')) {
+                const tag = document.createElement('span');
+                tag.id = 'previewTag';
+                tag.className = 'board-preview-tag';
+                tag.textContent = 'Preview (local)';
+                document.getElementById('boardMeta').appendChild(tag);
+            }
+
+            if (!jobs.length) {
+                renderEmpty();
+                return;
+            }
+            if (!list.length) {
+                host.removeAttribute('aria-busy');
+                host.innerHTML = '<div class="board-state">No roles in this filter.</div>';
+                return;
+            }
+
+            host.removeAttribute('aria-busy');
+            host.innerHTML = list.map(function (j) {
+                const pulse = j.isNew
+                    ? '<span class="board-pulse" title="New since last visit" aria-label="New"></span>'
+                    : '<span class="board-pulse is-off" aria-hidden="true"></span>';
+                const statusClass = j.status === 'interview' ? ' board-status is-interview' : ' board-status';
+                const href = '/board/' + encodeURIComponent(j.jobId);
+                return '<a class="board-row" href="' + href + '">' +
+                    pulse +
+                    '<div class="board-row-main">' +
+                    '<div class="board-row-title-line">' +
+                    '<span class="board-company">' + escapeHtml(j.company) + '</span>' +
+                    '<span class="board-role">' + escapeHtml(j.title) + '</span>' +
+                    '</div>' +
+                    '<div class="board-row-meta">' +
+                    metaParts([
+                        j.location || '—',
+                        j.level || '—',
+                        ageLabel(j.dateFound)
+                    ]) +
+                    '</div></div>' +
+                    '<span class="' + statusClass.trim() + '">' + escapeHtml(j.status) + '</span>' +
+                    '</a>';
+            }).join('');
+        }
+
+        function escapeHtml(s) {
+            return String(s == null ? '' : s)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        function metaParts(items) {
+            const parts = items.filter(function (x) { return x != null && x !== ''; });
+            return parts.map(function (item, i) {
+                var html = '<span>' + escapeHtml(item) + '</span>';
+                if (i > 0) html = '<span class="board-meta-sep" aria-hidden="true">·</span>' + html;
+                return html;
+            }).join('');
+        }
+
+        async function loadJobs() {
+            renderSkeleton();
+            try {
+                const res = await fetch('/board/jobs.json', { cache: 'no-store' });
+                if (!res.ok) throw new Error('Failed to load jobs (' + res.status + ')');
+                const data = await res.json();
+                jobs = Array.isArray(data) ? data : [];
+                renderLedger();
+            } catch (e) {
+                renderError(e.message || 'Could not load roles.');
+            }
+        }
+
+        document.getElementById('filters').addEventListener('click', function (e) {
+            const btn = e.target.closest('.board-chip');
+            if (!btn) return;
+            const f = btn.getAttribute('data-filter');
+            if (!FILTERS.includes(f)) return;
+            activeFilter = f;
+            document.querySelectorAll('.board-chip').forEach(function (c) {
+                c.setAttribute('aria-pressed', c === btn ? 'true' : 'false');
+            });
+            renderLedger();
+        });
+
+        // Expose for detail pages / testing
+        window.__boardGate = { getKey: function () { return adminKey || getStoredKey(); } };
+
+        gateCheck();
+    })();
+    </script>
+</body>
+</html>

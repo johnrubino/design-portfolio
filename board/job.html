@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job — Board</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../design-system.css">
+    <style>
+        /* Board detail — portfolio tokens only. Teal #2A9B8F for isNew / interview only. */
+        .board-page {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--lp-font-ui);
+            min-height: 100dvh;
+        }
+
+        .board-gate {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.35s ease;
+        }
+        .board-gate.hidden { opacity: 0; pointer-events: none; }
+        .board-gate-inner {
+            text-align: center;
+            padding: 40px 24px;
+            max-width: 360px;
+            width: 100%;
+        }
+        .board-gate-spinner {
+            width: 28px;
+            height: 28px;
+            border: 2px solid var(--border-mid);
+            border-top-color: var(--text-2);
+            border-radius: 50%;
+            animation: board-spin 0.7s linear infinite;
+            margin: 0 auto 16px;
+        }
+        @keyframes board-spin { to { transform: rotate(360deg); } }
+        .board-gate-title {
+            font-family: var(--lp-font-display);
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+        .board-gate-sub {
+            font-size: 13px;
+            color: var(--text-2);
+            line-height: 1.55;
+            margin-bottom: 20px;
+        }
+        .board-gate-form { display: flex; gap: 8px; justify-content: center; }
+        .board-gate-input {
+            flex: 1;
+            min-width: 0;
+            padding: 10px 12px;
+            background: var(--bg-2);
+            border: 1px solid var(--border-mid);
+            border-radius: 8px;
+            color: var(--text);
+            font-family: var(--lp-font-ui);
+            font-size: 13px;
+        }
+        .board-gate-input:focus { outline: none; border-color: var(--border-strong); }
+
+        .board-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-family: var(--lp-font-ui);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1px solid transparent;
+            text-decoration: none;
+            transition: background 160ms ease, border-color 160ms ease, color 160ms ease, opacity 160ms ease;
+        }
+        .board-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .board-btn-primary {
+            background: var(--text);
+            color: var(--bg);
+        }
+        .board-btn-primary:hover:not(:disabled) { opacity: 0.92; }
+        .board-btn-secondary {
+            background: var(--bg-3);
+            color: var(--text);
+            border-color: var(--border-mid);
+        }
+        .board-btn-secondary:hover:not(:disabled) { border-color: var(--border-strong); }
+        .board-btn-quiet {
+            background: transparent;
+            color: var(--text-2);
+            border: none;
+            padding: 10px 12px;
+        }
+        .board-btn-quiet:hover:not(:disabled) { color: var(--text); }
+
+        .board-shell {
+            display: none;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 24px 28px 32px;
+        }
+        .board-shell.visible { display: block; }
+
+        .board-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--text-2);
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+        .board-back:hover { color: var(--text); }
+
+        .board-stick-sentinel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1px;
+            height: 1px;
+            pointer-events: none;
+            opacity: 0;
+        }
+        .board-detail-head {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+        .board-company-lg {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 500;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+        .board-title-lg {
+            font-family: var(--lp-font-ui);
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-2);
+            margin-bottom: 14px;
+            line-height: 1.4;
+        }
+        .board-meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 0;
+            font-size: 12px;
+            color: var(--text-3);
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .board-meta-item {
+            font-family: var(--lp-font-ui);
+            color: var(--text-2);
+            line-height: 1.3;
+        }
+        .board-meta-sep {
+            color: var(--text-3);
+            padding: 0 8px;
+            user-select: none;
+        }
+        .board-meta-row a.board-meta-item {
+            color: var(--text-2);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        .board-meta-row a.board-meta-item:hover { color: var(--text); }
+        .board-head-status {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+        .board-status {
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: capitalize;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: var(--bg-3);
+            color: var(--text-2);
+            border: 1px solid var(--border);
+        }
+        .board-status.is-interview {
+            color: #2A9B8F;
+            border-color: rgba(42, 155, 143, 0.35);
+            background: rgba(42, 155, 143, 0.08);
+        }
+        .board-pulse-inline {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: var(--text-2); /* label muted; teal only on 8px pulse */
+        }
+        .board-pulse-inline::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #2A9B8F;
+            box-shadow: 0 0 0 0 rgba(42, 155, 143, 0.45);
+            animation: board-pulse 1.8s ease-out infinite;
+        }
+        @keyframes board-pulse {
+            0%   { box-shadow: 0 0 0 0 rgba(42, 155, 143, 0.45); }
+            70%  { box-shadow: 0 0 0 8px rgba(42, 155, 143, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(42, 155, 143, 0); }
+        }
+        .board-dates {
+            font-size: 12px;
+            color: var(--text-3);
+        }
+
+        /* Header-inline actions (not a floating dock) */
+        .board-head-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
+        }
+        .board-head-actions-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+        .board-actions-note {
+            flex: 1 1 100%;
+            font-size: 12px;
+            color: var(--text-2);
+            min-height: 0;
+        }
+        .board-actions-note:empty { display: none; }
+        .board-more-wrap { position: relative; }
+        .board-more-menu {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            min-width: 160px;
+            background: var(--bg-3);
+            border: 1px solid var(--border-mid);
+            border-radius: 8px;
+            padding: 4px;
+            display: none;
+            flex-direction: column;
+            gap: 2px;
+            z-index: 20;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+        }
+        .board-more-menu.open { display: flex; }
+        .board-more-menu button {
+            text-align: left;
+            background: none;
+            border: none;
+            color: var(--text-2);
+            font-family: var(--lp-font-ui);
+            font-size: 13px;
+            padding: 8px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .board-more-menu button:hover {
+            background: var(--bg-4);
+            color: var(--text);
+        }
+        /* Optional: stick actions when header scrolls out of view */
+        .board-head-actions.is-stuck {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 40;
+            margin-top: 0;
+            padding: 12px 28px;
+            border-top: none;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg);
+            max-width: none;
+        }
+        .board-head-actions-spacer {
+            display: none;
+        }
+        .board-head-actions-spacer.is-on {
+            display: block;
+        }
+
+        /* Tabs */
+        .board-tabs {
+            display: flex;
+            gap: 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 20px;
+        }
+        .board-tab {
+            font-family: var(--lp-font-ui);
+            font-size: 13px;
+            font-weight: 500;
+            padding: 10px 16px;
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            color: var(--text-2);
+            cursor: pointer;
+            margin-bottom: -1px;
+        }
+        .board-tab:hover { color: var(--text); }
+        .board-tab[aria-selected="true"] {
+            color: var(--text);
+            border-bottom-color: var(--text);
+        }
+        .board-panel[hidden] { display: none; }
+
+        /* ── VET write-ups (TrueUp-shaped) ───────────────────────────────── */
+        .board-writeup {
+            margin-bottom: 40px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border);
+        }
+        .board-writeup:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .board-writeup-title {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        .board-writeup-meta {
+            font-size: 12px;
+            font-style: italic;
+            color: var(--text-3);
+            margin-bottom: 18px;
+        }
+        .board-writeup-seed {
+            font-style: normal;
+            margin-left: 6px;
+            padding: 1px 7px;
+            border-radius: 999px;
+            border: 1px solid var(--border-mid);
+            font-size: 10px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--text-3);
+        }
+        .board-writeup-kvs {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .board-writeup-kv {
+            font-size: 14px;
+            line-height: 1.45;
+            color: var(--text);
+        }
+        .board-writeup-kv strong {
+            font-weight: 600;
+            color: var(--text);
+            margin-right: 6px;
+        }
+        .board-writeup-summary {
+            font-size: 14px;
+            line-height: 1.55;
+            color: var(--text-2);
+            margin-bottom: 22px;
+        }
+        .board-writeup-h2 {
+            font-family: var(--lp-font-ui);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: var(--text);
+            margin: 22px 0 10px;
+        }
+        .board-scorecard {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+        .board-scorecard th,
+        .board-scorecard td {
+            text-align: left;
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+            line-height: 1.4;
+        }
+        .board-scorecard th {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--text-3);
+            background: var(--bg-2);
+            border-bottom-color: var(--border-mid);
+        }
+        .board-scorecard td {
+            color: var(--text-2);
+        }
+        .board-scorecard td:first-child {
+            color: var(--text);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        .board-scorecard .rating {
+            color: var(--text);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        .board-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .board-list li {
+            font-size: 14px;
+            line-height: 1.45;
+            color: var(--text);
+            padding-left: 14px;
+            position: relative;
+        }
+        .board-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--text-3);
+        }
+        .board-list.is-gaps li::before {
+            background: var(--text-2);
+        }
+        .board-gap-kind {
+            display: inline;
+            font-size: 12px;
+            font-style: italic;
+            color: var(--text-3);
+            margin-left: 6px;
+        }
+        .board-gap-item {
+            margin-bottom: 28px;
+        }
+        .board-gap-item:last-child { margin-bottom: 0; }
+        .board-gap-headline {
+            font-family: var(--lp-font-ui);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
+            letter-spacing: -0.01em;
+        }
+        .board-gap-tag {
+            font-size: 12px;
+            font-style: italic;
+            color: var(--text-3);
+            margin-bottom: 12px;
+        }
+        .board-gap-addr {
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--text-2);
+            margin-bottom: 8px;
+        }
+        .board-gap-addr strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+        .board-writeup-empty {
+            font-size: 13px;
+            color: var(--text-3);
+            padding: 8px 0;
+        }
+
+        .board-slot {
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .board-slot:first-child { border-top: 1px solid var(--border); }
+        .board-slot-label {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-2);
+            margin-bottom: 4px;
+        }
+        .board-slot-empty {
+            font-size: 13px;
+            color: var(--text-3);
+        }
+        .board-slot a {
+            font-size: 13px;
+            color: var(--text);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        @media (max-width: 640px) {
+            .board-scorecard { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .board-scorecard th:last-child,
+            .board-scorecard td:last-child { min-width: 160px; }
+            .board-writeup-title { font-size: 19px; }
+        }
+
+        /* Confirm sheet */
+        .board-sheet-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 80;
+            background: rgba(0,0,0,0.55);
+            display: none;
+            align-items: flex-end;
+            justify-content: center;
+        }
+        .board-sheet-backdrop.open { display: flex; }
+        .board-sheet {
+            width: 100%;
+            max-width: 420px;
+            background: var(--bg-2);
+            border: 1px solid var(--border-mid);
+            border-bottom: none;
+            border-radius: 12px 12px 0 0;
+            padding: 24px 20px calc(20px + env(safe-area-inset-bottom));
+        }
+        .board-sheet h2 {
+            font-family: var(--lp-font-display);
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .board-sheet p {
+            font-size: 13px;
+            color: var(--text-2);
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+        .board-sheet-actions {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-end;
+        }
+
+        .board-state {
+            padding: 40px 8px;
+            text-align: center;
+            color: var(--text-2);
+            font-size: 14px;
+        }
+        .board-state a {
+            color: var(--text);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        @media (min-width: 900px) {
+            .board-shell {
+                display: none;
+                max-width: 720px;
+            }
+            .board-shell.visible { display: block; }
+            .board-head-actions.is-stuck {
+                padding-left: max(28px, calc((100vw - 720px) / 2 + 28px));
+                padding-right: max(28px, calc((100vw - 720px) / 2 + 28px));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .board-shell { padding: 20px 20px 24px; }
+            .board-company-lg { font-size: 24px; }
+            .board-head-actions.is-stuck { padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body class="board-page">
+    <div class="board-gate" id="boardGate">
+        <div class="board-gate-inner" id="gateLoading">
+            <div class="board-gate-spinner" aria-hidden="true"></div>
+            <p class="board-gate-title">Checking access</p>
+            <p class="board-gate-sub">Private ops desk — verifying key…</p>
+        </div>
+        <div class="board-gate-inner" id="gateForm" style="display:none">
+            <p class="board-gate-title">Board</p>
+            <p class="board-gate-sub">Enter the admin key to continue.</p>
+            <form class="board-gate-form" id="keyForm">
+                <input class="board-gate-input" id="keyInput" type="password" autocomplete="current-password" placeholder="Admin key" required>
+                <button type="submit" class="board-btn board-btn-primary">Enter</button>
+            </form>
+            <p class="board-gate-sub" id="gateError" style="display:none;margin-top:14px;margin-bottom:0;color:var(--text);"></p>
+        </div>
+    </div>
+
+    <main class="board-shell" id="boardShell">
+        <a class="board-back" href="/board">← Board</a>
+        <div id="detailHost">
+            <div class="board-state">Loading…</div>
+        </div>
+    </main>
+
+    <div class="board-sheet-backdrop" id="confirmSheet" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+        <div class="board-sheet">
+            <h2 id="confirmTitle">Submit application?</h2>
+            <p>This notifies Jobi to confirm the apply step for this role. Only tap confirm when the application is actually ready to go.</p>
+            <div class="board-sheet-actions">
+                <button type="button" class="board-btn board-btn-quiet" id="confirmCancel">Cancel</button>
+                <button type="button" class="board-btn board-btn-primary" id="confirmOk">Confirm apply</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function () {
+        const STORAGE_KEY = 'boardAdminKey';
+        let adminKey = null;
+        let job = null;
+
+        const gate = document.getElementById('boardGate');
+        const shell = document.getElementById('boardShell');
+        const host = document.getElementById('detailHost');
+        const confirmSheet = document.getElementById('confirmSheet');
+        let actionObserver = null;
+
+        function jobIdFromPath() {
+            const parts = location.pathname.replace(/\/+$/, '').split('/');
+            // /board/:jobId or /board/job.html?jobId=
+            const q = new URLSearchParams(location.search).get('jobId');
+            if (q) return q;
+            const last = parts[parts.length - 1];
+            if (last && last !== 'board' && last !== 'job.html') return decodeURIComponent(last);
+            return null;
+        }
+
+        function isLocalHost() {
+            const h = location.hostname;
+            return h === 'localhost' || h === '127.0.0.1';
+        }
+        function getStoredKey() {
+            try { return sessionStorage.getItem(STORAGE_KEY); } catch { return null; }
+        }
+        function storeKey(k) {
+            try { sessionStorage.setItem(STORAGE_KEY, k); } catch { /* ignore */ }
+        }
+        function escapeHtml(s) {
+            return String(s == null ? '' : s)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        function showGateForm(msg) {
+            document.getElementById('gateLoading').style.display = 'none';
+            document.getElementById('gateForm').style.display = '';
+            const err = document.getElementById('gateError');
+            if (msg) { err.style.display = ''; err.textContent = msg; }
+            else err.style.display = 'none';
+        }
+
+        function unlockShell() {
+            gate.classList.add('hidden');
+            shell.classList.add('visible');
+            setTimeout(function () { gate.remove(); }, 400);
+        }
+
+        async function verifyKey(key) {
+            const q = key ? ('?key=' + encodeURIComponent(key)) : '';
+            let res;
+            try {
+                res = await fetch('/api/board-auth' + q, { cache: 'no-store' });
+            } catch {
+                const err = new Error('API unavailable');
+                err.status = 0;
+                throw err;
+            }
+            if (res.status === 404) {
+                const err = new Error('API unavailable');
+                err.status = 404;
+                throw err;
+            }
+            const data = await res.json().catch(function () { return {}; });
+            if (!res.ok || !data.ok) {
+                const err = new Error(data.error || 'Unauthorized');
+                err.status = res.status;
+                throw err;
+            }
+            return true;
+        }
+
+        function allowLocalPreview(err) {
+            return isLocalHost() && (!err.status || err.status === 404 || err.status >= 500);
+        }
+
+        async function gateCheck() {
+            const fromUrl = new URLSearchParams(location.search).get('key');
+            if (fromUrl) {
+                adminKey = fromUrl;
+                storeKey(fromUrl);
+                const u = new URL(location.href);
+                u.searchParams.delete('key');
+                history.replaceState({}, '', u.pathname + u.search + u.hash);
+            } else {
+                adminKey = getStoredKey();
+            }
+            try {
+                await verifyKey(adminKey);
+                unlockShell();
+                loadJob();
+            } catch (e) {
+                if (allowLocalPreview(e)) {
+                    unlockShell();
+                    loadJob();
+                    return;
+                }
+                showGateForm(e.message === 'Unauthorized' ? 'That key did not match.' : (e.message || 'Access denied.'));
+            }
+        }
+
+        document.getElementById('keyForm').addEventListener('submit', async function (ev) {
+            ev.preventDefault();
+            const k = document.getElementById('keyInput').value.trim();
+            if (!k) return;
+            document.getElementById('gateForm').style.display = 'none';
+            document.getElementById('gateLoading').style.display = '';
+            try {
+                await verifyKey(k);
+                adminKey = k;
+                storeKey(k);
+                unlockShell();
+                loadJob();
+            } catch (e) {
+                if (allowLocalPreview(e)) {
+                    adminKey = k;
+                    storeKey(k);
+                    unlockShell();
+                    loadJob();
+                    return;
+                }
+                showGateForm(e.message === 'Unauthorized' ? 'That key did not match.' : (e.message || 'Access denied.'));
+            }
+        });
+
+        function formatDate(iso) {
+            if (!iso) return null;
+            const d = new Date(iso + (iso.length <= 10 ? 'T12:00:00' : ''));
+            if (Number.isNaN(d.getTime())) return iso;
+            return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        }
+
+        /** Join meta fields with middot separators (NYC · Mid · stage · Posting). */
+        function metaParts(items) {
+            const parts = items.filter(function (x) { return x != null && x !== ''; });
+            return parts.map(function (item, i) {
+                var html;
+                if (typeof item === 'object' && item.href) {
+                    html = '<a class="board-meta-item" href="' + escapeHtml(item.href) +
+                        '" target="_blank" rel="noopener">' + escapeHtml(item.label) + '</a>';
+                } else {
+                    html = '<span class="board-meta-item">' + escapeHtml(item) + '</span>';
+                }
+                if (i > 0) html = '<span class="board-meta-sep" aria-hidden="true">·</span>' + html;
+                return html;
+            }).join('');
+        }
+
+        function landSlot(label, value, isLink) {
+            var body;
+            if (!value) {
+                body = '<p class="board-slot-empty">Not yet — use an action</p>';
+            } else if (isLink) {
+                body = '<a href="' + escapeHtml(value) + '" target="_blank" rel="noopener">' + escapeHtml(value) + '</a>';
+            } else {
+                body = '<p style="font-size:13px;color:var(--text);white-space:pre-wrap;">' + escapeHtml(value) + '</p>';
+            }
+            return '<div class="board-slot"><div class="board-slot-label">' + escapeHtml(label) + '</div>' + body + '</div>';
+        }
+
+        function renderDetail() {
+            const j = job;
+            const land = j.land || {};
+            const statusClass = j.status === 'interview' ? 'board-status is-interview' : 'board-status';
+
+            document.title = j.company + ' — Board';
+
+            host.innerHTML =
+                '<header class="board-detail-head" id="detailHead">' +
+                '<div class="board-stick-sentinel" id="actionStickSentinel" aria-hidden="true"></div>' +
+                '<h1 class="board-company-lg">' + escapeHtml(j.company) + '</h1>' +
+                '<p class="board-title-lg">' + escapeHtml(j.title) + '</p>' +
+                '<div class="board-meta-row">' +
+                metaParts([
+                    j.location || '—',
+                    j.level || '—',
+                    j.stageGate || '—',
+                    j.postingUrl
+                        ? { href: j.postingUrl, label: 'Posting ↗' }
+                        : null
+                ]) +
+                '</div>' +
+                '<div class="board-head-status">' +
+                '<span class="' + statusClass + '">' + escapeHtml(j.status) + '</span>' +
+                (j.isNew ? '<span class="board-pulse-inline">New</span>' : '') +
+                '<span class="board-dates">Found ' + escapeHtml(formatDate(j.dateFound) || '—') +
+                (j.sentAt ? ' · Sent ' + escapeHtml(formatDate(j.sentAt)) : '') +
+                (j.followUpAt ? ' · Follow-up ' + escapeHtml(formatDate(j.followUpAt)) : '') +
+                '</span></div>' +
+                '<div class="board-head-actions" id="actionBar">' +
+                '<div class="board-head-actions-btns" id="actionButtons"></div>' +
+                '<div class="board-actions-note" id="actionNote" aria-live="polite"></div>' +
+                '</div>' +
+                '</header>' +
+                '<div class="board-head-actions-spacer" id="actionSpacer" aria-hidden="true"></div>' +
+
+                '<div class="board-tabs" role="tablist">' +
+                '<button type="button" class="board-tab" role="tab" id="tabVet" aria-selected="true" aria-controls="panelVet">VET</button>' +
+                '<button type="button" class="board-tab" role="tab" id="tabLand" aria-selected="false" aria-controls="panelLand">LAND</button>' +
+                '</div>' +
+
+                '<div class="board-panel" id="panelVet" role="tabpanel" aria-labelledby="tabVet">' +
+                renderFitWriteup(j) +
+                renderGapAnalysisWriteup(j) +
+                '</div>' +
+
+                '<div class="board-panel" id="panelLand" role="tabpanel" aria-labelledby="tabLand" hidden>' +
+                landSlot('Résumé PDF', land.resumePath, true) +
+                landSlot('Tracked hiring link', land.trackedLink, true) +
+                landSlot('Contact card', land.contactCard, false) +
+                landSlot('LinkedIn draft', land.drafts && land.drafts.linkedin, false) +
+                landSlot('Email draft', land.drafts && land.drafts.email, false) +
+                landSlot('Fit page URL', land.fitPageUrl, true) +
+                '</div>';
+
+            document.getElementById('tabVet').addEventListener('click', function () { setTab('vet'); });
+            document.getElementById('tabLand').addEventListener('click', function () { setTab('land'); });
+            renderActions();
+        }
+
+        function writeupMetaLine(obj) {
+            if (!obj) return '';
+            const date = formatDate(obj.generatedAt) || obj.generatedAt || '—';
+            const source = obj.source || 'TrueUp';
+            const seed = obj.seed
+                ? ' <span class="board-writeup-seed">Seed example</span>'
+                : '';
+            return '<p class="board-writeup-meta">Generated ' + escapeHtml(date) +
+                ' via ' + escapeHtml(source) + seed + '</p>';
+        }
+
+        function renderFitWriteup(j) {
+            const fit = j.fit;
+            if (!fit) {
+                return '<div class="board-writeup"><p class="board-writeup-empty">Fit write-up not yet — Jobi will add from TrueUp.</p></div>';
+            }
+            const title = 'Am I a fit for this role? — ' + (j.title || 'Role') + ' @ ' + (j.company || 'Company');
+            let html = '<section class="board-writeup" id="fitWriteup">' +
+                '<h2 class="board-writeup-title">' + escapeHtml(title) + '</h2>' +
+                writeupMetaLine(fit) +
+                '<div class="board-writeup-kvs">' +
+                (fit.score != null
+                    ? '<p class="board-writeup-kv"><strong>Fit score:</strong> ' + escapeHtml(String(fit.score)) + '</p>'
+                    : '') +
+                (fit.confidence
+                    ? '<p class="board-writeup-kv"><strong>Confidence:</strong> ' + escapeHtml(fit.confidence) + '</p>'
+                    : '') +
+                (fit.recommendation
+                    ? '<p class="board-writeup-kv"><strong>Recommendation:</strong> ' + escapeHtml(fit.recommendation) + '</p>'
+                    : '') +
+                '</div>';
+
+            if (fit.summary) {
+                html += '<p class="board-writeup-summary">' + escapeHtml(fit.summary) + '</p>';
+            }
+
+            if (fit.scorecard && fit.scorecard.length) {
+                html += '<h3 class="board-writeup-h2">Scorecard</h3>' +
+                    '<table class="board-scorecard">' +
+                    '<thead><tr><th>Dimension</th><th>Rating</th><th>Notes</th></tr></thead><tbody>' +
+                    fit.scorecard.map(function (row) {
+                        return '<tr>' +
+                            '<td>' + escapeHtml(row.dimension || '—') + '</td>' +
+                            '<td class="rating">' + escapeHtml(row.rating || '—') + '</td>' +
+                            '<td>' + escapeHtml(row.notes || '—') + '</td>' +
+                            '</tr>';
+                    }).join('') +
+                    '</tbody></table>';
+            }
+
+            if (fit.strengths && fit.strengths.length) {
+                html += '<h3 class="board-writeup-h2">Strengths</h3><ul class="board-list">' +
+                    fit.strengths.map(function (s) {
+                        return '<li>' + escapeHtml(s) + '</li>';
+                    }).join('') +
+                    '</ul>';
+            }
+
+            if (fit.gaps && fit.gaps.length) {
+                html += '<h3 class="board-writeup-h2">Gaps</h3><ul class="board-list is-gaps">' +
+                    fit.gaps.map(function (g) {
+                        if (typeof g === 'string') {
+                            return '<li>' + escapeHtml(g) + '</li>';
+                        }
+                        const kind = g.kind
+                            ? ' <span class="board-gap-kind">(' + escapeHtml(g.kind) + ')</span>'
+                            : '';
+                        return '<li>' + escapeHtml(g.text || '') + kind + '</li>';
+                    }).join('') +
+                    '</ul>';
+            }
+
+            html += '</section>';
+            return html;
+        }
+
+        function renderGapAnalysisWriteup(j) {
+            const ga = j.gapAnalysis;
+            if (!ga || !ga.gaps || !ga.gaps.length) {
+                return '<div class="board-writeup" id="gapWriteup"><p class="board-writeup-empty">Gap analysis not yet — Jobi will add from TrueUp.</p></div>';
+            }
+            const title = 'Gap analysis — ' + (j.title || 'Role') + ' @ ' + (j.company || 'Company');
+            let html = '<section class="board-writeup" id="gapWriteup">' +
+                '<h2 class="board-writeup-title">' + escapeHtml(title) + '</h2>' +
+                writeupMetaLine(ga);
+
+            ga.gaps.forEach(function (g, i) {
+                const n = i + 1;
+                html += '<article class="board-gap-item">' +
+                    '<h3 class="board-gap-headline">Gap ' + n + ': ' + escapeHtml(g.headline || '—') + '</h3>' +
+                    (g.kind
+                        ? '<p class="board-gap-tag">' + escapeHtml(g.kind) + '</p>'
+                        : '') +
+                    (g.interview
+                        ? '<p class="board-gap-addr"><strong>Address in an interview:</strong> ' +
+                          escapeHtml(g.interview) + '</p>'
+                        : '') +
+                    (g.longerTerm
+                        ? '<p class="board-gap-addr"><strong>Address longer-term:</strong> ' +
+                          escapeHtml(g.longerTerm) + '</p>'
+                        : '') +
+                    '</article>';
+            });
+
+            html += '</section>';
+            return html;
+        }
+
+        function setTab(name) {
+            const vet = name === 'vet';
+            document.getElementById('tabVet').setAttribute('aria-selected', vet ? 'true' : 'false');
+            document.getElementById('tabLand').setAttribute('aria-selected', vet ? 'false' : 'true');
+            document.getElementById('panelVet').hidden = !vet;
+            document.getElementById('panelLand').hidden = vet;
+        }
+
+        function actionDefsForStatus(status) {
+            // Visible ≤4; overflow under More. Close/Skip always available under More for any.
+            const moreAlways = [
+                { action: 'close', label: 'Close', tone: 'quiet' },
+                { action: 'skip', label: 'Skip', tone: 'quiet' }
+            ];
+            if (status === 'sourced') {
+                return {
+                    visible: [
+                        { action: 'skip', label: 'Skip', tone: 'quiet' },
+                        { action: 'hold', label: 'Hold', tone: 'secondary' },
+                        { action: 'prep_resume', label: 'Prep résumé', tone: 'primary' }
+                    ],
+                    more: [
+                        { action: 'close', label: 'Close', tone: 'quiet' },
+                        { action: 'draft_outreach', label: 'Draft outreach', tone: 'quiet' },
+                        { action: 'build_fit_page', label: 'Build fit page', tone: 'quiet' }
+                    ]
+                };
+            }
+            if (status === 'vetted' || status === 'applying') {
+                return {
+                    visible: [
+                        { action: 'prep_resume', label: 'Prep résumé', tone: 'secondary' },
+                        { action: 'apply_confirm', label: 'Apply', tone: 'primary', confirm: true },
+                        { action: 'draft_outreach', label: 'Draft outreach', tone: 'secondary' },
+                        { action: 'skip', label: 'Skip', tone: 'quiet' }
+                    ],
+                    more: [
+                        { action: 'close', label: 'Close', tone: 'quiet' },
+                        { action: 'hold', label: 'Hold', tone: 'quiet' },
+                        { action: 'build_fit_page', label: 'Build fit page', tone: 'quiet' }
+                    ]
+                };
+            }
+            // sent+ (sent, replied, interview) and closed/skipped
+            return {
+                visible: [
+                    { action: 'mark_replied', label: 'Mark replied', tone: 'secondary' },
+                    { action: 'draft_outreach', label: 'Follow-up', tone: 'primary' },
+                    { action: 'close', label: 'Close', tone: 'quiet' }
+                ],
+                more: moreAlways.filter(function (a) { return a.action !== 'close'; }).concat([
+                    { action: 'mark_sent', label: 'Mark sent', tone: 'quiet' },
+                    { action: 'prep_resume', label: 'Prep résumé', tone: 'quiet' }
+                ])
+            };
+        }
+
+        function btnClass(tone) {
+            if (tone === 'primary') return 'board-btn board-btn-primary';
+            if (tone === 'secondary') return 'board-btn board-btn-secondary';
+            return 'board-btn board-btn-quiet';
+        }
+
+        function renderActions() {
+            const defs = actionDefsForStatus(job.status);
+            const visible = defs.visible.slice(0, 4);
+            const more = defs.more || [];
+            const actionButtons = document.getElementById('actionButtons');
+            const actionBar = document.getElementById('actionBar');
+            const actionNote = document.getElementById('actionNote');
+            if (!actionButtons || !actionBar) return;
+
+            let html = visible.map(function (a) {
+                return '<button type="button" class="' + btnClass(a.tone) + '" data-action="' + a.action + '"' +
+                    (a.confirm ? ' data-confirm="1"' : '') + '>' + escapeHtml(a.label) + '</button>';
+            }).join('');
+
+            if (more.length) {
+                html += '<div class="board-more-wrap">' +
+                    '<button type="button" class="board-btn board-btn-quiet" id="moreBtn" aria-expanded="false">More</button>' +
+                    '<div class="board-more-menu" id="moreMenu" role="menu">' +
+                    more.map(function (a) {
+                        return '<button type="button" role="menuitem" data-action="' + a.action + '">' +
+                            escapeHtml(a.label) + '</button>';
+                    }).join('') +
+                    '</div></div>';
+            }
+
+            actionButtons.innerHTML = html;
+
+            actionButtons.querySelectorAll('[data-action]').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    const action = btn.getAttribute('data-action');
+                    if (btn.getAttribute('data-confirm') === '1' || action === 'apply_confirm') {
+                        openConfirm();
+                        return;
+                    }
+                    postAction(action, btn);
+                });
+            });
+
+            const moreBtn = document.getElementById('moreBtn');
+            const moreMenu = document.getElementById('moreMenu');
+            if (moreBtn && moreMenu) {
+                moreBtn.addEventListener('click', function () {
+                    const open = moreMenu.classList.toggle('open');
+                    moreBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                });
+                document.addEventListener('click', function (e) {
+                    if (!moreMenu.contains(e.target) && e.target !== moreBtn) {
+                        moreMenu.classList.remove('open');
+                        moreBtn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+
+            setupStickyActions(actionBar);
+        }
+
+        function setupStickyActions(actionBar) {
+            const spacer = document.getElementById('actionSpacer');
+            const sentinel = document.getElementById('actionStickSentinel');
+            if (actionObserver) {
+                actionObserver.disconnect();
+                actionObserver = null;
+            }
+            if (!sentinel || !actionBar || !spacer || !('IntersectionObserver' in window)) return;
+
+            actionObserver = new IntersectionObserver(function (entries) {
+                const entry = entries[0];
+                // Stick only once the header top has fully left the viewport
+                const stuck = entry && !entry.isIntersecting && entry.boundingClientRect.top < 0;
+                actionBar.classList.toggle('is-stuck', stuck);
+                if (stuck) {
+                    spacer.style.height = actionBar.offsetHeight + 'px';
+                    spacer.classList.add('is-on');
+                } else {
+                    spacer.style.height = '';
+                    spacer.classList.remove('is-on');
+                }
+            }, { threshold: 0 });
+
+            actionObserver.observe(sentinel);
+        }
+
+        function openConfirm() {
+            confirmSheet.classList.add('open');
+        }
+        function closeConfirm() {
+            confirmSheet.classList.remove('open');
+        }
+        document.getElementById('confirmCancel').addEventListener('click', closeConfirm);
+        document.getElementById('confirmOk').addEventListener('click', function () {
+            closeConfirm();
+            postAction('apply_confirm');
+        });
+        confirmSheet.addEventListener('click', function (e) {
+            if (e.target === confirmSheet) closeConfirm();
+        });
+
+        async function postAction(action, btn) {
+            const actionNote = document.getElementById('actionNote');
+            if (actionNote) actionNote.textContent = 'Notifying Jobi…';
+            if (btn) btn.disabled = true;
+            const key = adminKey || getStoredKey();
+            const url = '/api/board-action' + (key ? ('?key=' + encodeURIComponent(key)) : '');
+            try {
+                const res = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ jobId: job.jobId, action: action, source: 'board' })
+                });
+                const data = await res.json().catch(function () { return {}; });
+                if (!res.ok) throw new Error(data.error || ('Request failed (' + res.status + ')'));
+                if (actionNote) actionNote.textContent = data.message || 'Jobi notified…';
+            } catch (e) {
+                if (isLocalHost()) {
+                    if (actionNote) actionNote.textContent = 'Jobi notified… (local stub)';
+                    console.log('[board-action local]', { jobId: job.jobId, action: action, source: 'board' });
+                } else {
+                    if (actionNote) actionNote.textContent = e.message || 'Failed to notify Jobi';
+                }
+            } finally {
+                if (btn) btn.disabled = false;
+            }
+        }
+
+        async function loadJob() {
+            const id = jobIdFromPath();
+            if (!id) {
+                host.innerHTML = '<div class="board-state">Missing job id. <a href="/board">Back to Board</a></div>';
+                return;
+            }
+            try {
+                const res = await fetch('/board/jobs.json', { cache: 'no-store' });
+                if (!res.ok) throw new Error('Failed to load jobs');
+                const data = await res.json();
+                const list = Array.isArray(data) ? data : [];
+                job = list.find(function (j) { return j.jobId === id; }) || null;
+                if (!job) {
+                    host.innerHTML = '<div class="board-state">Role not found. <a href="/board">Back to Board</a></div>';
+                    return;
+                }
+                renderDetail();
+            } catch (e) {
+                host.innerHTML = '<div class="board-state">' + escapeHtml(e.message || 'Error') +
+                    ' <a href="#" id="retryDetail">Retry</a></div>';
+                document.getElementById('retryDetail').addEventListener('click', function (ev) {
+                    ev.preventDefault();
+                    loadJob();
+                });
+            }
+        }
+
+        gateCheck();
+    })();
+    </script>
+</body>
+</html>
