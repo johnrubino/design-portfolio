@@ -582,7 +582,19 @@
 
         async function verifyKey(key) {
             const q = key ? ('?key=' + encodeURIComponent(key)) : '';
-            const res = await fetch('/api/board-auth' + q, { cache: 'no-store' });
+            let res;
+            try {
+                res = await fetch('/api/board-auth' + q, { cache: 'no-store' });
+            } catch {
+                const err = new Error('API unavailable');
+                err.status = 0;
+                throw err;
+            }
+            if (res.status === 404) {
+                const err = new Error('API unavailable');
+                err.status = 404;
+                throw err;
+            }
             const data = await res.json().catch(function () { return {}; });
             if (!res.ok || !data.ok) {
                 const err = new Error(data.error || 'Unauthorized');
@@ -590,6 +602,10 @@
                 throw err;
             }
             return true;
+        }
+
+        function allowLocalPreview(err) {
+            return isLocalHost() && (!err.status || err.status === 404 || err.status >= 500);
         }
 
         async function gateCheck() {
@@ -608,7 +624,7 @@
                 unlockShell();
                 loadJob();
             } catch (e) {
-                if (isLocalHost() && (!e.status || e.status >= 500)) {
+                if (allowLocalPreview(e)) {
                     unlockShell();
                     loadJob();
                     return;
@@ -630,6 +646,13 @@
                 unlockShell();
                 loadJob();
             } catch (e) {
+                if (allowLocalPreview(e)) {
+                    adminKey = k;
+                    storeKey(k);
+                    unlockShell();
+                    loadJob();
+                    return;
+                }
                 showGateForm(e.message === 'Unauthorized' ? 'That key did not match.' : (e.message || 'Access denied.'));
             }
         });

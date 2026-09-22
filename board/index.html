@@ -435,7 +435,20 @@
 
         async function verifyKey(key) {
             const q = key ? ('?key=' + encodeURIComponent(key)) : '';
-            const res = await fetch('/api/board-auth' + q, { cache: 'no-store' });
+            let res;
+            try {
+                res = await fetch('/api/board-auth' + q, { cache: 'no-store' });
+            } catch {
+                const err = new Error('API unavailable');
+                err.status = 0;
+                throw err;
+            }
+            // Static file servers (npx serve) return 404 for /api/* — treat as unavailable
+            if (res.status === 404) {
+                const err = new Error('API unavailable');
+                err.status = 404;
+                throw err;
+            }
             const data = await res.json().catch(function () { return {}; });
             if (!res.ok || !data.ok) {
                 const err = new Error(data.error || 'Unauthorized');
@@ -444,6 +457,11 @@
             }
             preview = Boolean(data.preview);
             return true;
+        }
+
+        function allowLocalPreview(err) {
+            // Hiring microsite pattern: localhost works without a real token/API
+            return isLocalHost() && (!err.status || err.status === 404 || err.status >= 500);
         }
 
         async function gateCheck() {
@@ -464,8 +482,7 @@
                 unlockShell();
                 loadJobs();
             } catch (e) {
-                if (isLocalHost() && (!e.status || e.status >= 500)) {
-                    // Static/local preview when API unavailable
+                if (allowLocalPreview(e)) {
                     preview = true;
                     unlockShell();
                     loadJobs();
@@ -488,6 +505,14 @@
                 unlockShell();
                 loadJobs();
             } catch (e) {
+                if (allowLocalPreview(e)) {
+                    adminKey = k;
+                    storeKey(k);
+                    preview = true;
+                    unlockShell();
+                    loadJobs();
+                    return;
+                }
                 showGateForm(e.message === 'Unauthorized' ? 'That key did not match.' : (e.message || 'Access denied.'));
             }
         });
