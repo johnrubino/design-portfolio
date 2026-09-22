@@ -8,7 +8,7 @@
     "location": "NYC",
     "level": "Mid",
     "stageGate": "Public / established design org",
-    "status": "applying",
+    "status": "vetted",
     "isNew": false,
     "vet": {
       "gatesPass": true,
@@ -101,7 +101,13 @@
     "land": {
       "resumePath": "/board/resumes/amazon-10506011.pdf",
       "resumeFileName": "Amazon-Elevated-Shopping.pdf",
-      "trackedLink": "https://johnrubino.design/hiring?t=Eh7ohW"
-    }
+      "trackedLink": "https://johnrubino.design/hiring?t=EaaGee",
+      "contactCard": "No confirmed hiring manager or recruiter named on req 10506011.\nTeam: \u00e9Shop Innovation (Elevated Shopping / Premium shopping experiences), Amazon Design, NYC.\nPossible design-recruiting contact to verify before send: Angelica Hernandez (Amazon design sourcing; NY among markets) \u2014 https://www.linkedin.com/in/angelica-hernandez1\nAlternate lead: Shanel Shack (Design Recruiting Manager @ Amazon) \u2014 https://www.linkedin.com/in/shanelshack \u2014 may not cover retail shopping; confirm org coverage.\nPosting: https://www.amazon.jobs/en/jobs/10506011/ux-designer-elevated-shopping-experience\nReplace [Name] in drafts after you pick a contact.",
+      "drafts": {
+        "linkedin": "Hi [Name] \u2014 I'm applying to UX Designer, Elevated Shopping Experience on Amazon's \u00e9Shop Innovation team (NYC). I'm a Senior Product Designer at BNY Pershing working on complex advisor workflows and AI-enabled design (Figma + working prototypes). Would you take a look or point me to the right person on the team?\n\nPortfolio: https://johnrubino.design/hiring?t=EaaGee\nReq: 10506011",
+        "email": "Subject: UX Designer, Elevated Shopping Experience (NYC) \u2014 John Rubino\n\nHi [Name],\n\nI'm applying to UX Designer, Elevated Shopping Experience on the \u00e9Shop Innovation team (req 10506011). I'm a Senior Product Designer at BNY Pershing (Wealth Services), where I take product requirements through design into production and use AI tools to move faster in both Figma and code.\n\nThe GenAI \u00d7 premium shopping brief sits close to the systems and complex-flow work I've been doing. Happy to share a short case walkthrough if useful.\n\nPortfolio: https://johnrubino.design/hiring?t=EaaGee\nLinkedIn: https://www.linkedin.com/in/john-rubino\nR\u00e9sum\u00e9: attached / on my board packet\n\nThanks for your time,\nJohn Rubino\n917-439-2058\njohnrubinodesign@gmail.com"
+      }
+    },
+    "lastChecked": "2026-09-22"
   }
 ]
