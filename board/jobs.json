@@ -1,0 +1,28 @@
+[
+  {
+    "jobId": "amazon-10506011",
+    "company": "Amazon",
+    "title": "UX Designer, Elevated Shopping Experience",
+    "postingUrl": "https://www.amazon.jobs/en/jobs/10506011/ux-designer-elevated-shopping-experience",
+    "dateFound": "2026-09-22",
+    "location": "NYC",
+    "level": "Mid",
+    "stageGate": "Public / established design org",
+    "status": "sourced",
+    "isNew": true,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 8,
+      "whyFits": [
+        "NYC Mid UX in a large established design org",
+        "GenAI × premium shopping — adjacent to systems + complex flows",
+        "YOE bar is 5+, not a hard 7–8+ skip"
+      ],
+      "gaps": [
+        "Retail / marketplace domain (vs wealth/fintech)",
+        "Title is UX Designer Mid, not Senior PD — scope-check with John"
+      ]
+    },
+    "land": {}
+  }
+]
