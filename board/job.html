@@ -133,7 +133,7 @@
             border-bottom: 1px solid var(--border);
         }
         .board-company-lg {
-            font-family: var(--lp-font-display);
+            font-family: var(--font-display);
             font-size: 28px;
             font-weight: 500;
             letter-spacing: -0.03em;
@@ -142,6 +142,7 @@
             margin-bottom: 6px;
         }
         .board-title-lg {
+            font-family: var(--lp-font-ui);
             font-size: 15px;
             font-weight: 500;
             color: var(--text-2);
@@ -151,18 +152,28 @@
         .board-meta-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px 12px;
+            gap: 6px 0;
             font-size: 12px;
             color: var(--text-3);
             align-items: center;
             margin-bottom: 12px;
         }
-        .board-meta-row a {
+        .board-meta-item {
+            font-family: var(--lp-font-ui);
+            color: var(--text-2);
+            line-height: 1.3;
+        }
+        .board-meta-sep {
+            color: var(--text-3);
+            padding: 0 8px;
+            user-select: none;
+        }
+        .board-meta-row a.board-meta-item {
             color: var(--text-2);
             text-decoration: underline;
             text-underline-offset: 2px;
         }
-        .board-meta-row a:hover { color: var(--text); }
+        .board-meta-row a.board-meta-item:hover { color: var(--text); }
         .board-head-status {
             display: flex;
             flex-wrap: wrap;
@@ -664,10 +675,26 @@
             return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
         }
 
+        /** Join meta fields with middot separators (NYC · Mid · stage · Posting). */
+        function metaParts(items) {
+            const parts = items.filter(function (x) { return x != null && x !== ''; });
+            return parts.map(function (item, i) {
+                var html;
+                if (typeof item === 'object' && item.href) {
+                    html = '<a class="board-meta-item" href="' + escapeHtml(item.href) +
+                        '" target="_blank" rel="noopener">' + escapeHtml(item.label) + '</a>';
+                } else {
+                    html = '<span class="board-meta-item">' + escapeHtml(item) + '</span>';
+                }
+                if (i > 0) html = '<span class="board-meta-sep" aria-hidden="true">·</span>' + html;
+                return html;
+            }).join('');
+        }
+
         function landSlot(label, value, isLink) {
             var body;
             if (!value) {
-                body = '<p class="board-slot-empty">Not yet — use an action below</p>';
+                body = '<p class="board-slot-empty">Not yet — use an action</p>';
             } else if (isLink) {
                 body = '<a href="' + escapeHtml(value) + '" target="_blank" rel="noopener">' + escapeHtml(value) + '</a>';
             } else {
@@ -695,12 +722,14 @@
                 '<h1 class="board-company-lg">' + escapeHtml(j.company) + '</h1>' +
                 '<p class="board-title-lg">' + escapeHtml(j.title) + '</p>' +
                 '<div class="board-meta-row">' +
-                '<span>' + escapeHtml(j.location || '—') + '</span>' +
-                '<span>' + escapeHtml(j.level || '—') + '</span>' +
-                '<span>' + escapeHtml(j.stageGate || '—') + '</span>' +
-                (j.postingUrl
-                    ? '<a href="' + escapeHtml(j.postingUrl) + '" target="_blank" rel="noopener">Posting ↗</a>'
-                    : '') +
+                metaParts([
+                    j.location || '—',
+                    j.level || '—',
+                    j.stageGate || '—',
+                    j.postingUrl
+                        ? { href: j.postingUrl, label: 'Posting ↗' }
+                        : null
+                ]) +
                 '</div>' +
                 '<div class="board-head-status">' +
                 '<span class="' + statusClass + '">' + escapeHtml(j.status) + '</span>' +
