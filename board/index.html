@@ -604,7 +604,10 @@
                     ? '<span class="board-pulse" title="New since last visit" aria-label="New"></span>'
                     : '<span class="board-pulse is-off" aria-hidden="true"></span>';
                 const statusClass = j.status === 'interview' ? ' board-status is-interview' : ' board-status';
-                const href = '/board/' + encodeURIComponent(j.jobId);
+                // Prefer query form — reliable on Vercel static hosting (pretty /board/:id is a rewrite fallback)
+                let href = '/board/job?jobId=' + encodeURIComponent(j.jobId);
+                const key = keyFromUrl() || adminKey;
+                if (key) href += '&key=' + encodeURIComponent(key);
                 return '<a class="board-row" href="' + href + '">' +
                     pulse +
                     '<div class="board-row-main">' +
