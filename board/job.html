@@ -285,25 +285,69 @@
             background: var(--bg-4);
             color: var(--text);
         }
-        /* Optional: stick actions when header scrolls out of view */
-        .board-head-actions.is-stuck {
+        /* Stick company + action band while scrolling long VET */
+        .board-stick-band {
+            margin-bottom: 0;
+        }
+        .board-stick-band.is-stuck {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 40;
-            margin-top: 0;
             padding: 12px 28px;
-            border-top: none;
             border-bottom: 1px solid var(--border);
             background: var(--bg);
             max-width: none;
         }
-        .board-head-actions-spacer {
+        .board-stick-band.is-stuck .board-company-lg {
+            font-size: 18px;
+            margin-bottom: 0;
+            line-height: 1.2;
+        }
+        .board-stick-band.is-stuck .board-head-actions {
+            margin-top: 10px;
+            padding-top: 10px;
+        }
+        .board-stick-band-spacer {
             display: none;
         }
-        .board-head-actions-spacer.is-on {
+        .board-stick-band-spacer.is-on {
             display: block;
+        }
+
+        /* LAND résumé file row */
+        .board-slot-file {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 8px 14px;
+        }
+        .board-slot-filename {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text);
+            word-break: break-word;
+        }
+        .board-slot-file-actions {
+            display: inline-flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+        .board-slot-file-actions a {
+            font-size: 13px;
+            color: var(--text);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        .board-slot-file-actions a:hover { color: var(--text-2); }
+        .board-slot.is-resume-pulse {
+            animation: board-resume-pulse 1.4s ease-out 1;
+        }
+        @keyframes board-resume-pulse {
+            0%   { background: var(--bg-3); }
+            100% { background: transparent; }
         }
 
         /* Tabs */
@@ -587,7 +631,7 @@
                 max-width: 720px;
             }
             .board-shell.visible { display: block; }
-            .board-head-actions.is-stuck {
+            .board-stick-band.is-stuck {
                 padding-left: max(28px, calc((100vw - 720px) / 2 + 28px));
                 padding-right: max(28px, calc((100vw - 720px) / 2 + 28px));
             }
@@ -596,7 +640,8 @@
         @media (max-width: 640px) {
             .board-shell { padding: 20px 20px 24px; }
             .board-company-lg { font-size: 24px; }
-            .board-head-actions.is-stuck { padding: 10px 20px; }
+            .board-stick-band.is-stuck { padding: 10px 20px; }
+            .board-stick-band.is-stuck .board-company-lg { font-size: 16px; }
         }
     </style>
 </head>
@@ -805,6 +850,13 @@
             }).join('');
         }
 
+        function basenamePath(path) {
+            if (!path) return '';
+            var clean = String(path).split('?')[0].split('#')[0];
+            var parts = clean.split('/');
+            return parts[parts.length - 1] || clean;
+        }
+
         function landSlot(label, value, isLink) {
             var body;
             if (!value) {
@@ -817,17 +869,51 @@
             return '<div class="board-slot"><div class="board-slot-label">' + escapeHtml(label) + '</div>' + body + '</div>';
         }
 
+        /** LAND résumé: filename + Open (optional Download) — never raw URL as sole label. */
+        function landResumeSlot(land) {
+            var path = land && land.resumePath;
+            if (!path) {
+                return '<div class="board-slot" id="landResumeSlot">' +
+                    '<div class="board-slot-label">Résumé PDF</div>' +
+                    '<p class="board-slot-empty">Not yet — use an action</p></div>';
+            }
+            var name = (land.resumeFileName && String(land.resumeFileName).trim()) || basenamePath(path);
+            return '<div class="board-slot" id="landResumeSlot">' +
+                '<div class="board-slot-label">Résumé PDF</div>' +
+                '<div class="board-slot-file">' +
+                '<span class="board-slot-filename">' + escapeHtml(name) + '</span>' +
+                '<span class="board-slot-file-actions">' +
+                '<a href="' + escapeHtml(path) + '" target="_blank" rel="noopener">Open</a>' +
+                '<a href="' + escapeHtml(path) + '" download="' + escapeHtml(name) + '">Download</a>' +
+                '</span></div></div>';
+        }
+
+        function preferLandTab() {
+            var q = new URLSearchParams(location.search).get('tab');
+            if (q && q.toLowerCase() === 'land') return true;
+            if ((location.hash || '').toLowerCase() === '#land') return true;
+            return false;
+        }
+
         function renderDetail() {
             const j = job;
             const land = j.land || {};
             const statusClass = j.status === 'interview' ? 'board-status is-interview' : 'board-status';
+            const openLand = preferLandTab() && !!(land.resumePath);
 
             document.title = j.company + ' — Board';
 
             host.innerHTML =
                 '<header class="board-detail-head" id="detailHead">' +
                 '<div class="board-stick-sentinel" id="actionStickSentinel" aria-hidden="true"></div>' +
+                '<div class="board-stick-band" id="stickBand">' +
                 '<h1 class="board-company-lg">' + escapeHtml(j.company) + '</h1>' +
+                '<div class="board-head-actions" id="actionBar">' +
+                '<div class="board-head-actions-btns" id="actionButtons"></div>' +
+                '<div class="board-actions-note" id="actionNote" aria-live="polite"></div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="board-stick-band-spacer" id="actionSpacer" aria-hidden="true"></div>' +
                 '<p class="board-title-lg">' + escapeHtml(j.title) + '</p>' +
                 '<div class="board-meta-row">' +
                 metaParts([
@@ -846,25 +932,24 @@
                 (j.sentAt ? ' · Sent ' + escapeHtml(formatDate(j.sentAt)) : '') +
                 (j.followUpAt ? ' · Follow-up ' + escapeHtml(formatDate(j.followUpAt)) : '') +
                 '</span></div>' +
-                '<div class="board-head-actions" id="actionBar">' +
-                '<div class="board-head-actions-btns" id="actionButtons"></div>' +
-                '<div class="board-actions-note" id="actionNote" aria-live="polite"></div>' +
-                '</div>' +
                 '</header>' +
-                '<div class="board-head-actions-spacer" id="actionSpacer" aria-hidden="true"></div>' +
 
                 '<div class="board-tabs" role="tablist">' +
-                '<button type="button" class="board-tab" role="tab" id="tabVet" aria-selected="true" aria-controls="panelVet">VET</button>' +
-                '<button type="button" class="board-tab" role="tab" id="tabLand" aria-selected="false" aria-controls="panelLand">LAND</button>' +
+                '<button type="button" class="board-tab" role="tab" id="tabVet" aria-selected="' +
+                (openLand ? 'false' : 'true') + '" aria-controls="panelVet">VET</button>' +
+                '<button type="button" class="board-tab" role="tab" id="tabLand" aria-selected="' +
+                (openLand ? 'true' : 'false') + '" aria-controls="panelLand">LAND</button>' +
                 '</div>' +
 
-                '<div class="board-panel" id="panelVet" role="tabpanel" aria-labelledby="tabVet">' +
+                '<div class="board-panel" id="panelVet" role="tabpanel" aria-labelledby="tabVet"' +
+                (openLand ? ' hidden' : '') + '>' +
                 renderFitWriteup(j) +
                 renderGapAnalysisWriteup(j) +
                 '</div>' +
 
-                '<div class="board-panel" id="panelLand" role="tabpanel" aria-labelledby="tabLand" hidden>' +
-                landSlot('Résumé PDF', land.resumePath, true) +
+                '<div class="board-panel" id="panelLand" role="tabpanel" aria-labelledby="tabLand"' +
+                (openLand ? '' : ' hidden') + '>' +
+                landResumeSlot(land) +
                 landSlot('Tracked hiring link', land.trackedLink, true) +
                 landSlot('Contact card', land.contactCard, false) +
                 landSlot('LinkedIn draft', land.drafts && land.drafts.linkedin, false) +
@@ -875,6 +960,24 @@
             document.getElementById('tabVet').addEventListener('click', function () { setTab('vet'); });
             document.getElementById('tabLand').addEventListener('click', function () { setTab('land'); });
             renderActions();
+
+            if (land.resumePath) {
+                // Light touch: pulse résumé row once when LAND is shown (or when user opens LAND)
+                var resumeEl = document.getElementById('landResumeSlot');
+                function pulseResumeOnce() {
+                    if (!resumeEl || resumeEl.dataset.pulsed === '1') return;
+                    resumeEl.dataset.pulsed = '1';
+                    resumeEl.classList.add('is-resume-pulse');
+                    setTimeout(function () {
+                        resumeEl.classList.remove('is-resume-pulse');
+                    }, 1500);
+                }
+                if (openLand) {
+                    pulseResumeOnce();
+                } else {
+                    document.getElementById('tabLand').addEventListener('click', pulseResumeOnce, { once: true });
+                }
+            }
         }
 
         function writeupMetaLine(obj) {
@@ -1101,25 +1204,26 @@
                 });
             }
 
-            setupStickyActions(actionBar);
+            setupStickyBand();
         }
 
-        function setupStickyActions(actionBar) {
+        function setupStickyBand() {
+            const stickBand = document.getElementById('stickBand');
             const spacer = document.getElementById('actionSpacer');
             const sentinel = document.getElementById('actionStickSentinel');
             if (actionObserver) {
                 actionObserver.disconnect();
                 actionObserver = null;
             }
-            if (!sentinel || !actionBar || !spacer || !('IntersectionObserver' in window)) return;
+            if (!sentinel || !stickBand || !spacer || !('IntersectionObserver' in window)) return;
 
             actionObserver = new IntersectionObserver(function (entries) {
                 const entry = entries[0];
-                // Stick only once the header top has fully left the viewport
+                // Stick company + actions once the header top has left the viewport
                 const stuck = entry && !entry.isIntersecting && entry.boundingClientRect.top < 0;
-                actionBar.classList.toggle('is-stuck', stuck);
+                stickBand.classList.toggle('is-stuck', stuck);
                 if (stuck) {
-                    spacer.style.height = actionBar.offsetHeight + 'px';
+                    spacer.style.height = stickBand.offsetHeight + 'px';
                     spacer.classList.add('is-on');
                 } else {
                     spacer.style.height = '';
