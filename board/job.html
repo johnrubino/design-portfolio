@@ -650,12 +650,26 @@
 
         function jobIdFromPath() {
             const parts = location.pathname.replace(/\/+$/, '').split('/');
-            // /board/:jobId or /board/job.html?jobId=
+            // /board/:jobId or /board/job.html?jobId= / /board/job?jobId=
             const q = new URLSearchParams(location.search).get('jobId');
             if (q) return q;
             const last = parts[parts.length - 1];
-            if (last && last !== 'board' && last !== 'job.html') return decodeURIComponent(last);
+            // Skip reserved list/detail segments so /board/job is not treated as an id
+            if (last && last !== 'board' && last !== 'job' && last !== 'job.html') {
+                return decodeURIComponent(last);
+            }
             return null;
+        }
+
+        function boardListHref() {
+            const fromUrl = new URLSearchParams(location.search).get('key');
+            const key = fromUrl || adminKey || getStoredKey();
+            return key ? '/board?key=' + encodeURIComponent(key) : '/board';
+        }
+
+        function syncBackLink() {
+            const back = document.querySelector('.board-back');
+            if (back) back.setAttribute('href', boardListHref());
         }
 
         function isLocalHost() {
@@ -685,6 +699,7 @@
         }
 
         function unlockShell() {
+            syncBackLink();
             gate.classList.add('hidden');
             shell.classList.add('visible');
             setTimeout(function () { gate.remove(); }, 400);
@@ -1160,7 +1175,8 @@
         async function loadJob() {
             const id = jobIdFromPath();
             if (!id) {
-                host.innerHTML = '<div class="board-state">Missing job id. <a href="/board">Back to Board</a></div>';
+                host.innerHTML = '<div class="board-state">Missing job id. <a href="' +
+                    boardListHref() + '">Back to Board</a></div>';
                 return;
             }
             try {
@@ -1170,7 +1186,8 @@
                 const list = Array.isArray(data) ? data : [];
                 job = list.find(function (j) { return j.jobId === id; }) || null;
                 if (!job) {
-                    host.innerHTML = '<div class="board-state">Role not found. <a href="/board">Back to Board</a></div>';
+                    host.innerHTML = '<div class="board-state">Role not found. <a href="' +
+                        boardListHref() + '">Back to Board</a></div>';
                     return;
                 }
                 renderDetail();

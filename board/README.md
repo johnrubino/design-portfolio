@@ -10,7 +10,8 @@ npx serve . -p 3000
 ```
 
 - List: http://localhost:3000/board  
-- Detail: http://localhost:3000/board/amazon-10506011  
+- Detail (preferred): http://localhost:3000/board/job?jobId=amazon-10506011  
+- Detail (pretty, via rewrite): http://localhost:3000/board/amazon-10506011  
 
 On localhost the gate allows preview when `/api/board-auth` is unavailable. In production, open with `?key=YOUR_ADMIN_KEY` (same `ADMIN_KEY` as hiring generate / views).
 
