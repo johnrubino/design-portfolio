@@ -277,7 +277,13 @@
             color: var(--text-3);
             display: flex;
             flex-wrap: wrap;
-            gap: 6px 10px;
+            gap: 6px 0;
+            align-items: center;
+        }
+        .board-row-meta .board-meta-sep {
+            color: var(--text-3);
+            padding: 0 8px;
+            user-select: none;
         }
         .board-status {
             font-size: 11px;
@@ -607,9 +613,11 @@
                     '<span class="board-role">' + escapeHtml(j.title) + '</span>' +
                     '</div>' +
                     '<div class="board-row-meta">' +
-                    '<span>' + escapeHtml(j.location || '—') + '</span>' +
-                    '<span>' + escapeHtml(j.level || '—') + '</span>' +
-                    '<span>' + escapeHtml(ageLabel(j.dateFound)) + '</span>' +
+                    metaParts([
+                        j.location || '—',
+                        j.level || '—',
+                        ageLabel(j.dateFound)
+                    ]) +
                     '</div></div>' +
                     '<span class="' + statusClass.trim() + '">' + escapeHtml(j.status) + '</span>' +
                     '</a>';
@@ -622,6 +630,15 @@
                 .replace(/</g, '&lt;')
                 .replace(/>/g, '&gt;')
                 .replace(/"/g, '&quot;');
+        }
+
+        function metaParts(items) {
+            const parts = items.filter(function (x) { return x != null && x !== ''; });
+            return parts.map(function (item, i) {
+                var html = '<span>' + escapeHtml(item) + '</span>';
+                if (i > 0) html = '<span class="board-meta-sep" aria-hidden="true">·</span>' + html;
+                return html;
+            }).join('');
         }
 
         async function loadJobs() {

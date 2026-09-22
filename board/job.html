@@ -16,7 +16,6 @@
             color: var(--text);
             font-family: var(--lp-font-ui);
             min-height: 100dvh;
-            padding-bottom: 96px;
         }
 
         .board-gate {
@@ -127,10 +126,20 @@
         }
         .board-back:hover { color: var(--text); }
 
+        .board-stick-sentinel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1px;
+            height: 1px;
+            pointer-events: none;
+            opacity: 0;
+        }
         .board-detail-head {
             margin-bottom: 20px;
             padding-bottom: 20px;
             border-bottom: 1px solid var(--border);
+            position: relative;
         }
         .board-company-lg {
             font-family: var(--font-display);
@@ -219,6 +228,82 @@
         .board-dates {
             font-size: 12px;
             color: var(--text-3);
+        }
+
+        /* Header-inline actions (not a floating dock) */
+        .board-head-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
+        }
+        .board-head-actions-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+        .board-actions-note {
+            flex: 1 1 100%;
+            font-size: 12px;
+            color: var(--text-2);
+            min-height: 0;
+        }
+        .board-actions-note:empty { display: none; }
+        .board-more-wrap { position: relative; }
+        .board-more-menu {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            min-width: 160px;
+            background: var(--bg-3);
+            border: 1px solid var(--border-mid);
+            border-radius: 8px;
+            padding: 4px;
+            display: none;
+            flex-direction: column;
+            gap: 2px;
+            z-index: 20;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+        }
+        .board-more-menu.open { display: flex; }
+        .board-more-menu button {
+            text-align: left;
+            background: none;
+            border: none;
+            color: var(--text-2);
+            font-family: var(--lp-font-ui);
+            font-size: 13px;
+            padding: 8px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .board-more-menu button:hover {
+            background: var(--bg-4);
+            color: var(--text);
+        }
+        /* Optional: stick actions when header scrolls out of view */
+        .board-head-actions.is-stuck {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 40;
+            margin-top: 0;
+            padding: 12px 28px;
+            border-top: none;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg);
+            max-width: none;
+        }
+        .board-head-actions-spacer {
+            display: none;
+        }
+        .board-head-actions-spacer.is-on {
+            display: block;
         }
 
         /* Tabs */
@@ -337,70 +422,6 @@
             text-underline-offset: 2px;
         }
 
-        /* Sticky action bar */
-        .board-actions {
-            position: fixed;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 50;
-            background: var(--bg-2);
-            border-top: 1px solid var(--border);
-            padding: 12px 20px calc(12px + env(safe-area-inset-bottom));
-        }
-        .board-actions-inner {
-            max-width: 720px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            align-items: center;
-        }
-        #actionButtons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            align-items: center;
-            flex: 1;
-        }
-        .board-actions-note {
-            flex: 1 1 100%;
-            font-size: 12px;
-            color: var(--text-2);
-            min-height: 1.2em;
-        }
-        .board-more-wrap { position: relative; }
-        .board-more-menu {
-            position: absolute;
-            bottom: calc(100% + 8px);
-            right: 0;
-            min-width: 160px;
-            background: var(--bg-3);
-            border: 1px solid var(--border-mid);
-            border-radius: 8px;
-            padding: 4px;
-            display: none;
-            flex-direction: column;
-            gap: 2px;
-            box-shadow: 0 -8px 24px rgba(0,0,0,0.35);
-        }
-        .board-more-menu.open { display: flex; }
-        .board-more-menu button {
-            text-align: left;
-            background: none;
-            border: none;
-            color: var(--text-2);
-            font-family: var(--lp-font-ui);
-            font-size: 13px;
-            padding: 8px 10px;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-        .board-more-menu button:hover {
-            background: var(--bg-4);
-            color: var(--text);
-        }
-
         /* Confirm sheet */
         .board-sheet-backdrop {
             position: fixed;
@@ -452,43 +473,21 @@
         }
 
         @media (min-width: 900px) {
-            .board-page { padding-bottom: 32px; }
             .board-shell {
                 display: none;
-                max-width: 960px;
-                padding-right: 200px;
+                max-width: 720px;
             }
             .board-shell.visible { display: block; }
-            .board-actions {
-                left: auto;
-                right: 24px;
-                bottom: 24px;
-                width: 168px;
-                border: 1px solid var(--border);
-                border-radius: 10px;
-                padding: 12px;
-                background: var(--bg-2);
-            }
-            .board-actions-inner {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            #actionButtons {
-                flex-direction: column;
-                align-items: stretch;
-                width: 100%;
-            }
-            .board-actions-note { order: -1; margin-bottom: 4px; }
-            .board-btn { width: 100%; }
-            .board-more-menu {
-                right: 0;
-                left: 0;
+            .board-head-actions.is-stuck {
+                padding-left: max(28px, calc((100vw - 720px) / 2 + 28px));
+                padding-right: max(28px, calc((100vw - 720px) / 2 + 28px));
             }
         }
 
         @media (max-width: 640px) {
             .board-shell { padding: 20px 20px 24px; }
             .board-company-lg { font-size: 24px; }
+            .board-head-actions.is-stuck { padding: 10px 20px; }
         }
     </style>
 </head>
@@ -517,13 +516,6 @@
         </div>
     </main>
 
-    <div class="board-actions" id="actionBar" hidden>
-        <div class="board-actions-inner">
-            <div class="board-actions-note" id="actionNote" aria-live="polite"></div>
-            <div id="actionButtons"></div>
-        </div>
-    </div>
-
     <div class="board-sheet-backdrop" id="confirmSheet" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
         <div class="board-sheet">
             <h2 id="confirmTitle">Submit application?</h2>
@@ -544,10 +536,8 @@
         const gate = document.getElementById('boardGate');
         const shell = document.getElementById('boardShell');
         const host = document.getElementById('detailHost');
-        const actionBar = document.getElementById('actionBar');
-        const actionButtons = document.getElementById('actionButtons');
-        const actionNote = document.getElementById('actionNote');
         const confirmSheet = document.getElementById('confirmSheet');
+        let actionObserver = null;
 
         function jobIdFromPath() {
             const parts = location.pathname.replace(/\/+$/, '').split('/');
@@ -718,7 +708,8 @@
             document.title = j.company + ' — Board';
 
             host.innerHTML =
-                '<header class="board-detail-head">' +
+                '<header class="board-detail-head" id="detailHead">' +
+                '<div class="board-stick-sentinel" id="actionStickSentinel" aria-hidden="true"></div>' +
                 '<h1 class="board-company-lg">' + escapeHtml(j.company) + '</h1>' +
                 '<p class="board-title-lg">' + escapeHtml(j.title) + '</p>' +
                 '<div class="board-meta-row">' +
@@ -737,7 +728,13 @@
                 '<span class="board-dates">Found ' + escapeHtml(formatDate(j.dateFound) || '—') +
                 (j.sentAt ? ' · Sent ' + escapeHtml(formatDate(j.sentAt)) : '') +
                 (j.followUpAt ? ' · Follow-up ' + escapeHtml(formatDate(j.followUpAt)) : '') +
-                '</span></div></header>' +
+                '</span></div>' +
+                '<div class="board-head-actions" id="actionBar">' +
+                '<div class="board-head-actions-btns" id="actionButtons"></div>' +
+                '<div class="board-actions-note" id="actionNote" aria-live="polite"></div>' +
+                '</div>' +
+                '</header>' +
+                '<div class="board-head-actions-spacer" id="actionSpacer" aria-hidden="true"></div>' +
 
                 '<div class="board-tabs" role="tablist">' +
                 '<button type="button" class="board-tab" role="tab" id="tabVet" aria-selected="true" aria-controls="panelVet">VET</button>' +
@@ -844,9 +841,12 @@
 
         function renderActions() {
             const defs = actionDefsForStatus(job.status);
-            // Cap visible at 4
             const visible = defs.visible.slice(0, 4);
             const more = defs.more || [];
+            const actionButtons = document.getElementById('actionButtons');
+            const actionBar = document.getElementById('actionBar');
+            const actionNote = document.getElementById('actionNote');
+            if (!actionButtons || !actionBar) return;
 
             let html = visible.map(function (a) {
                 return '<button type="button" class="' + btnClass(a.tone) + '" data-action="' + a.action + '"' +
@@ -865,7 +865,6 @@
             }
 
             actionButtons.innerHTML = html;
-            actionBar.hidden = false;
 
             actionButtons.querySelectorAll('[data-action]').forEach(function (btn) {
                 btn.addEventListener('click', function () {
@@ -892,6 +891,34 @@
                     }
                 });
             }
+
+            setupStickyActions(actionBar);
+        }
+
+        function setupStickyActions(actionBar) {
+            const spacer = document.getElementById('actionSpacer');
+            const sentinel = document.getElementById('actionStickSentinel');
+            if (actionObserver) {
+                actionObserver.disconnect();
+                actionObserver = null;
+            }
+            if (!sentinel || !actionBar || !spacer || !('IntersectionObserver' in window)) return;
+
+            actionObserver = new IntersectionObserver(function (entries) {
+                const entry = entries[0];
+                // Stick only once the header top has fully left the viewport
+                const stuck = entry && !entry.isIntersecting && entry.boundingClientRect.top < 0;
+                actionBar.classList.toggle('is-stuck', stuck);
+                if (stuck) {
+                    spacer.style.height = actionBar.offsetHeight + 'px';
+                    spacer.classList.add('is-on');
+                } else {
+                    spacer.style.height = '';
+                    spacer.classList.remove('is-on');
+                }
+            }, { threshold: 0 });
+
+            actionObserver.observe(sentinel);
         }
 
         function openConfirm() {
@@ -910,7 +937,8 @@
         });
 
         async function postAction(action, btn) {
-            actionNote.textContent = 'Notifying Jobi…';
+            const actionNote = document.getElementById('actionNote');
+            if (actionNote) actionNote.textContent = 'Notifying Jobi…';
             if (btn) btn.disabled = true;
             const key = adminKey || getStoredKey();
             const url = '/api/board-action' + (key ? ('?key=' + encodeURIComponent(key)) : '');
@@ -922,14 +950,13 @@
                 });
                 const data = await res.json().catch(function () { return {}; });
                 if (!res.ok) throw new Error(data.error || ('Request failed (' + res.status + ')'));
-                actionNote.textContent = data.message || 'Jobi notified…';
+                if (actionNote) actionNote.textContent = data.message || 'Jobi notified…';
             } catch (e) {
-                // Local static preview: optimistic note still
                 if (isLocalHost()) {
-                    actionNote.textContent = 'Jobi notified… (local stub)';
+                    if (actionNote) actionNote.textContent = 'Jobi notified… (local stub)';
                     console.log('[board-action local]', { jobId: job.jobId, action: action, source: 'board' });
                 } else {
-                    actionNote.textContent = e.message || 'Failed to notify Jobi';
+                    if (actionNote) actionNote.textContent = e.message || 'Failed to notify Jobi';
                 }
             } finally {
                 if (btn) btn.disabled = false;
