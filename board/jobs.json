@@ -8,7 +8,7 @@
     "location": "NYC",
     "level": "Mid",
     "stageGate": "Public / established design org",
-    "status": "vetted",
+    "status": "applying",
     "isNew": false,
     "vet": {
       "gatesPass": true,
@@ -100,7 +100,8 @@
     },
     "land": {
       "resumePath": "/board/resumes/amazon-10506011.pdf",
-      "resumeFileName": "Amazon-Elevated-Shopping.pdf"
+      "resumeFileName": "Amazon-Elevated-Shopping.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=Eh7ohW"
     }
   }
 ]
