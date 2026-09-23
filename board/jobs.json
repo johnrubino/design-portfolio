@@ -528,8 +528,8 @@
     "location": "US remote",
     "level": "Senior",
     "stageGate": "Series A+ (Primary / Viewpoint backed)",
-    "status": "sourced",
-    "isNew": true,
+    "status": "skipped",
+    "isNew": false,
     "vet": {
       "gatesPass": true,
       "fitScore": 5,
