@@ -110,5 +110,485 @@
     },
     "lastChecked": "2026-09-22",
     "sentAt": "2026-09-22T23:35:04Z"
+  },
+  {
+    "jobId": "clever-8224363",
+    "company": "Clever",
+    "title": "Senior Product Designer, Cybersecurity",
+    "postingUrl": "https://www.clever.com/about/careers?gh_jid=8224363",
+    "dateFound": "2026-09-23",
+    "location": "SF or Anywhere Continental US",
+    "level": "Senior",
+    "stageGate": "Public-parent / established (Kahoot)",
+    "status": "sourced",
+    "isNew": true,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Senior IC with explicit continental-US remote",
+        "Kahoot-owned established Product & Design org \u2014 not tiny/1st designer",
+        "Auth/cybersecurity + AI-agent access design; no 7\u20138+ YOE bar"
+      ],
+      "gaps": [
+        "Edtech / K-12 cybersecurity domain vs wealth/fintech",
+        "SF HQ option \u2014 confirm remote-first working model"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-09-23",
+      "source": "Jobi watch",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium",
+      "recommendation": "Strong clear \u2014 prep if cybersecurity / horizontal auth systems interest you",
+      "summary": "Senior IC seat with explicit US-remote flexibility inside a Kahoot-owned design org. The brief is horizontal auth and AI-agent access design \u2014 systems work that maps to complex enterprise flows. Main gaps are edtech domain and confirming remote culture vs SF HQ.",
+      "scorecard": [
+        {
+          "dimension": "Role level",
+          "rating": "Strong",
+          "notes": "Senior IC; mentoring without manager title"
+        },
+        {
+          "dimension": "Functional experience",
+          "rating": "Strong",
+          "notes": "Auth, multi-team systems, AI-agent access patterns"
+        },
+        {
+          "dimension": "Domain",
+          "rating": "Weak",
+          "notes": "Edtech / K-12 cybersecurity vs wealth"
+        },
+        {
+          "dimension": "Company stage / environment",
+          "rating": "Strong",
+          "notes": "Kahoot parent; established design org"
+        },
+        {
+          "dimension": "Customer / user type",
+          "rating": "Moderate",
+          "notes": "School admins / educators vs wealth operators"
+        },
+        {
+          "dimension": "Required qualifications",
+          "rating": "Strong",
+          "notes": "No hard 7\u20138+ YOE; senior craft bar"
+        }
+      ],
+      "strengths": [
+        "Senior IC with explicit continental-US remote",
+        "Kahoot-owned established Product & Design org",
+        "Auth/cybersecurity + AI-agent access design"
+      ],
+      "gaps": [
+        {
+          "text": "Edtech / K-12 cybersecurity domain vs wealth/fintech",
+          "kind": "true gap"
+        },
+        {
+          "text": "SF HQ option \u2014 confirm remote-first working model",
+          "kind": "frameable"
+        }
+      ]
+    },
+    "gapAnalysis": {
+      "generatedAt": "2026-09-23",
+      "source": "Jobi watch",
+      "seed": false,
+      "gaps": [
+        {
+          "headline": "Edtech / K-12 cybersecurity domain",
+          "kind": "Structural gap",
+          "interview": "Lead with enterprise auth and multi-surface systems work; ask how Clever onboards designers from fintech/enterprise. Sketch one AI-agent access control research plan for the first 30 days.",
+          "longerTerm": "Add a short edtech / FERPA glossary and one side case on identity or permissions if this track continues."
+        },
+        {
+          "headline": "Remote vs SF HQ culture",
+          "kind": "Frameable gap",
+          "interview": "Confirm whether Continental US remote is first-class (ceremony times, onsite expectations) before investing a full packet.",
+          "longerTerm": "N/A if remote is explicit and valued."
+        }
+      ]
+    }
+  },
+  {
+    "jobId": "rho-f4ece49b",
+    "company": "Rho",
+    "title": "Senior Product Designer",
+    "postingUrl": "https://jobs.ashbyhq.com/rho/f4ece49b-3b53-4ffb-861f-9cc972c10b27",
+    "dateFound": "2026-09-23",
+    "location": "NYC",
+    "level": "Senior",
+    "stageGate": "Series B+ fintech (growth-stage)",
+    "status": "sourced",
+    "isNew": true,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 8,
+      "whyFits": [
+        "NYC Senior IC fintech banking \u2014 core domain fit",
+        "4+ YOE bar (not 7\u20138+); multi-level design org (Staff/Principal/Design Systems also open)",
+        "AI-era business banking platform"
+      ],
+      "gaps": [
+        "Ashby listing open since Oct 2025 \u2014 check if still actively hiring",
+        "May compete with Staff/Principal lanes internally"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-09-23",
+      "source": "Jobi watch",
+      "seed": false,
+      "score": "8/10",
+      "confidence": "Medium-High",
+      "recommendation": "Top clear this run \u2014 prep r\u00e9sum\u00e9 if still actively hiring",
+      "summary": "NYC Senior Product Designer on an AI-era business banking platform with a 4+ YOE bar and a multi-seat design org. Strong domain and level match to Pershing/wealth work. Main caution is listing age (open since Oct 2025) \u2014 confirm the seat is still live before a full packet.",
+      "scorecard": [
+        {
+          "dimension": "Role level",
+          "rating": "Strong",
+          "notes": "Senior IC; 4+ YOE"
+        },
+        {
+          "dimension": "Functional experience",
+          "rating": "Strong",
+          "notes": "Complex financial workflows, systems, AI patterns"
+        },
+        {
+          "dimension": "Domain",
+          "rating": "Strong",
+          "notes": "Business banking / fintech adjacent to wealth"
+        },
+        {
+          "dimension": "Company stage / environment",
+          "rating": "Strong",
+          "notes": "Growth-stage Series B+; established multi-level design org"
+        },
+        {
+          "dimension": "Customer / user type",
+          "rating": "Strong",
+          "notes": "Finance operators / business users"
+        },
+        {
+          "dimension": "Required qualifications",
+          "rating": "Strong",
+          "notes": "4+ YOE \u2014 in band"
+        }
+      ],
+      "strengths": [
+        "NYC Senior IC fintech banking",
+        "4+ YOE; multi-level design org",
+        "AI-era business banking platform"
+      ],
+      "gaps": [
+        {
+          "text": "Listing open since Oct 2025 \u2014 confirm still hiring",
+          "kind": "frameable"
+        },
+        {
+          "text": "Staff/Principal seats also open \u2014 clarify Senior IC scope",
+          "kind": "frameable"
+        }
+      ]
+    },
+    "gapAnalysis": {
+      "generatedAt": "2026-09-23",
+      "source": "Jobi watch",
+      "seed": false,
+      "gaps": [
+        {
+          "headline": "Older Ashby open (Oct 2025)",
+          "kind": "Frameable gap",
+          "interview": "Ask recruiter whether the Senior seat is actively interviewing and how it differs from Staff/Principal lanes.",
+          "longerTerm": "If evergreen, still useful practice packet; deprioritize if ghosted."
+        },
+        {
+          "headline": "Parallel Staff/Principal openings",
+          "kind": "Frameable gap",
+          "interview": "Clarify IC ownership, leveling, and whether Senior owns end-to-end product areas without Staff scope creep.",
+          "longerTerm": "N/A"
+        }
+      ]
+    }
+  },
+  {
+    "jobId": "amazon-10431974",
+    "company": "Amazon",
+    "title": "UX Designer, Design Systems & Visual Design, Amazon Autos",
+    "postingUrl": "https://www.amazon.jobs/en/jobs/10431974/ux-designer-design-systems-visual-design-amazon-autos",
+    "dateFound": "2026-09-23",
+    "location": "NYC",
+    "level": "Mid",
+    "stageGate": "Public / established design org",
+    "status": "sourced",
+    "isNew": true,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "NYC Mid UX in established Amazon design org",
+        "Design systems + visual design focus matches systems interest",
+        "YOE ~3\u20135+ \u2014 not a hard 7\u20138+ skip"
+      ],
+      "gaps": [
+        "Autos / automotive domain vs wealth/fintech",
+        "Mid UX title vs Senior PD trajectory \u2014 scope-check"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-09-23",
+      "source": "Jobi watch",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium",
+      "recommendation": "Clear if systems craft pull is strong \u2014 distinct from Elevated Shopping",
+      "summary": "Mid UX seat focused on design systems and visual design for Amazon Autos in NYC. Strong environment and systems match; domain is automotive rather than wealth. Distinct from the already-sent Elevated Shopping card.",
+      "scorecard": [
+        {
+          "dimension": "Role level",
+          "rating": "Strong",
+          "notes": "Mid UX; YOE ~3\u20135+"
+        },
+        {
+          "dimension": "Functional experience",
+          "rating": "Strong",
+          "notes": "Design systems, visual consistency, multi-surface"
+        },
+        {
+          "dimension": "Domain",
+          "rating": "Weak",
+          "notes": "Automotive / Autos vs wealth"
+        },
+        {
+          "dimension": "Company stage / environment",
+          "rating": "Strong",
+          "notes": "Public / established design org"
+        },
+        {
+          "dimension": "Customer / user type",
+          "rating": "Moderate",
+          "notes": "Consumer autos shopping vs advisors"
+        },
+        {
+          "dimension": "Required qualifications",
+          "rating": "Strong",
+          "notes": "Systems craft emphasized over hard years"
+        }
+      ],
+      "strengths": [
+        "NYC Mid UX; Amazon established design org",
+        "Design systems + visual design focus",
+        "YOE band not a 7\u20138+ skip"
+      ],
+      "gaps": [
+        {
+          "text": "Autos / automotive domain vs wealth/fintech",
+          "kind": "true gap"
+        },
+        {
+          "text": "Mid UX title vs Senior PD trajectory",
+          "kind": "frameable"
+        }
+      ]
+    },
+    "gapAnalysis": {
+      "generatedAt": "2026-09-23",
+      "source": "Jobi watch",
+      "seed": false,
+      "gaps": [
+        {
+          "headline": "Automotive domain",
+          "kind": "Structural gap",
+          "interview": "Lead with design-systems ownership and multi-surface consistency; ask how Autos team onboards systems designers from other verticals.",
+          "longerTerm": "Only invest if systems craft at Amazon is the goal; otherwise prefer Elevated Shopping or fintech clears."
+        },
+        {
+          "headline": "Mid UX vs Senior PD leveling",
+          "kind": "Frameable gap",
+          "interview": "Clarify IC ownership and whether systems influence matches Senior PD scope elsewhere.",
+          "longerTerm": "N/A"
+        }
+      ]
+    }
+  },
+  {
+    "jobId": "buildout-78669d73",
+    "company": "Buildout",
+    "title": "Senior Product Designer",
+    "postingUrl": "https://jobs.ashbyhq.com/buildout/78669d73-9735-479b-b84a-a3b199970396",
+    "dateFound": "2026-09-23",
+    "location": "US remote",
+    "level": "Senior",
+    "stageGate": "Growth SaaS (CRE) \u2014 Series A+ OK",
+    "status": "sourced",
+    "isNew": true,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 5,
+      "whyFits": [
+        "US remote Senior IC; 5+ YOE; not 1st designer (partners + mentors small team)",
+        "Pub Sep 22 \u2014 fresh"
+      ],
+      "gaps": [
+        "CRE brokerage domain",
+        "Salary band $125\u2013150k may be light vs Senior NYC",
+        "Reports to SVP Product"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-09-23",
+      "source": "Jobi watch",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline \u2014 only if CRE SaaS + remote Senior is interesting despite lighter band",
+      "summary": "Remote Senior PD with a small but real design bench (not founding-1st). CRE brokerage domain and $125\u2013150k band make this secondary to fintech/AI clears.",
+      "scorecard": [
+        {
+          "dimension": "Role level",
+          "rating": "Moderate",
+          "notes": "Senior title; band may under-level vs NYC Senior"
+        },
+        {
+          "dimension": "Functional experience",
+          "rating": "Moderate",
+          "notes": "Product design + mentoring"
+        },
+        {
+          "dimension": "Domain",
+          "rating": "Weak",
+          "notes": "Commercial real estate brokerage"
+        },
+        {
+          "dimension": "Company stage / environment",
+          "rating": "Moderate",
+          "notes": "Growth SaaS; small design team but not 1st"
+        },
+        {
+          "dimension": "Customer / user type",
+          "rating": "Weak",
+          "notes": "Brokers vs wealth operators"
+        },
+        {
+          "dimension": "Required qualifications",
+          "rating": "Strong",
+          "notes": "5+ YOE \u2014 in band"
+        }
+      ],
+      "strengths": [
+        "US remote Senior IC",
+        "Not 1st designer; mentors small UX/PD team"
+      ],
+      "gaps": [
+        {
+          "text": "CRE brokerage domain",
+          "kind": "true gap"
+        },
+        {
+          "text": "Salary band $125\u2013150k may be light",
+          "kind": "true gap"
+        }
+      ]
+    },
+    "gapAnalysis": {
+      "generatedAt": "2026-09-23",
+      "source": "Jobi watch",
+      "seed": false,
+      "gaps": [
+        {
+          "headline": "CRE domain + compensation band",
+          "kind": "Structural gap",
+          "interview": "Only pursue if remote Senior + CRE SaaS is a deliberate interest; ask about leveling vs SF/NYC Senior comps.",
+          "longerTerm": "Deprioritize vs fintech/AI clears."
+        }
+      ]
+    }
+  },
+  {
+    "jobId": "spark-5426374008",
+    "company": "Spark Advisors",
+    "title": "Senior Product Designer",
+    "postingUrl": "https://job-boards.greenhouse.io/sparkadvisors/jobs/5426374008",
+    "dateFound": "2026-09-23",
+    "location": "US remote",
+    "level": "Senior",
+    "stageGate": "Series A+ (Primary / Viewpoint backed)",
+    "status": "sourced",
+    "isNew": true,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 5,
+      "whyFits": [
+        "US remote; 4\u20136+ YOE; design system + AI tooling; Medicare/fintech-adjacent ops"
+      ],
+      "gaps": [
+        "JD \u201cground floor\u201d language \u2192 early design-bench caution",
+        "First pub Sep 16 \u2014 still relatively new"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-09-23",
+      "source": "Jobi watch",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline \u2014 interesting AI + ops tooling, but ground-floor team-size risk",
+      "summary": "Remote Senior PD on Medicare/fintech-adjacent ops with design system and AI tooling mentions. Compelling product surface, but \u201cground floor\u201d language flags an early design bench \u2014 treat as secondary to clearer established-org seats.",
+      "scorecard": [
+        {
+          "dimension": "Role level",
+          "rating": "Moderate",
+          "notes": "Senior; 4\u20136+ YOE"
+        },
+        {
+          "dimension": "Functional experience",
+          "rating": "Moderate",
+          "notes": "Design systems + AI tooling"
+        },
+        {
+          "dimension": "Domain",
+          "rating": "Moderate",
+          "notes": "Medicare ops / fintech-adjacent"
+        },
+        {
+          "dimension": "Company stage / environment",
+          "rating": "Weak",
+          "notes": "Ground-floor design bench caution"
+        },
+        {
+          "dimension": "Customer / user type",
+          "rating": "Moderate",
+          "notes": "Advisors / ops users"
+        },
+        {
+          "dimension": "Required qualifications",
+          "rating": "Strong",
+          "notes": "4\u20136+ YOE in band"
+        }
+      ],
+      "strengths": [
+        "US remote; AI tooling + design system",
+        "Medicare/fintech-adjacent ops"
+      ],
+      "gaps": [
+        {
+          "text": "Ground floor / early design-bench language",
+          "kind": "true gap"
+        }
+      ]
+    },
+    "gapAnalysis": {
+      "generatedAt": "2026-09-23",
+      "source": "Jobi watch",
+      "seed": false,
+      "gaps": [
+        {
+          "headline": "Early design bench (\u201cground floor\u201d)",
+          "kind": "Structural gap",
+          "interview": "Ask exact design headcount, who owns craft critique, and whether this is effectively a first/second designer seat despite Senior title.",
+          "longerTerm": "Hard-skip if it turns out to be 1st/2nd designer despite the title."
+        }
+      ]
+    }
   }
 ]
