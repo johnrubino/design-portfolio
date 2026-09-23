@@ -300,6 +300,24 @@
         }
 
         /* ── Print styles ── */
+        
+        @media (max-width: 768px) {
+            .resume-print-btn {
+                min-height: 44px;
+                padding: 0 16px;
+                font-size: 14px;
+                /* ensure above any sticky chrome */
+                position: relative;
+                z-index: 2;
+                -webkit-tap-highlight-color: rgba(51, 71, 204, 0.15);
+            }
+            .resume-name-row {
+                flex-wrap: wrap;
+                align-items: flex-start;
+                gap: 12px 16px;
+            }
+        }
+
         @media print {
             .lp-nav, .lp-footer, .resume-print-btn { display: none !important; }
             .resume-wrap { padding: 32px 0; }
@@ -352,7 +370,7 @@
             <div>
                 <div class="resume-name-row">
                     <h1 class="resume-name">John Rubino</h1>
-                    <a class="resume-print-btn" href="/john-rubino-resume.pdf" download="john-rubino-resume.pdf">
+                    <a class="resume-print-btn" href="/john-rubino-resume.pdf" target="_blank" rel="noopener noreferrer">
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                             <path d="M7 1v8M4 6l3 3 3-3M2 10.5v1A.5.5 0 0 0 2.5 12h9a.5.5 0 0 0 .5-.5v-1" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
