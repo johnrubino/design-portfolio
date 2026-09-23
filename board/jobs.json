@@ -221,7 +221,7 @@
     "location": "NYC",
     "level": "Senior",
     "stageGate": "Series B+ fintech (growth-stage)",
-    "status": "applying",
+    "status": "sent",
     "isNew": false,
     "vet": {
       "gatesPass": true,
@@ -316,7 +316,7 @@
       "resumeFileName": "Rho-Senior-Product-Designer.pdf",
       "trackedLink": "https://johnrubino.design/hiring?t=AZ6Oil"
     },
-    "applyingAt": "2026-09-23T13:12:38Z"
+    "sentAt": "2026-09-23T13:15:47Z"
   },
   {
     "jobId": "amazon-10431974",
