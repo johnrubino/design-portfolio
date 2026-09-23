@@ -12,7 +12,7 @@
       "headers": [
         {
           "key": "Content-Disposition",
-          "value": "inline; filename=\"john-rubino-resume.pdf\""
+          "value": "attachment; filename=\"john-rubino-resume.pdf\""
         },
         {
           "key": "Content-Type",

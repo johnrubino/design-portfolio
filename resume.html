@@ -370,7 +370,7 @@
             <div>
                 <div class="resume-name-row">
                     <h1 class="resume-name">John Rubino</h1>
-                    <a class="resume-print-btn" href="/john-rubino-resume.pdf" target="_blank" rel="noopener noreferrer">
+                    <a class="resume-print-btn" id="resumeDownloadBtn" href="/john-rubino-resume.pdf" download="john-rubino-resume.pdf">
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                             <path d="M7 1v8M4 6l3 3 3-3M2 10.5v1A.5.5 0 0 0 2.5 12h9a.5.5 0 0 0 .5-.5v-1" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
@@ -502,5 +502,40 @@
     </footer>
 
     <script src="design-system.js"></script>
+
+<script>
+(function () {
+  var btn = document.getElementById('resumeDownloadBtn');
+  if (!btn) return;
+  btn.addEventListener('click', function (e) {
+    // Force a real download via blob when the browser supports it.
+    // Falls back to the native href+download / attachment header.
+    e.preventDefault();
+    var href = btn.getAttribute('href');
+    var filename = btn.getAttribute('download') || 'john-rubino-resume.pdf';
+    fetch(href, { credentials: 'same-origin' })
+      .then(function (res) {
+        if (!res.ok) throw new Error('fetch failed');
+        return res.blob();
+      })
+      .then(function (blob) {
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.rel = 'noopener';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+      })
+      .catch(function () {
+        // Last resort: navigate to the PDF (server sends Content-Disposition: attachment)
+        window.location.href = href;
+      });
+  });
+})();
+</script>
+
 </body>
 </html>
