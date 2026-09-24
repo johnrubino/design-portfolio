@@ -615,8 +615,8 @@
     "location": "NYC (Hudson Square, 4 days/week)",
     "level": "Senior",
     "stageGate": "Series C (IVP / a16z / Lightspeed) \u2014 healthtech AI",
-    "status": "vetted",
-    "isNew": false,
+    "status": "sourced",
+    "isNew": true,
     "vet": {
       "gatesPass": true,
       "fitScore": 7,
@@ -705,12 +705,7 @@
         }
       ]
     },
-    "lastChecked": "2026-09-24",
-    "land": {
-      "resumePath": "/board/resumes/tennr-69603796.pdf",
-      "resumeFileName": "Tennr-Senior-Product-Designer.pdf",
-      "trackedLink": "https://johnrubino.design/hiring?t=EYAgTA"
-    }
+    "lastChecked": "2026-09-24"
   },
   {
     "jobId": "vise-312f00b4",
@@ -721,8 +716,8 @@
     "location": "NYC (SoHo onsite)",
     "level": "Senior",
     "stageGate": "Series C+ wealthtech (Sequoia / Founders Fund / Ribbit)",
-    "status": "vetted",
-    "isNew": false,
+    "status": "sourced",
+    "isNew": true,
     "vet": {
       "gatesPass": true,
       "fitScore": 8,
@@ -811,12 +806,7 @@
         }
       ]
     },
-    "lastChecked": "2026-09-24",
-    "land": {
-      "resumePath": "/board/resumes/vise-312f00b4.pdf",
-      "resumeFileName": "Vise-Senior-Product-Designer.pdf",
-      "trackedLink": "https://johnrubino.design/hiring?t=EJl9Ri"
-    }
+    "lastChecked": "2026-09-24"
   },
   {
     "jobId": "fora-4249727008",
@@ -1029,8 +1019,8 @@
     "location": "NYC (Chelsea hybrid, 4 days/week)",
     "level": "Mid",
     "stageGate": "Series C (General Catalyst / SignalFire / Sapphire) \u2014 small design bench",
-    "status": "sourced",
-    "isNew": true,
+    "status": "skipped",
+    "isNew": false,
     "vet": {
       "gatesPass": true,
       "fitScore": 5,
