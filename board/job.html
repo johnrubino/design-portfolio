@@ -11,11 +11,21 @@
     <link rel="stylesheet" href="../design-system.css">
     <style>
         /* Board detail — portfolio tokens only. Teal #2A9B8F for isNew / interview only. */
+        /* A11y contrast lock 2026-09-24 — board shell only; do not retune design-system.css. */
         .board-page {
             background: var(--bg);
             color: var(--text);
             font-family: var(--lp-font-ui);
             min-height: 100dvh;
+            /* Dark board: lift muted greys to AA on --bg #0D0D0D */
+            --text-3: #8E8E8E; /* ~5.9:1 (was #4A4A4A ≈ 2.2:1) */
+            --text-2: #B8B8B8; /* ~9.8:1 (was #A0A0A0) */
+            /* --text stays #F0EDE8; teal pulse stays #2A9B8F */
+        }
+        [data-theme="light"] .board-page,
+        .board-page[data-theme="light"] {
+            --text-3: #6B6B6B; /* ~5.3:1 on #fff (was #999 ≈ 2.85:1) */
+            --text-2: #666666; /* keep portfolio light AA */
         }
 
         .board-gate {
@@ -106,6 +116,16 @@
             padding: 10px 12px;
         }
         .board-btn-quiet:hover:not(:disabled) { color: var(--text); }
+        .board-btn:focus-visible,
+        .board-tab:focus-visible,
+        .board-back:focus-visible,
+        .board-more-menu button:focus-visible,
+        .board-meta-row a.board-meta-item:focus-visible,
+        .board-slot a:focus-visible,
+        .board-slot-file-actions a:focus-visible {
+            outline: 2px solid var(--text);
+            outline-offset: 2px;
+        }
 
         .board-shell {
             display: none;
@@ -162,7 +182,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 6px 0;
-            font-size: 12px;
+            font-size: 13px;
             color: var(--text-3);
             align-items: center;
             margin-bottom: 12px;
@@ -190,7 +210,7 @@
             align-items: center;
         }
         .board-status {
-            font-size: 11px;
+            font-size: 13px;
             font-weight: 500;
             text-transform: capitalize;
             padding: 4px 10px;
@@ -208,7 +228,7 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            font-size: 11px;
+            font-size: 13px;
             color: var(--text-2); /* label muted; teal only on 8px pulse */
         }
         .board-pulse-inline::before {
@@ -226,7 +246,7 @@
             100% { box-shadow: 0 0 0 0 rgba(42, 155, 143, 0); }
         }
         .board-dates {
-            font-size: 12px;
+            font-size: 13px;
             color: var(--text-3);
         }
 
@@ -248,7 +268,7 @@
         }
         .board-actions-note {
             flex: 1 1 100%;
-            font-size: 12px;
+            font-size: 13px;
             color: var(--text-2);
             min-height: 0;
         }
@@ -397,7 +417,7 @@
             margin-bottom: 8px;
         }
         .board-writeup-meta {
-            font-size: 12px;
+            font-size: 13px;
             font-style: italic;
             color: var(--text-3);
             margin-bottom: 18px;
@@ -458,7 +478,7 @@
             line-height: 1.4;
         }
         .board-scorecard th {
-            font-size: 11px;
+            font-size: 13px;
             font-weight: 600;
             letter-spacing: 0.04em;
             text-transform: uppercase;
@@ -507,7 +527,7 @@
         }
         .board-gap-kind {
             display: inline;
-            font-size: 12px;
+            font-size: 13px;
             font-style: italic;
             color: var(--text-3);
             margin-left: 6px;
@@ -525,7 +545,7 @@
             letter-spacing: -0.01em;
         }
         .board-gap-tag {
-            font-size: 12px;
+            font-size: 13px;
             font-style: italic;
             color: var(--text-3);
             margin-bottom: 12px;
@@ -552,7 +572,7 @@
         }
         .board-slot:first-child { border-top: 1px solid var(--border); }
         .board-slot-label {
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 500;
             color: var(--text-2);
             margin-bottom: 4px;
