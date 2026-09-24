@@ -582,9 +582,34 @@
             });
         }
 
+        function dateFoundTime(iso) {
+            if (!iso || typeof iso !== 'string') return null;
+            const d = new Date(iso.length <= 10 ? iso + 'T12:00:00' : iso);
+            return Number.isNaN(d.getTime()) ? null : d.getTime();
+        }
+
+        // Default ledger: dateFound DESC, jobId ASC; missing/invalid dateFound last.
+        // Donny/John lock 2026-09-24 — list sort: newest sourced first.
         function filteredJobs() {
-            if (activeFilter === 'all') return jobs;
-            return jobs.filter(function (j) { return j.status === activeFilter; });
+            const list = activeFilter === 'all'
+                ? jobs.slice()
+                : jobs.filter(function (j) { return j.status === activeFilter; });
+            return list.sort(function (a, b) {
+                const ta = dateFoundTime(a.dateFound);
+                const tb = dateFoundTime(b.dateFound);
+                const aOk = ta !== null;
+                const bOk = tb !== null;
+                if (aOk && bOk) {
+                    if (ta !== tb) return tb - ta;
+                } else if (aOk !== bOk) {
+                    return aOk ? -1 : 1;
+                }
+                const idA = String(a.jobId || '');
+                const idB = String(b.jobId || '');
+                if (idA < idB) return -1;
+                if (idA > idB) return 1;
+                return 0;
+            });
         }
 
         function renderLedger() {
