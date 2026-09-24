@@ -716,8 +716,8 @@
     "location": "NYC (SoHo onsite)",
     "level": "Senior",
     "stageGate": "Series C+ wealthtech (Sequoia / Founders Fund / Ribbit)",
-    "status": "sourced",
-    "isNew": true,
+    "status": "vetted",
+    "isNew": false,
     "vet": {
       "gatesPass": true,
       "fitScore": 8,
@@ -806,7 +806,12 @@
         }
       ]
     },
-    "lastChecked": "2026-09-24"
+    "lastChecked": "2026-09-24",
+    "land": {
+      "resumePath": "/board/resumes/vise-312f00b4.pdf",
+      "resumeFileName": "Vise-Senior-Product-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=EJl9Ri"
+    }
   },
   {
     "jobId": "fora-4249727008",
