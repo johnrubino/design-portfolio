@@ -615,8 +615,8 @@
     "location": "NYC (Hudson Square, 4 days/week)",
     "level": "Senior",
     "stageGate": "Series C (IVP / a16z / Lightspeed) \u2014 healthtech AI",
-    "status": "sourced",
-    "isNew": true,
+    "status": "vetted",
+    "isNew": false,
     "vet": {
       "gatesPass": true,
       "fitScore": 7,
@@ -705,7 +705,12 @@
         }
       ]
     },
-    "lastChecked": "2026-09-24"
+    "lastChecked": "2026-09-24",
+    "land": {
+      "resumePath": "/board/resumes/tennr-69603796.pdf",
+      "resumeFileName": "Tennr-Senior-Product-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=EYAgTA"
+    }
   },
   {
     "jobId": "vise-312f00b4",
