@@ -924,8 +924,8 @@
     "location": "NYC (4 days in office)",
     "level": "Mid",
     "stageGate": "Series D (~$5B) \u2014 established design org",
-    "status": "sourced",
-    "isNew": true,
+    "status": "skipped",
+    "isNew": false,
     "vet": {
       "gatesPass": true,
       "fitScore": 6,
