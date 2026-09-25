@@ -1458,7 +1458,7 @@
     "location": "US remote / Boston hybrid / NYC hybrid",
     "level": "Senior",
     "stageGate": "Public (Toast) \u2014 Consumer Design team (startup-within)",
-    "status": "applying",
+    "status": "sent",
     "isNew": false,
     "seed": false,
     "vet": {
@@ -1488,7 +1488,8 @@
       "resumeFileName": "Toast-Senior-Product-Designer.pdf",
       "trackedLink": "https://johnrubino.design/hiring?t=CEjtIM"
     },
-    "lastChecked": "2026-09-25"
+    "lastChecked": "2026-09-25",
+    "sentAt": "2026-09-25T20:14:04Z"
   },
   {
     "jobId": "anthropic-5428014008",
