@@ -1458,8 +1458,8 @@
     "location": "US remote / Boston hybrid / NYC hybrid",
     "level": "Senior",
     "stageGate": "Public (Toast) \u2014 Consumer Design team (startup-within)",
-    "status": "vetted",
-    "isNew": true,
+    "status": "applying",
+    "isNew": false,
     "seed": false,
     "vet": {
       "gatesPass": true,
