@@ -1308,7 +1308,7 @@
     "location": "NYC (5x onsite, West Village)",
     "level": "Mid",
     "stageGate": "Series C (~$78M; $134M total / Index + a16z + Lightspeed) \u2014 ~3-person design bench incl. Founding Designer",
-    "status": "vetted",
+    "status": "sent",
     "isNew": false,
     "seed": false,
     "vet": {
@@ -1372,7 +1372,8 @@
       "resumeFileName": "Moment-Product-Designer.pdf",
       "trackedLink": "https://johnrubino.design/hiring?t=EckZRm"
     },
-    "lastChecked": "2026-09-25"
+    "lastChecked": "2026-09-25",
+    "sentAt": "2026-09-25T23:37:51Z"
   },
   {
     "jobId": "thatch-5136655008",
