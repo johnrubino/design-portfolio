@@ -1499,8 +1499,8 @@
     "location": "SF | NYC | Seattle (~25% hybrid)",
     "level": "Mid/Senior IC",
     "stageGate": "Public-scale AI lab \u2014 design team small but established (not first designer)",
-    "status": "vetted",
-    "isNew": true,
+    "status": "applying",
+    "isNew": false,
     "seed": false,
     "vet": {
       "gatesPass": true,
