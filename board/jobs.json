@@ -1126,8 +1126,8 @@
     "location": "NYC (Hybrid)",
     "level": "Mid",
     "stageGate": "Series B (~$90M total / Accel + Kleiner) — Design dept with Staff+Principal also open",
-    "status": "sourced",
-    "isNew": true,
+    "status": "skipped",
+    "isNew": false,
     "seed": false,
     "vet": {
       "gatesPass": true,
