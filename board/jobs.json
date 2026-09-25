@@ -1308,8 +1308,8 @@
     "location": "NYC (5x onsite, West Village)",
     "level": "Mid",
     "stageGate": "Series C (~$78M; $134M total / Index + a16z + Lightspeed) \u2014 ~3-person design bench incl. Founding Designer",
-    "status": "sourced",
-    "isNew": true,
+    "status": "vetted",
+    "isNew": false,
     "seed": false,
     "vet": {
       "gatesPass": false,
@@ -1323,7 +1323,8 @@
         "Tiny design bench (~3 on LinkedIn Design incl. Founding Designer; JD 'establish foundation / design language') \u2014 fails established-org preference",
         "5x/week West Village onsite",
         "Mid title; foundational/early design-process language"
-      ]
+      ],
+      "prepNote": "John confirm-only prep despite gatesPass false (tiny design bench). Packet ready; do not apply until apply_confirm."
     },
     "fit": {
       "generatedAt": "2026-09-25",
@@ -1366,7 +1367,11 @@
         }
       ]
     },
-    "land": {},
+    "land": {
+      "resumePath": "/board/resumes/moment-5fb2d42b.pdf",
+      "resumeFileName": "Moment-Product-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=EckZRm"
+    },
     "lastChecked": "2026-09-25"
   },
   {
@@ -1378,8 +1383,8 @@
     "location": "US remote",
     "level": "Mid",
     "stageGate": "Series C ($108M at $1B / TGP + Index + GC + a16z) \u2014 design team exists but Head of Design also open",
-    "status": "sourced",
-    "isNew": true,
+    "status": "vetted",
+    "isNew": false,
     "seed": false,
     "vet": {
       "gatesPass": false,
@@ -1393,7 +1398,8 @@
         "Design org still maturing \u2014 Head of Design also open; JD 'early stage' + own branding+PD scope",
         "Healthcare benefits domain (vs wealth/fintech)",
         "Posting first appeared Mar 2026 \u2014 confirm still actively hiring"
-      ]
+      ],
+      "prepNote": "John confirm-only prep despite gatesPass false (maturing design org / Head of Design open). Packet ready; do not apply until apply_confirm."
     },
     "fit": {
       "generatedAt": "2026-09-25",
@@ -1436,7 +1442,93 @@
         }
       ]
     },
-    "land": {},
+    "land": {
+      "resumePath": "/board/resumes/thatch-5136655008.pdf",
+      "resumeFileName": "Thatch-Product-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=DVLBhD"
+    },
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "jobId": "toast-8208289",
+    "company": "Toast",
+    "title": "Senior Product Designer",
+    "postingUrl": "https://careers.toasttab.com/jobs?gh_jid=8208289",
+    "dateFound": "2026-09-25",
+    "location": "US remote / Boston hybrid / NYC hybrid",
+    "level": "Senior",
+    "stageGate": "Public (Toast) \u2014 Consumer Design team (startup-within)",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 8,
+      "whyFits": [
+        "Senior IC; US remote + NYC hybrid \u2014 clears location gate",
+        "Public company with established design org; Consumer Design has autonomy but is not a tiny shop",
+        "Consumer booking / dual-sided guest+ops + AI prototyping \u2014 strong craft + systems match"
+      ],
+      "gaps": [
+        "JD asks 5\u20137+ YOE consumer (stretch vs ~4+ baseline \u2014 still in Senior IC band)",
+        "Reservations/booking domain is new vs wealth/fintech"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-09-25",
+      "source": "John confirm-only prep",
+      "seed": false,
+      "score": "8/10",
+      "confidence": "High",
+      "recommendation": "Prep packet \u2014 clear Senior IC public + NYC/remote; consumer booking stretch is honest but craft/AI prototype fit is strong",
+      "summary": "Senior Product Designer owning Toast reservations/booking end to end on the Consumer Design team. US remote or Boston/NYC hybrid. Themes: ambiguous\u2192POV+prototype, dual-sided guest/ops, AI prototyping + Figma craft, native/responsive quality, phased experiments."
+    },
+    "land": {
+      "resumePath": "/board/resumes/toast-8208289.pdf",
+      "resumeFileName": "Toast-Senior-Product-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=CEjtIM"
+    },
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "jobId": "anthropic-5428014008",
+    "company": "Anthropic",
+    "title": "Product Designer, Safeguards",
+    "postingUrl": "https://job-boards.greenhouse.io/anthropic/jobs/5428014008",
+    "dateFound": "2026-09-25",
+    "location": "SF | NYC | Seattle (~25% hybrid)",
+    "level": "Mid/Senior IC",
+    "stageGate": "Public-scale AI lab \u2014 design team small but established (not first designer)",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "NYC office option + 25% hybrid \u2014 location clears",
+        "Safeguards / trust UX for AI \u2014 adjacent to regulated clarity work at Pershing",
+        "JD explicitly wants Claude Code + Figma + code prototyping \u2014 standing kit match"
+      ],
+      "gaps": [
+        "Design team still relatively small (borderline vs established-org preference) \u2014 prep per John",
+        "Safeguards domain is new; no prior safety-product case study on r\u00e9sum\u00e9"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-09-25",
+      "source": "John confirm-only prep",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium",
+      "recommendation": "Prep per John despite borderline small design team \u2014 trust/AI craft + Claude Code are honest fits",
+      "summary": "Product Designer, Safeguards at Anthropic (SF/NYC/Seattle, ~25% hybrid). Themes: ship fast in ambiguous AI, trust/safe beneficial UX, code+design with Claude Code, complex workflows, polished craft that builds trust."
+    },
+    "land": {
+      "resumePath": "/board/resumes/anthropic-5428014008.pdf",
+      "resumeFileName": "Anthropic-Product-Designer-Safeguards.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=EHk0Mn"
+    },
     "lastChecked": "2026-09-25"
   }
 ]
