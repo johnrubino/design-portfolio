@@ -1116,5 +1116,187 @@
       ]
     },
     "lastChecked": "2026-09-24"
+  },
+  {
+    "jobId": "permitflow-b060c722",
+    "company": "PermitFlow",
+    "title": "Product Designer",
+    "postingUrl": "https://jobs.ashbyhq.com/permitflow/b060c722-898c-4a89-a27a-6b469f4957ec",
+    "dateFound": "2026-09-25",
+    "location": "NYC (Hybrid)",
+    "level": "Mid",
+    "stageGate": "Series B (~$90M total / Accel + Kleiner) \u2014 Design dept with Staff+Principal also open",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "NYC Hybrid Mid PD; 4+ YOE \u2014 in bar",
+        "Series B (~$90M, Accel/KP) clears stage; Design dept with Staff + Principal openings \u2192 established design org",
+        "AI agent workforce for construction permitting \u2014 complex compliance workflows + systems craft; Figma/Notion/Linear"
+      ],
+      "gaps": [
+        "Construction / permitting domain (vs wealth/fintech)",
+        "Mid title vs Senior PD trajectory",
+        "JD notes early/flux process (\u201chelp establish early processes\u201d)"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-09-25",
+      "source": "Jobi watch",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium",
+      "recommendation": "Clear Mid \u2014 Series B AI workflow product with a real Design bench (Staff+Principal also hiring); domain is construction not wealth",
+      "summary": "Mid Product Designer on PermitFlow\u2019s AI permitting / pre-construction platform (NYC Hybrid). Series B with ~$90M raised (Accel, Kleiner Perkins). Design org is real \u2014 Staff and Principal PD seats open alongside this Mid IC. YOE 4+ and complex compliance workflow craft fit. Gaps: construction domain vs wealth, Mid title, and still-forming design process language.",
+      "scorecard": [
+        {
+          "dimension": "Role level",
+          "rating": "Moderate",
+          "notes": "Mid PD; 4+ YOE \u2014 in bar"
+        },
+        {
+          "dimension": "Functional experience",
+          "rating": "Strong",
+          "notes": "End-to-end software design; complex ops workflows; Figma"
+        },
+        {
+          "dimension": "Domain",
+          "rating": "Moderate",
+          "notes": "Construction permitting AI \u2014 transferable workflow systems, not wealth"
+        },
+        {
+          "dimension": "Company stage / environment",
+          "rating": "Strong",
+          "notes": "Series B; Design dept; Staff+Principal+PD open"
+        },
+        {
+          "dimension": "Customer / user type",
+          "rating": "Moderate",
+          "notes": "Builders / contractors vs advisors"
+        },
+        {
+          "dimension": "Required qualifications",
+          "rating": "Strong",
+          "notes": "4+ YOE designing software; Figma/Notion/Linear"
+        }
+      ],
+      "strengths": [
+        "Series B stage clear; multi-level Design hiring",
+        "NYC Hybrid Mid IC; AI + complex compliance UX"
+      ],
+      "gaps": [
+        {
+          "text": "Construction / permitting domain vs wealth",
+          "kind": "true gap"
+        },
+        {
+          "text": "Mid title",
+          "kind": "stretch"
+        },
+        {
+          "text": "Early process language in JD",
+          "kind": "risk"
+        }
+      ],
+      "gapAnalysis": {
+        "whyFit": "NYC Hybrid Mid IC at Series B AI company with an established Design function (Staff + Principal also open). 4+ YOE and complex permitting workflow craft clear gates; interesting applied-AI product.",
+        "gap": "Construction domain is far from wealth/fintech; Mid title; JD still talks about establishing early design processes."
+      }
+    },
+    "land": {}
+  },
+  {
+    "jobId": "stable-09f5f469",
+    "company": "Stable",
+    "title": "Product Designer",
+    "postingUrl": "https://jobs.ashbyhq.com/stable/09f5f469-d02a-46d3-87c7-cefd7c6bba6a",
+    "dateFound": "2026-09-25",
+    "location": "US remote (US time zones)",
+    "level": "Mid",
+    "stageGate": "Series A (~$10M 2023; YC + Craft) \u2014 small but established design team",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 5,
+      "whyFits": [
+        "US-remote Mid/generalist PD; Series A clears seed hard-no",
+        "Design team described as small but established (not founding-1st); AI-forward Figma/code craft",
+        "B2B entity / mailroom product with digital\u00d7physical systems"
+      ],
+      "gaps": [
+        "Small design bench vs preferred established orgs",
+        "6+ YOE stated \u2014 stretch for ~4+ band",
+        "Virtual mailbox / entity-ops domain (less impactful than wealth/AI flags)"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-09-25",
+      "source": "Jobi watch",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline \u2014 Series A + remote US OK, but small design team + 6+ YOE stretch + mail/entity domain",
+      "summary": "Product Designer (generalist) at Stable (virtual business address + mailroom). Series A (YC/Craft) clears stage. Remote US. Team is explicitly small-but-established (collaborate with experienced designers) \u2014 not 1st designer, but fails established-org preference. 6+ YOE is a stretch. Domain is entity/mail ops rather than wealth or frontier AI product.",
+      "scorecard": [
+        {
+          "dimension": "Role level",
+          "rating": "Moderate",
+          "notes": "PD title; 6+ YOE stretch"
+        },
+        {
+          "dimension": "Functional experience",
+          "rating": "Strong",
+          "notes": "Generalist end-to-end; design systems; AI tooling"
+        },
+        {
+          "dimension": "Domain",
+          "rating": "Weak",
+          "notes": "Virtual mailbox / entity management"
+        },
+        {
+          "dimension": "Company stage / environment",
+          "rating": "Moderate",
+          "notes": "Series A OK; small design bench"
+        },
+        {
+          "dimension": "Customer / user type",
+          "rating": "Moderate",
+          "notes": "Startups / B2B ops users"
+        },
+        {
+          "dimension": "Required qualifications",
+          "rating": "Moderate",
+          "notes": "6+ YOE at fast-moving companies"
+        }
+      ],
+      "strengths": [
+        "Series A; US remote; not founding-1st",
+        "AI-forward craft (Figma Make / code) matches how John works"
+      ],
+      "gaps": [
+        {
+          "text": "Small design bench",
+          "kind": "true gap"
+        },
+        {
+          "text": "6+ YOE stretch",
+          "kind": "stretch"
+        },
+        {
+          "text": "Mail/entity domain vs wealth/AI",
+          "kind": "true gap"
+        }
+      ],
+      "gapAnalysis": {
+        "whyFit": "US-remote PD at Series A B2B with a small established design team; AI-enabled craft and digital\u00d7physical systems transfer.",
+        "gap": "Small design bench, 6+ YOE stretch, and virtual-mailbox domain underwhelm vs preferred established design orgs / wealth-AI impact."
+      }
+    },
+    "land": {}
   }
 ]
