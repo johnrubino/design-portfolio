@@ -1384,7 +1384,7 @@
     "location": "US remote",
     "level": "Mid",
     "stageGate": "Series C ($108M at $1B / TGP + Index + GC + a16z) \u2014 design team exists but Head of Design also open",
-    "status": "vetted",
+    "status": "sent",
     "isNew": false,
     "seed": false,
     "vet": {
@@ -1448,7 +1448,8 @@
       "resumeFileName": "Thatch-Product-Designer.pdf",
       "trackedLink": "https://johnrubino.design/hiring?t=DVLBhD"
     },
-    "lastChecked": "2026-09-25"
+    "lastChecked": "2026-09-25",
+    "sentAt": "2026-09-25T23:49:40Z"
   },
   {
     "jobId": "toast-8208289",
