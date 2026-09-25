@@ -1500,7 +1500,7 @@
     "location": "SF | NYC | Seattle (~25% hybrid)",
     "level": "Mid/Senior IC",
     "stageGate": "Public-scale AI lab \u2014 design team small but established (not first designer)",
-    "status": "applying",
+    "status": "sent",
     "isNew": false,
     "seed": false,
     "vet": {
@@ -1530,6 +1530,7 @@
       "resumeFileName": "Anthropic-Product-Designer-Safeguards.pdf",
       "trackedLink": "https://johnrubino.design/hiring?t=EHk0Mn"
     },
-    "lastChecked": "2026-09-25"
+    "lastChecked": "2026-09-25",
+    "sentAt": "2026-09-25T23:29:03Z"
   }
 ]
