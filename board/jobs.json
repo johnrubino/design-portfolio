@@ -1600,7 +1600,7 @@
     "stageGate": "Public bank / large Experience Design org",
     "salary": "$143,200\u2013$163,500 NYC band",
     "team": "Card Servicing Experience \u2014 agent platform + design system/governance",
-    "status": "vetted",
+    "status": "sent",
     "isNew": true,
     "seed": false,
     "vet": {
@@ -1640,6 +1640,7 @@
         "workAuth": "US authorized, no sponsorship"
       }
     },
-    "lastChecked": "2026-09-26"
+    "lastChecked": "2026-09-26",
+    "sentAt": "2026-09-26T12:09:21Z"
   }
 ]
