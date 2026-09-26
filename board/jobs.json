@@ -1534,5 +1534,111 @@
     },
     "lastChecked": "2026-09-25",
     "sentAt": "2026-09-25T23:29:03Z"
+  },
+  {
+    "jobId": "duolingo-8618405002",
+    "company": "Duolingo",
+    "title": "Senior Product Designer",
+    "postingUrl": "https://careers.duolingo.com/jobs/8618405002?gh_jid=8618405002",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4436403629/",
+    "dateFound": "2026-09-26",
+    "location": "New York, NY (hybrid / office \u2014 not remote)",
+    "level": "Senior",
+    "stageGate": "Public / large Design org",
+    "salary": "$150,000\u2013$200,000 USD base + equity",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Senior IC at public company with large established Design org \u2014 clears stage gate",
+        "NYC posting; consumer mobile craft + AI/LLM ideation (exceptional) match standing AI-native kit",
+        "Peer mentor / lead workstreams as IC + ship at scale with PM/eng \u2014 Pershing end-to-end ownership adjacent"
+      ],
+      "gaps": [
+        "Portfolio skews enterprise fintech vs consumer mobile craft (Purple Panda is the consumer 0-to-1 proof)",
+        "NYC office/hybrid \u2014 no remote called out",
+        "200+ LinkedIn applicants \u2014 competitive volume"
+      ],
+      "prepNote": "Ask-before-apply locked. Packet ready at status vetted; do not submit to ATS until apply_confirm."
+    },
+    "fit": {
+      "generatedAt": "2026-09-26",
+      "source": "John confirm-only prep",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium",
+      "recommendation": "Prep packet \u2014 Senior NYC public Design org clears gates; consumer-mobile craft gap is honest soft risk",
+      "summary": "Senior Product Designer (NYC) at Duolingo. Themes: consumer mobile craft, playful learning UX, high visual/interaction bar, peer mentor / lead workstreams as IC, AI/LLM for ideation (exceptional), motion/animation (exceptional), ship at scale with PM/eng. Salary $150\u2013200k base + equity."
+    },
+    "land": {
+      "resumePath": "/board/resumes/duolingo-8618405002.pdf",
+      "resumeFileName": "Duolingo-Senior-Product-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=EYcdOq",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "lastChecked": "2026-09-26"
+  },
+  {
+    "jobId": "capitalone-89706008064",
+    "company": "Capital One",
+    "title": "Principal Associate, Product Design - Design Systems",
+    "postingUrl": "https://www.capitalonecareers.com/job/new-york/principal-associate-product-design-design-systems/1732/89706008064",
+    "dateFound": "2026-09-26",
+    "location": "New York, NY (hybrid hubs; Remote-Not-Remote \u2014 NOT US remote)",
+    "level": "Mid",
+    "stageGate": "Public bank / large Experience Design org",
+    "salary": "$143,200\u2013$163,500 NYC band",
+    "team": "Card Servicing Experience \u2014 agent platform + design system/governance",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Public bank with large Experience Design org \u2014 clears stage gate",
+        "Design Systems IC (Figma variants, auto layout, atomic, docs/a11y) \u2014 strong Pershing pattern-library adjacency",
+        "Regulated banking + human-centered collaboration with design/product \u2014 domain fit from wealth fintech"
+      ],
+      "gaps": [
+        "NYC cash band ($143.2\u2013163.5k) soft for Senior NYC expectations",
+        "Hybrid hubs / Remote-Not-Remote \u2014 not US remote",
+        "Title wording (Principal Associate) may confuse ATS filters vs Staff/Principal designer"
+      ],
+      "prepNote": "Ask-before-apply locked. Design Systems posting only (not generic PA Product Designer). Packet ready at status vetted; do not submit until apply_confirm. Principal Associate = Capital One Mid IC band, not Staff/Principal."
+    },
+    "fit": {
+      "generatedAt": "2026-09-26",
+      "source": "John confirm-only prep",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium-High",
+      "recommendation": "Prep packet \u2014 Design Systems + regulated banking are honest fits; cash band and hybrid are soft gaps",
+      "summary": "Principal Associate, Product Design - Design Systems (NYC hybrid) on Card Servicing Experience. Themes: Figma variants/auto layout/atomic design, docs/dos-don'ts/a11y, reusable componentry, systems mindset, regulated banking, human-centered collab. NYC band $143.2\u2013163.5k. Mid IC (not Staff/Principal)."
+    },
+    "land": {
+      "resumePath": "/board/resumes/capitalone-89706008064.pdf",
+      "resumeFileName": "Capital-One-Product-Design-Design-Systems.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=CPrE92",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "lastChecked": "2026-09-26"
   }
 ]
