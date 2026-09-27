@@ -1642,5 +1642,164 @@
     },
     "lastChecked": "2026-09-26",
     "sentAt": "2026-09-26T12:09:21Z"
+  },
+  {
+    "jobId": "google-trust-ux-117041108550066886",
+    "company": "Google",
+    "title": "UX Designer, Trust",
+    "postingUrl": "https://www.google.com/about/careers/applications/jobs/results/117041108550066886-ux-designer-trust",
+    "dateFound": "2026-09-27",
+    "location": "New York, NY, USA",
+    "level": "Mid",
+    "stageGate": "Public / Core UX Trust portfolio",
+    "salary": "$132,000\u2013$189,000 USD + 15% bonus target + equity",
+    "team": "Core \u2014 Trust portfolio",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 8,
+      "whyFits": [
+        "NYC Mid IC UX Designer (4y min) at Google Core Trust \u2014 clears location/level/stage gates",
+        "Regulated / privacy / compliance-aware UX is honest Pershing adjacency (consent, disclosures, controls)",
+        "Ideation\u2192launch with PM/eng/research + Figma/AI tooling matches standing how-he-works kit"
+      ],
+      "gaps": [
+        "Portfolio skews enterprise wealth vs Google consumer-scale Trust surfaces",
+        "Preferred: multi-platform (web/iOS/Android) + motion/design systems depth \u2014 soft stretch",
+        "Competitive Google volume"
+      ],
+      "prepNote": "Ask-before-apply locked. Packet ready at status vetted; do not submit ATS until apply_confirm."
+    },
+    "fit": {
+      "generatedAt": "2026-09-27",
+      "source": "John confirm-only prep",
+      "seed": false,
+      "score": "8/10",
+      "confidence": "Medium-High",
+      "recommendation": "Prep packet \u2014 Trust/compliance UX + NYC Mid IC clears gates; consumer-scale Trust is soft portfolio gap",
+      "summary": "UX Designer, Trust (NYC) on Google Core. Themes: trust/privacy/compliance-aware UX, ideation\u2192launch with PM/eng/research, cross-surface clarity, design systems, AI-augmented craft. Band $132\u2013189k + bonus/equity."
+    },
+    "land": {
+      "resumePath": "/board/resumes/google-trust-ux-117041108550066886.pdf",
+      "resumeFileName": "Google-UX-Trust.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=CQaoGo",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "lastChecked": "2026-09-27"
+  },
+  {
+    "jobId": "sony-8737641002",
+    "company": "Sony Music Entertainment",
+    "title": "Senior Product Designer, D2C - PDEGO",
+    "postingUrl": "https://job-boards.greenhouse.io/sonymusicentertainment/jobs/8737641002",
+    "dateFound": "2026-09-27",
+    "location": "New York, NY",
+    "level": "Senior",
+    "stageGate": "Public / established PDEGO design org",
+    "salary": "$148,248\u2013$166,665 NYC base",
+    "team": "PDEGO \u2014 Direct-to-Consumer (internal ops tools + Shopify storefronts)",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Senior IC NYC at Sony Music PDEGO \u2014 public company, established design org",
+        "Dual B2B ops tools + consumer surfaces + data-heavy dashboards match Pershing operator + Purple Panda consumer proof",
+        "Systems thinking across tools/integrations + discovery with PM/eng is standing kit"
+      ],
+      "gaps": [
+        "Shopify / ecommerce storefront ownership is light (Purple Panda adjacent, not Shopify apps)",
+        "Music/entertainment domain is new",
+        "NYC cash band mid for Senior NYC expectations"
+      ],
+      "prepNote": "Ask-before-apply locked. Packet ready at status vetted; do not submit Greenhouse until apply_confirm."
+    },
+    "fit": {
+      "generatedAt": "2026-09-27",
+      "source": "John confirm-only prep",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium",
+      "recommendation": "Prep packet \u2014 B2B+consumer dual + analytics dashboards fit; Shopify depth is honest soft gap",
+      "summary": "Senior Product Designer, D2C - PDEGO (NYC). Themes: internal D2C ops tools + consumer storefronts, analytics dashboards, systems thinking across integrations, discovery with PM/eng, ecommerce fluency. NYC band $148.2\u2013166.7k."
+    },
+    "land": {
+      "resumePath": "/board/resumes/sony-8737641002.pdf",
+      "resumeFileName": "Sony-Music-Senior-Product-Designer-D2C.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=EDHo2T",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "lastChecked": "2026-09-27"
+  },
+  {
+    "jobId": "analyticpartners-72ea4fa0",
+    "company": "Analytic Partners",
+    "title": "Sr. Product Designer",
+    "postingUrl": "https://jobs.lever.co/analyticpartners/72ea4fa0-1f82-4b1e-a46c-da0efe66db6f",
+    "dateFound": "2026-09-27",
+    "location": "New York City (global offices incl. NYC)",
+    "level": "Senior",
+    "stageGate": "Established (~25y) commercial analytics platform / Product Design team",
+    "salary": "$115,000\u2013$120,000",
+    "team": "Product Design \u2014 visual interface for measurement/optimization platform",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 6,
+      "whyFits": [
+        "Sr PD on data-dense analytic platform with design system ownership \u2014 Pershing pattern-library + dense UI adjacency",
+        "3+ years formal visual design; Figma advanced; PM/eng partnership \u2014 clears experience gate",
+        "NYC seat; established Product Design team (not first designer)"
+      ],
+      "gaps": [
+        "Cash band $115\u2013120k soft/low for Senior NYC IC expectations",
+        "Commercial measurement / marketing analytics domain is new",
+        "Title Sr. but compensation closer to mid \u2014 calibrate expectations"
+      ],
+      "prepNote": "Ask-before-apply locked. Packet ready at status vetted; do not submit Lever until apply_confirm. Flag cash band before apply."
+    },
+    "fit": {
+      "generatedAt": "2026-09-27",
+      "source": "John confirm-only prep",
+      "seed": false,
+      "score": "6/10",
+      "confidence": "Medium",
+      "recommendation": "Prep packet \u2014 data-dense craft + design system fit; cash band is the honest soft risk to confirm with John",
+      "summary": "Sr. Product Designer (NYC) at Analytic Partners. Themes: data-dense visual UX, design system build/maintain, look/feel craft + velocity, PM\u2192hi-fi\u2192eng, suite consistency. Band $115\u2013120k."
+    },
+    "land": {
+      "resumePath": "/board/resumes/analyticpartners-72ea4fa0.pdf",
+      "resumeFileName": "Analytic-Partners-Sr-Product-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=Av00N7",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "lastChecked": "2026-09-27"
   }
 ]
