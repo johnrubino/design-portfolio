@@ -1,5 +1,59 @@
 [
   {
+    "jobId": "rillet-68ea1fbc",
+    "company": "Rillet",
+    "title": "Design Engineer",
+    "postingUrl": "https://jobs.ashbyhq.com/rillet/68ea1fbc-cf3c-4cbc-ae90-520680048e0c",
+    "linkedinUrl": null,
+    "dateFound": "2026-09-28",
+    "location": "NYC | SF hybrid (Tue/Thu + one flexible day)",
+    "level": "Mid/Senior IC (Design Engineer stretch)",
+    "stageGate": "Series A+/unicorn (~$1B, $200M+ raised \u00b7 Sequoia, a16z, ICONIQ) \u00b7 small design org (partners with product designer singular)",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "stretch": true,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "John override: Design Engineer title approved as career lane",
+        "Series A+/unicorn stage clears; NYC + SF hybrid matches location",
+        "Strong match: design system / platform refresh, Figma+code ship, dense fintech workflows, AI design\u2013eng tooling"
+      ],
+      "gaps": [
+        "STRETCH: Design Engineer title vs current Product Designer title (honest framing)",
+        "Small design org \u2014 need taste + independence; React production depth soft gap vs preferred"
+      ],
+      "prepNote": "Prep-only on LAND. gatesPass true via John DE-title override. Do not apply until apply_confirm."
+    },
+    "fit": {
+      "generatedAt": "2026-09-28",
+      "source": "Jobi Rillet DE prep",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium-High",
+      "recommendation": "STRETCH vetted packet \u2014 DE lane + systems/fintech/AI craft; React implementation depth is soft gap",
+      "summary": "Design Engineer at Rillet (NYC|SF hybrid). Themes: platform refresh, design system (tokens/components/motion), concept\u2192shipped production UI in Figma+code, dense financial surfaces, AI design\u2013eng workflows. Stretch on title; stage and location clear. Band $170k\u2013$240k + equity."
+    },
+    "salary": "$170k\u2013$240k + equity (NYC/SF)",
+    "team": "Design \u2014 platform refresh / design system \u00b7 partners with product designer + eng",
+    "land": {
+      "resumePath": "/board/resumes/rillet-68ea1fbc.pdf",
+      "resumeFileName": "Rillet-Design-Engineer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=B3fLla",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "lastChecked": "2026-09-28"
+  },
+  {
     "jobId": "botm-HFm0iKvKLN",
     "company": "Book of the Month",
     "title": "Sr. Product Designer",
