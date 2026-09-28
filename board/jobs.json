@@ -1,5 +1,80 @@
 [
   {
+    "jobId": "frontline-4460421244",
+    "company": "Frontline Education",
+    "title": "Senior Product Designer",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4460421244",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/senior-product-designer-at-frontline-education-4460421244",
+    "dateFound": "2026-09-28",
+    "location": "US remote",
+    "level": "Senior",
+    "stageGate": "Large PE-backed K-12 SaaS / established product triad + Frontline design system",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 6,
+      "whyFits": [
+        "Senior IC; explicit Remote within the United States",
+        "5+ years enterprise SaaS \u2014 in bar vs ~4+",
+        "Mentors peers/juniors; uses Frontline design system \u2014 not a 1st-designer seat",
+        "Large established edtech (not seed/pre-seed)"
+      ],
+      "gaps": [
+        "K-12 admin SaaS domain (not fintech/AI core interest)",
+        "Apply path is LinkedIn guest/offsite \u2014 no Greenhouse/Ashby URL found this pass",
+        "Confirm design-org depth beyond design-system language if John wants"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-09-28",
+      "source": "Jobi weekday watch LinkedIn guest",
+      "seed": false,
+      "score": "6/10",
+      "confidence": "Medium",
+      "recommendation": "Clear on gates \u2014 US-remote Senior IC at large edtech; domain is the main interest check",
+      "summary": "Senior Product Designer (US remote) at Frontline Education. 5+ YOE enterprise SaaS; product triad ownership; Frontline design system + peer mentoring. Clears NYC/US-remote, Senior IC, Series A+/established. Domain is K-12 admin tooling rather than wealth/fintech."
+    }
+  },
+  {
+    "jobId": "amex-4469072303",
+    "company": "American Express",
+    "title": "Senior Product Designer - Global Commercial Services Technology",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4469072303",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/senior-product-designer-global-commercial-services-technology-at-american-express-4469072303",
+    "dateFound": "2026-09-28",
+    "location": "United States (LI remote filter; hub vs true-remote unclear)",
+    "level": "Senior",
+    "stageGate": "Public / large Amex Tech design org",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": false,
+      "fitScore": 5,
+      "whyFits": [
+        "Senior IC at public Amex; established design org (mentors juniors)",
+        "3 years hands-on PD experience \u2014 YOE OK",
+        "GCS commercial payments / cashflow tools \u2014 fintech-adjacent"
+      ],
+      "gaps": [
+        "JD does not explicitly say NYC or US-remote; LI card is United States via remote filter \u2014 may be hub-based",
+        "Job function tagged Information Technology and Engineering on LI \u2014 confirm PD seat vs adjacent",
+        "No clean ATS URL this pass (Amex careers search 404 from box)"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-09-28",
+      "source": "Jobi weekday watch LinkedIn guest",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Low",
+      "recommendation": "Borderline \u2014 strong company/level/YOE, but confirm true US-remote or NYC hub before investing apply time",
+      "summary": "Senior Product Designer on Amex Global Commercial Services Technology. Public company, mentors juniors, 3y YOE. Hesitation is location: LinkedIn remote/US listing without explicit NYC or remote language in the JD body."
+    }
+  },
+  {
     "jobId": "amazon-10506011",
     "company": "Amazon",
     "title": "UX Designer, Elevated Shopping Experience",
