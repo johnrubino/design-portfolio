@@ -1,5 +1,433 @@
 [
   {
+    "jobId": "botm-HFm0iKvKLN",
+    "company": "Book of the Month",
+    "title": "Sr. Product Designer",
+    "postingUrl": "https://bookofthemonth.applytojob.com/apply/HFm0iKvKLN/Sr-Product-Designer",
+    "linkedinUrl": null,
+    "dateFound": "2026-09-28",
+    "location": "New York, NY (4 days/week in-office)",
+    "level": "Senior",
+    "stageGate": "Public subscription brand / established Product org \u00b7 JazzHR ATS",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Senior IC; NYC hybrid 4d/wk in bar",
+        "5+ YOE consumer web/iOS/Android \u2014 soft stretch vs ~4+; strong craft + design system + Claude/AI design\u2192prod themes",
+        "Established brand / Product org (not seed)",
+        "Official ATS: bookofthemonth.applytojob.com"
+      ],
+      "gaps": [
+        "5+ YOE consumer soft stretch vs ~4+ baseline",
+        "4 days/week NYC office \u2014 confirm hybrid comfort"
+      ],
+      "prepNote": "Prep only. Ask-before-apply already yes for batch \u2014 still do not submit until apply_confirm on board."
+    },
+    "fit": {
+      "generatedAt": "2026-09-28",
+      "source": "John broaden-8 prep",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium-High",
+      "recommendation": "Prep packet \u2014 CLEAR consumer Sr PD NYC; hybrid 4d/wk + 5+ YOE soft notes",
+      "summary": "Sr. Product Designer at Book of the Month (NYC 4d/wk). Themes: consumer craft + design system, AI-assisted design\u2192prod (Claude), iterative brand product, Figma fluency. Band $140\u2013200k."
+    },
+    "salary": "$140,000\u2013$200,000",
+    "team": "Product \u2014 digital membership experience + design system",
+    "land": {
+      "resumePath": "/board/resumes/botm-HFm0iKvKLN.pdf",
+      "resumeFileName": "Book-of-the-Month-Sr-Product-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=B5OXGn",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "lastChecked": "2026-09-28"
+  },
+  {
+    "jobId": "ig-4450153449",
+    "company": "Instagram",
+    "title": "Product Designer, Instagram",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4450153449",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4450153449",
+    "dateFound": "2026-09-28",
+    "location": "New York, NY",
+    "level": "Mid/Senior IC",
+    "stageGate": "Meta family / huge established design org \u00b7 LI posting (metacareers SPA opaque from box)",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 8,
+      "whyFits": [
+        "IC Product Designer (not Staff); 4+ YOE consumer at scale \u2014 best Meta-family YOE fit",
+        "NYC hub; Meta/IG now in bar per voice",
+        "Craft + ambiguous problem spaces + XFN ownership themes match r\u00e9sum\u00e9"
+      ],
+      "gaps": [
+        "Official metacareers requisition ID not resolved from box curl \u2014 LI guest JD used"
+      ],
+      "prepNote": "Prep only. Do not submit until apply_confirm."
+    },
+    "fit": {
+      "generatedAt": "2026-09-28",
+      "source": "John broaden-8 prep",
+      "seed": false,
+      "score": "8/10",
+      "confidence": "High",
+      "recommendation": "Prep packet \u2014 CLEAR best Meta/IG YOE fit this batch",
+      "summary": "Product Designer, Instagram (NYC). Themes: consumer craft at scale, ambiguous\u2192actionable design strategy, end-to-end multi-surface ownership, AI-assisted workflows preferred."
+    },
+    "salary": null,
+    "team": "Instagram product design \u2014 share / discover / create / connect",
+    "land": {
+      "resumePath": "/board/resumes/ig-4450153449.pdf",
+      "resumeFileName": "Instagram-Product-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=AEvU2M",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "lastChecked": "2026-09-28"
+  },
+  {
+    "jobId": "meta-4466672457",
+    "company": "Meta",
+    "title": "Product Designer",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4466672457",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4466672457",
+    "dateFound": "2026-09-28",
+    "location": "New York, NY",
+    "level": "Mid/Senior IC",
+    "stageGate": "Public Meta IC \u00b7 posting spans Meta family apps \u00b7 LI",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "4+ YOE complex software; NYC; IC not Staff",
+        "UX + interaction + visual craft + stakeholder presentation themes",
+        "Meta/IG approved in bar"
+      ],
+      "gaps": [
+        "Generic Meta family posting \u2014 team assignment unknown until process",
+        "Official metacareers ID unresolved from box"
+      ],
+      "prepNote": "Prep only. Do not submit until apply_confirm."
+    },
+    "fit": {
+      "generatedAt": "2026-09-28",
+      "source": "John broaden-8 prep",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium-High",
+      "recommendation": "Prep packet \u2014 CLEAR Meta NYC IC (4+ YOE)",
+      "summary": "Product Designer at Meta (NYC). Themes: complex software UX/IX/visual craft, high-fidelity prototyping, design strategy with exec stakeholders, AI-assisted workflow preferred."
+    },
+    "salary": null,
+    "team": "Meta multidisciplinary design \u2014 roles across Meta company",
+    "land": {
+      "resumePath": "/board/resumes/meta-4466672457.pdf",
+      "resumeFileName": "Meta-Product-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=A9EcQ5",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "lastChecked": "2026-09-28"
+  },
+  {
+    "jobId": "meta-4424865281",
+    "company": "Meta",
+    "title": "Product Designer, Human Interface",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4424865281",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4424865281",
+    "dateFound": "2026-09-28",
+    "location": "New York, NY",
+    "level": "Mid/Senior IC",
+    "stageGate": "Meta HI craft / app family \u00b7 LI",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "4+ YOE; NYC; HI interaction + visual craft focus",
+        "Usability testing + prototype communication themes match",
+        "Meta/IG approved"
+      ],
+      "gaps": [
+        "Preferred emerging tech / research-org experience is soft gap",
+        "Official metacareers ID unresolved from box"
+      ],
+      "prepNote": "Prep only. Do not submit until apply_confirm."
+    },
+    "fit": {
+      "generatedAt": "2026-09-28",
+      "source": "John broaden-8 prep",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium-High",
+      "recommendation": "Prep packet \u2014 CLEAR Meta HI NYC (craft-forward)",
+      "summary": "Product Designer, Human Interface at Meta (NYC). Themes: interaction behavior + visual systems, hi-fi prototypes, stakeholder strategy, AI-assisted craft preferred."
+    },
+    "salary": null,
+    "team": "Meta Human Interface / multidisciplinary design",
+    "land": {
+      "resumePath": "/board/resumes/meta-4424865281.pdf",
+      "resumeFileName": "Meta-Product-Designer-Human-Interface.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=A9EcQ5",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "lastChecked": "2026-09-28"
+  },
+  {
+    "jobId": "uber-4462465244",
+    "company": "Uber",
+    "title": "Senior Product Designer, Direct & Connect",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4462465244",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4462465244",
+    "dateFound": "2026-09-28",
+    "location": "New York, NY",
+    "level": "Senior",
+    "stageGate": "Public company / established design org \u00b7 logistics marketplace",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Senior IC; NYC; public + established design org",
+        "Multi-sided marketplace / end-to-end ownership / ambiguity themes",
+        "Fintech/enterprise ops preferred quals adjacent to Pershing"
+      ],
+      "gaps": [
+        "5+ YOE soft stretch vs ~4+",
+        "Delivery / logistics domain not core \u2014 interest check"
+      ],
+      "prepNote": "Prep only. Do not submit until apply_confirm."
+    },
+    "fit": {
+      "generatedAt": "2026-09-28",
+      "source": "John broaden-8 prep",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium-High",
+      "recommendation": "Prep packet \u2014 CLEAR Senior IC NYC marketplace seat",
+      "summary": "Senior Product Designer, Uber Direct & Connect (NYC). Themes: multi-sided delivery marketplace, E2E ownership, new interaction patterns, systems thinking. Band ~$180\u2013200k NYC."
+    },
+    "salary": "$180,000\u2013$200,000 base (NYC) + bonus/equity eligibility",
+    "team": "Uber Direct & Connect \u2014 on-demand delivery / SMB + consumer marketplace",
+    "land": {
+      "resumePath": "/board/resumes/uber-4462465244.pdf",
+      "resumeFileName": "Uber-Senior-Product-Designer-Direct-Connect.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=A3upPF",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "lastChecked": "2026-09-28"
+  },
+  {
+    "jobId": "ig-4383045949",
+    "company": "Instagram",
+    "title": "Product Designer, Instagram Private Sharing",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4383045949",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4383045949",
+    "dateFound": "2026-09-28",
+    "location": "New York, NY",
+    "level": "Senior IC (stretch YOE)",
+    "stageGate": "Meta/IG Private Sharing \u00b7 STRETCH 8+ YOE",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "stretch": true,
+    "vet": {
+      "gatesPass": false,
+      "fitScore": 5,
+      "whyFits": [
+        "Interesting privacy / private-sharing problem; NYC; Meta/IG approved",
+        "0-1 incubation + craft + trust-sensitive flows adjacent to Pershing high-stakes UX"
+      ],
+      "gaps": [
+        "STRETCH: JD hard-requires 8+ YOE vs ~4+ r\u00e9sum\u00e9 \u2014 do not over-claim",
+        "Staff/principal-flavored leadership language in similar postings"
+      ],
+      "prepNote": "STRETCH prep per John yes-to-all. Packet ready; apply_confirm still required. Honest YOE on forms."
+    },
+    "fit": {
+      "generatedAt": "2026-09-28",
+      "source": "John broaden-8 prep",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "STRETCH packet \u2014 interesting problem; 8+ YOE gate is the gap",
+      "summary": "Product Designer, Instagram Private Sharing (NYC). Themes: private/friend sharing, 0-1 incubation (Notes/Map/Instants), craft + simplicity. STRETCH: 8+ YOE."
+    },
+    "salary": null,
+    "team": "Instagram Private Sharing \u2014 Notes, Map, Instants, Studio incubation",
+    "land": {
+      "resumePath": "/board/resumes/ig-4383045949.pdf",
+      "resumeFileName": "Instagram-Private-Sharing-Product-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=AEvU2M",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "lastChecked": "2026-09-28"
+  },
+  {
+    "jobId": "meta-4446623556",
+    "company": "Meta",
+    "title": "Product Designer, Meta Superintelligence Labs",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4446623556",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4446623556",
+    "dateFound": "2026-09-28",
+    "location": "San Francisco, CA",
+    "level": "Senior IC (stretch YOE + geo)",
+    "stageGate": "MSL frontier AI \u00b7 STRETCH SF + 8+ YOE",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "stretch": true,
+    "vet": {
+      "gatesPass": false,
+      "fitScore": 4,
+      "whyFits": [
+        "Frontier AI / superintelligence product design \u2014 interesting problem",
+        "AI-native tooling + ambiguous technical domains match standing kit",
+        "Surfaced per voice: Meta/IG even if SF if Senior IC"
+      ],
+      "gaps": [
+        "STRETCH: SF office-only (soft-flag vs NYC/US-remote preference)",
+        "STRETCH: JD hard-requires 8+ YOE vs ~4+",
+        "Relocation / SF presence not confirmed"
+      ],
+      "prepNote": "STRETCH prep per John yes-to-all. Confirm SF willingness before apply_confirm. Honest YOE on forms."
+    },
+    "fit": {
+      "generatedAt": "2026-09-28",
+      "source": "John broaden-8 prep",
+      "seed": false,
+      "score": "4/10",
+      "confidence": "Medium",
+      "recommendation": "STRETCH packet \u2014 cool AI problem; SF + 8+ YOE are hard gaps",
+      "summary": "Product Designer, Meta Superintelligence Labs (SF). Themes: ambiguous AI product with research partners, craft at scale, vibecoding/AI tools preferred. STRETCH: SF + 8+ YOE."
+    },
+    "salary": null,
+    "team": "Meta Superintelligence Labs \u2014 design \u00d7 AI research",
+    "land": {
+      "resumePath": "/board/resumes/meta-4446623556.pdf",
+      "resumeFileName": "Meta-Superintelligence-Labs-Product-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=A9EcQ5",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "lastChecked": "2026-09-28"
+  },
+  {
+    "jobId": "chromatic-75693ed5",
+    "company": "Chromatic",
+    "title": "Senior Product Designer",
+    "postingUrl": "https://jobs.ashbyhq.com/chromatic/75693ed5-b8de-4cf0-a38a-ac259a6f05ef",
+    "linkedinUrl": null,
+    "dateFound": "2026-09-28",
+    "location": "US remote (Remote | North America or Europe)",
+    "level": "Senior (stretch YOE)",
+    "stageGate": "Storybook / design tooling \u00b7 Ashby ATS \u00b7 STRETCH 8+ YOE",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "stretch": true,
+    "vet": {
+      "gatesPass": false,
+      "fitScore": 5,
+      "whyFits": [
+        "US remote; design systems + coding agents + React/prod UI \u2014 strong kit match",
+        "Established product co (not seed); interesting design-tooling problem",
+        "Official Ashby ATS"
+      ],
+      "gaps": [
+        "STRETCH: JD hard-requires 8+ YOE vs ~4+",
+        "Cash band $143\u2013162k soft/low for Senior NYC IC \u2014 confirm with John",
+        "Deep Storybook/dev-tool domain is soft gap (transferable systems craft)"
+      ],
+      "prepNote": "STRETCH prep per John yes-to-all. Confirm band + YOE honesty before apply_confirm."
+    },
+    "fit": {
+      "generatedAt": "2026-09-28",
+      "source": "John broaden-8 prep",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "STRETCH packet \u2014 tooling/AI-agents fit high; 8+ YOE + band are gaps",
+      "summary": "Senior Product Designer at Chromatic (US remote). Themes: design systems for engineers/agents, coding agents, React prototypes, technical product craft. STRETCH: 8+ YOE. Band $143\u2013162k + equity."
+    },
+    "salary": "US $143K\u2013$162K + equity",
+    "team": "Design \u2014 Storybook / UI craft systems \u00b7 developer + agent workflows",
+    "land": {
+      "resumePath": "/board/resumes/chromatic-75693ed5.pdf",
+      "resumeFileName": "Chromatic-Senior-Product-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=ELxYOM",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "lastChecked": "2026-09-28"
+  },
+  {
     "jobId": "frontline-4460421244",
     "company": "Frontline Education",
     "title": "Senior Product Designer",
