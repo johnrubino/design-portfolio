@@ -3,39 +3,55 @@
     "jobId": "frontline-4460421244",
     "company": "Frontline Education",
     "title": "Senior Product Designer",
-    "postingUrl": "https://www.linkedin.com/jobs/view/4460421244",
+    "postingUrl": "https://careers.frontlineeducation.com/jobs/17883903-senior-product-designer",
     "linkedinUrl": "https://www.linkedin.com/jobs/view/senior-product-designer-at-frontline-education-4460421244",
     "dateFound": "2026-09-28",
     "location": "US remote",
     "level": "Senior",
     "stageGate": "Large PE-backed K-12 SaaS / established product triad + Frontline design system",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "vet": {
       "gatesPass": true,
-      "fitScore": 6,
+      "fitScore": 7,
       "whyFits": [
         "Senior IC; explicit Remote within the United States",
-        "5+ years enterprise SaaS \u2014 in bar vs ~4+",
-        "Mentors peers/juniors; uses Frontline design system \u2014 not a 1st-designer seat",
-        "Large established edtech (not seed/pre-seed)"
+        "5+ years enterprise SaaS \u2014 in bar vs ~4+; established design system + peer mentoring",
+        "Discovery-led triad + AI-assisted design matches standing kit",
+        "Official ATS found: careers.frontlineeducation.com/jobs/17883903"
       ],
       "gaps": [
-        "K-12 admin SaaS domain (not fintech/AI core interest)",
-        "Apply path is LinkedIn guest/offsite \u2014 no Greenhouse/Ashby URL found this pass",
-        "Confirm design-org depth beyond design-system language if John wants"
-      ]
+        "K-12 / edtech domain interest check (not fintech core)",
+        "5+ YOE enterprise SaaS is soft stretch vs ~4+ baseline"
+      ],
+      "prepNote": "Ask-before-apply locked. Packet ready at status vetted; do not submit ATS until apply_confirm. Confirm K-12 interest with John."
     },
     "fit": {
       "generatedAt": "2026-09-28",
-      "source": "Jobi weekday watch LinkedIn guest",
+      "source": "John confirm-only prep",
       "seed": false,
-      "score": "6/10",
-      "confidence": "Medium",
-      "recommendation": "Clear on gates \u2014 US-remote Senior IC at large edtech; domain is the main interest check",
-      "summary": "Senior Product Designer (US remote) at Frontline Education. 5+ YOE enterprise SaaS; product triad ownership; Frontline design system + peer mentoring. Clears NYC/US-remote, Senior IC, Series A+/established. Domain is K-12 admin tooling rather than wealth/fintech."
-    }
+      "score": "7/10",
+      "confidence": "Medium-High",
+      "recommendation": "Prep packet \u2014 US-remote Senior IC at large edtech; domain interest is the main check before apply",
+      "summary": "Senior Product Designer (US remote) at Frontline Education. Themes: discovery-led product triad, complex enterprise SaaS\u2192clear accessible UX, design system + WCAG, AI-assisted/human-in-the-loop design, research\u2192prototype-to-learn. Band $140\u2013160k."
+    },
+    "salary": "$140,000\u2013$160,000 base + bonus eligibility",
+    "team": "Product triad \u2014 K\u201312 educator/admin SaaS + Frontline design system",
+    "land": {
+      "resumePath": "/board/resumes/frontline-4460421244.pdf",
+      "resumeFileName": "Frontline-Education-Senior-Product-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=AbIn8S",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "lastChecked": "2026-09-28"
   },
   {
     "jobId": "amex-4469072303",
@@ -44,10 +60,10 @@
     "postingUrl": "https://www.linkedin.com/jobs/view/4469072303",
     "linkedinUrl": "https://www.linkedin.com/jobs/view/senior-product-designer-global-commercial-services-technology-at-american-express-4469072303",
     "dateFound": "2026-09-28",
-    "location": "United States (LI remote filter; hub vs true-remote unclear)",
+    "location": "United States (aggregators: remote/telecommute; one listing Virtual Madison WI \u2014 hub vs remote unclear)",
     "level": "Senior",
     "stageGate": "Public / large Amex Tech design org",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "vet": {
@@ -55,24 +71,41 @@
       "fitScore": 5,
       "whyFits": [
         "Senior IC at public Amex; established design org (mentors juniors)",
-        "3 years hands-on PD experience \u2014 YOE OK",
-        "GCS commercial payments / cashflow tools \u2014 fintech-adjacent"
+        "3 years hands-on PD \u2014 YOE clears; expert Figma + journey craft match",
+        "GCS commercial payments / cashflow tools \u2014 fintech-adjacent to Pershing"
       ],
       "gaps": [
-        "JD does not explicitly say NYC or US-remote; LI card is United States via remote filter \u2014 may be hub-based",
-        "Job function tagged Information Technology and Engineering on LI \u2014 confirm PD seat vs adjacent",
-        "No clean ATS URL this pass (Amex careers search 404 from box)"
-      ]
+        "Location gate soft-fail: LI United States / remote filter; Finseats Remote=Yes; designproject Virtual Madison WI \u2014 confirm true US-remote or NYC hub before apply",
+        "No clean official Amex careers ATS URL found this pass (Oracle CX search did not surface req)",
+        "Aggregator deadline ~2026-09-29 05:00 UTC \u2014 time-sensitive if John wants apply"
+      ],
+      "prepNote": "Ask-before-apply locked. Packet ready at status vetted; do NOT submit until location/ATS confirmed + apply_confirm. Borderline for location gate."
     },
     "fit": {
       "generatedAt": "2026-09-28",
-      "source": "Jobi weekday watch LinkedIn guest",
+      "source": "John confirm-only prep",
       "seed": false,
       "score": "5/10",
-      "confidence": "Low",
-      "recommendation": "Borderline \u2014 strong company/level/YOE, but confirm true US-remote or NYC hub before investing apply time",
-      "summary": "Senior Product Designer on Amex Global Commercial Services Technology. Public company, mentors juniors, 3y YOE. Hesitation is location: LinkedIn remote/US listing without explicit NYC or remote language in the JD body."
-    }
+      "confidence": "Low-Medium",
+      "recommendation": "Prep packet \u2014 commercial payments fit; confirm US-remote/NYC + official ATS before apply (deadline may be 2026-09-29)",
+      "summary": "Senior Product Designer, GCS Technology at Amex. Themes: end-to-end commercial payments journeys, hi-fi specs for eng, design systems + mentoring, PM/eng collab, accessibility/journey mapping. Band $123\u2013215k LI. Location/ATS unresolved."
+    },
+    "salary": "$123,000\u2013$215,250 (LI provided range)",
+    "team": "Amex Tech \u2014 Global Commercial Services Technology",
+    "land": {
+      "resumePath": "/board/resumes/amex-4469072303.pdf",
+      "resumeFileName": "American-Express-Senior-Product-Designer-GCS.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=CgPHO5",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "lastChecked": "2026-09-28"
   },
   {
     "jobId": "amazon-10506011",
