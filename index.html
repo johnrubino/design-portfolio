@@ -189,7 +189,7 @@
 
             <!-- Carousel -->
             <div class="lp-carousel-container">
-                <div class="lp-carousel-viewport">
+                <div class="lp-carousel-viewport" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Selected work — use arrow keys to browse">
                     <div class="lp-carousel" id="lpCarousel">
 
                         <!-- Card 1: Future of Wealth Advisory -->
@@ -351,9 +351,13 @@
 
         function setPos(ti, animate) {
             carousel.style.transition = animate
-                ? 'transform 480ms cubic-bezier(0.25,0.46,0.45,0.94)'
+                ? 'transform 640ms cubic-bezier(0.16,1,0.3,1)'
                 : 'none';
             carousel.style.transform = `translateX(${calcOffset(ti)}px)`;
+            // Emphasise the centred card; skip the scale transition on silent snaps
+            if (!animate) carousel.classList.add('is-snapping');
+            Array.from(carousel.children).forEach((c, i) => c.classList.toggle('is-active', i === ti));
+            if (!animate) requestAnimationFrame(() => requestAnimationFrame(() => carousel.classList.remove('is-snapping')));
         }
 
         function syncDots(logical) {
@@ -420,8 +424,11 @@
         let dragIsHoriz    = null;
         let touchStartY    = 0;
 
+        let dragMoved      = false;
+
         function onDragStart(x) {
             if (transitioning) return;
+            dragMoved    = false;
             dragStartX   = x;
             dragStartOff = calcOffset(trackIdx(current));
             dragIsHoriz  = null;
@@ -436,6 +443,7 @@
                 dragIsHoriz = Math.abs(dx) >= absdy;
             }
             if (!dragIsHoriz) return;
+            if (Math.abs(dx) > 6) dragMoved = true;
             carousel.style.transform = `translateX(${dragStartOff + dx}px)`;
         }
 
@@ -467,6 +475,23 @@
         }, { passive: false });
         viewport.addEventListener('touchend', e => onDragEnd(e.changedTouches[0].clientX));
 
+        // ── Click a side card to bring it forward (capture: beats Request Access) ──
+        viewport.addEventListener('click', e => {
+            if (dragMoved) { e.preventDefault(); e.stopPropagation(); dragMoved = false; return; }
+            const card = e.target.closest('.lp-cs-card');
+            if (!card || card.classList.contains('is-active')) return;
+            e.preventDefault();
+            e.stopPropagation();
+            const ti = Array.prototype.indexOf.call(carousel.children, card);
+            if (ti < trackIdx(current)) prev(); else next();
+        }, true);
+
+        // ── Keyboard ──
+        viewport.addEventListener('keydown', e => {
+            if (e.key === 'ArrowLeft')  { e.preventDefault(); prev(); }
+            if (e.key === 'ArrowRight') { e.preventDefault(); next(); }
+        });
+
         // ── Mobile menu handled by design-system.js ──
 
         // ── Latest 4 Substack posts ──
@@ -482,9 +507,9 @@
             container.innerHTML = SKELETON + SKELETON + SKELETON + SKELETON;
 
             function renderItems(items) {
-                container.innerHTML = items.slice(0, 4).map(({ title, link, date }) => {
+                container.innerHTML = items.slice(0, 4).map(({ title, link, date }, i) => {
                     const fmt = date ? new Date(date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) : '';
-                    return `<a href="${link}" target="_blank" rel="noopener noreferrer" class="lp-post-item">
+                    return `<a href="${link}" target="_blank" rel="noopener noreferrer" class="lp-post-item" style="--i:${i}">
                         <div class="lp-post-item-body">
                             <span class="lp-post-item-title">${title}</span>
                             ${fmt ? `<span class="lp-post-item-date">${fmt}</span>` : ''}
