@@ -2455,7 +2455,7 @@
     "location": "United States (remote; hub work weeks 1\u20132\u00d7/quarter)",
     "level": "Senior",
     "stageGate": "Series C (~$220M raised) / high-output PD team inside Product org",
-    "status": "vetted",
+    "status": "sent",
     "isNew": false,
     "seed": false,
     "vet": {
@@ -2496,7 +2496,8 @@
         "location": "New York, NY 10314",
         "workAuth": "US authorized, no sponsorship"
       }
-    }
+    },
+    "sentAt": "2026-09-29T13:45:04Z"
   },
   {
     "jobId": "google-edu-4471399988",
