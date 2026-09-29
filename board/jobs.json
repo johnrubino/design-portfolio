@@ -2521,8 +2521,8 @@
     "location": "New York, NY (hybrid / onsite language in JD)",
     "level": "Mid",
     "stageGate": "Public media conglomerate / established Product+Design partners",
-    "status": "sourced",
-    "isNew": true,
+    "status": "vetted",
+    "isNew": false,
     "seed": false,
     "vet": {
       "gatesPass": true,
@@ -2536,7 +2536,8 @@
         "LI seniority tagged Associate \u2014 confirm Mid vs junior scope",
         "Entertainment/media domain (not fintech/AI) \u2014 interest check",
         "No clean Workday/ATS URL resolved this pass"
-      ]
+      ],
+      "prepNote": "Ask-before-apply locked. Packet ready at status vetted; do not submit ATS until apply_confirm."
     },
     "fit": {
       "generatedAt": "2026-09-29",
@@ -2547,7 +2548,20 @@
       "recommendation": "Clear on hard gates as Mid NYC IC \u2014 domain/level interest is the check",
       "summary": "Product Designer at NBCUniversal (NYC hybrid). 3+ YOE; design systems; responsive web/mobile. Public established org. Main hesitation is media/entertainment domain and Associate LI tag vs Senior PD trajectory."
     },
-    "team": "NBCUniversal Product Design"
+    "team": "NBCUniversal Product Design",
+    "land": {
+      "resumePath": "/board/resumes/nbcu-4472778812.pdf",
+      "resumeFileName": "NBCUniversal-Product-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=B0XO9y",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   },
   {
     "jobId": "cassidy-4472749176",
