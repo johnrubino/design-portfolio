@@ -68,12 +68,12 @@ async function sendNotification({ company, viewCount, location, device, browser,
         const r = await fetch('https://api.resend.com/emails', {
             method: 'POST',
             headers: {
-                Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+                Authorization: `Bearer ${process.env.RESEND_API_KEY.trim()}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                from: process.env.RESEND_FROM || 'Portfolio Tracker <onboarding@resend.dev>',
-                to:   process.env.NOTIFY_EMAIL || 'johnrubinodesign@gmail.com',
+                from: (process.env.RESEND_FROM || '').trim() || 'Portfolio Tracker <onboarding@resend.dev>',
+                to:   (process.env.NOTIFY_EMAIL || '').trim() || 'johnrubinodesign@gmail.com',
                 subject,
                 html
             })
