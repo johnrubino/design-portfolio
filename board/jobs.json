@@ -2436,15 +2436,13 @@
       "resumePath": "/board/resumes/anthropic-5397654008.pdf",
       "resumeFileName": "Anthropic-Product-Designer-Claude-Developer-Platform.pdf",
       "trackedLink": "https://johnrubino.design/hiring?t=CviGar",
-      "contactCard": {
-        "name": "John Rubino",
-        "email": "johnrubinodesign@gmail.com",
-        "phone": "917-439-2058",
-        "linkedin": "https://www.linkedin.com/in/john-rubino/",
-        "location": "New York, NY 10314",
-        "workAuth": "US authorized, no sponsorship"
+      "contactCard": "Team: Anthropic Product Design — Claude Developer Platform (API / developer platform surfaces; SF | NYC | Seattle, ~25% hybrid).\nPosting: https://job-boards.greenhouse.io/anthropic/jobs/5397654008\nGreenhouse: 5397654008 · LinkedIn: https://www.linkedin.com/jobs/view/4471588481\n\nPrimary design talent (verify before send):\nPenny Bailey Farwell — Design Talent / Product Design Recruiter @ Anthropic — https://www.linkedin.com/in/millicentdbailey\n\nAdjacent design leads (peer / org context — softer note, not a cold recruiter ask):\nMeaghan Choi — Head of Design, Claude Code & Cowork — https://www.linkedin.com/in/meaghanchoi\nJoel Lewenstein — Head of Product Design (org lead; confirm before cold) — https://www.linkedin.com/in/joel-lewenstein\n\nNotes:\n- Distinct from Product Designer, Safeguards (5428014008) already submitted 2026-09-25 — say so if messaging talent so they don't treat this as a duplicate.\n- Status is vetted (résumé on LAND); send LinkedIn/email drafts after you Apply, or tweak tense if you reach out earlier.\n- Connect invite: blank or one line. Full note only after they accept.\n- Replace [Name] after you pick a contact.",
+      "drafts": {
+        "linkedin": "Hi [Name] — I'm applying to Product Designer, Claude Developer Platform at Anthropic (NYC option). I'm a Senior Product Designer at BNY Pershing working on complex advisor workflows, and I ship in both Figma and code with Claude Code in the loop. Happy to share a short walkthrough if useful.\n\nPortfolio: https://johnrubino.design/hiring?t=CviGar\nReq: 5397654008",
+        "email": "Subject: Product Designer, Claude Developer Platform — John Rubino\n\nHi [Name],\n\nI'm applying to Product Designer, Claude Developer Platform (Greenhouse 5397654008). I'm a Senior Product Designer at BNY Pershing (Wealth Services), where I take complex workflows from requirements through design into production and use Claude Code alongside Figma to move faster.\n\nThis sits close to the systems and developer-facing craft I want to keep building — end-to-end B2B flows, AI-native practice, and polished UI that earns trust. I also applied earlier to Product Designer, Safeguards; this is a separate req I'm targeting for the developer-platform brief.\n\nHappy to share a short case walkthrough if useful.\n\nPortfolio: https://johnrubino.design/hiring?t=CviGar\nLinkedIn: https://www.linkedin.com/in/john-rubino\nRésumé: on my board packet / attached if helpful\n\nThanks for your time,\nJohn Rubino\n917-439-2058\njohnrubinodesign@gmail.com"
       }
-    }
+    },
+    "lastChecked": "2026-09-29"
   },
   {
     "jobId": "trm-2a42c549",
