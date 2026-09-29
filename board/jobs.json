@@ -2403,7 +2403,7 @@
     "location": "San Francisco, CA | New York City, NY | Seattle, WA (hybrid ~25% office)",
     "level": "Senior",
     "stageGate": "Late-stage AI lab / established Anthropic design org (Safeguards already sent)",
-    "status": "vetted",
+    "status": "sent",
     "isNew": false,
     "seed": false,
     "vet": {
@@ -2442,7 +2442,8 @@
         "email": "Subject: Product Designer, Claude Developer Platform — John Rubino\n\nHi [Name],\n\nI'm applying to Product Designer, Claude Developer Platform (Greenhouse 5397654008). I'm a Senior Product Designer at BNY Pershing (Wealth Services), where I take complex workflows from requirements through design into production and use Claude Code alongside Figma to move faster.\n\nThis sits close to the systems and developer-facing craft I want to keep building — end-to-end B2B flows, AI-native practice, and polished UI that earns trust. I also applied earlier to Product Designer, Safeguards; this is a separate req I'm targeting for the developer-platform brief.\n\nHappy to share a short case walkthrough if useful.\n\nPortfolio: https://johnrubino.design/hiring?t=CviGar\nLinkedIn: https://www.linkedin.com/in/john-rubino\nRésumé: on my board packet / attached if helpful\n\nThanks for your time,\nJohn Rubino\n917-439-2058\njohnrubinodesign@gmail.com"
       }
     },
-    "lastChecked": "2026-09-29"
+    "lastChecked": "2026-09-29",
+    "sentAt": "2026-09-29T13:24:00Z"
   },
   {
     "jobId": "trm-2a42c549",
