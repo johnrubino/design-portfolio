@@ -2,25 +2,7 @@
 // Called by hiring.html on every page load
 import crypto from 'crypto';
 import { appendHiringView, kvGetJson, kvSetJson, kvSetNx } from '../lib/hiring-store.js';
-
-// Resolve a 6-char short code to its full token string
-async function kvResolveShortCode(code) {
-    if (!process.env.KV_REST_API_URL) return null;
-    try {
-        const r = await fetch(
-            `${process.env.KV_REST_API_URL}/get/${encodeURIComponent('short:' + code)}`,
-            { headers: { Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}` } }
-        );
-        const j = await r.json();
-        return j.result || null;
-    } catch { return null; }
-}
-
-// Cheap bot filter — skip logging only; token still validates
-function isObviousBot(ua) {
-    if (!ua) return true;
-    return /bot|crawler|spider|preview|slurp|facebookexternalhit|whatsapp|telegram|discord|embedly|quora|pinterest|redditbot|linkedinbot|twitterbot|applebot|semrush|ahrefs|bytespider|gptbot|claudebot|curl|wget|python-requests|go-http-client|headless/i.test(ua);
-}
+import { verifyHiringToken, isObviousBot } from '../lib/hiring-token.js';
 
 function uaHash(ua) {
     return crypto.createHash('sha256').update(ua || '').digest('hex').slice(0, 16);
@@ -101,39 +83,18 @@ export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Cache-Control', 'no-store');
 
-    let { t: token } = req.query;
-    if (!token) return res.status(400).json({ valid: false, reason: 'no_token' });
-
-    // Short codes (no '.' separator) resolve to a full token via KV
-    if (!token.includes('.')) {
-        const resolved = await kvResolveShortCode(token);
-        if (!resolved) return res.status(401).json({ valid: false, reason: 'invalid' });
-        token = resolved;
+    const check = await verifyHiringToken(req.query.t);
+    if (!check.ok && check.reason !== 'expired') {
+        return res.status(check.status).json({ valid: false, reason: check.reason });
     }
-
-    const secret = process.env.HIRING_SECRET;
-    if (!secret) return res.status(500).json({ valid: false, reason: 'server_error' });
-
-    // Split and verify signature
-    const dotIdx = token.lastIndexOf('.');
-    if (dotIdx === -1) return res.status(400).json({ valid: false, reason: 'malformed' });
-
-    const data       = token.slice(0, dotIdx);
-    const sig        = token.slice(dotIdx + 1);
-    const expectSig  = crypto.createHmac('sha256', secret).update(data).digest('base64url');
-    if (sig !== expectSig) return res.status(401).json({ valid: false, reason: 'invalid' });
-
-    // Decode payload
-    let payload;
-    try { payload = JSON.parse(Buffer.from(data, 'base64url').toString()); }
-    catch { return res.status(400).json({ valid: false, reason: 'malformed' }); }
+    const payload = check.payload;
 
     const expDate = new Date(payload.exp * 1000).toLocaleDateString('en-US', {
         month: 'long', day: 'numeric', year: 'numeric'
     });
 
     // Expired? Do not log as a company open.
-    if (payload.exp < Math.floor(Date.now() / 1000)) {
+    if (check.reason === 'expired') {
         return res.status(200).json({ valid: false, reason: 'expired', company: payload.co, expDate });
     }
 

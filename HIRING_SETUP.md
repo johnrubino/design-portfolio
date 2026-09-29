@@ -102,6 +102,37 @@ https://yoursite.com/api/hiring-views?key=YOUR_ADMIN_KEY
 
 Returns newest-first JSON opens recorded only for **valid, unexpired** tokens (deduped per token id + UTC hour + user-agent). Payload fields: `company`, `tokenId`, `ts`, `country`, `city`, `ua`, `path`. Reuses `ADMIN_KEY` — same secret as `/api/generate`. Storage is the existing Vercel KV / Upstash Redis store.
 
+The response also includes `links` — one entry per hiring link with what they did after opening it:
+
+```json
+{
+  "company": "Figma",
+  "opens": 2,
+  "summary": "Read Fully Paid Lending (75%), Future of Wealth Advisory (100%) · 6m 10s engaged · viewed about · clicked email",
+  "activity": { "cases": {…}, "views": {…}, "links": {…}, "engagedSeconds": 370, "timeline": [ … ] }
+}
+```
+
+### What engagement is tracked
+
+`hiring.html` batches events to `/api/track` (same signed token, same bot filter) once `/api/verify` confirms the link:
+
+| Event | Meaning |
+|---|---|
+| Case study opened | Which case study sheet they opened (incl. prev/next) |
+| Read depth | 25 / 50 / 75 / 100% scroll milestones within each case study |
+| Tab viewed | Portfolio, Labs, Writing, About |
+| Link clicked | Email, LinkedIn, Substack, a Substack article, other external |
+| Engaged time | Seconds with the tab visible **and** activity in the last minute |
+
+Nothing is stored beyond these aggregates plus a capped timeline (60 events) per link. No IPs, no cookies.
+
+---
+
+## Public site analytics
+
+Every public page loads `analytics.js`, which loads **Vercel Web Analytics** (cookieless, no consent banner). Turn it on once in **Vercel → Project → Analytics → Enable**; data appears in that tab. Hiring tokens (`?t=`) and admin keys (`?key=`) are stripped from URLs before they're sent, and the admin job board isn't tracked.
+
 ---
 
 ## Testing locally
