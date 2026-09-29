@@ -29,8 +29,8 @@ export default async function handler(req, res) {
     const out = { env: {}, diagnosis };
 
     for (const name of ENV_VARS) out.env[name] = Boolean(process.env[name]);
-    const recipient = process.env.NOTIFY_EMAIL || 'johnrubinodesign@gmail.com';
-    const sender    = process.env.RESEND_FROM || 'Portfolio Tracker <onboarding@resend.dev>';
+    const recipient = (process.env.NOTIFY_EMAIL || '').trim() || 'johnrubinodesign@gmail.com';
+    const sender    = (process.env.RESEND_FROM || '').trim() || 'Portfolio Tracker <onboarding@resend.dev>';
     out.env.notifyRecipient = recipient;
     out.env.notifySender    = sender;
 
@@ -87,7 +87,7 @@ export default async function handler(req, res) {
         try {
             const r = await fetch('https://api.resend.com/emails', {
                 method: 'POST',
-                headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+                headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY.trim()}`, 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     from: sender,
                     to: recipient,
