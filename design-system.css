@@ -2491,16 +2491,19 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 }
 .lp-mobile-nav-item:hover { background: rgba(var(--lp-purple-mid-rgb),0.07); color: var(--lp-primary); }
 /* Staggered entrance */
-.lp-mobile-menu.open .lp-mobile-nav-item:nth-child(1) { opacity:1; transform:translateY(0); transition-delay: 70ms; }
-.lp-mobile-menu.open .lp-mobile-nav-item:nth-child(2) { opacity:1; transform:translateY(0); transition-delay:110ms; }
-.lp-mobile-menu.open .lp-mobile-nav-item:nth-child(3) { opacity:1; transform:translateY(0); transition-delay:150ms; }
+.lp-mobile-menu.open .lp-mobile-nav-item { opacity:1; transform:translateY(0); }
+.lp-mobile-menu.open .lp-mobile-nav-item:nth-child(1) { transition-delay: 70ms; }
+.lp-mobile-menu.open .lp-mobile-nav-item:nth-child(2) { transition-delay:110ms; }
+.lp-mobile-menu.open .lp-mobile-nav-item:nth-child(3) { transition-delay:150ms; }
+.lp-mobile-menu.open .lp-mobile-nav-item:nth-child(4) { transition-delay:190ms; }
+.lp-mobile-menu.open .lp-mobile-nav-item:nth-child(5) { transition-delay:230ms; }
 /* Divider before CTA */
 .lp-mobile-menu-divider {
     height: 1px;
     background: rgba(0,0,0,0.07);
     margin: 8px 4px;
     opacity: 0;
-    transition: opacity 280ms ease 170ms;
+    transition: opacity 280ms ease 250ms;
 }
 .lp-mobile-menu.open .lp-mobile-menu-divider { opacity: 1; }
 /* CTA */
@@ -2512,7 +2515,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     opacity: 0; transform: translateY(-6px);
     transition: opacity 280ms ease, transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
 }
-.lp-mobile-menu.open .lp-mobile-cta { opacity:1; transform:translateY(0); transition-delay:190ms; }
+.lp-mobile-menu.open .lp-mobile-cta { opacity:1; transform:translateY(0); transition-delay:270ms; }
 
 /* ── ≤558px: mobile — hamburger only, solid nav fill ── */
 @media (max-width: 558px) {
@@ -4741,3 +4744,163 @@ textarea.form-input { resize: vertical; min-height: 80px; }
     margin-right: 1px;
 }
 
+
+/* ============================================================
+   MOTION LAYER
+   Shared, progressive-enhancement motion for every page.
+   - Content is never hidden unless design-system.js has added
+     html.motion-ok (JS on + no reduced-motion preference).
+   - One easing family (--ease-out-expo) and a small duration
+     scale keep everything feeling like one system.
+   ============================================================ */
+:root {
+    --motion-dur-press:   120ms;
+    --motion-dur-hover:   240ms;
+    --motion-dur-reveal:  800ms;
+    --motion-reveal-y:    24px;
+    --motion-stagger:     70ms;
+}
+
+/* ── Cross-document page transitions (Chrome/Edge/Safari 18+) ── */
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition { navigation: auto; }
+    ::view-transition-old(root) {
+        animation: 200ms var(--ease-out-expo) both vt-fade-out;
+    }
+    ::view-transition-new(root) {
+        animation: 420ms var(--ease-out-expo) both vt-rise-in;
+    }
+}
+@keyframes vt-fade-out { to { opacity: 0; } }
+@keyframes vt-rise-in  { from { opacity: 0; transform: translateY(12px); } }
+
+/* ── Scroll reveal ── */
+.motion-ok [data-reveal] {
+    opacity: 0;
+    transform: translate3d(0, var(--motion-reveal-y), 0);
+    transition:
+        opacity   var(--motion-dur-reveal) var(--ease-out-expo),
+        transform var(--motion-dur-reveal) var(--ease-out-expo);
+    transition-delay: var(--reveal-delay, 0ms);
+}
+.motion-ok [data-reveal="scale"] { transform: translate3d(0, 16px, 0) scale(0.97); }
+.motion-ok [data-reveal="fade"]  { transform: none; }
+.motion-ok [data-reveal].is-revealed { opacity: 1; transform: none; }
+.reveal-init [data-reveal] { transition: none !important; }
+
+/* ── Scroll progress (long-form pages) ── */
+.scroll-progress {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--lp-primary);
+    transform-origin: 0 50%;
+    transform: scaleX(0);
+    z-index: 1001;
+    pointer-events: none;
+}
+
+/* ── Nav: hover underline grows from centre ── */
+.lp-nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 16px; right: 16px;
+    height: 2px;
+    background: var(--lp-primary);
+    border-radius: 1px;
+    transform: scaleX(0);
+    opacity: 0.4;
+    transition: transform var(--motion-dur-hover) var(--ease-out-expo), opacity var(--motion-dur-hover) ease;
+}
+.lp-nav-item:hover::after { transform: scaleX(1); }
+.lp-nav-item.active::after { transform: scaleX(1); opacity: 1; }
+
+/* ── Buttons: tactile press + arrow nudge ── */
+.lp-btn-primary,
+.lp-btn-request,
+.lp-btn-outline,
+.lp-btn-link {
+    transition:
+        opacity    150ms ease,
+        background 150ms ease,
+        box-shadow var(--motion-dur-hover) var(--ease-out-expo),
+        transform  var(--motion-dur-hover) var(--ease-out-expo);
+}
+.lp-btn-primary:hover,
+.lp-btn-request:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(51,71,204,0.28);
+}
+.lp-btn-primary:active,
+.lp-btn-request:active,
+.lp-btn-outline:active,
+.lp-btn-link:active {
+    transform: translateY(0) scale(0.97);
+    box-shadow: none;
+    transition-duration: var(--motion-dur-press);
+}
+.lp-btn-outline svg,
+.lp-btn-request svg { transition: transform var(--motion-dur-hover) var(--ease-out-expo); }
+.lp-btn-outline:hover svg { transform: translateX(3px); }
+.lp-btn-request:hover svg { transform: translateY(-1px) rotate(-8deg); }
+
+/* ── Company cards: lift on hover ── */
+.lp-company-card {
+    position: relative;
+    transition:
+        transform  400ms var(--ease-out-expo),
+        box-shadow 400ms var(--ease-out-expo);
+}
+.lp-company-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(4,4,52,0.10), 0 0 2px rgba(4,4,52,0.08);
+    z-index: 1;
+}
+
+/* ── Carousel: focus the active card, recede the rest ── */
+.lp-cs-card {
+    transition:
+        transform 600ms var(--ease-out-expo),
+        opacity   600ms var(--ease-out-expo),
+        box-shadow 600ms var(--ease-out-expo);
+}
+.motion-ok .lp-cs-card:not(.is-active) { transform: scale(0.94); opacity: 0.55; cursor: pointer; }
+.motion-ok .lp-cs-card.is-active { box-shadow: 0 24px 48px rgba(4,4,52,0.10); }
+.lp-carousel.is-snapping .lp-cs-card { transition: none; }
+.lp-carousel-viewport.is-dragging .lp-cs-card { transition-duration: 300ms; }
+.lp-cs-img-bg img { transition: transform 1200ms var(--ease-out-expo); }
+.lp-cs-card.is-active:hover .lp-cs-img-bg img { transform: scale(1.03); }
+.lp-cs-glass { transition: transform 600ms var(--ease-out-expo); }
+.lp-cs-card.is-active:hover .lp-cs-glass { transform: translateY(-4px); }
+.lp-carousel-viewport:focus-visible { outline-offset: 8px; border-radius: 12px; }
+.lp-dot { transition: background 300ms ease, width 400ms var(--ease-out-expo); }
+.lp-dot:not(.active):hover { background: var(--lp-text-muted); }
+
+/* ── Writing list: staggered arrival after the feed loads ── */
+.motion-ok .lp-post-item {
+    animation: lp-rise 600ms var(--ease-out-expo) both;
+    animation-delay: calc(var(--i, 0) * var(--motion-stagger));
+}
+.lp-post-item-title { transition: color 160ms ease; }
+.lp-post-item:hover .lp-post-item-title { color: var(--lp-primary); }
+@keyframes lp-rise { from { opacity: 0; transform: translateY(10px); } }
+
+/* ── Labs / writing / case-study cards and figures ── */
+.labs-card-clickable { transition: transform 400ms var(--ease-out-expo), box-shadow 400ms var(--ease-out-expo), border-color 200ms ease; }
+.labs-card-clickable:hover { transform: translateY(-3px); }
+.writing-card { transition: background 200ms ease, transform 400ms var(--ease-out-expo); }
+.writing-card:hover { transform: translateX(4px); }
+.case-study-figure { transition: box-shadow 400ms var(--ease-out-expo), transform 400ms var(--ease-out-expo); }
+.case-study-figure:has(img):hover { transform: translateY(-2px); box-shadow: 0 16px 32px rgba(4,4,52,0.10); }
+
+/* Reduced motion: cancel the transform-based hovers above as well */
+@media (prefers-reduced-motion: reduce) {
+    .lp-company-card:hover,
+    .lp-cs-card.is-active:hover .lp-cs-img-bg img,
+    .lp-cs-card.is-active:hover .lp-cs-glass,
+    .labs-card-clickable:hover,
+    .writing-card:hover,
+    .case-study-figure:has(img):hover,
+    .lp-btn-outline:hover svg,
+    .lp-btn-request:hover svg { transform: none; }
+}

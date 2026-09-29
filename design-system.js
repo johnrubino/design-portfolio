@@ -163,3 +163,106 @@ document.addEventListener('mousemove', function (e) {
     btn.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width  * 100) + '%');
     btn.style.setProperty('--my', ((e.clientY - rect.top)  / rect.height * 100) + '%');
 });
+
+// ── Motion layer: scroll reveal with automatic stagger ──
+// Elements are only hidden once this runs and the visitor hasn't asked
+// for reduced motion, so content is always visible without JS.
+(function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!('IntersectionObserver' in window)) return;
+    const root = document.documentElement;
+    root.classList.add('motion-ok');
+
+    // selector → reveal variant ('' = rise, 'scale', 'fade')
+    const TARGETS = [
+        // Home
+        ['.lp-chip-row > *, .lp-bio, .lp-hero .lp-btn-group', ''],
+        ['.lp-stats-bar', 'scale'],
+        ['.lp-companies-label, .lp-company-card', ''],
+        ['.lp-work-header > *, .lp-writing > .lp-section-label, .lp-writing-heading', ''],
+        ['.lp-carousel-container', 'fade'],
+        ['.lp-writing-feature, .lp-writing-posts, .lp-cta > *', ''],
+        // Writing, resume, labs
+        ['.writing-page-hero > *, .writing-filters, .writing-card, .resume-section, .labs-card', ''],
+        // Case studies: headers and "punctuation" blocks, not running text
+        ['.content-section > .section-icon, .content-section > .section-title, .content-section > .section-subtitle', ''],
+        ['.case-study-figure, .quote-block, .highlight-box, .stats-table', 'scale']
+    ];
+    const MAX_STAGGER = 8;
+    const stagger = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--motion-stagger')) || 70;
+
+    function reveal(el, delay) {
+        el.style.setProperty('--reveal-delay', delay + 'ms');
+        el.classList.add('is-revealed');
+        // Hand transitions back to the component once the entrance is done
+        setTimeout(function () {
+            el.removeAttribute('data-reveal');
+            el.classList.remove('is-revealed');
+            el.style.removeProperty('--reveal-delay');
+        }, delay + 1000);
+    }
+
+    const io = new IntersectionObserver(function (entries) {
+        const visible = entries.filter(function (e) { return e.isIntersecting; })
+            .map(function (e) { return e.target; })
+            .sort(function (a, b) {
+                return a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
+            });
+        visible.forEach(function (el, i) {
+            io.unobserve(el);
+            reveal(el, Math.min(i, MAX_STAGGER) * stagger);
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+
+    function scan() {
+        const tagged = [];
+        // Apply the hidden state instantly (the page may already be painted)
+        root.classList.add('reveal-init');
+        TARGETS.forEach(function (pair) {
+            document.querySelectorAll(pair[0]).forEach(function (el) {
+                if (el.hasAttribute('data-reveal-seen') || el.classList.contains('reveal')) return;
+                if (el.closest('[aria-hidden="true"]')) return; // carousel clones etc.
+                el.setAttribute('data-reveal-seen', '');
+                // Already scrolled past (reload mid-page, #anchor): show immediately
+                if (el.getBoundingClientRect().bottom < 0) return;
+                el.setAttribute('data-reveal', pair[1]);
+                tagged.push(el);
+            });
+        });
+        if (tagged.length) void document.body.offsetHeight;
+        root.classList.remove('reveal-init');
+        tagged.forEach(function (el) { io.observe(el); });
+    }
+    scan();
+
+    // Pick up content rendered later (Substack feed, writing cards)
+    let queued = false;
+    new MutationObserver(function () {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(function () { queued = false; scan(); });
+    }).observe(document.body, { childList: true, subtree: true });
+})();
+
+// ── Reading progress bar on long-form pages (case studies, labs) ──
+(function () {
+    if (document.querySelectorAll('.content-section').length < 3) return;
+    const bar = document.createElement('div');
+    bar.className = 'scroll-progress';
+    bar.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(bar);
+    let ticking = false;
+    function update() {
+        ticking = false;
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ')';
+    }
+    function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(update);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    update();
+})();
