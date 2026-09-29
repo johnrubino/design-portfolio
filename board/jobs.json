@@ -2403,8 +2403,8 @@
     "location": "San Francisco, CA | New York City, NY | Seattle, WA (hybrid ~25% office)",
     "level": "Senior",
     "stageGate": "Late-stage AI lab / established Anthropic design org (Safeguards already sent)",
-    "status": "sourced",
-    "isNew": true,
+    "status": "vetted",
+    "isNew": false,
     "seed": false,
     "vet": {
       "gatesPass": true,
@@ -2431,7 +2431,20 @@
       "summary": "Product Designer, Claude Developer Platform at Anthropic (SF|NYC|Seattle hybrid). No numeric YOE floor; emphasizes end-to-end complex workflows, Figma craft, and AI-native practice (Claude Code). Comp $305\u2013385k. Clears Mid/Senior IC, NYC, Series A+/public-equivalent, established design. Distinct from Safeguards already on board as sent."
     },
     "salary": "$305,000\u2013$385,000 USD",
-    "team": "Anthropic Product Design \u2014 Claude Developer Platform"
+    "team": "Anthropic Product Design \u2014 Claude Developer Platform",
+    "land": {
+      "resumePath": "/board/resumes/anthropic-5397654008.pdf",
+      "resumeFileName": "Anthropic-Product-Designer-Claude-Developer-Platform.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=CviGar",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   },
   {
     "jobId": "trm-2a42c549",
