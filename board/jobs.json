@@ -2559,8 +2559,8 @@
     "location": "New York, NY (5 days/week in office)",
     "level": "Mid",
     "stageGate": "Series A ($10M Sep 2025) \u2014 early design ownership with founders",
-    "status": "sourced",
-    "isNew": true,
+    "status": "vetted",
+    "isNew": false,
     "seed": false,
     "vet": {
       "gatesPass": false,
@@ -2574,7 +2574,8 @@
         "Works directly with founders; LI Associate seniority \u2014 likely small/early design bench (tiny-team risk)",
         "5 days/week NYC office \u2014 hybrid flexibility none",
         "No Ashby/GH slug resolved this pass (careers mention jobs.ashbyhq.com/Cassidy but API 404)"
-      ]
+      ],
+      "prepNote": "Prep-only on LAND 2026-09-29. Storyboard mirrors JD as closed; Ashby listing empty/404 this pass. Do not apply until apply_confirm."
     },
     "fit": {
       "generatedAt": "2026-09-29",
@@ -2585,6 +2586,19 @@
       "recommendation": "Borderline \u2014 Series A AI agents NYC, but early/founder-adjacent design bench + 5-day office",
       "summary": "Product Designer at Cassidy (NYC, 5 days onsite). Series A AI automation/agents platform. Strong problem-space fit; hesitation is early design org (founder collaboration, Associate tag) vs established-team preference."
     },
-    "team": "Cassidy Product (founder-adjacent)"
+    "team": "Cassidy Product (founder-adjacent)",
+    "land": {
+      "resumePath": "/board/resumes/cassidy-4472749176.pdf",
+      "resumeFileName": "Cassidy-Product-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=BBZQtZ",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   }
 ]
