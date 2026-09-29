@@ -222,6 +222,10 @@ document.addEventListener('mousemove', function (e) {
             document.querySelectorAll(pair[0]).forEach(function (el) {
                 if (el.hasAttribute('data-reveal-seen') || el.classList.contains('reveal')) return;
                 if (el.closest('[aria-hidden="true"]')) return; // carousel clones etc.
+                // Not rendered yet (display:none templates, e.g. hiring.html's
+                // pre-embedded case studies): leave untouched so copies made from
+                // them don't inherit a hidden state, and pick them up once shown
+                if (!el.getClientRects().length) return;
                 el.setAttribute('data-reveal-seen', '');
                 // Already scrolled past (reload mid-page, #anchor): show immediately
                 if (el.getBoundingClientRect().bottom < 0) return;
