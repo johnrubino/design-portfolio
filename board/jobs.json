@@ -2456,8 +2456,8 @@
     "location": "United States (remote; hub work weeks 1–2×/quarter)",
     "level": "Senior",
     "stageGate": "Series C (~$220M raised) / high-output PD team inside Product org",
-    "status": "sourced",
-    "isNew": true,
+    "status": "vetted",
+    "isNew": false,
     "seed": false,
     "vet": {
       "gatesPass": true,
@@ -2484,7 +2484,20 @@
       "summary": "Senior Product Designer at TRM Labs (US remote). Designs agentic investigation/compliance tools: handoff, trust, review, design-system patterns. Series C; high-output PD team. Comp ~$176–193k + equity. Clears location, level, stage, design-org gates; domain is crypto/compliance vs wealth."
     },
     "salary": "$176,000–$193,000 base + equity eligibility",
-    "team": "Product Design inside TRM Product org (PM / PMM / Academy)"
+    "team": "Product Design inside TRM Product org (PM / PMM / Academy)",
+    "land": {
+      "resumePath": "/board/resumes/trm-2a42c549.pdf",
+      "resumeFileName": "TRM-Labs-Senior-Product-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=AkhaHK",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   },
   {
     "jobId": "google-edu-4471399988",
