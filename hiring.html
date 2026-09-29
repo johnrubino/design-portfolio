@@ -741,6 +741,7 @@
             .content-view { padding: 32px 32px; }
         }
     </style>
+    <script defer src="/analytics.js"></script>
 </head>
 <body class="hiring-page">
 
@@ -2874,6 +2875,63 @@
 
 
 <script>
+    // ── Engagement tracking (per hiring link) ───────────────────────────────
+    // Events queue until /api/verify confirms the link, then batch to /api/track.
+    // Time only counts while the tab is visible and someone interacted in the last minute.
+    var hiringTrack = (function () {
+        var token = null, queue = [], pendingSeconds = 0, lastInput = Date.now(), depthSent = {};
+        var TICK = 5, IDLE_MS = 60000;
+
+        function send(final) {
+            if (!token) return;
+            if (pendingSeconds) { queue.push({ type: 'time', seconds: pendingSeconds }); pendingSeconds = 0; }
+            if (!queue.length) return;
+            var body = JSON.stringify({ t: token, events: queue.splice(0, 25) });
+            var blob = new Blob([body], { type: 'text/plain' });
+            if (!(navigator.sendBeacon && navigator.sendBeacon('/api/track', blob))) {
+                fetch('/api/track', { method: 'POST', body: body, headers: { 'Content-Type': 'text/plain' }, keepalive: true }).catch(function () {});
+            }
+            if (queue.length && !final) send(false);
+        }
+
+        ['scroll', 'wheel', 'mousemove', 'keydown', 'touchstart', 'click'].forEach(function (t) {
+            window.addEventListener(t, function () { lastInput = Date.now(); }, { passive: true, capture: true });
+        });
+        setInterval(function () {
+            if (document.visibilityState === 'visible' && Date.now() - lastInput < IDLE_MS) pendingSeconds += TICK;
+        }, TICK * 1000);
+        setInterval(function () { send(false); }, 20000);
+        document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'hidden') send(true); });
+        window.addEventListener('pagehide', function () { send(true); });
+
+        return {
+            start: function (t) { token = t; send(false); },
+            event: function (e) { queue.push(e); },
+            depth: function (caseId, pct) {
+                [25, 50, 75, 100].forEach(function (m) {
+                    if (pct >= m && !depthSent[caseId + m]) {
+                        depthSent[caseId + m] = true;
+                        queue.push({ type: 'case_depth', case: caseId, pct: m });
+                    }
+                });
+            }
+        };
+    })();
+
+    // Outbound clicks: what they reached for after reading
+    document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href]');
+        if (!a) return;
+        var href = a.getAttribute('href');
+        var link = null;
+        if (href.indexOf('mailto:') === 0) link = 'email';
+        else if (/linkedin\.com/.test(href)) link = 'linkedin';
+        else if (a.classList.contains('article-card')) link = 'article';
+        else if (/substack\.com/.test(href)) link = 'substack';
+        else if (/^https?:\/\//.test(href) && a.hostname !== location.hostname) link = 'external';
+        if (link) hiringTrack.event({ type: 'link', link: link });
+    }, true);
+
     // ── Token verification ──────────────────────────────────────────────────
     (async function verifyAccess() {
         const params = new URLSearchParams(window.location.search);
@@ -2903,6 +2961,7 @@
 
             if (data.valid) {
                 revealDashboard(data.company, data.expDate);
+                hiringTrack.start(token);
             } else if (data.reason === 'expired') {
                 showGate('gateExpired');
             } else {
@@ -2930,6 +2989,7 @@
             btn.classList.add('active');
             btn.setAttribute('aria-current', 'true');
             document.getElementById(btn.dataset.view + 'View').classList.add('active');
+            hiringTrack.event({ type: 'view', view: btn.dataset.view });
             // Close mobile sidebar
             var sb = document.getElementById('sidebar');
             var so = document.getElementById('sidebarOverlay');
@@ -3134,6 +3194,7 @@
         csPanel.scrollTop = 0;
         initStepper(csPanel);
         attachExpand(csPanel);
+        hiringTrack.event({ type: 'case_open', case: cs.id });
         // Wire up in-content next-case buttons
         csPanel.querySelectorAll('.case-next-card[data-open-case]').forEach(function(btn) {
             btn.addEventListener('click', function(e) {
@@ -3180,6 +3241,14 @@
         history.pushState('', document.title, window.location.pathname + window.location.search);
         if (lastFocused) { lastFocused.focus(); lastFocused = null; }
     }
+
+    // Read depth: how far into the open case study they scrolled
+    csPanel.addEventListener('scroll', function() {
+        if (!csModal.classList.contains('active')) return;
+        var max = csPanel.scrollHeight - csPanel.clientHeight;
+        var pct = max > 0 ? (csPanel.scrollTop / max) * 100 : 100;
+        hiringTrack.depth(caseStudies[currentCaseIndex].id, pct);
+    }, { passive: true });
 
     csClose.addEventListener('click', closeModal);
     csModal.addEventListener('click', function(e) { if (e.target === csModal) closeModal(); });
