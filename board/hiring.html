@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiring activity — Board</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../design-system.css">
+    <style>
+        /* Hiring activity — same ops-desk shell as /board (portfolio tokens only). */
+        .board-page {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--lp-font-ui);
+            min-height: 100dvh;
+            --text-3: #8E8E8E;
+            --text-2: #B8B8B8;
+            --teal: #2A9B8F;
+            --teal-soft: rgba(42, 155, 143, 0.10);
+            --teal-line: rgba(42, 155, 143, 0.35);
+        }
+
+        /* ── Gate (mirrors /board) ────────────────────────────────────────── */
+        .board-gate {
+            position: fixed; inset: 0; z-index: 9999;
+            background: var(--bg);
+            display: flex; align-items: center; justify-content: center;
+            transition: opacity 0.35s ease;
+        }
+        .board-gate.hidden { opacity: 0; pointer-events: none; }
+        .board-gate-inner { text-align: center; padding: 40px 24px; max-width: 360px; width: 100%; }
+        .board-gate-spinner {
+            width: 28px; height: 28px;
+            border: 2px solid var(--border-mid); border-top-color: var(--text-2);
+            border-radius: 50%;
+            animation: board-spin 0.7s linear infinite;
+            margin: 0 auto 16px;
+        }
+        @keyframes board-spin { to { transform: rotate(360deg); } }
+        .board-gate-title { font-family: var(--lp-font-display); font-size: 20px; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 8px; }
+        .board-gate-sub { font-size: 13px; color: var(--text-2); line-height: 1.55; margin-bottom: 20px; }
+        .board-gate-form { display: flex; gap: 8px; justify-content: center; }
+        .board-gate-input {
+            flex: 1; min-width: 0; padding: 10px 12px;
+            background: var(--bg-2); border: 1px solid var(--border-mid); border-radius: 8px;
+            color: var(--text); font-family: var(--lp-font-ui); font-size: 13px;
+        }
+        .board-gate-input:focus { outline: none; border-color: var(--border-strong); }
+        .board-btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+            padding: 10px 16px; border-radius: 8px;
+            font-family: var(--lp-font-ui); font-size: 13px; font-weight: 500;
+            cursor: pointer; border: 1px solid transparent; text-decoration: none;
+            transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+        }
+        .board-btn-primary { background: var(--text); color: var(--bg); }
+        .board-btn-secondary { background: var(--bg-3); color: var(--text); border-color: var(--border-mid); }
+        .board-btn-secondary:hover { border-color: var(--border-strong); }
+        .board-btn-small { padding: 6px 10px; font-size: 12px; }
+
+        /* ── Shell ────────────────────────────────────────────────────────── */
+        .board-shell { display: none; max-width: 960px; margin: 0 auto; padding: 28px 28px 64px; }
+        .board-shell.visible { display: block; }
+        .board-back {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 13px; color: var(--text-2); text-decoration: none;
+            margin-bottom: 14px;
+        }
+        .board-back:hover { color: var(--text); }
+        .board-top {
+            display: flex; align-items: baseline; justify-content: space-between;
+            gap: 16px; flex-wrap: wrap; margin-bottom: 24px;
+        }
+        .board-brand { font-family: var(--lp-font-display); font-size: 28px; font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; }
+        .board-top-meta { font-size: 13px; color: var(--text-2); display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+        .board-top-meta .sep { color: var(--text-3); }
+        .board-preview-tag { font-size: 13px; color: var(--text-2); border: 1px solid var(--border-mid); border-radius: 999px; padding: 2px 8px; }
+
+        /* ── Summary tiles ────────────────────────────────────────────────── */
+        .hx-tiles {
+            display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1px; background: var(--border);
+            border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+            margin-bottom: 24px;
+        }
+        .hx-tile { background: var(--bg-2); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; }
+        .hx-tile-label { font-size: 12px; color: var(--text-3); letter-spacing: 0.04em; text-transform: uppercase; }
+        .hx-tile-value { font-family: var(--lp-font-display); font-size: 28px; font-weight: 500; letter-spacing: -0.02em; line-height: 1; font-variant-numeric: tabular-nums; }
+        .hx-tile-sub { font-size: 12px; color: var(--text-2); }
+
+        /* ── Filters ──────────────────────────────────────────────────────── */
+        .board-filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+        .board-chip {
+            font-family: var(--lp-font-ui); font-size: 13px; font-weight: 500;
+            padding: 6px 12px; border-radius: 999px;
+            border: 1px solid var(--border-mid); background: transparent; color: var(--text-2);
+            cursor: pointer; transition: background 140ms ease, color 140ms ease, border-color 140ms ease;
+        }
+        .board-chip:hover { color: var(--text); border-color: var(--border-strong); }
+        .board-chip[aria-pressed="true"] { background: var(--bg-3); color: var(--text); border-color: var(--border-strong); }
+        .board-chip .n { color: var(--text-3); margin-left: 4px; font-variant-numeric: tabular-nums; }
+        .board-chip:focus-visible, .board-btn:focus-visible, .hx-row:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+
+        /* ── Rows ─────────────────────────────────────────────────────────── */
+        .hx-list { border-top: 1px solid var(--border); }
+        .hx-item { border-bottom: 1px solid var(--border); }
+        .hx-row {
+            width: 100%;
+            display: grid; grid-template-columns: 16px minmax(0, 1fr) auto 16px;
+            gap: 12px; align-items: center;
+            min-height: 64px; padding: 12px 4px;
+            background: none; border: none; color: inherit; text-align: left;
+            font: inherit; cursor: pointer;
+            transition: background 140ms ease;
+        }
+        .hx-row:hover { background: var(--bg-2); }
+        .hx-dot { width: 8px; height: 8px; border-radius: 50%; justify-self: center; background: var(--bg-4); }
+        .hx-dot.is-live { background: var(--teal); animation: hx-pulse 1.8s ease-out infinite; }
+        .hx-dot.is-opened { background: var(--text-2); }
+        @keyframes hx-pulse {
+            0%   { box-shadow: 0 0 0 0 rgba(42, 155, 143, 0.45); }
+            70%  { box-shadow: 0 0 0 8px rgba(42, 155, 143, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(42, 155, 143, 0); }
+        }
+        .hx-main { min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+        .hx-title-line { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; min-width: 0; }
+        .hx-company { font-family: var(--font-display); font-size: 17px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.2; }
+        .hx-role { font-size: 13px; font-weight: 500; color: var(--text-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+        .hx-meta { font-size: 13px; color: var(--text-3); display: flex; flex-wrap: wrap; align-items: center; }
+        .hx-meta .s { padding: 0 8px; user-select: none; }
+        .hx-meta strong { color: var(--text-2); font-weight: 500; }
+        .hx-status {
+            font-size: 13px; font-weight: 500; padding: 4px 10px; border-radius: 999px; white-space: nowrap;
+            background: var(--bg-3); color: var(--text-2); border: 1px solid var(--border);
+        }
+        .hx-status.is-engaged { color: var(--teal); border-color: var(--teal-line); background: var(--teal-soft); }
+        .hx-status.is-opened { color: var(--text); border-color: var(--border-strong); }
+        .hx-status.is-expired { color: var(--text-3); background: transparent; }
+        .hx-chevron { width: 16px; height: 16px; color: var(--text-3); transition: transform 240ms var(--ease-out-expo, ease); }
+        .hx-row[aria-expanded="true"] .hx-chevron { transform: rotate(180deg); }
+
+        /* ── Detail panel ─────────────────────────────────────────────────── */
+        .hx-detail {
+            display: grid; grid-template-rows: 0fr;
+            transition: grid-template-rows 320ms var(--ease-out-expo, ease);
+        }
+        .hx-detail.open { grid-template-rows: 1fr; }
+        .hx-detail > div { overflow: hidden; }
+        .hx-detail-inner { padding: 4px 32px 24px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 28px; }
+        .hx-section-label { font-size: 12px; color: var(--text-3); letter-spacing: 0.04em; text-transform: uppercase; margin: 16px 0 10px; }
+        .hx-section-label:first-child { margin-top: 12px; }
+        .hx-summary { font-size: 14px; color: var(--text); line-height: 1.55; margin-top: 12px; }
+
+        .hx-case { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 12px; margin-bottom: 12px; }
+        .hx-case-name { font-size: 13px; color: var(--text); }
+        .hx-case-val { font-size: 12px; color: var(--text-2); font-variant-numeric: tabular-nums; }
+        .hx-bar { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; }
+        .hx-bar span { height: 6px; border-radius: 3px; background: var(--bg-4); }
+        .hx-bar span.on { background: var(--teal); }
+        .hx-case.is-none .hx-case-name { color: var(--text-3); }
+
+        .hx-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+        .hx-chip { font-size: 12px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border-mid); color: var(--text-2); }
+        .hx-chip.is-strong { color: var(--teal); border-color: var(--teal-line); background: var(--teal-soft); }
+        .hx-none { font-size: 13px; color: var(--text-3); }
+
+        .hx-log { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .hx-log li { font-size: 13px; color: var(--text-2); display: grid; grid-template-columns: 116px minmax(0, 1fr); gap: 10px; }
+        .hx-log time { color: var(--text-3); font-variant-numeric: tabular-nums; }
+        .hx-timeline { max-height: 260px; overflow: auto; padding-right: 4px; }
+
+        .hx-footer { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-3); }
+        .hx-footer code { font-family: var(--lp-font-ui); color: var(--text-2); background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px; padding: 4px 8px; }
+        .hx-footer .grow { flex: 1; }
+
+        /* ── States ───────────────────────────────────────────────────────── */
+        .board-state { padding: 48px 8px; text-align: center; color: var(--text-2); font-size: 14px; line-height: 1.5; }
+        .board-state a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+        .hx-skel { height: 64px; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; gap: 8px; padding: 0 32px; }
+        .hx-skel i { display: block; height: 10px; border-radius: 4px; background: var(--bg-3); animation: hx-skel 1.2s ease-in-out infinite; }
+        @keyframes hx-skel { 0%, 100% { opacity: 0.45; } 50% { opacity: 0.85; } }
+
+        @media (max-width: 720px) {
+            .hx-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .hx-detail-inner { grid-template-columns: 1fr; gap: 0; padding: 4px 8px 20px 32px; }
+        }
+        @media (max-width: 560px) {
+            .board-shell { padding: 24px 16px 56px; }
+            .board-brand { font-size: 24px; }
+            .hx-row { grid-template-columns: 12px minmax(0, 1fr) 16px; }
+            .hx-row .hx-status { grid-column: 2; grid-row: 2; justify-self: start; }
+            .hx-row .hx-chevron { grid-column: 3; grid-row: 1; }
+            .hx-role { white-space: normal; }
+            .hx-log li { grid-template-columns: 1fr; gap: 2px; }
+            .hx-detail-inner { padding-left: 24px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .hx-dot.is-live { animation: none; }
+        }
+    </style>
+</head>
+<body class="board-page">
+    <div class="board-gate" id="boardGate" aria-live="polite">
+        <div class="board-gate-inner" id="gateLoading">
+            <div class="board-gate-spinner" aria-hidden="true"></div>
+            <p class="board-gate-title">Checking access</p>
+            <p class="board-gate-sub">Private ops desk — verifying key…</p>
+        </div>
+        <div class="board-gate-inner" id="gateForm" style="display:none">
+            <p class="board-gate-title">Hiring activity</p>
+            <p class="board-gate-sub">Enter the admin key, or open with <code>?key=</code> on the URL.</p>
+            <form class="board-gate-form" id="keyForm">
+                <input class="board-gate-input" id="keyInput" type="password" name="key" autocomplete="current-password" placeholder="Admin key" required>
+                <button type="submit" class="board-btn board-btn-primary">Enter</button>
+            </form>
+            <p class="board-gate-sub" id="gateError" style="display:none;margin-top:14px;margin-bottom:0;color:var(--text);"></p>
+        </div>
+    </div>
+
+    <main class="board-shell" id="shell">
+        <a class="board-back" href="/board">&larr; Board</a>
+        <header class="board-top">
+            <h1 class="board-brand">Hiring activity</h1>
+            <div class="board-top-meta" id="meta">
+                <span id="updated">Loading…</span>
+                <span class="sep" aria-hidden="true">·</span>
+                <button type="button" class="board-btn board-btn-secondary board-btn-small" id="refreshBtn">Refresh</button>
+            </div>
+        </header>
+
+        <section class="hx-tiles" aria-label="Summary">
+            <div class="hx-tile"><span class="hx-tile-label">Links sent</span><span class="hx-tile-value" id="tSent">—</span><span class="hx-tile-sub" id="tSentSub">&nbsp;</span></div>
+            <div class="hx-tile"><span class="hx-tile-label">Opened</span><span class="hx-tile-value" id="tOpened">—</span><span class="hx-tile-sub" id="tOpenedSub">&nbsp;</span></div>
+            <div class="hx-tile"><span class="hx-tile-label">Read a case study</span><span class="hx-tile-value" id="tRead">—</span><span class="hx-tile-sub" id="tReadSub">&nbsp;</span></div>
+            <div class="hx-tile"><span class="hx-tile-label">Reached out</span><span class="hx-tile-value" id="tContact">—</span><span class="hx-tile-sub" id="tContactSub">&nbsp;</span></div>
+        </section>
+
+        <div class="board-filters" role="toolbar" aria-label="Filter links" id="filters">
+            <button type="button" class="board-chip" data-filter="all" aria-pressed="true">All<span class="n" data-count="all"></span></button>
+            <button type="button" class="board-chip" data-filter="opened" aria-pressed="false">Opened<span class="n" data-count="opened"></span></button>
+            <button type="button" class="board-chip" data-filter="waiting" aria-pressed="false">Not opened<span class="n" data-count="waiting"></span></button>
+            <button type="button" class="board-chip" data-filter="expired" aria-pressed="false">Expired<span class="n" data-count="expired"></span></button>
+        </div>
+
+        <div id="list" class="hx-list" aria-busy="true"></div>
+    </main>
+
+    <script>
+    (function () {
+        const STORAGE_KEY = 'boardAdminKey';   // shared with /board, so no second sign-in
+        const CASES = [
+            ['future-of-wealth-advisory', 'Future of Wealth Advisory'],
+            ['fully-paid-lending',        'Fully Paid Lending'],
+            ['purple-panda-rentals',      'Purple Panda Rentals']
+        ];
+        const CASE_TITLE = Object.fromEntries(CASES);
+        const VIEW_LABEL = { portfolio: 'Portfolio', labs: 'Labs', writing: 'Writing', about: 'About' };
+        const LINK_LABEL = { email: 'Email', linkedin: 'LinkedIn', substack: 'Substack', article: 'An article', labs: 'Labs', external: 'External link' };
+        const LIVE_MS = 24 * 3600 * 1000;
+
+        let adminKey = null, preview = false, rows = [], filter = 'all';
+        const openIds = new Set();
+        const listEl = document.getElementById('list');
+
+        // ── Gate (same contract as /board) ──
+        const isLocal = () => /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+        const getStored = () => { try { return sessionStorage.getItem(STORAGE_KEY); } catch { return null; } };
+        const store = k => { try { sessionStorage.setItem(STORAGE_KEY, k); } catch { /* ignore */ } };
+
+        function showGateForm(msg) {
+            document.getElementById('gateLoading').style.display = 'none';
+            document.getElementById('gateForm').style.display = '';
+            const err = document.getElementById('gateError');
+            err.style.display = msg ? '' : 'none';
+            err.textContent = msg || '';
+        }
+        function unlock() {
+            const gate = document.getElementById('boardGate');
+            gate.classList.add('hidden');
+            document.getElementById('shell').classList.add('visible');
+            setTimeout(() => gate.remove(), 400);
+            load();
+        }
+        async function verifyKey(key) {
+            let res;
+            try { res = await fetch('/api/board-auth' + (key ? '?key=' + encodeURIComponent(key) : ''), { cache: 'no-store' }); }
+            catch { const e = new Error('API unavailable'); e.status = 0; throw e; }
+            if (res.status === 404) { const e = new Error('API unavailable'); e.status = 404; throw e; }
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok || !data.ok) { const e = new Error(data.error || 'Unauthorized'); e.status = res.status; throw e; }
+            preview = Boolean(data.preview);
+        }
+        const allowPreview = e => isLocal() && (!e.status || e.status === 404 || e.status >= 500);
+
+        async function gateCheck() {
+            const fromUrl = new URLSearchParams(location.search).get('key');
+            if (fromUrl) {
+                adminKey = fromUrl; store(fromUrl);
+                const u = new URL(location.href); u.searchParams.delete('key');
+                history.replaceState({}, '', u.pathname + u.search + u.hash);
+            } else {
+                adminKey = getStored();
+            }
+            try { await verifyKey(adminKey); unlock(); }
+            catch (e) {
+                if (allowPreview(e)) { preview = true; unlock(); return; }
+                showGateForm(e.message === 'Unauthorized' ? 'That key did not match.' : (e.message || 'Access denied.'));
+            }
+        }
+        document.getElementById('keyForm').addEventListener('submit', async function (ev) {
+            ev.preventDefault();
+            const k = document.getElementById('keyInput').value.trim();
+            if (!k) return;
+            document.getElementById('gateForm').style.display = 'none';
+            document.getElementById('gateLoading').style.display = '';
+            try { await verifyKey(k); adminKey = k; store(k); unlock(); }
+            catch (e) {
+                if (allowPreview(e)) { adminKey = k; store(k); preview = true; unlock(); return; }
+                showGateForm(e.message === 'Unauthorized' ? 'That key did not match.' : (e.message || 'Access denied.'));
+            }
+        });
+
+        // ── Helpers ──
+        function esc(s) {
+            return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+        function ago(iso) {
+            if (!iso) return '—';
+            const t = new Date(iso).getTime();
+            if (Number.isNaN(t)) return '—';
+            const s = Math.max(0, (Date.now() - t) / 1000);
+            if (s < 60) return 'just now';
+            if (s < 3600) return Math.floor(s / 60) + 'm ago';
+            if (s < 86400) return Math.floor(s / 3600) + 'h ago';
+            const d = Math.floor(s / 86400);
+            return d === 1 ? 'yesterday' : d + 'd ago';
+        }
+        function stamp(iso) {
+            const d = new Date(iso);
+            if (Number.isNaN(d.getTime())) return '—';
+            return d.toLocaleDateString([], { month: 'short', day: 'numeric' }) + ' · ' +
+                   d.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+        }
+        function duration(sec) {
+            sec = sec || 0;
+            if (sec < 60) return sec + 's';
+            const m = Math.floor(sec / 60);
+            return m < 60 ? m + 'm ' + (sec % 60) + 's' : Math.floor(m / 60) + 'h ' + (m % 60) + 'm';
+        }
+        function codeFrom(link) {
+            try { return new URL(link, location.origin).searchParams.get('t'); } catch { return null; }
+        }
+        function eventLabel(e) {
+            switch (e.type) {
+                case 'view':       return 'Viewed ' + (VIEW_LABEL[e.view] || e.view) + ' tab';
+                case 'case_open':  return 'Opened ' + (CASE_TITLE[e.case] || e.case);
+                case 'case_depth': return (e.pct === 100 ? 'Finished ' : 'Read ' + e.pct + '% of ') + (CASE_TITLE[e.case] || e.case);
+                case 'link':       return 'Clicked ' + (LINK_LABEL[e.link] || e.link).toLowerCase();
+                default:           return e.type;
+            }
+        }
+
+        // ── Data ──
+        function buildRows(jobs, data) {
+            const byToken = new Map((data.links || []).map(l => [l.tokenId, l]));
+            const used = new Set();
+            const out = [];
+
+            // Several roles can share one tracked link (e.g. one Meta link for 3 roles):
+            // one row per link, so visits aren't counted twice.
+            const byCode = new Map();
+            jobs.forEach(j => {
+                const link = j.land && j.land.trackedLink;
+                const code = link && codeFrom(link);
+                if (!code) return;
+                if (!byCode.has(code)) byCode.set(code, { link, jobs: [] });
+                byCode.get(code).jobs.push(j);
+            });
+
+            byCode.forEach(({ link, jobs: group }, code) => {
+                const first = group[0];
+                const info = (data.codes || {})[code] || {};
+                const l = info.tokenId ? byToken.get(info.tokenId) : null;
+                if (info.tokenId) used.add(info.tokenId);
+                const companies = [...new Set(group.map(j => j.company))].join(' / ');
+                const more = group.length - 1;
+                out.push(makeRow({
+                    id: 'code-' + code, company: companies,
+                    title: first.title + (more ? ' + ' + more + (more === 1 ? ' more role' : ' more roles') : ''),
+                    jobId: first.jobId, link,
+                    sentAt: group.map(j => j.sentAt || j.dateFound).filter(Boolean).sort().pop(),
+                    expires: info.expires,
+                    expired: info.status && info.status !== 'active', l
+                }));
+            });
+            // Links generated outside the board (e.g. /api/generate by hand)
+            (data.links || []).forEach(l => {
+                if (used.has(l.tokenId)) return;
+                out.push(makeRow({ id: 'tok-' + l.tokenId, company: l.company || 'Unknown', title: 'Link not on the board', l }));
+            });
+
+            return out.sort((a, b) => (b.lastTs || 0) - (a.lastTs || 0) || (b.sentTs || 0) - (a.sentTs || 0));
+        }
+
+        function makeRow(r) {
+            const a = (r.l && r.l.activity) || {};
+            const opens = r.l ? r.l.opens : 0;
+            const cases = a.cases || {};
+            const readCases = Object.keys(cases).filter(k => (cases[k].maxDepth || 0) >= 25);
+            const contacted = Object.keys(a.links || {}).filter(k => k === 'email' || k === 'linkedin');
+            const last = (r.l && (r.l.lastActive || r.l.lastOpen)) || null;
+            const lastTs = last ? new Date(last).getTime() : 0;
+            let state = 'waiting';
+            if (opens || r.l && r.l.activity) state = (readCases.length || (a.engagedSeconds || 0) >= 60) ? 'engaged' : 'opened';
+            else if (r.expired) state = 'expired';
+            return Object.assign(r, {
+                opens, activity: a, readCases, contacted, last, lastTs,
+                sentTs: r.sentAt ? new Date(r.sentAt).getTime() : 0,
+                state, live: lastTs && Date.now() - lastTs < LIVE_MS
+            });
+        }
+
+        function matches(r) {
+            if (filter === 'all') return true;
+            if (filter === 'opened') return r.state === 'engaged' || r.state === 'opened';
+            return r.state === filter;
+        }
+
+        // ── Render ──
+        function renderTiles() {
+            const sent = rows.length;
+            const opened = rows.filter(r => r.state === 'engaged' || r.state === 'opened').length;
+            const read = rows.filter(r => r.readCases.length).length;
+            const contact = rows.filter(r => r.contacted.length).length;
+            const pct = (n, d) => d ? Math.round(n / d * 100) + '%' : '—';
+            document.getElementById('tSent').textContent = sent;
+            document.getElementById('tSentSub').textContent = rows.filter(r => r.state === 'expired').length + ' expired';
+            document.getElementById('tOpened').textContent = opened;
+            document.getElementById('tOpenedSub').textContent = pct(opened, sent) + ' open rate';
+            document.getElementById('tRead').textContent = read;
+            document.getElementById('tReadSub').textContent = pct(read, opened) + ' of opens';
+            document.getElementById('tContact').textContent = contact;
+            document.getElementById('tContactSub').textContent = 'clicked email or LinkedIn';
+
+            const counts = { all: sent, opened, waiting: rows.filter(r => r.state === 'waiting').length, expired: rows.filter(r => r.state === 'expired').length };
+            document.querySelectorAll('[data-count]').forEach(el => { el.textContent = counts[el.dataset.count]; });
+        }
+
+        const STATUS = {
+            engaged: ['is-engaged', 'Engaged'],
+            opened:  ['is-opened', 'Opened'],
+            waiting: ['', 'Not opened'],
+            expired: ['is-expired', 'Expired']
+        };
+
+        function rowMeta(r) {
+            const parts = [];
+            if (r.opens) parts.push('<strong>' + r.opens + (r.opens === 1 ? ' visit' : ' visits') + '</strong>');
+            if (r.last) parts.push('last seen ' + ago(r.last));
+            if (r.activity.engagedSeconds) parts.push(duration(r.activity.engagedSeconds) + ' engaged');
+            if (r.readCases.length) parts.push(r.readCases.length + (r.readCases.length === 1 ? ' case study' : ' case studies'));
+            if (!parts.length && r.sentAt) parts.push('sent ' + ago(r.sentAt));
+            if (r.state === 'waiting' && r.expires) parts.push('expires ' + new Date(r.expires).toLocaleDateString([], { month: 'short', day: 'numeric' }));
+            return parts.map((p, i) => (i ? '<span class="s" aria-hidden="true">·</span>' : '') + '<span>' + p + '</span>').join('');
+        }
+
+        function detail(r) {
+            const a = r.activity;
+            const cases = a.cases || {};
+            const caseHtml = CASES.map(([id, title]) => {
+                const c = cases[id];
+                const depth = c ? c.maxDepth || 0 : 0;
+                const bar = [25, 50, 75, 100].map(m => '<span class="' + (depth >= m ? 'on' : '') + '"></span>').join('');
+                const val = c ? (depth ? depth + '% read' : 'Opened') + (c.opens > 1 ? ' · ' + c.opens + '×' : '') : 'Not opened';
+                return '<div class="hx-case' + (c ? '' : ' is-none') + '">' +
+                    '<span class="hx-case-name">' + esc(title) + '</span>' +
+                    '<span class="hx-case-val">' + esc(val) + '</span>' +
+                    '<div class="hx-bar" role="img" aria-label="' + esc(title + ': ' + val) + '">' + bar + '</div></div>';
+            }).join('');
+
+            const views = Object.keys(a.views || {}).filter(v => v !== 'portfolio');
+            const clicks = Object.keys(a.links || {});
+            const chips = (keys, labels, strong) => keys.length
+                ? '<div class="hx-chips">' + keys.map(k => '<span class="hx-chip' + (strong && strong(k) ? ' is-strong' : '') + '">' + esc(labels[k] || k) + '</span>').join('') + '</div>'
+                : '<p class="hx-none">None</p>';
+
+            const log = (r.l && r.l.openLog) || [];
+            const visits = log.length
+                ? '<ul class="hx-log">' + log.slice(0, 12).map(v =>
+                    '<li><time datetime="' + esc(v.ts) + '">' + esc(stamp(v.ts)) + '</time><span>' +
+                    esc([[v.city, v.country].filter(Boolean).join(', ') || 'Unknown location', [v.device, v.browser].filter(Boolean).join(' · ')].filter(Boolean).join(' — ')) +
+                    '</span></li>').join('') + '</ul>'
+                : '<p class="hx-none">No visits yet</p>';
+
+            const tl = (a.timeline || []).slice().reverse();
+            const timeline = tl.length
+                ? '<ul class="hx-log hx-timeline">' + tl.map(e =>
+                    '<li><time datetime="' + esc(e.ts) + '">' + esc(stamp(e.ts)) + '</time><span>' + esc(eventLabel(e)) + '</span></li>').join('') + '</ul>'
+                : '<p class="hx-none">No activity recorded yet</p>';
+
+            const footer = [];
+            if (r.link) footer.push('<code>' + esc(r.link.replace(/^https?:\/\//, '')) + '</code>' +
+                '<button type="button" class="board-btn board-btn-secondary board-btn-small" data-copy="' + esc(r.link) + '">Copy link</button>');
+            footer.push('<span class="grow"></span>');
+            if (r.expires) footer.push('<span>' + (r.state === 'expired' ? 'Expired ' : 'Expires ') + esc(new Date(r.expires).toLocaleDateString([], { month: 'short', day: 'numeric', year: 'numeric' })) + '</span>');
+            if (r.jobId) footer.push('<a class="board-btn board-btn-secondary board-btn-small" href="/board/job?jobId=' + encodeURIComponent(r.jobId) + '">Job card &rarr;</a>');
+
+            return '<div class="hx-detail-inner">' +
+                '<div>' +
+                    (r.l ? '<p class="hx-summary">' + esc(r.l.summary || '') + '</p>' : '') +
+                    '<p class="hx-section-label">Case studies</p>' + caseHtml +
+                    '<p class="hx-section-label">Also viewed</p>' + chips(views, VIEW_LABEL) +
+                    '<p class="hx-section-label">Clicked</p>' + chips(clicks, LINK_LABEL, k => k === 'email' || k === 'linkedin') +
+                '</div>' +
+                '<div>' +
+                    '<p class="hx-section-label">Visits</p>' + visits +
+                    '<p class="hx-section-label">Timeline</p>' + timeline +
+                '</div>' +
+                '<div class="hx-footer">' + footer.join('') + '</div>' +
+            '</div>';
+        }
+
+        const CHEVRON = '<svg class="hx-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+        function renderList() {
+            const list = rows.filter(matches);
+            listEl.removeAttribute('aria-busy');
+            if (!rows.length) {
+                listEl.innerHTML = '<div class="board-state">No tracked links yet. Links appear here once a job on the board has a tracked hiring link.</div>';
+                return;
+            }
+            if (!list.length) {
+                listEl.innerHTML = '<div class="board-state">Nothing in this filter.</div>';
+                return;
+            }
+            listEl.innerHTML = list.map(r => {
+                const [cls, label] = STATUS[r.state];
+                const dot = r.live ? 'is-live' : (r.state === 'engaged' || r.state === 'opened' ? 'is-opened' : '');
+                const open = openIds.has(r.id);
+                return '<div class="hx-item">' +
+                    '<button type="button" class="hx-row" aria-expanded="' + open + '" aria-controls="d-' + esc(r.id) + '" data-id="' + esc(r.id) + '">' +
+                        '<span class="hx-dot ' + dot + '"' + (r.live ? ' title="Active in the last 24 hours"' : ' aria-hidden="true"') + '></span>' +
+                        '<span class="hx-main">' +
+                            '<span class="hx-title-line"><span class="hx-company">' + esc(r.company) + '</span><span class="hx-role">' + esc(r.title || '') + '</span></span>' +
+                            '<span class="hx-meta">' + rowMeta(r) + '</span>' +
+                        '</span>' +
+                        '<span class="hx-status ' + cls + '">' + label + '</span>' +
+                        CHEVRON +
+                    '</button>' +
+                    '<div class="hx-detail' + (open ? ' open' : '') + '" id="d-' + esc(r.id) + '" role="region" aria-label="' + esc(r.company) + ' details"><div>' + detail(r) + '</div></div>' +
+                '</div>';
+            }).join('');
+        }
+
+        function renderSkeleton() {
+            listEl.setAttribute('aria-busy', 'true');
+            listEl.innerHTML = [0, 1, 2, 3].map(() => '<div class="hx-skel" aria-hidden="true"><i style="width:34%"></i><i style="width:56%"></i></div>').join('');
+        }
+
+        async function load() {
+            renderSkeleton();
+            const btn = document.getElementById('refreshBtn');
+            btn.disabled = true;
+            try {
+                const jr = await fetch('/board/jobs.json', { cache: 'no-store' });
+                if (!jr.ok) throw new Error('Could not load jobs (' + jr.status + ')');
+                const jobs = await jr.json();
+                const list = Array.isArray(jobs) ? jobs : [];
+                const codes = list.map(j => j.land && j.land.trackedLink && codeFrom(j.land.trackedLink)).filter(Boolean);
+
+                let data = { links: [], codes: {} };
+                try {
+                    const q = '?limit=100&key=' + encodeURIComponent(adminKey || '') + '&codes=' + encodeURIComponent(codes.join(','));
+                    const res = await fetch('/api/hiring-views' + q, { cache: 'no-store' });
+                    if (res.status === 404 && isLocal()) throw Object.assign(new Error('local'), { local: true });
+                    const body = await res.json().catch(() => ({}));
+                    if (!res.ok) throw new Error(body.error || ('Activity API error ' + res.status));
+                    data = body;
+                } catch (e) {
+                    if (!(e.local || (isLocal() && !e.message.startsWith('Activity')))) throw e;
+                    preview = true;
+                }
+
+                rows = buildRows(list, data);
+                renderTiles();
+                renderList();
+                document.getElementById('updated').textContent = 'Updated ' + new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+                if (preview && !document.getElementById('previewTag')) {
+                    const tag = document.createElement('span');
+                    tag.id = 'previewTag'; tag.className = 'board-preview-tag';
+                    tag.textContent = 'Preview (local — no activity data)';
+                    document.getElementById('meta').appendChild(tag);
+                }
+            } catch (e) {
+                listEl.removeAttribute('aria-busy');
+                listEl.innerHTML = '<div class="board-state">' + esc(e.message || 'Could not load activity.') + ' <a href="#" id="retry">Retry</a></div>';
+                document.getElementById('retry').addEventListener('click', ev => { ev.preventDefault(); load(); });
+            } finally {
+                btn.disabled = false;
+            }
+        }
+
+        // ── Interactions ──
+        listEl.addEventListener('click', e => {
+            const copy = e.target.closest('[data-copy]');
+            if (copy) {
+                navigator.clipboard && navigator.clipboard.writeText(copy.dataset.copy).then(() => {
+                    copy.textContent = 'Copied';
+                    setTimeout(() => { copy.textContent = 'Copy link'; }, 1600);
+                });
+                return;
+            }
+            const row = e.target.closest('.hx-row');
+            if (!row) return;
+            const id = row.dataset.id;
+            const open = row.getAttribute('aria-expanded') !== 'true';
+            row.setAttribute('aria-expanded', String(open));
+            document.getElementById('d-' + id).classList.toggle('open', open);
+            open ? openIds.add(id) : openIds.delete(id);
+        });
+
+        document.getElementById('filters').addEventListener('click', e => {
+            const chip = e.target.closest('.board-chip');
+            if (!chip) return;
+            filter = chip.dataset.filter;
+            document.querySelectorAll('.board-chip').forEach(c => c.setAttribute('aria-pressed', String(c === chip)));
+            renderList();
+        });
+        document.getElementById('refreshBtn').addEventListener('click', load);
+
+        gateCheck();
+    })();
+    </script>
+</body>
+</html>

@@ -2,7 +2,7 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/board/:jobId((?!job$|jobs\\.json$)[^/]+)",
+      "source": "/board/:jobId((?!job$|hiring$|jobs\\.json$)[^/]+)",
       "destination": "/board/job?jobId=:jobId"
     }
   ],

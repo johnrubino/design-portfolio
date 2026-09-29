@@ -2,7 +2,10 @@
 // plus per-link engagement (case studies read, depth, time, clicks)
 // Usage: /api/hiring-views?key=YOUR_ADMIN_KEY
 // Optional: &limit=50 (max 100)
+//           &codes=AbC123,XyZ789  short codes of sent links (board uses this to
+//           include never-opened / expired links)
 import { listHiringViews, kvConfigured, kvGetJson, getHiringActivity } from '../lib/hiring-store.js';
+import { verifyHiringToken } from '../lib/hiring-token.js';
 
 const CASE_TITLES = {
     'future-of-wealth-advisory': 'Future of Wealth Advisory',
@@ -53,8 +56,27 @@ export default async function handler(req, res) {
     const n = Math.min(Math.max(parseInt(limit, 10) || 50, 1), 100);
     const views = await listHiringViews(n);
 
-    // One engagement summary per distinct link, newest-opened first
-    const tokenIds = [...new Set(views.map(v => v.tokenId).filter(Boolean))];
+    // Optional &codes=AbC123,XyZ789 — resolve links that were sent (e.g. from the
+    // board) so never-opened and expired links can be reported too.
+    const codeList = String(req.query.codes || '')
+        .split(',').map(s => s.trim()).filter(s => /^[A-Za-z0-9]{1,16}$/.test(s)).slice(0, 100);
+    const resolved = await Promise.all(codeList.map(async code => {
+        const check = await verifyHiringToken(code);
+        return {
+            code,
+            status:  check.ok ? 'active' : (check.reason === 'expired' ? 'expired' : 'unknown'),
+            tokenId: check.payload?.id || null,
+            company: check.payload?.co || null,
+            expires: check.payload?.exp ? new Date(check.payload.exp * 1000).toISOString() : null
+        };
+    }));
+    const codes = Object.fromEntries(resolved.map(r => [r.code, r]));
+
+    // One engagement summary per distinct link (opened, or sent via &codes)
+    const tokenIds = [...new Set([
+        ...views.map(v => v.tokenId),
+        ...resolved.map(r => r.tokenId)
+    ].filter(Boolean))];
     const links = await Promise.all(tokenIds.map(async tokenId => {
         const [opens, activity] = await Promise.all([
             kvGetJson(`hire:${tokenId}`),
@@ -63,18 +85,21 @@ export default async function handler(req, res) {
         const openList = Array.isArray(opens?.views) ? opens.views : [];
         return {
             tokenId,
-            company:    activity?.company || opens?.company || views.find(v => v.tokenId === tokenId)?.company,
+            company:    activity?.company || opens?.company || views.find(v => v.tokenId === tokenId)?.company
+                        || resolved.find(r => r.tokenId === tokenId)?.company,
             opens:      openList.length,
             lastOpen:   openList.length ? openList[openList.length - 1].ts : null,
             lastActive: activity?.lastActive || null,
-            summary:    summarise(activity),
-            activity:   activity || null
+            summary:    openList.length || activity ? summarise(activity) : 'Not opened yet',
+            activity:   activity || null,
+            openLog:    openList.slice().reverse()   // newest first: { ts, city, country, device, browser }
         };
     }));
 
     return res.status(200).json({
         count: views.length,
         links,
+        codes,
         views
     });
 }

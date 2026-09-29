@@ -94,6 +94,14 @@ If they open it again later:
 
 > **🔄 Figma viewed your portfolio again (3 total views)**
 
+### Hiring activity dashboard
+
+Open **`/board/hiring`** (same admin key as `/board`; there's also a "Hiring activity →" button on the board). It lists every tracked link on the board — opened, not opened, or expired — with summary tiles (sent, open rate, case studies read, reached out). Click a row for read depth per case study, tabs and links clicked, each visit (time, city, device) and a step-by-step timeline. Roles that share one link are shown as one row.
+
+### Health check
+
+`/api/hiring-debug?key=YOUR_ADMIN_KEY` checks env vars, KV and the dedupe logic. Add `&t=<short code>` to check one link, or `&email=1` to send a test notification.
+
 ### List recent opens (Jobi / admin)
 
 ```
