@@ -32,7 +32,10 @@ function locationLabel(country, city) {
 
 // ── Resend email (REST, no npm) ──────────────────────────────────────────────
 async function sendNotification({ company, viewCount, location, device, browser, expDate, now }) {
-    if (!process.env.RESEND_API_KEY) return;
+    if (!process.env.RESEND_API_KEY) {
+        console.warn('[verify] RESEND_API_KEY not set — no notification email sent');
+        return;
+    }
     const isRepeat = viewCount > 1;
     const emoji    = isRepeat ? '🔄' : '👀';
     const subject  = isRepeat
@@ -62,20 +65,23 @@ async function sendNotification({ company, viewCount, location, device, browser,
 </div>`;
 
     try {
-        await fetch('https://api.resend.com/emails', {
+        const r = await fetch('https://api.resend.com/emails', {
             method: 'POST',
             headers: {
-                Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+                Authorization: `Bearer ${process.env.RESEND_API_KEY.trim()}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                from: process.env.RESEND_FROM || 'Portfolio Tracker <onboarding@resend.dev>',
-                to:   process.env.NOTIFY_EMAIL || 'johnrubinodesign@gmail.com',
+                from: (process.env.RESEND_FROM || '').trim() || 'Portfolio Tracker <onboarding@resend.dev>',
+                to:   (process.env.NOTIFY_EMAIL || '').trim() || 'johnrubinodesign@gmail.com',
                 subject,
                 html
             })
         });
-    } catch { /* non-fatal */ }
+        if (!r.ok) console.error('[verify] Resend rejected notification', r.status, await r.text());
+    } catch (err) {
+        console.error('[verify] Resend request failed', err && err.message);
+    }
 }
 
 // ── Main handler ─────────────────────────────────────────────────────────────
@@ -111,6 +117,9 @@ export default async function handler(req, res) {
     // Log only for humans; still return valid so the public UX is unchanged
     let viewCount = 0;
     const shouldLog = !isObviousBot(ua) && tokenId;
+    if (!shouldLog) {
+        console.warn('[verify] open not logged:', !tokenId ? 'token has no id' : 'bot user-agent', ua.slice(0, 120));
+    }
 
     if (shouldLog) {
         // Dedupe: same token id + same UTC hour + same UA → one open
