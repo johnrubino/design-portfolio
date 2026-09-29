@@ -2392,5 +2392,199 @@
       }
     },
     "lastChecked": "2026-09-27"
+  },
+  {
+    "jobId": "anthropic-5397654008",
+    "company": "Anthropic",
+    "title": "Product Designer, Claude Developer Platform",
+    "postingUrl": "https://job-boards.greenhouse.io/anthropic/jobs/5397654008",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4471588481",
+    "dateFound": "2026-09-29",
+    "location": "San Francisco, CA | New York City, NY | Seattle, WA (hybrid ~25% office)",
+    "level": "Senior",
+    "stageGate": "Late-stage AI lab / established Anthropic design org (Safeguards already sent)",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 8,
+      "whyFits": [
+        "IC Product Designer with NYC office option; hybrid ~25% \u2014 location clears",
+        "No hard 7\u20138+ YOE bar; quals emphasize shipping complex B2B/developer/API workflows",
+        "Established Anthropic design team (not 1st designer); AI \u00d7 developer-platform brief matches interest",
+        "Preferred front-end prototyping + Claude Code \u2014 Design Engineer stretch adjacent"
+      ],
+      "gaps": [
+        "Comp band $305k\u2013$385k implies senior+ bar \u2014 portfolio must clear high craft/scope bar",
+        "Small design team language still (Anthropic grows fast) \u2014 confirm pod depth",
+        "Distinct from Safeguards (already sent) \u2014 separate req, confirm no internal dual-apply friction"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-09-29",
+      "source": "Jobi weekday watch Greenhouse + keep-watch",
+      "seed": false,
+      "score": "8/10",
+      "confidence": "High",
+      "recommendation": "Clear \u2014 NYC-eligible Anthropic PD on Claude Developer Platform; strong AI \u00d7 systems fit",
+      "summary": "Product Designer, Claude Developer Platform at Anthropic (SF|NYC|Seattle hybrid). No numeric YOE floor; emphasizes end-to-end complex workflows, Figma craft, and AI-native practice (Claude Code). Comp $305\u2013385k. Clears Mid/Senior IC, NYC, Series A+/public-equivalent, established design. Distinct from Safeguards already on board as sent."
+    },
+    "salary": "$305,000\u2013$385,000 USD",
+    "team": "Anthropic Product Design \u2014 Claude Developer Platform"
+  },
+  {
+    "jobId": "trm-2a42c549",
+    "company": "TRM Labs",
+    "title": "Senior Product Designer",
+    "postingUrl": "https://jobs.ashbyhq.com/trm-labs/2a42c549-793f-4b2b-83c8-b87a94730e31",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4471254841",
+    "dateFound": "2026-09-29",
+    "location": "United States (remote; hub work weeks 1\u20132\u00d7/quarter)",
+    "level": "Senior",
+    "stageGate": "Series C (~$220M raised) / high-output PD team inside Product org",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 8,
+      "whyFits": [
+        "Senior IC; explicit US remote (Ashby isRemote=true)",
+        "Series C crypto/compliance intelligence \u2014 clears stage; fintech-adjacent + agentic AI UX",
+        "Joins a team of product designers + design system \u2014 not sole/1st designer",
+        "No hard 7\u20138+ YOE listed; salary $176\u2013193k base"
+      ],
+      "gaps": [
+        "Quarterly hub work weeks (often SF) with as little as 14 days notice \u2014 travel tolerance check",
+        "Investigator/compliance expert domain (dense data) \u2014 interest check vs wealth UX",
+        "Head of Product Design also open \u2014 confirm IC lane stays IC"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-09-29",
+      "source": "Jobi weekday watch LinkedIn guest \u2192 Ashby trm-labs",
+      "seed": false,
+      "score": "8/10",
+      "confidence": "High",
+      "recommendation": "Clear \u2014 US-remote Senior PD, Series C, agentic expert workflows + design system",
+      "summary": "Senior Product Designer at TRM Labs (US remote). Designs agentic investigation/compliance tools: handoff, trust, review, design-system patterns. Series C; high-output PD team. Comp ~$176\u2013193k + equity. Clears location, level, stage, design-org gates; domain is crypto/compliance vs wealth."
+    },
+    "salary": "$176,000\u2013$193,000 base + equity eligibility",
+    "team": "Product Design inside TRM Product org (PM / PMM / Academy)"
+  },
+  {
+    "jobId": "google-edu-4471399988",
+    "company": "Google",
+    "title": "UX Designer, Edu UX",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4471399988",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/ux-designer-edu-ux-at-google-4471399988",
+    "dateFound": "2026-09-29",
+    "location": "New York, NY (also Mountain View / San Francisco listed)",
+    "level": "Mid",
+    "stageGate": "Public / large Google UX org",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 6,
+      "whyFits": [
+        "NYC location option; Mid/IC UX Designer (not Staff/Principal)",
+        "4 years interaction design min \u2014 in bar vs ~4+",
+        "Established Google design org; distinct from Trust UX already on board"
+      ],
+      "gaps": [
+        "Edu UX domain (not fintech/AI core) \u2014 interest check",
+        "No clean Google Careers numeric job id resolved this pass (LI posting)",
+        "Prior Google Trust re-apply hit careers application cap \u2014 may affect new Google apps"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-09-29",
+      "source": "Jobi weekday watch LinkedIn guest",
+      "seed": false,
+      "score": "6/10",
+      "confidence": "Medium",
+      "recommendation": "Clear on gates \u2014 NYC Mid UX at Google Edu; confirm interest + Google apply-cap risk",
+      "summary": "UX Designer, Edu UX at Google with NYC among listed sites. 4y interaction design. Clears Mid IC + NYC + public/established. Gaps: education domain vs wealth/fintech; LI-only URL this pass; prior Google application-cap friction."
+    },
+    "team": "Google Edu UX / Interaction Design"
+  },
+  {
+    "jobId": "nbcu-4472778812",
+    "company": "NBCUniversal",
+    "title": "Product Designer",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4472778812",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/product-designer-at-nbcuniversal-4472778812",
+    "dateFound": "2026-09-29",
+    "location": "New York, NY (hybrid / onsite language in JD)",
+    "level": "Mid",
+    "stageGate": "Public media conglomerate / established Product+Design partners",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 5,
+      "whyFits": [
+        "Mid IC Product Designer; NYC hybrid; 3+ years digital product design",
+        "Public company with design systems + cross-functional Product/Eng partners",
+        "Not Staff/Principal/manager"
+      ],
+      "gaps": [
+        "LI seniority tagged Associate \u2014 confirm Mid vs junior scope",
+        "Entertainment/media domain (not fintech/AI) \u2014 interest check",
+        "No clean Workday/ATS URL resolved this pass"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-09-29",
+      "source": "Jobi weekday watch LinkedIn guest",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "Clear on hard gates as Mid NYC IC \u2014 domain/level interest is the check",
+      "summary": "Product Designer at NBCUniversal (NYC hybrid). 3+ YOE; design systems; responsive web/mobile. Public established org. Main hesitation is media/entertainment domain and Associate LI tag vs Senior PD trajectory."
+    },
+    "team": "NBCUniversal Product Design"
+  },
+  {
+    "jobId": "cassidy-4472749176",
+    "company": "Cassidy",
+    "title": "Product Designer",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4472749176",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/product-designer-at-cassidy-4472749176",
+    "dateFound": "2026-09-29",
+    "location": "New York, NY (5 days/week in office)",
+    "level": "Mid",
+    "stageGate": "Series A ($10M Sep 2025) \u2014 early design ownership with founders",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": false,
+      "fitScore": 5,
+      "whyFits": [
+        "Series A clears stage floor; NYC IC Product Designer",
+        "AI agent/workflow UX \u2014 cool problem space matching agentic interest",
+        "End-to-end ownership from concept to ship"
+      ],
+      "gaps": [
+        "Works directly with founders; LI Associate seniority \u2014 likely small/early design bench (tiny-team risk)",
+        "5 days/week NYC office \u2014 hybrid flexibility none",
+        "No Ashby/GH slug resolved this pass (careers mention jobs.ashbyhq.com/Cassidy but API 404)"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-09-29",
+      "source": "Jobi weekday watch LinkedIn guest",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Low-Medium",
+      "recommendation": "Borderline \u2014 Series A AI agents NYC, but early/founder-adjacent design bench + 5-day office",
+      "summary": "Product Designer at Cassidy (NYC, 5 days onsite). Series A AI automation/agents platform. Strong problem-space fit; hesitation is early design org (founder collaboration, Associate tag) vs established-team preference."
+    },
+    "team": "Cassidy Product (founder-adjacent)"
   }
 ]
