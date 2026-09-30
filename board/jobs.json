@@ -2659,7 +2659,7 @@
     "company": "Robinhood",
     "title": "Product Designer, International",
     "postingUrl": "https://boards.greenhouse.io/robinhood/jobs/8240638",
-    "linkedinUrl": null,
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4472100031",
     "dateFound": "2026-09-30",
     "location": "Menlo Park, CA | New York, NY (hybrid ≥3 days/week in office)",
     "level": "Mid",
@@ -2693,5 +2693,233 @@
     },
     "salary": "$140,000–$165,000 USD (Zone 1 NYC/Menlo)",
     "team": "Robinhood International (investing/trading/crypto onboarding & money movement)"
+  },
+  {
+    "jobId": "cresta-5173681008",
+    "company": "Cresta",
+    "title": "Senior Product Designer, AI Builders",
+    "postingUrl": "https://job-boards.greenhouse.io/cresta/jobs/5173681008",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4473597038",
+    "dateFound": "2026-09-30",
+    "location": "United States (Remote)",
+    "level": "Senior",
+    "stageGate": "Late-stage AI (~$270M raised · a16z/Greylock/Sequoia) / established Cresta product design",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "salary": null,
+    "team": "AI Builders — customer-facing agent/workflow builder tools",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 8,
+      "whyFits": [
+        "Senior IC; explicit US remote",
+        "AI agent/workflow builder UX — strong AI×design fit",
+        "$270M+ raised; not seed; established design org",
+        "5+ years equivalent / Design-HCI bar — in YOE range"
+      ],
+      "gaps": [
+        "GH first_published Apr 2026 — may have been open awhile; still new-to-board",
+        "Contact-center/CX domain vs wealth"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-09-30",
+      "source": "Jobi weekday watch Greenhouse/LinkedIn",
+      "seed": false,
+      "score": "8/10",
+      "confidence": "High",
+      "recommendation": "Clear — US-remote Senior PD on Cresta AI Builders",
+      "summary": "Senior Product Designer, AI Builders at Cresta (US remote). Agent/workflow builder UX; late-stage AI (~$270M, a16z/Greylock/Sequoia); established design org. Clears Senior IC, remote, stage, YOE. Contact-center/CX domain vs wealth preference."
+    }
+  },
+  {
+    "jobId": "ezcater-5252288007",
+    "company": "ezCater",
+    "title": "Senior Product Designer, Restaurant Partner Self-Service",
+    "postingUrl": "https://job-boards.greenhouse.io/ezcaterinc/jobs/5252288007",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4471971236",
+    "dateFound": "2026-09-30",
+    "location": "Remote (US); Boston, MA listed on GH",
+    "level": "Senior",
+    "stageGate": "Established food-tech marketplace / mature design org (other PD seats open)",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Senior IC; remote US (#BI-Remote)",
+        "5+ YOE — in bar",
+        "Supplier self-service / ops tooling — systems + enterprise workflow",
+        "Established design bench (Principal Supply + other SPDs also open — not sole)"
+      ],
+      "gaps": [
+        "Food/marketplace domain vs fintech/AI preference",
+        "Boston hub language on GH alongside remote"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-09-30",
+      "source": "Jobi weekday watch Greenhouse/LinkedIn",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "High",
+      "recommendation": "Clear — remote Senior PD, supplier self-service systems",
+      "summary": "Senior Product Designer, Restaurant Partner Self-Service at ezCater (US remote; Boston hub noted). Supplier self-service/ops tooling; mature design org with other PD seats. Clears Senior IC, remote, YOE, stage. Food/marketplace domain vs fintech/AI preference."
+    }
+  },
+  {
+    "jobId": "cloaked-c1d08ddf",
+    "company": "Cloaked",
+    "title": "Senior Design Engineer",
+    "postingUrl": "https://jobs.ashbyhq.com/cloaked/c1d08ddf-eb7c-427f-90a3-84fecdc7d873",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4473520895",
+    "dateFound": "2026-09-30",
+    "location": "New York, NY (Ashby; LI also remote mentions)",
+    "level": "Mid/Senior IC (Design Engineer stretch)",
+    "stretch": true,
+    "stageGate": "Series B (~$375M) privacy/identity AI / product design+eng craft",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "John DE-title override — Senior Design Engineer stretch in bar",
+        "NYC; Series B clears stage",
+        "Agents & Automations — trust/automation UX; ship design through code",
+        "5+ years building/shipping product interfaces"
+      ],
+      "gaps": [
+        "STRETCH: Design Engineer title vs PD",
+        "React/production depth soft gap",
+        "Privacy/security consumer domain"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-09-30",
+      "source": "Jobi weekday watch Ashby/LinkedIn",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium",
+      "recommendation": "CLEAR stretch — NYC Series B Senior Design Engineer, agents/automations",
+      "summary": "Senior Design Engineer at Cloaked (NYC; Series B ~$375M privacy/identity AI). Agents & Automations; ship design through code. DE-title stretch in bar per John override. Clears NYC, stage, IC. Soft gap on React/production depth; privacy/security consumer domain."
+    }
+  },
+  {
+    "jobId": "versant-4471968143",
+    "company": "Versant Media",
+    "title": "Product Designer, OTT",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4471968143",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4471968143",
+    "dateFound": "2026-09-30",
+    "location": "Englewood Cliffs, NJ (NYC metro / Versant-CNBC campus)",
+    "level": "Mid",
+    "stageGate": "Public (Nasdaq: VSNT) media / multi-brand design systems",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 6,
+      "whyFits": [
+        "Mid IC PD; 2+ YOE; NYC-metro office",
+        "Public conglomerate brands (CNBC/MS NOW/etc.) + design system contribution",
+        "Not Staff/Principal/manager"
+      ],
+      "gaps": [
+        "LI Associate seniority",
+        "OTT/10-foot TV UI domain",
+        "No clean ATS URL this pass — LI only",
+        "NJ campus not Manhattan"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-09-30",
+      "source": "Jobi weekday watch LinkedIn",
+      "seed": false,
+      "score": "6/10",
+      "confidence": "Medium",
+      "recommendation": "Clear Mid on hard gates — OTT/Associate interest check",
+      "summary": "Product Designer, OTT at Versant Media (Englewood Cliffs NJ / NYC metro). Public Nasdaq VSNT; multi-brand design systems. Clears Mid IC, metro location, public stage. LI Associate seniority + OTT/10-foot domain + LI-only URL — interest check."
+    }
+  },
+  {
+    "jobId": "medal-4443434000",
+    "company": "Medal / General Intuition",
+    "title": "Product Designer",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4443434000",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4443434000",
+    "dateFound": "2026-09-30",
+    "location": "New York, NY",
+    "level": "Mid",
+    "stageGate": "Well-funded AI lab (~$320M at $2.3B) on Medal gaming platform — small product design bench",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": false,
+      "fitScore": 5,
+      "whyFits": [
+        "Mid IC; NYC; 4+ YOE consumer",
+        "Huge funding / not seed",
+        "Consumer social/gaming + frontier AI lab interesting"
+      ],
+      "gaps": [
+        "BORDERLINE: JD says join a small talented product team — tiny design bench risk",
+        "Gaming/creator domain",
+        "No clean ATS URL"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-09-30",
+      "source": "Jobi weekday watch LinkedIn",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline — funding/location clear; small PD bench hesitation",
+      "summary": "Product Designer at Medal / General Intuition (NYC). Well-funded AI lab (~$320M at $2.3B) on gaming platform. Mid IC, NYC, not seed clear. Borderline on small product/design bench per JD; gaming/creator domain; LI-only URL."
+    }
+  },
+  {
+    "jobId": "luma-4469036493",
+    "company": "Luma Financial Technologies",
+    "title": "Product Designer",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4469036493",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4469036493",
+    "dateFound": "2026-09-30",
+    "location": "New York, NY (also Cincinnati band)",
+    "level": "Mid",
+    "stageGate": "Fintech alts/annuities platform (founded 2018) — design-system/Storybook + Claude Design Kit heavy; team size unclear",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "salary": "$150,000–$170,000 USD (New York)",
+    "vet": {
+      "gatesPass": false,
+      "fitScore": 5,
+      "whyFits": [
+        "NYC; Mid 3–5 YOE design systems",
+        "Fintech/advisor software + Claude/AI design kit — systems + AI-native craft",
+        "Comp $150–170k NYC"
+      ],
+      "gaps": [
+        "BORDERLINE: design-coach / DS-maintainer emphasis; design bench depth unclear",
+        "Stage not explicitly Series A+ in JD (2018 fintech — verify)",
+        "LI-only URL"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-09-30",
+      "source": "Jobi weekday watch LinkedIn",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline — strong craft fit; stage/team-size verify",
+      "summary": "Product Designer at Luma Financial Technologies (NYC; also Cincinnati). Fintech alts/annuities; design-system/Storybook + Claude Design Kit; $150–170k NYC. Strong systems+AI craft fit. Borderline: stage/team-size verify; DS-maintainer emphasis; LI-only URL."
+    }
   }
 ]
