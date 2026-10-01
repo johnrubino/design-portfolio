@@ -2719,7 +2719,7 @@
     "location": "United States (Remote)",
     "level": "Senior",
     "stageGate": "Late-stage AI (~$270M raised \u00b7 a16z/Greylock/Sequoia) / established Cresta product design",
-    "status": "vetted",
+    "status": "sent",
     "isNew": false,
     "seed": false,
     "salary": null,
@@ -2760,7 +2760,8 @@
         "workAuth": "US authorized, no sponsorship"
       }
     },
-    "lastChecked": "2026-09-30"
+    "lastChecked": "2026-09-30",
+    "appliedAt": "2026-10-01T12:45:22Z"
   },
   {
     "jobId": "ezcater-5252288007",
