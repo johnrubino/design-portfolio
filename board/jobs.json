@@ -2664,7 +2664,7 @@
     "location": "Menlo Park, CA | New York, NY (hybrid \u22653 days/week in office)",
     "level": "Mid",
     "stageGate": "Public fintech / established Robinhood design org",
-    "status": "vetted",
+    "status": "sent",
     "isNew": false,
     "seed": false,
     "vet": {
@@ -2706,7 +2706,8 @@
         "workAuth": "US authorized, no sponsorship"
       }
     },
-    "lastChecked": "2026-09-30"
+    "lastChecked": "2026-09-30",
+    "appliedAt": "2026-10-01T12:42:55Z"
   },
   {
     "jobId": "cresta-5173681008",
