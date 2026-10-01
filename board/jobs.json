@@ -2967,5 +2967,308 @@
       }
     },
     "lastChecked": "2026-09-30"
+  },
+  {
+    "jobId": "google-images-135650876499862214",
+    "company": "Google",
+    "title": "Senior UX Designer, Google Images, Search",
+    "postingUrl": "https://www.google.com/about/careers/applications/jobs/results/135650876499862214-senior-ux-designer-google-images-search",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4472539344",
+    "dateFound": "2026-10-01",
+    "location": "San Francisco, CA | Mountain View, CA | New York, NY (applicant picks)",
+    "level": "Senior",
+    "stageGate": "Public / Google Search UX org",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "team": "Google Images / Search",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Senior IC UX (not Staff/Principal); NYC among listed sites",
+        "Public Google + established Search design org",
+        "6y interaction design min \u2014 under 7\u20138 hard-skip bar; Senior title",
+        "Native app-first + mature design systems + AI tooling prefs align with craft"
+      ],
+      "gaps": [
+        "6y interaction design vs ~4+ \u2014 soft YOE stretch",
+        "Consumer Images/Search domain vs wealth/fintech",
+        "Prior Google apply-cap friction may affect new Google apps"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-01",
+      "source": "Jobi weekday watch LinkedIn + Google Careers",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "High",
+      "recommendation": "Clear \u2014 Senior UX Images/Search with NYC option",
+      "summary": "Senior UX Designer, Google Images, Search. Locations SF/MV/NYC. Min 6y interaction design, native app-first, mature DS. Clears Senior IC + NYC + public. Soft YOE stretch; consumer Search vs wealth; Google apply-cap risk."
+    },
+    "lastChecked": "2026-10-01"
+  },
+  {
+    "jobId": "clearstreet-8241353",
+    "company": "Clear Street",
+    "title": "Senior Product Designer \u2014 Mobile (Active)",
+    "postingUrl": "https://job-boards.greenhouse.io/clearstreet/jobs/8241353",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4472341046",
+    "dateFound": "2026-10-01",
+    "location": "New York, NY",
+    "level": "Senior",
+    "stageGate": "Series C / pre-IPO fintech (~$12B reporting) \u2014 Active retail trading product; early design bench",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "team": "Clear Street Active \u2014 Mobile",
+    "vet": {
+      "gatesPass": false,
+      "fitScore": 6,
+      "whyFits": [
+        "Senior IC; NYC; Series C+ clears stage",
+        "Mobile-first iOS/Android ownership; prototype in codebase with AI tooling",
+        "Fintech retail trading adjacency"
+      ],
+      "gaps": [
+        "BORDERLINE: early Active design team / building mobile before it exists \u2014 tiny-bench risk",
+        "Retail trading mobile domain depth"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-01",
+      "source": "Jobi weekday watch LinkedIn + Greenhouse",
+      "seed": false,
+      "score": "6/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline \u2014 NYC Senior Mobile PD; tiny Active design bench",
+      "summary": "SPD Mobile at Clear Street Active (NYC). Series C fintech; mobile-first shipping + AI-in-codebase. Hesitation: early/from-scratch design bench."
+    },
+    "lastChecked": "2026-10-01"
+  },
+  {
+    "jobId": "clearstreet-8241344",
+    "company": "Clear Street",
+    "title": "Senior Product Designer \u2014 Trading (Active)",
+    "postingUrl": "https://job-boards.greenhouse.io/clearstreet/jobs/8241344",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4472338209",
+    "dateFound": "2026-10-01",
+    "location": "New York, NY",
+    "level": "Senior",
+    "stageGate": "Series C / pre-IPO fintech \u2014 Active trading surfaces; early design bench",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "team": "Clear Street Active \u2014 Trading",
+    "vet": {
+      "gatesPass": false,
+      "fitScore": 5,
+      "whyFits": [
+        "Senior IC; NYC; Series C+",
+        "Owns research/order entry/positions/portfolio \u2014 systems-dense",
+        "Prototype in real codebase with AI tooling"
+      ],
+      "gaps": [
+        "BORDERLINE: small Active design team",
+        "Hard domain: JD wants shipped retail trading products with real users"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-01",
+      "source": "Jobi weekday watch LinkedIn + Greenhouse",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline \u2014 trading domain hard req + tiny bench",
+      "summary": "SPD Trading at Clear Street Active (NYC). Strong systems surfaces; hard retail-trading shipping req + early design bench."
+    },
+    "lastChecked": "2026-10-01"
+  },
+  {
+    "jobId": "clearstreet-8241303",
+    "company": "Clear Street",
+    "title": "Senior Product Designer \u2014 Design Systems (Active)",
+    "postingUrl": "https://job-boards.greenhouse.io/clearstreet/jobs/8241303",
+    "dateFound": "2026-10-01",
+    "location": "Remote",
+    "level": "Senior",
+    "stageGate": "Series C / pre-IPO \u2014 Active design team from scratch; systems foundation hire",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "team": "Clear Street Active \u2014 Design Systems",
+    "vet": {
+      "gatesPass": false,
+      "fitScore": 5,
+      "whyFits": [
+        "Senior IC; US remote; Series C+",
+        "Tokens/Figma Variables/Code Connect \u2014 systems + design-dev handoff craft",
+        "Product decisions with PMs/eng from day one"
+      ],
+      "gaps": [
+        "BORDERLINE: JD says building the design team from scratch \u2014 strongest tiny-bench flag of the three Clear Street seats"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-01",
+      "source": "Jobi weekday watch Greenhouse",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline \u2014 strongest from-scratch tiny-bench of Clear Street trio",
+      "summary": "SPD Design Systems at Clear Street Active (Remote). Strong systems craft; explicit from-scratch design team."
+    },
+    "lastChecked": "2026-10-01"
+  },
+  {
+    "jobId": "tatari-8652423002",
+    "company": "Tatari",
+    "title": "Product Designer",
+    "postingUrl": "https://job-boards.greenhouse.io/tatari/jobs/8652423002",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4445171885",
+    "dateFound": "2026-10-01",
+    "location": "New York, NY (hybrid ~2 days/week per LI)",
+    "level": "Mid",
+    "stageGate": "TV/CTV adtech founded 2016 \u00b7 ~300+ employees \u2014 Series letter not verified in public DBs this pass",
+    "salary": "$120,000\u2013$160,000 USD",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "team": "Tatari product design",
+    "vet": {
+      "gatesPass": false,
+      "fitScore": 5,
+      "whyFits": [
+        "Mid IC; NYC hybrid; 5 years YOE",
+        "Established company age/scale (2016, 300+); not seed-looking on headcount",
+        "AI/ML TV advertising platform \u2014 data-dense product"
+      ],
+      "gaps": [
+        "BORDERLINE: no clear Series A+ letter found in public funding DBs this pass \u2014 do not invent round",
+        "Adtech/TV domain vs wealth"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-01",
+      "source": "Jobi weekday watch LinkedIn + Greenhouse",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline \u2014 NYC Mid PD; verify Series A+ letter before prep",
+      "summary": "Product Designer at Tatari (NYC hybrid). Mid 5y; $120\u2013160k. Hesitation: Series stage letter not confirmed."
+    },
+    "lastChecked": "2026-10-01"
+  },
+  {
+    "jobId": "tatari-8628839002",
+    "company": "Tatari",
+    "title": "Senior Product Designer",
+    "postingUrl": "https://job-boards.greenhouse.io/tatari/jobs/8628839002",
+    "dateFound": "2026-10-01",
+    "location": "New York, NY",
+    "level": "Senior",
+    "stageGate": "TV/CTV adtech founded 2016 \u2014 Series letter not verified this pass",
+    "salary": "$160,000\u2013$190,000 USD",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "team": "Tatari product design",
+    "vet": {
+      "gatesPass": false,
+      "fitScore": 5,
+      "whyFits": [
+        "Senior IC; NYC; mentor/culture language",
+        "Company scale suggests post-seed; $160\u2013190k"
+      ],
+      "gaps": [
+        "BORDERLINE: same funding-letter uncertainty as Mid seat",
+        "6+ YOE soft stretch"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-01",
+      "source": "Jobi weekday watch Greenhouse",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline \u2014 NYC Senior; stage letter + 6+ YOE",
+      "summary": "SPD at Tatari (NYC). $160\u2013190k; 6+ YOE. Same Series-letter hesitation as Mid seat."
+    },
+    "lastChecked": "2026-10-01"
+  },
+  {
+    "jobId": "clio-4443431884",
+    "company": "Clio",
+    "title": "Senior Product Designer, Insights and Reporting",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4443431884",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4443431884",
+    "dateFound": "2026-10-01",
+    "location": "United States (hybrid expectation for local Clio offices; NYC listed among cities)",
+    "level": "Senior",
+    "stageGate": "Late-stage legal SaaS / established Clio product design",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "team": "Insights and Reporting",
+    "vet": {
+      "gatesPass": false,
+      "fitScore": 5,
+      "whyFits": [
+        "Senior IC; US listed; B2B SaaS insights/reporting \u2014 data-dense",
+        "Established Clio design org (not sole designer)"
+      ],
+      "gaps": [
+        "BORDERLINE: 6+ YOE; hybrid office expectation if local; prior Clio stretch pattern",
+        "LI-only URL this pass"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-01",
+      "source": "Jobi weekday watch LinkedIn",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline \u2014 6+ YOE + hybrid/office nuance",
+      "summary": "SPD Insights & Reporting at Clio (US). Data-dense B2B SaaS; 6+ YOE + hybrid expectation hesitation."
+    },
+    "lastChecked": "2026-10-01"
+  },
+  {
+    "jobId": "emoney-4462725627",
+    "company": "eMoney Advisor",
+    "title": "Senior Product Designer",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4462725627",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4462725627",
+    "dateFound": "2026-10-01",
+    "location": "United States \u2014 NYC preferred / open to remote (per LI)",
+    "level": "Senior",
+    "stageGate": "Fidelity-adjacent wealth planning platform \u2014 established product design",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "team": "eMoney Advisor product design",
+    "vet": {
+      "gatesPass": false,
+      "fitScore": 6,
+      "whyFits": [
+        "Senior IC; NYC preferred / open to remote",
+        "Wealth planning / advisor tooling \u2014 strong Pershing adjacency",
+        "Established FS design org"
+      ],
+      "gaps": [
+        "BORDERLINE: 6+ YOE; confirm true remote vs NYC-preferred office",
+        "LI-only URL this pass"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-01",
+      "source": "Jobi weekday watch LinkedIn",
+      "seed": false,
+      "score": "6/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline \u2014 strong wealth fit; confirm remote + 6+ YOE",
+      "summary": "SPD at eMoney Advisor (NYC preferred / open remote). Wealth tooling adjacency; 6+ YOE + loc confirm hesitation."
+    },
+    "lastChecked": "2026-10-01"
   }
 ]
