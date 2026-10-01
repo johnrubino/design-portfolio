@@ -2928,7 +2928,7 @@
     "location": "New York, NY (also Cincinnati band)",
     "level": "Mid",
     "stageGate": "Fintech alts/annuities platform (founded 2018) \u2014 design-system/Storybook + Claude Design Kit heavy; team size unclear",
-    "status": "vetted",
+    "status": "sent",
     "isNew": false,
     "seed": false,
     "salary": "$150,000\u2013$170,000 USD (New York)",
@@ -2966,9 +2966,11 @@
         "linkedin": "https://www.linkedin.com/in/john-rubino/",
         "location": "New York, NY 10314",
         "workAuth": "US authorized, no sponsorship"
-      }
+      },
+      "applyUrl": "https://ats.rippling.com/luma-financial-technologies/jobs/93d3b1f1-8df8-4f72-a8de-9ae39f18e6fc"
     },
-    "lastChecked": "2026-09-30"
+    "lastChecked": "2026-09-30",
+    "appliedAt": "2026-10-01T15:15:28Z"
   },
   {
     "jobId": "google-images-135650876499862214",
