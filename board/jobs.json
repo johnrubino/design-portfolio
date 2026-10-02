@@ -3455,7 +3455,7 @@
     "level": "Senior IC",
     "stageGate": "Series D fintech / established Mercury design organization",
     "salary": "$189,000\u2013$236,200 USD base (US)",
-    "status": "applying",
+    "status": "sent",
     "isNew": false,
     "seed": false,
     "stretch": false,
@@ -3499,7 +3499,8 @@
         "workAuth": "US authorized, no sponsorship"
       }
     },
-    "lastChecked": "2026-10-02"
+    "lastChecked": "2026-10-02",
+    "sentAt": "2026-10-02T19:55:00-04:00"
   },
   {
     "jobId": "toast-8242950",
