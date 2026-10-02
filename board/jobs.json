@@ -1,5 +1,65 @@
 [
   {
+    "jobId": "uber-303212",
+    "company": "Uber",
+    "title": "Product Designer II - Uber Eats, Offers Consumer Experiences",
+    "postingUrl": "https://jobs.uber.com/en/jobs/303212/",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4474572276/",
+    "dateFound": "2026-10-02",
+    "location": "New York, NY (hybrid \u226550% in-office; also SF)",
+    "level": "Mid IC (Product Designer II)",
+    "stageGate": "Public company / established Ads & Offers design org \u00b7 Uber Eats",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "stretch": false,
+    "salary": "$153,000\u2013$170,000 base (NYC) + bonus/equity eligibility",
+    "team": "Uber Eats Ads & Offers \u2014 Offers Consumer Experiences (discovery, affordability, monetization)",
+    "altIds": [
+      "uber-eats-offers-4474572276",
+      "linkedin-4474572276"
+    ],
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Mid IC Product Designer II; 3+ YOE floor matches ~4+",
+        "NYC hybrid \u226550% office \u2014 location clears",
+        "Public Uber; established Ads & Offers design org \u2014 not tiny bench",
+        "Consumer discovery/offers/marketplace themes adjacent to Purple Panda + Pershing offering discovery"
+      ],
+      "gaps": [
+        "Consumer marketplace / food delivery vs wealth-fintech core",
+        "Preferred: consumer mobile, global product, accessibility \u2014 soft; not over-claimed",
+        "Distinct from prior Uber SPD Direct & Connect (uber-4462465244)"
+      ],
+      "prepNote": "Prep LAND only. Do not submit until apply_confirm / John says yes."
+    },
+    "fit": {
+      "generatedAt": "2026-10-02",
+      "source": "John LI ask + Jobi Uber Eats Offers prep",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "High",
+      "recommendation": "CLEAR Mid NYC hybrid \u2014 prep LAND; do not apply until John says yes",
+      "summary": "Product Designer II, Uber Eats Offers Consumer Experiences (NYC hybrid \u226550%). Themes: E2E concept\u2192ship, offer discovery/affordability, consumer marketplace, design systems simplicity, PM/eng/ops/research partnership, high-fidelity prototypes. Public Uber; 3+ YOE; $153\u2013170k NYC. Soft: consumer marketplace vs fintech."
+    },
+    "land": {
+      "resumePath": "/board/resumes/uber-303212.pdf",
+      "resumeFileName": "Uber-Product-Designer-II-Uber-Eats-Offers.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=COGjl9",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "lastChecked": "2026-10-02"
+  },
+  {
     "jobId": "stripe-8212314",
     "company": "Stripe",
     "title": "Design Engineer, Expansion",
