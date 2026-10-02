@@ -63,8 +63,8 @@
     "location": "New York, NY (50% telecommuting)",
     "level": "Mid IC",
     "stageGate": "Public fintech / established Stripe design org",
-    "status": "vetted",
-    "isNew": true,
+    "status": "sent",
+    "isNew": false,
     "seed": false,
     "stretch": false,
     "salary": "$175,200\u2013$262,800/yr base (NY51)",
@@ -105,7 +105,8 @@
         "location": "New York, NY 10314",
         "workAuth": "US authorized, no sponsorship"
       }
-    }
+    },
+    "appliedAt": "2026-10-02T12:15:47Z"
   },
   {
     "jobId": "rillet-68ea1fbc",
