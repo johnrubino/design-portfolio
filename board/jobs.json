@@ -3455,8 +3455,8 @@
     "level": "Senior IC",
     "stageGate": "Series D fintech / established Mercury design organization",
     "salary": "$189,000\u2013$236,200 USD base (US)",
-    "status": "vetted",
-    "isNew": true,
+    "status": "applying",
+    "isNew": false,
     "seed": false,
     "stretch": false,
     "team": "Cards & Credit",
@@ -3814,8 +3814,8 @@
     "location": "US / Canada",
     "level": "Mid IC (Design Engineer stretch)",
     "stageGate": "Public Stripe / WPP Presence pillar",
-    "status": "sourced",
-    "isNew": true,
+    "status": "vetted",
+    "isNew": false,
     "seed": false,
     "stretch": true,
     "borderline": true,
@@ -3841,7 +3841,20 @@
       "recommendation": "Borderline stretch \u2014 Stripe DE Presence (marketing-adjacent sibling of Expansion)",
       "summary": "Design Engineer, Presence at Stripe (US/Canada). Hesitation: front-door/marketing Presence vs product; Expansion already sent. Confirm-only."
     },
-    "lastChecked": "2026-10-02"
+    "lastChecked": "2026-10-02",
+    "land": {
+      "resumePath": "/board/resumes/stripe-7144975.pdf",
+      "resumeFileName": "Stripe-Design-Engineer-Presence.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=DF3fNU",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   },
   {
     "jobId": "confido-090f3529",
