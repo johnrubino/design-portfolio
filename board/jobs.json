@@ -1,5 +1,113 @@
 [
   {
+    "jobId": "stripe-8212314",
+    "company": "Stripe",
+    "title": "Design Engineer, Expansion",
+    "postingUrl": "https://stripe.com/jobs/search?gh_jid=8212314",
+    "linkedinUrl": null,
+    "dateFound": "2026-10-02",
+    "location": "US / Canada",
+    "level": "Mid IC (Design Engineer stretch)",
+    "stageGate": "Public fintech / WPP Web Presence & Platform \u2014 established Stripe design+eng",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "stretch": true,
+    "salary": null,
+    "team": "WPP Expansion \u2014 stripe.com conversion journeys, interactive tools, global web presence",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 6,
+      "whyFits": [
+        "STRETCH: Design Engineer title approved as career lane (same framing as Rillet DE)",
+        "US/Canada remote-friendly geo clears; public Stripe; established WPP org",
+        "3+ years web FE / creative-tech floor \u2014 honest systems + Figma+code craft adjacent",
+        "Design systems utilize/contribute + public-facing polish themes match"
+      ],
+      "gaps": [
+        "STRETCH: Design Engineer vs current Product Designer title \u2014 not fake senior FE",
+        "Preferred React / interaction-animation / WebGL depth soft; no Storybook ownership claimed",
+        "Expansion pod conversion/microsite storytelling \u2014 portfolio lean vs dedicated marketing-site DE"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-02",
+      "source": "Jobi Stripe Growth + DE prep",
+      "seed": false,
+      "score": "6/10",
+      "confidence": "Medium",
+      "recommendation": "STRETCH vetted packet \u2014 Design Engineer Expansion; honest systems + code-adjacent craft; do not apply until John says yes",
+      "summary": "STRETCH \u2014 Design Engineer, Expansion at Stripe (US/Canada, WPP). Themes: concept\u2192prototype\u2192build web presence, design systems, interaction craft, HTML/CSS + team code, public-facing polish. Soft gaps: React/animation production depth, Storybook ownership not claimed, title stretch vs PD. Prep LAND only."
+    },
+    "land": {
+      "resumePath": "/board/resumes/stripe-8212314.pdf",
+      "resumeFileName": "Stripe-Design-Engineer-Expansion.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=DgyzEb",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
+  },
+  {
+    "jobId": "stripe-8164479",
+    "company": "Stripe",
+    "title": "Product Designer, Growth",
+    "postingUrl": "https://stripe.com/jobs/search?gh_jid=8164479",
+    "linkedinUrl": null,
+    "dateFound": "2026-10-02",
+    "location": "New York, NY (50% telecommuting)",
+    "level": "Mid IC",
+    "stageGate": "Public fintech / established Stripe design org",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "stretch": false,
+    "salary": "$175,200\u2013$262,800/yr base (NY51)",
+    "team": "Growth \u2014 onboarding, acquisition, conversion, retention",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Mid IC Product Designer; 4y Design floor matches ~4+ YOE",
+        "NYC seat with 50% telecommuting \u2014 location clears",
+        "Public Stripe; established design org; growth onboarding/conversion craft",
+        "Figma + eng collaboration + AI/ML awareness in JD \u2014 strong craft fit"
+      ],
+      "gaps": [
+        "JD wants 3y formal Growth domains (email marketing, pricing pages, upsells, A/B) \u2014 honest adjacent onboarding/activation, not dedicated Growth title tenure",
+        "After Effects / ProtoPie named \u2014 not claimed on r\u00e9sum\u00e9",
+        "Prior Stripe Internal Tools + Dashboard apps still live \u2014 distinct Growth req"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-02",
+      "source": "Jobi Stripe Growth + DE prep",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "High",
+      "recommendation": "Clear Mid NYC Growth PD \u2014 prep LAND; do not apply until John says yes",
+      "summary": "Product Designer, Growth at Stripe (NYC). Themes: low-friction onboarding, acquisition/conversion/retention, eng+PM partnership, research/metrics-informed iteration, Figma craft + AI awareness. Mid 4y floor; public Stripe. Soft gap: formal Growth-domain tenure (email/pricing/A/B) vs adjacent fintech activation. Comp $175.2k\u2013$262.8k."
+    },
+    "land": {
+      "resumePath": "/board/resumes/stripe-8164479.pdf",
+      "resumeFileName": "Stripe-Product-Designer-Growth.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=EQQ8sJ",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
+  },
+  {
     "jobId": "rillet-68ea1fbc",
     "company": "Rillet",
     "title": "Design Engineer",
