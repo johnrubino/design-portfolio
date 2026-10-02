@@ -69,8 +69,8 @@
     "location": "US / Canada",
     "level": "Mid IC (Design Engineer stretch)",
     "stageGate": "Public fintech / WPP Web Presence & Platform \u2014 established Stripe design+eng",
-    "status": "vetted",
-    "isNew": true,
+    "status": "sent",
+    "isNew": false,
     "seed": false,
     "stretch": true,
     "salary": null,
@@ -111,7 +111,8 @@
         "location": "New York, NY 10314",
         "workAuth": "US authorized, no sponsorship"
       }
-    }
+    },
+    "appliedAt": "2026-10-02T12:19:56Z"
   },
   {
     "jobId": "stripe-8164479",
