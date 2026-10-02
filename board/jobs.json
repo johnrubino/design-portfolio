@@ -3511,7 +3511,7 @@
     "location": "Remote, USA",
     "level": "Senior",
     "stageGate": "Public (Toast) / established product design org",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "team": "Toast Support Experiences \u2014 AI chat / voice / agent tooling / self-serve",
@@ -3539,7 +3539,21 @@
       "recommendation": "Clear \u2014 Toast SPD Support Experiences Remote USA",
       "summary": "Senior Product Designer, Toast Support Experiences. Remote USA. Public Toast, systems across chat/voice/agent/self-serve. Distinct from prior Toast seat. Confirm-only."
     },
-    "lastChecked": "2026-10-02"
+    "lastChecked": "2026-10-02",
+    "land": {
+      "resumePath": "/board/resumes/toast-8242950.pdf",
+      "resumeFileName": "Toast-Senior-Product-Designer-Support-Experiences.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=DAIpVP",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "updatedAt": "2026-10-02T14:44:36.767007+00:00"
   },
   {
     "jobId": "cribl-6181112004",
@@ -3551,7 +3565,7 @@
     "location": "Remote - United States",
     "level": "Senior",
     "stageGate": "Late-stage / Fortune-100 telemetry customers; remote-first",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "team": "Security UX \u2014 enterprise telemetry / IT+Sec workflows",
@@ -3577,7 +3591,21 @@
       "recommendation": "Clear \u2014 Cribl Sr UX Security Remote US",
       "summary": "Sr. UX Designer, Security at Cribl. Remote US. Complex B2B telemetry. Confirm remote vs CA nuance. Confirm-only."
     },
-    "lastChecked": "2026-10-02"
+    "lastChecked": "2026-10-02",
+    "land": {
+      "resumePath": "/board/resumes/cribl-6181112004.pdf",
+      "resumeFileName": "Cribl-Senior-UX-Designer-Security.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=CafJML",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "updatedAt": "2026-10-02T14:44:36.767007+00:00"
   },
   {
     "jobId": "bestow-e041b982",
@@ -3589,7 +3617,7 @@
     "location": "Remote, US",
     "level": "Mid IC (PD II)",
     "stageGate": "Growth fintech / life-insurance infra (Goldman, NEA, etc.)",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "team": "Agent Experience \u2014 carrier/agent workflows on Bestow platform",
@@ -3615,7 +3643,21 @@
       "recommendation": "Clear \u2014 Bestow PD II Agent Experience Remote US Mid",
       "summary": "Product Designer II, Agent Experience at Bestow. Remote US Mid IC. Regulated life-insurance tech platform. Confirm-only."
     },
-    "lastChecked": "2026-10-02"
+    "lastChecked": "2026-10-02",
+    "land": {
+      "resumePath": "/board/resumes/bestow-e041b982.pdf",
+      "resumeFileName": "Bestow-Product-Designer-II-Agent-Experience.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=CIyjoZ",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "updatedAt": "2026-10-02T14:44:36.767007+00:00"
   },
   {
     "jobId": "vercel-6129441004",
@@ -3627,7 +3669,7 @@
     "location": "Remote - United States",
     "level": "Mid IC (Design Engineer stretch)",
     "stageGate": "Late-stage / public-ish developer platform; established design eng",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "stretch": true,
@@ -3654,7 +3696,21 @@
       "recommendation": "CLEAR stretch \u2014 Vercel Design Engineer AI Gateway Remote US",
       "summary": "STRETCH Design Engineer at Vercel (AI Gateway, Remote US). Concept\u2192shipped UI in React/TS. Confirm-only."
     },
-    "lastChecked": "2026-10-02"
+    "lastChecked": "2026-10-02",
+    "land": {
+      "resumePath": "/board/resumes/vercel-6129441004.pdf",
+      "resumeFileName": "Vercel-Design-Engineer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=Arlkvn",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "updatedAt": "2026-10-02T14:44:36.767007+00:00"
   },
   {
     "jobId": "ramp-b68aca53",
@@ -3666,7 +3722,7 @@
     "location": "New York, NY (Hybrid)",
     "level": "Mid IC (Design Engineer stretch)",
     "stageGate": "Late-stage fintech Series D+ / established Ramp design",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "stretch": true,
@@ -3693,7 +3749,21 @@
       "recommendation": "CLEAR stretch \u2014 Ramp Design Engineer NYC hybrid",
       "summary": "STRETCH Design Engineer at Ramp (NYC hybrid). Fintech, AI-first design eng. Confirm-only."
     },
-    "lastChecked": "2026-10-02"
+    "lastChecked": "2026-10-02",
+    "land": {
+      "resumePath": "/board/resumes/ramp-b68aca53.pdf",
+      "resumeFileName": "Ramp-Design-Engineer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=ABVuic",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "updatedAt": "2026-10-02T14:44:36.767007+00:00"
   },
   {
     "jobId": "doordash-7767373",
