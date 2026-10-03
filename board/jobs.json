@@ -3670,8 +3670,8 @@
     "location": "Remote - United States",
     "level": "Mid IC (Design Engineer stretch)",
     "stageGate": "Late-stage / public-ish developer platform; established design eng",
-    "status": "vetted",
-    "isNew": true,
+    "status": "sent",
+    "isNew": false,
     "seed": false,
     "stretch": true,
     "team": "AI Gateway \u2014 model routing, dashboard, CLI, API surfaces",
@@ -3709,9 +3709,11 @@
         "linkedin": "https://www.linkedin.com/in/john-rubino/",
         "location": "New York, NY",
         "workAuth": "US authorized, no sponsorship"
-      }
+      },
+      "applyConfirmationUrl": "https://job-boards.greenhouse.io/vercel/jobs/6129441004/confirmation"
     },
-    "updatedAt": "2026-10-02T14:44:36.767007+00:00"
+    "updatedAt": "2026-10-03T12:05:44.674393+00:00",
+    "appliedAt": "2026-10-03T12:05:32.583822+00:00"
   },
   {
     "jobId": "ramp-b68aca53",
