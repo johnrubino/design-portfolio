@@ -1,5 +1,174 @@
 [
   {
+    "jobId": "posh-8338ed78",
+    "company": "Posh",
+    "title": "Senior Product Designer",
+    "postingUrl": "https://jobs.ashbyhq.com/posh/8338ed78-ac35-45ad-9013-eee469c11019",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4408010501",
+    "dateFound": "2026-10-04",
+    "location": "New York City (SoHo, in-person)",
+    "level": "Senior",
+    "stageGate": "~$70M venture / ~70-person IRL community + events platform",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "team": "Product Design \u2014 two-sided events/social mobile + organizer web tools",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 4,
+      "whyFits": [
+        "Senior IC; NYC OnSite; venture-backed past seed",
+        "Two-sided marketplace / organizer tools craft"
+      ],
+      "gaps": [
+        "First published ~2026-04-28 \u2014 long-open / possible evergreen",
+        "In-person SoHo only; 5+ YOE soft; close-knit/early design bench",
+        "Consumer events/social vs wealth"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-04",
+      "source": "Jobi Sunday one-off watch Ashby posh + LinkedIn",
+      "seed": false,
+      "score": "4/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline \u2014 Posh SPD NYC onsite long-open",
+      "summary": "Senior Product Designer at Posh. NYC SoHo onsite. Long-open since Apr; early design bench. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-04"
+  },
+  {
+    "jobId": "pika-cc4dffe4",
+    "company": "Pika",
+    "title": "Product Designer",
+    "postingUrl": "https://jobs.ashbyhq.com/pika/cc4dffe4-2cad-4287-a28b-b875ee35b541",
+    "linkedinUrl": null,
+    "dateFound": "2026-10-04",
+    "location": "US remote (Palo Alto HQ optional)",
+    "level": "Mid IC",
+    "stageGate": "Series B AI video (~$135M raised) \u2014 product-design bench still lean",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "team": "Creative platform \u2014 generative AI video mobile/web",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 5,
+      "whyFits": [
+        "IC Product Designer; US remote clears geo; 3\u20135+ YOE fits ~4+",
+        "Series B clears seed floor"
+      ],
+      "gaps": [
+        "Small product-design bench risk (founding PD + lean design; not a large org)",
+        "Palo Alto HQ preference / creator-tools domain vs wealth",
+        "Mobile creative-tools portfolio soft if not shown"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-04",
+      "source": "Jobi Sunday one-off watch Ashby pika",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline \u2014 Pika PD US remote Series B lean design bench",
+      "summary": "Product Designer at Pika. US remote Mid IC. Series B AI video; lean design bench + PA preference. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-04"
+  },
+  {
+    "jobId": "brigit-6100e7d6",
+    "company": "Brigit",
+    "title": "Product Designer II, Growth and Membership",
+    "postingUrl": "https://jobs.ashbyhq.com/brigit/6100e7d6-f105-4b52-8c9d-56d12e78dcdf",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4474795266",
+    "dateFound": "2026-10-04",
+    "location": "New York City (Hybrid)",
+    "level": "Mid IC (PD II)",
+    "stageGate": "Series A+ consumer fintech (Lightspeed etc.); Head of Design + PD bench",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "team": "Growth & Membership \u2014 onboarding / activation / subscription / retention",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 8,
+      "whyFits": [
+        "Mid IC PD II; NYC Hybrid clears geo",
+        "Consumer financial-health / credit fintech \u2014 wealth-adjacent",
+        "3+ YOE honest vs ~4+; established design leadership (not 1st/4th designer)"
+      ],
+      "gaps": [
+        "Consumer cash-advance / membership vs wealth core",
+        "Hybrid cadence not fully specified in JD"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-04",
+      "source": "Jobi Sunday one-off watch Ashby brigit + LinkedIn",
+      "seed": false,
+      "score": "8/10",
+      "confidence": "High",
+      "recommendation": "Clear \u2014 Brigit PD II Growth & Membership NYC Hybrid Mid",
+      "summary": "Product Designer II, Growth and Membership at Brigit. NYC Hybrid Mid IC. Consumer financial-health fintech. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-04"
+  },
+  {
+    "jobId": "okta-8248278",
+    "company": "Okta",
+    "title": "Senior Product Designer - Okta for AI Agents",
+    "postingUrl": "https://www.okta.com/company/careers/opportunity/8248278?gh_jid=8248278",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4473167652",
+    "dateFound": "2026-10-04",
+    "location": "Bellevue, WA; Chicago, IL; New York, NY; Washington, DC (Hybrid)",
+    "level": "Senior",
+    "stageGate": "Public (Okta) / established Identity design org",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "team": "Okta for AI Agents \u2014 non-human identity / agent lifecycle / authz",
+    "salary": "$136k\u2013$187k base (CA excl Bay / CO / IL / NY / WA listed band)",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 8,
+      "whyFits": [
+        "Senior IC PD; NYC among hybrid offices (#LI-Hybrid)",
+        "Public Okta + established product design org",
+        "Complex B2B identity / agent security workflows \u2014 systems craft",
+        "5+ YOE soft floor under 7\u20138 hard-skip"
+      ],
+      "gaps": [
+        "5+ YOE soft stretch vs ~4+",
+        "Security/identity domain vs wealth core",
+        "Hybrid multi-city \u2014 confirm NYC anchor days"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-04",
+      "source": "Jobi Sunday one-off watch Greenhouse okta",
+      "seed": false,
+      "score": "8/10",
+      "confidence": "High",
+      "recommendation": "Clear \u2014 Okta SPD AI Agents NYC hybrid",
+      "summary": "Senior Product Designer - Okta for AI Agents. NYC among hybrid US offices. Public Okta, agent identity/authz systems. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-04"
+  },
+  {
     "jobId": "uber-303212",
     "company": "Uber",
     "title": "Product Designer II - Uber Eats, Offers Consumer Experiences",
