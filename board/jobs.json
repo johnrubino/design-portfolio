@@ -8,26 +8,26 @@
     "dateFound": "2026-10-05",
     "location": "New York City (in-person)",
     "level": "Mid IC (Product Designer)",
-    "stageGate": "Venture-backed (776 / XYZ / Mischief) — social video intelligence; design bench tiny (~2 designers)",
+    "stageGate": "Venture-backed (776 / XYZ / Mischief) \u2014 social video intelligence; design bench tiny (~2 designers)",
     "status": "vetted",
     "isNew": false,
     "seed": false,
     "borderline": true,
-    "team": "Product Design — AI-first social/video insight workflows for brand teams",
+    "team": "Product Design \u2014 AI-first social/video insight workflows for brand teams",
     "vet": {
       "gatesPass": false,
       "fitScore": 4,
       "whyFits": [
         "IC Product Designer; NYC in-person clears geo",
-        "AI-first insight product; craft + systems + eng partnership match résumé themes",
+        "AI-first insight product; craft + systems + eng partnership match r\u00e9sum\u00e9 themes",
         "John explicitly opened to Plot despite tiny bench"
       ],
       "gaps": [
         "Stretch/borderline tiny design bench (second designer hired May 2026; role reads as early shop)",
-        "Ashby board no longer lists Product Designer (Built In removed 2026-07-07) — no live apply URL; prep for reopen/outreach",
+        "Ashby board no longer lists Product Designer (Built In removed 2026-07-07) \u2014 no live apply URL; prep for reopen/outreach",
         "Consumer brand / social-video domain vs wealth core"
       ],
-      "prepNote": "PREP ONLY — LAND published. Do not apply; Ashby PD seat closed as of 2026-07-07. Confirm if/when posting reopens."
+      "prepNote": "PREP ONLY \u2014 LAND published. Do not apply; Ashby PD seat closed as of 2026-07-07. Confirm if/when posting reopens."
     },
     "fit": {
       "generatedAt": "2026-10-05",
@@ -35,8 +35,8 @@
       "seed": false,
       "score": "4/10",
       "confidence": "Medium",
-      "recommendation": "Borderline / stretch tiny bench — prep LAND only; posting closed on Ashby",
-      "summary": "Product Designer at Plot (NYC in-person). Social video intelligence for brands. AI-first workflows, systems+craft, ship with eng. Tiny design bench; Ashby listing removed Jul 7 — prep only."
+      "recommendation": "Borderline / stretch tiny bench \u2014 prep LAND only; posting closed on Ashby",
+      "summary": "Product Designer at Plot (NYC in-person). Social video intelligence for brands. AI-first workflows, systems+craft, ship with eng. Tiny design bench; Ashby listing removed Jul 7 \u2014 prep only."
     },
     "gapAnalysis": {
       "seed": false
@@ -91,7 +91,7 @@
       "seed": false,
       "score": "4/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — ComPsych SPD remote EAP",
+      "recommendation": "Borderline \u2014 ComPsych SPD remote EAP",
       "summary": "Senior Product Designer at ComPsych. US remote EAP/absence. Confirm-only if interest."
     },
     "gapAnalysis": {
@@ -108,7 +108,7 @@
     "dateFound": "2026-10-05",
     "location": "United States (remote-leaning; some on-site validation language)",
     "level": "Senior",
-    "stageGate": "Clinical AI / stroke-trauma imaging — growth-stage medtech (verify Series)",
+    "stageGate": "Clinical AI / stroke-trauma imaging \u2014 growth-stage medtech (verify Series)",
     "status": "sourced",
     "isNew": true,
     "seed": false,
@@ -124,7 +124,7 @@
       ],
       "gaps": [
         "Healthcare/clinical domain stretch",
-        "On-site validation language — confirm remote vs hybrid",
+        "On-site validation language \u2014 confirm remote vs hybrid",
         "Design bench / stage not fully verified via ATS"
       ]
     },
@@ -134,7 +134,7 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — RapidAI SPD clinical AI",
+      "recommendation": "Borderline \u2014 RapidAI SPD clinical AI",
       "summary": "Senior Product Designer at RapidAI. Clinical AI. Confirm-only if domain interest."
     },
     "gapAnalysis": {
@@ -151,27 +151,27 @@
     "dateFound": "2026-10-05",
     "location": "Remote (US); Oak Brook, IL listed",
     "level": "Senior",
-    "stageGate": "Established financial services (~$62B AUM, 7M+ clients) — past seed",
+    "stageGate": "Established financial services (~$62B AUM, 7M+ clients) \u2014 past seed",
     "status": "vetted",
     "isNew": false,
     "seed": false,
     "borderline": false,
-    "team": "Retirement & Wealth — HSA / rollover / custody / emergency savings product surfaces",
+    "team": "Retirement & Wealth \u2014 HSA / rollover / custody / emergency savings product surfaces",
     "vet": {
       "gatesPass": true,
       "fitScore": 8,
       "whyFits": [
         "Senior IC; US remote",
         "Direct wealth/retirement domain fit vs Pershing background",
-        "5–7 YOE band under 7–8 hard-skip",
+        "5\u20137 YOE band under 7\u20138 hard-skip",
         "Large established FS org (not seed)"
       ],
       "gaps": [
-        "Oak Brook–rooted culture / less ‘product-company’ brand",
+        "Oak Brook\u2013rooted culture / less \u2018product-company\u2019 brand",
         "Design-org depth unknown from LI guest scrape",
-        "ATS apply URL not extracted — LinkedIn primary"
+        "ATS apply URL not extracted \u2014 LinkedIn primary"
       ],
-      "prepNote": "PREP ONLY — LAND published. Do not apply until apply_confirm. LinkedIn posting is primary; ATS (Workday) apply URL not yet extracted — resolve at apply time. Storybook named in JD: not claimed on résumé."
+      "prepNote": "PREP ONLY \u2014 LAND published. Do not apply until apply_confirm. LinkedIn posting is primary; ATS (Workday) apply URL not yet extracted \u2014 resolve at apply time. Storybook named in JD: not claimed on r\u00e9sum\u00e9."
     },
     "fit": {
       "generatedAt": "2026-10-05",
@@ -179,7 +179,7 @@
       "seed": false,
       "score": "8/10",
       "confidence": "Medium-High",
-      "recommendation": "Clear — Inspira Sr PD Retirement & Wealth remote",
+      "recommendation": "Clear \u2014 Inspira Sr PD Retirement & Wealth remote",
       "summary": "Sr. Product Designer, Retirement & Wealth at Inspira Financial. US remote. Wealth domain. Confirm-only."
     },
     "gapAnalysis": {
@@ -214,19 +214,19 @@
     "isNew": true,
     "seed": false,
     "borderline": false,
-    "team": "JobEx — Pro job / work-order experience",
+    "team": "JobEx \u2014 Pro job / work-order experience",
     "vet": {
       "gatesPass": true,
       "fitScore": 7,
       "whyFits": [
         "Senior IC; US remote",
         "Established design leadership (VP PD role open too)",
-        "6+ YOE soft under 7–8 hard-skip",
+        "6+ YOE soft under 7\u20138 hard-skip",
         "Complex B2B operational workflows"
       ],
       "gaps": [
         "Home-services domain vs wealth/fintech",
-        "First published ~Sep 11 — ATS token miss until this pass",
+        "First published ~Sep 11 \u2014 ATS token miss until this pass",
         "6+ YOE soft stretch"
       ]
     },
@@ -236,7 +236,7 @@
       "seed": false,
       "score": "7/10",
       "confidence": "High",
-      "recommendation": "Clear — Housecall Pro SPD JobEx US remote",
+      "recommendation": "Clear \u2014 Housecall Pro SPD JobEx US remote",
       "summary": "Senior Product Designer (JobEx) at Housecall Pro. US remote. Confirm-only."
     },
     "gapAnalysis": {
@@ -258,7 +258,7 @@
     "isNew": true,
     "seed": false,
     "borderline": false,
-    "team": "CNN Growth — digital advertising / acquisition product",
+    "team": "CNN Growth \u2014 digital advertising / acquisition product",
     "vet": {
       "gatesPass": true,
       "fitScore": 6,
@@ -279,7 +279,7 @@
       "seed": false,
       "score": "6/10",
       "confidence": "Medium",
-      "recommendation": "Clear — CNN PD II Growth Acquisition",
+      "recommendation": "Clear \u2014 CNN PD II Growth Acquisition",
       "summary": "Product Designer II, Growth - Acquisition at CNN/WBD. Mid IC. Confirm-only."
     },
     "gapAnalysis": {
@@ -296,19 +296,19 @@
     "dateFound": "2026-10-05",
     "location": "New York, NY",
     "level": "Mid IC (PD II)",
-    "stageGate": "Public WBD / CNN — large media product design",
+    "stageGate": "Public WBD / CNN \u2014 large media product design",
     "status": "sourced",
     "isNew": true,
     "seed": false,
     "borderline": false,
-    "team": "CNN New Business — standalone digital features / new product surfaces",
+    "team": "CNN New Business \u2014 standalone digital features / new product surfaces",
     "vet": {
       "gatesPass": true,
       "fitScore": 7,
       "whyFits": [
         "Mid IC Product Designer II; NYC",
         "Public Warner Bros. Discovery; established design footprint",
-        "2+ YOE floor — under hard bar",
+        "2+ YOE floor \u2014 under hard bar",
         "Media/news product craft with room for systems thinking"
       ],
       "gaps": [
@@ -323,7 +323,7 @@
       "seed": false,
       "score": "7/10",
       "confidence": "High",
-      "recommendation": "Clear — CNN PD II New Business NYC",
+      "recommendation": "Clear \u2014 CNN PD II New Business NYC",
       "summary": "Product Designer II, New Business at CNN/WBD. NYC Mid IC. Confirm-only."
     },
     "gapAnalysis": {
@@ -340,12 +340,12 @@
     "dateFound": "2026-10-05",
     "location": "New York, NY",
     "level": "Mid/Senior IC",
-    "stageGate": "Public Meta / Instagram — established design org",
+    "stageGate": "Public Meta / Instagram \u2014 established design org",
     "status": "vetted",
     "isNew": true,
     "seed": false,
     "borderline": false,
-    "team": "Subscriptions — subscriber growth, premium AI/features, payments/metering across FoA",
+    "team": "Subscriptions \u2014 subscriber growth, premium AI/features, payments/metering across FoA",
     "vet": {
       "gatesPass": true,
       "fitScore": 8,
@@ -353,11 +353,11 @@
         "IC Product Designer (not Staff/manager); NYC",
         "Meta/Instagram established design org; public company",
         "High-impact revenue systems (subs growth, premium, payments)",
-        "6+ YOE soft under 7–8 hard-skip bar"
+        "6+ YOE soft under 7\u20138 hard-skip bar"
       ],
       "gaps": [
         "6+ YOE soft stretch",
-        "May overlap prior IG/Meta apps — distinct Subscriptions seat",
+        "May overlap prior IG/Meta apps \u2014 distinct Subscriptions seat",
         "LinkedIn-sourced; Meta careers SPA hid req id"
       ]
     },
@@ -367,7 +367,7 @@
       "seed": false,
       "score": "8/10",
       "confidence": "High",
-      "recommendation": "Clear — Instagram PD Subscriptions NYC",
+      "recommendation": "Clear \u2014 Instagram PD Subscriptions NYC",
       "summary": "Product Designer, Subscriptions at Instagram (Meta). NYC. Recurring-revenue / premium systems. Confirm-only."
     },
     "gapAnalysis": {
@@ -396,7 +396,7 @@
     "isNew": true,
     "seed": false,
     "borderline": true,
-    "team": "Product Design — two-sided events/social mobile + organizer web tools",
+    "team": "Product Design \u2014 two-sided events/social mobile + organizer web tools",
     "vet": {
       "gatesPass": true,
       "fitScore": 4,
@@ -405,7 +405,7 @@
         "Two-sided marketplace / organizer tools craft"
       ],
       "gaps": [
-        "First published ~2026-04-28 — long-open / possible evergreen",
+        "First published ~2026-04-28 \u2014 long-open / possible evergreen",
         "In-person SoHo only; 5+ YOE soft; close-knit/early design bench",
         "Consumer events/social vs wealth"
       ]
@@ -416,7 +416,7 @@
       "seed": false,
       "score": "4/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — Posh SPD NYC onsite long-open",
+      "recommendation": "Borderline \u2014 Posh SPD NYC onsite long-open",
       "summary": "Senior Product Designer at Posh. NYC SoHo onsite. Long-open since Apr; early design bench. Confirm-only."
     },
     "gapAnalysis": {
@@ -433,17 +433,17 @@
     "dateFound": "2026-10-04",
     "location": "US remote (Palo Alto HQ optional)",
     "level": "Mid IC",
-    "stageGate": "Series B AI video (~$135M raised) — product-design bench still lean",
+    "stageGate": "Series B AI video (~$135M raised) \u2014 product-design bench still lean",
     "status": "sourced",
     "isNew": true,
     "seed": false,
     "borderline": true,
-    "team": "Creative platform — generative AI video mobile/web",
+    "team": "Creative platform \u2014 generative AI video mobile/web",
     "vet": {
       "gatesPass": true,
       "fitScore": 5,
       "whyFits": [
-        "IC Product Designer; US remote clears geo; 3–5+ YOE fits ~4+",
+        "IC Product Designer; US remote clears geo; 3\u20135+ YOE fits ~4+",
         "Series B clears seed floor"
       ],
       "gaps": [
@@ -458,7 +458,7 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — Pika PD US remote Series B lean design bench",
+      "recommendation": "Borderline \u2014 Pika PD US remote Series B lean design bench",
       "summary": "Product Designer at Pika. US remote Mid IC. Series B AI video; lean design bench + PA preference. Confirm-only."
     },
     "gapAnalysis": {
@@ -479,13 +479,13 @@
     "status": "sourced",
     "isNew": true,
     "seed": false,
-    "team": "Growth & Membership — onboarding / activation / subscription / retention",
+    "team": "Growth & Membership \u2014 onboarding / activation / subscription / retention",
     "vet": {
       "gatesPass": true,
       "fitScore": 8,
       "whyFits": [
         "Mid IC PD II; NYC Hybrid clears geo",
-        "Consumer financial-health / credit fintech — wealth-adjacent",
+        "Consumer financial-health / credit fintech \u2014 wealth-adjacent",
         "3+ YOE honest vs ~4+; established design leadership (not 1st/4th designer)"
       ],
       "gaps": [
@@ -499,7 +499,7 @@
       "seed": false,
       "score": "8/10",
       "confidence": "High",
-      "recommendation": "Clear — Brigit PD II Growth & Membership NYC Hybrid Mid",
+      "recommendation": "Clear \u2014 Brigit PD II Growth & Membership NYC Hybrid Mid",
       "summary": "Product Designer II, Growth and Membership at Brigit. NYC Hybrid Mid IC. Consumer financial-health fintech. Confirm-only."
     },
     "gapAnalysis": {
@@ -520,21 +520,21 @@
     "status": "vetted",
     "isNew": true,
     "seed": false,
-    "team": "Okta for AI Agents — non-human identity / agent lifecycle / authz",
-    "salary": "$136k–$187k base (CA excl Bay / CO / IL / NY / WA listed band)",
+    "team": "Okta for AI Agents \u2014 non-human identity / agent lifecycle / authz",
+    "salary": "$136k\u2013$187k base (CA excl Bay / CO / IL / NY / WA listed band)",
     "vet": {
       "gatesPass": true,
       "fitScore": 8,
       "whyFits": [
         "Senior IC PD; NYC among hybrid offices (#LI-Hybrid)",
         "Public Okta + established product design org",
-        "Complex B2B identity / agent security workflows — systems craft",
-        "5+ YOE soft floor under 7–8 hard-skip"
+        "Complex B2B identity / agent security workflows \u2014 systems craft",
+        "5+ YOE soft floor under 7\u20138 hard-skip"
       ],
       "gaps": [
         "5+ YOE soft stretch vs ~4+",
         "Security/identity domain vs wealth core",
-        "Hybrid multi-city — confirm NYC anchor days"
+        "Hybrid multi-city \u2014 confirm NYC anchor days"
       ]
     },
     "fit": {
@@ -543,7 +543,7 @@
       "seed": false,
       "score": "8/10",
       "confidence": "High",
-      "recommendation": "Clear — Okta SPD AI Agents NYC hybrid",
+      "recommendation": "Clear \u2014 Okta SPD AI Agents NYC hybrid",
       "summary": "Senior Product Designer - Okta for AI Agents. NYC among hybrid US offices. Public Okta, agent identity/authz systems. Confirm-only."
     },
     "gapAnalysis": {
@@ -571,15 +571,15 @@
     "postingUrl": "https://jobs.uber.com/en/jobs/303212/",
     "linkedinUrl": "https://www.linkedin.com/jobs/view/4474572276/",
     "dateFound": "2026-10-02",
-    "location": "New York, NY (hybrid ≥50% in-office; also SF)",
+    "location": "New York, NY (hybrid \u226550% in-office; also SF)",
     "level": "Mid IC (Product Designer II)",
-    "stageGate": "Public company / established Ads & Offers design org · Uber Eats",
+    "stageGate": "Public company / established Ads & Offers design org \u00b7 Uber Eats",
     "status": "vetted",
     "isNew": true,
     "seed": false,
     "stretch": false,
-    "salary": "$153,000–$170,000 base (NYC) + bonus/equity eligibility",
-    "team": "Uber Eats Ads & Offers — Offers Consumer Experiences (discovery, affordability, monetization)",
+    "salary": "$153,000\u2013$170,000 base (NYC) + bonus/equity eligibility",
+    "team": "Uber Eats Ads & Offers \u2014 Offers Consumer Experiences (discovery, affordability, monetization)",
     "altIds": [
       "uber-eats-offers-4474572276",
       "linkedin-4474572276"
@@ -589,13 +589,13 @@
       "fitScore": 7,
       "whyFits": [
         "Mid IC Product Designer II; 3+ YOE floor matches ~4+",
-        "NYC hybrid ≥50% office — location clears",
-        "Public Uber; established Ads & Offers design org — not tiny bench",
+        "NYC hybrid \u226550% office \u2014 location clears",
+        "Public Uber; established Ads & Offers design org \u2014 not tiny bench",
         "Consumer discovery/offers/marketplace themes adjacent to Purple Panda + Pershing offering discovery"
       ],
       "gaps": [
         "Consumer marketplace / food delivery vs wealth-fintech core",
-        "Preferred: consumer mobile, global product, accessibility — soft; not over-claimed",
+        "Preferred: consumer mobile, global product, accessibility \u2014 soft; not over-claimed",
         "Distinct from prior Uber SPD Direct & Connect (uber-4462465244)"
       ],
       "prepNote": "Prep LAND only. Do not submit until apply_confirm / John says yes."
@@ -606,8 +606,8 @@
       "seed": false,
       "score": "7/10",
       "confidence": "High",
-      "recommendation": "CLEAR Mid NYC hybrid — prep LAND; do not apply until John says yes",
-      "summary": "Product Designer II, Uber Eats Offers Consumer Experiences (NYC hybrid ≥50%). Themes: E2E concept→ship, offer discovery/affordability, consumer marketplace, design systems simplicity, PM/eng/ops/research partnership, high-fidelity prototypes. Public Uber; 3+ YOE; $153–170k NYC. Soft: consumer marketplace vs fintech."
+      "recommendation": "CLEAR Mid NYC hybrid \u2014 prep LAND; do not apply until John says yes",
+      "summary": "Product Designer II, Uber Eats Offers Consumer Experiences (NYC hybrid \u226550%). Themes: E2E concept\u2192ship, offer discovery/affordability, consumer marketplace, design systems simplicity, PM/eng/ops/research partnership, high-fidelity prototypes. Public Uber; 3+ YOE; $153\u2013170k NYC. Soft: consumer marketplace vs fintech."
     },
     "land": {
       "resumePath": "/board/resumes/uber-303212.pdf",
@@ -633,26 +633,26 @@
     "dateFound": "2026-10-02",
     "location": "US / Canada",
     "level": "Mid IC (Design Engineer stretch)",
-    "stageGate": "Public fintech / WPP Web Presence & Platform — established Stripe design+eng",
+    "stageGate": "Public fintech / WPP Web Presence & Platform \u2014 established Stripe design+eng",
     "status": "sent",
     "isNew": false,
     "seed": false,
     "stretch": true,
     "salary": null,
-    "team": "WPP Expansion — stripe.com conversion journeys, interactive tools, global web presence",
+    "team": "WPP Expansion \u2014 stripe.com conversion journeys, interactive tools, global web presence",
     "vet": {
       "gatesPass": true,
       "fitScore": 6,
       "whyFits": [
         "STRETCH: Design Engineer title approved as career lane (same framing as Rillet DE)",
         "US/Canada remote-friendly geo clears; public Stripe; established WPP org",
-        "3+ years web FE / creative-tech floor — honest systems + Figma+code craft adjacent",
+        "3+ years web FE / creative-tech floor \u2014 honest systems + Figma+code craft adjacent",
         "Design systems utilize/contribute + public-facing polish themes match"
       ],
       "gaps": [
-        "STRETCH: Design Engineer vs current Product Designer title — not fake senior FE",
+        "STRETCH: Design Engineer vs current Product Designer title \u2014 not fake senior FE",
         "Preferred React / interaction-animation / WebGL depth soft; no Storybook ownership claimed",
-        "Expansion pod conversion/microsite storytelling — portfolio lean vs dedicated marketing-site DE"
+        "Expansion pod conversion/microsite storytelling \u2014 portfolio lean vs dedicated marketing-site DE"
       ]
     },
     "fit": {
@@ -661,8 +661,8 @@
       "seed": false,
       "score": "6/10",
       "confidence": "Medium",
-      "recommendation": "STRETCH vetted packet — Design Engineer Expansion; honest systems + code-adjacent craft; do not apply until John says yes",
-      "summary": "STRETCH — Design Engineer, Expansion at Stripe (US/Canada, WPP). Themes: concept→prototype→build web presence, design systems, interaction craft, HTML/CSS + team code, public-facing polish. Soft gaps: React/animation production depth, Storybook ownership not claimed, title stretch vs PD. Prep LAND only."
+      "recommendation": "STRETCH vetted packet \u2014 Design Engineer Expansion; honest systems + code-adjacent craft; do not apply until John says yes",
+      "summary": "STRETCH \u2014 Design Engineer, Expansion at Stripe (US/Canada, WPP). Themes: concept\u2192prototype\u2192build web presence, design systems, interaction craft, HTML/CSS + team code, public-facing polish. Soft gaps: React/animation production depth, Storybook ownership not claimed, title stretch vs PD. Prep LAND only."
     },
     "land": {
       "resumePath": "/board/resumes/stripe-8212314.pdf",
@@ -693,21 +693,21 @@
     "isNew": false,
     "seed": false,
     "stretch": false,
-    "salary": "$175,200–$262,800/yr base (NY51)",
-    "team": "Growth — onboarding, acquisition, conversion, retention",
+    "salary": "$175,200\u2013$262,800/yr base (NY51)",
+    "team": "Growth \u2014 onboarding, acquisition, conversion, retention",
     "vet": {
       "gatesPass": true,
       "fitScore": 7,
       "whyFits": [
         "Mid IC Product Designer; 4y Design floor matches ~4+ YOE",
-        "NYC seat with 50% telecommuting — location clears",
+        "NYC seat with 50% telecommuting \u2014 location clears",
         "Public Stripe; established design org; growth onboarding/conversion craft",
-        "Figma + eng collaboration + AI/ML awareness in JD — strong craft fit"
+        "Figma + eng collaboration + AI/ML awareness in JD \u2014 strong craft fit"
       ],
       "gaps": [
-        "JD wants 3y formal Growth domains (email marketing, pricing pages, upsells, A/B) — honest adjacent onboarding/activation, not dedicated Growth title tenure",
-        "After Effects / ProtoPie named — not claimed on résumé",
-        "Prior Stripe Internal Tools + Dashboard apps still live — distinct Growth req"
+        "JD wants 3y formal Growth domains (email marketing, pricing pages, upsells, A/B) \u2014 honest adjacent onboarding/activation, not dedicated Growth title tenure",
+        "After Effects / ProtoPie named \u2014 not claimed on r\u00e9sum\u00e9",
+        "Prior Stripe Internal Tools + Dashboard apps still live \u2014 distinct Growth req"
       ]
     },
     "fit": {
@@ -716,8 +716,8 @@
       "seed": false,
       "score": "7/10",
       "confidence": "High",
-      "recommendation": "Clear Mid NYC Growth PD — prep LAND; do not apply until John says yes",
-      "summary": "Product Designer, Growth at Stripe (NYC). Themes: low-friction onboarding, acquisition/conversion/retention, eng+PM partnership, research/metrics-informed iteration, Figma craft + AI awareness. Mid 4y floor; public Stripe. Soft gap: formal Growth-domain tenure (email/pricing/A/B) vs adjacent fintech activation. Comp $175.2k–$262.8k."
+      "recommendation": "Clear Mid NYC Growth PD \u2014 prep LAND; do not apply until John says yes",
+      "summary": "Product Designer, Growth at Stripe (NYC). Themes: low-friction onboarding, acquisition/conversion/retention, eng+PM partnership, research/metrics-informed iteration, Figma craft + AI awareness. Mid 4y floor; public Stripe. Soft gap: formal Growth-domain tenure (email/pricing/A/B) vs adjacent fintech activation. Comp $175.2k\u2013$262.8k."
     },
     "land": {
       "resumePath": "/board/resumes/stripe-8164479.pdf",
@@ -743,7 +743,7 @@
     "dateFound": "2026-09-28",
     "location": "NYC | SF hybrid (Tue/Thu + one flexible day)",
     "level": "Mid/Senior IC (Design Engineer stretch)",
-    "stageGate": "Series A+/unicorn (~$1B, $200M+ raised · Sequoia, a16z, ICONIQ) · small design org (partners with product designer singular)",
+    "stageGate": "Series A+/unicorn (~$1B, $200M+ raised \u00b7 Sequoia, a16z, ICONIQ) \u00b7 small design org (partners with product designer singular)",
     "status": "sent",
     "isNew": false,
     "seed": false,
@@ -754,11 +754,11 @@
       "whyFits": [
         "John override: Design Engineer title approved as career lane",
         "Series A+/unicorn stage clears; NYC + SF hybrid matches location",
-        "Strong match: design system / platform refresh, Figma+code ship, dense fintech workflows, AI design–eng tooling"
+        "Strong match: design system / platform refresh, Figma+code ship, dense fintech workflows, AI design\u2013eng tooling"
       ],
       "gaps": [
         "STRETCH: Design Engineer title vs current Product Designer title (honest framing)",
-        "Small design org — need taste + independence; React production depth soft gap vs preferred"
+        "Small design org \u2014 need taste + independence; React production depth soft gap vs preferred"
       ],
       "prepNote": "Prep-only on LAND. gatesPass true via John DE-title override. Do not apply until apply_confirm."
     },
@@ -768,11 +768,11 @@
       "seed": false,
       "score": "7/10",
       "confidence": "Medium-High",
-      "recommendation": "STRETCH vetted packet — DE lane + systems/fintech/AI craft; React implementation depth is soft gap",
-      "summary": "Design Engineer at Rillet (NYC|SF hybrid). Themes: platform refresh, design system (tokens/components/motion), concept→shipped production UI in Figma+code, dense financial surfaces, AI design–eng workflows. Stretch on title; stage and location clear. Band $170k–$240k + equity."
+      "recommendation": "STRETCH vetted packet \u2014 DE lane + systems/fintech/AI craft; React implementation depth is soft gap",
+      "summary": "Design Engineer at Rillet (NYC|SF hybrid). Themes: platform refresh, design system (tokens/components/motion), concept\u2192shipped production UI in Figma+code, dense financial surfaces, AI design\u2013eng workflows. Stretch on title; stage and location clear. Band $170k\u2013$240k + equity."
     },
-    "salary": "$170k–$240k + equity (NYC/SF)",
-    "team": "Design — platform refresh / design system · partners with product designer + eng",
+    "salary": "$170k\u2013$240k + equity (NYC/SF)",
+    "team": "Design \u2014 platform refresh / design system \u00b7 partners with product designer + eng",
     "land": {
       "resumePath": "/board/resumes/rillet-68ea1fbc.pdf",
       "resumeFileName": "Rillet-Design-Engineer.pdf",
@@ -798,7 +798,7 @@
     "dateFound": "2026-09-28",
     "location": "New York, NY (4 days/week in-office)",
     "level": "Senior",
-    "stageGate": "Public subscription brand / established Product org · JazzHR ATS",
+    "stageGate": "Public subscription brand / established Product org \u00b7 JazzHR ATS",
     "status": "sent",
     "isNew": true,
     "seed": false,
@@ -807,15 +807,15 @@
       "fitScore": 7,
       "whyFits": [
         "Senior IC; NYC hybrid 4d/wk in bar",
-        "5+ YOE consumer web/iOS/Android — soft stretch vs ~4+; strong craft + design system + Claude/AI design→prod themes",
+        "5+ YOE consumer web/iOS/Android \u2014 soft stretch vs ~4+; strong craft + design system + Claude/AI design\u2192prod themes",
         "Established brand / Product org (not seed)",
         "Official ATS: bookofthemonth.applytojob.com"
       ],
       "gaps": [
         "5+ YOE consumer soft stretch vs ~4+ baseline",
-        "4 days/week NYC office — confirm hybrid comfort"
+        "4 days/week NYC office \u2014 confirm hybrid comfort"
       ],
-      "prepNote": "Prep only. Ask-before-apply already yes for batch — still do not submit until apply_confirm on board."
+      "prepNote": "Prep only. Ask-before-apply already yes for batch \u2014 still do not submit until apply_confirm on board."
     },
     "fit": {
       "generatedAt": "2026-09-28",
@@ -823,11 +823,11 @@
       "seed": false,
       "score": "7/10",
       "confidence": "Medium-High",
-      "recommendation": "Prep packet — CLEAR consumer Sr PD NYC; hybrid 4d/wk + 5+ YOE soft notes",
-      "summary": "Sr. Product Designer at Book of the Month (NYC 4d/wk). Themes: consumer craft + design system, AI-assisted design→prod (Claude), iterative brand product, Figma fluency. Band $140–200k."
+      "recommendation": "Prep packet \u2014 CLEAR consumer Sr PD NYC; hybrid 4d/wk + 5+ YOE soft notes",
+      "summary": "Sr. Product Designer at Book of the Month (NYC 4d/wk). Themes: consumer craft + design system, AI-assisted design\u2192prod (Claude), iterative brand product, Figma fluency. Band $140\u2013200k."
     },
-    "salary": "$140,000–$200,000",
-    "team": "Product — digital membership experience + design system",
+    "salary": "$140,000\u2013$200,000",
+    "team": "Product \u2014 digital membership experience + design system",
     "land": {
       "resumePath": "/board/resumes/botm-HFm0iKvKLN.pdf",
       "resumeFileName": "Book-of-the-Month-Sr-Product-Designer.pdf",
@@ -852,7 +852,7 @@
     "dateFound": "2026-09-28",
     "location": "New York, NY",
     "level": "Mid/Senior IC",
-    "stageGate": "Meta family / huge established design org · LI posting (metacareers SPA opaque from box)",
+    "stageGate": "Meta family / huge established design org \u00b7 LI posting (metacareers SPA opaque from box)",
     "status": "sent",
     "isNew": true,
     "seed": false,
@@ -860,12 +860,12 @@
       "gatesPass": true,
       "fitScore": 8,
       "whyFits": [
-        "IC Product Designer (not Staff); 4+ YOE consumer at scale — best Meta-family YOE fit",
+        "IC Product Designer (not Staff); 4+ YOE consumer at scale \u2014 best Meta-family YOE fit",
         "NYC hub; Meta/IG now in bar per voice",
-        "Craft + ambiguous problem spaces + XFN ownership themes match résumé"
+        "Craft + ambiguous problem spaces + XFN ownership themes match r\u00e9sum\u00e9"
       ],
       "gaps": [
-        "Official metacareers requisition ID not resolved from box curl — LI guest JD used"
+        "Official metacareers requisition ID not resolved from box curl \u2014 LI guest JD used"
       ],
       "prepNote": "Prep only. Do not submit until apply_confirm."
     },
@@ -875,11 +875,11 @@
       "seed": false,
       "score": "8/10",
       "confidence": "High",
-      "recommendation": "Prep packet — CLEAR best Meta/IG YOE fit this batch",
-      "summary": "Product Designer, Instagram (NYC). Themes: consumer craft at scale, ambiguous→actionable design strategy, end-to-end multi-surface ownership, AI-assisted workflows preferred."
+      "recommendation": "Prep packet \u2014 CLEAR best Meta/IG YOE fit this batch",
+      "summary": "Product Designer, Instagram (NYC). Themes: consumer craft at scale, ambiguous\u2192actionable design strategy, end-to-end multi-surface ownership, AI-assisted workflows preferred."
     },
     "salary": null,
-    "team": "Instagram product design — share / discover / create / connect",
+    "team": "Instagram product design \u2014 share / discover / create / connect",
     "land": {
       "resumePath": "/board/resumes/ig-4450153449.pdf",
       "resumeFileName": "Instagram-Product-Designer.pdf",
@@ -904,7 +904,7 @@
     "dateFound": "2026-09-28",
     "location": "New York, NY",
     "level": "Mid/Senior IC",
-    "stageGate": "Public Meta IC · posting spans Meta family apps · LI",
+    "stageGate": "Public Meta IC \u00b7 posting spans Meta family apps \u00b7 LI",
     "status": "sent",
     "isNew": true,
     "seed": false,
@@ -917,7 +917,7 @@
         "Meta/IG approved in bar"
       ],
       "gaps": [
-        "Generic Meta family posting — team assignment unknown until process",
+        "Generic Meta family posting \u2014 team assignment unknown until process",
         "Official metacareers ID unresolved from box"
       ],
       "prepNote": "Prep only. Do not submit until apply_confirm."
@@ -928,11 +928,11 @@
       "seed": false,
       "score": "7/10",
       "confidence": "Medium-High",
-      "recommendation": "Prep packet — CLEAR Meta NYC IC (4+ YOE)",
+      "recommendation": "Prep packet \u2014 CLEAR Meta NYC IC (4+ YOE)",
       "summary": "Product Designer at Meta (NYC). Themes: complex software UX/IX/visual craft, high-fidelity prototyping, design strategy with exec stakeholders, AI-assisted workflow preferred."
     },
     "salary": null,
-    "team": "Meta multidisciplinary design — roles across Meta company",
+    "team": "Meta multidisciplinary design \u2014 roles across Meta company",
     "land": {
       "resumePath": "/board/resumes/meta-4466672457.pdf",
       "resumeFileName": "Meta-Product-Designer.pdf",
@@ -957,7 +957,7 @@
     "dateFound": "2026-09-28",
     "location": "New York, NY",
     "level": "Mid/Senior IC",
-    "stageGate": "Meta HI craft / app family · LI",
+    "stageGate": "Meta HI craft / app family \u00b7 LI",
     "status": "sent",
     "isNew": true,
     "seed": false,
@@ -981,7 +981,7 @@
       "seed": false,
       "score": "7/10",
       "confidence": "Medium-High",
-      "recommendation": "Prep packet — CLEAR Meta HI NYC (craft-forward)",
+      "recommendation": "Prep packet \u2014 CLEAR Meta HI NYC (craft-forward)",
       "summary": "Product Designer, Human Interface at Meta (NYC). Themes: interaction behavior + visual systems, hi-fi prototypes, stakeholder strategy, AI-assisted craft preferred."
     },
     "salary": null,
@@ -1010,7 +1010,7 @@
     "dateFound": "2026-09-28",
     "location": "New York, NY",
     "level": "Senior",
-    "stageGate": "Public company / established design org · logistics marketplace",
+    "stageGate": "Public company / established design org \u00b7 logistics marketplace",
     "status": "replied",
     "isNew": false,
     "seed": false,
@@ -1024,7 +1024,7 @@
       ],
       "gaps": [
         "5+ YOE soft stretch vs ~4+",
-        "Delivery / logistics domain not core — interest check"
+        "Delivery / logistics domain not core \u2014 interest check"
       ],
       "prepNote": "Prep only. Do not submit until apply_confirm."
     },
@@ -1034,11 +1034,11 @@
       "seed": false,
       "score": "7/10",
       "confidence": "Medium-High",
-      "recommendation": "Prep packet — CLEAR Senior IC NYC marketplace seat",
-      "summary": "Senior Product Designer, Uber Direct & Connect (NYC). Themes: multi-sided delivery marketplace, E2E ownership, new interaction patterns, systems thinking. Band ~$180–200k NYC."
+      "recommendation": "Prep packet \u2014 CLEAR Senior IC NYC marketplace seat",
+      "summary": "Senior Product Designer, Uber Direct & Connect (NYC). Themes: multi-sided delivery marketplace, E2E ownership, new interaction patterns, systems thinking. Band ~$180\u2013200k NYC."
     },
-    "salary": "$180,000–$200,000 base (NYC) + bonus/equity eligibility",
-    "team": "Uber Direct & Connect — on-demand delivery / SMB + consumer marketplace",
+    "salary": "$180,000\u2013$200,000 base (NYC) + bonus/equity eligibility",
+    "team": "Uber Direct & Connect \u2014 on-demand delivery / SMB + consumer marketplace",
     "land": {
       "resumePath": "/board/resumes/uber-4462465244.pdf",
       "resumeFileName": "Uber-Senior-Product-Designer-Direct-Connect.pdf",
@@ -1063,7 +1063,7 @@
     "dateFound": "2026-09-28",
     "location": "New York, NY",
     "level": "Senior IC (stretch YOE)",
-    "stageGate": "Meta/IG Private Sharing · STRETCH 8+ YOE",
+    "stageGate": "Meta/IG Private Sharing \u00b7 STRETCH 8+ YOE",
     "status": "sent",
     "isNew": true,
     "seed": false,
@@ -1076,7 +1076,7 @@
         "0-1 incubation + craft + trust-sensitive flows adjacent to Pershing high-stakes UX"
       ],
       "gaps": [
-        "STRETCH: JD hard-requires 8+ YOE vs ~4+ résumé — do not over-claim",
+        "STRETCH: JD hard-requires 8+ YOE vs ~4+ r\u00e9sum\u00e9 \u2014 do not over-claim",
         "Staff/principal-flavored leadership language in similar postings"
       ],
       "prepNote": "STRETCH prep per John yes-to-all. Packet ready; apply_confirm still required. Honest YOE on forms."
@@ -1087,11 +1087,11 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Medium",
-      "recommendation": "STRETCH packet — interesting problem; 8+ YOE gate is the gap",
+      "recommendation": "STRETCH packet \u2014 interesting problem; 8+ YOE gate is the gap",
       "summary": "Product Designer, Instagram Private Sharing (NYC). Themes: private/friend sharing, 0-1 incubation (Notes/Map/Instants), craft + simplicity. STRETCH: 8+ YOE."
     },
     "salary": null,
-    "team": "Instagram Private Sharing — Notes, Map, Instants, Studio incubation",
+    "team": "Instagram Private Sharing \u2014 Notes, Map, Instants, Studio incubation",
     "land": {
       "resumePath": "/board/resumes/ig-4383045949.pdf",
       "resumeFileName": "Instagram-Private-Sharing-Product-Designer.pdf",
@@ -1116,7 +1116,7 @@
     "dateFound": "2026-09-28",
     "location": "San Francisco, CA",
     "level": "Senior IC (stretch YOE + geo)",
-    "stageGate": "MSL frontier AI · STRETCH SF + 8+ YOE",
+    "stageGate": "MSL frontier AI \u00b7 STRETCH SF + 8+ YOE",
     "status": "sent",
     "isNew": true,
     "seed": false,
@@ -1125,7 +1125,7 @@
       "gatesPass": false,
       "fitScore": 4,
       "whyFits": [
-        "Frontier AI / superintelligence product design — interesting problem",
+        "Frontier AI / superintelligence product design \u2014 interesting problem",
         "AI-native tooling + ambiguous technical domains match standing kit",
         "Surfaced per voice: Meta/IG even if SF if Senior IC"
       ],
@@ -1142,11 +1142,11 @@
       "seed": false,
       "score": "4/10",
       "confidence": "Medium",
-      "recommendation": "STRETCH packet — cool AI problem; SF + 8+ YOE are hard gaps",
+      "recommendation": "STRETCH packet \u2014 cool AI problem; SF + 8+ YOE are hard gaps",
       "summary": "Product Designer, Meta Superintelligence Labs (SF). Themes: ambiguous AI product with research partners, craft at scale, vibecoding/AI tools preferred. STRETCH: SF + 8+ YOE."
     },
     "salary": null,
-    "team": "Meta Superintelligence Labs — design × AI research",
+    "team": "Meta Superintelligence Labs \u2014 design \u00d7 AI research",
     "land": {
       "resumePath": "/board/resumes/meta-4446623556.pdf",
       "resumeFileName": "Meta-Superintelligence-Labs-Product-Designer.pdf",
@@ -1171,7 +1171,7 @@
     "dateFound": "2026-09-28",
     "location": "US remote (Remote | North America or Europe)",
     "level": "Senior (stretch YOE)",
-    "stageGate": "Storybook / design tooling · Ashby ATS · STRETCH 8+ YOE",
+    "stageGate": "Storybook / design tooling \u00b7 Ashby ATS \u00b7 STRETCH 8+ YOE",
     "status": "sent",
     "isNew": true,
     "seed": false,
@@ -1180,13 +1180,13 @@
       "gatesPass": false,
       "fitScore": 5,
       "whyFits": [
-        "US remote; design systems + coding agents + React/prod UI — strong kit match",
+        "US remote; design systems + coding agents + React/prod UI \u2014 strong kit match",
         "Established product co (not seed); interesting design-tooling problem",
         "Official Ashby ATS"
       ],
       "gaps": [
         "STRETCH: JD hard-requires 8+ YOE vs ~4+",
-        "Cash band $143–162k soft/low for Senior NYC IC — confirm with John",
+        "Cash band $143\u2013162k soft/low for Senior NYC IC \u2014 confirm with John",
         "Deep Storybook/dev-tool domain is soft gap (transferable systems craft)"
       ],
       "prepNote": "STRETCH prep per John yes-to-all. Confirm band + YOE honesty before apply_confirm."
@@ -1197,11 +1197,11 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Medium",
-      "recommendation": "STRETCH packet — tooling/AI-agents fit high; 8+ YOE + band are gaps",
-      "summary": "Senior Product Designer at Chromatic (US remote). Themes: design systems for engineers/agents, coding agents, React prototypes, technical product craft. STRETCH: 8+ YOE. Band $143–162k + equity."
+      "recommendation": "STRETCH packet \u2014 tooling/AI-agents fit high; 8+ YOE + band are gaps",
+      "summary": "Senior Product Designer at Chromatic (US remote). Themes: design systems for engineers/agents, coding agents, React prototypes, technical product craft. STRETCH: 8+ YOE. Band $143\u2013162k + equity."
     },
-    "salary": "US $143K–$162K + equity",
-    "team": "Design — Storybook / UI craft systems · developer + agent workflows",
+    "salary": "US $143K\u2013$162K + equity",
+    "team": "Design \u2014 Storybook / UI craft systems \u00b7 developer + agent workflows",
     "land": {
       "resumePath": "/board/resumes/chromatic-75693ed5.pdf",
       "resumeFileName": "Chromatic-Senior-Product-Designer.pdf",
@@ -1235,7 +1235,7 @@
       "fitScore": 7,
       "whyFits": [
         "Senior IC; explicit Remote within the United States",
-        "5+ years enterprise SaaS — in bar vs ~4+; established design system + peer mentoring",
+        "5+ years enterprise SaaS \u2014 in bar vs ~4+; established design system + peer mentoring",
         "Discovery-led triad + AI-assisted design matches standing kit",
         "Official ATS found: careers.frontlineeducation.com/jobs/17883903"
       ],
@@ -1251,11 +1251,11 @@
       "seed": false,
       "score": "7/10",
       "confidence": "Medium-High",
-      "recommendation": "Prep packet — US-remote Senior IC at large edtech; domain interest is the main check before apply",
-      "summary": "Senior Product Designer (US remote) at Frontline Education. Themes: discovery-led product triad, complex enterprise SaaS→clear accessible UX, design system + WCAG, AI-assisted/human-in-the-loop design, research→prototype-to-learn. Band $140–160k."
+      "recommendation": "Prep packet \u2014 US-remote Senior IC at large edtech; domain interest is the main check before apply",
+      "summary": "Senior Product Designer (US remote) at Frontline Education. Themes: discovery-led product triad, complex enterprise SaaS\u2192clear accessible UX, design system + WCAG, AI-assisted/human-in-the-loop design, research\u2192prototype-to-learn. Band $140\u2013160k."
     },
-    "salary": "$140,000–$160,000 base + bonus eligibility",
-    "team": "Product triad — K–12 educator/admin SaaS + Frontline design system",
+    "salary": "$140,000\u2013$160,000 base + bonus eligibility",
+    "team": "Product triad \u2014 K\u201312 educator/admin SaaS + Frontline design system",
     "land": {
       "resumePath": "/board/resumes/frontline-4460421244.pdf",
       "resumeFileName": "Frontline-Education-Senior-Product-Designer.pdf",
@@ -1278,7 +1278,7 @@
     "postingUrl": "https://www.linkedin.com/jobs/view/4469072303",
     "linkedinUrl": "https://www.linkedin.com/jobs/view/senior-product-designer-global-commercial-services-technology-at-american-express-4469072303",
     "dateFound": "2026-09-28",
-    "location": "United States (aggregators: remote/telecommute; one listing Virtual Madison WI — hub vs remote unclear)",
+    "location": "United States (aggregators: remote/telecommute; one listing Virtual Madison WI \u2014 hub vs remote unclear)",
     "level": "Senior",
     "stageGate": "Public / large Amex Tech design org",
     "status": "sent",
@@ -1289,13 +1289,13 @@
       "fitScore": 5,
       "whyFits": [
         "Senior IC at public Amex; established design org (mentors juniors)",
-        "3 years hands-on PD — YOE clears; expert Figma + journey craft match",
-        "GCS commercial payments / cashflow tools — fintech-adjacent to Pershing"
+        "3 years hands-on PD \u2014 YOE clears; expert Figma + journey craft match",
+        "GCS commercial payments / cashflow tools \u2014 fintech-adjacent to Pershing"
       ],
       "gaps": [
-        "Location gate soft-fail: LI United States / remote filter; Finseats Remote=Yes; designproject Virtual Madison WI — confirm true US-remote or NYC hub before apply",
+        "Location gate soft-fail: LI United States / remote filter; Finseats Remote=Yes; designproject Virtual Madison WI \u2014 confirm true US-remote or NYC hub before apply",
         "No clean official Amex careers ATS URL found this pass (Oracle CX search did not surface req)",
-        "Aggregator deadline ~2026-09-29 05:00 UTC — time-sensitive if John wants apply"
+        "Aggregator deadline ~2026-09-29 05:00 UTC \u2014 time-sensitive if John wants apply"
       ],
       "prepNote": "Ask-before-apply locked. Packet ready at status vetted; do NOT submit until location/ATS confirmed + apply_confirm. Borderline for location gate."
     },
@@ -1305,11 +1305,11 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Low-Medium",
-      "recommendation": "Prep packet — commercial payments fit; confirm US-remote/NYC + official ATS before apply (deadline may be 2026-09-29)",
-      "summary": "Senior Product Designer, GCS Technology at Amex. Themes: end-to-end commercial payments journeys, hi-fi specs for eng, design systems + mentoring, PM/eng collab, accessibility/journey mapping. Band $123–215k LI. Location/ATS unresolved."
+      "recommendation": "Prep packet \u2014 commercial payments fit; confirm US-remote/NYC + official ATS before apply (deadline may be 2026-09-29)",
+      "summary": "Senior Product Designer, GCS Technology at Amex. Themes: end-to-end commercial payments journeys, hi-fi specs for eng, design systems + mentoring, PM/eng collab, accessibility/journey mapping. Band $123\u2013215k LI. Location/ATS unresolved."
     },
-    "salary": "$123,000–$215,250 (LI provided range)",
-    "team": "Amex Tech — Global Commercial Services Technology",
+    "salary": "$123,000\u2013$215,250 (LI provided range)",
+    "team": "Amex Tech \u2014 Global Commercial Services Technology",
     "land": {
       "resumePath": "/board/resumes/amex-4469072303.pdf",
       "resumeFileName": "American-Express-Senior-Product-Designer-GCS.pdf",
@@ -1341,12 +1341,12 @@
       "fitScore": 6,
       "whyFits": [
         "NYC Mid UX in a large established design org",
-        "GenAI × premium shopping — adjacent to systems + complex flows",
-        "YOE bar is 5+, not a hard 7–8+ skip"
+        "GenAI \u00d7 premium shopping \u2014 adjacent to systems + complex flows",
+        "YOE bar is 5+, not a hard 7\u20138+ skip"
       ],
       "gaps": [
         "Retail / marketplace domain (vs wealth/fintech)",
-        "Title is UX Designer Mid, not Senior PD — scope-check with John"
+        "Title is UX Designer Mid, not Senior PD \u2014 scope-check with John"
       ]
     },
     "fit": {
@@ -1355,13 +1355,13 @@
       "seed": true,
       "score": "6/10",
       "confidence": "Medium",
-      "recommendation": "Apply if the GenAI × shopping brief is genuinely interesting — frame domain gap up front",
-      "summary": "Solid level and environment match for a Mid UX seat in a mature design org. The GenAI × elevated shopping brief sits adjacent to systems and complex flows you’ve shipped in wealth. The honest miss is retail / marketplace domain depth and a Mid UX title vs Senior PD trajectory — scope-check with John before investing a full packet.",
+      "recommendation": "Apply if the GenAI \u00d7 shopping brief is genuinely interesting \u2014 frame domain gap up front",
+      "summary": "Solid level and environment match for a Mid UX seat in a mature design org. The GenAI \u00d7 elevated shopping brief sits adjacent to systems and complex flows you\u2019ve shipped in wealth. The honest miss is retail / marketplace domain depth and a Mid UX title vs Senior PD trajectory \u2014 scope-check with John before investing a full packet.",
       "scorecard": [
         {
           "dimension": "Role level",
           "rating": "Strong",
-          "notes": "Mid UX; YOE bar 5+ — not a hard Senior skip"
+          "notes": "Mid UX; YOE bar 5+ \u2014 not a hard Senior skip"
         },
         {
           "dimension": "Functional experience",
@@ -1376,7 +1376,7 @@
         {
           "dimension": "Company stage / environment",
           "rating": "Strong",
-          "notes": "Public / established design org — matches stage gate"
+          "notes": "Public / established design org \u2014 matches stage gate"
         },
         {
           "dimension": "Customer / user type",
@@ -1386,13 +1386,13 @@
         {
           "dimension": "Required qualifications",
           "rating": "Moderate",
-          "notes": "GenAI interest is a plus; retail case studies not on résumé"
+          "notes": "GenAI interest is a plus; retail case studies not on r\u00e9sum\u00e9"
         }
       ],
       "strengths": [
         "NYC Mid UX in a large established design org",
-        "GenAI × premium shopping — adjacent to systems + complex flows",
-        "YOE bar is 5+, not a hard 7–8+ skip"
+        "GenAI \u00d7 premium shopping \u2014 adjacent to systems + complex flows",
+        "YOE bar is 5+, not a hard 7\u20138+ skip"
       ],
       "gaps": [
         {
@@ -1400,7 +1400,7 @@
           "kind": "true gap"
         },
         {
-          "text": "Title is UX Designer Mid, not Senior PD — scope-check with John",
+          "text": "Title is UX Designer Mid, not Senior PD \u2014 scope-check with John",
           "kind": "not shown"
         }
       ]
@@ -1413,13 +1413,13 @@
         {
           "headline": "Retail / marketplace domain depth",
           "kind": "Structural gap",
-          "interview": "Lead with transferable systems work (complex flows, multi-surface consistency) and ask how the Elevated Shopping team onboards designers from adjacent domains. Offer one concrete retail research plan you’d run in the first 30 days.",
+          "interview": "Lead with transferable systems work (complex flows, multi-surface consistency) and ask how the Elevated Shopping team onboards designers from adjacent domains. Offer one concrete retail research plan you\u2019d run in the first 30 days.",
           "longerTerm": "Ship one retail or marketplace case study (side project or contracted) before the next similar posting; keep a short domain glossary for shopping merchandising / conversion metrics."
         },
         {
           "headline": "Mid UX title vs Senior PD trajectory",
           "kind": "Frameable gap",
-          "interview": "Clarify scope: IC ownership, systems influence, and seniority bar on this team. Position Mid UX as the right entry if the brief is GenAI × shopping craft — not a step down if the org levels differently than fintech PD titles.",
+          "interview": "Clarify scope: IC ownership, systems influence, and seniority bar on this team. Position Mid UX as the right entry if the brief is GenAI \u00d7 shopping craft \u2014 not a step down if the org levels differently than fintech PD titles.",
           "longerTerm": "Align title strategy with John: when Mid UX is a bridge into a strong org vs when to hold for Senior PD."
         }
       ]
@@ -1428,10 +1428,10 @@
       "resumePath": "/board/resumes/amazon-10506011.pdf",
       "resumeFileName": "Amazon-Elevated-Shopping.pdf",
       "trackedLink": "https://johnrubino.design/hiring?t=Eh7ohW",
-      "contactCard": "No confirmed hiring manager or recruiter named on req 10506011.\nTeam: éShop Innovation (Elevated Shopping / Premium shopping experiences), Amazon Design, NYC.\nPossible design-recruiting contact to verify before send: Angelica Hernandez (Amazon design sourcing; NY among markets) — https://www.linkedin.com/in/angelica-hernandez1\nAlternate lead: Shanel Shack (Design Recruiting Manager @ Amazon) — https://www.linkedin.com/in/shanelshack — may not cover retail shopping; confirm org coverage.\nPosting: https://www.amazon.jobs/en/jobs/10506011/ux-designer-elevated-shopping-experience\nReplace [Name] in drafts after you pick a contact.",
+      "contactCard": "No confirmed hiring manager or recruiter named on req 10506011.\nTeam: \u00e9Shop Innovation (Elevated Shopping / Premium shopping experiences), Amazon Design, NYC.\nPossible design-recruiting contact to verify before send: Angelica Hernandez (Amazon design sourcing; NY among markets) \u2014 https://www.linkedin.com/in/angelica-hernandez1\nAlternate lead: Shanel Shack (Design Recruiting Manager @ Amazon) \u2014 https://www.linkedin.com/in/shanelshack \u2014 may not cover retail shopping; confirm org coverage.\nPosting: https://www.amazon.jobs/en/jobs/10506011/ux-designer-elevated-shopping-experience\nReplace [Name] in drafts after you pick a contact.",
       "drafts": {
-        "linkedin": "Hi [Name] — I applied to UX Designer, Elevated Shopping Experience on Amazon's éShop Innovation team (NYC). I'm a Senior Product Designer at BNY Pershing working on complex advisor workflows and AI-enabled design (Figma + working prototypes). Would you take a look or point me to the right person on the team?\n\nPortfolio: https://johnrubino.design/hiring?t=Eh7ohW\nReq: 10506011",
-        "email": "Subject: UX Designer, Elevated Shopping Experience (NYC) — John Rubino\n\nHi [Name],\n\nI applied to UX Designer, Elevated Shopping Experience on the éShop Innovation team (req 10506011). I'm a Senior Product Designer at BNY Pershing (Wealth Services), where I take product requirements through design into production and use AI tools to move faster in both Figma and code.\n\nThe GenAI × premium shopping brief sits close to the systems and complex-flow work I've been doing. Happy to share a short case walkthrough if useful.\n\nPortfolio: https://johnrubino.design/hiring?t=Eh7ohW\nLinkedIn: https://www.linkedin.com/in/john-rubino\nRésumé: attached / on my board packet\n\nThanks for your time,\nJohn Rubino\n917-439-2058\njohnrubinodesign@gmail.com"
+        "linkedin": "Hi [Name] \u2014 I applied to UX Designer, Elevated Shopping Experience on Amazon's \u00e9Shop Innovation team (NYC). I'm a Senior Product Designer at BNY Pershing working on complex advisor workflows and AI-enabled design (Figma + working prototypes). Would you take a look or point me to the right person on the team?\n\nPortfolio: https://johnrubino.design/hiring?t=Eh7ohW\nReq: 10506011",
+        "email": "Subject: UX Designer, Elevated Shopping Experience (NYC) \u2014 John Rubino\n\nHi [Name],\n\nI applied to UX Designer, Elevated Shopping Experience on the \u00e9Shop Innovation team (req 10506011). I'm a Senior Product Designer at BNY Pershing (Wealth Services), where I take product requirements through design into production and use AI tools to move faster in both Figma and code.\n\nThe GenAI \u00d7 premium shopping brief sits close to the systems and complex-flow work I've been doing. Happy to share a short case walkthrough if useful.\n\nPortfolio: https://johnrubino.design/hiring?t=Eh7ohW\nLinkedIn: https://www.linkedin.com/in/john-rubino\nR\u00e9sum\u00e9: attached / on my board packet\n\nThanks for your time,\nJohn Rubino\n917-439-2058\njohnrubinodesign@gmail.com"
       }
     },
     "lastChecked": "2026-09-22",
@@ -1453,12 +1453,12 @@
       "fitScore": 7,
       "whyFits": [
         "Senior IC with explicit continental-US remote",
-        "Kahoot-owned established Product & Design org — not tiny/1st designer",
-        "Auth/cybersecurity + AI-agent access design; no 7–8+ YOE bar"
+        "Kahoot-owned established Product & Design org \u2014 not tiny/1st designer",
+        "Auth/cybersecurity + AI-agent access design; no 7\u20138+ YOE bar"
       ],
       "gaps": [
         "Edtech / K-12 cybersecurity domain vs wealth/fintech",
-        "SF HQ option — confirm remote-first working model"
+        "SF HQ option \u2014 confirm remote-first working model"
       ]
     },
     "fit": {
@@ -1467,8 +1467,8 @@
       "seed": false,
       "score": "7/10",
       "confidence": "Medium",
-      "recommendation": "Strong clear — prep if cybersecurity / horizontal auth systems interest you",
-      "summary": "Senior IC seat with explicit US-remote flexibility inside a Kahoot-owned design org. The brief is horizontal auth and AI-agent access design — systems work that maps to complex enterprise flows. Main gaps are edtech domain and confirming remote culture vs SF HQ.",
+      "recommendation": "Strong clear \u2014 prep if cybersecurity / horizontal auth systems interest you",
+      "summary": "Senior IC seat with explicit US-remote flexibility inside a Kahoot-owned design org. The brief is horizontal auth and AI-agent access design \u2014 systems work that maps to complex enterprise flows. Main gaps are edtech domain and confirming remote culture vs SF HQ.",
       "scorecard": [
         {
           "dimension": "Role level",
@@ -1498,7 +1498,7 @@
         {
           "dimension": "Required qualifications",
           "rating": "Strong",
-          "notes": "No hard 7–8+ YOE; senior craft bar"
+          "notes": "No hard 7\u20138+ YOE; senior craft bar"
         }
       ],
       "strengths": [
@@ -1512,7 +1512,7 @@
           "kind": "true gap"
         },
         {
-          "text": "SF HQ option — confirm remote-first working model",
+          "text": "SF HQ option \u2014 confirm remote-first working model",
           "kind": "frameable"
         }
       ]
@@ -1553,12 +1553,12 @@
       "gatesPass": true,
       "fitScore": 8,
       "whyFits": [
-        "NYC Senior IC fintech banking — core domain fit",
-        "4+ YOE bar (not 7–8+); multi-level design org (Staff/Principal/Design Systems also open)",
+        "NYC Senior IC fintech banking \u2014 core domain fit",
+        "4+ YOE bar (not 7\u20138+); multi-level design org (Staff/Principal/Design Systems also open)",
         "AI-era business banking platform"
       ],
       "gaps": [
-        "Ashby listing open since Oct 2025 — check if still actively hiring",
+        "Ashby listing open since Oct 2025 \u2014 check if still actively hiring",
         "May compete with Staff/Principal lanes internally"
       ]
     },
@@ -1568,8 +1568,8 @@
       "seed": false,
       "score": "8/10",
       "confidence": "Medium-High",
-      "recommendation": "Top clear this run — prep résumé if still actively hiring",
-      "summary": "NYC Senior Product Designer on an AI-era business banking platform with a 4+ YOE bar and a multi-seat design org. Strong domain and level match to Pershing/wealth work. Main caution is listing age (open since Oct 2025) — confirm the seat is still live before a full packet.",
+      "recommendation": "Top clear this run \u2014 prep r\u00e9sum\u00e9 if still actively hiring",
+      "summary": "NYC Senior Product Designer on an AI-era business banking platform with a 4+ YOE bar and a multi-seat design org. Strong domain and level match to Pershing/wealth work. Main caution is listing age (open since Oct 2025) \u2014 confirm the seat is still live before a full packet.",
       "scorecard": [
         {
           "dimension": "Role level",
@@ -1599,7 +1599,7 @@
         {
           "dimension": "Required qualifications",
           "rating": "Strong",
-          "notes": "4+ YOE — in band"
+          "notes": "4+ YOE \u2014 in band"
         }
       ],
       "strengths": [
@@ -1609,11 +1609,11 @@
       ],
       "gaps": [
         {
-          "text": "Listing open since Oct 2025 — confirm still hiring",
+          "text": "Listing open since Oct 2025 \u2014 confirm still hiring",
           "kind": "frameable"
         },
         {
-          "text": "Staff/Principal seats also open — clarify Senior IC scope",
+          "text": "Staff/Principal seats also open \u2014 clarify Senior IC scope",
           "kind": "frameable"
         }
       ]
@@ -1661,11 +1661,11 @@
       "whyFits": [
         "NYC Mid UX in established Amazon design org",
         "Design systems + visual design focus matches systems interest",
-        "YOE ~3–5+ — not a hard 7–8+ skip"
+        "YOE ~3\u20135+ \u2014 not a hard 7\u20138+ skip"
       ],
       "gaps": [
         "Autos / automotive domain vs wealth/fintech",
-        "Mid UX title vs Senior PD trajectory — scope-check"
+        "Mid UX title vs Senior PD trajectory \u2014 scope-check"
       ]
     },
     "fit": {
@@ -1674,13 +1674,13 @@
       "seed": false,
       "score": "7/10",
       "confidence": "Medium",
-      "recommendation": "Clear if systems craft pull is strong — distinct from Elevated Shopping",
+      "recommendation": "Clear if systems craft pull is strong \u2014 distinct from Elevated Shopping",
       "summary": "Mid UX seat focused on design systems and visual design for Amazon Autos in NYC. Strong environment and systems match; domain is automotive rather than wealth. Distinct from the already-sent Elevated Shopping card.",
       "scorecard": [
         {
           "dimension": "Role level",
           "rating": "Strong",
-          "notes": "Mid UX; YOE ~3–5+"
+          "notes": "Mid UX; YOE ~3\u20135+"
         },
         {
           "dimension": "Functional experience",
@@ -1711,7 +1711,7 @@
       "strengths": [
         "NYC Mid UX; Amazon established design org",
         "Design systems + visual design focus",
-        "YOE band not a 7–8+ skip"
+        "YOE band not a 7\u20138+ skip"
       ],
       "gaps": [
         {
@@ -1759,7 +1759,7 @@
     "dateFound": "2026-09-23",
     "location": "US remote",
     "level": "Senior",
-    "stageGate": "Growth SaaS (CRE) — Series A+ OK",
+    "stageGate": "Growth SaaS (CRE) \u2014 Series A+ OK",
     "status": "skipped",
     "isNew": false,
     "vet": {
@@ -1767,11 +1767,11 @@
       "fitScore": 5,
       "whyFits": [
         "US remote Senior IC; 5+ YOE; not 1st designer (partners + mentors small team)",
-        "Pub Sep 22 — fresh"
+        "Pub Sep 22 \u2014 fresh"
       ],
       "gaps": [
         "CRE brokerage domain",
-        "Salary band $125–150k may be light vs Senior NYC",
+        "Salary band $125\u2013150k may be light vs Senior NYC",
         "Reports to SVP Product"
       ]
     },
@@ -1781,8 +1781,8 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — only if CRE SaaS + remote Senior is interesting despite lighter band",
-      "summary": "Remote Senior PD with a small but real design bench (not founding-1st). CRE brokerage domain and $125–150k band make this secondary to fintech/AI clears.",
+      "recommendation": "Borderline \u2014 only if CRE SaaS + remote Senior is interesting despite lighter band",
+      "summary": "Remote Senior PD with a small but real design bench (not founding-1st). CRE brokerage domain and $125\u2013150k band make this secondary to fintech/AI clears.",
       "scorecard": [
         {
           "dimension": "Role level",
@@ -1812,7 +1812,7 @@
         {
           "dimension": "Required qualifications",
           "rating": "Strong",
-          "notes": "5+ YOE — in band"
+          "notes": "5+ YOE \u2014 in band"
         }
       ],
       "strengths": [
@@ -1825,7 +1825,7 @@
           "kind": "true gap"
         },
         {
-          "text": "Salary band $125–150k may be light",
+          "text": "Salary band $125\u2013150k may be light",
           "kind": "true gap"
         }
       ]
@@ -1860,11 +1860,11 @@
       "gatesPass": true,
       "fitScore": 5,
       "whyFits": [
-        "US remote; 4–6+ YOE; design system + AI tooling; Medicare/fintech-adjacent ops"
+        "US remote; 4\u20136+ YOE; design system + AI tooling; Medicare/fintech-adjacent ops"
       ],
       "gaps": [
-        "JD “ground floor” language → early design-bench caution",
-        "First pub Sep 16 — still relatively new"
+        "JD \u201cground floor\u201d language \u2192 early design-bench caution",
+        "First pub Sep 16 \u2014 still relatively new"
       ]
     },
     "fit": {
@@ -1873,13 +1873,13 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — interesting AI + ops tooling, but ground-floor team-size risk",
-      "summary": "Remote Senior PD on Medicare/fintech-adjacent ops with design system and AI tooling mentions. Compelling product surface, but “ground floor” language flags an early design bench — treat as secondary to clearer established-org seats.",
+      "recommendation": "Borderline \u2014 interesting AI + ops tooling, but ground-floor team-size risk",
+      "summary": "Remote Senior PD on Medicare/fintech-adjacent ops with design system and AI tooling mentions. Compelling product surface, but \u201cground floor\u201d language flags an early design bench \u2014 treat as secondary to clearer established-org seats.",
       "scorecard": [
         {
           "dimension": "Role level",
           "rating": "Moderate",
-          "notes": "Senior; 4–6+ YOE"
+          "notes": "Senior; 4\u20136+ YOE"
         },
         {
           "dimension": "Functional experience",
@@ -1904,7 +1904,7 @@
         {
           "dimension": "Required qualifications",
           "rating": "Strong",
-          "notes": "4–6+ YOE in band"
+          "notes": "4\u20136+ YOE in band"
         }
       ],
       "strengths": [
@@ -1924,7 +1924,7 @@
       "seed": false,
       "gaps": [
         {
-          "headline": "Early design bench (“ground floor”)",
+          "headline": "Early design bench (\u201cground floor\u201d)",
           "kind": "Structural gap",
           "interview": "Ask exact design headcount, who owns craft critique, and whether this is effectively a first/second designer seat despite Senior title.",
           "longerTerm": "Hard-skip if it turns out to be 1st/2nd designer despite the title."
@@ -1940,14 +1940,14 @@
     "dateFound": "2026-09-24",
     "location": "NYC (Hudson Square, 4 days/week)",
     "level": "Senior",
-    "stageGate": "Series C (IVP / a16z / Lightspeed) — healthtech AI",
+    "stageGate": "Series C (IVP / a16z / Lightspeed) \u2014 healthtech AI",
     "status": "sent",
     "isNew": false,
     "vet": {
       "gatesPass": true,
       "fitScore": 7,
       "whyFits": [
-        "NYC Senior IC; 5+ YOE; Design dept + Senior UX Engineer also open → not 1st designer",
+        "NYC Senior IC; 5+ YOE; Design dept + Senior UX Engineer also open \u2192 not 1st designer",
         "Series C (~$101M / $605M) clears stage gate",
         "Complex desktop healthcare ops workflows + systems-level design; Figma + code prototypes"
       ],
@@ -1962,13 +1962,13 @@
       "seed": false,
       "score": "7/10",
       "confidence": "Medium",
-      "recommendation": "Strong clear — Senior IC in Series C design org; frame wealth→healthcare ops workflow transfer",
-      "summary": "NYC Senior PD owning Tennr’s core work surfaces (Validate / Workspace → Patient Hub). Series C healthtech with a real Design function (Senior PD + Senior UX Engineer open). Craft bar fits (complex desktop, systems, Figma+code). Main gap is healthcare referral-ops domain vs wealth; onsite 4 days/week in Hudson Square.",
+      "recommendation": "Strong clear \u2014 Senior IC in Series C design org; frame wealth\u2192healthcare ops workflow transfer",
+      "summary": "NYC Senior PD owning Tennr\u2019s core work surfaces (Validate / Workspace \u2192 Patient Hub). Series C healthtech with a real Design function (Senior PD + Senior UX Engineer open). Craft bar fits (complex desktop, systems, Figma+code). Main gap is healthcare referral-ops domain vs wealth; onsite 4 days/week in Hudson Square.",
       "scorecard": [
         {
           "dimension": "Role level",
           "rating": "Strong",
-          "notes": "Senior IC; 5+ YOE — in band"
+          "notes": "Senior IC; 5+ YOE \u2014 in band"
         },
         {
           "dimension": "Functional experience",
@@ -1978,7 +1978,7 @@
         {
           "dimension": "Domain",
           "rating": "Moderate",
-          "notes": "Healthcare ops vs wealth/fintech — transferable workflow craft"
+          "notes": "Healthcare ops vs wealth/fintech \u2014 transferable workflow craft"
         },
         {
           "dimension": "Company stage / environment",
@@ -2054,13 +2054,13 @@
       "gatesPass": true,
       "fitScore": 8,
       "whyFits": [
-        "NYC Senior PD; 5–7 YOE — in band (not hard 7–8+)",
-        "Wealth / RIA advisor platform — strongest domain match of this watch",
+        "NYC Senior PD; 5\u20137 YOE \u2014 in band (not hard 7\u20138+)",
+        "Wealth / RIA advisor platform \u2014 strongest domain match of this watch",
         "Series C+ with $30B+ platform AUM; Product Designers plural"
       ],
       "gaps": [
         "Fully onsite SoHo",
-        "YOE framed as 5–7 (upper end stretch vs ~4+ baseline — still clears)"
+        "YOE framed as 5\u20137 (upper end stretch vs ~4+ baseline \u2014 still clears)"
       ]
     },
     "fit": {
@@ -2069,13 +2069,13 @@
       "seed": false,
       "score": "8/10",
       "confidence": "High",
-      "recommendation": "Top clear this watch — wealth/RIA Senior PD in NYC; prioritize packet",
-      "summary": "Senior Product Designer for Vise’s advisor platform (personalized portfolios / RIA tooling) onsite in SoHo. Domain is a direct match to Pershing Wealth Services. Stage and design language clear Series C+ with plural Product Designers. YOE 5–7 sits in band. Main tradeoff is full onsite SoHo.",
+      "recommendation": "Top clear this watch \u2014 wealth/RIA Senior PD in NYC; prioritize packet",
+      "summary": "Senior Product Designer for Vise\u2019s advisor platform (personalized portfolios / RIA tooling) onsite in SoHo. Domain is a direct match to Pershing Wealth Services. Stage and design language clear Series C+ with plural Product Designers. YOE 5\u20137 sits in band. Main tradeoff is full onsite SoHo.",
       "scorecard": [
         {
           "dimension": "Role level",
           "rating": "Strong",
-          "notes": "Senior IC; 5–7 YOE in band"
+          "notes": "Senior IC; 5\u20137 YOE in band"
         },
         {
           "dimension": "Functional experience",
@@ -2085,7 +2085,7 @@
         {
           "dimension": "Domain",
           "rating": "Strong",
-          "notes": "Wealth / RIA — direct Pershing adjacency"
+          "notes": "Wealth / RIA \u2014 direct Pershing adjacency"
         },
         {
           "dimension": "Company stage / environment",
@@ -2095,12 +2095,12 @@
         {
           "dimension": "Customer / user type",
           "rating": "Strong",
-          "notes": "Financial advisors — same user class as wealth work"
+          "notes": "Financial advisors \u2014 same user class as wealth work"
         },
         {
           "dimension": "Required qualifications",
           "rating": "Strong",
-          "notes": "5–7 YOE; portfolio of shipped cross-functional work"
+          "notes": "5\u20137 YOE; portfolio of shipped cross-functional work"
         }
       ],
       "strengths": [
@@ -2114,7 +2114,7 @@
           "kind": "true gap"
         },
         {
-          "text": "5–7 YOE framing (upper band)",
+          "text": "5\u20137 YOE framing (upper band)",
           "kind": "not shown"
         }
       ]
@@ -2133,7 +2133,7 @@
         {
           "headline": "Advisor platform depth vs clearing/servicing",
           "kind": "Frameable gap",
-          "interview": "Map Pershing Wealth Services (NAO, asset movement, FPL, Wove) → advisor time-save and client-explainability narratives on Vise.",
+          "interview": "Map Pershing Wealth Services (NAO, asset movement, FPL, Wove) \u2192 advisor time-save and client-explainability narratives on Vise.",
           "longerTerm": "Keep a short RIA-platform glossary (AUM, model portfolios, alternatives)."
         }
       ]
@@ -2148,20 +2148,20 @@
     "dateFound": "2026-09-24",
     "location": "NYC",
     "level": "Senior",
-    "stageGate": "Series D ($60M 2026) — established design (reports to Director of PD)",
+    "stageGate": "Series D ($60M 2026) \u2014 established design (reports to Director of PD)",
     "status": "skipped",
     "isNew": false,
     "vet": {
       "gatesPass": true,
       "fitScore": 7,
       "whyFits": [
-        "NYC Senior IC; 5+ YOE; reports to Director of Product Design → not 1st/tiny",
+        "NYC Senior IC; 5+ YOE; reports to Director of Product Design \u2192 not 1st/tiny",
         "Series D (Forerunner / Thrive / Insight) clears stage",
         "AI-woven advisor workflow SaaS + design system contribution"
       ],
       "gaps": [
         "Travel-advisor domain (not fintech)",
-        "JD calls out early Design hire during rapid growth — bench still maturing",
+        "JD calls out early Design hire during rapid growth \u2014 bench still maturing",
         "Posting first published Oct 2024 (long-open)"
       ]
     },
@@ -2171,8 +2171,8 @@
       "seed": false,
       "score": "7/10",
       "confidence": "Medium",
-      "recommendation": "Clear — solid Senior IC + Director-led design org; domain is travel SaaS not wealth",
-      "summary": "Senior PD on Fora’s advisor portal (onboarding, CRM, booking, commissions) reporting to Director of Product Design. Series D NYC company with AI tooling emphasis. Level and org gates clear. Gaps: travel domain vs wealth, and long-open posting since Oct 2024 — confirm still actively hiring.",
+      "recommendation": "Clear \u2014 solid Senior IC + Director-led design org; domain is travel SaaS not wealth",
+      "summary": "Senior PD on Fora\u2019s advisor portal (onboarding, CRM, booking, commissions) reporting to Director of Product Design. Series D NYC company with AI tooling emphasis. Level and org gates clear. Gaps: travel domain vs wealth, and long-open posting since Oct 2024 \u2014 confirm still actively hiring.",
       "scorecard": [
         {
           "dimension": "Role level",
@@ -2182,7 +2182,7 @@
         {
           "dimension": "Functional experience",
           "rating": "Strong",
-          "notes": "0–1 + iteration; design system; research"
+          "notes": "0\u20131 + iteration; design system; research"
         },
         {
           "dimension": "Domain",
@@ -2197,7 +2197,7 @@
         {
           "dimension": "Customer / user type",
           "rating": "Moderate",
-          "notes": "Travel advisors — operator workflow adjacency"
+          "notes": "Travel advisors \u2014 operator workflow adjacency"
         },
         {
           "dimension": "Required qualifications",
@@ -2228,7 +2228,7 @@
         {
           "headline": "Travel-advisor domain",
           "kind": "Structural gap",
-          "interview": "Frame operator-workflow craft (Pershing) → Fora Portal CRM/booking/commission flows; ask where AI tooling is shipping now.",
+          "interview": "Frame operator-workflow craft (Pershing) \u2192 Fora Portal CRM/booking/commission flows; ask where AI tooling is shipping now.",
           "longerTerm": "Only invest full packet if travel SaaS is interesting vs fintech clears."
         },
         {
@@ -2249,16 +2249,16 @@
     "dateFound": "2026-09-24",
     "location": "NYC (4 days in office)",
     "level": "Mid",
-    "stageGate": "Series D (~$5B) — established design org",
+    "stageGate": "Series D (~$5B) \u2014 established design org",
     "status": "skipped",
     "isNew": false,
     "vet": {
       "gatesPass": true,
       "fitScore": 6,
       "whyFits": [
-        "NYC Mid PD; 3+ YOE — in bar",
-        "Series D / ~$5B; multi PD + LXD openings → established design",
-        "Design system + digital×physical journeys; AI tooling in craft"
+        "NYC Mid PD; 3+ YOE \u2014 in bar",
+        "Series D / ~$5B; multi PD + LXD openings \u2192 established design",
+        "Design system + digital\u00d7physical journeys; AI tooling in craft"
       ],
       "gaps": [
         "Parking / physical-world AI domain (far from wealth)",
@@ -2272,8 +2272,8 @@
       "seed": false,
       "score": "6/10",
       "confidence": "Medium",
-      "recommendation": "Clear Mid — only if digital×physical / applied-AI craft is interesting; domain is a stretch",
-      "summary": "Mid Product Designer on Metropolis’s Recognition Economy surfaces (parking → retail/hospitality). Series D unicorn-scale with a real design bench. YOE 3+ and systems work fit. Honest misses: parking/physical domain vs wealth, Mid title, and 4-day office-first NYC.",
+      "recommendation": "Clear Mid \u2014 only if digital\u00d7physical / applied-AI craft is interesting; domain is a stretch",
+      "summary": "Mid Product Designer on Metropolis\u2019s Recognition Economy surfaces (parking \u2192 retail/hospitality). Series D unicorn-scale with a real design bench. YOE 3+ and systems work fit. Honest misses: parking/physical domain vs wealth, Mid title, and 4-day office-first NYC.",
       "scorecard": [
         {
           "dimension": "Role level",
@@ -2303,7 +2303,7 @@
         {
           "dimension": "Required qualifications",
           "rating": "Strong",
-          "notes": "3+ YOE; Figma; digital×physical a plus"
+          "notes": "3+ YOE; Figma; digital\u00d7physical a plus"
         }
       ],
       "strengths": [
@@ -2329,7 +2329,7 @@
         {
           "headline": "Domain distance (parking / physical AI)",
           "kind": "Structural gap",
-          "interview": "Only pursue if digital×physical systems work is a deliberate interest; lead with multi-surface consistency craft.",
+          "interview": "Only pursue if digital\u00d7physical systems work is a deliberate interest; lead with multi-surface consistency craft.",
           "longerTerm": "Deprioritize vs wealth clears (Vise/Tennr)."
         },
         {
@@ -2350,15 +2350,15 @@
     "dateFound": "2026-09-24",
     "location": "NYC (Chelsea hybrid, 4 days/week)",
     "level": "Mid",
-    "stageGate": "Series C (General Catalyst / SignalFire / Sapphire) — small design bench",
+    "stageGate": "Series C (General Catalyst / SignalFire / Sapphire) \u2014 small design bench",
     "status": "skipped",
     "isNew": false,
     "vet": {
       "gatesPass": true,
       "fitScore": 5,
       "whyFits": [
-        "NYC Mid PD; 3–7 YOE; Series C stage clears",
-        "Workflow-heavy clinical coordination software — systems craft transfer",
+        "NYC Mid PD; 3\u20137 YOE; Series C stage clears",
+        "Workflow-heavy clinical coordination software \u2014 systems craft transfer",
         "Design has a seat early; not founding-1st (joining as 3rd designer)"
       ],
       "gaps": [
@@ -2373,13 +2373,13 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — Series C + NYC Mid OK, but 3-person design bench is early vs preferred established orgs",
-      "summary": "Mid Product Designer on Verse’s care-coordination platform. Series C and YOE clear. Team is explicitly two other designers (you’d be ~3rd) — clears “not 1st” but fails the established-design-org preference. Healthcare domain gap. Board as borderline.",
+      "recommendation": "Borderline \u2014 Series C + NYC Mid OK, but 3-person design bench is early vs preferred established orgs",
+      "summary": "Mid Product Designer on Verse\u2019s care-coordination platform. Series C and YOE clear. Team is explicitly two other designers (you\u2019d be ~3rd) \u2014 clears \u201cnot 1st\u201d but fails the established-design-org preference. Healthcare domain gap. Board as borderline.",
       "scorecard": [
         {
           "dimension": "Role level",
           "rating": "Moderate",
-          "notes": "Mid; 3–7 YOE"
+          "notes": "Mid; 3\u20137 YOE"
         },
         {
           "dimension": "Functional experience",
@@ -2404,7 +2404,7 @@
         {
           "dimension": "Required qualifications",
           "rating": "Strong",
-          "notes": "3–7 YOE shipping complex workflow software"
+          "notes": "3\u20137 YOE shipping complex workflow software"
         }
       ],
       "strengths": [
@@ -2436,7 +2436,7 @@
         {
           "headline": "Healthcare domain",
           "kind": "Frameable gap",
-          "interview": "Map complex exception UX from wealth ops → care coordination; ask about clinician vs coordinator primary user.",
+          "interview": "Map complex exception UX from wealth ops \u2192 care coordination; ask about clinician vs coordinator primary user.",
           "longerTerm": "n/a unless healthcare becomes a lane."
         }
       ]
@@ -2451,7 +2451,7 @@
     "dateFound": "2026-09-25",
     "location": "NYC (Hybrid)",
     "level": "Mid",
-    "stageGate": "Series B (~$90M total / Accel + Kleiner) — Design dept with Staff+Principal also open",
+    "stageGate": "Series B (~$90M total / Accel + Kleiner) \u2014 Design dept with Staff+Principal also open",
     "status": "skipped",
     "isNew": false,
     "seed": false,
@@ -2459,14 +2459,14 @@
       "gatesPass": true,
       "fitScore": 7,
       "whyFits": [
-        "NYC Hybrid Mid PD; 4+ YOE — in bar",
-        "Series B (~$90M, Accel/KP) clears stage; Design dept with Staff + Principal openings → established design org",
-        "AI agent workforce for construction permitting — complex compliance workflows + systems craft; Figma/Notion/Linear"
+        "NYC Hybrid Mid PD; 4+ YOE \u2014 in bar",
+        "Series B (~$90M, Accel/KP) clears stage; Design dept with Staff + Principal openings \u2192 established design org",
+        "AI agent workforce for construction permitting \u2014 complex compliance workflows + systems craft; Figma/Notion/Linear"
       ],
       "gaps": [
         "Construction / permitting domain (vs wealth/fintech)",
         "Mid title vs Senior PD trajectory",
-        "JD notes early/flux process (“help establish early processes”)"
+        "JD notes early/flux process (\u201chelp establish early processes\u201d)"
       ]
     },
     "fit": {
@@ -2475,13 +2475,13 @@
       "seed": false,
       "score": "7/10",
       "confidence": "Medium",
-      "recommendation": "Clear Mid — Series B AI workflow product with a real Design bench (Staff+Principal also hiring); domain is construction not wealth",
-      "summary": "Mid Product Designer on PermitFlow’s AI permitting / pre-construction platform (NYC Hybrid). Series B with ~$90M raised (Accel, Kleiner Perkins). Design org is real — Staff and Principal PD seats open alongside this Mid IC. YOE 4+ and complex compliance workflow craft fit. Gaps: construction domain vs wealth, Mid title, and still-forming design process language.",
+      "recommendation": "Clear Mid \u2014 Series B AI workflow product with a real Design bench (Staff+Principal also hiring); domain is construction not wealth",
+      "summary": "Mid Product Designer on PermitFlow\u2019s AI permitting / pre-construction platform (NYC Hybrid). Series B with ~$90M raised (Accel, Kleiner Perkins). Design org is real \u2014 Staff and Principal PD seats open alongside this Mid IC. YOE 4+ and complex compliance workflow craft fit. Gaps: construction domain vs wealth, Mid title, and still-forming design process language.",
       "scorecard": [
         {
           "dimension": "Role level",
           "rating": "Moderate",
-          "notes": "Mid PD; 4+ YOE — in bar"
+          "notes": "Mid PD; 4+ YOE \u2014 in bar"
         },
         {
           "dimension": "Functional experience",
@@ -2491,7 +2491,7 @@
         {
           "dimension": "Domain",
           "rating": "Moderate",
-          "notes": "Construction permitting AI — transferable workflow systems, not wealth"
+          "notes": "Construction permitting AI \u2014 transferable workflow systems, not wealth"
         },
         {
           "dimension": "Company stage / environment",
@@ -2542,7 +2542,7 @@
     "dateFound": "2026-09-25",
     "location": "US remote (US time zones)",
     "level": "Mid",
-    "stageGate": "Series A (~$10M 2023; YC + Craft) — small but established design team",
+    "stageGate": "Series A (~$10M 2023; YC + Craft) \u2014 small but established design team",
     "status": "skipped",
     "isNew": false,
     "seed": false,
@@ -2552,11 +2552,11 @@
       "whyFits": [
         "US-remote Mid/generalist PD; Series A clears seed hard-no",
         "Design team described as small but established (not founding-1st); AI-forward Figma/code craft",
-        "B2B entity / mailroom product with digital×physical systems"
+        "B2B entity / mailroom product with digital\u00d7physical systems"
       ],
       "gaps": [
         "Small design bench vs preferred established orgs",
-        "6+ YOE stated — stretch for ~4+ band",
+        "6+ YOE stated \u2014 stretch for ~4+ band",
         "Virtual mailbox / entity-ops domain (less impactful than wealth/AI flags)"
       ]
     },
@@ -2566,8 +2566,8 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — Series A + remote US OK, but small design team + 6+ YOE stretch + mail/entity domain",
-      "summary": "Product Designer (generalist) at Stable (virtual business address + mailroom). Series A (YC/Craft) clears stage. Remote US. Team is explicitly small-but-established (collaborate with experienced designers) — not 1st designer, but fails established-org preference. 6+ YOE is a stretch. Domain is entity/mail ops rather than wealth or frontier AI product.",
+      "recommendation": "Borderline \u2014 Series A + remote US OK, but small design team + 6+ YOE stretch + mail/entity domain",
+      "summary": "Product Designer (generalist) at Stable (virtual business address + mailroom). Series A (YC/Craft) clears stage. Remote US. Team is explicitly small-but-established (collaborate with experienced designers) \u2014 not 1st designer, but fails established-org preference. 6+ YOE is a stretch. Domain is entity/mail ops rather than wealth or frontier AI product.",
       "scorecard": [
         {
           "dimension": "Role level",
@@ -2619,7 +2619,7 @@
         }
       ],
       "gapAnalysis": {
-        "whyFit": "US-remote PD at Series A B2B with a small established design team; AI-enabled craft and digital×physical systems transfer.",
+        "whyFit": "US-remote PD at Series A B2B with a small established design team; AI-enabled craft and digital\u00d7physical systems transfer.",
         "gap": "Small design bench, 6+ YOE stretch, and virtual-mailbox domain underwhelm vs preferred established design orgs / wealth-AI impact."
       }
     },
@@ -2633,7 +2633,7 @@
     "dateFound": "2026-09-25",
     "location": "NYC (5x onsite, West Village)",
     "level": "Mid",
-    "stageGate": "Series C (~$78M; $134M total / Index + a16z + Lightspeed) — ~3-person design bench incl. Founding Designer",
+    "stageGate": "Series C (~$78M; $134M total / Index + a16z + Lightspeed) \u2014 ~3-person design bench incl. Founding Designer",
     "status": "sent",
     "isNew": false,
     "seed": false,
@@ -2641,12 +2641,12 @@
       "gatesPass": false,
       "fitScore": 6,
       "whyFits": [
-        "NYC Mid PD; 2+ YOE — in bar; Series C wealth/AI OS clears stage hard-no",
-        "AI operating system for investment management ($10T+ AUM clients) — strongest domain/impact fit of this watch",
+        "NYC Mid PD; 2+ YOE \u2014 in bar; Series C wealth/AI OS clears stage hard-no",
+        "AI operating system for investment management ($10T+ AUM clients) \u2014 strongest domain/impact fit of this watch",
         "a16z portfolio catch-net; missed by ATS slug list this morning"
       ],
       "gaps": [
-        "Tiny design bench (~3 on LinkedIn Design incl. Founding Designer; JD 'establish foundation / design language') — fails established-org preference",
+        "Tiny design bench (~3 on LinkedIn Design incl. Founding Designer; JD 'establish foundation / design language') \u2014 fails established-org preference",
         "5x/week West Village onsite",
         "Mid title; foundational/early design-process language"
       ],
@@ -2658,8 +2658,8 @@
       "seed": false,
       "score": "6/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — elite wealth/AI Series C NYC Mid, but ~3-person design bench + founding-designer present fails established-org preference",
-      "summary": "Product Designer at Moment (AI OS for investment management). Series C (~$78M / $134M total; Index, a16z, Lightspeed). NYC 5x onsite. Domain is a direct Pershing/wealth adjacency with AI-native craft. Honest miss: design org is still tiny (~3 including Founding Designer) and JD asks you to establish the foundation — same tiny-bench pattern as Verse/Stable.",
+      "recommendation": "Borderline \u2014 elite wealth/AI Series C NYC Mid, but ~3-person design bench + founding-designer present fails established-org preference",
+      "summary": "Product Designer at Moment (AI OS for investment management). Series C (~$78M / $134M total; Index, a16z, Lightspeed). NYC 5x onsite. Domain is a direct Pershing/wealth adjacency with AI-native craft. Honest miss: design org is still tiny (~3 including Founding Designer) and JD asks you to establish the foundation \u2014 same tiny-bench pattern as Verse/Stable.",
       "scorecard": [
         {
           "dimension": "Role level",
@@ -2689,7 +2689,7 @@
         {
           "dimension": "Required qualifications",
           "rating": "Strong",
-          "notes": "2+ YOE — in band"
+          "notes": "2+ YOE \u2014 in band"
         }
       ]
     },
@@ -2709,7 +2709,7 @@
     "dateFound": "2026-09-25",
     "location": "US remote",
     "level": "Mid",
-    "stageGate": "Series C ($108M at $1B / TGP + Index + GC + a16z) — design team exists but Head of Design also open",
+    "stageGate": "Series C ($108M at $1B / TGP + Index + GC + a16z) \u2014 design team exists but Head of Design also open",
     "status": "sent",
     "isNew": false,
     "seed": false,
@@ -2717,14 +2717,14 @@
       "gatesPass": false,
       "fitScore": 5,
       "whyFits": [
-        "US-remote Mid PD; 4+ YOE — in bar",
+        "US-remote Mid PD; 4+ YOE \u2014 in bar",
         "Series C unicorn-scale ($1B) clears stage; consumer-directed health benefits product",
         "a16z portfolio catch-net; not on prior skip list"
       ],
       "gaps": [
-        "Design org still maturing — Head of Design also open; JD 'early stage' + own branding+PD scope",
+        "Design org still maturing \u2014 Head of Design also open; JD 'early stage' + own branding+PD scope",
         "Healthcare benefits domain (vs wealth/fintech)",
-        "Posting first appeared Mar 2026 — confirm still actively hiring"
+        "Posting first appeared Mar 2026 \u2014 confirm still actively hiring"
       ],
       "prepNote": "John confirm-only prep despite gatesPass false (maturing design org / Head of Design open). Packet ready; do not apply until apply_confirm."
     },
@@ -2734,8 +2734,8 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — Series C US-remote Mid OK, but early design leadership gap (Head of Design open) + healthcare domain",
-      "summary": "Product Designer (US remote) at Thatch, consumer-directed health benefits. Series C $108M at $1B (TGP/Index/GC/a16z). 4+ YOE Mid IC. Design team has members (portfolio review) and is hiring a Head of Design — not 1st designer, but not an established design org yet. Domain is healthcare benefits vs wealth.",
+      "recommendation": "Borderline \u2014 Series C US-remote Mid OK, but early design leadership gap (Head of Design open) + healthcare domain",
+      "summary": "Product Designer (US remote) at Thatch, consumer-directed health benefits. Series C $108M at $1B (TGP/Index/GC/a16z). 4+ YOE Mid IC. Design team has members (portfolio review) and is hiring a Head of Design \u2014 not 1st designer, but not an established design org yet. Domain is healthcare benefits vs wealth.",
       "scorecard": [
         {
           "dimension": "Role level",
@@ -2785,7 +2785,7 @@
     "dateFound": "2026-09-25",
     "location": "US remote / Boston hybrid / NYC hybrid",
     "level": "Senior",
-    "stageGate": "Public (Toast) — Consumer Design team (startup-within)",
+    "stageGate": "Public (Toast) \u2014 Consumer Design team (startup-within)",
     "status": "sent",
     "isNew": false,
     "seed": false,
@@ -2793,12 +2793,12 @@
       "gatesPass": true,
       "fitScore": 8,
       "whyFits": [
-        "Senior IC; US remote + NYC hybrid — clears location gate",
+        "Senior IC; US remote + NYC hybrid \u2014 clears location gate",
         "Public company with established design org; Consumer Design has autonomy but is not a tiny shop",
-        "Consumer booking / dual-sided guest+ops + AI prototyping — strong craft + systems match"
+        "Consumer booking / dual-sided guest+ops + AI prototyping \u2014 strong craft + systems match"
       ],
       "gaps": [
-        "JD asks 5–7+ YOE consumer (stretch vs ~4+ baseline — still in Senior IC band)",
+        "JD asks 5\u20137+ YOE consumer (stretch vs ~4+ baseline \u2014 still in Senior IC band)",
         "Reservations/booking domain is new vs wealth/fintech"
       ]
     },
@@ -2808,8 +2808,8 @@
       "seed": false,
       "score": "8/10",
       "confidence": "High",
-      "recommendation": "Prep packet — clear Senior IC public + NYC/remote; consumer booking stretch is honest but craft/AI prototype fit is strong",
-      "summary": "Senior Product Designer owning Toast reservations/booking end to end on the Consumer Design team. US remote or Boston/NYC hybrid. Themes: ambiguous→POV+prototype, dual-sided guest/ops, AI prototyping + Figma craft, native/responsive quality, phased experiments."
+      "recommendation": "Prep packet \u2014 clear Senior IC public + NYC/remote; consumer booking stretch is honest but craft/AI prototype fit is strong",
+      "summary": "Senior Product Designer owning Toast reservations/booking end to end on the Consumer Design team. US remote or Boston/NYC hybrid. Themes: ambiguous\u2192POV+prototype, dual-sided guest/ops, AI prototyping + Figma craft, native/responsive quality, phased experiments."
     },
     "land": {
       "resumePath": "/board/resumes/toast-8208289.pdf",
@@ -2827,7 +2827,7 @@
     "dateFound": "2026-09-25",
     "location": "SF | NYC | Seattle (~25% hybrid)",
     "level": "Mid/Senior IC",
-    "stageGate": "Public-scale AI lab — design team small but established (not first designer)",
+    "stageGate": "Public-scale AI lab \u2014 design team small but established (not first designer)",
     "status": "sent",
     "isNew": false,
     "seed": false,
@@ -2835,13 +2835,13 @@
       "gatesPass": true,
       "fitScore": 7,
       "whyFits": [
-        "NYC office option + 25% hybrid — location clears",
-        "Safeguards / trust UX for AI — adjacent to regulated clarity work at Pershing",
-        "JD explicitly wants Claude Code + Figma + code prototyping — standing kit match"
+        "NYC office option + 25% hybrid \u2014 location clears",
+        "Safeguards / trust UX for AI \u2014 adjacent to regulated clarity work at Pershing",
+        "JD explicitly wants Claude Code + Figma + code prototyping \u2014 standing kit match"
       ],
       "gaps": [
-        "Design team still relatively small (borderline vs established-org preference) — prep per John",
-        "Safeguards domain is new; no prior safety-product case study on résumé"
+        "Design team still relatively small (borderline vs established-org preference) \u2014 prep per John",
+        "Safeguards domain is new; no prior safety-product case study on r\u00e9sum\u00e9"
       ]
     },
     "fit": {
@@ -2850,7 +2850,7 @@
       "seed": false,
       "score": "7/10",
       "confidence": "Medium",
-      "recommendation": "Prep per John despite borderline small design team — trust/AI craft + Claude Code are honest fits",
+      "recommendation": "Prep per John despite borderline small design team \u2014 trust/AI craft + Claude Code are honest fits",
       "summary": "Product Designer, Safeguards at Anthropic (SF/NYC/Seattle, ~25% hybrid). Themes: ship fast in ambiguous AI, trust/safe beneficial UX, code+design with Claude Code, complex workflows, polished craft that builds trust."
     },
     "land": {
@@ -2868,10 +2868,10 @@
     "postingUrl": "https://careers.duolingo.com/jobs/8618405002?gh_jid=8618405002",
     "linkedinUrl": "https://www.linkedin.com/jobs/view/4436403629/",
     "dateFound": "2026-09-26",
-    "location": "New York, NY (hybrid / office — not remote)",
+    "location": "New York, NY (hybrid / office \u2014 not remote)",
     "level": "Senior",
     "stageGate": "Public / large Design org",
-    "salary": "$150,000–$200,000 USD base + equity",
+    "salary": "$150,000\u2013$200,000 USD base + equity",
     "status": "sent",
     "isNew": true,
     "seed": false,
@@ -2879,14 +2879,14 @@
       "gatesPass": true,
       "fitScore": 7,
       "whyFits": [
-        "Senior IC at public company with large established Design org — clears stage gate",
+        "Senior IC at public company with large established Design org \u2014 clears stage gate",
         "NYC posting; consumer mobile craft + AI/LLM ideation (exceptional) match standing AI-native kit",
-        "Peer mentor / lead workstreams as IC + ship at scale with PM/eng — Pershing end-to-end ownership adjacent"
+        "Peer mentor / lead workstreams as IC + ship at scale with PM/eng \u2014 Pershing end-to-end ownership adjacent"
       ],
       "gaps": [
         "Portfolio skews enterprise fintech vs consumer mobile craft (Purple Panda is the consumer 0-to-1 proof)",
-        "NYC office/hybrid — no remote called out",
-        "200+ LinkedIn applicants — competitive volume"
+        "NYC office/hybrid \u2014 no remote called out",
+        "200+ LinkedIn applicants \u2014 competitive volume"
       ],
       "prepNote": "Ask-before-apply locked. Packet ready at status vetted; do not submit to ATS until apply_confirm."
     },
@@ -2896,8 +2896,8 @@
       "seed": false,
       "score": "7/10",
       "confidence": "Medium",
-      "recommendation": "Prep packet — Senior NYC public Design org clears gates; consumer-mobile craft gap is honest soft risk",
-      "summary": "Senior Product Designer (NYC) at Duolingo. Themes: consumer mobile craft, playful learning UX, high visual/interaction bar, peer mentor / lead workstreams as IC, AI/LLM for ideation (exceptional), motion/animation (exceptional), ship at scale with PM/eng. Salary $150–200k base + equity."
+      "recommendation": "Prep packet \u2014 Senior NYC public Design org clears gates; consumer-mobile craft gap is honest soft risk",
+      "summary": "Senior Product Designer (NYC) at Duolingo. Themes: consumer mobile craft, playful learning UX, high visual/interaction bar, peer mentor / lead workstreams as IC, AI/LLM for ideation (exceptional), motion/animation (exceptional), ship at scale with PM/eng. Salary $150\u2013200k base + equity."
     },
     "land": {
       "resumePath": "/board/resumes/duolingo-8618405002.pdf",
@@ -2921,11 +2921,11 @@
     "title": "Principal Associate, Product Design - Design Systems",
     "postingUrl": "https://www.capitalonecareers.com/job/new-york/principal-associate-product-design-design-systems/1732/89706008064",
     "dateFound": "2026-09-26",
-    "location": "New York, NY (hybrid hubs; Remote-Not-Remote — NOT US remote)",
+    "location": "New York, NY (hybrid hubs; Remote-Not-Remote \u2014 NOT US remote)",
     "level": "Mid",
     "stageGate": "Public bank / large Experience Design org",
-    "salary": "$143,200–$163,500 NYC band",
-    "team": "Card Servicing Experience — agent platform + design system/governance",
+    "salary": "$143,200\u2013$163,500 NYC band",
+    "team": "Card Servicing Experience \u2014 agent platform + design system/governance",
     "status": "sent",
     "isNew": true,
     "seed": false,
@@ -2933,13 +2933,13 @@
       "gatesPass": true,
       "fitScore": 7,
       "whyFits": [
-        "Public bank with large Experience Design org — clears stage gate",
-        "Design Systems IC (Figma variants, auto layout, atomic, docs/a11y) — strong Pershing pattern-library adjacency",
-        "Regulated banking + human-centered collaboration with design/product — domain fit from wealth fintech"
+        "Public bank with large Experience Design org \u2014 clears stage gate",
+        "Design Systems IC (Figma variants, auto layout, atomic, docs/a11y) \u2014 strong Pershing pattern-library adjacency",
+        "Regulated banking + human-centered collaboration with design/product \u2014 domain fit from wealth fintech"
       ],
       "gaps": [
-        "NYC cash band ($143.2–163.5k) soft for Senior NYC expectations",
-        "Hybrid hubs / Remote-Not-Remote — not US remote",
+        "NYC cash band ($143.2\u2013163.5k) soft for Senior NYC expectations",
+        "Hybrid hubs / Remote-Not-Remote \u2014 not US remote",
         "Title wording (Principal Associate) may confuse ATS filters vs Staff/Principal designer"
       ],
       "prepNote": "Ask-before-apply locked. Design Systems posting only (not generic PA Product Designer). Packet ready at status vetted; do not submit until apply_confirm. Principal Associate = Capital One Mid IC band, not Staff/Principal."
@@ -2950,8 +2950,8 @@
       "seed": false,
       "score": "7/10",
       "confidence": "Medium-High",
-      "recommendation": "Prep packet — Design Systems + regulated banking are honest fits; cash band and hybrid are soft gaps",
-      "summary": "Principal Associate, Product Design - Design Systems (NYC hybrid) on Card Servicing Experience. Themes: Figma variants/auto layout/atomic design, docs/dos-don'ts/a11y, reusable componentry, systems mindset, regulated banking, human-centered collab. NYC band $143.2–163.5k. Mid IC (not Staff/Principal)."
+      "recommendation": "Prep packet \u2014 Design Systems + regulated banking are honest fits; cash band and hybrid are soft gaps",
+      "summary": "Principal Associate, Product Design - Design Systems (NYC hybrid) on Card Servicing Experience. Themes: Figma variants/auto layout/atomic design, docs/dos-don'ts/a11y, reusable componentry, systems mindset, regulated banking, human-centered collab. NYC band $143.2\u2013163.5k. Mid IC (not Staff/Principal)."
     },
     "land": {
       "resumePath": "/board/resumes/capitalone-89706008064.pdf",
@@ -2978,8 +2978,8 @@
     "location": "New York, NY, USA",
     "level": "Mid",
     "stageGate": "Public / Core UX Trust portfolio",
-    "salary": "$132,000–$189,000 USD + 15% bonus target + equity",
-    "team": "Core — Trust portfolio",
+    "salary": "$132,000\u2013$189,000 USD + 15% bonus target + equity",
+    "team": "Core \u2014 Trust portfolio",
     "status": "vetted",
     "isNew": true,
     "seed": false,
@@ -2987,13 +2987,13 @@
       "gatesPass": true,
       "fitScore": 8,
       "whyFits": [
-        "NYC Mid IC UX Designer (4y min) at Google Core Trust — clears location/level/stage gates",
+        "NYC Mid IC UX Designer (4y min) at Google Core Trust \u2014 clears location/level/stage gates",
         "Regulated / privacy / compliance-aware UX is honest Pershing adjacency (consent, disclosures, controls)",
-        "Ideation→launch with PM/eng/research + Figma/AI tooling matches standing how-he-works kit"
+        "Ideation\u2192launch with PM/eng/research + Figma/AI tooling matches standing how-he-works kit"
       ],
       "gaps": [
         "Portfolio skews enterprise wealth vs Google consumer-scale Trust surfaces",
-        "Preferred: multi-platform (web/iOS/Android) + motion/design systems depth — soft stretch",
+        "Preferred: multi-platform (web/iOS/Android) + motion/design systems depth \u2014 soft stretch",
         "Competitive Google volume"
       ],
       "prepNote": "Ask-before-apply locked. Packet ready at status vetted; do not submit ATS until apply_confirm."
@@ -3004,8 +3004,8 @@
       "seed": false,
       "score": "8/10",
       "confidence": "Medium-High",
-      "recommendation": "Prep packet — Trust/compliance UX + NYC Mid IC clears gates; consumer-scale Trust is soft portfolio gap",
-      "summary": "UX Designer, Trust (NYC) on Google Core. Themes: trust/privacy/compliance-aware UX, ideation→launch with PM/eng/research, cross-surface clarity, design systems, AI-augmented craft. Band $132–189k + bonus/equity."
+      "recommendation": "Prep packet \u2014 Trust/compliance UX + NYC Mid IC clears gates; consumer-scale Trust is soft portfolio gap",
+      "summary": "UX Designer, Trust (NYC) on Google Core. Themes: trust/privacy/compliance-aware UX, ideation\u2192launch with PM/eng/research, cross-surface clarity, design systems, AI-augmented craft. Band $132\u2013189k + bonus/equity."
     },
     "land": {
       "resumePath": "/board/resumes/google-trust-ux-117041108550066886.pdf",
@@ -3031,8 +3031,8 @@
     "location": "New York, NY",
     "level": "Senior",
     "stageGate": "Public / established PDEGO design org",
-    "salary": "$148,248–$166,665 NYC base",
-    "team": "PDEGO — Direct-to-Consumer (internal ops tools + Shopify storefronts)",
+    "salary": "$148,248\u2013$166,665 NYC base",
+    "team": "PDEGO \u2014 Direct-to-Consumer (internal ops tools + Shopify storefronts)",
     "status": "vetted",
     "isNew": true,
     "seed": false,
@@ -3040,7 +3040,7 @@
       "gatesPass": true,
       "fitScore": 7,
       "whyFits": [
-        "Senior IC NYC at Sony Music PDEGO — public company, established design org",
+        "Senior IC NYC at Sony Music PDEGO \u2014 public company, established design org",
         "Dual B2B ops tools + consumer surfaces + data-heavy dashboards match Pershing operator + Purple Panda consumer proof",
         "Systems thinking across tools/integrations + discovery with PM/eng is standing kit"
       ],
@@ -3057,8 +3057,8 @@
       "seed": false,
       "score": "7/10",
       "confidence": "Medium",
-      "recommendation": "Prep packet — B2B+consumer dual + analytics dashboards fit; Shopify depth is honest soft gap",
-      "summary": "Senior Product Designer, D2C - PDEGO (NYC). Themes: internal D2C ops tools + consumer storefronts, analytics dashboards, systems thinking across integrations, discovery with PM/eng, ecommerce fluency. NYC band $148.2–166.7k."
+      "recommendation": "Prep packet \u2014 B2B+consumer dual + analytics dashboards fit; Shopify depth is honest soft gap",
+      "summary": "Senior Product Designer, D2C - PDEGO (NYC). Themes: internal D2C ops tools + consumer storefronts, analytics dashboards, systems thinking across integrations, discovery with PM/eng, ecommerce fluency. NYC band $148.2\u2013166.7k."
     },
     "land": {
       "resumePath": "/board/resumes/sony-8737641002.pdf",
@@ -3084,8 +3084,8 @@
     "location": "New York City (global offices incl. NYC)",
     "level": "Senior",
     "stageGate": "Established (~25y) commercial analytics platform / Product Design team",
-    "salary": "$115,000–$120,000",
-    "team": "Product Design — visual interface for measurement/optimization platform",
+    "salary": "$115,000\u2013$120,000",
+    "team": "Product Design \u2014 visual interface for measurement/optimization platform",
     "status": "vetted",
     "isNew": true,
     "seed": false,
@@ -3093,14 +3093,14 @@
       "gatesPass": true,
       "fitScore": 6,
       "whyFits": [
-        "Sr PD on data-dense analytic platform with design system ownership — Pershing pattern-library + dense UI adjacency",
-        "3+ years formal visual design; Figma advanced; PM/eng partnership — clears experience gate",
+        "Sr PD on data-dense analytic platform with design system ownership \u2014 Pershing pattern-library + dense UI adjacency",
+        "3+ years formal visual design; Figma advanced; PM/eng partnership \u2014 clears experience gate",
         "NYC seat; established Product Design team (not first designer)"
       ],
       "gaps": [
-        "Cash band $115–120k soft/low for Senior NYC IC expectations",
+        "Cash band $115\u2013120k soft/low for Senior NYC IC expectations",
         "Commercial measurement / marketing analytics domain is new",
-        "Title Sr. but compensation closer to mid — calibrate expectations"
+        "Title Sr. but compensation closer to mid \u2014 calibrate expectations"
       ],
       "prepNote": "Ask-before-apply locked. Packet ready at status vetted; do not submit Lever until apply_confirm. Flag cash band before apply."
     },
@@ -3110,8 +3110,8 @@
       "seed": false,
       "score": "6/10",
       "confidence": "Medium",
-      "recommendation": "Prep packet — data-dense craft + design system fit; cash band is the honest soft risk to confirm with John",
-      "summary": "Sr. Product Designer (NYC) at Analytic Partners. Themes: data-dense visual UX, design system build/maintain, look/feel craft + velocity, PM→hi-fi→eng, suite consistency. Band $115–120k."
+      "recommendation": "Prep packet \u2014 data-dense craft + design system fit; cash band is the honest soft risk to confirm with John",
+      "summary": "Sr. Product Designer (NYC) at Analytic Partners. Themes: data-dense visual UX, design system build/maintain, look/feel craft + velocity, PM\u2192hi-fi\u2192eng, suite consistency. Band $115\u2013120k."
     },
     "land": {
       "resumePath": "/board/resumes/analyticpartners-72ea4fa0.pdf",
@@ -3145,15 +3145,15 @@
       "gatesPass": true,
       "fitScore": 8,
       "whyFits": [
-        "IC Product Designer with NYC office option; hybrid ~25% — location clears",
-        "No hard 7–8+ YOE bar; quals emphasize shipping complex B2B/developer/API workflows",
-        "Established Anthropic design team (not 1st designer); AI × developer-platform brief matches interest",
-        "Preferred front-end prototyping + Claude Code — Design Engineer stretch adjacent"
+        "IC Product Designer with NYC office option; hybrid ~25% \u2014 location clears",
+        "No hard 7\u20138+ YOE bar; quals emphasize shipping complex B2B/developer/API workflows",
+        "Established Anthropic design team (not 1st designer); AI \u00d7 developer-platform brief matches interest",
+        "Preferred front-end prototyping + Claude Code \u2014 Design Engineer stretch adjacent"
       ],
       "gaps": [
-        "Comp band $305k–$385k implies senior+ bar — portfolio must clear high craft/scope bar",
-        "Small design team language still (Anthropic grows fast) — confirm pod depth",
-        "Distinct from Safeguards (already sent) — separate req, confirm no internal dual-apply friction"
+        "Comp band $305k\u2013$385k implies senior+ bar \u2014 portfolio must clear high craft/scope bar",
+        "Small design team language still (Anthropic grows fast) \u2014 confirm pod depth",
+        "Distinct from Safeguards (already sent) \u2014 separate req, confirm no internal dual-apply friction"
       ]
     },
     "fit": {
@@ -3162,19 +3162,19 @@
       "seed": false,
       "score": "8/10",
       "confidence": "High",
-      "recommendation": "Clear — NYC-eligible Anthropic PD on Claude Developer Platform; strong AI × systems fit",
-      "summary": "Product Designer, Claude Developer Platform at Anthropic (SF|NYC|Seattle hybrid). No numeric YOE floor; emphasizes end-to-end complex workflows, Figma craft, and AI-native practice (Claude Code). Comp $305–385k. Clears Mid/Senior IC, NYC, Series A+/public-equivalent, established design. Distinct from Safeguards already on board as sent."
+      "recommendation": "Clear \u2014 NYC-eligible Anthropic PD on Claude Developer Platform; strong AI \u00d7 systems fit",
+      "summary": "Product Designer, Claude Developer Platform at Anthropic (SF|NYC|Seattle hybrid). No numeric YOE floor; emphasizes end-to-end complex workflows, Figma craft, and AI-native practice (Claude Code). Comp $305\u2013385k. Clears Mid/Senior IC, NYC, Series A+/public-equivalent, established design. Distinct from Safeguards already on board as sent."
     },
-    "salary": "$305,000–$385,000 USD",
-    "team": "Anthropic Product Design — Claude Developer Platform",
+    "salary": "$305,000\u2013$385,000 USD",
+    "team": "Anthropic Product Design \u2014 Claude Developer Platform",
     "land": {
       "resumePath": "/board/resumes/anthropic-5397654008.pdf",
       "resumeFileName": "Anthropic-Product-Designer-Claude-Developer-Platform.pdf",
       "trackedLink": "https://johnrubino.design/hiring?t=CviGar",
-      "contactCard": "Team: Anthropic Product Design — Claude Developer Platform (API / developer platform surfaces; SF | NYC | Seattle, ~25% hybrid).\nPosting: https://job-boards.greenhouse.io/anthropic/jobs/5397654008\nGreenhouse: 5397654008 · LinkedIn: https://www.linkedin.com/jobs/view/4471588481\n\nPrimary design talent (verify before send):\nPenny Bailey Farwell — Design Talent / Product Design Recruiter @ Anthropic — https://www.linkedin.com/in/millicentdbailey\n\nAdjacent design leads (peer / org context — softer note, not a cold recruiter ask):\nMeaghan Choi — Head of Design, Claude Code & Cowork — https://www.linkedin.com/in/meaghanchoi\nJoel Lewenstein — Head of Product Design (org lead; confirm before cold) — https://www.linkedin.com/in/joel-lewenstein\n\nNotes:\n- Distinct from Product Designer, Safeguards (5428014008) already submitted 2026-09-25 — say so if messaging talent so they don't treat this as a duplicate.\n- Status is vetted (résumé on LAND); send LinkedIn/email drafts after you Apply, or tweak tense if you reach out earlier.\n- Connect invite: blank or one line. Full note only after they accept.\n- Replace [Name] after you pick a contact.",
+      "contactCard": "Team: Anthropic Product Design \u2014 Claude Developer Platform (API / developer platform surfaces; SF | NYC | Seattle, ~25% hybrid).\nPosting: https://job-boards.greenhouse.io/anthropic/jobs/5397654008\nGreenhouse: 5397654008 \u00b7 LinkedIn: https://www.linkedin.com/jobs/view/4471588481\n\nPrimary design talent (verify before send):\nPenny Bailey Farwell \u2014 Design Talent / Product Design Recruiter @ Anthropic \u2014 https://www.linkedin.com/in/millicentdbailey\n\nAdjacent design leads (peer / org context \u2014 softer note, not a cold recruiter ask):\nMeaghan Choi \u2014 Head of Design, Claude Code & Cowork \u2014 https://www.linkedin.com/in/meaghanchoi\nJoel Lewenstein \u2014 Head of Product Design (org lead; confirm before cold) \u2014 https://www.linkedin.com/in/joel-lewenstein\n\nNotes:\n- Distinct from Product Designer, Safeguards (5428014008) already submitted 2026-09-25 \u2014 say so if messaging talent so they don't treat this as a duplicate.\n- Status is vetted (r\u00e9sum\u00e9 on LAND); send LinkedIn/email drafts after you Apply, or tweak tense if you reach out earlier.\n- Connect invite: blank or one line. Full note only after they accept.\n- Replace [Name] after you pick a contact.",
       "drafts": {
-        "linkedin": "Hi [Name] — I'm applying to Product Designer, Claude Developer Platform at Anthropic (NYC option). I'm a Senior Product Designer at BNY Pershing working on complex advisor workflows, and I ship in both Figma and code with Claude Code in the loop. Happy to share a short walkthrough if useful.\n\nPortfolio: https://johnrubino.design/hiring?t=CviGar\nReq: 5397654008",
-        "email": "Subject: Product Designer, Claude Developer Platform — John Rubino\n\nHi [Name],\n\nI'm applying to Product Designer, Claude Developer Platform (Greenhouse 5397654008). I'm a Senior Product Designer at BNY Pershing (Wealth Services), where I take complex workflows from requirements through design into production and use Claude Code alongside Figma to move faster.\n\nThis sits close to the systems and developer-facing craft I want to keep building — end-to-end B2B flows, AI-native practice, and polished UI that earns trust. I also applied earlier to Product Designer, Safeguards; this is a separate req I'm targeting for the developer-platform brief.\n\nHappy to share a short case walkthrough if useful.\n\nPortfolio: https://johnrubino.design/hiring?t=CviGar\nLinkedIn: https://www.linkedin.com/in/john-rubino\nRésumé: on my board packet / attached if helpful\n\nThanks for your time,\nJohn Rubino\n917-439-2058\njohnrubinodesign@gmail.com"
+        "linkedin": "Hi [Name] \u2014 I'm applying to Product Designer, Claude Developer Platform at Anthropic (NYC option). I'm a Senior Product Designer at BNY Pershing working on complex advisor workflows, and I ship in both Figma and code with Claude Code in the loop. Happy to share a short walkthrough if useful.\n\nPortfolio: https://johnrubino.design/hiring?t=CviGar\nReq: 5397654008",
+        "email": "Subject: Product Designer, Claude Developer Platform \u2014 John Rubino\n\nHi [Name],\n\nI'm applying to Product Designer, Claude Developer Platform (Greenhouse 5397654008). I'm a Senior Product Designer at BNY Pershing (Wealth Services), where I take complex workflows from requirements through design into production and use Claude Code alongside Figma to move faster.\n\nThis sits close to the systems and developer-facing craft I want to keep building \u2014 end-to-end B2B flows, AI-native practice, and polished UI that earns trust. I also applied earlier to Product Designer, Safeguards; this is a separate req I'm targeting for the developer-platform brief.\n\nHappy to share a short case walkthrough if useful.\n\nPortfolio: https://johnrubino.design/hiring?t=CviGar\nLinkedIn: https://www.linkedin.com/in/john-rubino\nR\u00e9sum\u00e9: on my board packet / attached if helpful\n\nThanks for your time,\nJohn Rubino\n917-439-2058\njohnrubinodesign@gmail.com"
       }
     },
     "lastChecked": "2026-09-29",
@@ -3187,7 +3187,7 @@
     "postingUrl": "https://jobs.ashbyhq.com/trm-labs/2a42c549-793f-4b2b-83c8-b87a94730e31",
     "linkedinUrl": "https://www.linkedin.com/jobs/view/4471254841",
     "dateFound": "2026-09-29",
-    "location": "United States (remote; hub work weeks 1–2×/quarter)",
+    "location": "United States (remote; hub work weeks 1\u20132\u00d7/quarter)",
     "level": "Senior",
     "stageGate": "Series C (~$220M raised) / high-output PD team inside Product org",
     "status": "sent",
@@ -3198,26 +3198,26 @@
       "fitScore": 8,
       "whyFits": [
         "Senior IC; explicit US remote (Ashby isRemote=true)",
-        "Series C crypto/compliance intelligence — clears stage; fintech-adjacent + agentic AI UX",
-        "Joins a team of product designers + design system — not sole/1st designer",
-        "No hard 7–8+ YOE listed; salary $176–193k base"
+        "Series C crypto/compliance intelligence \u2014 clears stage; fintech-adjacent + agentic AI UX",
+        "Joins a team of product designers + design system \u2014 not sole/1st designer",
+        "No hard 7\u20138+ YOE listed; salary $176\u2013193k base"
       ],
       "gaps": [
-        "Quarterly hub work weeks (often SF) with as little as 14 days notice — travel tolerance check",
-        "Investigator/compliance expert domain (dense data) — interest check vs wealth UX",
-        "Head of Product Design also open — confirm IC lane stays IC"
+        "Quarterly hub work weeks (often SF) with as little as 14 days notice \u2014 travel tolerance check",
+        "Investigator/compliance expert domain (dense data) \u2014 interest check vs wealth UX",
+        "Head of Product Design also open \u2014 confirm IC lane stays IC"
       ]
     },
     "fit": {
       "generatedAt": "2026-09-29",
-      "source": "Jobi weekday watch LinkedIn guest → Ashby trm-labs",
+      "source": "Jobi weekday watch LinkedIn guest \u2192 Ashby trm-labs",
       "seed": false,
       "score": "8/10",
       "confidence": "High",
-      "recommendation": "Clear — US-remote Senior PD, Series C, agentic expert workflows + design system",
-      "summary": "Senior Product Designer at TRM Labs (US remote). Designs agentic investigation/compliance tools: handoff, trust, review, design-system patterns. Series C; high-output PD team. Comp ~$176–193k + equity. Clears location, level, stage, design-org gates; domain is crypto/compliance vs wealth."
+      "recommendation": "Clear \u2014 US-remote Senior PD, Series C, agentic expert workflows + design system",
+      "summary": "Senior Product Designer at TRM Labs (US remote). Designs agentic investigation/compliance tools: handoff, trust, review, design-system patterns. Series C; high-output PD team. Comp ~$176\u2013193k + equity. Clears location, level, stage, design-org gates; domain is crypto/compliance vs wealth."
     },
-    "salary": "$176,000–$193,000 base + equity eligibility",
+    "salary": "$176,000\u2013$193,000 base + equity eligibility",
     "team": "Product Design inside TRM Product org (PM / PMM / Academy)",
     "land": {
       "resumePath": "/board/resumes/trm-2a42c549.pdf",
@@ -3252,13 +3252,13 @@
       "fitScore": 6,
       "whyFits": [
         "NYC location option; Mid/IC UX Designer (not Staff/Principal)",
-        "4 years interaction design min — in bar vs ~4+",
+        "4 years interaction design min \u2014 in bar vs ~4+",
         "Established Google design org; distinct from Trust UX already on board"
       ],
       "gaps": [
-        "Edu UX domain (not fintech/AI core) — interest check",
+        "Edu UX domain (not fintech/AI core) \u2014 interest check",
         "No clean Google Careers numeric job id resolved this pass (LI posting)",
-        "Prior Google Trust re-apply hit careers application cap — may affect new Google apps"
+        "Prior Google Trust re-apply hit careers application cap \u2014 may affect new Google apps"
       ]
     },
     "fit": {
@@ -3267,7 +3267,7 @@
       "seed": false,
       "score": "6/10",
       "confidence": "Medium",
-      "recommendation": "Clear on gates — NYC Mid UX at Google Edu; confirm interest + Google apply-cap risk",
+      "recommendation": "Clear on gates \u2014 NYC Mid UX at Google Edu; confirm interest + Google apply-cap risk",
       "summary": "UX Designer, Edu UX at Google with NYC among listed sites. 4y interaction design. Clears Mid IC + NYC + public/established. Gaps: education domain vs wealth/fintech; LI-only URL this pass; prior Google application-cap friction."
     },
     "team": "Google Edu UX / Interaction Design",
@@ -3307,8 +3307,8 @@
         "Not Staff/Principal/manager"
       ],
       "gaps": [
-        "LI seniority tagged Associate — confirm Mid vs junior scope",
-        "Entertainment/media domain (not fintech/AI) — interest check",
+        "LI seniority tagged Associate \u2014 confirm Mid vs junior scope",
+        "Entertainment/media domain (not fintech/AI) \u2014 interest check",
         "No clean Workday/ATS URL resolved this pass"
       ],
       "prepNote": "Ask-before-apply locked. Packet ready at status vetted; do not submit ATS until apply_confirm."
@@ -3319,7 +3319,7 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Medium",
-      "recommendation": "Clear on hard gates as Mid NYC IC — domain/level interest is the check",
+      "recommendation": "Clear on hard gates as Mid NYC IC \u2014 domain/level interest is the check",
       "summary": "Product Designer at NBCUniversal (NYC hybrid). 3+ YOE; design systems; responsive web/mobile. Public established org. Main hesitation is media/entertainment domain and Associate LI tag vs Senior PD trajectory."
     },
     "team": "NBCUniversal Product Design",
@@ -3346,7 +3346,7 @@
     "dateFound": "2026-09-29",
     "location": "New York, NY (5 days/week in office)",
     "level": "Mid",
-    "stageGate": "Series A ($10M Sep 2025) — early design ownership with founders",
+    "stageGate": "Series A ($10M Sep 2025) \u2014 early design ownership with founders",
     "status": "skipped",
     "isNew": false,
     "seed": false,
@@ -3355,12 +3355,12 @@
       "fitScore": 5,
       "whyFits": [
         "Series A clears stage floor; NYC IC Product Designer",
-        "AI agent/workflow UX — cool problem space matching agentic interest",
+        "AI agent/workflow UX \u2014 cool problem space matching agentic interest",
         "End-to-end ownership from concept to ship"
       ],
       "gaps": [
-        "Works directly with founders; LI Associate seniority — likely small/early design bench (tiny-team risk)",
-        "5 days/week NYC office — hybrid flexibility none",
+        "Works directly with founders; LI Associate seniority \u2014 likely small/early design bench (tiny-team risk)",
+        "5 days/week NYC office \u2014 hybrid flexibility none",
         "No Ashby/GH slug resolved this pass (careers mention jobs.ashbyhq.com/Cassidy but API 404)"
       ],
       "prepNote": "Prep-only on LAND 2026-09-29. Storyboard mirrors JD as closed; Ashby listing empty/404 this pass. Do not apply until apply_confirm."
@@ -3371,7 +3371,7 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Low-Medium",
-      "recommendation": "Borderline — Series A AI agents NYC, but early/founder-adjacent design bench + 5-day office",
+      "recommendation": "Borderline \u2014 Series A AI agents NYC, but early/founder-adjacent design bench + 5-day office",
       "summary": "Product Designer at Cassidy (NYC, 5 days onsite). Series A AI automation/agents platform. Strong problem-space fit; hesitation is early design org (founder collaboration, Associate tag) vs established-team preference."
     },
     "team": "Cassidy Product (founder-adjacent)",
@@ -3396,7 +3396,7 @@
     "postingUrl": "https://boards.greenhouse.io/robinhood/jobs/8240638",
     "linkedinUrl": "https://www.linkedin.com/jobs/view/4472100031",
     "dateFound": "2026-09-30",
-    "location": "Menlo Park, CA | New York, NY (hybrid ≥3 days/week in office)",
+    "location": "Menlo Park, CA | New York, NY (hybrid \u22653 days/week in office)",
     "level": "Mid",
     "stageGate": "Public fintech / established Robinhood design org",
     "status": "sent",
@@ -3406,15 +3406,15 @@
       "gatesPass": true,
       "fitScore": 7,
       "whyFits": [
-        "IC Product Designer (not Staff/Principal/manager); Mid bar — 3+ years PD",
-        "NYC office option with hybrid ≥3 days — location clears",
+        "IC Product Designer (not Staff/Principal/manager); Mid bar \u2014 3+ years PD",
+        "NYC office option with hybrid \u22653 days \u2014 location clears",
         "Public Robinhood; established design org; AI-first craft expected",
-        "International onboarding/trading/money-movement — fintech systems + clarity across markets"
+        "International onboarding/trading/money-movement \u2014 fintech systems + clarity across markets"
       ],
       "gaps": [
-        "Title is Product Designer not Senior — Mid IC; confirm leveling vs other RH Senior pd seats he applied",
-        "Hybrid 3 days NYC/Menlo — no US-remote option",
-        "Distinct from prior Robinhood Senior PD apps (Trading / Agentic / DeFi) — separate International req"
+        "Title is Product Designer not Senior \u2014 Mid IC; confirm leveling vs other RH Senior pd seats he applied",
+        "Hybrid 3 days NYC/Menlo \u2014 no US-remote option",
+        "Distinct from prior Robinhood Senior PD apps (Trading / Agentic / DeFi) \u2014 separate International req"
       ]
     },
     "fit": {
@@ -3423,10 +3423,10 @@
       "seed": false,
       "score": "7/10",
       "confidence": "High",
-      "recommendation": "Clear Mid NYC-hybrid IC — International markets PD at Robinhood",
-      "summary": "Product Designer, International at Robinhood (Menlo|NYC hybrid ≥3 days). 3+ YOE; designs onboarding/trading/crypto/money movement for EU/UK/Canada/Singapore+; AI-first design practice. Comp Zone1 $140–165k. Clears Mid IC, NYC, public stage, established design. Distinct from prior RH Senior PD applications."
+      "recommendation": "Clear Mid NYC-hybrid IC \u2014 International markets PD at Robinhood",
+      "summary": "Product Designer, International at Robinhood (Menlo|NYC hybrid \u22653 days). 3+ YOE; designs onboarding/trading/crypto/money movement for EU/UK/Canada/Singapore+; AI-first design practice. Comp Zone1 $140\u2013165k. Clears Mid IC, NYC, public stage, established design. Distinct from prior RH Senior PD applications."
     },
-    "salary": "$140,000–$165,000 USD (Zone 1 NYC/Menlo)",
+    "salary": "$140,000\u2013$165,000 USD (Zone 1 NYC/Menlo)",
     "team": "Robinhood International (investing/trading/crypto onboarding & money movement)",
     "land": {
       "resumePath": "/board/resumes/robinhood-8240638.pdf",
@@ -3453,23 +3453,23 @@
     "dateFound": "2026-09-30",
     "location": "United States (Remote)",
     "level": "Senior",
-    "stageGate": "Late-stage AI (~$270M raised · a16z/Greylock/Sequoia) / established Cresta product design",
+    "stageGate": "Late-stage AI (~$270M raised \u00b7 a16z/Greylock/Sequoia) / established Cresta product design",
     "status": "sent",
     "isNew": false,
     "seed": false,
     "salary": null,
-    "team": "AI Builders — customer-facing agent/workflow builder tools",
+    "team": "AI Builders \u2014 customer-facing agent/workflow builder tools",
     "vet": {
       "gatesPass": true,
       "fitScore": 8,
       "whyFits": [
         "Senior IC; explicit US remote",
-        "AI agent/workflow builder UX — strong AI×design fit",
+        "AI agent/workflow builder UX \u2014 strong AI\u00d7design fit",
         "$270M+ raised; not seed; established design org",
-        "5+ years equivalent / Design-HCI bar — in YOE range"
+        "5+ years equivalent / Design-HCI bar \u2014 in YOE range"
       ],
       "gaps": [
-        "GH first_published Apr 2026 — may have been open awhile; still new-to-board",
+        "GH first_published Apr 2026 \u2014 may have been open awhile; still new-to-board",
         "Contact-center/CX domain vs wealth"
       ]
     },
@@ -3479,7 +3479,7 @@
       "seed": false,
       "score": "8/10",
       "confidence": "High",
-      "recommendation": "Clear — US-remote Senior PD on Cresta AI Builders",
+      "recommendation": "Clear \u2014 US-remote Senior PD on Cresta AI Builders",
       "summary": "Senior Product Designer, AI Builders at Cresta (US remote). Agent/workflow builder UX; late-stage AI (~$270M, a16z/Greylock/Sequoia); established design org. Clears Senior IC, remote, stage, YOE. Contact-center/CX domain vs wealth preference."
     },
     "land": {
@@ -3516,9 +3516,9 @@
       "fitScore": 7,
       "whyFits": [
         "Senior IC; remote US (#BI-Remote)",
-        "5+ YOE — in bar",
-        "Supplier self-service / ops tooling — systems + enterprise workflow",
-        "Established design bench (Principal Supply + other SPDs also open — not sole)"
+        "5+ YOE \u2014 in bar",
+        "Supplier self-service / ops tooling \u2014 systems + enterprise workflow",
+        "Established design bench (Principal Supply + other SPDs also open \u2014 not sole)"
       ],
       "gaps": [
         "Food/marketplace domain vs fintech/AI preference",
@@ -3531,7 +3531,7 @@
       "seed": false,
       "score": "7/10",
       "confidence": "High",
-      "recommendation": "Clear — remote Senior PD, supplier self-service systems",
+      "recommendation": "Clear \u2014 remote Senior PD, supplier self-service systems",
       "summary": "Senior Product Designer, Restaurant Partner Self-Service at ezCater (US remote; Boston hub noted). Supplier self-service/ops tooling; mature design org with other PD seats. Clears Senior IC, remote, YOE, stage. Food/marketplace domain vs fintech/AI preference."
     },
     "lastChecked": "2026-09-30"
@@ -3554,9 +3554,9 @@
       "gatesPass": true,
       "fitScore": 7,
       "whyFits": [
-        "John DE-title override — Senior Design Engineer stretch in bar",
+        "John DE-title override \u2014 Senior Design Engineer stretch in bar",
         "NYC; Series B clears stage",
-        "Agents & Automations — trust/automation UX; ship design through code",
+        "Agents & Automations \u2014 trust/automation UX; ship design through code",
         "5+ years building/shipping product interfaces"
       ],
       "gaps": [
@@ -3571,7 +3571,7 @@
       "seed": false,
       "score": "7/10",
       "confidence": "Medium",
-      "recommendation": "CLEAR stretch — NYC Series B Senior Design Engineer, agents/automations",
+      "recommendation": "CLEAR stretch \u2014 NYC Series B Senior Design Engineer, agents/automations",
       "summary": "Senior Design Engineer at Cloaked (NYC; Series B ~$375M privacy/identity AI). Agents & Automations; ship design through code. DE-title stretch in bar per John override. Clears NYC, stage, IC. Soft gap on React/production depth; privacy/security consumer domain."
     },
     "lastChecked": "2026-09-30"
@@ -3600,7 +3600,7 @@
       "gaps": [
         "LI Associate seniority",
         "OTT/10-foot TV UI domain",
-        "No clean ATS URL this pass — LI only",
+        "No clean ATS URL this pass \u2014 LI only",
         "NJ campus not Manhattan"
       ]
     },
@@ -3610,8 +3610,8 @@
       "seed": false,
       "score": "6/10",
       "confidence": "Medium",
-      "recommendation": "Clear Mid on hard gates — OTT/Associate interest check",
-      "summary": "Product Designer, OTT at Versant Media (Englewood Cliffs NJ / NYC metro). Public Nasdaq VSNT; multi-brand design systems. Clears Mid IC, metro location, public stage. LI Associate seniority + OTT/10-foot domain + LI-only URL — interest check."
+      "recommendation": "Clear Mid on hard gates \u2014 OTT/Associate interest check",
+      "summary": "Product Designer, OTT at Versant Media (Englewood Cliffs NJ / NYC metro). Public Nasdaq VSNT; multi-brand design systems. Clears Mid IC, metro location, public stage. LI Associate seniority + OTT/10-foot domain + LI-only URL \u2014 interest check."
     },
     "lastChecked": "2026-09-30"
   },
@@ -3624,7 +3624,7 @@
     "dateFound": "2026-09-30",
     "location": "New York, NY",
     "level": "Mid",
-    "stageGate": "Well-funded AI lab (~$320M at $2.3B) on Medal gaming platform — small product design bench",
+    "stageGate": "Well-funded AI lab (~$320M at $2.3B) on Medal gaming platform \u2014 small product design bench",
     "status": "skipped",
     "isNew": false,
     "seed": false,
@@ -3637,7 +3637,7 @@
         "Consumer social/gaming + frontier AI lab interesting"
       ],
       "gaps": [
-        "BORDERLINE: JD says join a small talented product team — tiny design bench risk",
+        "BORDERLINE: JD says join a small talented product team \u2014 tiny design bench risk",
         "Gaming/creator domain",
         "No clean ATS URL"
       ]
@@ -3648,7 +3648,7 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — funding/location clear; small PD bench hesitation",
+      "recommendation": "Borderline \u2014 funding/location clear; small PD bench hesitation",
       "summary": "Product Designer at Medal / General Intuition (NYC). Well-funded AI lab (~$320M at $2.3B) on gaming platform. Mid IC, NYC, not seed clear. Borderline on small product/design bench per JD; gaming/creator domain; LI-only URL."
     },
     "lastChecked": "2026-09-30"
@@ -3662,22 +3662,22 @@
     "dateFound": "2026-09-30",
     "location": "New York, NY (also Cincinnati band)",
     "level": "Mid",
-    "stageGate": "Fintech alts/annuities platform (founded 2018) — design-system/Storybook + Claude Design Kit heavy; team size unclear",
+    "stageGate": "Fintech alts/annuities platform (founded 2018) \u2014 design-system/Storybook + Claude Design Kit heavy; team size unclear",
     "status": "sent",
     "isNew": false,
     "seed": false,
-    "salary": "$150,000–$170,000 USD (New York)",
+    "salary": "$150,000\u2013$170,000 USD (New York)",
     "vet": {
       "gatesPass": false,
       "fitScore": 5,
       "whyFits": [
-        "NYC; Mid 3–5 YOE design systems",
-        "Fintech/advisor software + Claude/AI design kit — systems + AI-native craft",
-        "Comp $150–170k NYC"
+        "NYC; Mid 3\u20135 YOE design systems",
+        "Fintech/advisor software + Claude/AI design kit \u2014 systems + AI-native craft",
+        "Comp $150\u2013170k NYC"
       ],
       "gaps": [
         "BORDERLINE: design-coach / DS-maintainer emphasis; design bench depth unclear",
-        "Stage not explicitly Series A+ in JD (2018 fintech — verify)",
+        "Stage not explicitly Series A+ in JD (2018 fintech \u2014 verify)",
         "LI-only URL"
       ]
     },
@@ -3687,8 +3687,8 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — strong craft fit; stage/team-size verify",
-      "summary": "Product Designer at Luma Financial Technologies (NYC; also Cincinnati). Fintech alts/annuities; design-system/Storybook + Claude Design Kit; $150–170k NYC. Strong systems+AI craft fit. Borderline: stage/team-size verify; DS-maintainer emphasis; LI-only URL."
+      "recommendation": "Borderline \u2014 strong craft fit; stage/team-size verify",
+      "summary": "Product Designer at Luma Financial Technologies (NYC; also Cincinnati). Fintech alts/annuities; design-system/Storybook + Claude Design Kit; $150\u2013170k NYC. Strong systems+AI craft fit. Borderline: stage/team-size verify; DS-maintainer emphasis; LI-only URL."
     },
     "land": {
       "resumePath": "/board/resumes/luma-4469036493.pdf",
@@ -3727,11 +3727,11 @@
       "whyFits": [
         "Senior IC UX (not Staff/Principal); NYC among listed sites",
         "Public Google + established Search design org",
-        "6y interaction design min — under 7–8 hard-skip bar; Senior title",
+        "6y interaction design min \u2014 under 7\u20138 hard-skip bar; Senior title",
         "Native app-first + mature design systems + AI tooling prefs align with craft"
       ],
       "gaps": [
-        "6y interaction design vs ~4+ — soft YOE stretch",
+        "6y interaction design vs ~4+ \u2014 soft YOE stretch",
         "Consumer Images/Search domain vs wealth/fintech",
         "Prior Google apply-cap friction may affect new Google apps"
       ]
@@ -3742,7 +3742,7 @@
       "seed": false,
       "score": "7/10",
       "confidence": "High",
-      "recommendation": "Clear — Senior UX Images/Search with NYC option",
+      "recommendation": "Clear \u2014 Senior UX Images/Search with NYC option",
       "summary": "Senior UX Designer, Google Images, Search. Locations SF/MV/NYC. Min 6y interaction design, native app-first, mature DS. Clears Senior IC + NYC + public. Soft YOE stretch; consumer Search vs wealth; Google apply-cap risk."
     },
     "lastChecked": "2026-10-01"
@@ -3750,17 +3750,17 @@
   {
     "jobId": "clearstreet-8241353",
     "company": "Clear Street",
-    "title": "Senior Product Designer — Mobile (Active)",
+    "title": "Senior Product Designer \u2014 Mobile (Active)",
     "postingUrl": "https://job-boards.greenhouse.io/clearstreet/jobs/8241353",
     "linkedinUrl": "https://www.linkedin.com/jobs/view/4472341046",
     "dateFound": "2026-10-01",
     "location": "New York, NY",
     "level": "Senior",
-    "stageGate": "Series C / pre-IPO fintech (~$12B reporting) — Active retail trading product; early design bench",
+    "stageGate": "Series C / pre-IPO fintech (~$12B reporting) \u2014 Active retail trading product; early design bench",
     "status": "sourced",
     "isNew": true,
     "seed": false,
-    "team": "Clear Street Active — Mobile",
+    "team": "Clear Street Active \u2014 Mobile",
     "vet": {
       "gatesPass": false,
       "fitScore": 6,
@@ -3770,7 +3770,7 @@
         "Fintech retail trading adjacency"
       ],
       "gaps": [
-        "BORDERLINE: early Active design team / building mobile before it exists — tiny-bench risk",
+        "BORDERLINE: early Active design team / building mobile before it exists \u2014 tiny-bench risk",
         "Retail trading mobile domain depth"
       ]
     },
@@ -3780,7 +3780,7 @@
       "seed": false,
       "score": "6/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — NYC Senior Mobile PD; tiny Active design bench",
+      "recommendation": "Borderline \u2014 NYC Senior Mobile PD; tiny Active design bench",
       "summary": "SPD Mobile at Clear Street Active (NYC). Series C fintech; mobile-first shipping + AI-in-codebase. Hesitation: early/from-scratch design bench."
     },
     "lastChecked": "2026-10-01"
@@ -3788,23 +3788,23 @@
   {
     "jobId": "clearstreet-8241344",
     "company": "Clear Street",
-    "title": "Senior Product Designer — Trading (Active)",
+    "title": "Senior Product Designer \u2014 Trading (Active)",
     "postingUrl": "https://job-boards.greenhouse.io/clearstreet/jobs/8241344",
     "linkedinUrl": "https://www.linkedin.com/jobs/view/4472338209",
     "dateFound": "2026-10-01",
     "location": "New York, NY",
     "level": "Senior",
-    "stageGate": "Series C / pre-IPO fintech — Active trading surfaces; early design bench",
+    "stageGate": "Series C / pre-IPO fintech \u2014 Active trading surfaces; early design bench",
     "status": "skipped",
     "isNew": false,
     "seed": false,
-    "team": "Clear Street Active — Trading",
+    "team": "Clear Street Active \u2014 Trading",
     "vet": {
       "gatesPass": false,
       "fitScore": 5,
       "whyFits": [
         "Senior IC; NYC; Series C+",
-        "Owns research/order entry/positions/portfolio — systems-dense",
+        "Owns research/order entry/positions/portfolio \u2014 systems-dense",
         "Prototype in real codebase with AI tooling"
       ],
       "gaps": [
@@ -3818,7 +3818,7 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — trading domain hard req + tiny bench",
+      "recommendation": "Borderline \u2014 trading domain hard req + tiny bench",
       "summary": "SPD Trading at Clear Street Active (NYC). Strong systems surfaces; hard retail-trading shipping req + early design bench."
     },
     "lastChecked": "2026-10-01"
@@ -3826,26 +3826,26 @@
   {
     "jobId": "clearstreet-8241303",
     "company": "Clear Street",
-    "title": "Senior Product Designer — Design Systems (Active)",
+    "title": "Senior Product Designer \u2014 Design Systems (Active)",
     "postingUrl": "https://job-boards.greenhouse.io/clearstreet/jobs/8241303",
     "dateFound": "2026-10-01",
     "location": "Remote",
     "level": "Senior",
-    "stageGate": "Series C / pre-IPO — Active design team from scratch; systems foundation hire",
+    "stageGate": "Series C / pre-IPO \u2014 Active design team from scratch; systems foundation hire",
     "status": "skipped",
     "isNew": false,
     "seed": false,
-    "team": "Clear Street Active — Design Systems",
+    "team": "Clear Street Active \u2014 Design Systems",
     "vet": {
       "gatesPass": false,
       "fitScore": 5,
       "whyFits": [
         "Senior IC; US remote; Series C+",
-        "Tokens/Figma Variables/Code Connect — systems + design-dev handoff craft",
+        "Tokens/Figma Variables/Code Connect \u2014 systems + design-dev handoff craft",
         "Product decisions with PMs/eng from day one"
       ],
       "gaps": [
-        "BORDERLINE: JD says building the design team from scratch — strongest tiny-bench flag of the three Clear Street seats"
+        "BORDERLINE: JD says building the design team from scratch \u2014 strongest tiny-bench flag of the three Clear Street seats"
       ]
     },
     "fit": {
@@ -3854,7 +3854,7 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — strongest from-scratch tiny-bench of Clear Street trio",
+      "recommendation": "Borderline \u2014 strongest from-scratch tiny-bench of Clear Street trio",
       "summary": "SPD Design Systems at Clear Street Active (Remote). Strong systems craft; explicit from-scratch design team."
     },
     "lastChecked": "2026-10-01"
@@ -3868,8 +3868,8 @@
     "dateFound": "2026-10-01",
     "location": "New York, NY (hybrid ~2 days/week per LI)",
     "level": "Mid",
-    "stageGate": "TV/CTV adtech founded 2016 · ~300+ employees — Series letter not verified in public DBs this pass",
-    "salary": "$120,000–$160,000 USD",
+    "stageGate": "TV/CTV adtech founded 2016 \u00b7 ~300+ employees \u2014 Series letter not verified in public DBs this pass",
+    "salary": "$120,000\u2013$160,000 USD",
     "status": "sourced",
     "isNew": true,
     "seed": false,
@@ -3880,10 +3880,10 @@
       "whyFits": [
         "Mid IC; NYC hybrid; 5 years YOE",
         "Established company age/scale (2016, 300+); not seed-looking on headcount",
-        "AI/ML TV advertising platform — data-dense product"
+        "AI/ML TV advertising platform \u2014 data-dense product"
       ],
       "gaps": [
-        "BORDERLINE: no clear Series A+ letter found in public funding DBs this pass — do not invent round",
+        "BORDERLINE: no clear Series A+ letter found in public funding DBs this pass \u2014 do not invent round",
         "Adtech/TV domain vs wealth"
       ]
     },
@@ -3893,8 +3893,8 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — NYC Mid PD; verify Series A+ letter before prep",
-      "summary": "Product Designer at Tatari (NYC hybrid). Mid 5y; $120–160k. Hesitation: Series stage letter not confirmed."
+      "recommendation": "Borderline \u2014 NYC Mid PD; verify Series A+ letter before prep",
+      "summary": "Product Designer at Tatari (NYC hybrid). Mid 5y; $120\u2013160k. Hesitation: Series stage letter not confirmed."
     },
     "lastChecked": "2026-10-01"
   },
@@ -3906,8 +3906,8 @@
     "dateFound": "2026-10-01",
     "location": "New York, NY",
     "level": "Senior",
-    "stageGate": "TV/CTV adtech founded 2016 — Series letter not verified this pass",
-    "salary": "$160,000–$190,000 USD",
+    "stageGate": "TV/CTV adtech founded 2016 \u2014 Series letter not verified this pass",
+    "salary": "$160,000\u2013$190,000 USD",
     "status": "sourced",
     "isNew": true,
     "seed": false,
@@ -3917,7 +3917,7 @@
       "fitScore": 5,
       "whyFits": [
         "Senior IC; NYC; mentor/culture language",
-        "Company scale suggests post-seed; $160–190k"
+        "Company scale suggests post-seed; $160\u2013190k"
       ],
       "gaps": [
         "BORDERLINE: same funding-letter uncertainty as Mid seat",
@@ -3930,8 +3930,8 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — NYC Senior; stage letter + 6+ YOE",
-      "summary": "SPD at Tatari (NYC). $160–190k; 6+ YOE. Same Series-letter hesitation as Mid seat."
+      "recommendation": "Borderline \u2014 NYC Senior; stage letter + 6+ YOE",
+      "summary": "SPD at Tatari (NYC). $160\u2013190k; 6+ YOE. Same Series-letter hesitation as Mid seat."
     },
     "lastChecked": "2026-10-01"
   },
@@ -3953,7 +3953,7 @@
       "gatesPass": false,
       "fitScore": 5,
       "whyFits": [
-        "Senior IC; US listed; B2B SaaS insights/reporting — data-dense",
+        "Senior IC; US listed; B2B SaaS insights/reporting \u2014 data-dense",
         "Established Clio design org (not sole designer)"
       ],
       "gaps": [
@@ -3967,7 +3967,7 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — 6+ YOE + hybrid/office nuance",
+      "recommendation": "Borderline \u2014 6+ YOE + hybrid/office nuance",
       "summary": "SPD Insights & Reporting at Clio (US). Data-dense B2B SaaS; 6+ YOE + hybrid expectation hesitation."
     },
     "lastChecked": "2026-10-01"
@@ -3979,9 +3979,9 @@
     "postingUrl": "https://www.linkedin.com/jobs/view/4462725627",
     "linkedinUrl": "https://www.linkedin.com/jobs/view/4462725627",
     "dateFound": "2026-10-01",
-    "location": "United States — NYC preferred / open to remote (per LI)",
+    "location": "United States \u2014 NYC preferred / open to remote (per LI)",
     "level": "Senior",
-    "stageGate": "Fidelity-adjacent wealth planning platform — established product design",
+    "stageGate": "Fidelity-adjacent wealth planning platform \u2014 established product design",
     "status": "skipped",
     "isNew": false,
     "seed": false,
@@ -3991,7 +3991,7 @@
       "fitScore": 6,
       "whyFits": [
         "Senior IC; NYC preferred / open to remote",
-        "Wealth planning / advisor tooling — strong Pershing adjacency",
+        "Wealth planning / advisor tooling \u2014 strong Pershing adjacency",
         "Established FS design org"
       ],
       "gaps": [
@@ -4005,7 +4005,7 @@
       "seed": false,
       "score": "6/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — strong wealth fit; confirm remote + 6+ YOE",
+      "recommendation": "Borderline \u2014 strong wealth fit; confirm remote + 6+ YOE",
       "summary": "SPD at eMoney Advisor (NYC preferred / open remote). Wealth tooling adjacency; 6+ YOE + loc confirm hesitation."
     },
     "lastChecked": "2026-10-01"
@@ -4019,7 +4019,7 @@
     "location": "New York, NY (or US remote; SF/Portland/Canada also listed)",
     "level": "Senior IC",
     "stageGate": "Series D fintech / established Mercury design organization",
-    "salary": "$189,000–$236,200 USD base (US)",
+    "salary": "$189,000\u2013$236,200 USD base (US)",
     "status": "sent",
     "isNew": false,
     "seed": false,
@@ -4048,7 +4048,7 @@
       "seed": false,
       "score": "8/10",
       "confidence": "High",
-      "recommendation": "CLEAR Senior NYC/US-remote fintech role — apply approved; honest fintech/cards adjacency from Pershing",
+      "recommendation": "CLEAR Senior NYC/US-remote fintech role \u2014 apply approved; honest fintech/cards adjacency from Pershing",
       "summary": "Senior Product Designer, Cards & Credit at Mercury. Themes: own complex problems end-to-end, simplify systems and edge cases, first-principles exploration, interaction/visual craft, and Product/Engineering partnership. Mercury is Series D with an established design organization. Soft gaps: no direct consumer cards title; no physical-card Brand ownership claimed."
     },
     "land": {
@@ -4080,16 +4080,16 @@
     "status": "sent",
     "isNew": false,
     "seed": false,
-    "team": "Toast Support Experiences — AI chat / voice / agent tooling / self-serve",
-    "salary": "$125k–$254k band (location-adjusted; listed ranges in JD)",
+    "team": "Toast Support Experiences \u2014 AI chat / voice / agent tooling / self-serve",
+    "salary": "$125k\u2013$254k band (location-adjusted; listed ranges in JD)",
     "vet": {
       "gatesPass": true,
       "fitScore": 8,
       "whyFits": [
         "Senior IC PD; Remote USA clears geo",
         "Public Toast + established design (distinct from prior Toast SPD 8208289 sent)",
-        "Systems / multi-surface conversational + support workflow — strong craft adjacency",
-        "No hard 7–8+ YOE floor in JD"
+        "Systems / multi-surface conversational + support workflow \u2014 strong craft adjacency",
+        "No hard 7\u20138+ YOE floor in JD"
       ],
       "gaps": [
         "Support/CS tooling domain vs wealth core",
@@ -4102,7 +4102,7 @@
       "seed": false,
       "score": "8/10",
       "confidence": "High",
-      "recommendation": "Clear — Toast SPD Support Experiences Remote USA",
+      "recommendation": "Clear \u2014 Toast SPD Support Experiences Remote USA",
       "summary": "Senior Product Designer, Toast Support Experiences. Remote USA. Public Toast, systems across chat/voice/agent/self-serve. Distinct from prior Toast seat. Confirm-only."
     },
     "lastChecked": "2026-10-02",
@@ -4134,18 +4134,18 @@
     "status": "vetted",
     "isNew": true,
     "seed": false,
-    "team": "Security UX — enterprise telemetry / IT+Sec workflows",
+    "team": "Security UX \u2014 enterprise telemetry / IT+Sec workflows",
     "vet": {
       "gatesPass": true,
       "fitScore": 7,
       "whyFits": [
         "Senior IC UX (not Staff); Remote US",
         "Complex B2B enterprise platform; established product org",
-        "5+ YOE soft floor under 7–8 hard-skip"
+        "5+ YOE soft floor under 7\u20138 hard-skip"
       ],
       "gaps": [
         "Security/telemetry domain vs wealth",
-        "Ashby mirror lists US-California workplace — confirm true remote US"
+        "Ashby mirror lists US-California workplace \u2014 confirm true remote US"
       ]
     },
     "fit": {
@@ -4154,7 +4154,7 @@
       "seed": false,
       "score": "7/10",
       "confidence": "Medium-High",
-      "recommendation": "Clear — Cribl Sr UX Security Remote US",
+      "recommendation": "Clear \u2014 Cribl Sr UX Security Remote US",
       "summary": "Sr. UX Designer, Security at Cribl. Remote US. Complex B2B telemetry. Confirm remote vs CA nuance. Confirm-only."
     },
     "lastChecked": "2026-10-02",
@@ -4186,14 +4186,14 @@
     "status": "skipped",
     "isNew": false,
     "seed": false,
-    "team": "Agent Experience — carrier/agent workflows on Bestow platform",
+    "team": "Agent Experience \u2014 carrier/agent workflows on Bestow platform",
     "vet": {
       "gatesPass": true,
       "fitScore": 7,
       "whyFits": [
         "Mid IC PD II title fits mid bar; Remote US",
-        "Regulated fintech / insurance infrastructure — wealth-adjacent",
-        "3–5 YOE band honest vs ~4+"
+        "Regulated fintech / insurance infrastructure \u2014 wealth-adjacent",
+        "3\u20135 YOE band honest vs ~4+"
       ],
       "gaps": [
         "Design-team size not fully verified from JD",
@@ -4206,7 +4206,7 @@
       "seed": false,
       "score": "7/10",
       "confidence": "Medium-High",
-      "recommendation": "Clear — Bestow PD II Agent Experience Remote US Mid",
+      "recommendation": "Clear \u2014 Bestow PD II Agent Experience Remote US Mid",
       "summary": "Product Designer II, Agent Experience at Bestow. Remote US Mid IC. Regulated life-insurance tech platform. Confirm-only."
     },
     "lastChecked": "2026-10-02",
@@ -4239,7 +4239,7 @@
     "isNew": false,
     "seed": false,
     "stretch": true,
-    "team": "AI Gateway — model routing, dashboard, CLI, API surfaces",
+    "team": "AI Gateway \u2014 model routing, dashboard, CLI, API surfaces",
     "vet": {
       "gatesPass": true,
       "fitScore": 7,
@@ -4250,7 +4250,7 @@
       ],
       "gaps": [
         "STRETCH title vs PD",
-        "First published ~2026-09-15 — may be long-open; FE production bar high"
+        "First published ~2026-09-15 \u2014 may be long-open; FE production bar high"
       ]
     },
     "fit": {
@@ -4259,8 +4259,8 @@
       "seed": false,
       "score": "7/10",
       "confidence": "Medium",
-      "recommendation": "CLEAR stretch — Vercel Design Engineer AI Gateway Remote US",
-      "summary": "STRETCH Design Engineer at Vercel (AI Gateway, Remote US). Concept→shipped UI in React/TS. Confirm-only."
+      "recommendation": "CLEAR stretch \u2014 Vercel Design Engineer AI Gateway Remote US",
+      "summary": "STRETCH Design Engineer at Vercel (AI Gateway, Remote US). Concept\u2192shipped UI in React/TS. Confirm-only."
     },
     "lastChecked": "2026-10-02",
     "land": {
@@ -4294,7 +4294,7 @@
     "isNew": false,
     "seed": false,
     "stretch": true,
-    "team": "Design Engineering — production UI, AI-first build loop",
+    "team": "Design Engineering \u2014 production UI, AI-first build loop",
     "vet": {
       "gatesPass": true,
       "fitScore": 8,
@@ -4314,7 +4314,7 @@
       "seed": false,
       "score": "8/10",
       "confidence": "High",
-      "recommendation": "CLEAR stretch — Ramp Design Engineer NYC hybrid",
+      "recommendation": "CLEAR stretch \u2014 Ramp Design Engineer NYC hybrid",
       "summary": "STRETCH Design Engineer at Ramp (NYC hybrid). Fintech, AI-first design eng. Confirm-only."
     },
     "lastChecked": "2026-10-02",
@@ -4348,7 +4348,7 @@
     "seed": false,
     "stretch": true,
     "borderline": true,
-    "team": "Content Tooling — UX Design Engineer",
+    "team": "Content Tooling \u2014 UX Design Engineer",
     "vet": {
       "gatesPass": true,
       "fitScore": 5,
@@ -4357,7 +4357,7 @@
         "Design Engineer stretch lane"
       ],
       "gaps": [
-        "5–8 years Design Engineer/UX Eng/Sr SWE — soft YOE stretch toward hard bar",
+        "5\u20138 years Design Engineer/UX Eng/Sr SWE \u2014 soft YOE stretch toward hard bar",
         "Content tooling domain; stretch title"
       ]
     },
@@ -4367,8 +4367,8 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — DoorDash UX DE Content Tooling NYC option; 5–8 YOE",
-      "summary": "UX Design Engineer, Content Tooling at DoorDash. NYC option. Hesitation: 5–8 YOE band + stretch DE. Confirm-only."
+      "recommendation": "Borderline \u2014 DoorDash UX DE Content Tooling NYC option; 5\u20138 YOE",
+      "summary": "UX Design Engineer, Content Tooling at DoorDash. NYC option. Hesitation: 5\u20138 YOE band + stretch DE. Confirm-only."
     },
     "lastChecked": "2026-10-02"
   },
@@ -4387,13 +4387,13 @@
     "seed": false,
     "stretch": true,
     "borderline": true,
-    "team": "WPP Presence — stripe.com front-door / public mission surfaces",
+    "team": "WPP Presence \u2014 stripe.com front-door / public mission surfaces",
     "vet": {
       "gatesPass": true,
       "fitScore": 5,
       "whyFits": [
         "STRETCH DE; US/Canada; public Stripe",
-        "Sibling of Expansion (already sent) — distinct GH id"
+        "Sibling of Expansion (already sent) \u2014 distinct GH id"
       ],
       "gaps": [
         "Presence = marketing/front-door surfaces more than core product app",
@@ -4406,7 +4406,7 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Medium",
-      "recommendation": "Borderline stretch — Stripe DE Presence (marketing-adjacent sibling of Expansion)",
+      "recommendation": "Borderline stretch \u2014 Stripe DE Presence (marketing-adjacent sibling of Expansion)",
       "summary": "Design Engineer, Presence at Stripe (US/Canada). Hesitation: front-door/marketing Presence vs product; Expansion already sent. Confirm-only."
     },
     "lastChecked": "2026-10-05",
@@ -4424,7 +4424,7 @@
       }
     },
     "postingStatus": "closed",
-    "postingNote": "apply_confirm 2026-10-05: Greenhouse 7144975 returns 404 and is no longer on Stripe's live board — posting closed, not submitted."
+    "postingNote": "apply_confirm 2026-10-05: Greenhouse 7144975 returns 404 and is no longer on Stripe's live board \u2014 posting closed, not submitted."
   },
   {
     "jobId": "confido-090f3529",
@@ -4440,16 +4440,16 @@
     "isNew": true,
     "seed": false,
     "borderline": true,
-    "team": "Product Design — CPG finance/ops OS",
+    "team": "Product Design \u2014 CPG finance/ops OS",
     "vet": {
       "gatesPass": true,
       "fitScore": 5,
       "whyFits": [
         "Senior IC; NYC OnSite; Series B clears stage floor",
-        "B2B SaaS / finance-ops for CPG — systems craft"
+        "B2B SaaS / finance-ops for CPG \u2014 systems craft"
       ],
       "gaps": [
-        "Early/growth design bench (SPD + DE live — still small)",
+        "Early/growth design bench (SPD + DE live \u2014 still small)",
         "OnSite NYC expectation; 5+ YOE"
       ]
     },
@@ -4459,7 +4459,7 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — Confido SPD NYC Series B; tiny-bench hesitation",
+      "recommendation": "Borderline \u2014 Confido SPD NYC Series B; tiny-bench hesitation",
       "summary": "Senior Product Designer at Confido (NYC OnSite, Series B). Hesitation: small design bench. Confirm-only."
     },
     "lastChecked": "2026-10-02"
@@ -4473,7 +4473,7 @@
     "dateFound": "2026-10-02",
     "location": "United States (remote-friendly)",
     "level": "Senior",
-    "stageGate": "Playlist / Mindbody+ClassPass — established consumer wellness platform",
+    "stageGate": "Playlist / Mindbody+ClassPass \u2014 established consumer wellness platform",
     "status": "sourced",
     "isNew": true,
     "seed": false,
@@ -4487,7 +4487,7 @@
         "5+ YOE under hard skip"
       ],
       "gaps": [
-        "First published ~2026-07-01 — long-open / possible evergreen",
+        "First published ~2026-07-01 \u2014 long-open / possible evergreen",
         "Consumer wellness vs wealth; GH token was missing prior watches"
       ]
     },
@@ -4497,7 +4497,7 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — Mindbody SPD Consumer; long-open since July",
+      "recommendation": "Borderline \u2014 Mindbody SPD Consumer; long-open since July",
       "summary": "Senior Product Designer, Mindbody Consumer Experiences (US). Hesitation: long-open posting. Confirm-only."
     },
     "lastChecked": "2026-10-02"
@@ -4511,12 +4511,12 @@
     "dateFound": "2026-10-02",
     "location": "NYC, US (OnSite)",
     "level": "Mid IC (Product Designer)",
-    "stageGate": "Enterprise AI / SAP complexity OS — stage letter not verified this pass",
+    "stageGate": "Enterprise AI / SAP complexity OS \u2014 stage letter not verified this pass",
     "status": "skipped",
     "isNew": false,
     "seed": false,
     "borderline": true,
-    "team": "US Product Design — enterprise workflow clarity",
+    "team": "US Product Design \u2014 enterprise workflow clarity",
     "vet": {
       "gatesPass": true,
       "fitScore": 4,
@@ -4525,7 +4525,7 @@
         "Mid title without Staff/Principal"
       ],
       "gaps": [
-        "Series letter / design-bench size unverified — do not invent",
+        "Series letter / design-bench size unverified \u2014 do not invent",
         "OnSite NYC; early enterprise AI co risk"
       ]
     },
@@ -4535,7 +4535,7 @@
       "seed": false,
       "score": "4/10",
       "confidence": "Low-Medium",
-      "recommendation": "Borderline — Conduct PD US NYC; stage/team unverified",
+      "recommendation": "Borderline \u2014 Conduct PD US NYC; stage/team unverified",
       "summary": "Product Designer - US at Conduct (NYC). Hesitation: funding letter + design org size unverified. Confirm-only."
     },
     "lastChecked": "2026-10-02"
@@ -4549,13 +4549,13 @@
     "dateFound": "2026-10-02",
     "location": "New York (OnSite)",
     "level": "Mid IC (Design Engineer stretch)",
-    "stageGate": "Series B-ish HRIS/payroll AI ($85M) — NOT Warp.dev terminal",
+    "stageGate": "Series B-ish HRIS/payroll AI ($85M) \u2014 NOT Warp.dev terminal",
     "status": "skipped",
     "isNew": false,
     "seed": false,
     "stretch": true,
     "borderline": true,
-    "team": "Design Engineering — AI-native employee management platform",
+    "team": "Design Engineering \u2014 AI-native employee management platform",
     "vet": {
       "gatesPass": true,
       "fitScore": 4,
@@ -4564,7 +4564,7 @@
         "Fintech-adjacent payroll/HRIS"
       ],
       "gaps": [
-        "JD says join early story / highest quality bar — tiny design bench flag",
+        "JD says join early story / highest quality bar \u2014 tiny design bench flag",
         "OnSite; distinct from Warp.dev terminal (easy name confusion)"
       ]
     },
@@ -4574,7 +4574,7 @@
       "seed": false,
       "score": "4/10",
       "confidence": "Medium",
-      "recommendation": "Borderline stretch — Warp (HRIS) DE NYC; early design bench",
+      "recommendation": "Borderline stretch \u2014 Warp (HRIS) DE NYC; early design bench",
       "summary": "STRETCH Design Engineer at Warp HRIS (NYC OnSite, not Warp.dev). Hesitation: early design story. Confirm-only."
     },
     "lastChecked": "2026-10-02"
@@ -4611,7 +4611,7 @@
       "seed": false,
       "score": "5/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — BofA XD II Product Design NYC; LI-only",
+      "recommendation": "Borderline \u2014 BofA XD II Product Design NYC; LI-only",
       "summary": "Experience Design (XD) II, Product Design at Bank of America (NYC). Hesitation: LI-only ATS. Confirm-only."
     },
     "lastChecked": "2026-10-02",
