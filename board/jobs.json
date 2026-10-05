@@ -672,7 +672,7 @@
     "location": "New York, NY (hybrid ≥50% in-office; also SF)",
     "level": "Mid IC (Product Designer II)",
     "stageGate": "Public company / established Ads & Offers design org · Uber Eats",
-    "status": "vetted",
+    "status": "sent",
     "isNew": true,
     "seed": false,
     "stretch": false,
@@ -720,7 +720,8 @@
         "workAuth": "US authorized, no sponsorship"
       }
     },
-    "lastChecked": "2026-10-02"
+    "lastChecked": "2026-10-02",
+    "appliedAt": "2026-10-05"
   },
   {
     "jobId": "stripe-8212314",
