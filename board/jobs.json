@@ -270,7 +270,7 @@
     "location": "New York, NY",
     "level": "Mid/Senior IC",
     "stageGate": "Public Meta / Instagram \u2014 established design org",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "borderline": false,
@@ -302,7 +302,14 @@
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-05"
+    "lastChecked": "2026-10-05",
+    "land": {
+      "resumePath": "/board/resumes/ig-4464267972.pdf",
+      "resumeFileName": "Instagram-Product-Designer-Subscriptions.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=EOK7Xz",
+      "trackedLinkExpires": "2026-10-19",
+      "preparedAt": "2026-10-05"
+    }
   },
   {
     "jobId": "posh-8338ed78",
