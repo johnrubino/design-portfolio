@@ -1,5 +1,93 @@
 [
   {
+    "jobId": "stripe-7977745",
+    "company": "Stripe",
+    "title": "Designer, Web Presence & Platform",
+    "postingUrl": "https://stripe.com/jobs/search?gh_jid=7977745",
+    "linkedinUrl": null,
+    "dateFound": "2026-10-05",
+    "location": "US / Canada",
+    "level": "Senior IC (Designer)",
+    "stageGate": "Public fintech / WPP Presence pillar \u2014 established Stripe design org",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "salary": "$159,300\u2013$238,900/yr base (US)",
+    "team": "WPP Presence \u2014 Link (link.com) + Bridge (bridge.xyz) public storytelling / GTM surfaces",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 4,
+      "whyFits": [
+        "IC Designer (not Staff/Principal/manager); 5\u20137 YOE under hard 7\u20138+ skip",
+        "US/Canada geo clears (same WPP pattern as Expansion DE)",
+        "Public Stripe; established WPP Presence org; systems + Figma + CMS craft themes"
+      ],
+      "gaps": [
+        "MARKETING/BRAND LEAN: Presence pillar owns Link + Bridge go-to-market storytelling, not core product UX or Design Engineer",
+        "JD asks web / product marketing / brand contexts \u2014 flag vs product/UX target lane",
+        "Sibling of closed DE Presence (7144975); Expansion DE already sent \u2014 overlap risk"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-05",
+      "source": "John vet Stripe WPP Designer seats Greenhouse 7977745",
+      "seed": false,
+      "score": "4/10",
+      "confidence": "High",
+      "recommendation": "Borderline \u2014 Stripe Designer WPP Presence US/Canada; marketing/brand lean, not product UX",
+      "summary": "Designer, Web Presence & Platform at Stripe (US/Canada). Senior IC 5\u20137y; $159.3k\u2013$238.9k. Scope: own Link + Bridge public storytelling / GTM. Clears IC+geo; FLAG marketing/brand Presence lean vs product/UX or DE. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-05"
+  },
+  {
+    "jobId": "stripe-8130913",
+    "company": "Stripe",
+    "title": "Designer, Web Presence & Platform",
+    "postingUrl": "https://stripe.com/jobs/search?gh_jid=8130913",
+    "linkedinUrl": null,
+    "dateFound": "2026-10-05",
+    "location": "US-Remote",
+    "level": "Mid IC (Designer)",
+    "stageGate": "Public fintech / WPP Presence pillar \u2014 established Stripe design org",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "salary": "$133,200\u2013$199,800/yr base (US)",
+    "team": "WPP Presence \u2014 stripe.com product / industry / solutions landing pages + storytelling systems",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 4,
+      "whyFits": [
+        "Mid IC Designer (2\u20134 YOE); not Staff/Principal/manager",
+        "US-Remote geo clears",
+        "Public Stripe; Presence craft + systems + CMS + eng collaboration themes"
+      ],
+      "gaps": [
+        "MARKETING/BRAND LEAN: Presence GTM landing pages / storytelling on stripe.com \u2014 not core product UX or Design Engineer",
+        "Junior-mid ownership (contribute/lead small\u2013medium) vs Senior product IC target",
+        "Same Presence pillar as US/Canada seat 7977745 \u2014 marketing lean flagged"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-05",
+      "source": "John vet Stripe WPP Designer seats Greenhouse 8130913",
+      "seed": false,
+      "score": "4/10",
+      "confidence": "High",
+      "recommendation": "Borderline \u2014 Stripe Designer WPP Presence US-Remote; marketing/GTM lean, Mid 2\u20134y",
+      "summary": "Designer, Web Presence & Platform at Stripe (US-Remote). Mid IC 2\u20134y; $133.2k\u2013$199.8k. Scope: stripe.com product/industry/solutions pages. Clears IC+geo; FLAG marketing/Presence lean vs product/UX. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-05"
+  },
+  {
     "jobId": "plot-9725070",
     "company": "Plot",
     "title": "Product Designer",
