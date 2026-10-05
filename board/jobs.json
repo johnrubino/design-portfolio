@@ -1,5 +1,124 @@
 [
   {
+    "jobId": "ibm-135534",
+    "company": "IBM",
+    "title": "Designer (Product)",
+    "postingUrl": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=135534",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4473694058",
+    "dateFound": "2026-10-05",
+    "location": "Armonk, NY + unanticipated US client sites (up to 100% telecommute)",
+    "level": "Mid-Senior IC",
+    "stageGate": "Public / IBM Design (established org)",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "salary": "$201,720–$251,720/yr",
+    "team": "Agentic workflows in developer tools / enterprise + infrastructure software UI (posting code AV238)",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 5,
+      "whyFits": [
+        "Mid-Senior IC, up to 100% telecommute (US remote) — gate pass",
+        "Public IBM, established design org",
+        "Enterprise UI, agentic dev-tool workflows, design-system docs + component/code libraries, complex data → usable UI",
+        "Light ask: Bachelor's + 5 yrs progressive + 1 yr PD"
+      ],
+      "gaps": [
+        "PERM labor-certification-style ad (AV238 code, 'various unanticipated client sites', Master's-or-Bachelor's+5 wording, exact wage range) — likely written for a pre-identified sponsored candidate; low odds",
+        "Hard-listed tools John may not use: Adobe Creative Suite/Photoshop/Illustrator, Webflow, Framer — confirm with John before apply",
+        "IBM careers posting date 05-Oct-2026, ~21-day window; apply via careers.ibm.com login (Avature)"
+      ],
+      "prepNote": "Legit apply path is careers.ibm.com job 135534 ('Apply now' → IBM careers login). Print/aggregator versions of this IBM ad template route to recruitad@us.ibm.com referencing the code; no email variant found for AV238. Prepped only, not applied."
+    },
+    "fit": {
+      "generatedAt": "2026-10-05",
+      "source": "John ask (LinkedIn 4473694058 → careers.ibm.com 135534)",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline — gates clear on paper but PERM-style ad; low-odds apply if John wants to try",
+      "summary": "IBM Designer (Product), AV238. Enterprise UI + agentic developer-tool workflows, design systems/code libraries, WCAG/A-B testing, data-dense UI, mentoring on AI tools. Apply via careers.ibm.com 135534."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-05",
+    "land": {
+      "resumePath": "/board/resumes/ibm-135534.pdf",
+      "resumeFileName": "IBM-Product-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=BbRGPt",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
+  },
+  {
+    "jobId": "amex-26011611",
+    "company": "American Express",
+    "title": "Senior Product Designer — Travel journeys (Enterprise Design & Research)",
+    "postingUrl": "https://egug.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/26011611",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4474652156",
+    "dateFound": "2026-10-05",
+    "location": "New York, NY (Hybrid — 200 Vesey St)",
+    "level": "Senior",
+    "stageGate": "Public / Amex Enterprise Design & Research (global multi-disciplinary design org)",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "salary": "$123k–$215k base (LI range)",
+    "team": "Enterprise Design & Research — travel journeys across native mobile + web",
+    "closes": "2026-10-12",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Senior IC PD in NYC hybrid (200 Vesey)",
+        "Public Amex, established global Enterprise Design & Research org",
+        "End-to-end journeys discovery→launch, design systems/visual standards, presenting to leadership — matches Pershing work",
+        "5+ YOE soft floor under 7–8 hard-skip"
+      ],
+      "gaps": [
+        "5+ YOE soft stretch vs ~4+",
+        "Heavy visual-craft / premium consumer emphasis; travel/hospitality preferred vs wealth enterprise core",
+        "Native iOS/Android shipping asked — Pershing is web-first",
+        "Oracle CX posting ends 2026-10-12 05:00 UTC (Oct 12 1:00 AM ET) — apply by Oct 11"
+      ],
+      "prepNote": "Distinct from amex-4469072303 (GCS, sent). Ask-before-apply: prepped only, not submitted."
+    },
+    "fit": {
+      "generatedAt": "2026-10-05",
+      "source": "John confirm-only prep (LinkedIn 4474652156 → Oracle CX req 26011611)",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium-High",
+      "recommendation": "Clear — Amex SPD travel journeys NYC hybrid; prep ready, awaiting John's yes",
+      "summary": "Senior Product Designer, travel journeys (mobile + web) in Amex Enterprise Design & Research. Themes: independent discovery→launch ownership, visual craft/typography/hierarchy, design systems + visual standards, cross-functional presenting to leadership, mentoring."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-05",
+    "land": {
+      "resumePath": "/board/resumes/amex-26011611.pdf",
+      "resumeFileName": "American-Express-Senior-Product-Designer-Travel.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=EdWzjS",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
+  },
+  {
     "jobId": "robinhood-8159896",
     "company": "Robinhood",
     "title": "Senior Product Designer, Sports",
