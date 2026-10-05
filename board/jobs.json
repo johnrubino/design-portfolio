@@ -1,5 +1,61 @@
 [
   {
+    "jobId": "robinhood-8159896",
+    "company": "Robinhood",
+    "title": "Senior Product Designer, Sports",
+    "postingUrl": "https://boards.greenhouse.io/robinhood/jobs/8159896",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4473660004/",
+    "dateFound": "2026-10-05",
+    "location": "Menlo Park, CA | New York, NY (hybrid ≥3 days/week in office)",
+    "level": "Senior IC",
+    "stageGate": "Public fintech / established Robinhood design org",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Senior IC Product Designer (not Staff/Principal/manager); NYC office option clears geo",
+        "Public Robinhood; established design org; Prediction Markets strategically important",
+        "Owns end-to-end sports vertical: trading flows + engagement — complex financial mechanics → simple UX matches Pershing FPL/NAO/AM angle",
+        "Figma + AI-tool openness explicit; zero-to-one launch experience valued"
+      ],
+      "gaps": [
+        "Hard-asks 5+ years; John has ~4+ — soft stretch vs prior Mid RH International seat",
+        "Domain is consumer sports / prediction markets vs wealth & account-opening core",
+        "Hybrid ≥3 days NYC or Menlo — no US-remote option",
+        "Love-of-sports preference is soft; no formal sports design experience (JD does not require it)"
+      ],
+      "prepNote": "PREP ONLY — LAND published. Distinct from prior RH apps (Trading / Agentic / DeFi / International robinhood-8240638). Do not apply until John confirms."
+    },
+    "fit": {
+      "generatedAt": "2026-10-05",
+      "source": "Sibling agent handoff + LinkedIn 4473660004 / Greenhouse 8159896",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "High",
+      "recommendation": "Clear Senior NYC-hybrid IC — Sports Prediction Markets; prep LAND only pending apply yes",
+      "summary": "Senior Product Designer, Sports at Robinhood Prediction Markets (Menlo|NYC hybrid ≥3 days). Owns zero-to-one sports trading flows, amplifier events, game-day engagement. 5+ YOE; Figma + AI openness. Zone1 $166–$195k + bonus/equity. Clears Senior IC, NYC, public stage. Angle: complex financial mechanics feel simple."
+    },
+    "salary": "$166,000–$195,000 USD (Zone 1 NYC/Menlo) + bonus + equity",
+    "team": "Prediction Markets — Sports vertical (trading flows, amplifier events, game-day engagement)",
+    "land": {
+      "resumePath": "/board/resumes/robinhood-8159896.pdf",
+      "resumeFileName": "Robinhood-Senior-Product-Designer-Sports.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=EWpePE",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "lastChecked": "2026-10-05"
+  },
+  {
     "jobId": "stripe-7977745",
     "company": "Stripe",
     "title": "Designer, Web Presence & Platform",
