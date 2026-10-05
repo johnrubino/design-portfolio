@@ -152,8 +152,8 @@
     "location": "Remote (US); Oak Brook, IL listed",
     "level": "Senior",
     "stageGate": "Established financial services (~$62B AUM, 7M+ clients) \u2014 past seed",
-    "status": "sourced",
-    "isNew": true,
+    "status": "vetted",
+    "isNew": false,
     "seed": false,
     "borderline": false,
     "team": "Retirement & Wealth \u2014 HSA / rollover / custody / emergency savings product surfaces",
@@ -170,7 +170,8 @@
         "Oak Brook\u2013rooted culture / less \u2018product-company\u2019 brand",
         "Design-org depth unknown from LI guest scrape",
         "ATS apply URL not extracted \u2014 LinkedIn primary"
-      ]
+      ],
+      "prepNote": "PREP ONLY \u2014 LAND published. Do not apply until apply_confirm. LinkedIn posting is primary; ATS (Workday) apply URL not yet extracted \u2014 resolve at apply time. Storybook named in JD: not claimed on r\u00e9sum\u00e9."
     },
     "fit": {
       "generatedAt": "2026-10-05",
@@ -184,7 +185,20 @@
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-05"
+    "lastChecked": "2026-10-05",
+    "land": {
+      "resumePath": "/board/resumes/inspira-4475314354.pdf",
+      "resumeFileName": "Inspira-Senior-Product-Designer-Retirement-Wealth.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=EhjDFN",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   },
   {
     "jobId": "housecall-6188088004",
