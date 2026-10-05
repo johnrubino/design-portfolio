@@ -517,7 +517,7 @@
     "location": "Bellevue, WA; Chicago, IL; New York, NY; Washington, DC (Hybrid)",
     "level": "Senior",
     "stageGate": "Public (Okta) / established Identity design org",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "team": "Okta for AI Agents \u2014 non-human identity / agent lifecycle / authz",
@@ -549,7 +549,20 @@
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-04"
+    "lastChecked": "2026-10-05",
+    "land": {
+      "resumePath": "/board/resumes/okta-8248278.pdf",
+      "resumeFileName": "Okta-Senior-Product-Designer-AI-Agents.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=CbziLa",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   },
   {
     "jobId": "uber-303212",
