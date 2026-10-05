@@ -1,5 +1,62 @@
 [
   {
+    "jobId": "plot-9725070",
+    "company": "Plot",
+    "title": "Product Designer",
+    "postingUrl": "https://www.builtinnyc.com/job/product-designer/9725070",
+    "linkedinUrl": "https://lnkd.in/g5CPTebM",
+    "dateFound": "2026-10-05",
+    "location": "New York City (in-person)",
+    "level": "Mid IC (Product Designer)",
+    "stageGate": "Venture-backed (776 / XYZ / Mischief) \u2014 social video intelligence; design bench tiny (~2 designers)",
+    "status": "vetted",
+    "isNew": false,
+    "seed": false,
+    "borderline": true,
+    "team": "Product Design \u2014 AI-first social/video insight workflows for brand teams",
+    "vet": {
+      "gatesPass": false,
+      "fitScore": 4,
+      "whyFits": [
+        "IC Product Designer; NYC in-person clears geo",
+        "AI-first insight product; craft + systems + eng partnership match r\u00e9sum\u00e9 themes",
+        "John explicitly opened to Plot despite tiny bench"
+      ],
+      "gaps": [
+        "Stretch/borderline tiny design bench (second designer hired May 2026; role reads as early shop)",
+        "Ashby board no longer lists Product Designer (Built In removed 2026-07-07) \u2014 no live apply URL; prep for reopen/outreach",
+        "Consumer brand / social-video domain vs wealth core"
+      ],
+      "prepNote": "PREP ONLY \u2014 LAND published. Do not apply; Ashby PD seat closed as of 2026-07-07. Confirm if/when posting reopens."
+    },
+    "fit": {
+      "generatedAt": "2026-10-05",
+      "source": "John roundup ask + Jobi Plot prep (despite tiny bench)",
+      "seed": false,
+      "score": "4/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline / stretch tiny bench \u2014 prep LAND only; posting closed on Ashby",
+      "summary": "Product Designer at Plot (NYC in-person). Social video intelligence for brands. AI-first workflows, systems+craft, ship with eng. Tiny design bench; Ashby listing removed Jul 7 \u2014 prep only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "land": {
+      "resumePath": "/board/resumes/plot-9725070.pdf",
+      "resumeFileName": "Plot-Product-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=A8DeAM",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "lastChecked": "2026-10-05"
+  },
+  {
     "jobId": "compsych-4473852969",
     "company": "ComPsych",
     "title": "Senior Product Designer",
