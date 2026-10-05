@@ -1,5 +1,310 @@
 [
   {
+    "jobId": "compsych-4473852969",
+    "company": "ComPsych",
+    "title": "Senior Product Designer",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4473852969",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4473852969",
+    "dateFound": "2026-10-05",
+    "location": "United States (Remote)",
+    "level": "Senior",
+    "stageGate": "Large private EAP / absence-management (~Fortune 500 client base)",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "team": "Behavioral health + absence management product experiences",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 4,
+      "whyFits": [
+        "Senior IC; US remote",
+        "Large established company past seed",
+        "Wellbeing / benefits-adjacent workflows"
+      ],
+      "gaps": [
+        "Design-org maturity unclear",
+        "Enterprise EAP vs modern product culture",
+        "YOE not explicit on LI guest scrape"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-05",
+      "source": "Jobi weekday Senior PD watch LinkedIn",
+      "seed": false,
+      "score": "4/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline \u2014 ComPsych SPD remote EAP",
+      "summary": "Senior Product Designer at ComPsych. US remote EAP/absence. Confirm-only if interest."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-05"
+  },
+  {
+    "jobId": "rapidai-4473880271",
+    "company": "RapidAI",
+    "title": "Senior Product Designer",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4473880271",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4473880271",
+    "dateFound": "2026-10-05",
+    "location": "United States (remote-leaning; some on-site validation language)",
+    "level": "Senior",
+    "stageGate": "Clinical AI / stroke-trauma imaging \u2014 growth-stage medtech (verify Series)",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "team": "Clinical mobile + desktop apps for acute care / AI outputs",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 5,
+      "whyFits": [
+        "Senior IC; US work-auth OK",
+        "6+ YOE soft under hard bar",
+        "Complex high-stakes systems UX"
+      ],
+      "gaps": [
+        "Healthcare/clinical domain stretch",
+        "On-site validation language \u2014 confirm remote vs hybrid",
+        "Design bench / stage not fully verified via ATS"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-05",
+      "source": "Jobi weekday Senior PD watch LinkedIn",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline \u2014 RapidAI SPD clinical AI",
+      "summary": "Senior Product Designer at RapidAI. Clinical AI. Confirm-only if domain interest."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-05"
+  },
+  {
+    "jobId": "inspira-4475314354",
+    "company": "Inspira Financial",
+    "title": "Retirement & Wealth - Sr. Product Designer (Remote)",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4475314354",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4475314354",
+    "dateFound": "2026-10-05",
+    "location": "Remote (US); Oak Brook, IL listed",
+    "level": "Senior",
+    "stageGate": "Established financial services (~$62B AUM, 7M+ clients) \u2014 past seed",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": false,
+    "team": "Retirement & Wealth \u2014 HSA / rollover / custody / emergency savings product surfaces",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 8,
+      "whyFits": [
+        "Senior IC; US remote",
+        "Direct wealth/retirement domain fit vs Pershing background",
+        "5\u20137 YOE band under 7\u20138 hard-skip",
+        "Large established FS org (not seed)"
+      ],
+      "gaps": [
+        "Oak Brook\u2013rooted culture / less \u2018product-company\u2019 brand",
+        "Design-org depth unknown from LI guest scrape",
+        "ATS apply URL not extracted \u2014 LinkedIn primary"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-05",
+      "source": "Jobi weekday Senior PD watch LinkedIn light pass",
+      "seed": false,
+      "score": "8/10",
+      "confidence": "Medium-High",
+      "recommendation": "Clear \u2014 Inspira Sr PD Retirement & Wealth remote",
+      "summary": "Sr. Product Designer, Retirement & Wealth at Inspira Financial. US remote. Wealth domain. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-05"
+  },
+  {
+    "jobId": "housecall-6188088004",
+    "company": "Housecall Pro",
+    "title": "Senior Product Designer (JobEx)",
+    "postingUrl": "https://www.housecallpro.com/careers/open-positions/?gh_jid=6188088004",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4466334600",
+    "dateFound": "2026-10-05",
+    "location": "United States (Remote); Denver HQ",
+    "level": "Senior",
+    "stageGate": "Late-stage / unicorn-scale home-services SaaS; VP Product Design on board",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": false,
+    "team": "JobEx \u2014 Pro job / work-order experience",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Senior IC; US remote",
+        "Established design leadership (VP PD role open too)",
+        "6+ YOE soft under 7\u20138 hard-skip",
+        "Complex B2B operational workflows"
+      ],
+      "gaps": [
+        "Home-services domain vs wealth/fintech",
+        "First published ~Sep 11 \u2014 ATS token miss until this pass",
+        "6+ YOE soft stretch"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-05",
+      "source": "Jobi weekday Senior PD watch LinkedIn + Greenhouse housecall",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "High",
+      "recommendation": "Clear \u2014 Housecall Pro SPD JobEx US remote",
+      "summary": "Senior Product Designer (JobEx) at Housecall Pro. US remote. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-05"
+  },
+  {
+    "jobId": "cnn-R000106864",
+    "company": "CNN (Warner Bros. Discovery)",
+    "title": "Product Designer II, Growth - Acquisition",
+    "postingUrl": "https://careers.wbd.com/global/en/job/WAMEGLOBALR000106864EXTERNALENGLOBAL/Product-Designer-II-Growth-Acquisition",
+    "linkedinUrl": null,
+    "dateFound": "2026-10-05",
+    "location": "New York, NY (WBD careers; confirm office)",
+    "level": "Mid IC (PD II)",
+    "stageGate": "Public WBD / CNN",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": false,
+    "team": "CNN Growth \u2014 digital advertising / acquisition product",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 6,
+      "whyFits": [
+        "Mid IC PD II; WBD public",
+        "2+ YOE; growth/acquisition craft transferable",
+        "Paired with New Business posting same watch"
+      ],
+      "gaps": [
+        "Ad-tech / acquisition domain vs wealth",
+        "Confirm NYC vs other WBD sites on apply",
+        "Junior-leaning Mid floor"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-05",
+      "source": "Jobi weekday Senior PD watch WBD careers companion to New Business",
+      "seed": false,
+      "score": "6/10",
+      "confidence": "Medium",
+      "recommendation": "Clear \u2014 CNN PD II Growth Acquisition",
+      "summary": "Product Designer II, Growth - Acquisition at CNN/WBD. Mid IC. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-05"
+  },
+  {
+    "jobId": "cnn-R000106197",
+    "company": "CNN (Warner Bros. Discovery)",
+    "title": "Product Designer II, New Business",
+    "postingUrl": "https://careers.wbd.com/global/en/job/WAMEGLOBALR000106197EXTERNALENGLOBAL/Product-Designer-II-New-Business",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4427099772",
+    "dateFound": "2026-10-05",
+    "location": "New York, NY",
+    "level": "Mid IC (PD II)",
+    "stageGate": "Public WBD / CNN \u2014 large media product design",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": false,
+    "team": "CNN New Business \u2014 standalone digital features / new product surfaces",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Mid IC Product Designer II; NYC",
+        "Public Warner Bros. Discovery; established design footprint",
+        "2+ YOE floor \u2014 under hard bar",
+        "Media/news product craft with room for systems thinking"
+      ],
+      "gaps": [
+        "2+ YOE title may lean more junior Mid",
+        "Media/news vs wealth/fintech core",
+        "Large corp process"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-05",
+      "source": "Jobi weekday Senior PD watch LinkedIn + WBD careers",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "High",
+      "recommendation": "Clear \u2014 CNN PD II New Business NYC",
+      "summary": "Product Designer II, New Business at CNN/WBD. NYC Mid IC. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-05"
+  },
+  {
+    "jobId": "ig-4464267972",
+    "company": "Instagram",
+    "title": "Product Designer, Subscriptions",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4464267972",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4464267972",
+    "dateFound": "2026-10-05",
+    "location": "New York, NY",
+    "level": "Mid/Senior IC",
+    "stageGate": "Public Meta / Instagram \u2014 established design org",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": false,
+    "team": "Subscriptions \u2014 subscriber growth, premium AI/features, payments/metering across FoA",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 8,
+      "whyFits": [
+        "IC Product Designer (not Staff/manager); NYC",
+        "Meta/Instagram established design org; public company",
+        "High-impact revenue systems (subs growth, premium, payments)",
+        "6+ YOE soft under 7\u20138 hard-skip bar"
+      ],
+      "gaps": [
+        "6+ YOE soft stretch",
+        "May overlap prior IG/Meta apps \u2014 distinct Subscriptions seat",
+        "LinkedIn-sourced; Meta careers SPA hid req id"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-05",
+      "source": "Jobi weekday Senior PD watch LinkedIn light pass",
+      "seed": false,
+      "score": "8/10",
+      "confidence": "High",
+      "recommendation": "Clear \u2014 Instagram PD Subscriptions NYC",
+      "summary": "Product Designer, Subscriptions at Instagram (Meta). NYC. Recurring-revenue / premium systems. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-05"
+  },
+  {
     "jobId": "posh-8338ed78",
     "company": "Posh",
     "title": "Senior Product Designer",
