@@ -68,7 +68,7 @@
     "location": "New York, NY (Hybrid — 200 Vesey St)",
     "level": "Senior",
     "stageGate": "Public / Amex Enterprise Design & Research (global multi-disciplinary design org)",
-    "status": "vetted",
+    "status": "sent",
     "isNew": true,
     "seed": false,
     "salary": "$123k–$215k base (LI range)",
@@ -116,7 +116,8 @@
         "location": "New York, NY 10314",
         "workAuth": "US authorized, no sponsorship"
       }
-    }
+    },
+    "appliedAt": "2026-10-05"
   },
   {
     "jobId": "robinhood-8159896",
