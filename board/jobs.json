@@ -9,7 +9,7 @@
     "location": "Armonk, NY + unanticipated US client sites (up to 100% telecommute)",
     "level": "Mid-Senior IC",
     "stageGate": "Public / IBM Design (established org)",
-    "status": "vetted",
+    "status": "sent",
     "isNew": true,
     "seed": false,
     "borderline": true,
@@ -56,7 +56,8 @@
         "location": "New York, NY 10314",
         "workAuth": "US authorized, no sponsorship"
       }
-    }
+    },
+    "appliedAt": "2026-10-05"
   },
   {
     "jobId": "amex-26011611",
