@@ -4686,7 +4686,7 @@
     "location": "US / Canada",
     "level": "Mid IC (Design Engineer stretch)",
     "stageGate": "Public Stripe / WPP Presence pillar",
-    "status": "vetted",
+    "status": "skipped",
     "isNew": false,
     "seed": false,
     "stretch": true,
@@ -4728,7 +4728,9 @@
       }
     },
     "postingStatus": "closed",
-    "postingNote": "apply_confirm 2026-10-05 and again 2026-10-06 5:45pm ET: Greenhouse 7144975 still returns 404 and is not on Stripe's live board — posting closed, not submitted. Live siblings: Designer, Web Presence & Platform 7977745 (US/Canada) and 8130913 (US-Remote)."
+    "postingNote": "apply_confirm 2026-10-05 and again 2026-10-06 5:45pm ET: Greenhouse 7144975 still returns 404 and is not on Stripe's live board — posting closed, not submitted. Live siblings: Designer, Web Presence & Platform 7977745 (US/Canada) and 8130913 (US-Remote).",
+    "skippedAt": "2026-10-06",
+    "skipReason": "Posting closed (Greenhouse 404); user asked to skip card"
   },
   {
     "jobId": "confido-090f3529",
