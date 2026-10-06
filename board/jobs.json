@@ -4907,7 +4907,7 @@
     "location": "New York, NY (hybrid, 4 days/week in office)",
     "level": "Senior IC",
     "stageGate": "Public (Comcast subsidiary) — established Global Streaming Product design org (PD, UXR, content design)",
-    "status": "vetted",
+    "status": "sent",
     "isNew": true,
     "seed": false,
     "borderline": false,
@@ -4958,7 +4958,8 @@
         "location": "New York, NY 10314",
         "workAuth": "US authorized, no sponsorship"
       }
-    }
+    },
+    "appliedAt": "2026-10-06"
   },
   {
     "jobId": "sydecar-23c77c9c",
