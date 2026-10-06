@@ -186,7 +186,7 @@
     "location": "US / Canada",
     "level": "Senior IC (Designer)",
     "stageGate": "Public fintech / WPP Presence pillar — established Stripe design org",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "borderline": true,
@@ -218,7 +218,20 @@
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-05"
+    "lastChecked": "2026-10-06",
+    "land": {
+      "resumePath": "/board/resumes/stripe-7977745.pdf",
+      "resumeFileName": "Stripe-Designer-Web-Presence.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=C6Y7VK",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   },
   {
     "jobId": "stripe-8130913",
