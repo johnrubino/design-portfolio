@@ -4901,13 +4901,13 @@
     "jobId": "nbcu-4467208592",
     "company": "NBCUniversal",
     "title": "Sr. Product Designer (Commerce — Global Streaming: Peacock / NOW / SkyShowtime)",
-    "postingUrl": "https://www.linkedin.com/jobs/view/4467208592",
+    "postingUrl": "https://jobs.smartrecruiters.com/NBCUniversal3/744000149383599-sr-product-designer",
     "linkedinUrl": "https://www.linkedin.com/jobs/view/4467208592",
     "dateFound": "2026-10-06",
     "location": "New York, NY (hybrid, 4 days/week in office)",
     "level": "Senior IC",
     "stageGate": "Public (Comcast subsidiary) — established Global Streaming Product design org (PD, UXR, content design)",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "borderline": false,
@@ -4925,8 +4925,10 @@
         "4 days/week in office (heavy NYC hybrid)",
         "Media/entertainment domain (not fintech/AI)",
         "Prior NBCU Product Designer (nbcu-4472778812) was skipped — this is a distinct Senior Commerce seat",
-        "LinkedIn link only — NBCU Workday req URL not resolved (SPA)"
-      ]
+        "5+ YOE soft stretch vs ~4+",
+        "No shipped subscription/streaming or TV-platform work — angle is regulated multi-step account/enrollment flows (NAO, Asset Movement, FPL)"
+      ],
+      "prepNote": "Real apply URL resolved: NBCU uses SmartRecruiters (not Workday) — SR 744000149383599, ref 51530715_1, posted 2026-09-14, 30 Rock NYC. Ask-before-apply: prepped only, not submitted."
     },
     "fit": {
       "generatedAt": "2026-10-06",
@@ -4934,13 +4936,29 @@
       "seed": false,
       "score": "7/10",
       "confidence": "Medium-High",
-      "recommendation": "Clear — NBCU Sr PD Commerce (Peacock subs) NYC",
+      "recommendation": "Clear — NBCU Sr PD Commerce (Peacock subs) NYC 4-day hybrid; prep ready, awaiting John's yes",
       "summary": "Sr. Product Designer, Commerce at NBCUniversal Global Streaming (Peacock/NOW/SkyShowtime). NYC 4-day hybrid. Subscription checkout + account management. $150–185k. Confirm-only."
     },
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-06"
+    "lastChecked": "2026-10-06",
+    "applyUrl": "https://jobs.smartrecruiters.com/NBCUniversal3/744000149383599-sr-product-designer?oga=true",
+    "atsReq": "SmartRecruiters NBCUniversal3 744000149383599 (Job Ref 51530715_1)",
+    "salary": "$150k–$185k base + bonus/LTI",
+    "land": {
+      "resumePath": "/board/resumes/nbcu-4467208592.pdf",
+      "resumeFileName": "NBCUniversal-Senior-Product-Designer-Commerce.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=ETtCta",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   },
   {
     "jobId": "sydecar-23c77c9c",
@@ -4952,7 +4970,7 @@
     "location": "New York, NY (hybrid, 2–3 days/week; SF or NYC)",
     "level": "Mid IC",
     "stageGate": "Series A ($11M, Jan 2025; ~$28M raised total) — fintech / private-markets infrastructure",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "borderline": true,
@@ -4969,8 +4987,11 @@
       "gaps": [
         "Design bench likely small (one other open Senior/Staff PD seat in SF) — 'established design team' unverified",
         "Mid-level comp band ($140–150k)",
-        "Ashby posting dates to Aug 24; LinkedIn repost today — first time surfaced"
-      ]
+        "Ashby posting dates to Aug 24; LinkedIn repost today — first time surfaced",
+        "Ashby form has no portfolio/website field — tracked link can only go in cover letter (optional file) or referral field is N/A",
+        "Required hybrid question: pick NYC metro 2–3 days option"
+      ],
+      "prepNote": "Ashby form: name, email, résumé, optional cover letter, LinkedIn (req), hybrid-location select (req), work auth (req), sponsorship (req), referral (opt); EEO survey optional. No essays, no salary question. Ask-before-apply: prepped only, not submitted."
     },
     "fit": {
       "generatedAt": "2026-10-06",
@@ -4978,12 +4999,26 @@
       "seed": false,
       "score": "6/10",
       "confidence": "Medium",
-      "recommendation": "Borderline — Sydecar PD NYC (Series A fintech, small bench)",
+      "recommendation": "Borderline — Sydecar PD NYC (Series A fintech, small bench); prep ready, awaiting John's yes",
       "summary": "Product Designer at Sydecar (private-markets SPV platform). NYC hybrid. Regulated KYC/closing workflows. Design-bench size is the hesitation. Confirm-only."
     },
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-06"
+    "lastChecked": "2026-10-06",
+    "salary": "$140k–$150k base + equity + bonus",
+    "land": {
+      "resumePath": "/board/resumes/sydecar-23c77c9c.pdf",
+      "resumeFileName": "Sydecar-Product-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=EYqqQL",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   }
 ]
