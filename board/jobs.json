@@ -186,8 +186,8 @@
     "location": "US / Canada",
     "level": "Senior IC (Designer)",
     "stageGate": "Public fintech / WPP Presence pillar — established Stripe design org",
-    "status": "vetted",
-    "isNew": true,
+    "status": "sent",
+    "isNew": false,
     "seed": false,
     "borderline": true,
     "salary": "$159,300–$238,900/yr base (US)",
@@ -231,7 +231,9 @@
         "location": "New York, NY 10314",
         "workAuth": "US authorized, no sponsorship"
       }
-    }
+    },
+    "appliedAt": "2026-10-06T21:48:00Z",
+    "applyNote": "apply_confirm 2026-10-06: submitted via Greenhouse embed confirmation https://job-boards.greenhouse.io/embed/job_app/confirmation?for=stripe&token=7977745 (form had no portfolio/LinkedIn field)."
   },
   {
     "jobId": "stripe-8130913",
