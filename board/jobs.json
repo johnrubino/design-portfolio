@@ -4896,5 +4896,94 @@
       "resumeFileName": "Bank-of-America-Experience-Design-XD-II.pdf",
       "trackedLink": "https://johnrubino.design/hiring?t=EipLfV"
     }
+  },
+  {
+    "jobId": "nbcu-4467208592",
+    "company": "NBCUniversal",
+    "title": "Sr. Product Designer (Commerce — Global Streaming: Peacock / NOW / SkyShowtime)",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4467208592",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4467208592",
+    "dateFound": "2026-10-06",
+    "location": "New York, NY (hybrid, 4 days/week in office)",
+    "level": "Senior IC",
+    "stageGate": "Public (Comcast subsidiary) — established Global Streaming Product design org (PD, UXR, content design)",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": false,
+    "team": "Commerce Product Design — subscription purchase journey, checkout, sign-in, account mgmt, upgrade/downgrade/cancel; reports to Senior Director",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Senior IC (not Staff/manager); NYC",
+        "Public Comcast/NBCU; established cross-functional streaming design team",
+        "Subscription commerce / checkout / account systems — close to Instagram Subscriptions + payments interest",
+        "5+ YOE, under hard bar; design-system + AI-in-process preferred; $150k–$185k + bonus/LTI"
+      ],
+      "gaps": [
+        "4 days/week in office (heavy NYC hybrid)",
+        "Media/entertainment domain (not fintech/AI)",
+        "Prior NBCU Product Designer (nbcu-4472778812) was skipped — this is a distinct Senior Commerce seat",
+        "LinkedIn link only — NBCU Workday req URL not resolved (SPA)"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-06",
+      "source": "Jobi weekday Senior PD watch LinkedIn light pass",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium-High",
+      "recommendation": "Clear — NBCU Sr PD Commerce (Peacock subs) NYC",
+      "summary": "Sr. Product Designer, Commerce at NBCUniversal Global Streaming (Peacock/NOW/SkyShowtime). NYC 4-day hybrid. Subscription checkout + account management. $150–185k. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-06"
+  },
+  {
+    "jobId": "sydecar-23c77c9c",
+    "company": "Sydecar",
+    "title": "Product Designer",
+    "postingUrl": "https://jobs.ashbyhq.com/sydecar/23c77c9c-00a9-49ea-98f8-0364741f79e1",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4456541047",
+    "dateFound": "2026-10-06",
+    "location": "New York, NY (hybrid, 2–3 days/week; SF or NYC)",
+    "level": "Mid IC",
+    "stageGate": "Series A ($11M, Jan 2025; ~$28M raised total) — fintech / private-markets infrastructure",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "team": "Product design for SPV/fund deal execution — closing, KYC, cap tables, compliance-heavy investor workflows",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 6,
+      "whyFits": [
+        "Mid IC Product Designer; NYC hybrid 2–3 days",
+        "Series A fintech (past seed)",
+        "Regulated, multi-step financial workflows (KYC, closing) — strong overlap with NAO / Asset Movement",
+        "4+ YOE; works within an existing design system; $140k–$150k + equity/bonus"
+      ],
+      "gaps": [
+        "Design bench likely small (one other open Senior/Staff PD seat in SF) — 'established design team' unverified",
+        "Mid-level comp band ($140–150k)",
+        "Ashby posting dates to Aug 24; LinkedIn repost today — first time surfaced"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-06",
+      "source": "Jobi weekday Senior PD watch LinkedIn light pass + Ashby",
+      "seed": false,
+      "score": "6/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline — Sydecar PD NYC (Series A fintech, small bench)",
+      "summary": "Product Designer at Sydecar (private-markets SPV platform). NYC hybrid. Regulated KYC/closing workflows. Design-bench size is the hesitation. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-06"
   }
 ]
