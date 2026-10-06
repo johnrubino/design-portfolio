@@ -4970,7 +4970,7 @@
     "location": "New York, NY (hybrid, 2–3 days/week; SF or NYC)",
     "level": "Mid IC",
     "stageGate": "Series A ($11M, Jan 2025; ~$28M raised total) — fintech / private-markets infrastructure",
-    "status": "vetted",
+    "status": "sent",
     "isNew": true,
     "seed": false,
     "borderline": true,
@@ -5019,6 +5019,7 @@
         "location": "New York, NY 10314",
         "workAuth": "US authorized, no sponsorship"
       }
-    }
+    },
+    "appliedAt": "2026-10-06"
   }
 ]
