@@ -5063,7 +5063,7 @@
     "location": "New York, NY (or Menlo Park, CA)",
     "level": "Senior IC (Meta Product Designer)",
     "stageGate": "Public (Meta) — established Instagram design org",
-    "status": "vetted",
+    "status": "sent",
     "isNew": false,
     "seed": false,
     "borderline": false,
@@ -5113,7 +5113,8 @@
         "location": "New York, NY 10314",
         "workAuth": "US authorized, no sponsorship"
       }
-    }
+    },
+    "appliedAt": "2026-10-07"
   },
   {
     "jobId": "geniusai-e6bb10bc",
