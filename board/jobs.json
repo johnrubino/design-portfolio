@@ -5169,7 +5169,7 @@
     "location": "Brooklyn, NY",
     "level": "Mid IC (Senior Associate)",
     "stageGate": "Public — JPMC Employee Experience Design team (established)",
-    "status": "vetted",
+    "status": "skipped",
     "isNew": false,
     "seed": false,
     "borderline": false,
@@ -5219,7 +5219,9 @@
         "location": "New York, NY 10314",
         "workAuth": "US authorized, no sponsorship"
       }
-    }
+    },
+    "skippedAt": "2026-10-07",
+    "skipReason": "User skip — pay ceiling / internal EX"
   },
   {
     "jobId": "highlevel-726389ca",
