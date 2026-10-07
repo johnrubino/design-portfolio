@@ -5063,8 +5063,8 @@
     "location": "New York, NY (or Menlo Park, CA)",
     "level": "Senior IC (Meta Product Designer)",
     "stageGate": "Public (Meta) — established Instagram design org",
-    "status": "sourced",
-    "isNew": true,
+    "status": "vetted",
+    "isNew": false,
     "seed": false,
     "borderline": false,
     "salary": "$201,000–$278,000/yr base",
@@ -5082,7 +5082,8 @@
         "Minimum qual lists 8+ years (Meta YOE override applies — approved to surface)",
         "'Help lead' language; reads IC5/IC6 scope",
         "LinkedIn shows 150+ applicants"
-      ]
+      ],
+      "prepNote": "PREP ONLY — LAND ready. Meta Careers apply; NYC preferred over Menlo Park. Hard min 8+ YOE (do not over-claim). Form typically: résumé, portfolio/website (tracked link), LinkedIn, work auth, location preference, EEO optional. Ask-before-apply."
     },
     "fit": {
       "generatedAt": "2026-10-07",
@@ -5090,13 +5091,29 @@
       "seed": false,
       "score": "7/10",
       "confidence": "Medium-High",
-      "recommendation": "Clear — Instagram PD Shop Everything (NYC, Meta-approved)",
+      "recommendation": "Clear — Instagram PD Shop Everything (NYC); PREP ONLY, awaiting John's yes. Flag: 8+ YOE hard ask.",
       "summary": "Instagram Product Designer, Shop Everything. NYC/Menlo Park. Creator commerce + agentic checkout. $201–278k. 8+ YOE min (Meta override). Confirm-only."
     },
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-07"
+    "lastChecked": "2026-10-07",
+    "land": {
+      "resumePath": "/board/resumes/ig-4446616733.pdf",
+      "resumeFileName": "Instagram-Product-Designer-Shop-Everything.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=BTwJAt",
+      "trackedLinkExpires": "2026-10-21",
+      "preparedAt": "2026-10-07",
+      "applyUrl": "https://www.metacareers.com/jobs/1305361359320330/",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   },
   {
     "jobId": "geniusai-e6bb10bc",
@@ -5146,14 +5163,14 @@
     "jobId": "jpmc-4476310695",
     "company": "JPMorganChase",
     "title": "Experience Design Senior Associate - Agentic",
-    "postingUrl": "https://www.linkedin.com/jobs/view/4476310695",
+    "postingUrl": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210796898",
     "linkedinUrl": "https://www.linkedin.com/jobs/view/4476310695",
     "dateFound": "2026-10-07",
     "location": "Brooklyn, NY",
     "level": "Mid IC (Senior Associate)",
     "stageGate": "Public — JPMC Employee Experience Design team (established)",
-    "status": "sourced",
-    "isNew": true,
+    "status": "vetted",
+    "isNew": false,
     "seed": false,
     "borderline": false,
     "salary": "$123,500–$170,000/yr base",
@@ -5170,8 +5187,9 @@
       "gaps": [
         "Pay ceiling $170k (below John's recent asks)",
         "Internal employee-experience product, not client-facing",
-        "LinkedIn link only — JPMC Oracle req URL not resolved"
-      ]
+        "Official ATS resolved: Oracle CX 210796898 — still LinkedIn-sourced originally"
+      ],
+      "prepNote": "PREP ONLY — LAND ready. Official ATS: JPMC Oracle CX req 210796898 (Brooklyn). LinkedIn 4476310695. Pay ceiling $170k; internal employee-experience product. Oracle form typically: résumé, LinkedIn, work auth, sponsorship; salary/EEO may appear. Ask-before-apply."
     },
     "fit": {
       "generatedAt": "2026-10-07",
@@ -5179,13 +5197,29 @@
       "seed": false,
       "score": "7/10",
       "confidence": "Medium-High",
-      "recommendation": "Clear — JPMC Experience Design Sr Associate, Agentic (Brooklyn)",
+      "recommendation": "Clear — JPMC Experience Design Sr Associate, Agentic (Brooklyn); PREP ONLY, awaiting John's yes. Flag: low pay ceiling + internal product.",
       "summary": "JPMC Experience Design Senior Associate – Agentic. Brooklyn NY. Agentic employee self-service + agentic design system. $123.5–170k. Confirm-only."
     },
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-07"
+    "lastChecked": "2026-10-07",
+    "land": {
+      "resumePath": "/board/resumes/jpmc-4476310695.pdf",
+      "resumeFileName": "JPMorganChase-Experience-Design-Senior-Associate-Agentic.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=EdmlRK",
+      "trackedLinkExpires": "2026-10-21",
+      "preparedAt": "2026-10-07",
+      "applyUrl": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210796898",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   },
   {
     "jobId": "highlevel-726389ca",
