@@ -5052,5 +5052,357 @@
       }
     },
     "appliedAt": "2026-10-06"
+  },
+  {
+    "jobId": "ig-4446616733",
+    "company": "Instagram",
+    "title": "Product Designer, Shop Everything",
+    "postingUrl": "https://www.metacareers.com/jobs/1305361359320330/",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4446616733",
+    "dateFound": "2026-10-07",
+    "location": "New York, NY (or Menlo Park, CA)",
+    "level": "Senior IC (Meta Product Designer)",
+    "stageGate": "Public (Meta) — established Instagram design org",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": false,
+    "salary": "$201,000–$278,000/yr base",
+    "team": "Shop Everything — creator commerce (product tagging, shoppable content) + consumer purchase journey (PDP, persistent cart, checkout, agentic purchase delegation/control)",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Meta/Instagram IC PD — approved to surface; NYC listed",
+        "Agentic purchase: delegation, control, transparency, recovery — maps to John's agent-governance / maker-checker interest",
+        "Commerce + checkout + trust across third-party sellers; adjacent to Instagram Subscriptions (applied)",
+        "$201k–$278k base + bonus/equity"
+      ],
+      "gaps": [
+        "Minimum qual lists 8+ years (Meta YOE override applies — approved to surface)",
+        "'Help lead' language; reads IC5/IC6 scope",
+        "LinkedIn shows 150+ applicants"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-07",
+      "source": "Jobi weekday Senior PD watch 2026-10-07 ~8:26am ET",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium-High",
+      "recommendation": "Clear — Instagram PD Shop Everything (NYC, Meta-approved)",
+      "summary": "Instagram Product Designer, Shop Everything. NYC/Menlo Park. Creator commerce + agentic checkout. $201–278k. 8+ YOE min (Meta override). Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-07"
+  },
+  {
+    "jobId": "geniusai-e6bb10bc",
+    "company": "Genius AI (formerly GlossGenius)",
+    "title": "Design Systems Designer (Senior)",
+    "postingUrl": "https://jobs.ashbyhq.com/geniusai/e6bb10bc-6c62-4688-a1b0-b8643cf26052",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4467769270",
+    "dateFound": "2026-10-07",
+    "location": "New York, NY (hybrid, 2 days/week — Tue & Thu)",
+    "level": "Senior IC",
+    "stageGate": "Series D ($44M at $1.15B, Jul 2026); ~400 employees; growing design systems team",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": false,
+    "salary": "$170,000–$210,000/yr",
+    "team": "Design systems — tokens, Figma libraries/variables, component library across mobile + web, design-to-dev handoff, governance, AI tooling; company-wide rebrand with Porto Rocha",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 8,
+      "whyFits": [
+        "Senior IC on a growing design systems team (established design org: DS team + Associate Creative Director)",
+        "NYC hybrid 2 days",
+        "Systems thinking, design–dev handoff, AI-powered workflow — John's core strengths",
+        "4+ YOE; $170k–$210k"
+      ],
+      "gaps": [
+        "Mobile-first product (beauty/wellness SMB) — not fintech/AI-first domain",
+        "Ashby posted Sep 15; LinkedIn repost today (first time surfaced)"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-07",
+      "source": "Jobi weekday Senior PD watch 2026-10-07 ~8:26am ET",
+      "seed": false,
+      "score": "8/10",
+      "confidence": "Medium-High",
+      "recommendation": "Clear — Genius AI Design Systems Designer NYC",
+      "summary": "Senior Design Systems Designer at Genius AI (GlossGenius). NYC 2-day hybrid. Tokens/libraries/handoff/governance + rebrand. $170–210k. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-07"
+  },
+  {
+    "jobId": "jpmc-4476310695",
+    "company": "JPMorganChase",
+    "title": "Experience Design Senior Associate - Agentic",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4476310695",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4476310695",
+    "dateFound": "2026-10-07",
+    "location": "Brooklyn, NY",
+    "level": "Mid IC (Senior Associate)",
+    "stageGate": "Public — JPMC Employee Experience Design team (established)",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": false,
+    "salary": "$123,500–$170,000/yr base",
+    "team": "Employee Experience Design — agentic AI + adaptive self-service journeys for 320k+ employees; response mapping; growing agentic design system",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Mid IC (Senior Associate) — independent ownership of features/journeys",
+        "Agentic + conversational interaction patterns and an agentic design system — strong AI×design fit",
+        "Enterprise financial-services internal tooling — close to BNY Pershing experience",
+        "3+ YOE; $123.5k–$170k"
+      ],
+      "gaps": [
+        "Pay ceiling $170k (below John's recent asks)",
+        "Internal employee-experience product, not client-facing",
+        "LinkedIn link only — JPMC Oracle req URL not resolved"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-07",
+      "source": "Jobi weekday Senior PD watch 2026-10-07 ~8:26am ET",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium-High",
+      "recommendation": "Clear — JPMC Experience Design Sr Associate, Agentic (Brooklyn)",
+      "summary": "JPMC Experience Design Senior Associate – Agentic. Brooklyn NY. Agentic employee self-service + agentic design system. $123.5–170k. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-07"
+  },
+  {
+    "jobId": "highlevel-726389ca",
+    "company": "HighLevel",
+    "title": "Sr. Product Designer",
+    "postingUrl": "https://jobs.lever.co/gohighlevel/726389ca-785f-4410-a6c1-7aeee6bf6ebe",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4476595024",
+    "dateFound": "2026-10-07",
+    "location": "United States (100% remote)",
+    "level": "Senior IC",
+    "stageGate": "Growth-stage private (2,000+ employees, remote-first); design org with Lead/Staff/Sr Manager PD roles",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "team": "AI-powered business OS for agencies/SMBs — CRM, automation, workflow-heavy B2B SaaS",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 6,
+      "whyFits": [
+        "Senior IC, US remote",
+        "Large established design org (Lead, Staff, Sr Manager PD seats open)",
+        "Workflow-heavy B2B SaaS, design-system adoption, AI-assisted workflow expected",
+        "5+ YOE"
+      ],
+      "gaps": [
+        "Lever 'commitment' field reads 'Employee India' while location says United States — confirm it's a US-employed seat",
+        "Pay not listed",
+        "Collaboration across US and India time zones"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-07",
+      "source": "Jobi weekday Senior PD watch 2026-10-07 ~8:26am ET",
+      "seed": false,
+      "score": "6/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline — HighLevel Sr PD (US remote; employment-type label unclear)",
+      "summary": "HighLevel Sr. Product Designer, 100% remote US. Workflow-heavy SMB SaaS. Pay not listed; Lever tag says 'Employee India'. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-07"
+  },
+  {
+    "jobId": "basis-669a214f",
+    "company": "Basis",
+    "title": "Product Designer",
+    "postingUrl": "https://jobs.ashbyhq.com/basis-ai/669a214f-1850-4302-8a65-5d0319b2adba",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4466585716",
+    "dateFound": "2026-10-07",
+    "location": "New York, NY (Flatiron office, in person 5 days/week)",
+    "level": "Mid/Senior IC",
+    "stageGate": "Late-stage private ($100M at >$1B valuation; Khosla, Accel, GV)",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "salary": "$100,000–$250,000/yr + equity",
+    "team": "Human–agent interaction for accounting agents — user-agent UI, agent-ready UI primitives agents assemble/explain in real time",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Interesting-problem stretch: humans and long-horizon agents co-creating work, handoffs, trust",
+        "NYC; well-funded (>$1B valuation)",
+        "4–8 yrs; $100k–$250k + equity"
+      ],
+      "gaps": [
+        "5 days/week in person",
+        "Design bench likely small (Founding Brand Designer also open) — 'established design team' unverified",
+        "Wide comp band; high-intensity culture"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-07",
+      "source": "Jobi weekday Senior PD watch 2026-10-07 ~8:26am ET",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline — Basis PD NYC (agent UX stretch; 5-day in-office, small bench)",
+      "summary": "Basis Product Designer, NYC 5 days in office. Agent/human co-work UI for accounting. $100–250k + equity. Small bench is the hesitation. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-07"
+  },
+  {
+    "jobId": "turquoise-806f5f93",
+    "company": "Turquoise Health",
+    "title": "Senior Design Engineer",
+    "postingUrl": "https://jobs.ashbyhq.com/turquoise-health/806f5f93-6eb6-4aea-9483-f8f7458e6730",
+    "dateFound": "2026-10-07",
+    "location": "United States (fully remote)",
+    "level": "Senior IC — Design Engineer (stretch)",
+    "stageGate": "Series C ($40M, Mar 2026; ~200 employees); a16z portfolio",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "salary": "$172,000–$220,000/yr + equity",
+    "team": "Pit Viper design system — Vue components + native Web Components, last-mile UI polish in product code, accessibility",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 6,
+      "whyFits": [
+        "DESIGN ENGINEER STRETCH: design systems in code, last-mile design delivery",
+        "US remote; Series C; partners with product designers + engineers",
+        "$172k–$220k + equity"
+      ],
+      "gaps": [
+        "Requires 5+ yrs building production web interfaces (HTML/CSS/JS/TS) and 1+ yr building a design system in code — engineering-heavy",
+        "Vue stack (React accepted as comparable)",
+        "Posted Aug 26 (first surfaced today via a16z board)"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-07",
+      "source": "Jobi weekday Senior PD watch 2026-10-07 ~8:26am ET",
+      "seed": false,
+      "score": "6/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline — Turquoise Health Sr Design Engineer (DE stretch, US remote)",
+      "summary": "Turquoise Health Senior Design Engineer, US remote. Pit Viper DS in Vue/Web Components. $172–220k. 5+ yrs production front-end required. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-07"
+  },
+  {
+    "jobId": "greenlite-4476370512",
+    "company": "GreenLite",
+    "title": "Senior Product Designer",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4476370512",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4476370512",
+    "dateFound": "2026-10-07",
+    "location": "New York, NY (hybrid, 3–4 days/week — M/W/Th)",
+    "level": "Senior IC",
+    "stageGate": "Venture-backed ($86M raised; Insight Partners, Craft) — construction permitting AI",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "team": "End-to-end product design across multiple product lines; build design system in Figma; AI permitting/compliance workflows",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 5,
+      "whyFits": [
+        "Senior IC, NYC hybrid",
+        "Regulated, document-heavy compliance workflows (permit review)",
+        "3+ YOE; AI design tools named (Figma Make, Claude Design)"
+      ],
+      "gaps": [
+        "'Small, fast-paced team' and 'instrumental in building our design systems' — likely first/only designer (tiny bench)",
+        "Pay not listed",
+        "LinkedIn link only — no ATS board found"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-07",
+      "source": "Jobi weekday Senior PD watch 2026-10-07 ~8:26am ET",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline — GreenLite SPD NYC (likely solo designer)",
+      "summary": "GreenLite Senior Product Designer, NYC 3–4 day hybrid. AI permitting workflows. Likely tiny design bench; pay not listed. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-07"
+  },
+  {
+    "jobId": "logrocket-cac67948",
+    "company": "LogRocket",
+    "title": "Senior Product Designer",
+    "postingUrl": "https://jobs.lever.co/logrocket/cac67948-9675-4470-b98f-99471d6c6088",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4329683809",
+    "dateFound": "2026-10-07",
+    "location": "Boston or NYC (hybrid)",
+    "level": "Senior IC",
+    "stageGate": "Venture-backed ($55M raised; Matrix, Battery, Delta-V); 2,800+ customers",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "salary": "$150,000–$175,000/yr",
+    "team": "Session replay / product analytics B2B SaaS for PMs and developers",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 5,
+      "whyFits": [
+        "Senior IC; NYC hybrid option",
+        "B2B SaaS dev/product tooling",
+        "3+ YOE; $150k–$175k"
+      ],
+      "gaps": [
+        "Lever posting dates to Dec 30, 2025 (stale; LinkedIn repost)",
+        "Design team size unknown",
+        "Pay ceiling $175k"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-07",
+      "source": "Jobi weekday Senior PD watch 2026-10-07 ~8:26am ET",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline — LogRocket SPD (Boston/NYC; stale posting)",
+      "summary": "LogRocket Senior Product Designer, Boston or NYC hybrid. $150–175k. Posting from Dec 2025 reposted. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-07"
   }
 ]
