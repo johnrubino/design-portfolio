@@ -217,7 +217,19 @@
             color: var(--lp-primary);
         }
 
-        /* ── Education / Certifications ── */
+        .resume-inline-link {
+            color: var(--lp-text-body);
+            text-decoration: underline;
+            text-decoration-color: var(--lp-border);
+            text-underline-offset: 3px;
+            transition: color 200ms ease;
+        }
+
+        .resume-inline-link:hover {
+            color: var(--lp-primary);
+        }
+
+        /* ── Education / Skills items ── */
         .resume-edu-item {
             margin-bottom: 20px;
         }
@@ -388,7 +400,7 @@
             </aside>
         </div>
 
-        <!-- Two-column grid: Summary/Experience (left) + Education/Certs/Skills (right) -->
+        <!-- Two-column grid: Summary/Experience/Writing (left) + Skills/Education (right) -->
         <!-- Both columns start at same Y → divider lines align perfectly -->
         <div class="resume-grid">
 
@@ -396,7 +408,7 @@
             <main>
                 <section class="resume-section resume-summary">
                     <h2 class="resume-section-label">Summary</h2>
-                    <p class="resume-role-desc">I help financial advisors make better decisions by designing AI-powered wealth management tools that simplify complex workflows. At BNY | Pershing, I redesigned a lending platform that generated <strong class="resume-num">$27M</strong> in a single day and led AI adoption for a <strong class="resume-num">3-person</strong> team, setting standards across Wealth Services.</p>
+                    <p class="resume-role-desc">I design complex financial workflows for advisors at BNY Pershing and build with AI. My lending redesign helped a client lend a <strong class="resume-num">$27M</strong> position in a single day, and I&rsquo;m one of three designers leading AI adoption for the Wealth Services design team.</p>
                 </section>
 
                 <section class="resume-section">
@@ -406,17 +418,17 @@
                     <div class="resume-role">
                         <div class="resume-role-header">
                             <div class="resume-company-row">
-                                <span class="resume-company">BNY | Pershing</span>
+                                <span class="resume-company">BNY Pershing</span>
                                 <span class="resume-role-divider"></span>
-                                <span class="resume-role-title">Product Designer &middot; Wealth Services</span>
+                                <span class="resume-role-title">Senior Product Designer &middot; Wealth Services</span>
                             </div>
                             <span class="resume-dates">Sep 2023 – Present</span>
                         </div>
                         <ul class="resume-bullets">
-                            <li>Led the redesign of Fully Paid Lending with design, product, and engineering, partnering with a researcher on <strong class="resume-num">5</strong> studies to learn why advisors had written off a tool that lacked context, made positions hard to find, and lost them at enrollment. Launched to all Introducing Broker-Dealers, generating <strong class="resume-num">$49.9K</strong> for firms and their investors, including a <strong class="resume-num">$27M</strong> position lent in a single day.</li>
-                            <li>Selected by design leadership as one of <strong class="resume-num">3</strong> designers leading AI adoption for the Wealth Services design team, setting guidance on AI tooling in designer workflows. Built and presented a learning series on building with our design system in AI tools, plus a team-wide session on Figma MCP and agent customization, and now documenting how designers can pull answers directly from design system guidance to reduce inconsistencies across the product.</li>
-                            <li>Led the redesign of single order entry screens for alternative investments. Interviewed <strong class="resume-num">8</strong> clients with product to uncover pain points: scattered documents, rekeyed trades, and manual operations checks. Designed a document upload-first approach using AI-assisted data extraction that consolidated the flow into one step and projected a <strong class="resume-num">90%</strong> reduction in wire creation errors.</li>
-                            <li>Co-designed New Account Opening and Asset Movement to reimagine Pershing&rsquo;s wealth platform. Partnered with user research to interview <strong class="resume-num">12</strong> advisors on how they open accounts and move client money. Validated prototypes with <strong class="resume-num">20</strong> advisors across two usability studies, reshaping both flows and revealing a confirmation screen that told advisors an account existed before it did.</li>
+                            <li>Led the redesign of Fully Paid Lending with a design lead, product, and engineering, partnering with a researcher on <strong class="resume-num">5</strong> studies to learn why advisors had written off a tool that lacked context, made positions hard to find, and lost them at enrollment. Launched to all Introducing Broker-Dealers, generating revenue for firms and their investors, including a <strong class="resume-num">$27M</strong> position lent in a single day.</li>
+                            <li>Selected by design leadership as one of <strong class="resume-num">3</strong> designers leading AI adoption for the Wealth Services design team. Built and presented a learning series on building with our design system in AI tools, and now documenting how designers can pull answers directly from design system guidance.</li>
+                            <li>Led the redesign of single order entry for alternative investments. Interviewed <strong class="resume-num">8</strong> clients with product to uncover pain points: scattered documents, re-keyed trades, and manual operations checks. Designed a document-upload-first flow with AI-assisted data extraction that consolidated the process into one step, projected to cut wire creation errors by about <strong class="resume-num">90%</strong>.</li>
+                            <li>Co-designed New Account Opening and Asset Movement to reimagine Pershing&rsquo;s wealth platform. Partnered with user research to interview <strong class="resume-num">12</strong> advisors on how they open accounts and move client money, then validated prototypes with <strong class="resume-num">20</strong> advisors across two usability studies, which reshaped both flows and revealed a confirmation screen telling advisors an account existed before it did.</li>
                         </ul>
                     </div>
 
@@ -430,7 +442,7 @@
                             </div>
                             <span class="resume-dates">2024 – Present</span>
                         </div>
-                        <p class="resume-role-desc">Advising early-stage startups to improve their products and set strategy.</p>
+                        <p class="resume-role-desc">Advise early-stage startups on product strategy and design.</p>
                     </div>
 
                     <!-- Purple Panda -->
@@ -439,18 +451,44 @@
                             <div class="resume-company-row">
                                 <span class="resume-company">Purple Panda Rentals</span>
                                 <span class="resume-role-divider"></span>
-                                <span class="resume-role-title">Product Designer &amp; Founder</span>
+                                <span class="resume-role-title">Founder &amp; Product Designer</span>
                             </div>
                             <span class="resume-dates">Sep 2020 – Feb 2023</span>
                         </div>
-                        <p class="resume-role-desc">Founded a rental platform for college students after hearing from friends about the struggles of searching for off-campus housing. Surveyed <strong class="resume-num">270</strong> students, designed the mobile app, and used usability testing to raise task completion from <strong class="resume-num">63%</strong> to <strong class="resume-num">100%</strong>. Reached <strong class="resume-num">100+</strong> sign-ups and increased referrals by <strong class="resume-num">20%</strong>.</p>
+                        <p class="resume-role-desc">Founded a rental platform for college students after hearing from friends how hard the off-campus housing search was. Surveyed <strong class="resume-num">270</strong> students, designed the mobile app, and used usability testing to raise task completion from <strong class="resume-num">63%</strong> to <strong class="resume-num">100%</strong>. Reached <strong class="resume-num">100+</strong> sign-ups and increased referrals by <strong class="resume-num">20%</strong>.</p>
                     </div>
+                </section>
+
+                <section class="resume-section">
+                    <h2 class="resume-section-label">Writing</h2>
+                    <p class="resume-role-desc">Design Thinker (Substack): short essays on AI and how design work is changing. <a href="https://johnrubino.substack.com" target="_blank" rel="noopener" class="resume-inline-link">johnrubino.substack.com</a></p>
                 </section>
 
             </main>
 
-            <!-- ── Right: Education / Certs / Skills ── -->
+            <!-- ── Right: Skills / Education ── -->
             <aside class="resume-right">
+
+                <!-- Skills -->
+                <section class="resume-section">
+                    <h2 class="resume-section-label">Skills</h2>
+                    <div class="resume-edu-item">
+                        <p class="resume-edu-school">Research &amp; testing</p>
+                        <p class="resume-edu-degree">User interviews &middot; Usability testing &middot; Survey design</p>
+                    </div>
+                    <div class="resume-edu-item">
+                        <p class="resume-edu-school">Design</p>
+                        <p class="resume-edu-degree">Interaction design &middot; Prototyping &middot; Design systems (component libraries, documentation) &middot; AI product design</p>
+                    </div>
+                    <div class="resume-edu-item">
+                        <p class="resume-edu-school">Domain</p>
+                        <p class="resume-edu-degree">Advisor platforms &middot; Lending &middot; Account opening &amp; KYC &middot; Alternative investments &middot; 0-to-1 products</p>
+                    </div>
+                    <div class="resume-edu-item">
+                        <p class="resume-edu-school">Tools</p>
+                        <p class="resume-edu-degree">Figma Suite &middot; Claude Code &middot; Devin &middot; Codex</p>
+                    </div>
+                </section>
 
                 <!-- Education -->
                 <section class="resume-section">
@@ -463,46 +501,17 @@
                     <div class="resume-edu-item">
                         <p class="resume-edu-school">Designlab UX Academy</p>
                         <p class="resume-edu-year">2022</p>
-                        <p class="resume-edu-degree">UX/UI Design Certificate &mdash; <strong class="resume-num">440</strong> hours</p>
+                        <p class="resume-edu-degree">UX/UI Design Certificate, <strong class="resume-num">440</strong> hours</p>
                     </div>
-                </section>
-
-                <!-- Certifications -->
-                <section class="resume-section">
-                    <h2 class="resume-section-label">Certifications</h2>
                     <div class="resume-edu-item">
                         <p class="resume-edu-school">Emeritus</p>
                         <p class="resume-edu-year">2024</p>
                         <p class="resume-edu-degree">Designing and Building AI Products and Services</p>
                     </div>
-                </section>
-
-                <!-- Skills -->
-                <section class="resume-section">
-                    <h2 class="resume-section-label">Skills</h2>
                     <div class="resume-edu-item">
-                        <p class="resume-edu-school">Design Tools</p>
-                        <p class="resume-edu-degree">Figma</p>
-                    </div>
-                    <div class="resume-edu-item">
-                        <p class="resume-edu-school">Prototyping &amp; Interaction</p>
-                        <p class="resume-edu-degree">Figma Prototyping, Adobe XD, Principle, InVision</p>
-                    </div>
-                    <div class="resume-edu-item">
-                        <p class="resume-edu-school">AI &amp; Development</p>
-                        <p class="resume-edu-degree">Claude Code, Devin, Codex</p>
-                    </div>
-                    <div class="resume-edu-item">
-                        <p class="resume-edu-school">Research &amp; Testing</p>
-                        <p class="resume-edu-degree">A/B Testing, Usability Testing, User Interviews, Survey Design</p>
-                    </div>
-                    <div class="resume-edu-item">
-                        <p class="resume-edu-school">Design Systems</p>
-                        <p class="resume-edu-degree">Component Libraries, Design Tokens, Documentation</p>
-                    </div>
-                    <div class="resume-edu-item">
-                        <p class="resume-edu-school">Specialties</p>
-                        <p class="resume-edu-degree">Human-Centered Design, Interaction Design, AI Product Design, Advisory Platforms, 0-to-1 Product Development</p>
+                        <p class="resume-edu-school">Hustle Fund</p>
+                        <p class="resume-edu-year">2026</p>
+                        <p class="resume-edu-degree">Venture Fellowship</p>
                     </div>
                 </section>
 
