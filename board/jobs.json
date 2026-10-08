@@ -5452,7 +5452,7 @@
     "location": "New York, NY or Chicago, IL (hybrid)",
     "level": "Senior IC",
     "stageGate": "Public / Amex Global Dining (Resy) design org",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "borderline": false,
@@ -5470,7 +5470,8 @@
         "Hospitality domain vs fintech/AI",
         "Pay not listed in posting text",
         "Already applied to two other Amex PD seats (Travel, GCS Tech)"
-      ]
+      ],
+      "prepNote": "PREP ONLY — tailor-resume résumé + tracked link ready 2026-10-08. John said apply; submission pending (browser step)."
     },
     "fit": {
       "generatedAt": "2026-10-08",
@@ -5484,7 +5485,21 @@
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-08"
+    "land": {
+      "resumePath": "/board/resumes/amex-26010340.pdf",
+      "resumeFileName": "American-Express-Senior-Product-Designer-Venues.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=CSOgIR",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    },
+    "lastChecked": "2026-10-08",
+    "salary": "$123,000–$215,250/yr + bonus + benefits (Oracle requisition)"
   },
   {
     "jobId": "floqast-5c2f43cc",
@@ -5496,7 +5511,7 @@
     "location": "US remote (NYC, LA, San Jose, Chicago, Austin listed)",
     "level": "Senior IC",
     "stageGate": "Series E accounting SaaS; 3,000+ customers; growing design org",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "borderline": false,
@@ -5514,7 +5529,8 @@
         "Lever posting dates to Nov 2025 (reposted on LinkedIn today)",
         "No visa sponsorship (not needed)",
         "141 LinkedIn applicants"
-      ]
+      ],
+      "prepNote": "PREP ONLY — tailor-resume résumé + tracked link ready 2026-10-08. John said apply; submission pending (browser step)."
     },
     "fit": {
       "generatedAt": "2026-10-08",
@@ -5527,6 +5543,19 @@
     },
     "gapAnalysis": {
       "seed": false
+    },
+    "land": {
+      "resumePath": "/board/resumes/floqast-5c2f43cc.pdf",
+      "resumeFileName": "FloQast-Senior-Product-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=AA5aEF",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
     },
     "lastChecked": "2026-10-08",
     "salary": "$170,000–$210,000/yr"
