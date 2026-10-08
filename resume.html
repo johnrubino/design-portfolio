@@ -217,18 +217,6 @@
             color: var(--lp-primary);
         }
 
-        .resume-inline-link {
-            color: var(--lp-text-body);
-            text-decoration: underline;
-            text-decoration-color: var(--lp-border);
-            text-underline-offset: 3px;
-            transition: color 200ms ease;
-        }
-
-        .resume-inline-link:hover {
-            color: var(--lp-primary);
-        }
-
         /* ── Education / Skills items ── */
         .resume-edu-item {
             margin-bottom: 20px;
@@ -286,7 +274,8 @@
         }
 
         /* ── Responsive ── */
-        @media (max-width: 1280px) {
+        /* Match the nav's breakpoint so content edges line up with it */
+        @media (max-width: 1440px) {
             .resume-wrap { padding: 148px 60px 120px; }
         }
 
@@ -400,7 +389,7 @@
             </aside>
         </div>
 
-        <!-- Two-column grid: Summary/Experience/Writing (left) + Skills/Education (right) -->
+        <!-- Two-column grid: Summary/Experience (left) + Skills/Education (right) -->
         <!-- Both columns start at same Y → divider lines align perfectly -->
         <div class="resume-grid">
 
@@ -457,11 +446,6 @@
                         </div>
                         <p class="resume-role-desc">Founded a rental platform for college students after hearing from friends how hard the off-campus housing search was. Surveyed <strong class="resume-num">270</strong> students, designed the mobile app, and used usability testing to raise task completion from <strong class="resume-num">63%</strong> to <strong class="resume-num">100%</strong>. Reached <strong class="resume-num">100+</strong> sign-ups and increased referrals by <strong class="resume-num">20%</strong>.</p>
                     </div>
-                </section>
-
-                <section class="resume-section">
-                    <h2 class="resume-section-label">Writing</h2>
-                    <p class="resume-role-desc">Design Thinker (Substack): short essays on AI and how design work is changing. <a href="https://johnrubino.substack.com" target="_blank" rel="noopener" class="resume-inline-link">johnrubino.substack.com</a></p>
                 </section>
 
             </main>
