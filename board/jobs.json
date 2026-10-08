@@ -5441,5 +5441,226 @@
       "seed": false
     },
     "lastChecked": "2026-10-07"
+  },
+  {
+    "jobId": "amex-26010340",
+    "company": "American Express",
+    "title": "Senior Product Designer, Venues - Resy",
+    "postingUrl": "https://egug.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/26010340",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4475466441",
+    "dateFound": "2026-10-08",
+    "location": "New York, NY or Chicago, IL (hybrid)",
+    "level": "Senior IC",
+    "stageGate": "Public / Amex Global Dining (Resy) design org",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": false,
+    "team": "Resy Venues B2B SaaS: restaurant/winery/venue operator tools, multi-step workflows, permissions, settings, data states, internal ops",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Senior IC, NYC hybrid",
+        "Complex B2B workflows, permissions, operational tools — close to Pershing NAO/Asset Movement work",
+        "AI-enabled prototyping called out; design systems contribution",
+        "5+ YOE"
+      ],
+      "gaps": [
+        "Hospitality domain vs fintech/AI",
+        "Pay not listed in posting text",
+        "Already applied to two other Amex PD seats (Travel, GCS Tech)"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-08",
+      "source": "Jobi weekday Senior PD watch 2026-10-08 ~8:19am ET",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium",
+      "recommendation": "Clear — Amex Resy Venues SPD NYC",
+      "summary": "Amex Senior PD on Resy Venues (B2B ops tools for restaurants). NYC/Chicago hybrid. 5+ YOE. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-08"
+  },
+  {
+    "jobId": "floqast-5c2f43cc",
+    "company": "FloQast",
+    "title": "Senior Product Designer",
+    "postingUrl": "https://jobs.lever.co/floqast/5c2f43cc-0881-4196-989c-07b03495fd04",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4468313276",
+    "dateFound": "2026-10-08",
+    "location": "US remote (NYC, LA, San Jose, Chicago, Austin listed)",
+    "level": "Senior IC",
+    "stageGate": "Series E accounting SaaS; 3,000+ customers; growing design org",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": false,
+    "team": "AI-powered accounting close platform: AI agents, anomaly detection, data-heavy workflows, enterprise design system",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Senior IC, remote US",
+        "Designing trustworthy AI in data-heavy finance workflows — fintech + AI overlap",
+        "Design system + mentoring juniors; building a 'world-class design organization'",
+        "5+ YOE; $170k–$210k"
+      ],
+      "gaps": [
+        "Lever posting dates to Nov 2025 (reposted on LinkedIn today)",
+        "No visa sponsorship (not needed)",
+        "141 LinkedIn applicants"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-08",
+      "source": "Jobi weekday Senior PD watch 2026-10-08 ~8:19am ET",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium",
+      "recommendation": "Clear — FloQast SPD US remote",
+      "summary": "FloQast Senior PD, US remote, $170–210k. AI agents for accounting close. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-08",
+    "salary": "$170,000–$210,000/yr"
+  },
+  {
+    "jobId": "google-meet-4466872785",
+    "company": "Google",
+    "title": "Senior Interaction Designer, Google Meet",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4466872785",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4466872785",
+    "dateFound": "2026-10-08",
+    "location": "New York, NY (or Seattle / San Francisco)",
+    "level": "Senior IC",
+    "stageGate": "Public / Google Workspace UX",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "team": "Google Meet UX: Workspace and third-party app integrations in Meet; AI in future-of-work tools",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 5,
+      "whyFits": [
+        "Senior IC, NYC option",
+        "Big established UX org; AI productivity work with DeepMind",
+        "Component and system design called out"
+      ],
+      "gaps": [
+        "Minimum 6 years in UX/product/interaction design vs ~4+ (under the 7–8 hard line)",
+        "Mobile/Android design systems expertise preferred",
+        "Google careers req not resolved (LinkedIn link)"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-08",
+      "source": "Jobi weekday Senior PD watch 2026-10-08 ~8:19am ET",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline — Google Meet Sr Interaction Designer NYC (6-yr min)",
+      "summary": "Google Meet Senior IxD, NYC. $159–230k. 6-yr minimum. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-08",
+    "salary": "$159,000–$230,000 + bonus + equity"
+  },
+  {
+    "jobId": "vs-4476952781",
+    "company": "Victoria's Secret & Co.",
+    "title": "Senior UX Designer",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4476952781",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4476952781",
+    "dateFound": "2026-10-08",
+    "location": "New York, NY",
+    "level": "Senior IC (JD body says Lead)",
+    "stageGate": "Public / in-house e-commerce design team",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "team": "E-commerce platform UX; configurable, systems-based components for co-branded implementations; AI tooling",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 4,
+      "whyFits": [
+        "NYC",
+        "Systems-based, configurable component methodology",
+        "Established in-house design + research team"
+      ],
+      "gaps": [
+        "JD body describes a 'highly experienced Lead UX Designer' who mentors juniors — level mismatch with title",
+        "Retail/lingerie e-commerce domain",
+        "$177k ceiling; no ATS link (LinkedIn only)"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-08",
+      "source": "Jobi weekday Senior PD watch 2026-10-08 ~8:19am ET",
+      "seed": false,
+      "score": "4/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline — Victoria's Secret Sr UX NYC (Lead-ish JD, pay)",
+      "summary": "Victoria's Secret Senior UX Designer, NYC, $130–177k. JD reads Lead. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-08",
+    "salary": "$129,700–$176,820/yr"
+  },
+  {
+    "jobId": "shutterfly-4476960017",
+    "company": "Shutterfly",
+    "title": "Senior User Experience Designer",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4476960017",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4476960017",
+    "dateFound": "2026-10-08",
+    "location": "US remote (eligible states)",
+    "level": "Senior IC",
+    "stageGate": "Established consumer e-commerce brand (private); in-house Product/Research/Creative/Design",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "team": "End-to-end customer journey: shopping, personalization, creation, checkout",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 4,
+      "whyFits": [
+        "Senior IC, remote US",
+        "End-to-end journeys + checkout; established design org",
+        "5+ YOE"
+      ],
+      "gaps": [
+        "Pay ceiling $166k",
+        "Consumer photo-products domain",
+        "No ATS link (LinkedIn only)"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-08",
+      "source": "Jobi weekday Senior PD watch 2026-10-08 ~8:19am ET",
+      "seed": false,
+      "score": "4/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline — Shutterfly Sr UX remote (pay)",
+      "summary": "Shutterfly Senior UX Designer, US remote, $118–166k. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-08",
+    "salary": "$117,750–$166,000/yr (location-tiered)"
   }
 ]
