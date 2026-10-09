@@ -5126,8 +5126,8 @@
     "location": "New York, NY (hybrid, 2 days/week \u2014 Tue & Thu)",
     "level": "Senior IC",
     "stageGate": "Series D ($44M at $1.15B, Jul 2026); ~400 employees; growing design systems team",
-    "status": "sourced",
-    "isNew": true,
+    "status": "vetted",
+    "isNew": false,
     "seed": false,
     "borderline": false,
     "salary": "$170,000\u2013$210,000/yr",
@@ -5158,7 +5158,20 @@
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-07"
+    "lastChecked": "2026-10-07",
+    "land": {
+      "resumePath": "/board/resumes/geniusai-e6bb10bc.pdf",
+      "resumeFileName": "Genius-AI-Design-Systems-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=DeIYSB",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   },
   {
     "jobId": "jpmc-4476310695",
@@ -6011,8 +6024,8 @@
     "level": "Senior IC",
     "salary": "$99.6k\u2013$192.9k (grade 7\u20138)",
     "stageGate": "Public / large established Ford digital product + design orgs",
-    "status": "sourced",
-    "isNew": true,
+    "status": "skipped",
+    "isNew": false,
     "seed": false,
     "borderline": true,
     "team": "Digital product UX/UI \u2014 complex B2B/SaaS/enterprise or operational products preferred",
