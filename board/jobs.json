@@ -5691,5 +5691,319 @@
     },
     "lastChecked": "2026-10-08",
     "salary": "$117,750–$166,000/yr (location-tiered)"
+  },
+  {
+    "jobId": "scribd-4476251087",
+    "company": "Scribd, Inc.",
+    "title": "Senior Product Designer, Growth",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4476251087",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4476251087",
+    "dateFound": "2026-10-09",
+    "location": "New York, NY (Scribd Flex; NYC among listed metros; occasional in-person)",
+    "level": "Senior IC",
+    "salary": "$106k–$184k US outside CA (CA $129k–$194k); NYC metro likely mid–high of US band",
+    "stageGate": "Public / large consumer content platform; ~25-person Design org",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": false,
+    "team": "Growth & lifecycle across Scribd / Slideshare / Everand / Fable — monetization, subscription, retention",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 8,
+      "whyFits": [
+        "Senior IC; NYC metro listed under Scribd Flex",
+        "5+ YOE with growth/monetization/subscription focus",
+        "Established ~25-person design org (not tiny bench)",
+        "Pay band can clear $150k floor in NYC market"
+      ],
+      "gaps": [
+        "Consumer content / growth vs fintech-wealth core",
+        "Occasional in-person required regardless of location",
+        "Company ATS URL not resolved — LinkedIn guest posting"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-09",
+      "source": "Jobi weekday Senior PD watch 2026-10-09-0832 ~8:32am ET",
+      "seed": false,
+      "score": "8/10",
+      "confidence": "High",
+      "recommendation": "Clear — Scribd SPD Growth NYC",
+      "summary": "Senior Product Designer, Growth at Scribd (NYC Flex). 5+ YOE growth/monetization; ~25-person design org. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-09"
+  },
+  {
+    "jobId": "machinify-4185573009",
+    "company": "Machinify",
+    "title": "Senior Product Designer",
+    "postingUrl": "https://job-boards.greenhouse.io/machinifyinc/jobs/4185573009",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4466221631",
+    "dateFound": "2026-10-09",
+    "location": "United States (remote / digital-first)",
+    "level": "Senior IC",
+    "salary": "$180k–$220k+ base + equity",
+    "stageGate": "Series A+ healthcare AI (~1k employees; Head of Design; payment integrity for 85+ health plans)",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": false,
+    "team": "Healthcare intelligence / payment continuum — claims accuracy, cost control, AI platform UX + design system",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Senior IC; US remote",
+        "Over 6 YOE (under 7–8 hard skip)",
+        "Strong pay band; established design leadership",
+        "Complex data-dense B2B workflows adjacent to Pershing ops craft"
+      ],
+      "gaps": [
+        "Healthcare payment-integrity domain vs wealth/fintech",
+        "Company stage history is older Series A — verify current round if needed"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-09",
+      "source": "Jobi weekday Senior PD watch 2026-10-09-0832 ~8:32am ET",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium",
+      "recommendation": "Clear — Machinify SPD US remote",
+      "summary": "Senior Product Designer at Machinify (US remote). Healthcare payment AI; $180–220k+; 6+ YOE. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-09"
+  },
+  {
+    "jobId": "cohere-75765a04",
+    "company": "Cohere",
+    "title": "Design Engineer",
+    "postingUrl": "https://jobs.ashbyhq.com/cohere/75765a04-82cb-4d17-ac53-09b156656a7d",
+    "linkedinUrl": null,
+    "dateFound": "2026-10-09",
+    "location": "United States (remote-friendly; NYC office available)",
+    "level": "Mid/Senior IC (Design Engineer stretch)",
+    "salary": null,
+    "stageGate": "Late-stage enterprise AI / foundation models; design-engineering team on Waypoint system",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": false,
+    "team": "Waypoint design system — Figma library + production component packages / tokens / design↔code sync; AI-legible system",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "US remote-friendly; NYC office option",
+        "Design Engineer stretch John wants surfaced when gates clear",
+        "Systems + Figma-to-code craft matches career direction",
+        "Established Cohere design/eng org (not sole designer)"
+      ],
+      "gaps": [
+        "STRETCH: true design-engineer fluency (ship to npm), not PD-only",
+        "No YOE or pay listed in posting",
+        "Waypoint still early — ownership high, ambiguity high"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-09",
+      "source": "Jobi weekday Senior PD watch 2026-10-09-0832 ~8:32am ET",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium",
+      "recommendation": "Clear stretch — Cohere Design Engineer (Waypoint)",
+      "summary": "Design Engineer on Cohere Waypoint (US remote-friendly). Figma+code design system. Tagged Design Engineer stretch. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-09"
+  },
+  {
+    "jobId": "maybern-8b149691",
+    "company": "Maybern",
+    "title": "Product Designer (Senior, Lead)",
+    "postingUrl": "https://jobs.ashbyhq.com/maybern/8b149691-2fb0-4474-b896-07ee4571c6fd",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4366981384",
+    "dateFound": "2026-10-09",
+    "location": "New York, NY (strong in-office culture)",
+    "level": "Senior IC (Lead dual-track in title)",
+    "salary": "$160k–$200k + equity",
+    "stageGate": "Series B ($50M Battery-led Nov 2025; ~$76M total) — private-fund OS / agentic fund ops",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "team": "Core Workflows + User Engagement — private fund CFO / fund accounting OS",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 6,
+      "whyFits": [
+        "NYC; Series B fintech-adjacent private markets",
+        "Pay $160–200k clears floor",
+        "Complex B2B agentic workflows (wealth-adjacent)",
+        "Senior track explicitly named alongside Lead"
+      ],
+      "gaps": [
+        "BORDERLINE: title is Senior/Lead dual-track — Lead is hard-skip if calibrated up",
+        "Design bench size unclear (entrepreneurial / foundations language)",
+        "Strong in-office NYC culture"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-09",
+      "source": "Jobi weekday Senior PD watch 2026-10-09-0832 ~8:32am ET",
+      "seed": false,
+      "score": "6/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline — Maybern PD Senior/Lead NYC",
+      "summary": "Maybern Product Designer (Senior, Lead) NYC Series B. $160–200k. Hesitation: Lead dual-track title."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-09"
+  },
+  {
+    "jobId": "clio-4476244160",
+    "company": "Clio",
+    "title": "Senior Product Designer, Payments",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4476244160",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4476244160",
+    "dateFound": "2026-10-09",
+    "location": "United States (hybrid min 2x/week if near Clio hub incl. NYC)",
+    "level": "Senior IC",
+    "salary": "$131.6k–$178k CAD (geo-adjusted)",
+    "stageGate": "Late-stage legal SaaS / established Clio product design (fintech Payments team)",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "team": "Fintech / Payments — law-firm financial workflows, insights, automation",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 6,
+      "whyFits": [
+        "Senior IC; US eligible; NYC hub listed",
+        "Payments / fintech workflows strong domain fit",
+        "Established Clio design org (not sole designer)",
+        "New seat vs prior Clio Insights card"
+      ],
+      "gaps": [
+        "BORDERLINE: 6+ YOE (same stretch pattern as prior Clio)",
+        "Hybrid office expectation if local to NYC hub",
+        "Listed band in CAD — confirm USD NYC offer"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-09",
+      "source": "Jobi weekday Senior PD watch 2026-10-09-0832 ~8:32am ET",
+      "seed": false,
+      "score": "6/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline — Clio SPD Payments",
+      "summary": "Clio SPD Payments (US/NYC hybrid). Fintech workflows; 6+ YOE hesitation. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-09"
+  },
+  {
+    "jobId": "clio-4439947799",
+    "company": "Clio",
+    "title": "Senior Product Designer, Accounting",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4439947799",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4439947799",
+    "dateFound": "2026-10-09",
+    "location": "United States (hybrid min 2x/week if near Clio hub incl. NYC)",
+    "level": "Senior IC",
+    "salary": "$131.6k–$178k CAD (geo-adjusted)",
+    "stageGate": "Late-stage legal SaaS / established Clio product design (Accounting automation)",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "team": "Clio Accounting — transaction import/review/matching; solo→enterprise automation",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 6,
+      "whyFits": [
+        "Senior IC; US eligible; NYC hub listed",
+        "Data-dense accounting workflows",
+        "Established Clio design org",
+        "New seat vs prior Clio Insights card"
+      ],
+      "gaps": [
+        "BORDERLINE: 6+ YOE",
+        "Hybrid office expectation if local",
+        "Listed band in CAD — confirm USD NYC offer"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-09",
+      "source": "Jobi weekday Senior PD watch 2026-10-09-0832 ~8:32am ET",
+      "seed": false,
+      "score": "6/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline — Clio SPD Accounting",
+      "summary": "Clio SPD Accounting (US/NYC hybrid). 6+ YOE hesitation. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-09"
+  },
+  {
+    "jobId": "ford-4477409423",
+    "company": "Ford Motor Company",
+    "title": "Senior Product Designer (UX/UI)",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4477409423",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4477409423",
+    "dateFound": "2026-10-09",
+    "location": "United States (remote; hub-commuters may be 4+ days/week on-site)",
+    "level": "Senior IC",
+    "salary": "$99.6k–$192.9k (grade 7–8)",
+    "stageGate": "Public / large established Ford digital product + design orgs",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "team": "Digital product UX/UI — complex B2B/SaaS/enterprise or operational products preferred",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 5,
+      "whyFits": [
+        "Senior IC; US remote option",
+        "6+ YOE under hard 7–8 skip",
+        "Public company; large design bench",
+        "Systems / complex digital products language"
+      ],
+      "gaps": [
+        "BORDERLINE: automotive / Ford digital domain vs fintech-AI preference",
+        "Pay band floor well under $150k (max can clear)",
+        "If NYC is a Ford hub, 4+ days/week on-site risk"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-09",
+      "source": "Jobi weekday Senior PD watch 2026-10-09-0832 ~8:32am ET",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline — Ford SPD UX/UI remote",
+      "summary": "Ford Senior PD UX/UI (US remote). 6+ YOE; auto domain + hub-commute caveat. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-09"
   }
 ]
