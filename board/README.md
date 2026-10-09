@@ -24,7 +24,7 @@ On localhost the gate allows preview when `/api/board-auth` is unavailable. In p
 
 Action body: `{ "jobId", "action", "source": "board" }`. Actions include `mark_interview` (Jobi sets `status: interview` + `interviewAt`, default today). Sender / webhook secrets stay server-side (`JOBI_WEBHOOK_URL` optional).
 
-List tabs: All · Sourced (sourced+vetted) · Applying · Sent · Interview · Closed. Active tab persists as `?filter=` (and `sessionStorage`). Optional card fields: `postingStatus` (`open|closed|unknown`), `postingCheckedAt`.
+List tabs: All · Sourced (sourced+vetted) · Applying · Sent · Interview. Active tab persists as `?filter=` (and `sessionStorage`). Closed/held/skipped/replied stay under All only (no dedicated chips).
 
 ## Seed
 

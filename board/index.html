@@ -315,11 +315,6 @@
         .board-fit.is-dim {
             color: var(--text-3);
         }
-        .board-posting-closed {
-            font-size: 13px;
-            color: var(--text-3);
-            white-space: nowrap;
-        }
         .board-status {
             font-size: 13px;
             font-weight: 500;
@@ -421,7 +416,6 @@
             <button type="button" class="board-chip" data-filter="applying" aria-pressed="false">Applying</button>
             <button type="button" class="board-chip" data-filter="sent" aria-pressed="false">Sent</button>
             <button type="button" class="board-chip" data-filter="interview" aria-pressed="false">Interview</button>
-            <button type="button" class="board-chip" data-filter="closed" aria-pressed="false">Closed</button>
         </div>
 
         <div id="ledgerHost" class="board-ledger" aria-busy="true"></div>
@@ -431,9 +425,9 @@
     (function () {
         const STORAGE_KEY = 'boardAdminKey';
         const FILTER_STORAGE_KEY = 'boardFilter';
-        // Tabs: All · Sourced · Applying · Sent · Interview · Closed (no Vetted chip)
-        const FILTERS = ['all', 'sourced', 'applying', 'sent', 'interview', 'closed'];
-        const CLOSED_LEAD_STATUSES = ['sourced', 'vetted', 'applying', 'held'];
+        // Tabs: All · Sourced · Applying · Sent · Interview (no Vetted / Closed chips)
+        // closed/held/skipped/replied remain visible under All only (Update 2026-10-09 c)
+        const FILTERS = ['all', 'sourced', 'applying', 'sent', 'interview'];
 
         let jobs = [];
         let activeFilter = 'all';
@@ -510,11 +504,6 @@
             if (filter === 'all') return true;
             if (filter === 'sourced') {
                 return j.status === 'sourced' || j.status === 'vetted';
-            }
-            if (filter === 'closed') {
-                if (j.status === 'closed') return true;
-                var ps = j.postingStatus || 'unknown';
-                return ps === 'closed' && CLOSED_LEAD_STATUSES.indexOf(j.status) !== -1;
             }
             return j.status === filter;
         }
@@ -738,13 +727,6 @@
                     fitHtml = '<span class="board-fit' + fitDim + '">Fit ' +
                         escapeHtml(String(vet.fitScore)) + '</span>';
                 }
-                const postingClosed = (j.postingStatus || 'unknown') === 'closed';
-                const metaItems = [
-                    j.location || '—',
-                    j.level || '—',
-                    ageLabel(j.dateFound)
-                ];
-                if (postingClosed) metaItems.push({ html: '<span class="board-posting-closed">Posting closed</span>' });
                 // Prefer query form — reliable on Vercel static hosting (pretty /board/:id is a rewrite fallback)
                 // Row links carry nothing extra for filter — URL/sessionStorage hold the tab.
                 let href = '/board/job?jobId=' + encodeURIComponent(j.jobId);
@@ -758,7 +740,11 @@
                     '<span class="board-role">' + escapeHtml(j.title || '—') + '</span>' +
                     '</div>' +
                     '<div class="board-row-meta">' +
-                    metaParts(metaItems) +
+                    metaParts([
+                        j.location || '—',
+                        j.level || '—',
+                        ageLabel(j.dateFound)
+                    ]) +
                     '</div></div>' +
                     '<span class="board-row-trail">' +
                     fitHtml +
@@ -779,12 +765,7 @@
         function metaParts(items) {
             const parts = items.filter(function (x) { return x != null && x !== ''; });
             return parts.map(function (item, i) {
-                var html;
-                if (typeof item === 'object' && item.html) {
-                    html = item.html;
-                } else {
-                    html = '<span>' + escapeHtml(item) + '</span>';
-                }
+                var html = '<span>' + escapeHtml(item) + '</span>';
                 if (i > 0) html = '<span class="board-meta-sep" aria-hidden="true">·</span>' + html;
                 return html;
             }).join('');

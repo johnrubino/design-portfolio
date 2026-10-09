@@ -187,12 +187,6 @@
             align-items: center;
             margin-bottom: 12px;
         }
-        .board-posting-line {
-            font-size: 13px;
-            color: var(--text-3);
-            margin: -4px 0 12px;
-            line-height: 1.4;
-        }
         .board-meta-item {
             font-family: var(--lp-font-ui);
             color: var(--text-2);
@@ -711,7 +705,7 @@
     (function () {
         const STORAGE_KEY = 'boardAdminKey';
         const FILTER_STORAGE_KEY = 'boardFilter';
-        const FILTERS = ['all', 'sourced', 'applying', 'sent', 'interview', 'closed'];
+        const FILTERS = ['all', 'sourced', 'applying', 'sent', 'interview'];
         let adminKey = null;
         let job = null;
 
@@ -934,14 +928,6 @@
             return false;
         }
 
-        /** Detail header under meta: "Posting closed · checked <date>" when postingStatus closed. */
-        function postingClosedLine(j) {
-            if ((j.postingStatus || 'unknown') !== 'closed') return '';
-            var checked = formatDate(j.postingCheckedAt) || j.postingCheckedAt || '—';
-            return '<p class="board-posting-line">Posting closed · checked ' +
-                escapeHtml(String(checked)) + '</p>';
-        }
-
         function renderDetail() {
             const j = job;
             const land = j.land || {};
@@ -972,7 +958,6 @@
                         : null
                 ]) +
                 '</div>' +
-                postingClosedLine(j) +
                 '<div class="board-head-status">' +
                 '<span class="' + statusClass + '">' + escapeHtml(j.status || '—') + '</span>' +
                 (j.isNew ? '<span class="board-pulse-inline">New</span>' : '') +
