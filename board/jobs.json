@@ -852,11 +852,11 @@
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-05",
+    "lastChecked": "2026-10-09",
     "land": {
       "resumePath": "/board/resumes/okta-8248278.pdf",
       "resumeFileName": "Okta-Senior-Product-Designer-AI-Agents.pdf",
-      "trackedLink": "https://johnrubino.design/hiring?t=CbziLa",
+      "trackedLink": "https://johnrubino.design/hiring?t=AVaueI",
       "contactCard": {
         "name": "John Rubino",
         "email": "johnrubinodesign@gmail.com",
@@ -5696,14 +5696,14 @@
     "jobId": "scribd-4476251087",
     "company": "Scribd, Inc.",
     "title": "Senior Product Designer, Growth",
-    "postingUrl": "https://www.linkedin.com/jobs/view/4476251087",
+    "postingUrl": "https://jobs.ashbyhq.com/scribdinc/97dfe5c8-2789-48e3-8086-c139b6c9fb8f",
     "linkedinUrl": "https://www.linkedin.com/jobs/view/4476251087",
     "dateFound": "2026-10-09",
     "location": "New York, NY (Scribd Flex; NYC among listed metros; occasional in-person)",
     "level": "Senior IC",
     "salary": "$106k–$184k US outside CA (CA $129k–$194k); NYC metro likely mid–high of US band",
     "stageGate": "Public / large consumer content platform; ~25-person Design org",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "borderline": false,
@@ -5735,7 +5735,20 @@
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-09"
+    "lastChecked": "2026-10-09",
+    "land": {
+      "resumePath": "/board/resumes/scribd-4476251087.pdf",
+      "resumeFileName": "Scribd-Senior-Product-Designer-Growth.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=ELHyyI",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   },
   {
     "jobId": "machinify-4185573009",
@@ -5748,7 +5761,7 @@
     "level": "Senior IC",
     "salary": "$180k–$220k+ base + equity",
     "stageGate": "Series A+ healthcare AI (~1k employees; Head of Design; payment integrity for 85+ health plans)",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "borderline": false,
@@ -5779,7 +5792,20 @@
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-09"
+    "lastChecked": "2026-10-09",
+    "land": {
+      "resumePath": "/board/resumes/machinify-4185573009.pdf",
+      "resumeFileName": "Machinify-Senior-Product-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=EYqiy5",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   },
   {
     "jobId": "cohere-75765a04",
@@ -5790,9 +5816,9 @@
     "dateFound": "2026-10-09",
     "location": "United States (remote-friendly; NYC office available)",
     "level": "Mid/Senior IC (Design Engineer stretch)",
-    "salary": null,
+    "salary": "$200K–$245K base NY/CA/WA ($180K–$220K other US) + equity",
     "stageGate": "Late-stage enterprise AI / foundation models; design-engineering team on Waypoint system",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "borderline": false,
@@ -5824,7 +5850,20 @@
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-09"
+    "lastChecked": "2026-10-09",
+    "land": {
+      "resumePath": "/board/resumes/cohere-75765a04.pdf",
+      "resumeFileName": "Cohere-Design-Engineer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=BRAbYw",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   },
   {
     "jobId": "maybern-8b149691",
