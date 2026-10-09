@@ -704,6 +704,8 @@
     <script>
     (function () {
         const STORAGE_KEY = 'boardAdminKey';
+        const FILTER_STORAGE_KEY = 'boardFilter';
+        const FILTERS = ['all', 'sourced', 'applying', 'sent', 'interview'];
         let adminKey = null;
         let job = null;
 
@@ -726,10 +728,21 @@
             return null;
         }
 
+        function getStoredFilter() {
+            try { return sessionStorage.getItem(FILTER_STORAGE_KEY); } catch { return null; }
+        }
+
+        /** Board list href: preserve filter tab + key for ← Board (browser Back uses history). */
         function boardListHref() {
             const fromUrl = new URLSearchParams(location.search).get('key');
             const key = fromUrl || adminKey || getStoredKey();
-            return key ? '/board?key=' + encodeURIComponent(key) : '/board';
+            const stored = getStoredFilter();
+            const filter = (stored && FILTERS.includes(stored)) ? stored : 'all';
+            const params = new URLSearchParams();
+            if (filter && filter !== 'all') params.set('filter', filter);
+            if (key) params.set('key', key);
+            const q = params.toString();
+            return q ? '/board?' + q : '/board';
         }
 
         function syncBackLink() {
@@ -934,7 +947,7 @@
                 '</div>' +
                 '</div>' +
                 '<div class="board-stick-band-spacer" id="actionSpacer" aria-hidden="true"></div>' +
-                '<p class="board-title-lg">' + escapeHtml(j.title) + '</p>' +
+                '<p class="board-title-lg">' + escapeHtml(j.title || '—') + '</p>' +
                 '<div class="board-meta-row">' +
                 metaParts([
                     j.location || '—',
@@ -946,10 +959,11 @@
                 ]) +
                 '</div>' +
                 '<div class="board-head-status">' +
-                '<span class="' + statusClass + '">' + escapeHtml(j.status) + '</span>' +
+                '<span class="' + statusClass + '">' + escapeHtml(j.status || '—') + '</span>' +
                 (j.isNew ? '<span class="board-pulse-inline">New</span>' : '') +
                 '<span class="board-dates">Found ' + escapeHtml(formatDate(j.dateFound) || '—') +
                 (j.sentAt ? ' · Sent ' + escapeHtml(formatDate(j.sentAt)) : '') +
+                (j.interviewAt ? ' · Interview ' + escapeHtml(formatDate(j.interviewAt)) : '') +
                 (j.followUpAt ? ' · Follow-up ' + escapeHtml(formatDate(j.followUpAt)) : '') +
                 '</span></div>' +
                 '</header>' +
@@ -1118,10 +1132,6 @@
 
         function actionDefsForStatus(status) {
             // Visible ≤4; overflow under More. Close/Skip always available under More for any.
-            const moreAlways = [
-                { action: 'close', label: 'Close', tone: 'quiet' },
-                { action: 'skip', label: 'Skip', tone: 'quiet' }
-            ];
             if (status === 'sourced') {
                 return {
                     visible: [
@@ -1137,6 +1147,15 @@
                 };
             }
             if (status === 'vetted' || status === 'applying') {
+                var applyingMore = [
+                    { action: 'close', label: 'Close', tone: 'quiet' },
+                    { action: 'hold', label: 'Hold', tone: 'quiet' },
+                    { action: 'build_fit_page', label: 'Build fit page', tone: 'quiet' }
+                ];
+                // Applying → Interview allowed in More
+                if (status === 'applying') {
+                    applyingMore.push({ action: 'mark_interview', label: 'Mark interview', tone: 'quiet' });
+                }
                 return {
                     visible: [
                         { action: 'prep_resume', label: 'Prep résumé', tone: 'secondary' },
@@ -1144,24 +1163,57 @@
                         { action: 'draft_outreach', label: 'Draft outreach', tone: 'secondary' },
                         { action: 'skip', label: 'Skip', tone: 'quiet' }
                     ],
+                    more: applyingMore
+                };
+            }
+            if (status === 'interview') {
+                return {
+                    visible: [
+                        { action: 'draft_outreach', label: 'Follow-up', tone: 'primary' },
+                        { action: 'close', label: 'Close', tone: 'quiet' }
+                    ],
                     more: [
-                        { action: 'close', label: 'Close', tone: 'quiet' },
-                        { action: 'hold', label: 'Hold', tone: 'quiet' },
-                        { action: 'build_fit_page', label: 'Build fit page', tone: 'quiet' }
+                        { action: 'skip', label: 'Skip', tone: 'quiet' },
+                        { action: 'mark_replied', label: 'Mark replied', tone: 'quiet' },
+                        { action: 'mark_sent', label: 'Mark sent', tone: 'quiet' },
+                        { action: 'prep_resume', label: 'Prep résumé', tone: 'quiet' }
                     ]
                 };
             }
-            // sent+ (sent, replied, interview) and closed/skipped
+            if (status === 'sent' || status === 'replied') {
+                var sentVisible = [
+                    { action: 'mark_interview', label: 'Mark interview', tone: 'secondary' }
+                ];
+                if (status === 'sent') {
+                    sentVisible.push({ action: 'mark_replied', label: 'Mark replied', tone: 'secondary' });
+                }
+                sentVisible.push(
+                    { action: 'draft_outreach', label: 'Follow-up', tone: 'primary' },
+                    { action: 'close', label: 'Close', tone: 'quiet' }
+                );
+                return {
+                    visible: sentVisible.slice(0, 4),
+                    more: [
+                        { action: 'skip', label: 'Skip', tone: 'quiet' },
+                        { action: 'mark_sent', label: 'Mark sent', tone: 'quiet' },
+                        { action: 'prep_resume', label: 'Prep résumé', tone: 'quiet' }
+                    ].concat(status === 'replied'
+                        ? [{ action: 'mark_replied', label: 'Mark replied', tone: 'quiet' }]
+                        : [])
+                };
+            }
+            // closed / skipped / held / other
             return {
                 visible: [
-                    { action: 'mark_replied', label: 'Mark replied', tone: 'secondary' },
                     { action: 'draft_outreach', label: 'Follow-up', tone: 'primary' },
                     { action: 'close', label: 'Close', tone: 'quiet' }
                 ],
-                more: moreAlways.filter(function (a) { return a.action !== 'close'; }).concat([
+                more: [
+                    { action: 'skip', label: 'Skip', tone: 'quiet' },
+                    { action: 'mark_interview', label: 'Mark interview', tone: 'quiet' },
                     { action: 'mark_sent', label: 'Mark sent', tone: 'quiet' },
                     { action: 'prep_resume', label: 'Prep résumé', tone: 'quiet' }
-                ])
+                ]
             };
         }
 
