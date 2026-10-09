@@ -6056,7 +6056,7 @@
     "level": "Senior IC",
     "salary": "$166,000–$195,000 base (Zone 1: NYC/Menlo Park) + bonus + equity",
     "stageGate": "Public / large established Robinhood design org",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "borderline": false,
@@ -6089,20 +6089,33 @@
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-09"
+    "lastChecked": "2026-10-09",
+    "land": {
+      "resumePath": "/board/resumes/robinhood-8262776.pdf",
+      "resumeFileName": "Robinhood-Senior-Product-Designer-Crypto.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=Djh1bF",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   },
   {
     "jobId": "soundcloud-4459883185",
     "company": "SoundCloud",
     "title": "Senior Product Designer - Creator Analytics & Tools",
-    "postingUrl": "https://www.linkedin.com/jobs/view/4459883185",
+    "postingUrl": "https://job-boards.greenhouse.io/soundcloud71/jobs/8755542002",
     "linkedinUrl": "https://www.linkedin.com/jobs/view/4459883185",
     "dateFound": "2026-10-09",
     "location": "New York, NY (hybrid / flexible; NYC office)",
     "level": "Senior IC",
     "salary": "$170,000–$180,000",
     "stageGate": "Established multinational (offices NYC, LA, Berlin, London) — design team size not stated",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "borderline": false,
@@ -6120,7 +6133,7 @@
         "Design team size not stated",
         "Wants high autonomy / light PM support (zero-to-one scope)",
         "Music/creator domain vs fintech core",
-        "Posting via LinkedIn only — company ATS URL not resolved"
+        "ATS resolved: Greenhouse (board soundcloud71, job 8755542002); posted 2026-08-27, ~6 weeks old, still live"
       ]
     },
     "fit": {
@@ -6135,6 +6148,19 @@
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-09"
+    "lastChecked": "2026-10-09",
+    "land": {
+      "resumePath": "/board/resumes/soundcloud-4459883185.pdf",
+      "resumeFileName": "SoundCloud-Senior-Product-Designer-Creator-Analytics.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=Cg1J5C",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   }
 ]
