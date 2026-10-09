@@ -6044,5 +6044,97 @@
       "seed": false
     },
     "lastChecked": "2026-10-09"
+  },
+  {
+    "jobId": "robinhood-8262776",
+    "company": "Robinhood",
+    "title": "Senior Product Designer, Crypto",
+    "postingUrl": "https://boards.greenhouse.io/robinhood/jobs/8262776",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4475258250",
+    "dateFound": "2026-10-09",
+    "location": "New York, NY (or Menlo Park, CA); in-person 3 days/week",
+    "level": "Senior IC",
+    "salary": "$166,000–$195,000 base (Zone 1: NYC/Menlo Park) + bonus + equity",
+    "stageGate": "Public / large established Robinhood design org",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": false,
+    "team": "Crypto — retail crypto trading + onchain experiences (centralized + decentralized finance)",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 8,
+      "whyFits": [
+        "Senior IC (not Staff/manager); NYC office listed; no hard YOE requirement",
+        "Public fintech with large established design org",
+        "Regulated, high-stakes money-movement/trading UX — maps to Pershing wealth + alts work",
+        "AI-first design culture matches AI-adoption work",
+        "Pay clears $150k floor"
+      ],
+      "gaps": [
+        "In-person at least 3 days/week (hybrid, acceptable)",
+        "Crypto domain curiosity required, no prior crypto work",
+        "Already applied to several Robinhood seats (Trading, Agentic Trading, DeFi, International) — check for overlap"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-09",
+      "source": "Jobi one-off Senior PD watch 2026-10-09-pm ~4pm ET",
+      "seed": false,
+      "score": "8/10",
+      "confidence": "High",
+      "recommendation": "Clear — Robinhood SPD Crypto NYC",
+      "summary": "Senior Product Designer, Crypto at Robinhood (NYC or Menlo Park, 3 days/week in office). $166k–$195k. Retail crypto trading + onchain; regulated fintech. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-09"
+  },
+  {
+    "jobId": "soundcloud-4459883185",
+    "company": "SoundCloud",
+    "title": "Senior Product Designer - Creator Analytics & Tools",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4459883185",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4459883185",
+    "dateFound": "2026-10-09",
+    "location": "New York, NY (hybrid / flexible; NYC office)",
+    "level": "Senior IC",
+    "salary": "$170,000–$180,000",
+    "stageGate": "Established multinational (offices NYC, LA, Berlin, London) — design team size not stated",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": false,
+    "team": "Creator team — analytics dashboards, audience + monetization insights, creator tools",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Senior IC; NYC; 5+ YOE under hard-skip bar",
+        "Data-heavy analytics/dashboards + financial metrics — matches FPL/lending data-viz work",
+        "Established company (not early-stage); pay clears $150k floor",
+        "AI design tools + design-system contribution called out"
+      ],
+      "gaps": [
+        "Design team size not stated",
+        "Wants high autonomy / light PM support (zero-to-one scope)",
+        "Music/creator domain vs fintech core",
+        "Posting via LinkedIn only — company ATS URL not resolved"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-09",
+      "source": "Jobi one-off Senior PD watch 2026-10-09-pm ~4pm ET",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium",
+      "recommendation": "Clear — SoundCloud SPD Creator Analytics NYC",
+      "summary": "Senior Product Designer, Creator Analytics & Tools at SoundCloud (NYC flexible). $170k–$180k, 5+ YOE. Data-storytelling dashboards. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-09"
   }
 ]
