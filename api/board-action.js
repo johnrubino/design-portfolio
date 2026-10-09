@@ -12,6 +12,7 @@ const ACTIONS = new Set([
     'build_fit_page',
     'mark_sent',
     'mark_replied',
+    'mark_interview',
     'close'
 ]);
 
@@ -64,8 +65,16 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'source must be "board"' });
     }
 
-    // Stub: Jobi webhook wiring comes later. Log payload shape for ops.
+    // Stub / forward: Jobi applies status side-effects (e.g. mark_interview →
+    // status interview + interviewAt ISO, default today).
     const payload = { jobId, action, source: 'board', receivedAt: new Date().toISOString() };
+    if (action === 'mark_interview') {
+        // Default today (ISO date) so Jobi has a write value if the client omits one
+        const today = new Date().toISOString().slice(0, 10);
+        payload.interviewAt = (typeof body.interviewAt === 'string' && body.interviewAt)
+            ? body.interviewAt
+            : today;
+    }
     console.log('[board-action]', JSON.stringify(payload));
 
     // Optional forward when JOBI_WEBHOOK_URL is configured (server-only).

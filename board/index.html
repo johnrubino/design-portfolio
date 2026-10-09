@@ -297,6 +297,29 @@
             padding: 0 8px;
             user-select: none;
         }
+        .board-row-trail {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            justify-self: end;
+            flex-shrink: 0;
+        }
+        .board-fit {
+            font-family: var(--lp-font-ui);
+            font-size: 13px;
+            font-weight: 500;
+            font-variant-numeric: tabular-nums;
+            color: var(--text);
+            white-space: nowrap;
+        }
+        .board-fit.is-dim {
+            color: var(--text-3);
+        }
+        .board-posting-closed {
+            font-size: 13px;
+            color: var(--text-3);
+            white-space: nowrap;
+        }
         .board-status {
             font-size: 13px;
             font-weight: 500;
@@ -353,7 +376,7 @@
                 grid-template-columns: 12px minmax(0, 1fr);
                 grid-template-rows: auto auto;
             }
-            .board-row .board-status {
+            .board-row .board-row-trail {
                 grid-column: 2;
                 justify-self: start;
                 margin-top: 2px;
@@ -395,7 +418,6 @@
         <div class="board-filters" role="toolbar" aria-label="Filter by status" id="filters">
             <button type="button" class="board-chip" data-filter="all" aria-pressed="true">All</button>
             <button type="button" class="board-chip" data-filter="sourced" aria-pressed="false">Sourced</button>
-            <button type="button" class="board-chip" data-filter="vetted" aria-pressed="false">Vetted</button>
             <button type="button" class="board-chip" data-filter="applying" aria-pressed="false">Applying</button>
             <button type="button" class="board-chip" data-filter="sent" aria-pressed="false">Sent</button>
             <button type="button" class="board-chip" data-filter="interview" aria-pressed="false">Interview</button>
@@ -408,7 +430,10 @@
     <script>
     (function () {
         const STORAGE_KEY = 'boardAdminKey';
-        const FILTERS = ['all', 'sourced', 'vetted', 'applying', 'sent', 'interview', 'closed'];
+        const FILTER_STORAGE_KEY = 'boardFilter';
+        // Tabs: All · Sourced · Applying · Sent · Interview · Closed (no Vetted chip)
+        const FILTERS = ['all', 'sourced', 'applying', 'sent', 'interview', 'closed'];
+        const CLOSED_LEAD_STATUSES = ['sourced', 'vetted', 'applying', 'held'];
 
         let jobs = [];
         let activeFilter = 'all';
@@ -434,6 +459,64 @@
 
         function storeKey(k) {
             try { sessionStorage.setItem(STORAGE_KEY, k); } catch { /* ignore */ }
+        }
+
+        function getStoredFilter() {
+            try { return sessionStorage.getItem(FILTER_STORAGE_KEY); } catch { return null; }
+        }
+
+        function storeFilter(f) {
+            try { sessionStorage.setItem(FILTER_STORAGE_KEY, f); } catch { /* ignore */ }
+        }
+
+        /** Resolve filter: URL → sessionStorage → all; invalid URL value → all. */
+        function resolveFilter() {
+            const params = new URLSearchParams(location.search);
+            if (params.has('filter')) {
+                const fromUrl = params.get('filter');
+                return FILTERS.includes(fromUrl) ? fromUrl : 'all';
+            }
+            const stored = getStoredFilter();
+            if (stored && FILTERS.includes(stored)) return stored;
+            return 'all';
+        }
+
+        /** Persist filter in URL via replaceState; omit param for all. Preserve key. */
+        function syncFilterUrl(f) {
+            const u = new URL(location.href);
+            if (f && f !== 'all') u.searchParams.set('filter', f);
+            else u.searchParams.delete('filter');
+            history.replaceState({}, '', u.pathname + u.search + u.hash);
+            storeFilter(f || 'all');
+        }
+
+        function setActiveFilter(f, opts) {
+            const next = FILTERS.includes(f) ? f : 'all';
+            activeFilter = next;
+            document.querySelectorAll('.board-chip').forEach(function (c) {
+                c.setAttribute('aria-pressed', c.getAttribute('data-filter') === next ? 'true' : 'false');
+            });
+            if (!opts || opts.syncUrl !== false) syncFilterUrl(next);
+            else storeFilter(next);
+        }
+
+        function statusLabel(status) {
+            if (status === 'vetted' || status === 'sourced') return 'Sourced';
+            if (!status) return '—';
+            return status;
+        }
+
+        function matchesFilter(j, filter) {
+            if (filter === 'all') return true;
+            if (filter === 'sourced') {
+                return j.status === 'sourced' || j.status === 'vetted';
+            }
+            if (filter === 'closed') {
+                if (j.status === 'closed') return true;
+                var ps = j.postingStatus || 'unknown';
+                return ps === 'closed' && CLOSED_LEAD_STATUSES.indexOf(j.status) !== -1;
+            }
+            return j.status === filter;
         }
 
         function showGateForm(msg) {
@@ -550,7 +633,13 @@
 
         function countByStatus(list) {
             const c = {};
-            list.forEach(function (j) { c[j.status] = (c[j.status] || 0) + 1; });
+            list.forEach(function (j) {
+                var s = j.status;
+                // Header merges sourced + vetted into "N sourced"
+                if (s === 'vetted') s = 'sourced';
+                if (!s) return;
+                c[s] = (c[s] || 0) + 1;
+            });
             const parts = Object.keys(c).sort().map(function (k) { return c[k] + ' ' + k; });
             return parts.length ? parts.join(' · ') : '0 roles';
         }
@@ -593,9 +682,7 @@
         // Default ledger: dateFound DESC, jobId ASC; missing/invalid dateFound last.
         // Donny/John lock 2026-09-24 — list sort: newest sourced first.
         function filteredJobs() {
-            const list = activeFilter === 'all'
-                ? jobs.slice()
-                : jobs.filter(function (j) { return j.status === activeFilter; });
+            const list = jobs.filter(function (j) { return matchesFilter(j, activeFilter); });
             return list.sort(function (a, b) {
                 const ta = dateFoundTime(a.dateFound);
                 const tb = dateFoundTime(b.dateFound);
@@ -642,8 +729,24 @@
                 const pulse = j.isNew
                     ? '<span class="board-pulse" title="New since last visit" aria-label="New"></span>'
                     : '<span class="board-pulse is-off" aria-hidden="true"></span>';
-                const statusClass = j.status === 'interview' ? ' board-status is-interview' : ' board-status';
+                const statusClass = j.status === 'interview' ? 'board-status is-interview' : 'board-status';
+                const label = statusLabel(j.status);
+                const vet = j.vet || {};
+                var fitHtml = '';
+                if (vet.fitScore != null && vet.fitScore !== '') {
+                    var fitDim = vet.gatesPass === false ? ' is-dim' : '';
+                    fitHtml = '<span class="board-fit' + fitDim + '">Fit ' +
+                        escapeHtml(String(vet.fitScore)) + '</span>';
+                }
+                const postingClosed = (j.postingStatus || 'unknown') === 'closed';
+                const metaItems = [
+                    j.location || '—',
+                    j.level || '—',
+                    ageLabel(j.dateFound)
+                ];
+                if (postingClosed) metaItems.push({ html: '<span class="board-posting-closed">Posting closed</span>' });
                 // Prefer query form — reliable on Vercel static hosting (pretty /board/:id is a rewrite fallback)
+                // Row links carry nothing extra for filter — URL/sessionStorage hold the tab.
                 let href = '/board/job?jobId=' + encodeURIComponent(j.jobId);
                 const key = keyFromUrl() || adminKey;
                 if (key) href += '&key=' + encodeURIComponent(key);
@@ -651,17 +754,16 @@
                     pulse +
                     '<div class="board-row-main">' +
                     '<div class="board-row-title-line">' +
-                    '<span class="board-company">' + escapeHtml(j.company) + '</span>' +
-                    '<span class="board-role">' + escapeHtml(j.title) + '</span>' +
+                    '<span class="board-company">' + escapeHtml(j.company || '—') + '</span>' +
+                    '<span class="board-role">' + escapeHtml(j.title || '—') + '</span>' +
                     '</div>' +
                     '<div class="board-row-meta">' +
-                    metaParts([
-                        j.location || '—',
-                        j.level || '—',
-                        ageLabel(j.dateFound)
-                    ]) +
+                    metaParts(metaItems) +
                     '</div></div>' +
-                    '<span class="' + statusClass.trim() + '">' + escapeHtml(j.status) + '</span>' +
+                    '<span class="board-row-trail">' +
+                    fitHtml +
+                    '<span class="' + statusClass + '">' + escapeHtml(label) + '</span>' +
+                    '</span>' +
                     '</a>';
             }).join('');
         }
@@ -677,7 +779,12 @@
         function metaParts(items) {
             const parts = items.filter(function (x) { return x != null && x !== ''; });
             return parts.map(function (item, i) {
-                var html = '<span>' + escapeHtml(item) + '</span>';
+                var html;
+                if (typeof item === 'object' && item.html) {
+                    html = item.html;
+                } else {
+                    html = '<span>' + escapeHtml(item) + '</span>';
+                }
                 if (i > 0) html = '<span class="board-meta-sep" aria-hidden="true">·</span>' + html;
                 return html;
             }).join('');
@@ -701,16 +808,15 @@
             if (!btn) return;
             const f = btn.getAttribute('data-filter');
             if (!FILTERS.includes(f)) return;
-            activeFilter = f;
-            document.querySelectorAll('.board-chip').forEach(function (c) {
-                c.setAttribute('aria-pressed', c === btn ? 'true' : 'false');
-            });
+            setActiveFilter(f);
             renderLedger();
         });
 
         // Expose for detail pages / testing
         window.__boardGate = { getKey: function () { return adminKey || getStoredKey(); } };
 
+        // Restore tab before gate/load so first paint matches URL/session
+        setActiveFilter(resolveFilter(), { syncUrl: true });
         gateCheck();
     })();
     </script>
