@@ -4781,8 +4781,8 @@
     "location": "United States (remote-friendly)",
     "level": "Senior",
     "stageGate": "Playlist / Mindbody+ClassPass — established consumer wellness platform",
-    "status": "sourced",
-    "isNew": true,
+    "status": "skipped",
+    "isNew": false,
     "seed": false,
     "borderline": true,
     "team": "Mindbody Consumer Experiences",
@@ -4807,7 +4807,7 @@
       "recommendation": "Borderline — Mindbody SPD Consumer; long-open since July",
       "summary": "Senior Product Designer, Mindbody Consumer Experiences (US). Hesitation: long-open posting. Confirm-only."
     },
-    "lastChecked": "2026-10-02"
+    "lastChecked": "2026-10-09"
   },
   {
     "jobId": "conduct-38f17333",
