@@ -130,8 +130,8 @@
     "location": "Menlo Park, CA | New York, NY (hybrid ≥3 days/week in office)",
     "level": "Senior IC",
     "stageGate": "Public fintech / established Robinhood design org",
-    "status": "vetted",
-    "isNew": true,
+    "status": "sent",
+    "isNew": false,
     "seed": false,
     "vet": {
       "gatesPass": true,
@@ -174,7 +174,13 @@
         "workAuth": "US authorized, no sponsorship"
       }
     },
-    "lastChecked": "2026-10-05"
+    "lastChecked": "2026-10-09",
+    "apply": {
+      "submittedAt": "2026-10-09T22:36:00Z",
+      "confirmationUrl": "https://job-boards.greenhouse.io/robinhood/jobs/8159896/confirmation",
+      "email": "johnrubinodesign@gmail.com",
+      "portfolio": "https://johnrubino.design/hiring?t=EWpePE"
+    }
   },
   {
     "jobId": "stripe-7977745",
