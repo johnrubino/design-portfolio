@@ -3335,8 +3335,8 @@
     "location": "New York, NY",
     "level": "Senior",
     "stageGate": "Public / established PDEGO design org",
-    "salary": "$148,248\u2013$166,665 NYC base",
-    "team": "PDEGO \u2014 Direct-to-Consumer (internal ops tools + Shopify storefronts)",
+    "salary": "$148,248–$166,665 NYC base",
+    "team": "PDEGO — Direct-to-Consumer (internal ops tools + Shopify storefronts)",
     "status": "vetted",
     "isNew": true,
     "seed": false,
@@ -3344,7 +3344,7 @@
       "gatesPass": true,
       "fitScore": 7,
       "whyFits": [
-        "Senior IC NYC at Sony Music PDEGO \u2014 public company, established design org",
+        "Senior IC NYC at Sony Music PDEGO — public company, established design org",
         "Dual B2B ops tools + consumer surfaces + data-heavy dashboards match Pershing operator + Purple Panda consumer proof",
         "Systems thinking across tools/integrations + discovery with PM/eng is standing kit"
       ],
@@ -3353,7 +3353,7 @@
         "Music/entertainment domain is new",
         "NYC cash band mid for Senior NYC expectations"
       ],
-      "prepNote": "Ask-before-apply locked. Packet ready at status vetted; do not submit Greenhouse until apply_confirm."
+      "prepNote": "Ask-before-apply locked. Packet ready at status vetted; do not submit Greenhouse until apply_confirm. | apply_confirm 2026-10-09: Greenhouse job 8737641002 returns 404 (boards-api Job not found; board URL redirects ?error=true). Not submitted. Status left vetted."
     },
     "fit": {
       "generatedAt": "2026-09-27",
@@ -3361,8 +3361,8 @@
       "seed": false,
       "score": "7/10",
       "confidence": "Medium",
-      "recommendation": "Prep packet \u2014 B2B+consumer dual + analytics dashboards fit; Shopify depth is honest soft gap",
-      "summary": "Senior Product Designer, D2C - PDEGO (NYC). Themes: internal D2C ops tools + consumer storefronts, analytics dashboards, systems thinking across integrations, discovery with PM/eng, ecommerce fluency. NYC band $148.2\u2013166.7k."
+      "recommendation": "Prep packet — B2B+consumer dual + analytics dashboards fit; Shopify depth is honest soft gap",
+      "summary": "Senior Product Designer, D2C - PDEGO (NYC). Themes: internal D2C ops tools + consumer storefronts, analytics dashboards, systems thinking across integrations, discovery with PM/eng, ecommerce fluency. NYC band $148.2–166.7k."
     },
     "land": {
       "resumePath": "/board/resumes/sony-8737641002.pdf",
@@ -3377,7 +3377,8 @@
         "workAuth": "US authorized, no sponsorship"
       }
     },
-    "lastChecked": "2026-09-27"
+    "lastChecked": "2026-10-09",
+    "postingStatus": "closed"
   },
   {
     "jobId": "analyticpartners-72ea4fa0",
