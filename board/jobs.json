@@ -6182,5 +6182,50 @@
         "workAuth": "US authorized, no sponsorship"
       }
     }
+  },
+  {
+    "jobId": "jpmc-4459659933",
+    "company": "JPMorganChase",
+    "title": "Experience Design Senior Associate - Healthcare Payments",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4459659933",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4459659933",
+    "dateFound": "2026-10-11",
+    "location": "New York, NY",
+    "level": "Mid IC (Senior Associate)",
+    "salary": "$123,500–$170,000/yr base",
+    "stageGate": "Public — J.P. Morgan Payments / Healthcare Payments (established design org)",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "team": "J.P. Morgan Healthcare Payments — consumer/provider/payer payment experiences on one HIPAA-compliant platform",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 6,
+      "whyFits": [
+        "Mid IC (Senior Associate); 3+ YOE required — well under the hard 7–8 skip",
+        "NYC; public financial-services company with established design org",
+        "Payments / money-movement UX is adjacent to BNY Pershing wealth + alts order-flow work"
+      ],
+      "gaps": [
+        "BORDERLINE: pay band floor ($123.5k) is under the $150k floor; ceiling $170k",
+        "Healthcare payments domain; JD leans research-heavy (surveys, ethnography)",
+        "Mid-level 'Senior Associate' leveling — similar to the Oct 7 JPMC card John skipped",
+        "Official ATS (JPMC Oracle CX req) not resolved — LinkedIn-sourced"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-11",
+      "source": "Jobi one-off Senior PD watch 2026-10-11 ~1:50pm ET",
+      "seed": false,
+      "score": "6/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline — JPMC Experience Design Senior Associate, Healthcare Payments NYC",
+      "summary": "JPMC Experience Design Senior Associate (Healthcare Payments), NYC, $123.5k–$170k, 3+ YOE. Pay floor under $150k and healthcare/research-heavy. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-11"
   }
 ]
