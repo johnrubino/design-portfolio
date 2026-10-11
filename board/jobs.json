@@ -6187,14 +6187,14 @@
     "jobId": "jpmc-4459659933",
     "company": "JPMorganChase",
     "title": "Experience Design Senior Associate - Healthcare Payments",
-    "postingUrl": "https://www.linkedin.com/jobs/view/4459659933",
+    "postingUrl": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210781897",
     "linkedinUrl": "https://www.linkedin.com/jobs/view/4459659933",
     "dateFound": "2026-10-11",
     "location": "New York, NY",
     "level": "Mid IC (Senior Associate)",
     "salary": "$123,500–$170,000/yr base",
     "stageGate": "Public — J.P. Morgan Payments / Healthcare Payments (established design org)",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "borderline": true,
@@ -6211,7 +6211,7 @@
         "BORDERLINE: pay band floor ($123.5k) is under the $150k floor; ceiling $170k",
         "Healthcare payments domain; JD leans research-heavy (surveys, ethnography)",
         "Mid-level 'Senior Associate' leveling — similar to the Oct 7 JPMC card John skipped",
-        "Official ATS (JPMC Oracle CX req) not resolved — LinkedIn-sourced"
+        "ATS resolved: JPMC Oracle Candidate Experience req 210781897 (CX_1001), posted 2026-08-26, still live; account/email-code sign-in required; JPMC often adds a digital/video assessment after applying"
       ]
     },
     "fit": {
@@ -6226,6 +6226,19 @@
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-11"
+    "lastChecked": "2026-10-11",
+    "land": {
+      "resumePath": "/board/resumes/jpmc-4459659933.pdf",
+      "resumeFileName": "JPMorganChase-Experience-Design-Senior-Associate-Healthcare-Payments.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=CcTAYd",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   }
 ]
