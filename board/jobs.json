@@ -5678,8 +5678,8 @@
     "location": "US remote (eligible states)",
     "level": "Senior IC",
     "stageGate": "Established consumer e-commerce brand (private); in-house Product/Research/Creative/Design",
-    "status": "sourced",
-    "isNew": true,
+    "status": "skipped",
+    "isNew": false,
     "seed": false,
     "borderline": true,
     "team": "End-to-end customer journey: shopping, personalization, creation, checkout",
@@ -5709,7 +5709,7 @@
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-08",
+    "lastChecked": "2026-10-12",
     "salary": "$117,750–$166,000/yr (location-tiered)"
   },
   {
