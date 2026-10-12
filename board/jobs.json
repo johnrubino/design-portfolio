@@ -5341,8 +5341,8 @@
     "location": "United States (fully remote)",
     "level": "Senior IC — Design Engineer (stretch)",
     "stageGate": "Series C ($40M, Mar 2026; ~200 employees); a16z portfolio",
-    "status": "sourced",
-    "isNew": true,
+    "status": "skipped",
+    "isNew": false,
     "seed": false,
     "borderline": true,
     "salary": "$172,000–$220,000/yr + equity",
@@ -5373,7 +5373,7 @@
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-07"
+    "lastChecked": "2026-10-12"
   },
   {
     "jobId": "greenlite-4476370512",
