@@ -6365,5 +6365,50 @@
         "workAuth": "US authorized, no sponsorship"
       }
     }
+  },
+  {
+    "jobId": "jasper-eedd9eaa",
+    "company": "Jasper",
+    "title": "Senior Product Designer",
+    "postingUrl": "https://jobs.ashbyhq.com/Jasper%20AI/eedd9eaa-04fd-46b6-b5d8-1caf6c42c2d6",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4477869166",
+    "dateFound": "2026-10-12",
+    "location": "US remote (continental US)",
+    "level": "Senior IC",
+    "stageGate": "Series A+ (Jasper AI, $125M Series A 2022); reports to Head of Product Design; design team size unverified",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": false,
+    "team": "Marketing agents platform: 0-to-1 products and major features",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Senior IC, fully remote US",
+        "$157k-$195k base (above $150k floor)",
+        "5-8+ YOE",
+        "Prototyping with Claude Code/Cursor; AI agents for enterprise with control/governance"
+      ],
+      "gaps": [
+        "Design team size unverified (smaller company, ~10 open roles)",
+        "0-to-1 / marketing domain",
+        "Over 200 LinkedIn applicants"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-12",
+      "source": "Jobi weekday Senior PD watch 2026-10-12 ~8:27am ET",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium",
+      "recommendation": "Clear - Jasper Senior PD, US remote (verify design team size)",
+      "summary": "Jasper Senior Product Designer, US remote, $157k-$195k, 5-8+ YOE, Ashby posted 2026-10-09. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-12",
+    "salary": "$157,000-$195,000 base"
   }
 ]
