@@ -6240,5 +6240,130 @@
         "workAuth": "US authorized, no sponsorship"
       }
     }
+  },
+  {
+    "jobId": "capitalone-90314669280",
+    "company": "Capital One",
+    "title": "Product Designer, Principal Associate",
+    "postingUrl": "https://www.capitalonecareers.com/job/mclean/product-designer-principal-associate/1732/90314669280",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4367316070",
+    "dateFound": "2026-10-11",
+    "location": "New York, NY (also McLean/Richmond VA; hybrid hub — in-office days not stated in posting)",
+    "level": "Mid IC (Principal Associate band — not Principal/Staff IC)",
+    "salary": "$143,200–$163,500 NYC band",
+    "stageGate": "Public bank / large Experience Design org",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "team": "Experience Design (generalist Product Designer, Principal Associate)",
+    "altIds": [
+      "capitalone-R232933",
+      "workday-R232933-2"
+    ],
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Capital One Principal Associate = mid-level IC band (3+ yrs basic, 4+ preferred); title is not a Staff/Principal IC role",
+        "NYC; public bank with large established Experience Design org",
+        "Preferred: heavily regulated, data-heavy problem spaces + established design system + cross-functional partnership — matches BNY Pershing lending/NAO work"
+      ],
+      "gaps": [
+        "BORDERLINE: NYC band $143.2k–$163.5k — bottom under the $150k floor; cash only, bonus/LTI eligible",
+        "Already applied to Capital One Principal Associate, Product Design - Design Systems (capitalone-89706008064, sent 2026-09-26)",
+        "Principal Associate title may trip ATS/title filters; Capital One will not sponsor (n/a)",
+        "Generic Experience Design req: R232933 (reposted; originally 2026-01-28, Workday refreshed 2026-09-11; sibling NY reqs R244701/R245074 'Level' have identical JD)",
+        "Apply is Capital One Workday (account/sign-in) with an application + assessment step; applications close fast"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-11",
+      "source": "John LinkedIn link 2026-10-11",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium",
+      "recommendation": "Prep — mid-level IC, regulated/data-heavy fit; pay floor and prior Design Systems application are the flags",
+      "summary": "Capital One Product Designer, Principal Associate (Experience Design), NYC, $143.2k–$163.5k, 3+ yrs. Themes: regulated data-heavy spaces, established design system, journey maps/high-fidelity/prototypes, research+data insights, cross-functional partnership, presenting design decisions. Lead bullet Fully Paid Lending."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-11",
+    "land": {
+      "resumePath": "/board/resumes/capitalone-90314669280.pdf",
+      "resumeFileName": "Capital-One-Product-Designer-Principal-Associate.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=EZlg4H",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY 10314",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
+  },
+  {
+    "jobId": "mercury-6137654004",
+    "company": "Mercury",
+    "title": "Senior Product Designer - Accounting Integrations",
+    "postingUrl": "https://job-boards.greenhouse.io/mercury/jobs/6137654004",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4448457262",
+    "dateFound": "2026-10-11",
+    "location": "New York, NY (or US remote; SF/Portland/Canada also listed)",
+    "level": "Senior IC",
+    "salary": "$189,000–$236,200 USD base (US)",
+    "stageGate": "Series D fintech / established Mercury design organization",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "stretch": false,
+    "team": "Accounting Integrations",
+    "altIds": [
+      "greenhouse-6137654004"
+    ],
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 8,
+      "whyFits": [
+        "Senior IC; NYC or US remote clears location gate",
+        "Mercury Series D; established design team (same org as Cards & Credit card)",
+        "Complex workflow simplification with automation + trust/control maps to Pershing alts order entry (AI-assisted extraction) and lending",
+        "Pay $189k–$236.2k clears the $150k floor"
+      ],
+      "gaps": [
+        "JD asks 6+ years leading end-to-end design (below 7–8 skip line, but a stretch)",
+        "No accounting-domain experience on the résumé; not claimed",
+        "Already applied to Mercury Cards & Credit (mercury-6143552004, sent 2026-10-02) — second application, different team",
+        "Greenhouse req 6137654004 (first published 2026-08-06; LinkedIn shows a repost)"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-11",
+      "source": "John LinkedIn link 2026-10-11 + Greenhouse API",
+      "seed": false,
+      "score": "8/10",
+      "confidence": "Medium-High",
+      "recommendation": "Prep — strong fintech workflow fit; 6+ yrs ask and second Mercury application are the flags",
+      "summary": "Mercury Senior Product Designer, Accounting Integrations, NYC/remote, $189k–$236.2k. Themes: complex accounting workflows to simple automated flows, automation with transparency/trust/control, systems and workflows thinking, shared interaction patterns, partnership with Product/Eng/Data/Research, AI to accelerate exploration. Lead bullet Alternative investments (documents, AI-assisted extraction)."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-11",
+    "land": {
+      "resumePath": "/board/resumes/mercury-6137654004.pdf",
+      "resumeFileName": "Mercury-Senior-Product-Designer-Accounting-Integrations.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=DReXKi",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   }
 ]
