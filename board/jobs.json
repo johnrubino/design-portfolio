@@ -6376,7 +6376,7 @@
     "location": "US remote (continental US)",
     "level": "Senior IC",
     "stageGate": "Series A+ (Jasper AI, $125M Series A 2022); reports to Head of Product Design; design team size unverified",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "borderline": false,
@@ -6409,6 +6409,19 @@
       "seed": false
     },
     "lastChecked": "2026-10-12",
-    "salary": "$157,000-$195,000 base"
+    "salary": "$157,000-$195,000 base",
+    "land": {
+      "resumePath": "/board/resumes/jasper-eedd9eaa.pdf",
+      "resumeFileName": "Jasper-Senior-Product-Designer.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=DDFK4z",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   }
 ]
