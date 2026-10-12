@@ -283,7 +283,7 @@
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-06",
+    "lastChecked": "2026-10-12",
     "land": {
       "resumePath": "/board/resumes/stripe-8130913.pdf",
       "resumeFileName": "Stripe-Designer-Web-Presence-Platform.pdf",
@@ -296,7 +296,9 @@
         "location": "New York, NY 10314",
         "workAuth": "US authorized, no sponsorship"
       }
-    }
+    },
+    "applyNote": "apply_confirm 2026-10-12 ~10:41am ET: submitted via Stripe careers apply page (https://stripe.com/careers/apply/designer-web-presence-platform/8130913); inline \"Thank you for applying.\" confirmation (no Greenhouse /confirmation URL). R\u00e9sum\u00e9 Stripe-Designer-Web-Presence-Platform.pdf on Resume/CV only; Cover Letter left empty. Location dropdown New York, New York, United States (no Staten Island NY); free-text city Staten Island, New York; school CUNY - College of Staten Island, Bachelor's Degree; employer BNY Pershing; title Senior Product Designer; US work auth Yes, sponsorship No; EEO Male / White / not Hispanic/Latino / not a protected veteran. Form had no LinkedIn/portfolio field (tracked link https://johnrubino.design/hiring?t=BoYduy unused on form); WhatsApp recruiting opt-in left No; never employed by Stripe No.",
+    "sentAt": "2026-10-12T14:41:00Z"
   },
   {
     "jobId": "plot-9725070",
