@@ -4654,7 +4654,7 @@
     "location": "San Francisco, CA; Sunnyvale, CA; Seattle, WA; New York, NY",
     "level": "Senior / Design Engineer stretch",
     "stageGate": "Public DoorDash / established design eng",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "stretch": true,
@@ -4669,7 +4669,9 @@
       ],
       "gaps": [
         "5–8 years Design Engineer/UX Eng/Sr SWE — soft YOE stretch toward hard bar",
-        "Content tooling domain; stretch title"
+        "Content tooling domain; stretch title",
+        "Full-stack eng role: React/TypeScript frontend plus Kotlin/Java backend services, code reviews, A/B testing and feature-flag platform integration",
+        "Résumé has no shipped production engineering; prototyping-in-code only"
       ]
     },
     "fit": {
@@ -4681,7 +4683,21 @@
       "recommendation": "Borderline — DoorDash UX DE Content Tooling NYC option; 5–8 YOE",
       "summary": "UX Design Engineer, Content Tooling at DoorDash. NYC option. Hesitation: 5–8 YOE band + stretch DE. Confirm-only."
     },
-    "lastChecked": "2026-10-02"
+    "lastChecked": "2026-10-12",
+    "salary": "I4 $124.4k-$183k | I5 $148.2k-$218k | I6 $176.8k-$260k (national base)",
+    "land": {
+      "resumePath": "/board/resumes/doordash-7767373.pdf",
+      "resumeFileName": "DoorDash-UX-Design-Engineer-Content-Tooling.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=Eqj12i",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   },
   {
     "jobId": "stripe-7144975",
