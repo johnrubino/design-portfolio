@@ -6452,7 +6452,7 @@
     "location": "New York, NY (on-site)",
     "level": "Mid IC (L5-style, 3+ YOE)",
     "stageGate": "Public (Amazon); Shopping Design / Shopping Foundations team, large established design org",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "borderline": false,
@@ -6484,7 +6484,20 @@
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-13"
+    "lastChecked": "2026-10-13",
+    "land": {
+      "resumePath": "/board/resumes/amazon-10576467.pdf",
+      "resumeFileName": "Amazon-UX-Designer-Shopping-Design.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=EoV8w5",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   },
   {
     "jobId": "superhuman-f6bf4865",
@@ -6496,7 +6509,7 @@
     "location": "Hub - New York (hybrid; primary SF, also Seattle/Vancouver)",
     "level": "Senior IC",
     "stageGate": "Late-stage private (Grammarly + Superhuman + Coda); large established design org",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "borderline": true,
@@ -6528,7 +6541,20 @@
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-13"
+    "lastChecked": "2026-10-13",
+    "land": {
+      "resumePath": "/board/resumes/superhuman-f6bf4865.pdf",
+      "resumeFileName": "Superhuman-Senior-Growth-Product-Designer-Cross-Activation.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=A1X6S5",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   },
   {
     "jobId": "meta-4458089925",
@@ -6540,7 +6566,7 @@
     "location": "New York, NY",
     "level": "Senior IC (6+ YOE)",
     "stageGate": "Public Meta IC; generic posting spanning Meta family apps; LI",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "borderline": true,
@@ -6572,6 +6598,20 @@
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-13"
+    "prepNote": "Not a duplicate of sent meta-4466672457: that LI req is 4+ YOE, $139k\u2013$199k (IC4 band); this one is 6+ YOE, $170k\u2013$236k (IC5 band), same generic Meta PD JD template. metacareers ID still unresolved (SPA). Prep only.",
+    "lastChecked": "2026-10-13",
+    "land": {
+      "resumePath": "/board/resumes/meta-4458089925.pdf",
+      "resumeFileName": "Meta-Product-Designer-IC5.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=BfUIDk",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   }
 ]
