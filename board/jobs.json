@@ -6127,7 +6127,7 @@
     "gapAnalysis": {
       "seed": false
     },
-    "lastChecked": "2026-10-09",
+    "lastChecked": "2026-10-13",
     "land": {
       "resumePath": "/board/resumes/robinhood-8262776.pdf",
       "resumeFileName": "Robinhood-Senior-Product-Designer-Crypto.pdf",
@@ -6139,6 +6139,10 @@
         "linkedin": "https://www.linkedin.com/in/john-rubino/",
         "location": "New York, NY 10314",
         "workAuth": "US authorized, no sponsorship"
+      },
+      "drafts": {
+        "linkedin": "Hi [Name] \u2014 I applied to Senior Product Designer, Crypto at Robinhood (NYC). I'm a Senior Product Designer at BNY Pershing working on regulated money-movement and trading-adjacent workflows (Fully Paid Lending, Asset Movement) and helping lead AI adoption on the design team. Would you take a look or point me to the right person?\n\nPortfolio: https://johnrubino.design/hiring?t=Djh1bF\nReq: 8262776",
+        "email": "Subject: Senior Product Designer, Crypto (NYC) \u2014 John Rubino\n\nHi [Name],\n\nI applied to Senior Product Designer, Crypto (Greenhouse 8262776). I'm a Senior Product Designer at BNY Pershing (Wealth Services), where I ship high-stakes advisor and money-movement flows \u2014 Fully Paid Lending, Asset Movement, New Account Opening \u2014 and I'm one of three designers leading AI adoption.\n\nRetail crypto trading and onchain experiences sit close to the regulated, trust-heavy UX I've been doing. Happy to share a short case walkthrough if useful.\n\nPortfolio: https://johnrubino.design/hiring?t=Djh1bF\nLinkedIn: https://www.linkedin.com/in/john-rubino\nR\u00e9sum\u00e9: on my board packet / attached if helpful\n\nThanks for your time,\nJohn Rubino\n917-439-2058\njohnrubinodesign@gmail.com"
       }
     }
   },
