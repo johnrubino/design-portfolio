@@ -6441,5 +6441,137 @@
         "workAuth": "US authorized, no sponsorship"
       }
     }
+  },
+  {
+    "jobId": "amazon-10576467",
+    "company": "Amazon",
+    "title": "UX Designer, Shopping Design",
+    "postingUrl": "https://www.amazon.jobs/en/jobs/10576467/ux-designer-shopping-design",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4478794514",
+    "dateFound": "2026-10-13",
+    "location": "New York, NY (on-site)",
+    "level": "Mid IC (L5-style, 3+ YOE)",
+    "stageGate": "Public (Amazon); Shopping Design / Shopping Foundations team, large established design org",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": false,
+    "salary": "$129,600\u2013$176,000/yr (NYC)",
+    "team": "Amazon Shopping Design (Shopping Foundations): mobile-first multi-device shopping experiences",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 6,
+      "whyFits": [
+        "NYC, IC UX Designer, 3+ YOE",
+        "Large established design org (Shopping Design team)",
+        "Patterns/standards, prototyping, engineering partnership themes match"
+      ],
+      "gaps": [
+        "Range bottom $129.6k under $150k floor (top $176k clears)",
+        "Basic qual lists Bachelor's in design/HCI (or Master's); John's B.A. is Music Technology",
+        "Consumer e-commerce domain; Amazon on-site expectation"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-13",
+      "source": "Jobi weekday Senior PD watch 2026-10-13 ~8:23am ET",
+      "seed": false,
+      "score": "6/10",
+      "confidence": "Medium",
+      "recommendation": "Clear \u2014 Amazon UX Designer, Shopping Design (NYC; comp floor caveat)",
+      "summary": "Amazon UX Designer, Shopping Design, NYC. 3+ YOE, $129.6k\u2013$176k. Posted 2026-10-12. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-13"
+  },
+  {
+    "jobId": "superhuman-f6bf4865",
+    "company": "Superhuman (Grammarly)",
+    "title": "Senior Growth Product Designer, Cross Activation",
+    "postingUrl": "https://jobs.ashbyhq.com/superhuman%20platform%20inc/f6bf4865-33c8-49e0-85ab-fa7eac73d660",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4476069832",
+    "dateFound": "2026-10-13",
+    "location": "Hub - New York (hybrid; primary SF, also Seattle/Vancouver)",
+    "level": "Senior IC",
+    "stageGate": "Late-stage private (Grammarly + Superhuman + Coda); large established design org",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "salary": "$192K\u2013$265K + equity",
+    "team": "Growth Design: onboarding, activation, upgrade, cross-product discovery across Grammarly, Docs, Mail",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 6,
+      "whyFits": [
+        "Senior IC, NYC hub listed",
+        "5+ YOE; $192K\u2013$265K",
+        "Onboarding/activation overlaps New Account Opening work; AI features in product"
+      ],
+      "gaps": [
+        "Requires 3+ years focused on growth/onboarding/activation/lifecycle plus running experiments",
+        "Hybrid hub cadence unverified; SF is primary location",
+        "Consumer/prosumer growth domain vs fintech enterprise"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-13",
+      "source": "Jobi weekday Senior PD watch 2026-10-13 ~8:23am ET",
+      "seed": false,
+      "score": "6/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline \u2014 Superhuman Senior Growth PD (NYC hub; 3+ yrs growth focus req)",
+      "summary": "Superhuman Senior Growth Product Designer, Cross Activation. NYC hub hybrid. $192K\u2013$265K. Ashby posted 2026-10-12. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-13"
+  },
+  {
+    "jobId": "meta-4458089925",
+    "company": "Meta",
+    "title": "Product Designer",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4458089925",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4458089925",
+    "dateFound": "2026-10-13",
+    "location": "New York, NY",
+    "level": "Senior IC (6+ YOE)",
+    "stageGate": "Public Meta IC; generic posting spanning Meta family apps; LI",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "salary": "$170,000\u2013$236,000/yr",
+    "team": "Generic Meta Product Designer posting (team assigned in process)",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 5,
+      "whyFits": [
+        "NYC IC Product Designer; Meta approved in bar",
+        "$170k\u2013$236k",
+        "End-to-end complex software, prototyping themes"
+      ],
+      "gaps": [
+        "6+ YOE minimum (higher than the 4+ generic Meta PD already sent Sep 28)",
+        "Generic posting likely overlaps the already-sent Meta PD (meta-4466672457)",
+        "Official metacareers ID unresolved; 148 LI applicants"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-13",
+      "source": "Jobi weekday Senior PD watch 2026-10-13 ~8:23am ET",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium-Low",
+      "recommendation": "Borderline \u2014 Meta PD NYC (6+ YOE; overlaps sent Meta PD)",
+      "summary": "Meta Product Designer NYC, 6+ YOE, $170k\u2013$236k, LI posted ~2026-10-11. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-13"
   }
 ]
