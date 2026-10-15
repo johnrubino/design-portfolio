@@ -7004,5 +7004,62 @@
         "workAuth": "US authorized, no sponsorship"
       }
     }
+  },
+  {
+    "jobId": "gladly-8208190",
+    "company": "Gladly",
+    "title": "Senior Product Designer, AI Platform",
+    "postingUrl": "https://www.gladly.ai/careers/?gh_jid=8208190",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4468251573",
+    "dateFound": "2026-10-15",
+    "location": "US Remote",
+    "level": "Senior IC (reports to Head of Product)",
+    "stageGate": "Growth-stage CX AI (founded ~2014, Point Nine-backed)",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "borderline": false,
+    "salary": "$150,000–$185,000",
+    "team": "AI Platform / Agent Harness (agent config, steering, evals, reporting, simulations) + shared design library",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Senior IC, US remote, no YOE number",
+        "AI agent oversight + design systems match AI adoption work",
+        "Range top $185k clears floor"
+      ],
+      "gaps": [
+        "Range bottom exactly $150k",
+        "Reports to Head of Product; no design leader; likely small design team",
+        "Heavy review of engineer/AI-built UI"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-15",
+      "source": "John shared LinkedIn 4468251573",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium",
+      "recommendation": "Clear — Gladly SPD AI Platform (US remote)",
+      "summary": "Gladly Senior PD AI Platform, US remote, $150k–$185k, GH sagansystems 8208190. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-15",
+    "land": {
+      "resumePath": "/board/resumes/gladly-8208190.pdf",
+      "resumeFileName": "Gladly-Senior-Product-Designer-AI-Platform.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=Da3b5Q",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   }
 ]
