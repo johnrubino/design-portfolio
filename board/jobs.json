@@ -6779,5 +6779,221 @@
         "workAuth": "US authorized, no sponsorship"
       }
     }
+  },
+  {
+    "jobId": "stripe-8282390",
+    "company": "Stripe",
+    "title": "Product Designer, Terminal",
+    "postingUrl": "https://stripe.com/jobs/listing/product-designer-terminal/8282390",
+    "linkedinUrl": "",
+    "dateFound": "2026-10-15",
+    "location": "US Remote (Stripe ~50% local-office expectation where office-assigned)",
+    "level": "Mid IC (Product Designer)",
+    "stageGate": "Public fintech / established Stripe Product Design org",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": false,
+    "salary": "$133,200–$199,800 US base + equity/bonus",
+    "team": "Terminal: in-person payments Dashboard + hardware/software across cashiers, merchants, end users",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 8,
+      "whyFits": [
+        "Mid IC Product Designer; US Remote; 4+ YOE (in band)",
+        "Public Stripe; large established Product Design org",
+        "Payments complexity → usable workflows maps to Pershing FPL/NAO/AM",
+        "Range top clears $150k floor (bottom $133.2k under)"
+      ],
+      "gaps": [
+        "Range bottom $133.2k under floor",
+        "Office-assigned Stripes often ~50% local office — confirm NYC remote vs hybrid",
+        "Prior Stripe apps already sent (Growth PD, Presence, Expansion DE) — different Terminal seat"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-15",
+      "source": "Jobi weekday Senior PD watch 2026-10-15 ~8:18am ET",
+      "seed": false,
+      "score": "8/10",
+      "confidence": "High",
+      "recommendation": "Clear — Stripe Product Designer, Terminal (US remote)",
+      "summary": "Stripe Product Designer, Terminal. US remote, 4+ YOE, $133.2k–$199.8k. GH first published 2026-10-14. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-15",
+    "land": {
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
+  },
+  {
+    "jobId": "google-4478493538",
+    "company": "Google",
+    "title": "UX Designer, Search Verticals",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4478493538",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4478493538",
+    "dateFound": "2026-10-15",
+    "location": "New York, NY",
+    "level": "Mid IC (UX Designer)",
+    "stageGate": "Public Google / Search Design System + Verticals",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": false,
+    "salary": "$132,000–$189,000",
+    "team": "CoreX: bridge Search Design System to Search Verticals (Restaurants, Flights, Events, People, TV/Movies, Sports)",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Mid UX IC in NYC; 4 years interaction design (in band)",
+        "Public Google; established Search design org + design systems",
+        "Systems thinking + AI fluency named; range top clears floor"
+      ],
+      "gaps": [
+        "Range bottom $132k under floor",
+        "Title is UX Designer (interaction) not Senior PD",
+        "No company careers URL resolved from LinkedIn guest page"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-15",
+      "source": "Jobi weekday Senior PD watch 2026-10-15 ~8:18am ET",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "Medium",
+      "recommendation": "Clear — Google UX Designer, Search Verticals (NYC)",
+      "summary": "Google UX Designer, Search Verticals, NYC, $132k–$189k, LI 4478493538. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-15",
+    "land": {
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
+  },
+  {
+    "jobId": "clio-4478484683",
+    "company": "Clio",
+    "title": "Senior Product Designer, Platform",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4478484683",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4478484683",
+    "dateFound": "2026-10-15",
+    "location": "US/Canada remote (hubs Burnaby/Calgary/Toronto 1 day/week if local; LI lists New York)",
+    "level": "Senior IC",
+    "stageGate": "Legal AI SaaS; established R&D design pillar (Series-scale / growth private)",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "salary": "Not listed on LI guest page",
+    "team": "Platform: unify core experiences across Clio product surfaces",
+    "vet": {
+      "gatesPass": false,
+      "fitScore": 5,
+      "whyFits": [
+        "Senior IC; 5+ YOE; Platform systems work",
+        "Clio has real design org (R&D pillar with PM/Eng)",
+        "Distinct from skipped Clio Payments / Accounting seats"
+      ],
+      "gaps": [
+        "Hesitation: LI says New York but hubs are Canadian (Burnaby/Calgary/Toronto); no NYC office day",
+        "John already skipped Clio Payments + Accounting — may not want another Clio",
+        "Salary not on guest JD"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-15",
+      "source": "Jobi weekday Senior PD watch 2026-10-15 ~8:18am ET",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline — Clio SPD Platform (NYC listing vs Canada hubs)",
+      "summary": "Clio Senior Product Designer, Platform. LI 4478484683. Location ambiguity vs prior Clio skips. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-15",
+    "land": {
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
+  },
+  {
+    "jobId": "disney-4478815560",
+    "company": "The Walt Disney Company",
+    "title": "Product Designer II (Commerce)",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4478815560",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4478815560",
+    "dateFound": "2026-10-15",
+    "location": "New York, NY",
+    "level": "Mid IC (Product Designer II)",
+    "stageGate": "Public Disney Entertainment & ESPN Product & Technology; large Design org",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "salary": "$108,500–$145,500",
+    "team": "Disney Streaming commerce experiences",
+    "vet": {
+      "gatesPass": false,
+      "fitScore": 4,
+      "whyFits": [
+        "Mid IC in NYC; 3+ YOE; public Disney with large design org",
+        "Commerce product design (not Staff/manager)"
+      ],
+      "gaps": [
+        "Hesitation: entire posted range $108.5k–$145.5k is under the $150k floor",
+        "Consumer streaming commerce vs wealth/fintech core",
+        "No company ATS URL resolved from LinkedIn guest page"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-15",
+      "source": "Jobi weekday Senior PD watch 2026-10-15 ~8:18am ET",
+      "seed": false,
+      "score": "4/10",
+      "confidence": "High",
+      "recommendation": "Borderline — Disney PD II Commerce NYC (pay range under floor)",
+      "summary": "Disney Product Designer II Commerce, NYC, $108.5k–$145.5k under floor. LI 4478815560. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-15",
+    "land": {
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   }
 ]
