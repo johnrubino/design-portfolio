@@ -7061,5 +7061,65 @@
         "workAuth": "US authorized, no sponsorship"
       }
     }
+  },
+  {
+    "jobId": "smartsheet-8191836",
+    "company": "Smartsheet",
+    "title": "Senior Product Designer I (Remote Eligible)",
+    "postingUrl": "https://job-boards.greenhouse.io/smartsheet/jobs/8191836",
+    "dateFound": "2026-10-16",
+    "location": "US Remote",
+    "level": "Senior IC (reports to Manager, Product Design)",
+    "stageGate": "Established enterprise SaaS (Blackstone/Vista-owned, formerly public)",
+    "status": "vetted",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "stretch": true,
+    "tags": [
+      "stretch"
+    ],
+    "salary": "$135,000\u2013$190,000",
+    "team": "Experience Design \u2014 enterprise & platform design",
+    "vet": {
+      "gatesPass": false,
+      "fitScore": 6,
+      "whyFits": [
+        "Senior IC, US remote",
+        "Enterprise workflows + design systems + AI workflows",
+        "Established Experience Design team"
+      ],
+      "gaps": [
+        "STRETCH: hard-requires 7+ years",
+        "Range bottom $135k under floor",
+        "Design degree or equivalent"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-16",
+      "source": "John shared Greenhouse 8191836 (Indeed)",
+      "seed": false,
+      "score": "6/10",
+      "confidence": "Medium",
+      "recommendation": "Stretch \u2014 Smartsheet SPD I (7+ YOE), John approved prep",
+      "summary": "Smartsheet Senior PD I, US remote, $135k\u2013$190k, GH smartsheet 8191836. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-16",
+    "land": {
+      "resumePath": "/board/resumes/smartsheet-8191836.pdf",
+      "resumeFileName": "Smartsheet-Senior-Product-Designer-I.pdf",
+      "trackedLink": "https://johnrubino.design/hiring?t=B2tiuG",
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   }
 ]
