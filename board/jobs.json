@@ -7132,7 +7132,7 @@
     "location": "New York, NY hub (also SF HQ / Seattle / Irvine); in-office days not stated",
     "level": "Senior IC",
     "stageGate": "Public (Amazon subsidiary); established Twitch UX org with Community Director of Design",
-    "status": "sourced",
+    "status": "vetted",
     "isNew": true,
     "seed": false,
     "borderline": false,
@@ -7168,6 +7168,7 @@
     },
     "lastChecked": "2026-10-16",
     "land": {
+      "resumePath": "/board/resumes/twitch-8482393002.pdf",
       "contactCard": {
         "name": "John Rubino",
         "email": "johnrubinodesign@gmail.com",
