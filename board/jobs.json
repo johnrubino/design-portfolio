@@ -7233,5 +7233,172 @@
         "workAuth": "US authorized, no sponsorship"
       }
     }
+  },
+  {
+    "jobId": "google-meridian-108913833203901126",
+    "company": "Google",
+    "title": "Senior Interaction Designer, Meridian Studio, Google Ads",
+    "postingUrl": "https://www.google.com/about/careers/applications/jobs/results/108913833203901126-senior-interaction-designer-meridian-studio-google-ads",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4479376107",
+    "dateFound": "2026-10-19",
+    "location": "New York, NY (applicant picks: NYC / Seattle / Los Angeles / Mountain View)",
+    "level": "Senior IC",
+    "stageGate": "Public (Alphabet); multidisciplinary UX team in Google Ads BAM (Buying, Analytics & Measurement)",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "salary": "$159,000–$230,000 US base + 15% bonus target + equity",
+    "team": "Meridian Studio — Google Marketing Platform measurement tools (BAM UX)",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 6,
+      "whyFits": [
+        "Senior IC (not Staff); NYC is a listed location",
+        "Public Google, large established UX org with executive designers",
+        "Enterprise tools + AI prototyping + data viz are preferred quals — close to John's complex-workflow fintech work",
+        "Range fully clears $150k floor"
+      ],
+      "gaps": [
+        "BORDERLINE: hard minimum 6 years interaction design vs John ~4+ (top of the 5–6 band)",
+        "Ad-tech / marketing measurement domain vs wealth/fintech",
+        "John skipped the similar 6-yr Google Meet Sr IxD card on Oct 8; Google apply-cap friction possible",
+        "Master's preferred"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-19",
+      "source": "Jobi weekday Senior PD watch 2026-10-19 ~8:30am ET",
+      "seed": false,
+      "score": "6/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline — Google Ads Meridian Studio Sr Interaction Designer (NYC option, 6-yr min)",
+      "summary": "Google Senior Interaction Designer, Meridian Studio, Google Ads. NYC/SEA/LA/MV, $159k–$230k, 6-yr minimum. Careers 108913833203901126 / LI 4479376107. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-19",
+    "land": {
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
+  },
+  {
+    "jobId": "arketa-2df86a89",
+    "company": "Arketa",
+    "title": "Senior Product Designer",
+    "postingUrl": "https://jobs.ashbyhq.com/arketa/2df86a89-8e45-4e9b-b21a-b72063500bb2",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4480558987",
+    "dateFound": "2026-10-19",
+    "location": "New York, NY (NoHo office) — hybrid 3 days/wk (Mon/Wed/Fri)",
+    "level": "Senior IC",
+    "stageGate": "Series A ($15M); small, fast-moving team — design team size not stated",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "salary": "$165,000–$185,000 + equity",
+    "team": "Cross-product design seat (not a single pod) + owns the existing design system",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 6,
+      "whyFits": [
+        "Senior IC; NYC hybrid 3x",
+        "Series A clears stage floor; range fully clears $150k",
+        "'Roughly 5+ years… open in either direction' — soft YOE",
+        "Design-system ownership + Claude-built working prototypes match John's systems + daily AI prototyping"
+      ],
+      "gaps": [
+        "BORDERLINE: 'small, fast-moving team' — design bench size unverified (may be 1–2 designers)",
+        "Fitness/wellness studio SaaS (B2B2C) vs fintech",
+        "Ashby req first published 2026-09-16 (LI repost Oct 16)"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-19",
+      "source": "Jobi weekday Senior PD watch 2026-10-19 ~8:30am ET",
+      "seed": false,
+      "score": "6/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline — Arketa Senior PD (NYC hybrid; small team)",
+      "summary": "Arketa Senior Product Designer. NYC hybrid 3x, $165k–$185k, ~5+ YOE, Series A. Ashby 2df86a89 / LI 4480558987. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-19",
+    "land": {
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
+  },
+  {
+    "jobId": "arenaphysica-mq5ihlx5",
+    "company": "Arena Physica",
+    "title": "Product Designer",
+    "postingUrl": "https://recruiting.arenaphysica.com/careers/role-product-designer-mq5ihlx5",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4479606415",
+    "dateFound": "2026-10-19",
+    "location": "New York, NY HQ — in person 5 days/wk when not traveling (10–15% travel)",
+    "level": "Senior IC (titled Product Designer; 6+ YOE)",
+    "stageGate": "Venture-backed (~$90M from Initialized, Founders Fund, Goldcrest, Fifth Down, Shield); ~80 people; round label not stated",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "salary": "$185,000–$225,000 + equity",
+    "team": "Atlas AI platform for hardware verification/debug (EM 'superintelligence'); works with design peers",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 5,
+      "whyFits": [
+        "IC role, NYC HQ",
+        "Range fully clears $150k floor",
+        "AI-at-the-center complex workflows for technical users; design system + prototyping",
+        "Well past seed (~$90M raised)"
+      ],
+      "gaps": [
+        "BORDERLINE: 6+ years required vs John ~4+",
+        "5 days in office + 10–15% domestic/international travel",
+        "Wants hands-on designing through code; hardware/engineer users vs fintech",
+        "~80-person company; design bench size unverified; funding round label not stated"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-19",
+      "source": "Jobi weekday Senior PD watch 2026-10-19 ~8:30am ET",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline — Arena Physica Product Designer (NYC on-site, 6+ YOE)",
+      "summary": "Arena Physica Product Designer. NYC 5 days on-site, $185k–$225k, 6+ YOE. LI 4479606415. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-19",
+    "land": {
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   }
 ]
