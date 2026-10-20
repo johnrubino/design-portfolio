@@ -7400,5 +7400,329 @@
         "workAuth": "US authorized, no sponsorship"
       }
     }
+  },
+  {
+    "jobId": "springhealth-4478617962",
+    "company": "Spring Health",
+    "title": "Senior Product Designer, Complex Care",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4478617962",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4478617962",
+    "dateFound": "2026-10-20",
+    "location": "New York, NY hybrid (60 Madison Ave, 2\u20133 days/wk)",
+    "level": "Senior IC",
+    "stageGate": "Late-stage private (mental health, AI-native platform); reports to Director of Product Design, Member Growth",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": false,
+    "salary": "$150,000\u2013$202,400/yr base",
+    "team": "Complex care member + provider experiences; contributes to design system",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 7,
+      "whyFits": [
+        "Senior IC, NYC hybrid 2\u20133 days",
+        "Range bottom sits at John's $150k floor",
+        "Established design org (Director of Product Design, design system)",
+        "5+ YOE in band; enterprise/complex workflows + AI prototyping are nice-to-haves"
+      ],
+      "gaps": [
+        "Mental health / healthcare domain vs fintech",
+        "Heavy emphasis on visual craft and polish",
+        "Posted via LinkedIn; company ATS link not resolved"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-20",
+      "source": "Jobi weekday Senior PD watch 2026-10-20 ~8:35am ET",
+      "seed": false,
+      "score": "7/10",
+      "confidence": "High",
+      "recommendation": "Clear \u2014 Spring Health Senior PD, Complex Care (NYC hybrid)",
+      "summary": "Spring Health Senior PD, Complex Care. NYC hybrid 2\u20133 days, $150k\u2013$202.4k, 5+ YOE. LI 4478617962. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-20",
+    "land": {
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
+  },
+  {
+    "jobId": "coinbase-8301285",
+    "company": "Coinbase",
+    "title": "Senior Product Designer, Developer Foundations",
+    "postingUrl": "https://www.coinbase.com/careers/positions/8301285?gh_jid=8301285",
+    "linkedinUrl": "",
+    "dateFound": "2026-10-20",
+    "location": "Remote - USA (quarterly in-person surges)",
+    "level": "Senior IC",
+    "stageGate": "Public (Nasdaq: COIN); large established design org",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "salary": "$180,370\u2013$212,200 base + equity/bonus",
+    "team": "Developer Portal: docs, API dashboards, onboarding, AI search/code-gen surfaces",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 6,
+      "whyFits": [
+        "Senior IC, US remote",
+        "Range fully clears floor",
+        "Complex technical workflows + design system + AI features"
+      ],
+      "gaps": [
+        "BORDERLINE: 5+ YOE with at least 2 years designing developer tools/technical platforms/docs \u2014 John's platform work is fintech ops, not dev tools",
+        "Coinbase caps 3 applications per 6 months (Coinbase One sent Aug 27)"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-20",
+      "source": "Jobi weekday Senior PD watch 2026-10-20 ~8:35am ET",
+      "seed": false,
+      "score": "6/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline \u2014 Coinbase Senior PD, Developer Foundations (US remote)",
+      "summary": "Coinbase Senior PD, Developer Foundations. Remote US, $180.4k\u2013$212.2k, 5+ YOE incl. 2 yrs dev tools. GH 8301285. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-20",
+    "land": {
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
+  },
+  {
+    "jobId": "fanduel-8302415",
+    "company": "FanDuel",
+    "title": "Product Designer (All Levels)",
+    "postingUrl": "https://www.fanduel.careers/open-positions?gh_jid=8302415",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4478640220",
+    "dateFound": "2026-10-20",
+    "location": "New York City or Atlanta (hybrid)",
+    "level": "Mid/Senior IC (leveled at offer: PD / Senior PD / Lead / Principal UI)",
+    "stageGate": "Public parent (Flutter); large Sportsbook Product Design team",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "salary": "$94,000\u2013$193,000 (all levels)",
+    "team": "Sportsbook Product Design team; placed by fit",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 5,
+      "whyFits": [
+        "NYC listed, hybrid",
+        "3+ YOE; Senior PD level described as mentoring + shaping direction",
+        "Large established design team"
+      ],
+      "gaps": [
+        "BORDERLINE: rolling evergreen req across levels, level/comp set at offer",
+        "Range bottom $94k well under floor; top $193k clears",
+        "Sports betting domain"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-20",
+      "source": "Jobi weekday Senior PD watch 2026-10-20 ~8:35am ET",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline \u2014 FanDuel Product Designer (All Levels), NYC",
+      "summary": "FanDuel Product Designer (All Levels). NYC/Atlanta hybrid, $94k\u2013$193k, 3+ YOE. GH 8302415. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-20",
+    "land": {
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
+  },
+  {
+    "jobId": "jpmc-4472748552",
+    "company": "JPMorganChase",
+    "title": "Experience Design, Senior Associate - Card",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4472748552",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4472748552",
+    "dateFound": "2026-10-20",
+    "location": "Brooklyn, NY",
+    "level": "Mid IC (Senior Associate)",
+    "stageGate": "Public; large Chase CCB digital design org",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "salary": "$123,500\u2013$170,000/yr base",
+    "team": "Chase Card (Consumer & Community Banking Digital)",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 6,
+      "whyFits": [
+        "Mid IC, NYC (Brooklyn)",
+        "Client-facing card product in consumer fintech",
+        "3+ YOE in band"
+      ],
+      "gaps": [
+        "BORDERLINE: same $170k ceiling John cited when skipping the JPMC Agentic seat; bottom under floor",
+        "Healthcare Payments JPMC app already sent"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-20",
+      "source": "Jobi weekday Senior PD watch 2026-10-20 ~8:35am ET",
+      "seed": false,
+      "score": "6/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline \u2014 JPMC Experience Design Senior Associate, Card",
+      "summary": "JPMC Experience Design Senior Associate, Card. Brooklyn, $123.5k\u2013$170k, 3+ YOE. LI 4472748552. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-20",
+    "land": {
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
+  },
+  {
+    "jobId": "cellebrite-4480253345",
+    "company": "Cellebrite",
+    "title": "Senior AI Product Designer",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4480253345",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4480253345",
+    "dateFound": "2026-10-20",
+    "location": "New York, NY (work arrangement not stated)",
+    "level": "Senior IC",
+    "stageGate": "Public (Nasdaq: CLBT); has a Design System and design reviews",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "salary": "Not posted",
+    "team": "AI-native digital investigation platform (enterprise, investigative workflows)",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 6,
+      "whyFits": [
+        "Senior IC, NYC",
+        "AI-native enterprise workflows: automation vs user control, trust, recovery \u2014 close to John's AI adoption work",
+        "5+ YOE in band"
+      ],
+      "gaps": [
+        "BORDERLINE: salary not posted",
+        "Domain is law-enforcement / intelligence digital forensics",
+        "NYC design bench size and hybrid policy unverified (Israel-HQ company)"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-20",
+      "source": "Jobi weekday Senior PD watch 2026-10-20 ~8:35am ET",
+      "seed": false,
+      "score": "6/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline \u2014 Cellebrite Senior AI PD (NYC)",
+      "summary": "Cellebrite Senior AI Product Designer. NYC, salary not posted, 5+ YOE. LI 4480253345. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-20",
+    "land": {
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
+  },
+  {
+    "jobId": "fomo-4481517096",
+    "company": "fomo",
+    "title": "Senior Product Designer",
+    "postingUrl": "https://www.linkedin.com/jobs/view/4481517096",
+    "linkedinUrl": "https://www.linkedin.com/jobs/view/4481517096",
+    "dateFound": "2026-10-20",
+    "location": "New York, NY (SoHo) in person",
+    "level": "Mid/Senior IC (5+ YOE, 'mid to senior level')",
+    "stageGate": "Venture-backed (~$100M raised; Benchmark, Index, USV); round label not stated",
+    "status": "sourced",
+    "isNew": true,
+    "seed": false,
+    "borderline": true,
+    "salary": "Not posted (competitive cash + equity)",
+    "team": "Consumer social trading app; mobile + web",
+    "vet": {
+      "gatesPass": true,
+      "fitScore": 5,
+      "whyFits": [
+        "IC, NYC",
+        "Consumer fintech/trading; prototyping + AI tooling",
+        "Well past seed"
+      ],
+      "gaps": [
+        "BORDERLINE: 'small, flat team' \u2014 design bench likely tiny",
+        "Fully in-person NYC",
+        "Crypto trading culture ('everyone on our team trades')",
+        "Salary not posted"
+      ]
+    },
+    "fit": {
+      "generatedAt": "2026-10-20",
+      "source": "Jobi weekday Senior PD watch 2026-10-20 ~8:35am ET",
+      "seed": false,
+      "score": "5/10",
+      "confidence": "Medium",
+      "recommendation": "Borderline \u2014 fomo Senior PD (NYC in person)",
+      "summary": "fomo Senior PD. NYC in person, 5+ YOE, salary not posted. LI 4481517096. Confirm-only."
+    },
+    "gapAnalysis": {
+      "seed": false
+    },
+    "lastChecked": "2026-10-20",
+    "land": {
+      "contactCard": {
+        "name": "John Rubino",
+        "email": "johnrubinodesign@gmail.com",
+        "phone": "917-439-2058",
+        "linkedin": "https://www.linkedin.com/in/john-rubino/",
+        "location": "New York, NY",
+        "workAuth": "US authorized, no sponsorship"
+      }
+    }
   }
 ]
