@@ -2,7 +2,7 @@
 
 A working beta of johnrubino.design, laid out as a fictional line map. Each body of work is a **line**, each page is a **station**, and the map is the only navigation. Choosing a station sends a marker along line 7 (Résumé) while the page changes behind a colour wipe.
 
-- **Current direction:** `../design/DIRECTION-v2.md`. It overrides the brief and prototype where they disagree: an abstract schematic, line chips, and a near-future material instead of 1972 paper.
+- **Current direction:** `../design/DIRECTION-v2.md`. It overrides the brief and prototype where they disagree: an abstract schematic, line chips, and a frosted-glass material instead of 1972 paper.
 
 - **Original spec:** `../design/RTA-beta-brief.md`
 - **Original prototype:** `../design/Journey.dc.html`. v1 was a port of it.
@@ -151,6 +151,6 @@ See `../design/DIRECTION-v2.md` for the full list. In short:
 - No authority branding and no transit voice.
 - An abstract schematic with thinner, wider-spaced lines.
 - Invented markers: line chips and station slots.
-- Matte enamel and frosted glass instead of 1972 paper.
+- Frosted glass instead of 1972 paper: translucent blurred panels, backlit lines, dark-glass signs.
 - The last stop is Résumé.
 - The page-name plate uses `--title` (`#C04A16`) so 80px names pass WCAG AA large-text contrast. Focus rings are 2px orange everywhere.

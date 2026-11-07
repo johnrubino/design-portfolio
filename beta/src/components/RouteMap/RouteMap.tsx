@@ -41,7 +41,7 @@ export function RouteMap({ ride, hover, setHover, onGo, scale, intro }: RouteMap
       <div className="map-layer">
         <svg aria-hidden="true" className="map-svg" width="460" height="900" viewBox="0 0 460 900">
           <MapBase />
-          <g className="lines">
+          <g className="lines" filter="url(#glow)">
             {BUILT_LINES.map((b, i) => (
               <path
                 key={b.line.id}
@@ -181,7 +181,7 @@ function Slot({ m, h }: { m: Marker; h: number }) {
         width={c.w}
         height={h}
         rx={h / 2}
-        fill="var(--panel)"
+        fill="var(--slot)"
         stroke="var(--ink)"
         strokeWidth={1.5}
         transform={`translate(${c.x} ${c.y}) rotate(${c.angle})`}

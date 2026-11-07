@@ -16,6 +16,8 @@ export function LineStrip({ ride, onGo }: { ride: RideState; onGo: (i: number) =
   const last = STATIONS.length - 1;
   return (
     <nav className="strip" aria-label="Pages">
+      {/* The glass bar stays put; on small screens this inner layer scrolls sideways. */}
+      <div className="strip-scroll">
       <div className="strip-in">
         <span className="st-rail" />
         {STATIONS.map((st, i) => {
@@ -51,6 +53,7 @@ export function LineStrip({ ride, onGo }: { ride: RideState; onGo: (i: number) =
             {STATIONS[target].name}
           </span>
         )}
+      </div>
       </div>
     </nav>
   );

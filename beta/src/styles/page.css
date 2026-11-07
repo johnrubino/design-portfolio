@@ -15,7 +15,8 @@
 /* 2. Station ID plate */
 .ttl {
   display: inline-block; margin: 34px 0 0;
-  border: 1px solid var(--ink); border-top: 12px solid var(--sign);
+  border: 1px solid var(--ink); border-top: 12px solid var(--sign-solid);
+  background: var(--glass); box-shadow: inset 0 1px 0 var(--glass-hi);
   padding: 2px 22px 0 12px; overflow: hidden;
   color: var(--title);
   font-size: 80px; line-height: 1.04; font-weight: 500; letter-spacing: -.035em;
@@ -81,8 +82,8 @@
 .sg-chip .chip { width: 96px; height: 96px; }
 .sg-p {
   position: relative; flex: 1; display: flex; align-items: center; justify-content: space-between; gap: 20px;
-  background: var(--sign); color: var(--on-ink); padding: 16px 26px 12px;
-  box-shadow: inset 0 1px 0 var(--sign-hi);
+  background: linear-gradient(180deg, rgba(36, 42, 52, .92), var(--sign-solid)); color: var(--on-ink); padding: 16px 26px 12px;
+  box-shadow: inset 0 1px 0 var(--sign-hi), 0 14px 30px -18px rgba(16, 20, 26, .6);
 }
 .sg-p::before { content: ''; position: absolute; left: 0; right: 0; top: 7px; height: 1px; background: var(--on-ink); opacity: .55; }
 .sg-l { display: flex; flex-direction: column; gap: 6px; }
@@ -101,12 +102,12 @@
 /* Walkthrough request dialog */
 .wt {
   width: min(520px, calc(100vw - 32px)); padding: 0; border: 1px solid var(--ink);
-  background: var(--ground); color: var(--ink); font-family: var(--font);
+  background: var(--glass-strong); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); color: var(--ink); font-family: var(--font); box-shadow: var(--glass-shadow);
 }
-.wt::backdrop { background: rgba(22, 25, 29, .45); }
+.wt::backdrop { background: rgba(26, 30, 36, .28); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
 .wt-plate {
   position: relative; display: flex; align-items: center; justify-content: space-between;
-  background: var(--sign); color: var(--on-ink); padding: 20px 20px 14px 24px;
+  background: var(--sign-solid); color: var(--on-ink); padding: 20px 20px 14px 24px; box-shadow: inset 0 1px 0 var(--sign-hi);
 }
 .wt-plate::before { content: ''; position: absolute; left: 0; right: 0; top: 7px; height: 1px; background: var(--on-ink); opacity: .55; }
 .wt-title { font-size: 24px; font-weight: 500; letter-spacing: -.02em; }
@@ -115,7 +116,7 @@
 .wt-body label { margin-top: 18px; font-size: 13px; }
 .wt-body input, .wt-body select {
   margin-top: 6px; font: inherit; font-size: 16px; padding: 10px 12px; min-height: 44px;
-  border: 1px solid var(--ink); border-radius: 0; background: var(--panel); color: var(--ink);
+  border: 1px solid var(--rule-strong); border-radius: 0; background: rgba(255, 255, 255, .7); color: var(--ink);
 }
 .wt-body [aria-invalid="true"] { border-color: #B3261E; border-width: 2px; }
 .wt-err { margin-top: 6px; font-size: 13px; color: #9E2A18; }

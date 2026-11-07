@@ -15,7 +15,9 @@
 /* The wipe */
 .wipe {
   position: absolute; top: 0; bottom: 0; left: 0; width: 100%;
-  background: var(--ground); z-index: 5; pointer-events: none;
+  /* Frosted sweep: opaque enough that the T/2 page swap stays hidden. */
+  background: rgba(240, 244, 248, .92); -webkit-backdrop-filter: blur(28px) saturate(140%); backdrop-filter: blur(28px) saturate(140%);
+  z-index: 5; pointer-events: none;
   animation-timing-function: var(--ease-wipe); animation-fill-mode: both;
 }
 .wipe .eL, .wipe .eR { position: absolute; top: 0; bottom: 0; display: flex; }
