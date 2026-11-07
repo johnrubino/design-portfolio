@@ -1,0 +1,129 @@
+/* ── Left panel: route map ─────────────────────────────────────────── */
+.routemap {
+  position: relative;
+  flex: none;
+  width: var(--map-w);
+  height: 100%;
+  background: var(--paper-map);
+  z-index: 2;
+  transition: width 700ms var(--ease-ride);
+}
+.routemap[data-c="true"] { width: var(--map-w-collapsed); }
+
+/* Station sign */
+.navsign {
+  position: absolute; left: 0; right: 0; top: 0; height: var(--sign-h);
+  background: var(--sign); color: var(--sign-text); overflow: hidden; z-index: 4;
+}
+.navsign::before { content: ''; position: absolute; left: 0; right: 0; top: 8px; height: 2px; background: var(--sign-text); }
+.ns-t { position: absolute; left: 24px; top: 30px; white-space: nowrap; }
+.ns-n { font-size: 31px; font-weight: 500; letter-spacing: -.025em; line-height: 1; }
+.ns-s { margin-top: 7px; font-size: 12px; color: var(--sign-sub); }
+.ns-tg {
+  position: absolute; right: 20px; top: 31px; width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1.5px solid rgba(243, 232, 211, .45); border-radius: 50%;
+  transition: background-color 200ms;
+}
+.ns-tg:hover { background-color: rgba(243, 232, 211, .12); }
+.ns-tg .ar { transition: transform 650ms var(--ease-ride); transform: rotate(180deg); }
+.routemap[data-c="true"] .ns-tg .ar { transform: rotate(0deg); }
+
+/* Map layer: 460 × 900 map space, scaled as one so the train stays on its path. */
+.map { position: absolute; inset: 0; overflow: hidden; }
+.map-layer {
+  position: absolute; top: var(--sign-h);
+  /* Centre the scaled map in the panel (the bundle's lane 0 at 64px when collapsed). */
+  left: var(--ox, calc((var(--map-w) - 460px * var(--s, 1)) / 2));
+  width: 460px; height: 900px;
+  transform-origin: 0 0;
+  transform: scale(var(--s, 1)) translateY(calc(-1 * var(--sign-h)));
+  transition: left 700ms var(--ease-ride);
+}
+[data-c="true"] .map-layer { left: calc(64px * (1 - var(--s, 1))); }
+.map-svg { position: absolute; left: 0; top: 0; display: block; pointer-events: none; font-family: var(--font); }
+.district { font-weight: 500; font-size: 19px; letter-spacing: -.2px; fill: var(--ink); }
+.lines { mix-blend-mode: multiply; }
+.ln { transition: opacity 280ms ease, d 700ms var(--ease-ride); }
+
+/* Expanded-only / collapsed-only layers */
+.exp-only { transition: opacity 380ms ease 320ms; }
+[data-c="true"] .exp-only { opacity: 0; pointer-events: none; transition-delay: 0ms; }
+.col-only { opacity: 0; pointer-events: none; transition: opacity 300ms ease; }
+[data-c="true"] .col-only { opacity: 1; pointer-events: auto; transition-delay: 420ms; }
+
+/* Fold creases */
+.fold { position: absolute; pointer-events: none; mix-blend-mode: multiply; }
+.fold-v { left: 230px; top: 96px; width: 4px; height: 804px; background: linear-gradient(90deg, rgba(90, 70, 40, .07), rgba(255, 255, 255, .35)); }
+.fold-h { left: 0; top: 489px; width: 460px; height: 4px; background: linear-gradient(rgba(90, 70, 40, .07), rgba(255, 255, 255, .35)); }
+
+/* Station labels (the navigation) */
+.stop {
+  position: absolute; transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 1px;
+  padding: 6px 0; min-height: 44px; justify-content: center;
+}
+.stop--left { text-align: right; align-items: flex-end; }
+.stop--right { text-align: left; align-items: flex-start; }
+.stop .nm {
+  font-size: 15px; font-weight: 500; letter-spacing: -.01em; line-height: 18px;
+  padding: 5px 0 3px;
+  transition: background-color 300ms, color 300ms, padding 300ms;
+}
+.stop .sb { font-family: var(--mono); font-weight: 400; font-size: 10.5px; line-height: 14px; color: var(--meta); }
+.stop:hover .nm { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+/* Current station: a mini station sign. */
+.stop[data-active="true"] .nm {
+  background-color: var(--ink); color: var(--on-ink); padding: 8px 9px 5px;
+  background-image: linear-gradient(transparent 3px, var(--on-ink) 3px, var(--on-ink) 4.5px, transparent 4.5px);
+}
+.stop[data-active="true"]:hover .nm { text-decoration: none; }
+.stop[data-active="true"] .sb { color: var(--ink); }
+.stop:focus-visible { outline-offset: 4px; }
+
+.hot { position: absolute; height: 26px; border-radius: 13px; }
+
+/* You-are-here capsule */
+.here {
+  position: absolute; height: 17px; border: 3px solid var(--ink); border-radius: 9px;
+  background: var(--paper-map); pointer-events: none;
+  animation: j-here 520ms var(--ease-pop) both;
+}
+@keyframes j-here { from { opacity: 0; scale: .4; } to { opacity: 1; scale: 1; } }
+.here-pulse {
+  position: absolute; inset: -3px; border-radius: 12px; border: 2px solid var(--accent);
+  animation: j-pulse 2400ms ease-out 600ms infinite;
+}
+@keyframes j-pulse { 0% { opacity: .55; scale: 1; } 70%, 100% { opacity: 0; scale: 1.9 2.6; } }
+
+/* Collapsed targets */
+.hotc { position: absolute; left: 24px; width: 80px; height: 28px; transform: translateY(-50%); border-radius: 14px; }
+.tip {
+  position: absolute; left: calc(100% + 30px); top: 50%; transform: translate(-6px, -50%);
+  opacity: 0; white-space: nowrap; pointer-events: none;
+  background-color: var(--ink); color: var(--on-ink);
+  font-size: 14px; font-weight: 500; padding: 9px 11px 6px;
+  background-image: linear-gradient(transparent 3px, var(--on-ink) 3px, var(--on-ink) 4.5px, transparent 4.5px);
+  transition: opacity 200ms, transform 200ms;
+}
+.hotc:hover .tip, .hotc:focus-visible .tip { opacity: 1; transform: translate(0, -50%); }
+/* Tips hang outside the narrow panel, so they sit in an unclipped layer. */
+.map-tips { position: absolute; inset: 0; pointer-events: none; z-index: 5; }
+
+/* The train */
+.train {
+  position: absolute; left: 0; top: 0; width: 30px; height: 13px; border-radius: 7px;
+  background: var(--ink);
+  box-shadow: 0 2px 0 rgba(42, 28, 20, .2), 0 0 0 2px var(--paper-map);
+  offset-rotate: auto; z-index: 3; pointer-events: none;
+  display: flex; align-items: center; justify-content: center; gap: 2px;
+}
+.train i { width: 4px; height: 4px; border-radius: 1px; background: var(--paper); }
+.train b { position: absolute; right: 2px; top: 4px; width: 3px; height: 5px; border-radius: 2px; background: var(--accent); }
+
+/* First load: lines draw outward from About, then dots, labels, train. */
+@keyframes j-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+.map--intro .ln { stroke-dasharray: 1; animation: j-draw 1500ms cubic-bezier(.6, 0, .15, 1) both; }
+.map--intro .stn { animation: j-fade 500ms ease 1300ms both; }
+.map--intro .stop { animation: j-fade 500ms ease 1450ms both; }
+.map--intro .train { animation: j-fade 400ms ease 1500ms both; }

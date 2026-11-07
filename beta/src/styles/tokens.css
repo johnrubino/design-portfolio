@@ -1,0 +1,55 @@
+/* Rubino Transit Authority — design tokens (the only place raw values live). */
+:root {
+  /* Paper */
+  --paper-map: #F3E8D3;
+  --paper: #EFE3CC;
+
+  /* Ink: warm dark brown for text, rules and dots. True black only for the nav sign. */
+  --ink: #2A1C14;
+  --sign: #111111;
+  --sign-text: #FFFFFF;
+  --sign-sub: #BDBDBD;
+  --text-2: #4A382B;
+  --meta: #76604C;
+  --on-ink: #F3E8D3;
+  --on-ink-2: #CDBBA2;
+
+  /* Accent */
+  --accent: #F26B2A;
+  --accent-hover: #D4561C;
+  /* Station-name plate text: a darker cut of the accent so 84px names pass
+     WCAG AA large-text contrast (3.7:1 on --paper; #F26B2A is 2.4:1). */
+  --title: #C4501A;
+  --focus: #F26B2A;
+
+  /* Map (1972 Vignelli palette: flat, no texture on land) */
+  --land: #E9D8B8;
+  --land-2: #DFC79F;
+  --park: #CBBFA8;
+  --river: #F3E8D3;
+  --band: #D6C4A6;
+
+  /* Rules */
+  --rule: rgba(21, 21, 21, .16);
+  --rule-strong: rgba(21, 21, 21, .25);
+
+  /* Type: one weight (500) like the manual's Standard Medium; 300 only for non-current strip labels. */
+  --font: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Motion */
+  --ease-ride: cubic-bezier(.65, 0, .35, 1);
+  --ease-enter: cubic-bezier(.2, .7, .1, 1);
+  --ease-roll: cubic-bezier(.16, 1, .3, 1);
+  --ease-pop: cubic-bezier(.2, 1.6, .4, 1);
+  --ease-wipe: cubic-bezier(.7, 0, .3, 1);
+  --ease-depart: cubic-bezier(.5, 0, .75, 0);
+
+  /* Layout */
+  --map-w: 460px;
+  --map-w-collapsed: 128px;
+  --sign-h: 96px;
+  --strip-h: 150px;
+  --content-l: 72px;
+  --content-r: 76px;
+}
