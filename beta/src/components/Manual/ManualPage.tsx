@@ -1,5 +1,4 @@
 import type { MouseEvent, ReactNode, RefObject } from 'react';
-import { byOrder } from '../../content/lines';
 import { SITE } from '../../content/site';
 import { STATIONS } from '../../content/stations';
 import { hrefFor } from '../../ride/routing';
@@ -10,8 +9,7 @@ import { Reveal } from './Reveal';
 const pad = (n: number) => String(n).padStart(2, '0');
 
 /**
- * Shared page layout: header row, page-name plate, body (children),
- * Next sign and footer.
+ * Shared page layout: page-name plate, body (children), Next sign and footer.
  */
 export function ManualPage({
   index,
@@ -25,7 +23,6 @@ export function ManualPage({
   children: ReactNode;
 }) {
   const st = STATIONS[index];
-  const lines = byOrder(st.lines);
   const last = index === STATIONS.length - 1;
   const nextIndex = last ? 0 : index + 1;
   const next = STATIONS[nextIndex];
@@ -38,21 +35,6 @@ export function ManualPage({
 
   return (
     <div className="page">
-      <Reveal i={0} className="mh">
-        <span className="mh-b">
-          <span className="mono mh-n">{pad(index + 1)} / {pad(STATIONS.length)}</span>
-          <span className="signage">{st.name}</span>
-        </span>
-        <ul className="mh-legend" aria-label="Lines on this page">
-          {lines.map((l) => (
-            <li key={l.id}>
-              <Chip line={l.id} size={20} />
-              <span>{l.name}</span>
-            </li>
-          ))}
-        </ul>
-      </Reveal>
-
       <h1 className="ttl signage" tabIndex={-1} ref={titleRef}>
         <span className="ttl-in">{st.name}</span>
       </h1>

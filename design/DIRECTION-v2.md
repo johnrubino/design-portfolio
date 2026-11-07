@@ -15,7 +15,7 @@ v2 keeps the core idea of the beta: pages as stations on a line map, and a marke
 | §4 Train | Three-window car with a headlight | A slim ink capsule with one accent light; same path, timing and easing |
 | §4 Wipe | Paper-coloured panel with 9px stripes | A frosted sweep (blurred glass) with thin 3px stripes in the destination's line colours |
 | §5 Strip | NYCTA manual p.76 band, −45° labels, "7" at each end, always visible | A thin rail with tick stops, horizontal labels and small chips. **Phones only** (v2.4): wherever the left map exists, collapsed or not, the map is the only navigation. |
-| §7 Page grammar | "Station 02 / Served by …"; footer quoting the manual | "02 / 05" plus a chip legend; footer is name · role · domain · page |
+| §7 Page grammar | "Station 02 / Served by …"; footer quoting the manual | The header row is removed (v2.5), so each page opens with the page-name plate; footer is name · role · domain · page |
 | §8 Last stop | Timetable, `/timetable` | Résumé, `/resume` (`/timetable` redirects) |
 | §9 Material | 1972 paper: grain, ink speckle, misregistration, fold creases | **Frosted glass** (v2.1): a cool off-white ground lit by faint washes of the line colours; translucent, blurred map panel and page rail with bright inner edges; page content scrolls under the rail; lines carry a soft backlit glow in their own colour; dark-glass signs. No print effects. |
 | §9 Ink | Warm brown `#2A1C14` | Cool graphite `#1A1E24` |
@@ -47,3 +47,6 @@ The map no longer reads as a separate panel.
 v2.3 showed the rail whenever the map was collapsed. v2.4 removes it entirely wherever the left map exists (900px and wider, collapsed or expanded). It is not rendered at all there, so it costs nothing in the DOM or the tab order, and the page starts at the top. On phones (under 900px) the map is a sheet, so the rail (`LineStrip`, rendered only when `isMobile` in `App.tsx`) is the navigation. The collapse morph, the rail's left-edge fade and the show/hide rules were deleted.
 
 Consequence: in the collapsed map, page names appear only on hover or keyboard focus (the dark tooltip beside each stop).
+
+## v2.5: no page header row
+Removed on every page, following a comment on the preview. The "02 / 05 + line legend" row repeated the page name and the footer's page number. Chips still carry their project names beside them wherever they appear (case-study rows, About board, line ends on the map).
