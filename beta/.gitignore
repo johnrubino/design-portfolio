@@ -2,3 +2,4 @@ node_modules
 dist
 .vercel
 src/content/posts.generated.json
+dist-artifact

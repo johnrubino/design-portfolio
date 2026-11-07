@@ -5,6 +5,7 @@ import { STATIONS } from '../../content/stations';
 import { Disc } from '../Disc';
 import { NycArrow } from '../NycArrow';
 import { Reveal } from './Reveal';
+import { hrefFor } from '../../ride/routing';
 
 const pad = (n: number) => String(n).padStart(2, '0');
 
@@ -58,7 +59,7 @@ export function ManualPage({
       {children}
 
       <Reveal i={9} className="foot">
-        <a className="sign" href={next.route} onClick={follow}>
+        <a className="sign" href={hrefFor(next.route)} onClick={follow}>
           <span className="sg-disc" style={{ background: LINE_BY_ID[next.mainLine].colour, color: LINE_BY_ID[next.mainLine].ink }} aria-hidden="true">
             {LINE_BY_ID[next.mainLine].disc}
           </span>

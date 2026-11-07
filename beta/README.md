@@ -23,6 +23,7 @@ npm run dev        # http://localhost:5173
 | `npm run dev` | Dev server. The walkthrough form fakes a successful send. |
 | `npm run build` | Pulls Substack posts, typechecks, builds to `dist/`. |
 | `npm run preview` | Serves the production build on port 4173. |
+| `npm run build:artifact` | Builds a preview for a claude.ai Artifact into `dist-artifact/`: hash URLs (`#labs`), relative assets, stubbed form. |
 | `npm test` | Geometry tests. They check the generated map against the prototype's paths. |
 
 Every station is a real URL: `/`, `/case-studies`, `/labs`, `/writing`, `/timetable`. Deep links work, and back/forward ride the train in the right direction.

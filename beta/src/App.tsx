@@ -17,6 +17,7 @@ import { Labs } from './pages/Labs';
 import { Timetable } from './pages/Timetable';
 import { Writing } from './pages/Writing';
 import { readCollapsed, writeCollapsed } from './ride/storage';
+import { HISTORY_EVENT, currentPath, pushRoute, resetToStart } from './ride/routing';
 import { useMedia } from './ride/useMedia';
 import { useRide } from './ride/useRide';
 
@@ -54,7 +55,7 @@ export function App() {
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
-  const [initial] = useState(() => stationIndexForPath(window.location.pathname));
+  const [initial] = useState(() => stationIndexForPath(currentPath()));
   const [announce, setAnnounce] = useState('');
   const [hover, setHover] = useState(-1);
   const [sheet, setSheet] = useState(false);
@@ -67,7 +68,7 @@ export function App() {
     reducedMotion: reduced,
     onSwap: (i, push) => {
       if (scrollRef.current) scrollRef.current.scrollTop = 0;
-      if (push) window.history.pushState({ station: i }, '', STATIONS[i].route);
+      if (push) pushRoute(STATIONS[i].route);
       document.title = titleFor(i);
       // If focus was inside the old page (e.g. the Next stop sign), it was
       // just unmounted: move it to the new station name.
@@ -84,15 +85,15 @@ export function App() {
 
   // Deep links: normalise unknown paths, set the first title.
   useEffect(() => {
-    if (!isKnownPath(window.location.pathname)) window.history.replaceState(null, '', '/');
+    if (!isKnownPath(currentPath())) resetToStart();
     document.title = titleFor(initial);
   }, [initial]);
 
   // Browser back/forward rides the train.
   useEffect(() => {
-    const onPop = () => go(stationIndexForPath(window.location.pathname), { fromHistory: true });
-    window.addEventListener('popstate', onPop);
-    return () => window.removeEventListener('popstate', onPop);
+    const onPop = () => go(stationIndexForPath(currentPath()), { fromHistory: true });
+    window.addEventListener(HISTORY_EVENT, onPop);
+    return () => window.removeEventListener(HISTORY_EVENT, onPop);
   }, [go]);
 
   // 900–1199px starts collapsed; wider restores the remembered preference.

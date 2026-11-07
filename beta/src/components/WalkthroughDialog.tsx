@@ -8,7 +8,8 @@ import { LINKS } from '../content/site';
  * with no endpoint configured it stubs a successful send.
  */
 const ENDPOINT: string = import.meta.env.VITE_WALKTHROUGH_ENDPOINT || '/api/walkthrough';
-const STUB = import.meta.env.DEV && !import.meta.env.VITE_WALKTHROUGH_ENDPOINT;
+const STUB =
+  import.meta.env.VITE_WALKTHROUGH_STUB === '1' || (import.meta.env.DEV && !import.meta.env.VITE_WALKTHROUGH_ENDPOINT);
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 type Status = 'editing' | 'sending' | 'sent' | 'error';

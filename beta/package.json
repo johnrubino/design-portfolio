@@ -8,6 +8,7 @@
     "prebuild": "node scripts/fetch-posts.mjs",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
+    "build:artifact": "tsc --noEmit && vite build --mode artifact --outDir dist-artifact",
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },
