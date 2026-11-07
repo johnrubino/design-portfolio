@@ -25,13 +25,13 @@ export function NavSign({
           aria-label={collapsed ? 'Expand map' : 'Collapse map'}
           aria-expanded={!collapsed}
         >
-          <Arrow size={18} colour="var(--on-ink)" />
+          <Arrow size={18} colour="var(--ink)" />
         </button>
       )}
       {onClose && (
         <button type="button" className="ns-tg ns-close" onClick={onClose} aria-label="Close map">
           <svg aria-hidden="true" width="16" height="16" viewBox="0 0 100 100">
-            <path d="M16 16 L84 84 M84 16 L16 84" stroke="var(--on-ink)" strokeWidth="11" />
+            <path d="M16 16 L84 84 M84 16 L16 84" stroke="var(--ink)" strokeWidth="11" />
           </svg>
         </button>
       )}

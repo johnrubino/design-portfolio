@@ -19,7 +19,6 @@
   --edge: rgba(26, 30, 36, .10);             /* hairline edges */
   --grid-dot: rgba(26, 30, 36, .20);
   --grid-cross: rgba(26, 30, 36, .26);
-  --zone: rgba(255, 255, 255, .45);
   --rail: rgba(26, 30, 36, .14);
 
   /* Ink: cool graphite for text, rules and markers */

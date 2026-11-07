@@ -6,8 +6,9 @@ v2 keeps the core idea of the beta: pages as stations on a line map, and a marke
 
 | Brief section | v1 (prototype port) | v2 |
 |---|---|---|
+| §2 Left panel | 460px panel (collapsible to 128px) under a black station sign, divided from the page | **No panel** (v2.2). The map sits directly on the page: no fill, edge or shadow, and the name and toggle are plain ink. The page rail's left edge fades into the map. The map collapses by itself below 1280px, live as the window resizes. |
 | Name and voice | "Rubino Transit Authority", "Select a station to ride", "Next stop", "You are here", "Portfolio Standards Manual" | No authority brand. Plain first-person copy: "John Rubino / Product designer", "Next", "Back to start", "02 / 05". |
-| §2 Map | Vignelli-style borough map: land, rivers, parks, districts, A–F grid | A fictional schematic: frosted panel, 24px dot grid, crosshairs every four cells, three faint unlabelled zones |
+| §2 Map | Vignelli-style borough map: land, rivers, parks, districts, A–F grid | A fictional schematic drawn straight onto the page: a 24px dot grid with crosshairs every four cells, fading out toward the content. No panel, frame or zones. |
 | §3 Lines | 8px lines bundled 9px apart, radius 20 | 3.5px lines 13px apart, radius 32, centrelines on a 24px module, branches peel off one at a time |
 | §3 Markers | MTA-style numbered discs; Vignelli dots and bar | The **line chip**: a square with a 45° cut corner and a two-letter code (FW, FP, NA, PP, CL, DT, RE). Stations are **slots**: a hollow pill across the stopping lanes, with a tick on each line that stops. |
 | §3 Current station | White capsule with an orange pulse ring | The slot fills with ink, an accent line runs through it, and a soft halo breathes |
@@ -33,3 +34,11 @@ Routing, the ride state machine and its timing, the T/2 swap, the collapse morph
 v2 first shipped with a mix of matte enamel and frosted panels. v2.1 commits to the frosted-panel direction. All of it lives in `beta/src/styles/tokens.css` (`--glass*`, `--wash-*`, `--sign*`) plus the glow filter in `RouteMap/MapBase.tsx`.
 
 CSS backdrop blur only samples inside the element's own box, so the page rail's fill gets denser toward its bottom edge to keep content passing underneath from showing sharp there.
+
+## v2.2: the map is part of the page
+The map no longer reads as a separate panel.
+- `.routemap` has no fill, edge or shadow. The washes behind the glass run continuously behind map and page.
+- The black sign is gone: "John Rubino / Product designer" and the toggle are ink on the page. Dark plates stay only where they carry meaning: the current-page label, collapsed-mode tooltips, the Next sign and the page-name band.
+- The dot grid and crosshairs fade out toward the content through an SVG mask (`seam-fade` in `MapBase.tsx`) and hide when the map is collapsed. The faint zone rectangles were removed because they had hard edges.
+- The frosted page rail's left edge fades in (`mask-image` in `strip.css`).
+- The map auto-collapses below **1280px** and expands above it, live. A manual toggle holds until the width crosses the breakpoint again. Below 900px the map becomes the full-screen sheet, which is now an opaque ground.

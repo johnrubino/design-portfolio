@@ -1,7 +1,7 @@
 /**
- * The schematic plane, drawn on the frosted panel: a 24px dot grid with small
- * crosshairs every four cells, plus a few faint unlabelled zones that give
- * the branches room. No geography: the map is fictional.
+ * The schematic plane, drawn straight onto the page: a 24px dot grid with small
+ * crosshairs every four cells. No geography: the map is fictional, and nothing
+ * on the plane has a hard edge.
  */
 const MODULE = 24;
 const ORIGIN = 12; // grid offset so trunk and turns land on dots
@@ -20,6 +20,15 @@ export function MapBase() {
           <circle cx="0" cy={MODULE} r="1.1" fill="var(--grid-dot)" />
           <circle cx={MODULE} cy={MODULE} r="1.1" fill="var(--grid-dot)" />
         </pattern>
+        {/* The grid, zones and crosses fade out toward the page, so the map has no edge. */}
+        <linearGradient id="seam-grad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stopColor="#fff" />
+          <stop offset="0.5" stopColor="#fff" />
+          <stop offset="1" stopColor="#000" />
+        </linearGradient>
+        <mask id="seam-fade" maskUnits="userSpaceOnUse" x="0" y="0" width="460" height="900">
+          <rect x="0" y="0" width="460" height="900" fill="url(#seam-grad)" />
+        </mask>
         {/* Backlit lines: a soft glow in each line's own colour under a crisp core. */}
         <filter id="glow" x="-20%" y="-5%" width="140%" height="110%">
           <feGaussianBlur in="SourceGraphic" stdDeviation="3.2" result="b" />
@@ -30,12 +39,8 @@ export function MapBase() {
           </feMerge>
         </filter>
       </defs>
-      <rect x="0" y="96" width="460" height="804" fill="url(#grid-dots)" />
-      <g className="exp-only">
-        {/* Zones: quiet fields behind each group of branches */}
-        <rect x="252" y="324" width="184" height="168" rx="2" fill="var(--zone)" />
-        <rect x="300" y="564" width="136" height="96" rx="2" fill="var(--zone)" />
-        <rect x="36" y="780" width="192" height="96" rx="2" fill="var(--zone)" />
+      <g className="exp-only" mask="url(#seam-fade)">
+        <rect x="0" y="96" width="460" height="804" fill="url(#grid-dots)" />
         <g stroke="var(--grid-cross)" strokeWidth="1">
           {crosses.map(([x, y]) => (
             <path key={`${x}-${y}`} d={`M${x - 4} ${y} H${x + 4} M${x} ${y - 4} V${y + 4}`} />

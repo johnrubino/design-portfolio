@@ -23,14 +23,15 @@ import { useRide } from './ride/useRide';
 const PAGES: ComponentType[] = [About, CaseStudies, Labs, Writing, Resume];
 
 const MOBILE = '(max-width: 899.98px)';
-const MID = '(min-width: 900px) and (max-width: 1199.98px)';
+/** The map collapses by itself in this range, live as the window resizes. */
+const NARROW = '(min-width: 900px) and (max-width: 1279.98px)';
 const SIGN_H = 96;
 const MAP_H = 900 - SIGN_H;
 
 const titleFor = (i: number) => (i === 0 ? SITE.titleSuffix : `${STATIONS[i].name} · ${SITE.titleSuffix}`);
 
 function initialCollapsed(): boolean {
-  if (window.matchMedia(MID).matches) return true;
+  if (window.matchMedia(NARROW).matches) return true;
   return readCollapsed() ?? false;
 }
 
@@ -48,7 +49,7 @@ function useViewport() {
 
 export function App() {
   const isMobile = useMedia(MOBILE);
-  const isMid = useMedia(MID);
+  const isNarrow = useMedia(NARROW);
   const reduced = useMedia('(prefers-reduced-motion: reduce)');
   const [vw, vh] = useViewport();
 
@@ -96,16 +97,16 @@ export function App() {
     return () => window.removeEventListener(HISTORY_EVENT, onPop);
   }, [go]);
 
-  // 900–1199px starts collapsed; wider restores the remembered preference.
+  // Crossing the breakpoint: narrower collapses the map, wider restores the remembered preference.
   const firstBreakpoint = useRef(true);
   useEffect(() => {
     if (firstBreakpoint.current) {
       firstBreakpoint.current = false;
       return;
     }
-    if (isMid) setCollapsed(true);
+    if (isNarrow) setCollapsed(true);
     else if (!isMobile) setCollapsed(readCollapsed() ?? false);
-  }, [isMid, isMobile, setCollapsed]);
+  }, [isNarrow, isMobile, setCollapsed]);
 
   const onToggle = useCallback(() => {
     if (state.moving || state.morph) return;

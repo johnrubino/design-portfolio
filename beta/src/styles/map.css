@@ -4,36 +4,27 @@
   flex: none;
   width: var(--map-w);
   height: 100%;
-  /* Frosted glass: translucent, blurred, with a bright inner edge. */
-  background: var(--glass);
-  -webkit-backdrop-filter: var(--glass-blur);
-  backdrop-filter: var(--glass-blur);
-  box-shadow: inset -1px 0 0 var(--glass-hi), 1px 0 0 var(--edge), 18px 0 40px -24px rgba(30, 45, 70, .22);
+  /* No panel: the map sits directly on the page, with no fill, edge or shadow. */
   z-index: 2;
   transition: width 700ms var(--ease-ride);
 }
 .routemap[data-c="true"] { width: var(--map-w-collapsed); }
 
-/* Dark-glass sign */
+/* The name and toggle: plain ink on the page. */
 .navsign {
   position: absolute; left: 0; right: 0; top: 0; height: var(--sign-h);
-  background: linear-gradient(180deg, rgba(36, 42, 52, .9), var(--sign));
-  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
-  color: var(--on-ink); overflow: hidden; z-index: 4;
-  box-shadow: inset 0 1px 0 var(--sign-hi), inset 0 -1px 0 rgba(0, 0, 0, .35);
+  color: var(--ink); overflow: hidden; z-index: 4;
 }
-/* A thin light rule near the top: the one direct nod to transit signage. */
-.navsign::before { content: ''; position: absolute; left: 0; right: 0; top: 8px; height: 1px; background: var(--on-ink); opacity: .55; }
 .ns-t { position: absolute; left: 24px; top: 30px; white-space: nowrap; }
 .ns-n { font-size: 28px; font-weight: 500; letter-spacing: -.02em; line-height: 1; }
-.ns-s { margin-top: 8px; font-size: 12px; color: var(--on-ink-2); }
+.ns-s { margin-top: 8px; font-size: 12px; color: var(--meta); }
 .ns-tg {
   position: absolute; right: 20px; top: 31px; width: 44px; height: 44px;
   display: flex; align-items: center; justify-content: center;
-  border: 1px solid rgba(241, 244, 247, .3); border-radius: 50%; background: rgba(255, 255, 255, .04);
-  transition: background-color 200ms;
+  border: 1px solid var(--rule-strong); border-radius: 50%;
+  transition: background-color 200ms, border-color 200ms;
 }
-.ns-tg:hover { background-color: rgba(241, 244, 247, .12); }
+.ns-tg:hover { background-color: rgba(255, 255, 255, .5); border-color: var(--ink); }
 .ns-tg .ar { transition: transform 650ms var(--ease-ride); transform: rotate(180deg); }
 .routemap[data-c="true"] .ns-tg .ar { transform: rotate(0deg); }
 

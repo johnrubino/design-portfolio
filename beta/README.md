@@ -139,8 +139,8 @@ The repo-root `.vercelignore` keeps `beta/` and `design/` out of the main site's
 
 | Width | Behaviour |
 |---|---|
-| ≥ 1200 px | Full layout. The map's collapsed state is remembered in `localStorage`. |
-| 900–1199 px | Starts with the map collapsed. |
+| ≥ 1280 px | Full layout. The map's collapsed state is remembered in `localStorage`. |
+| 900–1279 px | The map collapses by itself, live as the window resizes, and expands again above 1280. The toggle still works; a manual choice holds until the width crosses 1280 again. |
 | < 900 px | The map is hidden and the page rail becomes the navigation (it scrolls sideways). A **Map** button opens the full route map as a sheet; the ride plays there, then the sheet closes. |
 
 On windows shorter than 900 px, the whole map layer (lines, labels and marker) scales down together, so the marker stays on its line.
@@ -151,6 +151,6 @@ See `../design/DIRECTION-v2.md` for the full list. In short:
 - No authority branding and no transit voice.
 - An abstract schematic with thinner, wider-spaced lines.
 - Invented markers: line chips and station slots.
-- Frosted glass instead of 1972 paper: translucent blurred panels, backlit lines, dark-glass signs.
+- Frosted glass instead of 1972 paper: a translucent rail, backlit lines, dark-glass signs. The map has no panel of its own; it sits directly on the page.
 - The last stop is Résumé.
 - The page-name plate uses `--title` (`#C04A16`) so 80px names pass WCAG AA large-text contrast. Focus rings are 2px orange everywhere.
