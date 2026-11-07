@@ -14,7 +14,7 @@ v2 keeps the core idea of the beta: pages as stations on a line map, and a marke
 | §3 Current station | White capsule with an orange pulse ring | The slot fills with ink, an accent line runs through it, and a soft halo breathes |
 | §4 Train | Three-window car with a headlight | A slim ink capsule with one accent light; same path, timing and easing |
 | §4 Wipe | Paper-coloured panel with 9px stripes | A frosted sweep (blurred glass) with thin 3px stripes in the destination's line colours |
-| §5 Strip | NYCTA manual p.76 band, −45° labels, "7" at each end | A thin rail with tick stops, horizontal labels and small chips |
+| §5 Strip | NYCTA manual p.76 band, −45° labels, "7" at each end, always visible | A thin rail with tick stops, horizontal labels and small chips. **Shown only when the map can't carry the navigation:** whenever the map is collapsed (it auto-collapses below 1280px) and on phones. Hidden when the expanded map is showing. |
 | §7 Page grammar | "Station 02 / Served by …"; footer quoting the manual | "02 / 05" plus a chip legend; footer is name · role · domain · page |
 | §8 Last stop | Timetable, `/timetable` | Résumé, `/resume` (`/timetable` redirects) |
 | §9 Material | 1972 paper: grain, ink speckle, misregistration, fold creases | **Frosted glass** (v2.1): a cool off-white ground lit by faint washes of the line colours; translucent, blurred map panel and page rail with bright inner edges; page content scrolls under the rail; lines carry a soft backlit glow in their own colour; dark-glass signs. No print effects. |
@@ -42,3 +42,6 @@ The map no longer reads as a separate panel.
 - The dot grid and crosshairs fade out toward the content through an SVG mask (`seam-fade` in `MapBase.tsx`) and hide when the map is collapsed. The faint zone rectangles were removed because they had hard edges.
 - The frosted page rail's left edge fades in (`mask-image` in `strip.css`).
 - The map auto-collapses below **1280px** and expands above it, live. A manual toggle holds until the width crosses the breakpoint again. Below 900px the map becomes the full-screen sheet, which is now an opaque ground.
+
+## v2.3: the page rail is navigation only where needed
+With the expanded map on screen, the rail repeated the same five destinations, so it is hidden there and the page starts higher. It shows (and the page content makes room for it) when `data-rail` is true on `.content`, which is `isMobile || collapsed` in `App.tsx`. Hidden, it is `visibility: hidden`, so it also leaves the tab order and the accessibility tree. The collapse morph and the rail's fade-in share one easing.

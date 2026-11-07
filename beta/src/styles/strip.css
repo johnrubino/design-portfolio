@@ -10,6 +10,12 @@
   /* The left edge dissolves, so the rail and the map read as one surface. */
   -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 96px);
   mask-image: linear-gradient(90deg, transparent 0, #000 96px);
+  /* Shown when the map is collapsed (or on phones); `visibility` also removes it from the tab order when hidden. */
+  transition: opacity 400ms ease, transform 500ms var(--ease-ride), visibility 0s;
+}
+.content[data-rail="false"] .strip {
+  opacity: 0; transform: translateY(-14px); visibility: hidden; pointer-events: none;
+  transition: opacity 250ms ease, transform 400ms var(--ease-ride), visibility 0s 400ms;
 }
 .strip-scroll { height: 100%; }
 .strip-in { position: relative; height: 100%; margin: 0 var(--content-r) 0 var(--content-l); }

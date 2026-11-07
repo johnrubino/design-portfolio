@@ -40,14 +40,17 @@ a:hover { color: var(--accent-hover); }
   height: 100%;
   overflow: hidden;
 }
+.content { --rail-h: 0px; }
+.content[data-rail="true"] { --rail-h: var(--strip-h); }
 .scroll {
   position: absolute;
   /* Content scrolls under the frosted page rail. */
   inset: 0;
   z-index: 1;
   overflow-y: auto;
-  scroll-padding-top: var(--strip-h);
-  padding: calc(var(--strip-h) + 34px) var(--content-r) 48px var(--content-l);
+  scroll-padding-top: var(--rail-h);
+  padding: calc(var(--rail-h) + 40px) var(--content-r) 48px var(--content-l);
+  transition: padding-top 700ms var(--ease-ride);
 }
 
 @keyframes j-fade { from { opacity: 0; } to { opacity: 1; } }

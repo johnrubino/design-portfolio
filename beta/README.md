@@ -139,8 +139,8 @@ The repo-root `.vercelignore` keeps `beta/` and `design/` out of the main site's
 
 | Width | Behaviour |
 |---|---|
-| ≥ 1280 px | Full layout. The map's collapsed state is remembered in `localStorage`. |
-| 900–1279 px | The map collapses by itself, live as the window resizes, and expands again above 1280. The toggle still works; a manual choice holds until the width crosses 1280 again. |
+| ≥ 1280 px | Full layout: the expanded map is the only navigation, and the page starts at the top. The map's collapsed state is remembered in `localStorage`. |
+| 900–1279 px | The map collapses by itself, live as the window resizes, and expands again above 1280. **The page rail appears as the navigation** whenever the map is collapsed (it hides again if you expand the map). The toggle still works; a manual choice holds until the width crosses 1280 again. |
 | < 900 px | The map is hidden and the page rail becomes the navigation (it scrolls sideways). A **Map** button opens the full route map as a sheet; the ride plays there, then the sheet closes. |
 
 On windows shorter than 900 px, the whole map layer (lines, labels and marker) scales down together, so the marker stays on its line.
