@@ -127,8 +127,6 @@ export function App() {
     [go, state.cur, state.moving],
   );
 
-  // The page rail is the navigation whenever the expanded map isn't: collapsed map, or a phone.
-  const showRail = isMobile || state.collapsed;
   const mapScale = Math.min(1, Math.max(0.5, (vh - SIGN_H) / MAP_H));
   const sheetScale = Math.min(vw / 460, (vh - SIGN_H) / MAP_H);
   const Page = PAGES[state.page];
@@ -145,8 +143,9 @@ export function App() {
         </nav>
       )}
 
-      <main className="content" data-phase={state.phase} data-dir={state.dir} data-rail={showRail}>
-        <LineStrip ride={state} onGo={onGo} />
+      <main className="content" data-phase={state.phase} data-dir={state.dir}>
+        {/* Phones only: the map is a sheet there, so the page rail is the navigation. */}
+        {isMobile && <LineStrip ride={state} onGo={onGo} />}
         <div className="scroll" ref={scrollRef} style={{ '--base': `${state.base}ms` } as CSSProperties}>
           <ManualPage key={state.page} index={state.page} onGo={onGo} titleRef={titleRef}>
             <Page />

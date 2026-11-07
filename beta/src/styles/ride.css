@@ -36,7 +36,6 @@
   .map--intro .ln { stroke-dasharray: none; }
   .here-pulse { display: none; }
   .mover, .st-here, .ln { transition: none !important; }
-  .scroll, .strip { transition: none !important; }
   .page { transition: opacity 75ms linear; animation: j-fade 75ms linear both; }
   [data-phase="depart"][data-dir] .page { transform: none; opacity: 0; }
   .ns-tg .ar, .routemap { transition: none; }
