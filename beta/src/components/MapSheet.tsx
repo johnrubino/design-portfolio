@@ -36,7 +36,7 @@ export function MapSheet({
   }, [open]);
 
   return (
-    <dialog ref={ref} className="sheet" aria-label="Route map" onClose={onClose}>
+    <dialog ref={ref} className="sheet" aria-label="Map" onClose={onClose}>
       {open && (
         <div className="routemap routemap--sheet" data-c="false" style={{ '--ox': `${offsetX}px` } as React.CSSProperties}>
           <NavSign collapsed={false} onClose={onClose} />

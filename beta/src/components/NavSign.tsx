@@ -1,7 +1,7 @@
 import { SITE } from '../content/site';
-import { NycArrow } from './NycArrow';
+import { Arrow } from './Arrow';
 
-/** The black station sign at the top of the route map. */
+/** The dark-glass sign at the top of the map. */
 export function NavSign({
   collapsed,
   onToggle,
@@ -14,24 +14,24 @@ export function NavSign({
   return (
     <div className="navsign">
       <div className="ns-t exp-only">
-        <div className="ns-n">{SITE.name}</div>
-        <div className="ns-s">{SITE.signSub}</div>
+        <div className="ns-n signage">{SITE.name}</div>
+        <div className="ns-s">{SITE.role}</div>
       </div>
       {onToggle && (
         <button
           type="button"
           className="ns-tg"
           onClick={onToggle}
-          aria-label={collapsed ? 'Expand route map' : 'Collapse route map'}
+          aria-label={collapsed ? 'Expand map' : 'Collapse map'}
           aria-expanded={!collapsed}
         >
-          <NycArrow size={18} colour="#F3E8D3" />
+          <Arrow size={18} colour="var(--on-ink)" />
         </button>
       )}
       {onClose && (
-        <button type="button" className="ns-tg ns-close" onClick={onClose} aria-label="Close route map">
+        <button type="button" className="ns-tg ns-close" onClick={onClose} aria-label="Close map">
           <svg aria-hidden="true" width="16" height="16" viewBox="0 0 100 100">
-            <path d="M14 14 L86 86 M86 14 L14 86" stroke="#F3E8D3" strokeWidth="14" />
+            <path d="M16 16 L84 84 M84 16 L16 84" stroke="var(--on-ink)" strokeWidth="11" />
           </svg>
         </button>
       )}

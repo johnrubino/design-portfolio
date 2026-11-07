@@ -6,21 +6,19 @@
   .mbar {
     position: relative; flex: none; height: 56px; z-index: 7;
     display: flex; align-items: center; justify-content: space-between; padding: 6px 16px 0;
-    background: var(--sign); color: var(--sign-text);
+    background: var(--sign); color: var(--on-ink);
   }
-  .mbar::before { content: ''; position: absolute; left: 0; right: 0; top: 6px; height: 2px; background: var(--sign-text); }
+  .mbar::before { content: ''; position: absolute; left: 0; right: 0; top: 6px; height: 1px; background: var(--on-ink); opacity: .55; }
   .mbar-n { font-size: 22px; letter-spacing: -.02em; }
   .mbar-map {
-    min-height: 40px; padding: 8px 14px 6px; border: 1.5px solid rgba(243, 232, 211, .45);
+    min-height: 40px; padding: 8px 14px 6px; border: 1px solid rgba(238, 240, 236, .35);
     border-radius: 20px; font-size: 14px;
   }
   .content { box-shadow: none; }
   .strip { left: 0; right: 0; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; }
-  .strip-in { min-width: 600px; margin: 0 40px 0 24px; }
-  .st-lab { font-size: 14px; }
+  .strip-in { min-width: 560px; margin: 0 24px; }
   .scroll { padding: 28px 16px 40px; }
-  .mh { grid-template-columns: 1fr 1fr; }
-  .mh > span:last-child { grid-column: 1 / -1; }
+  .mh { grid-template-columns: 1fr; }
   .ttl { font-size: clamp(44px, 13vw, 84px); }
   .lede { font-size: 24px; }
   .row { grid-template-columns: 40px 1fr; }
@@ -30,7 +28,7 @@
   .board-h.tt th:nth-child(2), .board-r.tt td:nth-child(2) { width: auto; }
   .board-h.tt th:first-child, .board-r.tt td:first-child { width: 70px; }
   .post { flex-direction: column; gap: 4px; }
-  .sg-disc { width: 64px; height: 64px; font-size: 34px; }
+  .sg-chip .chip { width: 64px; height: 64px; }
   .sg-p { padding: 16px 16px 12px; }
   .sg-n { font-size: 26px; }
   .mf { grid-template-columns: 1fr 1fr; }
@@ -38,9 +36,9 @@
   /* Full-screen route map sheet */
   .sheet {
     position: fixed; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none;
-    margin: 0; padding: 0; border: 0; background: var(--paper-map); color: var(--ink);
+    margin: 0; padding: 0; border: 0; background: var(--panel); color: var(--ink);
   }
-  .sheet::backdrop { background: var(--paper-map); }
+  .sheet::backdrop { background: var(--panel); }
   .routemap--sheet { position: absolute; inset: 0; width: 100%; }
   .routemap--sheet .ns-close { right: 16px; }
   .routemap--sheet .ns-t { left: 16px; }

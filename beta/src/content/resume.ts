@@ -1,8 +1,8 @@
 import { LINKS } from './site';
 
-export const TIMETABLE_INTRO = 'Where I have worked, and how to reach me.';
+export const RESUME_INTRO = 'Where I have worked, and how to reach me.';
 
-export const TIMETABLE = [
+export const WORK_HISTORY = [
   { when: 'Now', where: 'BNY Pershing', role: 'Senior Product Designer, Wealth Services' },
   { when: 'Ongoing', where: 'Colllective Design', role: 'Co-founder' },
   { when: 'Ongoing', where: 'Design Thinker', role: 'Writer' },

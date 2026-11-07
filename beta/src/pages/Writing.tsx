@@ -1,6 +1,6 @@
 import { LINKS } from '../content/site';
 import { POSTS, SUBSTACK_CTA, WRITING_INTRO } from '../content/writing';
-import { NycArrow } from '../components/NycArrow';
+import { Arrow } from '../components/Arrow';
 import { Reveal } from '../components/Manual/Reveal';
 
 export function Writing() {
@@ -19,7 +19,7 @@ export function Writing() {
       </Reveal>
       <Reveal i={5} as="a" className="sub" href={LINKS.substack} target="_blank" rel="noopener">
         {SUBSTACK_CTA}
-        <NycArrow size={13} colour="currentColor" />
+        <Arrow size={13} colour="currentColor" />
       </Reveal>
     </>
   );

@@ -4,7 +4,7 @@ import { SITE } from '../content/site';
 export function MobileBar({ onMap, mapOpen }: { onMap: () => void; mapOpen: boolean }) {
   return (
     <header className="mbar">
-      <span className="mbar-n">{SITE.name}</span>
+      <span className="mbar-n signage">{SITE.name}</span>
       <button type="button" className="mbar-map" onClick={onMap} aria-haspopup="dialog" aria-expanded={mapOpen}>
         Map
       </button>

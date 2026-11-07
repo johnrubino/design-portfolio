@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore, type ComponentType, type CSSProperties } from 'react';
-import { byDisc } from './content/lines';
+import { byOrder } from './content/lines';
 import { SITE } from './content/site';
-import { STATIONS, isKnownPath, stationIndexForPath } from './content/stations';
+import { STATIONS, isAlias, isKnownPath, stationIndexForPath } from './content/stations';
 import { LineStrip } from './components/LineStrip';
 import { LiveRegion } from './components/LiveRegion';
 import { ManualPage } from './components/Manual/ManualPage';
@@ -9,19 +9,18 @@ import { MapSheet } from './components/MapSheet';
 import { MobileBar } from './components/MobileBar';
 import { NavSign } from './components/NavSign';
 import { RouteMap } from './components/RouteMap/RouteMap';
-import { Textures } from './components/Textures';
 import { Wipe } from './components/Wipe';
 import { About } from './pages/About';
 import { CaseStudies } from './pages/CaseStudies';
 import { Labs } from './pages/Labs';
-import { Timetable } from './pages/Timetable';
+import { Resume } from './pages/Resume';
 import { Writing } from './pages/Writing';
 import { readCollapsed, writeCollapsed } from './ride/storage';
 import { HISTORY_EVENT, currentPath, pushRoute, resetToStart } from './ride/routing';
 import { useMedia } from './ride/useMedia';
 import { useRide } from './ride/useRide';
 
-const PAGES: ComponentType[] = [About, CaseStudies, Labs, Writing, Timetable];
+const PAGES: ComponentType[] = [About, CaseStudies, Labs, Writing, Resume];
 
 const MOBILE = '(max-width: 899.98px)';
 const MID = '(min-width: 900px) and (max-width: 1199.98px)';
@@ -70,7 +69,7 @@ export function App() {
       if (scrollRef.current) scrollRef.current.scrollTop = 0;
       if (push) pushRoute(STATIONS[i].route);
       document.title = titleFor(i);
-      // If focus was inside the old page (e.g. the Next stop sign), it was
+      // If focus was inside the old page (e.g. the Next sign), it was
       // just unmounted: move it to the new station name.
       requestAnimationFrame(() => {
         const a = document.activeElement;
@@ -78,7 +77,7 @@ export function App() {
       });
     },
     onArrive: (i) => {
-      setAnnounce(`Now at ${STATIONS[i].name}`);
+      setAnnounce(`${STATIONS[i].name} page`);
       if (sheetRef.current) window.setTimeout(() => setSheet(false), 350);
     },
   });
@@ -86,10 +85,11 @@ export function App() {
   // Deep links: normalise unknown paths, set the first title.
   useEffect(() => {
     if (!isKnownPath(currentPath())) resetToStart();
+    else if (isAlias(currentPath())) window.history.replaceState(null, '', STATIONS[initial].route);
     document.title = titleFor(initial);
   }, [initial]);
 
-  // Browser back/forward rides the train.
+  // Browser back/forward rides the marker back and forth.
   useEffect(() => {
     const onPop = () => go(stationIndexForPath(currentPath()), { fromHistory: true });
     window.addEventListener(HISTORY_EVENT, onPop);
@@ -129,15 +129,14 @@ export function App() {
   const mapScale = Math.min(1, Math.max(0.5, (vh - SIGN_H) / MAP_H));
   const sheetScale = Math.min(vw / 460, (vh - SIGN_H) / MAP_H);
   const Page = PAGES[state.page];
-  const wipeColours = byDisc(STATIONS[state.target].lines).map((l) => l.colour);
+  const wipeColours = byOrder(STATIONS[state.target].lines).map((l) => l.colour);
 
   return (
     <div className="app" data-layout={isMobile ? 'mobile' : 'desktop'}>
-      <Textures />
       {isMobile ? (
         <MobileBar onMap={() => setSheet(true)} mapOpen={sheet} />
       ) : (
-        <nav className="routemap" aria-label="Route map" data-c={state.collapsed}>
+        <nav className="routemap" aria-label="Map" data-c={state.collapsed}>
           <NavSign collapsed={state.collapsed} onToggle={onToggle} />
           <RouteMap ride={state} hover={hover} setHover={setHover} onGo={onGo} scale={mapScale} intro={!reduced} />
         </nav>

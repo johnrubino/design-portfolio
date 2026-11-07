@@ -1,32 +1,36 @@
-/* ── In-train line strip (NYCTA manual p. 76) ──────────────────────── */
+/* ── Page rail (top of the content panel) ──────────────────────────── */
 .strip {
   position: absolute; left: var(--content-l); right: var(--content-r); top: 0;
-  height: var(--strip-h); border-bottom: 1px solid var(--ink); z-index: 6;
-  background: var(--paper);
+  height: var(--strip-h); border-bottom: 1px solid var(--rule-strong); z-index: 6;
+  background: var(--ground);
 }
 .strip-in { position: relative; height: 100%; }
-.st-band { position: absolute; left: 0; right: 0; top: 92px; height: 14px; background: var(--band); }
-.st-e { position: absolute; top: 91px; font-size: 14px; font-weight: 500; line-height: 16px; }
-.st-e1 { left: -14px; }
-.st-e2 { right: -14px; }
-.st-dot { position: absolute; top: 93px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--ink); }
+.st-rail { position: absolute; left: 0; right: 0; top: 94px; height: 4px; border-radius: 2px; background: var(--rail); }
+.st-stop {
+  position: absolute; top: 90px; width: 2px; height: 12px; margin-left: -1px; background: var(--ink);
+}
 .st-lab {
-  position: absolute; top: 68px; transform: rotate(-45deg); transform-origin: 0 100%;
-  white-space: nowrap; font-size: 13px; font-weight: 300; line-height: 16px; color: var(--ink); padding: 0 2px;
+  position: absolute; top: 58px; white-space: nowrap;
+  font-size: 13.5px; font-weight: 400; line-height: 18px; color: var(--text-2); padding: 2px 0;
 }
-.st-lab[data-active="true"] { font-weight: 500; }
-.st-lab:hover { text-decoration: underline; text-underline-offset: 3px; }
+.st-lab--mid { transform: translateX(-50%); }
+.st-lab--end { transform: translateX(-100%); }
+.st-lab[data-active="true"] { font-weight: 500; color: var(--ink); }
+.st-lab:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .st-tr {
-  position: absolute; top: 112px; width: 58px; margin-left: -29px;
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 2px;
+  position: absolute; top: 110px; width: 52px; display: flex; flex-wrap: wrap; gap: 2px;
 }
+.st-tr--mid { margin-left: -26px; justify-content: center; }
+.st-tr--start { justify-content: flex-start; margin-left: -1px; }
+.st-tr--end { margin-left: -51px; justify-content: flex-end; }
 .st-here {
-  position: absolute; top: 89px; width: 20px; height: 20px; margin-left: -10px; border-radius: 50%;
-  background: var(--accent); box-shadow: 0 0 0 3px var(--paper); pointer-events: none;
+  position: absolute; top: 92px; width: 22px; height: 8px; margin-left: -11px; border-radius: 4px;
+  background: var(--ink); pointer-events: none;
+  box-shadow: 0 0 0 2px var(--ground), 0 0 12px 1px var(--halo);
 }
-.st-status { position: absolute; left: 0; top: 12px; font-family: var(--mono); font-weight: 400; font-size: 11.5px; color: var(--ink); }
-.blink {
-  display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
-  margin-right: 8px; animation: j-blink 700ms steps(2) infinite;
+.st-here b { position: absolute; right: 2px; top: 2px; width: 4px; height: 4px; border-radius: 2px; background: var(--accent); }
+.st-status {
+  position: absolute; left: 0; top: 16px; display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-weight: 400; font-size: 11.5px; color: var(--ink);
 }
-@keyframes j-blink { 50% { opacity: 0; } }
+.st-status .ar { color: var(--accent); }

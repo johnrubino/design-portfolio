@@ -15,25 +15,25 @@
 /* The wipe */
 .wipe {
   position: absolute; top: 0; bottom: 0; left: 0; width: 100%;
-  background: var(--paper); z-index: 5; pointer-events: none;
+  background: var(--ground); z-index: 5; pointer-events: none;
   animation-timing-function: var(--ease-wipe); animation-fill-mode: both;
 }
 .wipe .eL, .wipe .eR { position: absolute; top: 0; bottom: 0; display: flex; }
 .wipe .eL { right: 100%; }
 .wipe .eR { left: 100%; }
-.wipe i { width: 9px; margin-right: 1px; }
+.wipe i { width: 3px; margin-right: 5px; }
 .wipe.f { animation-name: j-wf; }
 .wipe.b { animation-name: j-wb; }
 @keyframes j-wf { from { transform: translateX(calc(100% + 70px)); } to { transform: translateX(calc(-100% - 70px)); } }
 @keyframes j-wb { from { transform: translateX(calc(-100% - 70px)); } to { transform: translateX(calc(100% + 70px)); } }
 
-/* Reduced motion: no wipe, no line draw, no stagger. Train jumps; page crossfades in 150ms. */
+/* Reduced motion: no wipe, no line draw, no stagger. Marker jumps; page crossfades in 150ms. */
 @media (prefers-reduced-motion: reduce) {
-  .map--intro .ln, .map--intro .stn, .map--intro .stop, .map--intro .train,
+  .map--intro .ln, .map--intro .stn, .map--intro .stop, .map--intro .mover,
   .rv, .ttl-in, .here { animation: none !important; }
   .map--intro .ln { stroke-dasharray: none; }
   .here-pulse { display: none; }
-  .train, .st-here, .ln { transition: none !important; }
+  .mover, .st-here, .ln { transition: none !important; }
   .page { transition: opacity 75ms linear; animation: j-fade 75ms linear both; }
   [data-phase="depart"][data-dir] .page { transform: none; opacity: 0; }
   .ns-tg .ar, .routemap { transition: none; }

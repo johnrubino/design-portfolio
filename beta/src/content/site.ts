@@ -1,12 +1,9 @@
 /** Site-wide copy and links. */
 export const SITE = {
   name: 'John Rubino',
-  authority: 'Rubino Transit Authority',
-  signSub: 'Rubino Transit Authority · Select a station to ride',
-  manual: 'Portfolio Standards Manual',
-  year: '2026',
-  role: 'Product Designer',
-  titleSuffix: 'John Rubino · Rubino Transit Authority',
+  role: 'Product designer',
+  domain: 'johnrubino.design',
+  titleSuffix: 'John Rubino, product designer',
 } as const;
 
 export const LINKS = {

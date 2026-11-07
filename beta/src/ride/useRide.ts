@@ -4,7 +4,7 @@
  *   idle ──go(i)──▶ depart ──T/2──▶ arrive ──T+40──▶ idle
  *   idle ──toggle──▶ (morph) ──760ms──▶ idle
  *
- * - depart: target/T/dir are set in one update, so the train, strip marker
+ * - depart: target/T/dir are set in one update, so the map marker, rail marker
  *   and wipe all start together from the same T and easing.
  * - at T/2 the page swaps (the wipe fully covers the content then); the
  *   caller resets scroll and updates the URL in `onSwap`.
@@ -19,11 +19,11 @@ export type Phase = 'idle' | 'depart' | 'arrive';
 export type Dir = 'f' | 'b';
 
 export interface RideState {
-  /** Station the train is at (updates on arrival). */
+  /** Station the marker is at (updates on arrival). */
   cur: number;
   /** Station whose page is shown (updates at T/2). */
   page: number;
-  /** Station the train is heading to (equals cur when idle). */
+  /** Station the marker is heading to (equals cur when idle). */
   target: number;
   phase: Phase;
   moving: boolean;
@@ -66,7 +66,7 @@ export interface RideOptions {
   reducedMotion: boolean;
   /** Called at T/2 with the new station index and whether a URL push is needed. */
   onSwap: (index: number, push: boolean) => void;
-  /** Called when the train arrives. */
+  /** Called when the marker arrives. */
   onArrive: (index: number) => void;
 }
 

@@ -3,6 +3,6 @@ export const ABOUT = {
   body:
     'Senior Product Designer at BNY Pershing, working on clearing and servicing tools for wealth firms. ' +
     'I co-founded Colllective Design, a studio for AI-native product work, and I write Design Thinker. ' +
-    'Seven lines leave this station. Pick one on the map.',
-  board: { line: 'Line', destination: 'Destination', callsAt: 'Calls at' },
+    'Each line on the map is a body of work. Pick one to follow it.',
+  board: { line: 'Line', project: 'Project', appearsOn: 'Appears on' },
 };

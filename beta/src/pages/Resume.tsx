@@ -1,10 +1,10 @@
-import { CONTACT, TIMETABLE, TIMETABLE_INTRO } from '../content/timetable';
+import { CONTACT, WORK_HISTORY, RESUME_INTRO } from '../content/resume';
 import { Reveal } from '../components/Manual/Reveal';
 
-export function Timetable() {
+export function Resume() {
   return (
     <>
-      <Reveal i={3} as="p" className="body">{TIMETABLE_INTRO}</Reveal>
+      <Reveal i={3} as="p" className="body">{RESUME_INTRO}</Reveal>
       <Reveal i={4} className="board">
         <table>
           <caption className="sr-only">Work history</caption>
@@ -16,7 +16,7 @@ export function Timetable() {
             </tr>
           </thead>
           <tbody>
-            {TIMETABLE.map((r) => (
+            {WORK_HISTORY.map((r) => (
               <tr key={r.where} className="board-r tt">
                 <td className="mono">{r.when}</td>
                 <td className="b-name">{r.where}</td>

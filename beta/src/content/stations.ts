@@ -5,7 +5,7 @@
 import type { Pt } from '../geometry/path';
 import type { LineId } from './lines';
 
-export type StationId = 'about' | 'cases' | 'labs' | 'writing' | 'timetable';
+export type StationId = 'about' | 'cases' | 'labs' | 'writing' | 'resume';
 
 export interface Station {
   id: StationId;
@@ -13,7 +13,7 @@ export interface Station {
   route: string;
   /** Mono sub-line under the map label. */
   sub: string;
-  /** Lines that stop here (dots are drawn only for these). */
+  /** Lines that stop here (the station slot spans these). */
   lines: LineId[];
   /** Station position on the shared centreline, in map space. */
   at: Pt;
@@ -21,45 +21,52 @@ export interface Station {
   label: { side: 'left' | 'right'; x: number };
   /** Station y in the collapsed bundle. */
   collapsedY: number;
-  /** Colour of the big disc on the "Next stop" sign that points here. */
+  /** Colour of the chip on the "Next" sign that points here. */
   mainLine: LineId;
 }
 
 export const STATIONS: Station[] = [
   {
-    id: 'about', name: 'About', route: '/', sub: 'Start here',
+    id: 'about', name: 'About', route: '/', sub: 'Intro',
     lines: ['l1', 'l2', 'l3', 'l5', 'l4', 'l7', 'l6'],
-    at: [150, 160], label: { side: 'left', x: 109 }, collapsedY: 160, mainLine: 'l7',
+    at: [180, 168], label: { side: 'left', x: 124 }, collapsedY: 168, mainLine: 'l7',
   },
   {
     id: 'cases', name: 'Case studies', route: '/case-studies', sub: '4 projects',
     lines: ['l1', 'l2', 'l3', 'l4', 'l7'],
-    at: [150, 300], label: { side: 'left', x: 118 }, collapsedY: 300, mainLine: 'l2',
+    at: [180, 288], label: { side: 'left', x: 124 }, collapsedY: 288, mainLine: 'l2',
   },
   {
     id: 'labs', name: 'Labs', route: '/labs', sub: 'Experiments',
     lines: ['l5', 'l4', 'l7'],
-    at: [202, 522], label: { side: 'left', x: 153.3 }, collapsedY: 520, mainLine: 'l5',
+    at: [228, 540], label: { side: 'left', x: 168 }, collapsedY: 540, mainLine: 'l5',
   },
   {
-    id: 'writing', name: 'Design Thinker', route: '/writing', sub: 'Writing',
+    id: 'writing', name: 'Writing', route: '/writing', sub: 'Essays',
     lines: ['l7', 'l6'],
-    at: [350, 722], label: { side: 'right', x: 348 }, collapsedY: 722, mainLine: 'l6',
+    at: [348, 732], label: { side: 'right', x: 340 }, collapsedY: 732, mainLine: 'l6',
   },
   {
-    id: 'timetable', name: 'Timetable', route: '/timetable', sub: 'Résumé · contact',
+    id: 'resume', name: 'Résumé', route: '/resume', sub: 'Work · contact',
     lines: ['l7'],
-    at: [350, 835], label: { side: 'right', x: 348 }, collapsedY: 835, mainLine: 'l7',
+    at: [348, 852], label: { side: 'right', x: 340 }, collapsedY: 852, mainLine: 'l7',
   },
 ];
 
+/** Old routes that still resolve. */
+const ALIASES: Record<string, string> = { '/timetable': '/resume' };
+
+const clean = (pathname: string) => {
+  const p = pathname.replace(/\/+$/, '') || '/';
+  return ALIASES[p] ?? p;
+};
+
 export const stationIndexForPath = (pathname: string): number => {
-  const clean = pathname.replace(/\/+$/, '') || '/';
-  const i = STATIONS.findIndex((s) => s.route === clean);
+  const i = STATIONS.findIndex((s) => s.route === clean(pathname));
   return i === -1 ? 0 : i;
 };
 
-export const isKnownPath = (pathname: string): boolean => {
-  const clean = pathname.replace(/\/+$/, '') || '/';
-  return STATIONS.some((s) => s.route === clean);
-};
+export const isKnownPath = (pathname: string): boolean => STATIONS.some((s) => s.route === clean(pathname));
+
+/** True when the URL should be rewritten to the station's current route. */
+export const isAlias = (pathname: string): boolean => (pathname.replace(/\/+$/, '') || '/') in ALIASES;
