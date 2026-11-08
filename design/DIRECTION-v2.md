@@ -135,3 +135,12 @@ Page headers now follow the direction signs in the 1970 standards manual (p. 59)
 - **Phones:** modules shrink to 56px.
 
 Tokens: `--sign-panel`, `--ds-rule`. Styles live in `page.css` (`.dsign`). `Arrow` gained a `weight` prop for the heavier manual arrow.
+
+## v3.10: header colours after the line sign
+Following the 179 Street / Euclid Avenue sign (manual p. 76), the header is now coloured like a line sign:
+- **Page name:** white on a solid black block.
+- **Arrows:** black on white square modules with a thin outline.
+- **Line disc:** stands on its own with no panel behind it (80px; 50px on phones).
+- **Top band:** removed, since the black title block now carries that weight.
+
+Module order is unchanged: disc, page name, then ← →.
