@@ -122,3 +122,6 @@ Following a comment on the preview, the "Next / Back to start" tiles at the bott
 
 ## v3.3: printed-ink texture on the lines
 The lines get a light printed-ink texture after the 1972 map in print: fine speckle where the ink didn't take, a soft uneven tone along each run, and very slightly roughened edges. It's one SVG filter (`#print-ink` in `RouteMap/MapBase.tsx`) applied to the lines group, so it also covers the collapsed bundle. Discs, station dots and labels stay crisp. To tune it: the speckle amount is the `speck` matrix (alpha row `-6 … 5.35`; a lower offset gives more speckle), the tone variation is the `wash` matrix (`0.14 … -0.05`), and edge roughness is the displacement `scale` (0.35). v3.4 reduced all three so the texture is barely visible.
+
+## v3.5: line texture removed
+The printed-ink texture (v3.3, reduced in v3.4) is removed for now; lines are flat colour again. To bring it back, restore the `#print-ink` filter from commit 977431f in `RouteMap/MapBase.tsx` and add `filter="url(#print-ink)"` to the lines group in `RouteMap.tsx`.
