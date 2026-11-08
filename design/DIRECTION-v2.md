@@ -128,7 +128,7 @@ The printed-ink texture (v3.3, reduced in v3.4) is removed for now; lines are fl
 
 ## v3.6: direction-sign page headers
 Page headers now follow the direction signs in the 1970 standards manual (p. 59): a black band over a row of square modules divided by thin rules.
-- **Modules, left to right:** ← back arrow, the page name (set large, top-left), the page's line disc, → forward arrow.
+- **Modules, left to right:** ← back arrow, the page's line disc, the page name (set large, top-left), → forward arrow. The disc always sits directly left of the page name (v3.7, per a preview comment).
 - **The arrows are buttons:** they ride to the previous or next page exactly as a station click does, with the wipe reversed going back.
 - **Ends of the route:** the arrow module is left blank (no ← on Home, no → on Résumé), the manual's way of showing no direction.
 - **Caption:** the line's name and number sit in a small caption under the sign ("Line 2 · Labs"), the way the manual numbers each example.

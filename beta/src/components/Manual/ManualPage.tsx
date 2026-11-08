@@ -29,8 +29,8 @@ export function ManualPage({
   return (
     <div className="page">
       {/* Page header: a direction sign after the 1970 standards manual — a black
-          band over a row of square modules: back arrow, page name, line disc,
-          forward arrow. The arrows ride to the previous / next page. At either
+          band over a row of square modules: back arrow, line disc, page name,
+          forward arrow. The disc always sits just left of the page name. The arrows ride to the previous / next page. At either
           end of the route the arrow module is left blank. */}
       <header className="dsign">
         <div className="ds-row">
@@ -47,14 +47,14 @@ export function ManualPage({
           ) : (
             <span className="ds-m ds-blank" aria-hidden="true" />
           )}
+          <span className="ds-m ds-disc">
+            <Disc line={st.mainLine} size={64} />
+          </span>
           <div className="ds-m ds-title">
             <h1 className="ds-name signage" tabIndex={-1} ref={titleRef}>
               <span className="ttl-in">{st.plate ?? st.name}</span>
             </h1>
           </div>
-          <span className="ds-m ds-disc">
-            <Disc line={st.mainLine} size={64} />
-          </span>
           {next ? (
             <button
               type="button"
