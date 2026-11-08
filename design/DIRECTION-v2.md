@@ -50,3 +50,13 @@ Consequence: in the collapsed map, page names appear only on hover or keyboard f
 
 ## v2.5: no page header row
 Removed on every page, following a comment on the preview. The "02 / 05 + line legend" row repeated the page name and the footer's page number. Chips still carry their project names beside them wherever they appear (case-study rows, About board, line ends on the map).
+
+## v2.6: logo placeholder; hover opens the map
+Following a comment on the preview, the "John Rubino / Product designer" block at the top of the map is replaced by a **logo placeholder** (`beta/src/components/Logo.tsx`): the line chip's cut-corner square in ink with a JR monogram. Swap that one file for the real mark. The expand/collapse button is gone.
+- **1280px and up:** the map stays expanded, and the logo is just a logo.
+- **900–1279px:** the map is collapsed. Moving the pointer over the logo or the line bundle opens it after 120ms, as a floating frosted panel over the page (the page doesn't move). It closes 280ms after the pointer leaves. Opening is triggered by movement, so a cursor that happens to rest there on page load doesn't pop it open.
+- **Keyboard:** focusing the logo opens the map; Escape closes it and returns focus to the logo.
+- **Touch:** tapping the logo toggles it. A tap outside closes it, and after a station tap the map closes once the ride arrives.
+- **Mid-ride requests:** an open/close request during a ride or morph is applied when it finishes (`setExpanded` in `useRide.ts`).
+- **Morph speed:** the expand/collapse morph is now 480ms (`--morph-ms`, `MORPH_MS`).
+- **Phones:** the logo also replaces the name in the phone bar (light version) and the map sheet header. The remembered collapse preference (`localStorage`) was removed.

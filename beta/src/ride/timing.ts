@@ -1,8 +1,9 @@
 /** Ride timing, straight from the brief (§4). */
 export const RIDE_EASE = 'cubic-bezier(.65,0,.35,1)';
-export const MORPH_MS = 700;
+/** Expand/collapse morph. Keep in step with --morph-ms in tokens.css. */
+export const MORPH_MS = 480;
 /** Morph lock: a little longer than the transition so nothing starts mid-morph. */
-export const MORPH_LOCK_MS = 760;
+export const MORPH_LOCK_MS = 540;
 /** How long after the start of a ride the new content starts entering. */
 export const ENTER_DELAY_RATIO = 0.18;
 /** First-load content delay: lines draw (1500ms) before the page enters. */

@@ -39,7 +39,7 @@ export function MapSheet({
     <dialog ref={ref} className="sheet" aria-label="Map" onClose={onClose}>
       {open && (
         <div className="routemap routemap--sheet" data-c="false" style={{ '--ox': `${offsetX}px` } as React.CSSProperties}>
-          <NavSign collapsed={false} onClose={onClose} />
+          <NavSign onClose={onClose} />
           <RouteMap
             ride={{ ...ride, collapsed: false, morph: false }}
             hover={hover}

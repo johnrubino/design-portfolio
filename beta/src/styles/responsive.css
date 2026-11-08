@@ -10,7 +10,7 @@
     box-shadow: inset 0 1px 0 var(--sign-hi);
   }
   .mbar::before { content: ''; position: absolute; left: 0; right: 0; top: 6px; height: 1px; background: var(--on-ink); opacity: .55; }
-  .mbar-n { font-size: 22px; letter-spacing: -.02em; }
+  .mbar-logo { display: block; width: 32px; height: 32px; }
   .mbar-map {
     min-height: 40px; padding: 8px 14px 6px; border: 1px solid rgba(238, 240, 236, .35);
     border-radius: 20px; font-size: 14px;
@@ -46,5 +46,5 @@
   .sheet::backdrop { background: rgba(233, 237, 241, .6); }
   .routemap--sheet { position: absolute; inset: 0; width: 100%; }
   .routemap--sheet .ns-close { right: 16px; }
-  .routemap--sheet .ns-t { left: 16px; }
+  .routemap--sheet .logo-btn { left: 16px; }
 }

@@ -2,7 +2,7 @@
  * The ride state machine.
  *
  *   idle ──go(i)──▶ depart ──T/2──▶ arrive ──T+40──▶ idle
- *   idle ──toggle──▶ (morph) ──760ms──▶ idle
+ *   idle ──setExpanded──▶ (morph) ──540ms──▶ idle
  *
  * - depart: target/T/dir are set in one update, so the map marker, rail marker
  *   and wipe all start together from the same T and easing.
@@ -39,7 +39,7 @@ type Action =
   | { type: 'start'; target: number; T: number; dir: Dir }
   | { type: 'swap'; base: number }
   | { type: 'arrive' }
-  | { type: 'toggle' }
+  | { type: 'morphTo'; collapsed: boolean }
   | { type: 'setCollapsed'; collapsed: boolean }
   | { type: 'morphDone' };
 
@@ -51,8 +51,8 @@ function reducer(s: RideState, a: Action): RideState {
       return { ...s, page: s.target, phase: 'arrive', base: a.base };
     case 'arrive':
       return { ...s, cur: s.target, moving: false, phase: 'idle' };
-    case 'toggle':
-      return { ...s, collapsed: !s.collapsed, morph: true, T: 0 };
+    case 'morphTo':
+      return { ...s, collapsed: a.collapsed, morph: true, T: 0 };
     case 'setCollapsed':
       return s.collapsed === a.collapsed ? s : { ...s, collapsed: a.collapsed, T: 0 };
     case 'morphDone':
@@ -88,6 +88,8 @@ export function useRide(opts: RideOptions) {
   live.current = state;
   const busy = useRef(false);
   const queued = useRef<number | null>(null);
+  /** Open/closed request that arrived mid-ride or mid-morph (true = collapsed). */
+  const wantCollapsed = useRef<boolean | null>(null);
   const timers = useRef<number[]>([]);
   const cb = useRef(opts);
   cb.current = opts;
@@ -101,7 +103,13 @@ export function useRide(opts: RideOptions) {
   const flushQueue = useCallback(() => {
     const q = queued.current;
     queued.current = null;
-    if (q !== null && q !== live.current.cur) go(q, { fromHistory: true });
+    if (q !== null && q !== live.current.cur) {
+      go(q, { fromHistory: true });
+      return;
+    }
+    const w = wantCollapsed.current;
+    wantCollapsed.current = null;
+    if (w !== null && w !== live.current.collapsed) setExpanded(!w);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -131,10 +139,17 @@ export function useRide(opts: RideOptions) {
     }, T + 40);
   }, [flushQueue]);
 
-  const toggle = useCallback(() => {
-    if (busy.current) return;
+  /** Open or close the map with the morph; a request mid-ride or mid-morph is applied afterwards. */
+  const setExpanded = useCallback((expanded: boolean) => {
+    const collapsed = !expanded;
+    if (busy.current) {
+      wantCollapsed.current = collapsed;
+      return;
+    }
+    wantCollapsed.current = null;
+    if (live.current.collapsed === collapsed) return;
     busy.current = true;
-    dispatch({ type: 'toggle' });
+    dispatch({ type: 'morphTo', collapsed });
     later(() => {
       dispatch({ type: 'morphDone' });
       busy.current = false;
@@ -144,8 +159,9 @@ export function useRide(opts: RideOptions) {
 
   /** Set collapse without animation (e.g. crossing a breakpoint). */
   const setCollapsed = useCallback((collapsed: boolean) => {
+    wantCollapsed.current = null;
     dispatch({ type: 'setCollapsed', collapsed });
   }, []);
 
-  return { state, go, toggle, setCollapsed };
+  return { state, go, setExpanded, setCollapsed };
 }

@@ -57,6 +57,8 @@ grep -rn "TODO(john)" src
 
 **Résumé:** replace `public/john-rubino-resume.pdf`.
 
+**Logo:** the mark is a placeholder in `src/components/Logo.tsx`. Replace that component (it takes `size` and a `tone` of `ink` or `light`) and every place that shows the logo updates.
+
 ---
 
 ## Change the map
@@ -139,8 +141,8 @@ The repo-root `.vercelignore` keeps `beta/` and `design/` out of the main site's
 
 | Width | Behaviour |
 |---|---|
-| ≥ 1280 px | Full layout: the expanded map is the only navigation, and the page starts at the top. The map's collapsed state is remembered in `localStorage`. There is no top navigation at any width where the map exists. |
-| 900–1279 px | The map collapses by itself, live as the window resizes, and expands again above 1280. The toggle still works; a manual choice holds until the width crosses 1280 again. |
+| ≥ 1280 px | Full layout: the expanded map is the only navigation, and the page starts at the top. There is no collapse control and no top navigation. |
+| 900–1279 px | The map is collapsed. Hovering the logo or the line bundle opens it as a floating frosted panel over the page (no layout shift); it closes when the pointer leaves. Keyboard: focus the logo to open, Escape to close. Touch: tap the logo. |
 | < 900 px | The map is hidden and the page rail becomes the navigation (it scrolls sideways). A **Map** button opens the full route map as a sheet; the ride plays there, then the sheet closes. |
 
 On windows shorter than 900 px, the whole map layer (lines, labels and marker) scales down together, so the marker stays on its line.

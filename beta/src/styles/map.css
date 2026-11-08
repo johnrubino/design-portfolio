@@ -1,32 +1,46 @@
 /* ── Left panel: the map ───────────────────────────────────────────── */
 .routemap {
+  /* The slot: holds the map's width in the layout. No panel, no edge. */
   position: relative;
   flex: none;
   width: var(--map-w);
   height: 100%;
-  /* No panel: the map sits directly on the page, with no fill, edge or shadow. */
-  z-index: 2;
-  transition: width 700ms var(--ease-ride);
+  z-index: 30;
 }
-.routemap[data-c="true"] { width: var(--map-w-collapsed); }
+.routemap[data-slot="narrow"] { width: var(--map-w-collapsed); }
 
-/* The name and toggle: plain ink on the page. */
+/* The map itself. On narrow screens it opens over the page as a frosted panel. */
+.routemap-panel {
+  position: absolute; top: 0; left: 0; bottom: 0;
+  width: var(--map-w);
+  transition: width var(--morph-ms) var(--ease-ride), background-color 200ms ease, box-shadow 200ms ease;
+}
+[data-c="true"] .routemap-panel { width: var(--map-w-collapsed); }
+.routemap[data-flyout="true"] .routemap-panel {
+  background: var(--glass-strong);
+  -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur);
+  box-shadow: inset -1px 0 0 var(--glass-hi), 1px 0 0 var(--edge), 28px 0 56px -28px rgba(30, 45, 70, .32);
+}
+
+/* Top of the map: the logo (and a close button on the phone sheet). */
 .navsign {
   position: absolute; left: 0; right: 0; top: 0; height: var(--sign-h);
-  color: var(--ink); overflow: hidden; z-index: 4;
+  color: var(--ink); z-index: 4;
 }
-.ns-t { position: absolute; left: 24px; top: 30px; white-space: nowrap; }
-.ns-n { font-size: 28px; font-weight: 500; letter-spacing: -.02em; line-height: 1; }
-.ns-s { margin-top: 8px; font-size: 12px; color: var(--meta); }
-.ns-tg {
-  position: absolute; right: 20px; top: 31px; width: 44px; height: 44px;
+.logo-btn {
+  position: absolute; left: 24px; top: 26px; display: block; width: 44px; height: 44px; padding: 0;
+}
+.routemap[data-slot="narrow"] .logo-btn { left: 42px; } /* centred over the collapsed bundle */
+button.logo-btn { cursor: pointer; transition: transform 200ms var(--ease-enter); }
+button.logo-btn:hover { transform: translateY(-1px); }
+.logo { display: block; }
+.ns-close {
+  position: absolute; right: 20px; top: 26px; width: 44px; height: 44px;
   display: flex; align-items: center; justify-content: center;
   border: 1px solid var(--rule-strong); border-radius: 50%;
   transition: background-color 200ms, border-color 200ms;
 }
-.ns-tg:hover { background-color: rgba(255, 255, 255, .5); border-color: var(--ink); }
-.ns-tg .ar { transition: transform 650ms var(--ease-ride); transform: rotate(180deg); }
-.routemap[data-c="true"] .ns-tg .ar { transform: rotate(0deg); }
+.ns-close:hover { background-color: rgba(255, 255, 255, .5); border-color: var(--ink); }
 
 /* Map layer: 460 × 900 map space, scaled as one so the marker stays on its path. */
 .map { position: absolute; inset: 0; overflow: hidden; }
@@ -37,17 +51,17 @@
   width: 460px; height: 900px;
   transform-origin: 0 0;
   transform: scale(var(--s, 1)) translateY(calc(-1 * var(--sign-h)));
-  transition: left 700ms var(--ease-ride);
+  transition: left var(--morph-ms) var(--ease-ride);
 }
 [data-c="true"] .map-layer { left: calc(64px * (1 - var(--s, 1))); }
 .map-svg { position: absolute; left: 0; top: 0; display: block; pointer-events: none; font-family: var(--font); }
-.ln { transition: opacity 280ms ease, d 700ms var(--ease-ride); }
+.ln { transition: opacity 280ms ease, d var(--morph-ms) var(--ease-ride); }
 
 /* Expanded-only / collapsed-only layers */
-.exp-only { transition: opacity 380ms ease 320ms; }
+.exp-only { transition: opacity 260ms ease 220ms; }
 [data-c="true"] .exp-only { opacity: 0; pointer-events: none; transition-delay: 0ms; }
 .col-only { opacity: 0; pointer-events: none; transition: opacity 300ms ease; }
-[data-c="true"] .col-only { opacity: 1; pointer-events: auto; transition-delay: 420ms; }
+[data-c="true"] .col-only { opacity: 1; pointer-events: auto; transition-delay: 300ms; }
 
 /* Station labels (the navigation) */
 .stop .nm, .tip { font-stretch: var(--sign-stretch); }
