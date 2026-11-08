@@ -1,4 +1,4 @@
-import type { CSSProperties } from 'react';
+import { useLayoutEffect, useRef, useState, type CSSProperties } from 'react';
 import { LINES, LINE_WIDTH, MARKER_LINE } from '../../content/lines';
 import { STATIONS } from '../../content/stations';
 import { BUILT_LINES, BUILT_STATIONS, MARKER_PATH_C, MARKER_PATH_E, type Marker } from '../../geometry/network';
@@ -28,6 +28,34 @@ export function RouteMap({ ride, hover, setHover, onGo, scale, intro }: RouteMap
   const hl = hover >= 0 ? STATIONS[hover].lines : null;
   const leave = () => setHover(-1);
 
+  // Centre the expanded map in its 460px space: measure the lines, their end
+  // discs and the station labels, then shift the whole layer sideways so the
+  // space left and right is equal. Collapsed mode ignores the shift (map.css).
+  const layerRef = useRef<HTMLDivElement>(null);
+  const [shiftX, setShiftX] = useState(0);
+  useLayoutEffect(() => {
+    const measure = () => {
+      let min = Infinity;
+      let max = -Infinity;
+      for (const b of BUILT_LINES) {
+        for (const c of b.expanded) {
+          min = Math.min(min, c.p[0] - LINE_WIDTH / 2);
+          max = Math.max(max, c.p[0] + LINE_WIDTH / 2);
+        }
+        if (b.line.id === MARKER_LINE) continue;
+        if (b.endDir[0] > 0.5) max = Math.max(max, b.end[0] + 24);
+        if (b.endDir[0] < -0.5) min = Math.min(min, b.end[0] - 24);
+      }
+      layerRef.current?.querySelectorAll<HTMLElement>('.labels .stop').forEach((el) => {
+        min = Math.min(min, el.offsetLeft);
+        max = Math.max(max, el.offsetLeft + el.offsetWidth);
+      });
+      if (Number.isFinite(min)) setShiftX(Math.round(230 - (min + max) / 2));
+    };
+    measure();
+    document.fonts?.ready.then(measure);
+  }, []);
+
   const markerStyle: CSSProperties = {
     offsetPath: `path('${collapsed ? MARKER_PATH_C : MARKER_PATH_E}')`,
     offsetDistance: `${collapsed ? BUILT_STATIONS[target].dC : BUILT_STATIONS[target].dE}px`,
@@ -37,8 +65,12 @@ export function RouteMap({ ride, hover, setHover, onGo, scale, intro }: RouteMap
 
   return (
     <>
-    <div className={`map${intro ? ' map--intro' : ''}`} data-c={collapsed} style={{ '--s': scale } as CSSProperties}>
-      <div className="map-layer">
+    <div
+      className={`map${intro ? ' map--intro' : ''}`}
+      data-c={collapsed}
+      style={{ '--s': scale, '--shift-x': `${shiftX}px` } as CSSProperties}
+    >
+      <div className="map-layer" ref={layerRef}>
         <svg aria-hidden="true" className="map-svg" width="460" height="900" viewBox="0 0 460 900">
           <MapBase />
           <g className="lines">
@@ -137,7 +169,7 @@ export function RouteMap({ ride, hover, setHover, onGo, scale, intro }: RouteMap
       </div>
     </div>
     {/* Collapsed-mode targets live outside the clipped map so their signs can hang over the content. */}
-    <div className="map-tips" style={{ '--s': scale } as CSSProperties}>
+    <div className="map-tips" style={{ '--s': scale, '--shift-x': `${shiftX}px` } as CSSProperties}>
       <div className="map-layer">
         <div className="col-only" inert={!collapsed}>
           {STATIONS.map((st, i) => {

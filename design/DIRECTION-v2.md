@@ -90,3 +90,6 @@ Labs and Writing are pages, not bodies of work, so the Colllective Labs and Desi
 - **Map:** one straight Résumé spine, with the enterprise branches after Case studies and Purple Panda's branch after Labs. Writing and Résumé moved up to y 708 and 840.
 - **Collapsed bundle:** recentred under the logo (`COLLAPSED_X` 55).
 - **Next signs:** the Labs sign shows disc 4 and the Writing sign disc 5.
+
+## v2.11: expanded map centred
+The expanded map is centred in its 460px space, with equal room left and right (measured at 84 / 83px at 1440px). `RouteMap.tsx` measures the lines, the end discs and the station labels on load (and again once fonts are ready), then shifts the whole map layer sideways via `--shift-x`. The marker's path moves with it. Collapsed mode ignores the shift, and the shift animates with the expand/collapse morph. Because it's measured, the map stays centred after routes or labels change.

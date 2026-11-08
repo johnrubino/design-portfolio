@@ -90,6 +90,8 @@ Each station in `src/content/stations.ts` has:
 - `collapsedY`: the station's height in the collapsed bundle.
 - `mainLine`: the disc on the "Next" sign that points to this station.
 
+The expanded map centres itself: after any route or label change, `RouteMap.tsx` re-measures the content and shifts it so the space left and right is equal.
+
 Run `npm test` after editing. It fails if a line turns at an angle other than 45° or 90°, if a station sits within 40px of a corner, if the morph would break, or if markers fall out of route order.
 
 ## How the ride works

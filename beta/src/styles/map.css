@@ -50,10 +50,11 @@ button.logo-btn:hover { transform: translateY(-1px); }
   left: var(--ox, calc((var(--map-w) - 460px * var(--s, 1)) / 2));
   width: 460px; height: 900px;
   transform-origin: 0 0;
-  transform: scale(var(--s, 1)) translateY(calc(-1 * var(--sign-h)));
-  transition: left var(--morph-ms) var(--ease-ride);
+  /* --shift-x centres the expanded map's content (measured in RouteMap.tsx). */
+  transform: scale(var(--s, 1)) translate(var(--shift-x, 0px), calc(-1 * var(--sign-h)));
+  transition: left var(--morph-ms) var(--ease-ride), transform var(--morph-ms) var(--ease-ride);
 }
-[data-c="true"] .map-layer { left: calc(64px * (1 - var(--s, 1))); }
+[data-c="true"] .map-layer { left: calc(64px * (1 - var(--s, 1))); --shift-x: 0px; }
 .map-svg { position: absolute; left: 0; top: 0; display: block; pointer-events: none; font-family: var(--font); }
 .ln { transition: opacity 280ms ease, d var(--morph-ms) var(--ease-ride); }
 
