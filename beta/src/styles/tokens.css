@@ -15,7 +15,9 @@
   --glass-blur: blur(22px) saturate(150%);
   --glass-hi: rgba(255, 255, 255, .85);      /* bright inner edge */
   --glass-shadow: 0 1px 0 rgba(255, 255, 255, .6) inset, 0 12px 40px -12px rgba(30, 45, 70, .18);
-  --slot: #F8FAFC;                           /* station slot fill */
+  --slot: #F8FAFC;
+  --sign-panel: #F4F5F3;                    /* direction-sign panel */
+  --ds-rule: rgba(26, 30, 36, .38);         /* thin rules between sign modules */                           /* station slot fill */
   --edge: rgba(26, 30, 36, .10);             /* hairline edges */
   --grid-dot: rgba(26, 30, 36, .20);
   --grid-cross: rgba(26, 30, 36, .26);

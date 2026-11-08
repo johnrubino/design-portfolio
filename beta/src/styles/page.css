@@ -2,16 +2,34 @@
 .page { max-width: 1180px; }
 
 /* Page-name plate */
-/* Page header: a station sign (disc + dark plate). */
-.psign { display: flex; align-items: stretch; width: 100%; max-width: 860px; color: var(--on-ink); }
-.psign .sg-p { padding: 18px 26px 14px; }
-.psign-n {
-  overflow: hidden; padding-bottom: 2px;
-  font-size: 52px; line-height: 1.04; font-weight: 500; letter-spacing: -.03em; color: var(--on-ink);
+/* Page header: a direction sign (1970 standards manual, p. 59). A black band
+   over a row of square modules divided by thin rules. */
+.dsign {
+  --ds-m: 88px;
+  max-width: 880px; background: var(--sign-panel); color: var(--ink);
+  border-top: 12px solid var(--sign-solid);
+  box-shadow: inset 0 0 0 1px var(--ds-rule);
 }
-.psign-n:focus { outline: none; }
-.psign-n:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }
-.psign + .lede, .psign + .body { margin-top: 34px; }
+.ds-row { display: flex; align-items: stretch; min-height: var(--ds-m); }
+.ds-m { flex: none; width: var(--ds-m); min-height: var(--ds-m); display: flex; align-items: center; justify-content: center; }
+.ds-m + .ds-m { border-left: 1px solid var(--ds-rule); }
+.ds-title { flex: 1; width: auto; align-items: flex-start; justify-content: flex-start; padding: 10px 16px 12px; min-width: 0; }
+.ds-name {
+  overflow: hidden; padding-bottom: 2px;
+  font-size: 48px; line-height: 1; font-weight: 500; letter-spacing: -.03em;
+}
+.ds-name:focus { outline: none; }
+.ds-name:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }
+.ds-arrow { cursor: pointer; transition: background-color 160ms ease; }
+.ds-arrow:hover { background-color: rgba(26, 30, 36, .05); }
+.ds-arrow:focus-visible { outline: 2px solid var(--focus); outline-offset: -4px; }
+.ds-arrow .ar { transition: transform 300ms var(--ease-enter); }
+.ds-prev .ar { transform: rotate(180deg); }
+.ds-prev:hover .ar { transform: rotate(180deg) translateX(5px); }
+.ds-next:hover .ar { transform: translateX(5px); }
+.ds-disc .disc { width: 64px; height: 64px; }
+.ds-cap { margin: 8px 0 0; font-size: 11px; }
+.ds-cap + .lede, .ds-cap + .body { margin-top: 30px; }
 
 /* 3. Body */
 .lede { margin: 34px 0 0; font-size: 30px; line-height: 1.16; font-weight: 500; letter-spacing: -.02em; max-width: 560px; }
@@ -87,19 +105,6 @@
 .contact { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 30px; font-size: 17px; font-weight: 500; }
 .contact a { text-underline-offset: 4px; }
 
-/* Station-sign parts (disc + dark plate), used by the page header */
-.foot { margin-top: 64px; }
-.foot .mf { margin-top: 0; }
-.sg-chip { flex: none; display: flex; margin-right: 6px; }
-.sg-chip .disc { width: 96px; height: 96px; }
-.sg-p {
-  position: relative; flex: 1; display: flex; align-items: center; justify-content: space-between; gap: 20px;
-  background: linear-gradient(180deg, rgba(36, 42, 52, .92), var(--sign-solid)); color: var(--on-ink); padding: 16px 26px 12px;
-  box-shadow: inset 0 1px 0 var(--sign-hi), 0 14px 30px -18px rgba(16, 20, 26, .6);
-}
-.sg-p::before { content: ''; position: absolute; left: 0; right: 0; top: 7px; height: 1px; background: var(--on-ink); opacity: .55; }
-.sg-l { display: flex; flex-direction: column; gap: 6px; }
-.sg-k { font-size: 12px; color: var(--on-ink-2); }
 
 /* 5. Footer */
 .mf {

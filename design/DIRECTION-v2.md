@@ -125,3 +125,13 @@ The lines get a light printed-ink texture after the 1972 map in print: fine spec
 
 ## v3.5: line texture removed
 The printed-ink texture (v3.3, reduced in v3.4) is removed for now; lines are flat colour again. To bring it back, restore the `#print-ink` filter from commit 977431f in `RouteMap/MapBase.tsx` and add `filter="url(#print-ink)"` to the lines group in `RouteMap.tsx`.
+
+## v3.6: direction-sign page headers
+Page headers now follow the direction signs in the 1970 standards manual (p. 59): a black band over a row of square modules divided by thin rules.
+- **Modules, left to right:** ← back arrow, the page name (set large, top-left), the page's line disc, → forward arrow.
+- **The arrows are buttons:** they ride to the previous or next page exactly as a station click does, with the wipe reversed going back.
+- **Ends of the route:** the arrow module is left blank (no ← on Home, no → on Résumé), the manual's way of showing no direction.
+- **Caption:** the line's name and number sit in a small caption under the sign ("Line 2 · Labs"), the way the manual numbers each example.
+- **Phones:** modules shrink to 56px.
+
+Tokens: `--sign-panel`, `--ds-rule`. Styles live in `page.css` (`.dsign`). `Arrow` gained a `weight` prop for the heavier manual arrow.

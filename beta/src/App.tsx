@@ -227,7 +227,7 @@ export function App() {
         {/* Phones only: the map is a sheet there, so the page rail is the navigation. */}
         {isMobile && <LineStrip ride={state} onGo={onGo} />}
         <div className="scroll" ref={scrollRef} style={{ '--base': `${state.base}ms` } as CSSProperties}>
-          <ManualPage key={state.page} index={state.page} titleRef={titleRef}>
+          <ManualPage key={state.page} index={state.page} onGo={onGo} titleRef={titleRef}>
             <Page />
           </ManualPage>
         </div>
