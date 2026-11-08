@@ -29,15 +29,6 @@ export function MapBase() {
         <mask id="seam-fade" maskUnits="userSpaceOnUse" x="0" y="0" width="460" height="900">
           <rect x="0" y="0" width="460" height="900" fill="url(#seam-grad)" />
         </mask>
-        {/* Backlit lines: a soft glow in each line's own colour under a crisp core. */}
-        <filter id="glow" x="-20%" y="-5%" width="140%" height="110%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="3.2" result="b" />
-          <feColorMatrix in="b" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 .6 0" result="g" />
-          <feMerge>
-            <feMergeNode in="g" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
       </defs>
       <g className="exp-only" mask="url(#seam-fade)">
         <rect x="0" y="96" width="460" height="804" fill="url(#grid-dots)" />

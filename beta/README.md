@@ -44,7 +44,7 @@ All copy lives in typed files in `src/content/`. You don't need to touch compone
 | `labs.ts` | Labs experiments |
 | `writing.ts` | Intro, Substack link, fallback post list |
 | `resume.ts` | Work history and contact links |
-| `lines.ts` | Line names (full and short), colours, chip codes, "appears on" notes, **geometry** |
+| `lines.ts` | Line names (full and short), colours, disc numbers, "appears on" notes, **geometry** |
 | `stations.ts` | Station names, routes, map sub-lines, which lines stop, **positions** |
 
 Placeholders are marked `// TODO(john)`. Find them all with:
@@ -65,13 +65,13 @@ grep -rn "TODO(john)" src
 
 You edit centrelines and lanes, never raw SVG paths.
 
-The constants at the top of `src/content/lines.ts` are `LANE` (13, the distance between neighbouring lines), `LINE_WIDTH` (3.5), `CORNER_RADIUS` (32), `COLLAPSED_X` (64) and `COLLAPSED_LANE` (10).
+The constants at the top of `src/content/lines.ts` set the Vignelli bundle: `LANE` (9, the distance between neighbouring lines), `LINE_WIDTH` (8, so lines sit 1px apart), `CORNER_RADIUS` (20), `COLLAPSED_X` (64) and `COLLAPSED_LANE` (9).
 
 Each line has:
 - `centre`: the centreline vertices in 460 × 900 map space. Turn only at 45° or 90°. Every line starts on the shared trunk at x = 180. The dot grid sits on a 24px module offset by 12, so vertices like 180, 348 and 492 land on dots.
 - `lane`: the sideways offset in `LANE` steps. A positive lane is to the right of the direction of travel, which runs from About outward.
 - `collapsedEndY`: where the line stops in the collapsed bundle.
-- `code` and `short`: the chip code, and the name shown at the line's end on the map.
+- `order` and `short`: the number on the line's route disc (also its sort order), and the name shown at the line's end on the map.
 
 `src/geometry/network.ts` turns these into paths:
 
@@ -84,10 +84,10 @@ collapsed: centre vertices → same vertices on a vertical lane (x = COLLAPSED_X
 Both go through `rounded()` with the same vertex count, so the expanded and collapsed command lists always match and the CSS `d` transition can morph between them.
 
 Each station in `src/content/stations.ts` has:
-- `at`: a point on the shared centreline. The slot spans every line in `lines`.
+- `at`: a point on the shared centreline. A station dot is drawn on every line in `lines`, joined by a bar.
 - `label`: which side the label sits on, and the x of its inner edge.
 - `collapsedY`: the station's height in the collapsed bundle.
-- `mainLine`: the chip on the "Next" sign that points to this station.
+- `mainLine`: the disc on the "Next" sign that points to this station.
 
 Run `npm test` after editing. It fails if a line turns at an angle other than 45° or 90°, if a station sits within 40px of a corner, if the morph would break, or if markers fall out of route order.
 
@@ -152,7 +152,7 @@ On windows shorter than 900 px, the whole map layer (lines, labels and marker) s
 See `../design/DIRECTION-v2.md` for the full list. In short:
 - No authority branding and no transit voice.
 - An abstract schematic with thinner, wider-spaced lines.
-- Invented markers: line chips and station slots.
+- Route discs and station dots in the Vignelli manner, on a fictional schematic.
 - Frosted glass instead of 1972 paper: a translucent rail, backlit lines, dark-glass signs. The map has no panel of its own; it sits directly on the page, and the frosted rail appears on phones only.
 - The last stop is Résumé.
 - The page-name plate uses `--title` (`#C04A16`) so 80px names pass WCAG AA large-text contrast. Focus rings are 2px orange everywhere.

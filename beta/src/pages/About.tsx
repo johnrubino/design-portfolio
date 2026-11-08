@@ -1,6 +1,6 @@
 import { ABOUT } from '../content/about';
 import { LINES, byOrder } from '../content/lines';
-import { Chip } from '../components/Chip';
+import { Disc } from '../components/Disc';
 import { Reveal } from '../components/Manual/Reveal';
 
 export function About() {
@@ -23,8 +23,8 @@ export function About() {
             {lines.map((l) => (
               <tr key={l.id} className="board-r">
                 <td>
-                  <Chip line={l.id} size={24} />
-                  <span className="sr-only">Line {l.code}</span>
+                  <Disc line={l.id} size={24} />
+                  <span className="sr-only">Line {l.order}</span>
                 </td>
                 <td className="b-name">{l.name}</td>
                 <td className="mono b-to">{l.appearsOn}</td>

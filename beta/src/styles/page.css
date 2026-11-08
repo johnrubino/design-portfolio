@@ -68,7 +68,7 @@
 .sign:hover { color: var(--on-ink); }
 .sign:focus-visible { outline-offset: 4px; }
 .sg-chip { flex: none; display: flex; margin-right: 6px; }
-.sg-chip .chip { width: 96px; height: 96px; }
+.sg-chip .disc { width: 96px; height: 96px; }
 .sg-p {
   position: relative; flex: 1; display: flex; align-items: center; justify-content: space-between; gap: 20px;
   background: linear-gradient(180deg, rgba(36, 42, 52, .92), var(--sign-solid)); color: var(--on-ink); padding: 16px 26px 12px;

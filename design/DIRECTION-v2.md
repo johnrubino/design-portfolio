@@ -63,3 +63,12 @@ Following a comment on the preview, the "John Rubino / Product designer" block a
 
 ## v2.7: open on click, not hover
 On narrow screens (900–1279px) the map now opens when you **click or tap the logo**, not on hover. It stays open until you click the logo again, click outside the map, press Escape, or ride to a station (it closes on arrival, unless you're moving through the map with the keyboard). Keyboard: focusing the logo doesn't open it; Enter or Space does. The collapsed bundle keeps its small hover labels. The hover-intent timers were removed.
+
+## v2.8: Vignelli discs and lines
+At John's request, the line markers and the lines go back to the Vignelli language:
+- **Route discs:** round bullets in the line colour with the line number 1–7 (`components/Disc.tsx`). They replace the cut-corner chips and two-letter codes everywhere: line ends, page rows, the About board, the Next sign and the phone rail.
+- **Lines:** the Vignelli bundle. 8px lines 9px apart (a 1px gap), corner radius 20, flat colour with the backlit glow removed. The routes (centrelines) are unchanged.
+- **Stations:** a black dot on each line that stops, joined by a short black bar. The current page keeps its ink capsule with the orange line and halo.
+- **Line ends:** a black end dot, then the disc.
+
+The schematic plane (dot grid), frosted material, logo, copy and behaviour are unchanged.

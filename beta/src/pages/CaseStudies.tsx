@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { CASES_INTRO, CASE_STUDIES, WALKTHROUGH_COPY } from '../content/caseStudies';
-import { Chip } from '../components/Chip';
+import { Disc } from '../components/Disc';
 import { Arrow } from '../components/Arrow';
 import { Reveal } from '../components/Manual/Reveal';
 import { WalkthroughDialog } from '../components/WalkthroughDialog';
@@ -13,7 +13,7 @@ export function CaseStudies() {
       <Reveal i={4} as="ul" className="rows">
         {CASE_STUDIES.map((c) => (
           <li key={c.title} className="row">
-            <span><Chip line={c.line} size={30} /></span>
+            <span><Disc line={c.line} size={30} /></span>
             <div>
               <h2 className="r-t">{c.title}</h2>
               <div className="mono r-m">{c.meta}</div>

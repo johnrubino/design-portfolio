@@ -28,7 +28,7 @@
   .board-h.tt th:nth-child(2), .board-r.tt td:nth-child(2) { width: auto; }
   .board-h.tt th:first-child, .board-r.tt td:first-child { width: 70px; }
   .post { flex-direction: column; gap: 4px; }
-  .sg-chip .chip { width: 64px; height: 64px; }
+  .sg-chip .disc { width: 64px; height: 64px; }
   .sg-p { padding: 16px 16px 12px; }
   .sg-n { font-size: 26px; }
   .mf { grid-template-columns: 1fr 1fr; }

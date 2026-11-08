@@ -23,11 +23,11 @@
 .st-lab[data-active="true"] { font-weight: 500; color: var(--ink); }
 .st-lab:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .st-tr {
-  position: absolute; top: 110px; width: 52px; display: flex; flex-wrap: wrap; gap: 2px;
+  position: absolute; top: 110px; width: 60px; display: flex; flex-wrap: wrap; gap: 2px;
 }
-.st-tr--mid { margin-left: -26px; justify-content: center; }
+.st-tr--mid { margin-left: -30px; justify-content: center; }
 .st-tr--start { justify-content: flex-start; margin-left: -1px; }
-.st-tr--end { margin-left: -51px; justify-content: flex-end; }
+.st-tr--end { margin-left: -59px; justify-content: flex-end; }
 .st-here {
   position: absolute; top: 92px; width: 22px; height: 8px; margin-left: -11px; border-radius: 4px;
   background: var(--ink); pointer-events: none;

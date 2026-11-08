@@ -21,8 +21,8 @@ describe('route network geometry', () => {
     },
   );
 
-  it('neighbouring lanes leave a visible gap between lines', () => {
-    expect(LANE - LINE_WIDTH).toBeGreaterThanOrEqual(6);
+  it('neighbouring lines never overlap (Vignelli 1px gap)', () => {
+    expect(LANE - LINE_WIDTH).toBeGreaterThanOrEqual(1);
   });
 
   it('every station sits on the centreline of each line that stops there', () => {

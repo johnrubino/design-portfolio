@@ -3,7 +3,7 @@ import { SITE } from '../../content/site';
 import { STATIONS } from '../../content/stations';
 import { hrefFor } from '../../ride/routing';
 import { Arrow } from '../Arrow';
-import { Chip } from '../Chip';
+import { Disc } from '../Disc';
 import { Reveal } from './Reveal';
 
 const pad = (n: number) => String(n).padStart(2, '0');
@@ -44,7 +44,7 @@ export function ManualPage({
       <Reveal i={9} className="foot">
         <a className="sign" href={hrefFor(next.route)} onClick={follow}>
           <span className="sg-chip">
-            <Chip line={next.mainLine} size={96} />
+            <Disc line={next.mainLine} size={96} />
           </span>
           <span className="sg-p">
             <span className="sg-l">

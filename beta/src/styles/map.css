@@ -96,12 +96,12 @@ button.logo-btn:hover { transform: translateY(-1px); }
 
 /* Current station: the slot fills with ink, an accent line runs through it, and a soft halo breathes. */
 .here {
-  position: absolute; height: 12px; border-radius: 6px;
+  position: absolute; height: 14px; border-radius: 7px;
   background: var(--ink); pointer-events: none;
   box-shadow: 0 0 0 2px var(--slot), 0 0 16px 3px var(--halo);
   animation: j-here 520ms var(--ease-pop) both;
 }
-.here::after { content: ''; position: absolute; left: 5px; right: 5px; top: 5px; height: 2px; border-radius: 1px; background: var(--accent); }
+.here::after { content: ''; position: absolute; left: 5px; right: 5px; top: 6px; height: 2px; border-radius: 1px; background: var(--accent); }
 @keyframes j-here { from { opacity: 0; scale: .4; } to { opacity: 1; scale: 1; } }
 .here-pulse {
   position: absolute; inset: -2px; border-radius: 8px; box-shadow: 0 0 0 1px var(--accent), 0 0 12px var(--halo);

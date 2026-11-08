@@ -4,7 +4,7 @@ import { STRIP_X } from '../geometry/network';
 import type { RideState } from '../ride/useRide';
 import { RIDE_EASE } from '../ride/timing';
 import { Arrow } from './Arrow';
-import { Chip } from './Chip';
+import { Disc } from './Disc';
 
 /**
  * The page rail at the top of the content: the five pages as stops on a
@@ -38,7 +38,7 @@ export function LineStrip({ ride, onGo }: { ride: RideState; onGo: (i: number) =
               </button>
               <span className={`st-tr st-tr--${align}`} style={{ left: `${STRIP_X[i]}%` }}>
                 {byOrder(st.lines).map((l) => (
-                  <Chip key={l.id} line={l.id} size={11} code={false} />
+                  <Disc key={l.id} line={l.id} size={13} />
                 ))}
               </span>
             </div>

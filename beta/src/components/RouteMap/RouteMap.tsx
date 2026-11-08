@@ -1,11 +1,11 @@
 import type { CSSProperties } from 'react';
-import { LINES, LINE_WIDTH, LANE, COLLAPSED_LANE } from '../../content/lines';
+import { LINES, LINE_WIDTH } from '../../content/lines';
 import { STATIONS } from '../../content/stations';
 import { BUILT_LINES, BUILT_STATIONS, MARKER_PATH_C, MARKER_PATH_E, type Marker } from '../../geometry/network';
 import type { RideState } from '../../ride/useRide';
 import { RIDE_EASE } from '../../ride/timing';
 import { MapBase } from './MapBase';
-import { Chip } from '../Chip';
+import { Disc } from '../Disc';
 
 export interface RouteMapProps {
   ride: RideState;
@@ -41,7 +41,7 @@ export function RouteMap({ ride, hover, setHover, onGo, scale, intro }: RouteMap
       <div className="map-layer">
         <svg aria-hidden="true" className="map-svg" width="460" height="900" viewBox="0 0 460 900">
           <MapBase />
-          <g className="lines" filter="url(#glow)">
+          <g className="lines">
             {BUILT_LINES.map((b, i) => (
               <path
                 key={b.line.id}
@@ -52,7 +52,6 @@ export function RouteMap({ ride, hover, setHover, onGo, scale, intro }: RouteMap
                 stroke={b.line.colour}
                 strokeWidth={LINE_WIDTH}
                 strokeLinejoin="round"
-                strokeLinecap="round"
                 style={{
                   d: `path('${collapsed ? b.dC : b.dE}')`,
                   opacity: !hl || hl.includes(b.line.id) ? 1 : 0.22,
@@ -64,20 +63,21 @@ export function RouteMap({ ride, hover, setHover, onGo, scale, intro }: RouteMap
           <g className="stn">
             <g className="exp-only">
               {BUILT_STATIONS.map((s) => (
-                <Slot key={s.id} m={s.expanded} h={LANE - 1} />
+                <StationDots key={s.id} m={s.expanded} />
               ))}
               <LineEnds />
             </g>
             <g className="col-only">
               {BUILT_STATIONS.map((s) => (
-                <Slot key={s.id} m={s.collapsed} h={COLLAPSED_LANE - 1} />
+                <StationDots key={s.id} m={s.collapsed} />
               ))}
               {BUILT_LINES.filter((b) => b.line.id !== 'l7').map((b) => (
-                <path
+                <circle
                   key={b.line.id}
-                  d={`M${b.collapsed[b.collapsed.length - 1].p[0] - 4} ${b.line.collapsedEndY} h8`}
-                  stroke="var(--ink)"
-                  strokeWidth={1.5}
+                  cx={b.collapsed[b.collapsed.length - 1].p[0]}
+                  cy={b.line.collapsedEndY}
+                  r={3.2}
+                  fill="var(--ink)"
                 />
               ))}
             </g>
@@ -170,24 +170,13 @@ export function RouteMap({ ride, hover, setHover, onGo, scale, intro }: RouteMap
   );
 }
 
-/** Station slot: a hollow pill across the stopping lanes, with a tick on each line that stops. */
-function Slot({ m, h }: { m: Marker; h: number }) {
-  const c = m.capsule;
+/** Vignelli station marker: a black dot on each line that stops, joined by a short black bar. */
+function StationDots({ m }: { m: Marker }) {
   return (
     <g>
-      <rect
-        x={-c.w / 2}
-        y={-h / 2}
-        width={c.w}
-        height={h}
-        rx={h / 2}
-        fill="var(--slot)"
-        stroke="var(--ink)"
-        strokeWidth={1.5}
-        transform={`translate(${c.x} ${c.y}) rotate(${c.angle})`}
-      />
+      <line x1={m.bar[0][0]} y1={m.bar[0][1]} x2={m.bar[1][0]} y2={m.bar[1][1]} stroke="var(--ink)" strokeWidth={3} strokeLinecap="round" />
       {m.dots.map((d) => (
-        <circle key={d.line} cx={d.x} cy={d.y} r={1.9} fill="var(--ink)" />
+        <circle key={d.line} cx={d.x} cy={d.y} r={3.6} fill="var(--ink)" stroke="#fff" strokeWidth={1.2} />
       ))}
     </g>
   );
@@ -206,7 +195,7 @@ function HereCapsule({ m }: { m: Marker }) {
   );
 }
 
-/** Line ends: a short ink tick across the line, the line chip and the project name. */
+/** Line ends: a black end dot, the numbered route disc and the project name. */
 function LineEnds() {
   return (
     <g>
@@ -214,14 +203,13 @@ function LineEnds() {
         const [x, y] = b.end;
         const south = b.endDir[1] > 0.5;
         const line = LINES.find((l) => l.id === b.line.id)!;
-        const tick = south ? `M${x - 6} ${y} h12` : `M${x} ${y - 6} v12`;
-        const chip = south ? { x: x - 10, y: y + 8 } : { x: x + 8, y: y - 10 };
-        const label = south ? { x: x - 16, y: y + 22 } : { x: x - 2, y: y - 10 };
+        const disc = south ? { x: x - 9, y: y + 6 } : { x: x + 6, y: y - 9 };
+        const label = south ? { x: x - 14, y: y + 19 } : { x: x - 2, y: y - 9 };
         return (
           <g key={line.id}>
-            <path d={tick} stroke="var(--ink)" strokeWidth={1.5} />
-            <svg x={chip.x} y={chip.y} width={20} height={20} overflow="visible">
-              <Chip line={line.id} size={20} />
+            <circle cx={x} cy={y} r={3.2} fill="var(--ink)" />
+            <svg x={disc.x} y={disc.y} width={18} height={18} overflow="visible">
+              <Disc line={line.id} size={18} />
             </svg>
             <text x={label.x} y={label.y} textAnchor="end" fontWeight={500} fontSize={10.5} fill="var(--ink)" className="signage">
               {line.short}
