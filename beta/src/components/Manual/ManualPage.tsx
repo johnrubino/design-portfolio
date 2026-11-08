@@ -23,6 +23,7 @@ export function ManualPage({
   children: ReactNode;
 }) {
   const st = STATIONS[index];
+  const lineLabel = `Line ${LINE_BY_ID[st.mainLine].order} · ${LINE_BY_ID[st.mainLine].name}`;
   const prev = index > 0 ? STATIONS[index - 1] : null;
   const next = index < STATIONS.length - 1 ? STATIONS[index + 1] : null;
 
@@ -35,8 +36,9 @@ export function ManualPage({
           simply left out, so the sign never shows an empty module. */}
       <header className="dsign">
         <div className="ds-row">
-          <span className="ds-m ds-disc">
+          <span className="ds-m ds-disc" title={lineLabel}>
             <Disc line={st.mainLine} size={64} />
+            <span className="sr-only">{lineLabel}</span>
           </span>
           <div className="ds-m ds-title">
             <h1 className="ds-name signage" tabIndex={-1} ref={titleRef}>
@@ -67,9 +69,6 @@ export function ManualPage({
           )}
         </div>
       </header>
-      <p className="ds-cap mono">
-        Line {LINE_BY_ID[st.mainLine].order} · {LINE_BY_ID[st.mainLine].name}
-      </p>
 
       {children}
 

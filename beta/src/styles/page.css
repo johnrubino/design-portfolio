@@ -29,8 +29,7 @@
 .ds-prev:hover .ar { transform: rotate(180deg) translateX(5px); }
 .ds-next:hover .ar { transform: translateX(5px); }
 .ds-disc .disc { width: 64px; height: 64px; }
-.ds-cap { margin: 8px 0 0; font-size: 11px; }
-.ds-cap + .lede, .ds-cap + .body { margin-top: 30px; }
+.dsign + .lede, .dsign + .body { margin-top: 34px; }
 
 /* 3. Body */
 .lede { margin: 34px 0 0; font-size: 30px; line-height: 1.16; font-weight: 500; letter-spacing: -.02em; max-width: 560px; }

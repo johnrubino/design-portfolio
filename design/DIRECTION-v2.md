@@ -131,7 +131,7 @@ Page headers now follow the direction signs in the 1970 standards manual (p. 59)
 - **Modules, left to right:** the page's line disc, the page name (set large, top-left), then the ← back and → forward arrows side by side on the right. The disc always sits directly left of the page name (v3.7), and the arrows were grouped on the right in v3.8 (per preview comments).
 - **The arrows are buttons:** they ride to the previous or next page exactly as a station click does, with the wipe reversed going back.
 - **Ends of the route:** the missing arrow is simply left out, so the sign never shows an empty module (Home has only →, Résumé only ←).
-- **Caption:** the line's name and number sit in a small caption under the sign ("Line 2 · Labs"), the way the manual numbers each example.
+- **Line name:** removed from view in v3.9 (per a preview comment). The disc carries it as a hover tooltip and screen-reader text ("Line 2 · Labs").
 - **Phones:** modules shrink to 56px.
 
 Tokens: `--sign-panel`, `--ds-rule`. Styles live in `page.css` (`.dsign`). `Arrow` gained a `weight` prop for the heavier manual arrow.

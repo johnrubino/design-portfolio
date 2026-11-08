@@ -89,7 +89,7 @@ Each station in `src/content/stations.ts` has:
 - `label`: which side the label sits on, and the x of its inner edge.
 - Line ends point east, west or south automatically; set `endLabel` on a line to place its end label by hand.
 - `collapsedY`: the station's height in the collapsed bundle.
-- `mainLine`: the line whose disc appears in this page's header sign, and in its "Line N · Name" caption.
+- `mainLine`: the line whose disc appears in this page's header sign (its "Line N · Name" shows on hover and to screen readers).
 
 The expanded map centres itself: after any route or label change, `RouteMap.tsx` re-measures the content and shifts it so the space left and right is equal.
 
