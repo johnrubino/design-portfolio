@@ -28,7 +28,7 @@ npm run dev        # http://localhost:5173
 | `npm run build:artifact` | Builds a preview for a claude.ai Artifact into `dist-artifact/`: hash URLs (`#labs`), relative assets, stubbed form. |
 | `npm test` | Geometry tests: 45°/90° turns, morphable paths, stations clear of corners, markers in route order. |
 
-Every station is a real URL: `/`, `/case-studies`, `/labs`, `/writing`, `/resume` (the old `/timetable` redirects). Deep links work, and back/forward ride the marker in the right direction.
+Every station is a real URL, following the live site's IA: `/` (Home), `/labs`, `/about`, `/writing`, `/resume`. The old `/case-studies` and `/timetable` links redirect. Deep links work, and back/forward ride the marker in the right direction.
 
 ---
 
@@ -39,12 +39,13 @@ All copy lives in typed files in `src/content/`. You don't need to touch compone
 | File | What's in it |
 |---|---|
 | `site.ts` | Name, role, domain, page-title suffix, **contact links** |
-| `about.ts` | Lede, bio, line-board headings |
-| `caseStudies.ts` | The four case-study rows, their stops on the Case studies line (`mapLabel`, `stop`), and the walkthrough form copy |
-| `labs.ts` | Labs experiments |
+| `home.ts` | Home: positioning line, figures, "Currently" roles, call to action |
+| `about.ts` | About: lede, intro, sections |
+| `caseStudies.ts` | Selected work on Home, each project's stop on the Work line (`mapLabel`, `stop`), and the walkthrough form copy |
+| `labs.ts` | Labs projects and their stops on the Labs line |
 | `writing.ts` | Intro, Substack link, fallback post list |
 | `resume.ts` | Work history and contact links |
-| `lines.ts` | The two lines (Case studies, Résumé): names, colours, disc numbers, stops text, **geometry** |
+| `lines.ts` | The three lines (Work, Labs, Résumé): names, colours, disc numbers, **geometry** |
 | `stations.ts` | Station names, routes, map sub-lines, which lines stop, **positions** |
 
 Placeholders are marked `// TODO(john)`. Find them all with:
@@ -68,7 +69,7 @@ You edit centrelines and lanes, never raw SVG paths.
 The constants at the top of `src/content/lines.ts` set the Vignelli bundle: `LANE` (9, the distance between neighbouring lines), `LINE_WIDTH` (8, so lines sit 1px apart), `CORNER_RADIUS` (20), `COLLAPSED_X` (64) and `COLLAPSED_LANE` (9).
 
 Each line has:
-- `centre`: the centreline vertices in 460 × 900 map space. Turn only at 45° or 90°. The Résumé line is a straight spine at x = 228 that calls at every page. The Case studies line runs with it from About to the Case studies station, then branches off; its project stops are the `stop` points in `content/caseStudies.ts` (each must lie on the line, clear of its corners). Keep each station on only the lines that stop there: `npm test` fails if a line passes through a station without stopping.
+- `centre`: the centreline vertices in 460 × 900 map space. Turn only at 45° or 90°. The Résumé line is a straight spine at x = 228 that calls at every page. The Work line leaves Home and the Labs line leaves the spine after Labs; their project stops are the `stop` points in `content/caseStudies.ts` and `content/labs.ts` (each must lie on its line, clear of corners). Keep each station on only the lines that stop there: `npm test` fails if a line passes through a station without stopping.
 - `lane`: the sideways offset in `LANE` steps. A positive lane is to the right of the direction of travel, which runs from About outward.
 - `collapsedEndY`: where the line stops in the collapsed bundle.
 - `order` and `short`: the number on the line's route disc (also its sort order), and the name shown at the line's end on the map.

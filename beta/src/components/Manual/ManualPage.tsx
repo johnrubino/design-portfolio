@@ -36,7 +36,7 @@ export function ManualPage({
   return (
     <div className="page">
       <h1 className="ttl signage" tabIndex={-1} ref={titleRef}>
-        <span className="ttl-in">{st.name}</span>
+        <span className="ttl-in">{st.plate ?? st.name}</span>
       </h1>
 
       {children}

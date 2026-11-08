@@ -10,14 +10,14 @@ export const HISTORY_EVENT = HASH ? 'hashchange' : 'popstate';
 
 const hashToPath = (hash: string) => {
   const name = hash.replace(/^#/, '');
-  return !name || name === 'about' ? '/' : `/${name}`;
+  return !name || name === 'home' ? '/' : `/${name}`;
 };
 
 /** The current station route ("/", "/labs", …). */
 export const currentPath = () => (HASH ? hashToPath(window.location.hash) : window.location.pathname);
 
 /** href for a station route in this build. */
-export const hrefFor = (route: string) => (HASH ? `#${route === '/' ? 'about' : route.slice(1)}` : route);
+export const hrefFor = (route: string) => (HASH ? `#${route === '/' ? 'home' : route.slice(1)}` : route);
 
 export function pushRoute(route: string) {
   if (HASH) window.location.hash = hrefFor(route);
@@ -26,6 +26,6 @@ export function pushRoute(route: string) {
 
 /** Replace an unknown URL with the About station. */
 export function resetToStart() {
-  if (HASH) window.history.replaceState(null, '', '#about');
+  if (HASH) window.history.replaceState(null, '', '#home');
   else window.history.replaceState(null, '', '/');
 }

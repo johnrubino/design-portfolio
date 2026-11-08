@@ -12,7 +12,7 @@ import { NavSign } from './components/NavSign';
 import { RouteMap } from './components/RouteMap/RouteMap';
 import { Wipe } from './components/Wipe';
 import { About } from './pages/About';
-import { CaseStudies } from './pages/CaseStudies';
+import { Home } from './pages/Home';
 import { Labs } from './pages/Labs';
 import { Resume } from './pages/Resume';
 import { Writing } from './pages/Writing';
@@ -20,7 +20,7 @@ import { HISTORY_EVENT, currentPath, pushRoute, resetToStart } from './ride/rout
 import { useMedia } from './ride/useMedia';
 import { useRide } from './ride/useRide';
 
-const PAGES: ComponentType[] = [About, CaseStudies, Labs, Writing, Resume];
+const PAGES: ComponentType[] = [Home, Labs, About, Writing, Resume];
 
 const MOBILE = '(max-width: 899.98px)';
 /** The map collapses by itself in this range, live as the window resizes. */
@@ -60,7 +60,7 @@ export function App() {
   sheetRef.current = sheet;
 
   const navRef = useRef<HTMLElement>(null);
-  /** A project chosen on the map, shown once the ride to Case studies arrives. */
+  /** A project chosen on the map, shown once the ride to its page arrives. */
   const pendingProject = useRef<string | null>(null);
   const logoRef = useRef<HTMLButtonElement>(null);
   /** Keyboard focus is inside the map (a mouse click's focus doesn't count). */
@@ -157,7 +157,7 @@ export function App() {
       }
     : {};
 
-  /** Scroll the Case studies page to a project's row and highlight it briefly. */
+  /** Scroll the page to a project's row and highlight it briefly. */
   const showProject = (slug: string) => {
     const row = document.getElementById(`project-${slug}`);
     if (!row) return;
@@ -166,18 +166,17 @@ export function App() {
     void row.offsetWidth; // restart the highlight
     row.classList.add('flash');
   };
-  const casesIndex = STATIONS.findIndex((s) => s.id === 'cases');
-  const onProject = (slug: string) => {
+  const onProject = (station: number, slug: string) => {
     setHover(-1);
     if (state.moving || state.morph) return;
-    if (state.cur === casesIndex) {
+    if (state.cur === station) {
       showProject(slug);
       if (isNarrow) setOpen(false);
       if (sheetRef.current) window.setTimeout(() => setSheet(false), 200);
       return;
     }
     pendingProject.current = slug;
-    go(casesIndex);
+    go(station);
   };
 
   const onGo = useCallback(

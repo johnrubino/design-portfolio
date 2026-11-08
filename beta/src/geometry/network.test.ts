@@ -3,6 +3,7 @@ import { LANE, LINES, LINE_WIDTH } from '../content/lines';
 import { STATIONS } from '../content/stations';
 import { BUILT_LINES, BUILT_PROJECT_STOPS, BUILT_STATIONS, STATION_TOL } from './network';
 import { CASE_STUDIES } from '../content/caseStudies';
+import { LABS } from '../content/labs';
 import { dist, segmentContaining, signature, type Pt } from './path';
 
 const angleOf = (a: Pt, b: Pt) => ((Math.atan2(b[1] - a[1], b[0] - a[0]) * 180) / Math.PI + 360) % 360;
@@ -72,14 +73,18 @@ describe('route network geometry', () => {
     }
   });
 
-  it('project stops sit on the Case studies line, in order, clear of its corners', () => {
-    const cs = LINES.find((l) => l.id === 'cs')!;
-    for (const c of CASE_STUDIES) {
-      expect(segmentContaining(cs.centre, c.stop), c.slug).toBeGreaterThanOrEqual(0);
-      const nearest = Math.min(...cs.centre.slice(1, -1).map((v) => dist(v, c.stop)));
+  it.each([
+    ['work', CASE_STUDIES],
+    ['labs', LABS],
+  ] as const)('project stops sit on the %s line, in order, clear of its corners', (id, items) => {
+    const line = LINES.find((l) => l.id === id)!;
+    for (const c of items) {
+      expect(segmentContaining(line.centre, c.stop), c.slug).toBeGreaterThanOrEqual(0);
+      const nearest = Math.min(...line.centre.slice(1, -1).map((v) => dist(v, c.stop)));
       expect(nearest, c.slug).toBeGreaterThan(40);
     }
-    const ys = BUILT_PROJECT_STOPS.map((p) => p.y);
+    const ys = BUILT_PROJECT_STOPS.filter((p) => p.line === id).map((p) => p.y);
     expect([...ys].sort((a, b) => a - b)).toEqual(ys);
+    expect(ys).toHaveLength(items.length);
   });
 });

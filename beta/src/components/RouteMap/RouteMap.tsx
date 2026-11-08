@@ -12,8 +12,8 @@ export interface RouteMapProps {
   hover: number;
   setHover: (i: number) => void;
   onGo: (i: number) => void;
-  /** A project stop on the Case studies line was chosen. */
-  onProject: (slug: string) => void;
+  /** A project stop was chosen: ride to its page and show it. */
+  onProject: (station: number, slug: string) => void;
   /** Uniform scale of the map below the sign (fits short viewports). */
   scale: number;
   /** Play the first-load line draw and fades. */
@@ -25,8 +25,6 @@ export interface RouteMapProps {
  * Purely a view of ride state. Everything is laid out in 460 × 900 map space
  * and scaled as one layer, so the marker's offset-path stays aligned.
  */
-const CASES = STATIONS.findIndex((s) => s.id === 'cases');
-
 export function RouteMap({ ride, hover, setHover, onGo, onProject, scale, intro }: RouteMapProps) {
   const { collapsed, moving, cur, target, morph, T } = ride;
   const hl = hover >= 0 ? STATIONS[hover].lines : null;
@@ -102,7 +100,7 @@ export function RouteMap({ ride, hover, setHover, onGo, onProject, scale, intro 
                 <StationDots key={s.id} m={s.expanded} />
               ))}
               <LineEnds />
-              {/* Project stops on the Case studies line */}
+              {/* Project stops on the Work and Labs lines */}
               {BUILT_PROJECT_STOPS.map((p) => (
                 <circle key={p.slug} cx={p.x} cy={p.y} r={3.6} fill="var(--ink)" stroke="#fff" strokeWidth={1.2} />
               ))}
@@ -135,11 +133,11 @@ export function RouteMap({ ride, hover, setHover, onGo, onProject, scale, intro 
               key={p.slug}
               type="button"
               className="pstop signage"
-              aria-label={`${p.title}, on the Case studies page`}
-              onClick={() => onProject(p.slug)}
-              onMouseEnter={() => setHover(CASES)}
+              aria-label={`${p.title}, on the ${STATIONS[p.station].name} page`}
+              onClick={() => onProject(p.station, p.slug)}
+              onMouseEnter={() => setHover(p.station)}
               onMouseLeave={leave}
-              onFocus={() => setHover(CASES)}
+              onFocus={() => setHover(p.station)}
               onBlur={leave}
               style={{ left: p.x + 12, top: p.y }}
             >

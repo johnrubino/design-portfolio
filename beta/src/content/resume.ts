@@ -1,12 +1,14 @@
 import { LINKS } from './site';
 
-export const RESUME_INTRO = 'Where I have worked, and how to reach me.';
+/** Copy from johnrubino.design/resume. */
+export const RESUME_INTRO =
+  'I design complex financial workflows for advisors at BNY Pershing and build with AI. My lending redesign helped a client lend a $27M position in a single day.';
 
 export const WORK_HISTORY = [
-  { when: 'Now', where: 'BNY Pershing', role: 'Senior Product Designer, Wealth Services' },
-  { when: 'Ongoing', where: 'Colllective Design', role: 'Co-founder' },
+  { when: '2023 – now', where: 'BNY Pershing', role: 'Senior Product Designer, Wealth Services' },
+  { when: '2024 – now', where: 'Colllective Design', role: 'Design Advisor' },
   { when: 'Ongoing', where: 'Design Thinker', role: 'Writer' },
-  { when: 'Earlier', where: 'Purple Panda Rentals', role: 'Founder' },
+  { when: '2020 – 2023', where: 'Purple Panda Rentals', role: 'Founder & Product Designer' },
 ];
 
 // TODO(john): contact links are placeholders until confirmed (see site.ts).

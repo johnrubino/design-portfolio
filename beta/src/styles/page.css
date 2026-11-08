@@ -39,6 +39,26 @@
 }
 .row-s { grid-template-columns: 80px 1fr; }
 .stopmark { display: block; }
+.row-lab { grid-template-columns: 52px 1fr; }
+.row-cur { grid-template-columns: 200px 1fr; }
+.row-text { grid-template-columns: 1fr; }
+.r-d-wide { max-width: 620px; }
+
+/* Home */
+.stats {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px;
+  margin: 34px 0 0; padding: 14px 0 0; border-top: 2px solid var(--ink); max-width: 760px;
+}
+.stats div { display: flex; flex-direction: column-reverse; gap: 4px; }
+.stats dd { margin: 0; font-size: 34px; font-weight: 500; letter-spacing: -.02em; line-height: 1; font-stretch: var(--sign-stretch); }
+.stats dt { font-size: 11px; }
+.sec { margin-top: 56px; }
+.sec-h { margin: 0 0 4px; font-size: 11.5px; font-weight: 400; color: var(--meta); }
+.sec .rows { margin-top: 12px; }
+.sec .body + .rows { margin-top: 24px; }
+.sec-h + .body { margin-top: 6px; }
+.cta { padding: 28px 0 0; border-top: 2px solid var(--ink); }
+.cta-h { font-size: 30px; line-height: 1.16; font-weight: 500; letter-spacing: -.02em; max-width: 560px; }
 /* A project chosen on the map gets a brief highlight when the page arrives at it. */
 @keyframes j-flash { 0% { background-color: rgba(240, 100, 42, .16); } 100% { background-color: transparent; } }
 .row.flash { animation: j-flash 1800ms ease-out; }

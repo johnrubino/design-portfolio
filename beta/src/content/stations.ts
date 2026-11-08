@@ -5,11 +5,13 @@
 import type { Pt } from '../geometry/path';
 import type { LineId } from './lines';
 
-export type StationId = 'about' | 'cases' | 'labs' | 'writing' | 'resume';
+export type StationId = 'home' | 'labs' | 'about' | 'writing' | 'resume';
 
 export interface Station {
   id: StationId;
   name: string;
+  /** Text on the page-name plate, if different from `name`. */
+  plate?: string;
   route: string;
   /** Mono sub-line under the map label. */
   sub: string;
@@ -27,34 +29,34 @@ export interface Station {
 
 export const STATIONS: Station[] = [
   {
-    id: 'about', name: 'About', route: '/', sub: 'Intro',
-    lines: ['cs', 'resume'],
-    at: [228, 156], label: { side: 'left', x: 214 }, collapsedY: 156, mainLine: 'resume',
-  },
-  {
-    id: 'cases', name: 'Case studies', route: '/case-studies', sub: '4 projects',
-    lines: ['cs', 'resume'],
-    at: [228, 300], label: { side: 'right', x: 251 }, collapsedY: 300, mainLine: 'cs',
+    id: 'home', name: 'Home', plate: 'John Rubino', route: '/', sub: 'Intro · work',
+    lines: ['work', 'labs', 'resume'],
+    at: [228, 156], label: { side: 'left', x: 214 }, collapsedY: 156, mainLine: 'work',
   },
   {
     id: 'labs', name: 'Labs', route: '/labs', sub: 'Experiments',
+    lines: ['labs', 'resume'],
+    at: [228, 520], label: { side: 'left', x: 214 }, collapsedY: 520, mainLine: 'labs',
+  },
+  {
+    id: 'about', name: 'About', route: '/about', sub: 'Bio',
     lines: ['resume'],
-    at: [228, 540], label: { side: 'left', x: 214 }, collapsedY: 540, mainLine: 'resume',
+    at: [228, 640], label: { side: 'left', x: 214 }, collapsedY: 640, mainLine: 'resume',
   },
   {
     id: 'writing', name: 'Writing', route: '/writing', sub: 'Essays',
     lines: ['resume'],
-    at: [228, 708], label: { side: 'right', x: 242 }, collapsedY: 708, mainLine: 'resume',
+    at: [228, 740], label: { side: 'left', x: 214 }, collapsedY: 740, mainLine: 'resume',
   },
   {
-    id: 'resume', name: 'Résumé', route: '/resume', sub: 'Work · contact',
+    id: 'resume', name: 'Résumé', route: '/resume', sub: 'Experience · contact',
     lines: ['resume'],
-    at: [228, 840], label: { side: 'right', x: 242 }, collapsedY: 840, mainLine: 'resume',
+    at: [228, 840], label: { side: 'left', x: 214 }, collapsedY: 840, mainLine: 'resume',
   },
 ];
 
 /** Old routes that still resolve. */
-const ALIASES: Record<string, string> = { '/timetable': '/resume' };
+const ALIASES: Record<string, string> = { '/timetable': '/resume', '/case-studies': '/' };
 
 const clean = (pathname: string) => {
   const p = pathname.replace(/\/+$/, '') || '/';

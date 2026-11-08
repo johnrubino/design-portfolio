@@ -101,3 +101,15 @@ Each case study used to be its own line from About, so Case studies looked like 
 - **Data:** project stops are defined in `content/caseStudies.ts` (`slug`, `mapLabel`, `stop`). Lines are now just `cs` and `resume` in `content/lines.ts`.
 - **Pages:** case-study rows show a small stop mark (a run of the red line with a station dot) instead of separate discs. The About board lists the two lines and what each one stops at.
 - **Labs, Writing and Résumé** sit on the Résumé line only.
+
+## v3.0: the site's own IA
+The beta now follows the live site's information architecture (johnrubino.design): **Home → Labs → About → Writing → Résumé**, with copy taken from the live pages.
+- **Home** (`/`): the "John Rubino" plate, positioning line, the four figures (4+ years, 3 enterprise platforms, $1T+ AUM context, 0→1), "Currently" (BNY Pershing, Colllective Design, Design Thinker), selected work, and the "Let's build something that matters" call to action. It replaces both the old About-as-landing page and the separate Case studies page. `/case-studies` now redirects to `/`.
+- **Labs:** the real projects (Navori, Music Maker, AI Knowledge Co-op).
+- **About:** the live About copy. **Résumé:** the live summary and real roles and dates.
+- **Lines:** three, each one a body of work:
+  - **Work** (red, 1): leaves Home and stops at Future of Wealth Advisory, Fully Paid Lending and Purple Panda Rentals, the three projects on the live homepage. New Account Opening is no longer listed; add it back in `content/caseStudies.ts` to restore it.
+  - **Labs** (purple, 2): runs with the spine to Labs, then stops at each project.
+  - **Résumé** (blue, 3): the spine through every page.
+- **Project stops** on either line ride to that page, then scroll to and highlight the project.
+- **Station labels** for pages sit in a column to the left of the spine; project names sit to the right of their lines.

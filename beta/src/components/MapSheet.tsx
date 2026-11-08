@@ -25,7 +25,7 @@ export function MapSheet({
   hover: number;
   setHover: (i: number) => void;
   onGo: (i: number) => void;
-  onProject: (slug: string) => void;
+  onProject: (station: number, slug: string) => void;
   scale: number;
   offsetX: number;
 }) {

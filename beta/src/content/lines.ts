@@ -18,7 +18,7 @@
  */
 import type { Pt } from '../geometry/path';
 
-export type LineId = 'cs' | 'resume';
+export type LineId = 'work' | 'labs' | 'resume';
 
 export interface Line {
   id: LineId;
@@ -44,8 +44,8 @@ export interface Line {
 export const LANE = 9;
 export const LINE_WIDTH = 8;
 export const CORNER_RADIUS = 20;
-/** Collapsed bundle: lane 0 sits at this x; lanes are COLLAPSED_LANE px apart (lanes 0 and −1 centre on 64). */
-export const COLLAPSED_X = 60;
+/** Collapsed bundle: lane 0 sits at this x; lanes are COLLAPSED_LANE px apart (lanes 0…−2 centre on 64). */
+export const COLLAPSED_X = 55;
 export const COLLAPSED_LANE = 9;
 
 const TOP: Pt = [228, 132];
@@ -53,17 +53,23 @@ const TOP: Pt = [228, 132];
 /** Drawing order (also the line-draw stagger order on first load). */
 export const LINES: Line[] = [
   {
-    // The parent line for the work: leaves About with the spine, calls at Case
-    // studies, then branches off and stops at each project in turn.
-    id: 'cs', order: 1, colour: '#E4473C', ink: '#fff', name: 'Case studies', short: 'Case studies',
-    stops: 'Fully Paid Lending, Future of Wealth Advisory, New Account Opening, Purple Panda Rentals',
-    lane: -1,
-    centre: [TOP, [228, 348], [300, 420], [300, 644]],
-    collapsedEndY: 420,
+    id: 'work', order: 1, colour: '#E4473C', ink: '#fff', name: 'Work', short: 'Work',
+    stops: 'Future of Wealth Advisory, Fully Paid Lending, Purple Panda Rentals',
+    lane: -2,
+    centre: [TOP, [228, 200], [300, 272], [300, 470]],
+    collapsedEndY: 300,
     endLabel: { dx: 16, dy: 19, anchor: 'start' },
   },
   {
-    id: 'resume', order: 2, colour: '#2471C4', ink: '#fff', name: 'Résumé', short: 'Résumé',
+    id: 'labs', order: 2, colour: '#7A5CB2', ink: '#fff', name: 'Labs', short: 'Labs',
+    stops: 'Navori, Music Maker, AI Knowledge Co-op',
+    lane: -1,
+    centre: [TOP, [228, 564], [300, 636], [300, 812]],
+    collapsedEndY: 600,
+    endLabel: { dx: 16, dy: 19, anchor: 'start' },
+  },
+  {
+    id: 'resume', order: 3, colour: '#2471C4', ink: '#fff', name: 'Résumé', short: 'Résumé',
     stops: 'Every page',
     lane: 0,
     centre: [TOP, [228, 840]],

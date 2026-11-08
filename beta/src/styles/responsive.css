@@ -24,6 +24,9 @@
   .row { grid-template-columns: 40px 1fr; }
   .row .r-a { grid-column: 2; }
   .row-s { grid-template-columns: 1fr; gap: 4px; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 20px; }
+  .row-lab { grid-template-columns: 40px 1fr; }
+  .row-cur { grid-template-columns: 1fr; gap: 4px; }
   .board-r td:last-child, .board-h th:last-child { width: 110px; }
   .board-h.tt th:nth-child(2), .board-r.tt td:nth-child(2) { width: auto; }
   .board-h.tt th:first-child, .board-r.tt td:first-child { width: 70px; }

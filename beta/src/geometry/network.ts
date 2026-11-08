@@ -12,6 +12,7 @@
 import { COLLAPSED_LANE, COLLAPSED_X, CORNER_RADIUS, LANE, LINES, MARKER_LINE, type Line, type LineId } from '../content/lines';
 import { STATIONS, type StationId } from '../content/stations';
 import { CASE_STUDIES } from '../content/caseStudies';
+import { LABS } from '../content/labs';
 import {
   add, cumulative, lengthAt, mul, offsetPts, pathLength, rightNormal, rounded, segmentContaining,
   sub, toD, unit, type Cmd, type Pt,
@@ -144,9 +145,28 @@ function round1(n: number) {
 /** Positions of the stations along the page rail, in %. */
 export const STRIP_X = STATIONS.map((_, i) => 3 + (94 * i) / (STATIONS.length - 1));
 
-/** Project stops along the Case studies line, in map space (expanded only). */
-export const BUILT_PROJECT_STOPS = CASE_STUDIES.map((c) => {
-  const line = BUILT_BY_ID.cs.line;
-  const { p } = lanePoint(line, c.stop);
-  return { slug: c.slug, label: c.mapLabel, title: c.title, x: p[0], y: p[1] };
-});
+/** Project stops on the parent lines (expanded map only). `station` is the page that shows the project. */
+export interface ProjectStop {
+  line: LineId;
+  station: number;
+  slug: string;
+  label: string;
+  title: string;
+  x: number;
+  y: number;
+}
+
+const stationIndex = (id: StationId) => STATIONS.findIndex((st) => st.id === id);
+
+function stopsOn(lineId: LineId, stationId: StationId, items: { slug: string; mapLabel: string; title: string; stop: Pt }[]): ProjectStop[] {
+  const line = BUILT_BY_ID[lineId].line;
+  return items.map((c) => {
+    const { p } = lanePoint(line, c.stop);
+    return { line: lineId, station: stationIndex(stationId), slug: c.slug, label: c.mapLabel, title: c.title, x: p[0], y: p[1] };
+  });
+}
+
+export const BUILT_PROJECT_STOPS: ProjectStop[] = [
+  ...stopsOn('work', 'home', CASE_STUDIES),
+  ...stopsOn('labs', 'labs', LABS),
+];
