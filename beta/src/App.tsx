@@ -77,7 +77,7 @@ export function App() {
       if (scrollRef.current) scrollRef.current.scrollTop = 0;
       if (push) pushRoute(STATIONS[i].route);
       document.title = titleFor(i);
-      // If focus was inside the old page (e.g. the Next sign), it was
+      // If focus was inside the old page (e.g. a project row), it was
       // just unmounted: move it to the new station name.
       requestAnimationFrame(() => {
         const a = document.activeElement;
