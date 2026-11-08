@@ -28,28 +28,28 @@ export interface Station {
 export const STATIONS: Station[] = [
   {
     id: 'about', name: 'About', route: '/', sub: 'Intro',
-    lines: ['l1', 'l2', 'l3', 'l4', 'l5'],
-    at: [228, 156], label: { side: 'left', x: 205 }, collapsedY: 156, mainLine: 'l5',
+    lines: ['cs', 'resume'],
+    at: [228, 156], label: { side: 'left', x: 214 }, collapsedY: 156, mainLine: 'resume',
   },
   {
     id: 'cases', name: 'Case studies', route: '/case-studies', sub: '4 projects',
-    lines: ['l1', 'l2', 'l3', 'l4', 'l5'],
-    at: [228, 300], label: { side: 'right', x: 269 }, collapsedY: 300, mainLine: 'l2',
+    lines: ['cs', 'resume'],
+    at: [228, 300], label: { side: 'right', x: 251 }, collapsedY: 300, mainLine: 'cs',
   },
   {
     id: 'labs', name: 'Labs', route: '/labs', sub: 'Experiments',
-    lines: ['l4', 'l5'],
-    at: [228, 540], label: { side: 'right', x: 242 }, collapsedY: 540, mainLine: 'l4',
+    lines: ['resume'],
+    at: [228, 540], label: { side: 'left', x: 214 }, collapsedY: 540, mainLine: 'resume',
   },
   {
     id: 'writing', name: 'Writing', route: '/writing', sub: 'Essays',
-    lines: ['l5'],
-    at: [228, 708], label: { side: 'right', x: 233 }, collapsedY: 708, mainLine: 'l5',
+    lines: ['resume'],
+    at: [228, 708], label: { side: 'right', x: 242 }, collapsedY: 708, mainLine: 'resume',
   },
   {
     id: 'resume', name: 'Résumé', route: '/resume', sub: 'Work · contact',
-    lines: ['l5'],
-    at: [228, 840], label: { side: 'right', x: 233 }, collapsedY: 840, mainLine: 'l5',
+    lines: ['resume'],
+    at: [228, 840], label: { side: 'right', x: 242 }, collapsedY: 840, mainLine: 'resume',
   },
 ];
 

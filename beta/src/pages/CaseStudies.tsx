@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { CASES_INTRO, CASE_STUDIES, WALKTHROUGH_COPY } from '../content/caseStudies';
-import { Disc } from '../components/Disc';
+import { StopMark } from '../components/StopMark';
 import { Arrow } from '../components/Arrow';
 import { Reveal } from '../components/Manual/Reveal';
 import { WalkthroughDialog } from '../components/WalkthroughDialog';
@@ -12,8 +12,8 @@ export function CaseStudies() {
       <Reveal i={3} as="p" className="body">{CASES_INTRO}</Reveal>
       <Reveal i={4} as="ul" className="rows">
         {CASE_STUDIES.map((c) => (
-          <li key={c.title} className="row">
-            <span><Disc line={c.line} size={30} /></span>
+          <li key={c.title} id={`project-${c.slug}`} className="row">
+            <span><StopMark line="cs" /></span>
             <div>
               <h2 className="r-t">{c.title}</h2>
               <div className="mono r-m">{c.meta}</div>

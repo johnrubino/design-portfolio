@@ -11,6 +11,7 @@
  */
 import { COLLAPSED_LANE, COLLAPSED_X, CORNER_RADIUS, LANE, LINES, MARKER_LINE, type Line, type LineId } from '../content/lines';
 import { STATIONS, type StationId } from '../content/stations';
+import { CASE_STUDIES } from '../content/caseStudies';
 import {
   add, cumulative, lengthAt, mul, offsetPts, pathLength, rightNormal, rounded, segmentContaining,
   sub, toD, unit, type Cmd, type Pt,
@@ -142,3 +143,10 @@ function round1(n: number) {
 
 /** Positions of the stations along the page rail, in %. */
 export const STRIP_X = STATIONS.map((_, i) => 3 + (94 * i) / (STATIONS.length - 1));
+
+/** Project stops along the Case studies line, in map space (expanded only). */
+export const BUILT_PROJECT_STOPS = CASE_STUDIES.map((c) => {
+  const line = BUILT_BY_ID.cs.line;
+  const { p } = lanePoint(line, c.stop);
+  return { slug: c.slug, label: c.mapLabel, title: c.title, x: p[0], y: p[1] };
+});

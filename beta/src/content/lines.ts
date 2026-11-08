@@ -6,11 +6,10 @@
  * right of the direction of travel; every line runs from About at the top
  * outward to its end). Corners are rounded with CORNER_RADIUS.
  *
- * Organisation: line 5 (Résumé) is a straight spine at x = 228 that calls at
- * every station. Each area carries only its own lines:
- *   About, Case studies   1, 2, 3, 4, 5
- *   Labs                  4, 5
- *   Writing, Résumé       5
+ * Organisation: the Résumé line is a straight spine at x = 228 that calls at
+ * every page. The Case studies line runs with it from About to the Case
+ * studies station, then branches off and calls at each project (the project
+ * stops are defined in content/caseStudies.ts).
  * Lines turn only at 45° / 90°. Coordinates are in the 460 × 900 map space
  * (the header covers y < 96).
  *
@@ -19,7 +18,7 @@
  */
 import type { Pt } from '../geometry/path';
 
-export type LineId = 'l1' | 'l2' | 'l3' | 'l4' | 'l5';
+export type LineId = 'cs' | 'resume';
 
 export interface Line {
   id: LineId;
@@ -31,8 +30,8 @@ export interface Line {
   name: string;
   /** Shorter name for the map's line ends. */
   short: string;
-  /** Pages the line appears on, for the About board. */
-  appearsOn: string;
+  /** What the line stops at, for the About board. */
+  stops: string;
   lane: number;
   /** Optional placement of the end label, relative to the line's end point. */
   endLabel?: { dx: number; dy: number; anchor: 'start' | 'end' };
@@ -45,8 +44,8 @@ export interface Line {
 export const LANE = 9;
 export const LINE_WIDTH = 8;
 export const CORNER_RADIUS = 20;
-/** Collapsed bundle: lane 0 sits at this x; lanes are COLLAPSED_LANE px apart (lanes −3…+1 centre on 64). */
-export const COLLAPSED_X = 55;
+/** Collapsed bundle: lane 0 sits at this x; lanes are COLLAPSED_LANE px apart (lanes 0 and −1 centre on 64). */
+export const COLLAPSED_X = 60;
 export const COLLAPSED_LANE = 9;
 
 const TOP: Pt = [228, 132];
@@ -54,32 +53,19 @@ const TOP: Pt = [228, 132];
 /** Drawing order (also the line-draw stagger order on first load). */
 export const LINES: Line[] = [
   {
-    id: 'l1', order: 1, colour: '#E4473C', ink: '#fff', name: 'Future of Wealth Advisory', short: 'Future of Wealth', appearsOn: 'Case studies',
-    lane: -3,
-    centre: [TOP, [228, 348], [276, 396], [412, 396]],
-    collapsedEndY: 380,
-  },
-  {
-    id: 'l2', order: 2, colour: '#EE6A2C', ink: '#fff', name: 'Fully Paid Lending', short: 'Fully Paid Lending', appearsOn: 'Case studies',
-    lane: -2,
-    centre: [TOP, [228, 396], [276, 444], [412, 444]],
-    collapsedEndY: 420,
-  },
-  {
-    id: 'l3', order: 3, colour: '#EDB12A', ink: '#1B1E22', name: 'New Account Opening', short: 'Account Opening', appearsOn: 'Case studies',
+    // The parent line for the work: leaves About with the spine, calls at Case
+    // studies, then branches off and stops at each project in turn.
+    id: 'cs', order: 1, colour: '#E4473C', ink: '#fff', name: 'Case studies', short: 'Case studies',
+    stops: 'Fully Paid Lending, Future of Wealth Advisory, New Account Opening, Purple Panda Rentals',
     lane: -1,
-    centre: [TOP, [228, 444], [276, 492], [412, 492]],
-    collapsedEndY: 460,
+    centre: [TOP, [228, 348], [300, 420], [300, 644]],
+    collapsedEndY: 420,
+    endLabel: { dx: 16, dy: 19, anchor: 'start' },
   },
   {
-    id: 'l4', order: 4, colour: '#1F9C63', ink: '#fff', name: 'Purple Panda Rentals', short: 'Purple Panda', appearsOn: 'Case studies, Labs',
+    id: 'resume', order: 2, colour: '#2471C4', ink: '#fff', name: 'Résumé', short: 'Résumé',
+    stops: 'Every page',
     lane: 0,
-    centre: [TOP, [228, 584], [276, 632], [412, 632]],
-    collapsedEndY: 640,
-  },
-  {
-    id: 'l5', order: 5, colour: '#2471C4', ink: '#fff', name: 'Résumé', short: 'Résumé', appearsOn: 'Every page',
-    lane: 1,
     centre: [TOP, [228, 840]],
     collapsedEndY: 840,
   },
@@ -92,4 +78,4 @@ export const byOrder = (ids: readonly LineId[]) =>
   ids.map((id) => LINE_BY_ID[id]).sort((a, b) => a.order - b.order);
 
 /** The line the moving marker rides. */
-export const MARKER_LINE: LineId = 'l5';
+export const MARKER_LINE: LineId = 'resume';

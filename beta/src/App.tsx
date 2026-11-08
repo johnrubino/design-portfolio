@@ -60,6 +60,8 @@ export function App() {
   sheetRef.current = sheet;
 
   const navRef = useRef<HTMLElement>(null);
+  /** A project chosen on the map, shown once the ride to Case studies arrives. */
+  const pendingProject = useRef<string | null>(null);
   const logoRef = useRef<HTMLButtonElement>(null);
   /** Keyboard focus is inside the map (a mouse click's focus doesn't count). */
   const keyboardInMap = () => {
@@ -84,6 +86,11 @@ export function App() {
     },
     onArrive: (i) => {
       setAnnounce(`${STATIONS[i].name} page`);
+      if (pendingProject.current) {
+        const slug = pendingProject.current;
+        pendingProject.current = null;
+        requestAnimationFrame(() => showProject(slug));
+      }
       if (sheetRef.current) window.setTimeout(() => setSheet(false), 350);
       // A ride started from the open map closes it, unless keyboard focus is inside the map.
       if (isNarrow && !keyboardInMap()) setExpanded(false);
@@ -150,6 +157,29 @@ export function App() {
       }
     : {};
 
+  /** Scroll the Case studies page to a project's row and highlight it briefly. */
+  const showProject = (slug: string) => {
+    const row = document.getElementById(`project-${slug}`);
+    if (!row) return;
+    row.scrollIntoView({ block: 'center', behavior: reduced ? 'auto' : 'smooth' });
+    row.classList.remove('flash');
+    void row.offsetWidth; // restart the highlight
+    row.classList.add('flash');
+  };
+  const casesIndex = STATIONS.findIndex((s) => s.id === 'cases');
+  const onProject = (slug: string) => {
+    setHover(-1);
+    if (state.moving || state.morph) return;
+    if (state.cur === casesIndex) {
+      showProject(slug);
+      if (isNarrow) setOpen(false);
+      if (sheetRef.current) window.setTimeout(() => setSheet(false), 200);
+      return;
+    }
+    pendingProject.current = slug;
+    go(casesIndex);
+  };
+
   const onGo = useCallback(
     (i: number) => {
       setHover(-1);
@@ -189,7 +219,7 @@ export function App() {
               logoRef={logoRef}
               onLogoClick={() => setOpen(state.collapsed)}
             />
-            <RouteMap ride={state} hover={hover} setHover={setHover} onGo={onGo} scale={mapScale} intro={!reduced} />
+            <RouteMap ride={state} hover={hover} setHover={setHover} onGo={onGo} onProject={onProject} scale={mapScale} intro={!reduced} />
           </div>
         </nav>
       )}
@@ -215,6 +245,7 @@ export function App() {
           hover={hover}
           setHover={setHover}
           onGo={onGo}
+          onProject={onProject}
           scale={sheetScale}
           offsetX={Math.max(0, (vw - 460 * sheetScale) / 2)}
         />

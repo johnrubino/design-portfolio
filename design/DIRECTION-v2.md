@@ -93,3 +93,11 @@ Labs and Writing are pages, not bodies of work, so the Colllective Labs and Desi
 
 ## v2.11: expanded map centred
 The expanded map is centred in its 460px space, with equal room left and right (measured at 84 / 83px at 1440px). `RouteMap.tsx` measures the lines, the end discs and the station labels on load (and again once fonts are ready), then shifts the whole map layer sideways via `--shift-x`. The marker's path moves with it. Collapsed mode ignores the shift, and the shift animates with the expand/collapse morph. Because it's measured, the map stays centred after routes or labels change.
+
+## v2.12: Case studies as a parent line
+Each case study used to be its own line from About, so Case studies looked like a junction of separate lines. Now Case studies is **one line** (red, disc 1) with the projects as stops along it:
+- **Route:** the Case studies line leaves About alongside the Résumé spine (blue, disc 2) and stops at the Case studies station. It then branches off and runs down to the right, calling at Fully Paid Lending, Future of Wealth Advisory, New Account Opening and Purple Panda Rentals, and ends in its disc.
+- **Clicking a project stop:** the marker rides to Case studies, then the page scrolls to that project's row and highlights it. If you're already on Case studies, it just scrolls and highlights.
+- **Data:** project stops are defined in `content/caseStudies.ts` (`slug`, `mapLabel`, `stop`). Lines are now just `cs` and `resume` in `content/lines.ts`.
+- **Pages:** case-study rows show a small stop mark (a run of the red line with a station dot) instead of separate discs. The About board lists the two lines and what each one stops at.
+- **Labs, Writing and Résumé** sit on the Résumé line only.

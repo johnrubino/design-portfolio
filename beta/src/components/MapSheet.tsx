@@ -15,6 +15,7 @@ export function MapSheet({
   hover,
   setHover,
   onGo,
+  onProject,
   scale,
   offsetX,
 }: {
@@ -24,6 +25,7 @@ export function MapSheet({
   hover: number;
   setHover: (i: number) => void;
   onGo: (i: number) => void;
+  onProject: (slug: string) => void;
   scale: number;
   offsetX: number;
 }) {
@@ -45,6 +47,7 @@ export function MapSheet({
             hover={hover}
             setHover={setHover}
             onGo={onGo}
+            onProject={onProject}
             scale={scale}
             intro={false}
           />

@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef, useState, type CSSProperties } from 'react';
 import { LINES, LINE_WIDTH, MARKER_LINE } from '../../content/lines';
 import { STATIONS } from '../../content/stations';
-import { BUILT_LINES, BUILT_STATIONS, MARKER_PATH_C, MARKER_PATH_E, type Marker } from '../../geometry/network';
+import { BUILT_LINES, BUILT_PROJECT_STOPS, BUILT_STATIONS, MARKER_PATH_C, MARKER_PATH_E, type Marker } from '../../geometry/network';
 import type { RideState } from '../../ride/useRide';
 import { RIDE_EASE } from '../../ride/timing';
 import { MapBase } from './MapBase';
@@ -12,6 +12,8 @@ export interface RouteMapProps {
   hover: number;
   setHover: (i: number) => void;
   onGo: (i: number) => void;
+  /** A project stop on the Case studies line was chosen. */
+  onProject: (slug: string) => void;
   /** Uniform scale of the map below the sign (fits short viewports). */
   scale: number;
   /** Play the first-load line draw and fades. */
@@ -23,7 +25,9 @@ export interface RouteMapProps {
  * Purely a view of ride state. Everything is laid out in 460 × 900 map space
  * and scaled as one layer, so the marker's offset-path stays aligned.
  */
-export function RouteMap({ ride, hover, setHover, onGo, scale, intro }: RouteMapProps) {
+const CASES = STATIONS.findIndex((s) => s.id === 'cases');
+
+export function RouteMap({ ride, hover, setHover, onGo, onProject, scale, intro }: RouteMapProps) {
   const { collapsed, moving, cur, target, morph, T } = ride;
   const hl = hover >= 0 ? STATIONS[hover].lines : null;
   const leave = () => setHover(-1);
@@ -46,7 +50,7 @@ export function RouteMap({ ride, hover, setHover, onGo, scale, intro }: RouteMap
         if (b.endDir[0] > 0.5) max = Math.max(max, b.end[0] + 24);
         if (b.endDir[0] < -0.5) min = Math.min(min, b.end[0] - 24);
       }
-      layerRef.current?.querySelectorAll<HTMLElement>('.labels .stop').forEach((el) => {
+      layerRef.current?.querySelectorAll<HTMLElement>('.labels .stop, .labels .pstop').forEach((el) => {
         min = Math.min(min, el.offsetLeft);
         max = Math.max(max, el.offsetLeft + el.offsetWidth);
       });
@@ -98,6 +102,10 @@ export function RouteMap({ ride, hover, setHover, onGo, scale, intro }: RouteMap
                 <StationDots key={s.id} m={s.expanded} />
               ))}
               <LineEnds />
+              {/* Project stops on the Case studies line */}
+              {BUILT_PROJECT_STOPS.map((p) => (
+                <circle key={p.slug} cx={p.x} cy={p.y} r={3.6} fill="var(--ink)" stroke="#fff" strokeWidth={1.2} />
+              ))}
             </g>
             <g className="col-only">
               {BUILT_STATIONS.map((s) => (
@@ -122,6 +130,22 @@ export function RouteMap({ ride, hover, setHover, onGo, scale, intro }: RouteMap
         {!moving && <HereCapsule key={`${cur}-${collapsed}`} m={collapsed ? BUILT_STATIONS[cur].collapsed : BUILT_STATIONS[cur].expanded} />}
 
         <div className="exp-only labels" inert={collapsed}>
+          {BUILT_PROJECT_STOPS.map((p) => (
+            <button
+              key={p.slug}
+              type="button"
+              className="pstop signage"
+              aria-label={`${p.title}, on the Case studies page`}
+              onClick={() => onProject(p.slug)}
+              onMouseEnter={() => setHover(CASES)}
+              onMouseLeave={leave}
+              onFocus={() => setHover(CASES)}
+              onBlur={leave}
+              style={{ left: p.x + 12, top: p.y }}
+            >
+              {p.label}
+            </button>
+          ))}
           {STATIONS.map((st, i) => {
             const b = BUILT_STATIONS[i];
             const active = !moving && cur === i;

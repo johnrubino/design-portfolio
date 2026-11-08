@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { LANE, LINES, LINE_WIDTH } from '../content/lines';
 import { STATIONS } from '../content/stations';
-import { BUILT_LINES, BUILT_STATIONS, STATION_TOL } from './network';
+import { BUILT_LINES, BUILT_PROJECT_STOPS, BUILT_STATIONS, STATION_TOL } from './network';
+import { CASE_STUDIES } from '../content/caseStudies';
 import { dist, segmentContaining, signature, type Pt } from './path';
 
 const angleOf = (a: Pt, b: Pt) => ((Math.atan2(b[1] - a[1], b[0] - a[0]) * 180) / Math.PI + 360) % 360;
@@ -69,5 +70,16 @@ describe('route network geometry', () => {
         expect(line.collapsedEndY, `${id} at ${st.id}`).toBeGreaterThanOrEqual(st.collapsedY);
       }
     }
+  });
+
+  it('project stops sit on the Case studies line, in order, clear of its corners', () => {
+    const cs = LINES.find((l) => l.id === 'cs')!;
+    for (const c of CASE_STUDIES) {
+      expect(segmentContaining(cs.centre, c.stop), c.slug).toBeGreaterThanOrEqual(0);
+      const nearest = Math.min(...cs.centre.slice(1, -1).map((v) => dist(v, c.stop)));
+      expect(nearest, c.slug).toBeGreaterThan(40);
+    }
+    const ys = BUILT_PROJECT_STOPS.map((p) => p.y);
+    expect([...ys].sort((a, b) => a - b)).toEqual(ys);
   });
 });

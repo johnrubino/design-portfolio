@@ -11,12 +11,12 @@ export function About() {
       <Reveal i={4} as="p" className="body">{ABOUT.body}</Reveal>
       <Reveal i={5} className="board">
         <table>
-          <caption className="sr-only">Lines leaving this station</caption>
+          <caption className="sr-only">Lines on the map</caption>
           <thead>
             <tr className="board-h mono">
               <th scope="col">{ABOUT.board.line}</th>
-              <th scope="col">{ABOUT.board.project}</th>
-              <th scope="col" className="b-to">{ABOUT.board.appearsOn}</th>
+              <th scope="col">{ABOUT.board.name}</th>
+              <th scope="col" className="b-to">{ABOUT.board.stops}</th>
             </tr>
           </thead>
           <tbody>
@@ -27,7 +27,7 @@ export function About() {
                   <span className="sr-only">Line {l.order}</span>
                 </td>
                 <td className="b-name">{l.name}</td>
-                <td className="mono b-to">{l.appearsOn}</td>
+                <td className="mono b-to b-stops">{l.stops}</td>
               </tr>
             ))}
           </tbody>

@@ -1,8 +1,13 @@
-import type { LineId } from './lines';
+import type { Pt } from '../geometry/path';
 
 export interface CaseStudy {
-  line: LineId;
+  /** Used for the row's anchor (#project-<slug>). */
+  slug: string;
   title: string;
+  /** Name at the project's stop on the Case studies line. */
+  mapLabel: string;
+  /** The stop's position on the Case studies line's centreline (map space). */
+  stop: Pt;
   /** Role · year line. */
   meta: string;
   summary: string;
@@ -13,29 +18,37 @@ export const CASES_INTRO =
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
-    line: 'l2',
+    slug: 'fully-paid-lending',
     title: 'Fully Paid Lending',
+    mapLabel: 'Fully Paid Lending',
+    stop: [300, 468],
     meta: 'Lead product designer · Launched 2026',
     summary:
       'An opportunity view that shows advisors which positions qualify for securities lending, and lets them enroll clients from the book they already work in.',
   },
   {
-    line: 'l1',
+    slug: 'future-of-wealth-advisory',
     title: 'Future of Wealth Advisory',
+    mapLabel: 'Future of Wealth',
+    stop: [300, 516],
     meta: 'Vision work · 2026',
     summary:
       'An AI-first workspace for advisors, organised around the work they do in a day instead of the menus of the systems behind it.',
   },
   {
-    line: 'l3',
+    slug: 'new-account-opening',
     title: 'New Account Opening',
+    mapLabel: 'New Account Opening',
+    stop: [300, 564],
     meta: 'Product designer · In progress',
     summary:
       'Opening and funding accounts across clearing firms, rebuilt so fewer forms bounce back for missing information.',
   },
   {
-    line: 'l4',
+    slug: 'purple-panda-rentals',
     title: 'Purple Panda Rentals',
+    mapLabel: 'Purple Panda',
+    stop: [300, 612],
     meta: 'Founder · Sunset',
     summary: 'A rental business I started, designed and ran end to end, from booking flow to operations.',
   },
