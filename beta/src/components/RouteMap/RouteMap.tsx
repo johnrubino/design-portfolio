@@ -75,7 +75,7 @@ export function RouteMap({ ride, hover, setHover, onGo, onProject, scale, intro 
       <div className="map-layer" ref={layerRef}>
         <svg aria-hidden="true" className="map-svg" width="460" height="900" viewBox="0 0 460 900">
           <MapBase />
-          <g className="lines">
+          <g className="lines" filter="url(#print-ink)">
             {BUILT_LINES.map((b, i) => (
               <path
                 key={b.line.id}

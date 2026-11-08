@@ -29,6 +29,22 @@ export function MapBase() {
         <mask id="seam-fade" maskUnits="userSpaceOnUse" x="0" y="0" width="460" height="900">
           <rect x="0" y="0" width="460" height="900" fill="url(#seam-grad)" />
         </mask>
+        {/* Printed-ink texture for the lines, after the 1972 map in print:
+            1) edges roughened very slightly, 2) fine speckle where ink didn't
+            take, 3) a soft uneven tone across the run of each line. */}
+        <filter id="print-ink" x="-4%" y="-2%" width="108%" height="104%" colorInterpolationFilters="sRGB">
+          <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" seed="7" result="grain" />
+          <feDisplacementMap in="SourceGraphic" in2="grain" scale="0.7" xChannelSelector="R" yChannelSelector="G" result="rough" />
+          <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -4 0 0 0 3.25" result="speck" />
+          <feComposite in="rough" in2="speck" operator="in" result="inked" />
+          <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="11" result="mottle" />
+          <feColorMatrix in="mottle" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0.3 0 0 0 -0.1" result="wash" />
+          <feComposite in="wash" in2="inked" operator="in" result="faded" />
+          <feMerge>
+            <feMergeNode in="inked" />
+            <feMergeNode in="faded" />
+          </feMerge>
+        </filter>
       </defs>
       <g className="exp-only" mask="url(#seam-fade)">
         <rect x="0" y="96" width="460" height="804" fill="url(#grid-dots)" />
