@@ -22,7 +22,8 @@
   .lede { font-size: 24px; }
   .dsign { --ds-m: 56px; }
   .ds-name { font-size: clamp(26px, 8vw, 40px); }
-  .ds-title { padding: 8px 10px 10px; }
+  .ds-title { padding: 14px 10px 10px; }
+  .ds-title::before { top: 6px; height: 1.5px; }
   .ds-arrow .ar { width: 32px; height: 32px; }
   .ds-disc .disc { width: 50px; height: 50px; }
   .ds-disc { padding-right: 6px; }

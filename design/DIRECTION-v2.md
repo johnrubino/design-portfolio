@@ -144,3 +144,6 @@ Following the 179 Street / Euclid Avenue sign (manual p. 76), the header is now 
 - **Top band:** removed, since the black title block now carries that weight.
 
 Module order is unchanged: disc, page name, then ← →.
+
+## v3.11: white rule in the header
+A thin white rule (2px, 8px from the top; 1.5px on phones) spans the full width of the black page-name block, above the name, as on the manual's signs.
