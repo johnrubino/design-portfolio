@@ -113,3 +113,6 @@ The beta now follows the live site's information architecture (johnrubino.design
   - **Résumé** (blue, 3): the spine through every page.
 - **Project stops** on either line ride to that page, then scroll to and highlight the project.
 - **Station labels** for pages sit in a column to the left of the spine; project names sit to the right of their lines.
+
+## v3.1: station-sign page headers
+Following a comment on the preview, every page now opens with a **station sign** in the same form as the Next sign at the bottom: the page's line disc, then a dark plate reading "Line N · Name" above the page name (Home: "Line 1 · Work / John Rubino"; Labs: "Line 2 · Labs"; About, Writing and Résumé: "Line 3 · Résumé"). It replaces the orange page-name plate. The roll-up animation and focus-on-arrival moved to the new heading, and the `--title` token is gone.

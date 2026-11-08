@@ -1,6 +1,7 @@
 import type { MouseEvent, ReactNode, RefObject } from 'react';
 import { SITE } from '../../content/site';
 import { STATIONS } from '../../content/stations';
+import { LINE_BY_ID } from '../../content/lines';
 import { hrefFor } from '../../ride/routing';
 import { Arrow } from '../Arrow';
 import { Disc } from '../Disc';
@@ -35,9 +36,23 @@ export function ManualPage({
 
   return (
     <div className="page">
-      <h1 className="ttl signage" tabIndex={-1} ref={titleRef}>
-        <span className="ttl-in">{st.plate ?? st.name}</span>
-      </h1>
+      {/* Page header: the station sign, in the same form as the Next sign —
+          the line's disc, then a dark plate with the line and the page name. */}
+      <header className="psign">
+        <span className="sg-chip">
+          <Disc line={st.mainLine} size={96} />
+        </span>
+        <span className="sg-p">
+          <span className="sg-l">
+            <span className="sg-k">
+              Line {LINE_BY_ID[st.mainLine].order} · {LINE_BY_ID[st.mainLine].name}
+            </span>
+            <h1 className="psign-n signage" tabIndex={-1} ref={titleRef}>
+              <span className="ttl-in">{st.plate ?? st.name}</span>
+            </h1>
+          </span>
+        </span>
+      </header>
 
       {children}
 

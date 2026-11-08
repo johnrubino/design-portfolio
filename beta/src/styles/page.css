@@ -2,16 +2,16 @@
 .page { max-width: 1180px; }
 
 /* Page-name plate */
-.ttl {
-  display: inline-block; margin: 0;
-  border: 1px solid var(--ink); border-top: 12px solid var(--sign-solid);
-  background: var(--glass); box-shadow: inset 0 1px 0 var(--glass-hi);
-  padding: 2px 22px 0 12px; overflow: hidden;
-  color: var(--title);
-  font-size: 80px; line-height: 1.04; font-weight: 500; letter-spacing: -.035em;
+/* Page header: a station sign (disc + dark plate), matching the Next sign. */
+.psign { display: flex; align-items: stretch; width: 100%; max-width: 860px; color: var(--on-ink); }
+.psign .sg-p { padding: 18px 26px 14px; }
+.psign-n {
+  overflow: hidden; padding-bottom: 2px;
+  font-size: 52px; line-height: 1.04; font-weight: 500; letter-spacing: -.03em; color: var(--on-ink);
 }
-.ttl:focus { outline: none; }
-.ttl:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }
+.psign-n:focus { outline: none; }
+.psign-n:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }
+.psign + .lede, .psign + .body { margin-top: 34px; }
 
 /* 3. Body */
 .lede { margin: 34px 0 0; font-size: 30px; line-height: 1.16; font-weight: 500; letter-spacing: -.02em; max-width: 560px; }

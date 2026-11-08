@@ -89,7 +89,7 @@ Each station in `src/content/stations.ts` has:
 - `label`: which side the label sits on, and the x of its inner edge.
 - Line ends point east, west or south automatically; set `endLabel` on a line to place its end label by hand.
 - `collapsedY`: the station's height in the collapsed bundle.
-- `mainLine`: the disc on the "Next" sign that points to this station.
+- `mainLine`: the line shown in this page's header sign ("Line N · Name"), and on the Next sign that points here.
 
 The expanded map centres itself: after any route or label change, `RouteMap.tsx` re-measures the content and shifts it so the space left and right is equal.
 
@@ -159,4 +159,4 @@ See `../design/DIRECTION-v2.md` for the full list. In short:
 - Route discs and station dots in the Vignelli manner, on a fictional schematic.
 - Frosted glass instead of 1972 paper: a translucent rail, backlit lines, dark-glass signs. The map has no panel of its own; it sits directly on the page, and the frosted rail appears on phones only.
 - The last stop is Résumé.
-- The page-name plate uses `--title` (`#C04A16`) so 80px names pass WCAG AA large-text contrast. Focus rings are 2px orange everywhere.
+- Each page opens with a station sign (line disc and dark plate) instead of a page-name plate. Focus rings are 2px orange everywhere.

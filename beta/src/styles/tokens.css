@@ -37,9 +37,6 @@
   --accent: #F0642A;
   --accent-hover: #C24A16;
   --halo: rgba(240, 100, 42, .38);
-  /* Page-name plate text: a deeper cut of the accent so 84px names pass
-     WCAG AA large-text contrast on --ground. */
-  --title: #C04A16;
   --focus: #F0642A;
 
   /* Rules */
