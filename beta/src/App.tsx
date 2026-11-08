@@ -30,10 +30,6 @@ const MAP_H = 900 - SIGN_H;
 
 const titleFor = (i: number) => (i === 0 ? SITE.titleSuffix : `${STATIONS[i].name} · ${SITE.titleSuffix}`);
 
-/** Hover intent: a short pause before opening, a longer one before closing. */
-const OPEN_DELAY = 120;
-const CLOSE_DELAY = 280;
-
 const initialCollapsed = () => window.matchMedia(NARROW).matches;
 
 function useViewport() {
@@ -65,9 +61,6 @@ export function App() {
 
   const navRef = useRef<HTMLElement>(null);
   const logoRef = useRef<HTMLButtonElement>(null);
-  const overMap = useRef(false);
-  const hoverTimer = useRef<number | undefined>(undefined);
-  const lastPointer = useRef('mouse');
   /** Keyboard focus is inside the map (a mouse click's focus doesn't count). */
   const keyboardInMap = () => {
     const a = document.activeElement;
@@ -92,8 +85,8 @@ export function App() {
     onArrive: (i) => {
       setAnnounce(`${STATIONS[i].name} page`);
       if (sheetRef.current) window.setTimeout(() => setSheet(false), 350);
-      // A ride started from the open map (touch, keyboard): close it unless the pointer is still over it.
-      if (isNarrow && !overMap.current && !keyboardInMap()) setExpanded(false);
+      // A ride started from the open map closes it, unless keyboard focus is inside the map.
+      if (isNarrow && !keyboardInMap()) setExpanded(false);
     },
   });
 
@@ -118,53 +111,40 @@ export function App() {
       firstBreakpoint.current = false;
       return;
     }
-    window.clearTimeout(hoverTimer.current);
     if (!isMobile) setCollapsed(isNarrow);
   }, [isNarrow, isMobile, setCollapsed]);
 
-  // Narrow screens: the map opens as a floating panel on hover, logo focus or a tap on the logo.
-  const request = useCallback(
-    (open: boolean, delay: number) => {
-      window.clearTimeout(hoverTimer.current);
+  // Narrow screens: clicking the logo opens the map as a floating panel over the page.
+  const setOpen = useCallback(
+    (open: boolean) => {
       if (!isNarrow) return;
       if (!open) setHover(-1);
-      hoverTimer.current = window.setTimeout(() => setExpanded(open), delay);
+      setExpanded(open);
     },
     [isNarrow, setExpanded],
   );
-  useEffect(() => () => window.clearTimeout(hoverTimer.current), []);
 
   const flyoutOpen = isNarrow && !state.collapsed;
   // A tap outside the open map closes it.
   useEffect(() => {
     if (!flyoutOpen) return;
     const onDown = (e: globalThis.PointerEvent) => {
-      if (!navRef.current?.contains(e.target as Node)) request(false, 0);
+      if (!navRef.current?.contains(e.target as Node)) setOpen(false);
     };
     document.addEventListener('pointerdown', onDown);
     return () => document.removeEventListener('pointerdown', onDown);
-  }, [flyoutOpen, request]);
+  }, [flyoutOpen, setOpen]);
 
   const navHandlers = isNarrow
     ? {
-        // Open on movement, not mere presence: a cursor that happens to rest
-        // where the map renders (e.g. on page load) shouldn't pop it open.
-        onPointerMove: (e: React.PointerEvent) => {
-          if (e.pointerType !== 'mouse' || overMap.current) return;
-          overMap.current = true;
-          request(true, OPEN_DELAY);
-        },
-        onPointerLeave: (e: React.PointerEvent) => {
-          if (e.pointerType !== 'mouse') return;
-          overMap.current = false;
-          if (!keyboardInMap()) request(false, CLOSE_DELAY);
-        },
+        // Tabbing out of the open map closes it.
         onBlur: (e: React.FocusEvent) => {
-          if (!overMap.current && !navRef.current?.contains(e.relatedTarget as Node | null)) request(false, 0);
+          const to = e.relatedTarget as Node | null;
+          if (to && !navRef.current?.contains(to)) setOpen(false);
         },
         onKeyDown: (e: React.KeyboardEvent) => {
           if (e.key !== 'Escape' || state.collapsed) return;
-          request(false, 0);
+          setOpen(false);
           logoRef.current?.focus();
         },
       }
@@ -207,21 +187,7 @@ export function App() {
               interactive={isNarrow}
               expanded={!state.collapsed}
               logoRef={logoRef}
-              onLogoPointerDown={(e) => {
-                lastPointer.current = e.pointerType;
-              }}
-              onLogoFocus={(e) => {
-                // Focus arriving from inside the map (e.g. Escape returning it here) doesn't re-open it.
-                if (navRef.current?.contains(e.relatedTarget as Node | null)) return;
-                request(true, 0);
-              }}
-              onLogoClick={(e) => {
-                // Mouse: hover already opens it. Touch and keyboard: the logo toggles.
-                const keyboard = e.detail === 0;
-                if (!keyboard && lastPointer.current === 'mouse') request(true, 0);
-                else request(state.collapsed, 0);
-                lastPointer.current = 'mouse';
-              }}
+              onLogoClick={() => setOpen(state.collapsed)}
             />
             <RouteMap ride={state} hover={hover} setHover={setHover} onGo={onGo} scale={mapScale} intro={!reduced} />
           </div>

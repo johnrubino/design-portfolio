@@ -142,7 +142,7 @@ The repo-root `.vercelignore` keeps `beta/` and `design/` out of the main site's
 | Width | Behaviour |
 |---|---|
 | ≥ 1280 px | Full layout: the expanded map is the only navigation, and the page starts at the top. There is no collapse control and no top navigation. |
-| 900–1279 px | The map is collapsed. Hovering the logo or the line bundle opens it as a floating frosted panel over the page (no layout shift); it closes when the pointer leaves. Keyboard: focus the logo to open, Escape to close. Touch: tap the logo. |
+| 900–1279 px | The map is collapsed. Clicking or tapping the logo opens it as a floating frosted panel over the page (no layout shift). Click the logo again, click outside, press Escape or pick a station to close it. |
 | < 900 px | The map is hidden and the page rail becomes the navigation (it scrolls sideways). A **Map** button opens the full route map as a sheet; the ride plays there, then the sheet closes. |
 
 On windows shorter than 900 px, the whole map layer (lines, labels and marker) scales down together, so the marker stays on its line.

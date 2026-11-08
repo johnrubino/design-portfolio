@@ -60,3 +60,6 @@ Following a comment on the preview, the "John Rubino / Product designer" block a
 - **Mid-ride requests:** an open/close request during a ride or morph is applied when it finishes (`setExpanded` in `useRide.ts`).
 - **Morph speed:** the expand/collapse morph is now 480ms (`--morph-ms`, `MORPH_MS`).
 - **Phones:** the logo also replaces the name in the phone bar (light version) and the map sheet header. The remembered collapse preference (`localStorage`) was removed.
+
+## v2.7: open on click, not hover
+On narrow screens (900–1279px) the map now opens when you **click or tap the logo**, not on hover. It stays open until you click the logo again, click outside the map, press Escape, or ride to a station (it closes on arrival, unless you're moving through the map with the keyboard). Keyboard: focusing the logo doesn't open it; Enter or Space does. The collapsed bundle keeps its small hover labels. The hover-intent timers were removed.
