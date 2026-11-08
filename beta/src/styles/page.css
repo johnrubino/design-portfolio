@@ -2,7 +2,7 @@
 .page { max-width: 1180px; }
 
 /* Page-name plate */
-/* Page header: a station sign (disc + dark plate), matching the Next sign. */
+/* Page header: a station sign (disc + dark plate). */
 .psign { display: flex; align-items: stretch; width: 100%; max-width: 860px; color: var(--on-ink); }
 .psign .sg-p { padding: 18px 26px 14px; }
 .psign-n {
@@ -87,11 +87,9 @@
 .contact { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 30px; font-size: 17px; font-weight: 500; }
 .contact a { text-underline-offset: 4px; }
 
-/* 4. Next sign */
-.foot { margin-top: 56px; }
-.sign { display: flex; align-items: stretch; width: 100%; text-decoration: none; color: var(--on-ink); }
-.sign:hover { color: var(--on-ink); }
-.sign:focus-visible { outline-offset: 4px; }
+/* Station-sign parts (disc + dark plate), used by the page header */
+.foot { margin-top: 64px; }
+.foot .mf { margin-top: 0; }
 .sg-chip { flex: none; display: flex; margin-right: 6px; }
 .sg-chip .disc { width: 96px; height: 96px; }
 .sg-p {
@@ -102,9 +100,6 @@
 .sg-p::before { content: ''; position: absolute; left: 0; right: 0; top: 7px; height: 1px; background: var(--on-ink); opacity: .55; }
 .sg-l { display: flex; flex-direction: column; gap: 6px; }
 .sg-k { font-size: 12px; color: var(--on-ink-2); }
-.sg-n { font-size: 36px; font-weight: 500; letter-spacing: -.025em; line-height: 1; }
-.sign .ar { flex: none; transition: transform 380ms var(--ease-enter); }
-.sign:hover .ar { transform: translateX(8px); }
 
 /* 5. Footer */
 .mf {

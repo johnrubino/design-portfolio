@@ -116,3 +116,6 @@ The beta now follows the live site's information architecture (johnrubino.design
 
 ## v3.1: station-sign page headers
 Following a comment on the preview, every page now opens with a **station sign** in the same form as the Next sign at the bottom: the page's line disc, then a dark plate reading "Line N · Name" above the page name (Home: "Line 1 · Work / John Rubino"; Labs: "Line 2 · Labs"; About, Writing and Résumé: "Line 3 · Résumé"). It replaces the orange page-name plate. The roll-up animation and focus-on-arrival moved to the new heading, and the `--title` token is gone.
+
+## v3.2: no Next tiles
+Following a comment on the preview, the "Next / Back to start" tiles at the bottom of each page are removed. Pages end with the footer, and the map (or the phone rail) is the only way to move between pages, as the original concept intended.

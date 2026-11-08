@@ -34,7 +34,6 @@
   .post { flex-direction: column; gap: 4px; }
   .sg-chip .disc { width: 64px; height: 64px; }
   .sg-p { padding: 16px 16px 12px; }
-  .sg-n { font-size: 26px; }
   .mf { grid-template-columns: 1fr 1fr; }
 
   /* Full-screen route map sheet */
