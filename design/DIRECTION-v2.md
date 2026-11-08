@@ -82,3 +82,11 @@ Before, lines 5 and 6 ran straight through Case studies (and 6 through Labs) wit
 - **Line 7 (Résumé)** is now one straight spine (x = 228), so every ride travels in a straight line.
 
 Station labels for Case studies and Labs moved to the right of the spine. A new geometry test fails if any line passes through a station it doesn't stop at.
+
+## v2.10: five lines
+Labs and Writing are pages, not bodies of work, so the Colllective Labs and Design Thinker on Substack lines are removed (and with them the left-hand track from v2.9).
+- **Lines:** five now. 1 Future of Wealth Advisory, 2 Fully Paid Lending, 3 New Account Opening, 4 Purple Panda Rentals, 5 Résumé (renumbered from 7 so the discs run 1–5).
+- **Stations:** About and Case studies carry lines 1–5; Labs carries 4 and 5; Writing and Résumé sit on line 5 only.
+- **Map:** one straight Résumé spine, with the enterprise branches after Case studies and Purple Panda's branch after Labs. Writing and Résumé moved up to y 708 and 840.
+- **Collapsed bundle:** recentred under the logo (`COLLAPSED_X` 55).
+- **Next signs:** the Labs sign shows disc 4 and the Writing sign disc 5.

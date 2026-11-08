@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react';
-import { LINES, LINE_WIDTH } from '../../content/lines';
+import { LINES, LINE_WIDTH, MARKER_LINE } from '../../content/lines';
 import { STATIONS } from '../../content/stations';
 import { BUILT_LINES, BUILT_STATIONS, MARKER_PATH_C, MARKER_PATH_E, type Marker } from '../../geometry/network';
 import type { RideState } from '../../ride/useRide';
@@ -71,7 +71,7 @@ export function RouteMap({ ride, hover, setHover, onGo, scale, intro }: RouteMap
               {BUILT_STATIONS.map((s) => (
                 <StationDots key={s.id} m={s.collapsed} />
               ))}
-              {BUILT_LINES.filter((b) => b.line.id !== 'l7').map((b) => (
+              {BUILT_LINES.filter((b) => b.line.id !== MARKER_LINE).map((b) => (
                 <circle
                   key={b.line.id}
                   cx={b.collapsed[b.collapsed.length - 1].p[0]}
@@ -199,7 +199,7 @@ function HereCapsule({ m }: { m: Marker }) {
 function LineEnds() {
   return (
     <g>
-      {BUILT_LINES.filter((b) => b.line.id !== 'l7').map((b) => {
+      {BUILT_LINES.filter((b) => b.line.id !== MARKER_LINE).map((b) => {
         const [x, y] = b.end;
         const south = b.endDir[1] > 0.5;
         const west = b.endDir[0] < -0.5;

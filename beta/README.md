@@ -1,6 +1,6 @@
 # johnrubino.design — portfolio beta
 
-A working beta of johnrubino.design, laid out as a fictional line map. Each body of work is a **line**, each page is a **station**, and the map is the only navigation. Choosing a station sends a marker along line 7 (Résumé) while the page changes behind a colour wipe.
+A working beta of johnrubino.design, laid out as a fictional line map. Each body of work is a **line**, each page is a **station**, and the map is the only navigation. Choosing a station sends a marker along line 5 (Résumé) while the page changes behind a colour wipe.
 
 - **Current direction:** `../design/DIRECTION-v2.md`. It overrides the brief and prototype where they disagree: an abstract schematic, line chips, and a frosted-glass material instead of 1972 paper.
 
@@ -68,7 +68,7 @@ You edit centrelines and lanes, never raw SVG paths.
 The constants at the top of `src/content/lines.ts` set the Vignelli bundle: `LANE` (9, the distance between neighbouring lines), `LINE_WIDTH` (8, so lines sit 1px apart), `CORNER_RADIUS` (20), `COLLAPSED_X` (64) and `COLLAPSED_LANE` (9).
 
 Each line has:
-- `centre`: the centreline vertices in 460 × 900 map space. Turn only at 45° or 90°. Line 7 is a straight spine at x = 228. Every line starts on it at About, and lines 5 and 6 leave for their own track (x = 132) before Case studies, rejoining at their stations. Keep each station on only the lines that stop there: `npm test` fails if a line passes through a station without stopping.
+- `centre`: the centreline vertices in 460 × 900 map space. Turn only at 45° or 90°. Line 5 (Résumé) is a straight spine at x = 228 that calls at every station; every line starts on it at About. Keep each station on only the lines that stop there: `npm test` fails if a line passes through a station without stopping.
 - `lane`: the sideways offset in `LANE` steps. A positive lane is to the right of the direction of travel, which runs from About outward.
 - `collapsedEndY`: where the line stops in the collapsed bundle.
 - `order` and `short`: the number on the line's route disc (also its sort order), and the name shown at the line's end on the map.
@@ -101,8 +101,8 @@ idle ──go(i)──▶ depart ──T/2──▶ arrive ──T+40──▶ i
 idle ──toggle──▶ morph ──760ms──▶ idle
 ```
 
-- `T = clamp(800 + distance × 2, 1100, 2400)` ms. Distance is measured along line 7.
-- On `go`, one state update sets the target, `T` and the direction. The map marker (`offset-path` on line 7), the rail marker and the wipe all start from that update, with the same `T` and easing, so they stay in sync.
+- `T = clamp(800 + distance × 2, 1100, 2400)` ms. Distance is measured along line 5.
+- On `go`, one state update sets the target, `T` and the direction. The map marker (`offset-path` on line 5), the rail marker and the wipe all start from that update, with the same `T` and easing, so they stay in sync.
 - At `T/2` the wipe fully covers the content. The page swaps, scroll resets, and the URL is pushed.
 - Clicks are ignored mid-ride. Back/forward can't be ignored, because the URL has already changed, so it is queued and ridden on arrival.
 - With reduced motion: `T = 150`, no wipe, line draw or stagger. The marker jumps and the page crossfades.
