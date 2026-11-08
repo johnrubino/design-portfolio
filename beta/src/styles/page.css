@@ -22,6 +22,7 @@
 .ds-name:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }
 .ds-arrow { cursor: pointer; transition: background-color 160ms ease; }
 .ds-arrow:hover { background-color: rgba(26, 30, 36, .05); }
+.ds-title + .ds-arrow { margin-left: auto; }
 .ds-arrow:focus-visible { outline: 2px solid var(--focus); outline-offset: -4px; }
 .ds-arrow .ar { transition: transform 300ms var(--ease-enter); }
 .ds-prev .ar { transform: rotate(180deg); }

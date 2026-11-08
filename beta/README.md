@@ -159,4 +159,4 @@ See `../design/DIRECTION-v2.md` for the full list. In short:
 - Route discs and station dots in the Vignelli manner, on a fictional schematic.
 - Frosted glass instead of 1972 paper: a translucent rail, backlit lines, dark-glass signs. The map has no panel of its own; it sits directly on the page, and the frosted rail appears on phones only.
 - The last stop is Résumé.
-- Each page opens with a direction sign (back arrow, line disc, page name, forward arrow) whose arrows navigate between pages. Focus rings are 2px orange everywhere.
+- Each page opens with a direction sign (line disc, page name, then back and forward arrows) whose arrows navigate between pages. Focus rings are 2px orange everywhere.
