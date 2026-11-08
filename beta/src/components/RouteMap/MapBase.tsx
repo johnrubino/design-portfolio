@@ -34,11 +34,11 @@ export function MapBase() {
             take, 3) a soft uneven tone across the run of each line. */}
         <filter id="print-ink" x="-4%" y="-2%" width="108%" height="104%" colorInterpolationFilters="sRGB">
           <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" seed="7" result="grain" />
-          <feDisplacementMap in="SourceGraphic" in2="grain" scale="0.7" xChannelSelector="R" yChannelSelector="G" result="rough" />
-          <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -4 0 0 0 3.25" result="speck" />
+          <feDisplacementMap in="SourceGraphic" in2="grain" scale="0.35" xChannelSelector="R" yChannelSelector="G" result="rough" />
+          <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -6 0 0 0 5.35" result="speck" />
           <feComposite in="rough" in2="speck" operator="in" result="inked" />
           <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="11" result="mottle" />
-          <feColorMatrix in="mottle" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0.3 0 0 0 -0.1" result="wash" />
+          <feColorMatrix in="mottle" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0.14 0 0 0 -0.05" result="wash" />
           <feComposite in="wash" in2="inked" operator="in" result="faded" />
           <feMerge>
             <feMergeNode in="inked" />
