@@ -77,11 +77,18 @@ export const BUILT_LINES: BuiltLine[] = LINES.map(buildLine);
 const BUILT_BY_ID = Object.fromEntries(BUILT_LINES.map((b) => [b.line.id, b])) as Record<LineId, BuiltLine>;
 
 /** Where `line` passes the centreline point `at`, plus its direction there. */
+/** Station tolerance: a line's centreline may run up to one lane beside the station point. */
+export const STATION_TOL = LANE + 1;
+
 function lanePoint(line: Line, at: Pt): { p: Pt; dir: Pt } {
-  const i = segmentContaining(line.centre, at);
+  const i = segmentContaining(line.centre, at, STATION_TOL);
   if (i < 0) throw new Error(`Station point ${at} is not on the centreline of ${line.id}`);
-  const dir = unit(sub(line.centre[i + 1], line.centre[i]));
-  return { p: add(at, mul(rightNormal(dir), line.lane * LANE)), dir };
+  const a = line.centre[i];
+  const ab = sub(line.centre[i + 1], a);
+  const t = ((at[0] - a[0]) * ab[0] + (at[1] - a[1]) * ab[1]) / (ab[0] * ab[0] + ab[1] * ab[1]);
+  const onLine = add(a, mul(ab, Math.max(0, Math.min(1, t))));
+  const dir = unit(ab);
+  return { p: add(onLine, mul(rightNormal(dir), line.lane * LANE)), dir };
 }
 
 function marker(dots: { x: number; y: number; line: LineId; lane: number }[], angle: number, pad: number): Marker {

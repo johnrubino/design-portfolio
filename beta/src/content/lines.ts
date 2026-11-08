@@ -6,9 +6,14 @@
  * right of the direction of travel; every line runs from About at the top
  * outward to its end). Corners are rounded with CORNER_RADIUS.
  *
- * Centrelines share a trunk at x = 180, snap to a 24px module and turn only
- * at 45° / 90°. Coordinates are in the 460 × 900 map space (the header sign
- * covers y < 96).
+ * Organisation: line 7 (Résumé) is a straight spine at x = 228 that calls at
+ * every station. Each area carries only its own lines:
+ *   About        all seven lines start here
+ *   Case studies 1, 2, 3, 4, 7   (5 and 6 split off to their own track first)
+ *   Labs         4, 5, 7         (5 rejoins the spine here)
+ *   Writing      6, 7            (6 rejoins the spine here)
+ * Lines turn only at 45° / 90°. Coordinates are in the 460 × 900 map space
+ * (the header covers y < 96).
  *
  * To reroute a line, edit its `centre` vertices. The expanded map and the
  * collapsed bundle are both generated from them (src/geometry/network.ts).
@@ -30,6 +35,8 @@ export interface Line {
   /** Pages the line appears on, for the About board. */
   appearsOn: string;
   lane: number;
+  /** Optional placement of the end label, relative to the line's end point. */
+  endLabel?: { dx: number; dy: number; anchor: 'start' | 'end' };
   centre: Pt[];
   /** Where the line ends in the collapsed bundle (y in map space). */
   collapsedEndY: number;
@@ -43,51 +50,55 @@ export const CORNER_RADIUS = 20;
 export const COLLAPSED_X = 64;
 export const COLLAPSED_LANE = 9;
 
-const TOP: Pt = [180, 132];
+const TOP: Pt = [228, 132];
+/** Where lines 5 and 6 leave the spine for their own track, and that track's x. */
+const SPLIT: Pt = [228, 200];
+const TRACK = 132;
 
 /** Drawing order (also the line-draw stagger order on first load). */
 export const LINES: Line[] = [
   {
     id: 'l1', order: 1, colour: '#E4473C', ink: '#fff', name: 'Future of Wealth Advisory', short: 'Future of Wealth', appearsOn: 'Case studies',
     lane: -3,
-    centre: [TOP, [180, 348], [228, 396], [412, 396]],
+    centre: [TOP, [228, 348], [276, 396], [412, 396]],
     collapsedEndY: 380,
   },
   {
     id: 'l2', order: 2, colour: '#EE6A2C', ink: '#fff', name: 'Fully Paid Lending', short: 'Fully Paid Lending', appearsOn: 'Case studies',
     lane: -2,
-    centre: [TOP, [180, 396], [228, 444], [412, 444]],
+    centre: [TOP, [228, 396], [276, 444], [412, 444]],
     collapsedEndY: 420,
   },
   {
     id: 'l3', order: 3, colour: '#EDB12A', ink: '#1B1E22', name: 'New Account Opening', short: 'Account Opening', appearsOn: 'Case studies',
     lane: -1,
-    centre: [TOP, [180, 444], [228, 492], [412, 492]],
+    centre: [TOP, [228, 444], [276, 492], [412, 492]],
     collapsedEndY: 460,
   },
   {
-    id: 'l5', order: 5, colour: '#7A5CB2', ink: '#fff', name: 'Colllective Labs', short: 'Colllective Labs', appearsOn: 'Labs',
-    lane: 0,
-    centre: [TOP, [180, 492], [276, 588], [412, 588]],
+    id: 'l5', order: 5, colour: '#7A5CB2', ink: '#fff', name: 'Colllective Labs', short: 'Colllective', appearsOn: 'Labs',
+    lane: 2,
+    centre: [TOP, SPLIT, [TRACK, 296], [TRACK, 400], [228, 496], [228, 584], [180, 632], [156, 632]],
     collapsedEndY: 600,
+    endLabel: { dx: 0, dy: 22, anchor: 'start' },
   },
   {
     id: 'l4', order: 4, colour: '#1F9C63', ink: '#fff', name: 'Purple Panda Rentals', short: 'Purple Panda', appearsOn: 'Case studies, Labs',
-    lane: 1,
-    centre: [TOP, [180, 492], [324, 636], [412, 636]],
+    lane: 0,
+    centre: [TOP, [228, 584], [276, 632], [412, 632]],
     collapsedEndY: 640,
   },
   {
     id: 'l7', order: 7, colour: '#2471C4', ink: '#fff', name: 'Résumé', short: 'Résumé', appearsOn: 'Every page',
-    lane: 2,
-    centre: [TOP, [180, 492], [348, 660], [348, 852]],
-    collapsedEndY: 852,
+    lane: 1,
+    centre: [TOP, [228, 876]],
+    collapsedEndY: 876,
   },
   {
     id: 'l6', order: 6, colour: '#8C5B45', ink: '#fff', name: 'Design Thinker on Substack', short: 'Design Thinker', appearsOn: 'Writing',
     lane: 3,
-    centre: [TOP, [180, 492], [348, 660], [348, 780], [300, 828], [300, 866]],
-    collapsedEndY: 872,
+    centre: [TOP, SPLIT, [TRACK, 296], [TRACK, 624], [237, 729], [237, 832], [213, 856], [156, 856]],
+    collapsedEndY: 860,
   },
 ];
 

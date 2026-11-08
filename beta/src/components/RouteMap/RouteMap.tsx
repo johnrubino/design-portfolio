@@ -202,16 +202,23 @@ function LineEnds() {
       {BUILT_LINES.filter((b) => b.line.id !== 'l7').map((b) => {
         const [x, y] = b.end;
         const south = b.endDir[1] > 0.5;
+        const west = b.endDir[0] < -0.5;
         const line = LINES.find((l) => l.id === b.line.id)!;
-        const disc = south ? { x: x - 9, y: y + 6 } : { x: x + 6, y: y - 9 };
-        const label = south ? { x: x - 14, y: y + 19 } : { x: x - 2, y: y - 9 };
+        const disc = south ? { x: x - 9, y: y + 6 } : west ? { x: x - 24, y: y - 9 } : { x: x + 6, y: y - 9 };
+        const label = line.endLabel
+          ? { x: x + line.endLabel.dx, y: y + line.endLabel.dy, anchor: line.endLabel.anchor }
+          : south
+            ? { x: x - 14, y: y + 19, anchor: 'end' as const }
+            : west
+              ? { x: x - 28, y: y + 4, anchor: 'end' as const }
+              : { x: x - 2, y: y - 9, anchor: 'end' as const };
         return (
           <g key={line.id}>
             <circle cx={x} cy={y} r={3.2} fill="var(--ink)" />
             <svg x={disc.x} y={disc.y} width={18} height={18} overflow="visible">
               <Disc line={line.id} size={18} />
             </svg>
-            <text x={label.x} y={label.y} textAnchor="end" fontWeight={500} fontSize={10.5} fill="var(--ink)" className="signage">
+            <text x={label.x} y={label.y} textAnchor={label.anchor} fontWeight={500} fontSize={10.5} fill="var(--ink)" className="signage">
               {line.short}
             </text>
           </g>

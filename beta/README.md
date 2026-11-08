@@ -68,7 +68,7 @@ You edit centrelines and lanes, never raw SVG paths.
 The constants at the top of `src/content/lines.ts` set the Vignelli bundle: `LANE` (9, the distance between neighbouring lines), `LINE_WIDTH` (8, so lines sit 1px apart), `CORNER_RADIUS` (20), `COLLAPSED_X` (64) and `COLLAPSED_LANE` (9).
 
 Each line has:
-- `centre`: the centreline vertices in 460 × 900 map space. Turn only at 45° or 90°. Every line starts on the shared trunk at x = 180. The dot grid sits on a 24px module offset by 12, so vertices like 180, 348 and 492 land on dots.
+- `centre`: the centreline vertices in 460 × 900 map space. Turn only at 45° or 90°. Line 7 is a straight spine at x = 228. Every line starts on it at About, and lines 5 and 6 leave for their own track (x = 132) before Case studies, rejoining at their stations. Keep each station on only the lines that stop there: `npm test` fails if a line passes through a station without stopping.
 - `lane`: the sideways offset in `LANE` steps. A positive lane is to the right of the direction of travel, which runs from About outward.
 - `collapsedEndY`: where the line stops in the collapsed bundle.
 - `order` and `short`: the number on the line's route disc (also its sort order), and the name shown at the line's end on the map.
@@ -86,6 +86,7 @@ Both go through `rounded()` with the same vertex count, so the expanded and coll
 Each station in `src/content/stations.ts` has:
 - `at`: a point on the shared centreline. A station dot is drawn on every line in `lines`, joined by a bar.
 - `label`: which side the label sits on, and the x of its inner edge.
+- Line ends point east, west or south automatically; set `endLabel` on a line to place its end label by hand.
 - `collapsedY`: the station's height in the collapsed bundle.
 - `mainLine`: the disc on the "Next" sign that points to this station.
 

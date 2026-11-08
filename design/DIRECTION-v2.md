@@ -72,3 +72,13 @@ At John's request, the line markers and the lines go back to the Vignelli langua
 - **Line ends:** a black end dot, then the disc.
 
 The schematic plane (dot grid), frosted material, logo, copy and behaviour are unchanged.
+
+## v2.9: each area carries only its own lines
+Before, lines 5 and 6 ran straight through Case studies (and 6 through Labs) without stopping, so the stations looked like they spanned every line. The routes are reorganised so each station sits only on the lines that stop there:
+- **About:** all seven lines start here.
+- **Case studies:** right after About, lines 5 and 6 split off as a pair onto their own track down the left, so Case studies carries only lines 1, 2, 3, 4 and 7.
+- **Labs:** line 5 rejoins the spine here, so Labs carries lines 4, 5 and 7. Line 5 then ends in the space to the left.
+- **Writing:** line 6 rejoins here, so Writing carries lines 6 and 7. Line 6 then ends to the left.
+- **Line 7 (Résumé)** is now one straight spine (x = 228), so every ride travels in a straight line.
+
+Station labels for Case studies and Labs moved to the right of the spine. A new geometry test fails if any line passes through a station it doesn't stop at.
