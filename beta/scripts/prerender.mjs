@@ -37,7 +37,10 @@ rmSync(cssFile);
 html = html.replace('<script type="module" crossorigin', '<script type="module" fetchpriority="low" crossorigin');
 
 if (!html.includes('<!--app-->') || !html.includes('<!--preload-->')) throw new Error('index.html is missing its <!--app--> or <!--preload--> marker');
-html = html.replace('<!--preload-->', preloads).replace('<!--app-->', () => render());
+// The server render always writes absolute asset paths; match the page's base
+// so images also load when the build is served from a sub-path.
+const app = base === '/' ? render() : render().replaceAll('"/assets/', `"${base}assets/`);
+html = html.replace('<!--preload-->', preloads).replace('<!--app-->', () => app);
 writeFileSync(file, html);
 rmSync(ssr, { recursive: true, force: true });
 console.log(`prerendered ${file} (${(html.length / 1024).toFixed(1)} kB, ${preloads.split('\n').length} fonts preloaded)`);
