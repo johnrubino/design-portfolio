@@ -1,0 +1,84 @@
+/* The rail: dark so the yellow and tan lines keep their contrast. */
+.rail {
+  position: sticky; top: 0; z-index: 30;
+  width: 220px; flex: 0 0 220px; height: 100vh;
+  display: flex; flex-direction: column;
+  background-color: var(--rail); color: var(--paper);
+}
+.rail a { text-decoration: none; }
+.rail-head { padding: 24px 20px 4px; }
+.rail-head .name { font-family: var(--display); font-size: var(--t-16); font-weight: 650; letter-spacing: -.02em; }
+.rail-head .tag { margin-top: 2px; font-family: var(--mono); font-size: var(--t-12); color: var(--rail-muted); }
+
+.map-wrap {
+  flex: 1; min-height: 0; position: relative;
+  background-image: linear-gradient(rgba(255, 255, 255, .022) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .022) 1px, transparent 1px);
+  background-size: 24px 24px; background-position: -1px -1px;
+}
+/* 220 × 800 at full size; scales down as one piece on short windows. */
+#mapsvg { display: block; height: 100%; max-height: 800px; width: auto; max-width: 100%; overflow: visible; }
+
+/* Map type: horizontal only. */
+#mapsvg text { fill: var(--paper); }
+#mapsvg .t-mono { font-family: var(--mono); font-size: var(--t-12); font-weight: 400; }
+#mapsvg .t-station { font-family: var(--display); font-size: var(--t-16); font-weight: 650; letter-spacing: -.3px; }
+#mapsvg .t-station.dimmer { fill: #a8a39b; }
+#mapsvg .t-home { font-family: var(--display); font-size: var(--t-22); font-weight: 650; letter-spacing: -.5px; }
+#mapsvg .lbl { font-family: var(--sans); font-size: var(--t-12); font-weight: 400; fill: var(--rail-label); transition: fill .2s ease; }
+#mapsvg .code { fill: var(--ink); }
+#mapsvg .kicker, #mapsvg .yah { fill: var(--rail-muted); letter-spacing: .6px; }
+
+#mapsvg .base { stroke: var(--base-line); }
+#mapsvg .case { stroke: var(--rail-card); }
+#mapsvg .pill { fill: var(--paper); stroke: var(--rail); stroke-width: 2; }
+#mapsvg .end { fill: var(--rail); stroke: #8a867f; stroke-width: 2.5; }
+#mapsvg #train { fill: var(--paper); stroke: var(--rail); stroke-width: 1.5; opacity: 0; pointer-events: none; transition: opacity .2s; }
+#mapsvg a:focus-visible { outline: 2px solid var(--paper); outline-offset: 3px; border-radius: 4px; }
+
+/* Hover: the line lights, everything else on the map dims. Map only. */
+#mapsvg .ln { transition: opacity .25s ease; }
+#mapsvg .rt { transition: opacity .25s ease, filter .25s ease; }
+.map-wrap.dim #mapsvg .ln { opacity: .14; }
+.map-wrap.dim #mapsvg .ln.lit { opacity: 1; }
+.map-wrap.dim #mapsvg .field.lit { fill-opacity: .24; }
+#mapsvg .rt.lit { filter: drop-shadow(0 0 4px var(--c)); }
+#mapsvg .stop.lit .lbl { fill: var(--paper); }
+
+/* Preview card: overlays the content to the right of the rail. */
+.preview {
+  position: absolute; left: calc(100% + 14px); z-index: 40; width: 280px;
+  background: var(--paper); color: var(--ink); border-radius: 8px; padding: 12px 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
+  opacity: 0; transform: translateX(-6px); pointer-events: none;
+  transition: opacity .2s ease, transform .26s var(--ease-out), top .26s var(--ease-out);
+}
+.preview.show { opacity: 1; transform: none; }
+.preview::before { content: ""; position: absolute; left: -6px; top: var(--ay, 20px); width: 12px; height: 12px; background: var(--paper); transform: rotate(45deg); }
+.pv-k { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: var(--t-12); color: var(--muted); }
+.pv-k .ic { color: color-mix(in srgb, var(--c) 72%, var(--ink)); }
+.pv-t { font-family: var(--display); font-size: var(--t-22); font-weight: 650; letter-spacing: -.025em; line-height: 1.1; margin-top: 8px; }
+.pv-d { font-size: var(--t-12); font-weight: 400; line-height: 1.4; color: var(--body); margin-top: 4px; }
+.pv-s { display: flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: var(--t-12); margin-top: 8px; }
+
+.strip { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  #mapsvg #train { display: none; }
+  #mapsvg .ln, #mapsvg .rt, .preview { transition: none; }
+}
+
+/* Phones: a sticky strip of line badges on a thin gradient line. */
+@media (max-width: 760px) {
+  .app { display: block; }
+  .rail { width: 100%; height: auto; flex: none; flex-direction: row; align-items: center; gap: 12px; padding: 10px 16px; }
+  .rail-head { padding: 0; flex: none; }
+  .rail-head .name { white-space: nowrap; }
+  .rail-head .tag, .map-wrap { display: none; }
+  .strip { display: flex; align-items: center; gap: 10px; overflow-x: auto; position: relative; padding: 4px 2px; min-width: 0; scrollbar-width: none; }
+  .strip::-webkit-scrollbar { display: none; }
+  .strip::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 3px; margin-top: -1.5px; background: linear-gradient(90deg, var(--fowa), var(--fpl), var(--ppr), var(--labs), var(--write)); opacity: .6; }
+  .strip .st { position: relative; flex: none; font-family: var(--mono); font-size: var(--t-12); line-height: 18px; padding: 0 8px; border-radius: 9px; background: var(--c); color: var(--ink); }
+  /* A larger tap area than the 18px badge. */
+  .strip .st::after { content: ""; position: absolute; inset: -8px -5px; }
+  .strip .st-home { background: var(--paper); }
+}

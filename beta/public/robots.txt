@@ -1,0 +1,3 @@
+# Private beta: keep crawlers out. Replace with "Allow: /" when the site goes live.
+User-agent: *
+Disallow: /

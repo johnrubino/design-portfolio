@@ -1,68 +1,43 @@
-/* johnrubino.design beta — design tokens (the only place raw values live).
-   Material: frosted glass. A cool off-white ground lit from behind by faint
-   washes of the line colours; translucent, blurred panels with a bright
-   inner edge; thin crisp lines with a soft backlit glow; dark-glass signs. */
+/* v5 design tokens (brief §4). The only place raw colours live, apart from
+   the line colours in src/content/lines.ts, which the map and legend share. */
 :root {
-  /* Ground and the light behind the glass */
-  --ground: #E9EDF1;
-  --wash-1: rgba(36, 113, 196, .16);   /* blue, behind the map */
-  --wash-2: rgba(238, 106, 44, .12);   /* orange, low left */
-  --wash-3: rgba(122, 92, 178, .10);   /* purple, top right */
+  --stone: #ebe7de;
+  --ink: #141413;
+  --body: #3a3834;
+  --name: #7a3a28;
+  --paper: #f2efe8;
 
-  /* Glass */
-  --glass: rgba(246, 249, 252, .58);         /* frosted panel fill */
-  --glass-strong: rgba(246, 249, 252, .78);  /* bars content scrolls under */
-  --glass-blur: blur(22px) saturate(150%);
-  --glass-hi: rgba(255, 255, 255, .85);      /* bright inner edge */
-  --glass-shadow: 0 1px 0 rgba(255, 255, 255, .6) inset, 0 12px 40px -12px rgba(30, 45, 70, .18);
-  --slot: #F8FAFC;
-  --ds-rule: rgba(26, 30, 36, .38);         /* outline of the header's arrow modules */                           /* station slot fill */
-  --edge: rgba(26, 30, 36, .10);             /* hairline edges */
-  --grid-dot: rgba(26, 30, 36, .20);
-  --grid-cross: rgba(26, 30, 36, .26);
-  --rail: rgba(26, 30, 36, .14);
+  --rail: #161615;
+  --rail-card: #1d1d1c;
+  --rail-label: #c9c4bb;
+  --rail-muted: #8f8b84;
+  --base-line: #5a5752;
 
-  /* Ink: cool graphite for text, rules and markers */
-  --ink: #1A1E24;
-  --text-2: #3A414A;
-  --meta: #56606B;
+  /* Line colours: fixed, do not change. */
+  --fowa: #FF6B4A;
+  --fpl: #E8A317;
+  --ppr: #5B8CFF;
+  --labs: #B57BFF;
+  --write: #D4C09A;
 
-  /* Signs: dark glass with a hairline highlight */
-  --sign: rgba(16, 20, 26, .86);
-  --sign-solid: #12161B;
-  --sign-hi: rgba(255, 255, 255, .22);
-  --on-ink: #F1F4F7;
-  --on-ink-2: #A9B2BC;
+  /* Quiet text. The reference used 56% and 40% ink, which fail WCAG AA at
+     12px on stone; the brief asks for AA, so these are a little darker. */
+  --muted: rgba(20, 20, 19, .68);
+  --hair: rgba(20, 20, 19, .12);
+  --on-dark-muted: rgba(242, 239, 232, .62);
+  --on-dark-hair: rgba(242, 239, 232, .12);
 
-  /* Accent */
-  --accent: #F0642A;
-  --accent-hover: #C24A16;
-  --halo: rgba(240, 100, 42, .38);
-  --focus: #F0642A;
+  --display: 'Bricolage Grotesque', 'Bricolage Fallback', sans-serif;
+  --sans: 'Public Sans', 'Public Sans Fallback', sans-serif;
+  --mono: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
 
-  /* Rules */
-  --rule: rgba(26, 30, 36, .12);
-  --rule-strong: rgba(26, 30, 36, .22);
+  /* Type scale: only these four sizes exist (brief §5). */
+  --t-12: 12px;
+  --t-16: 16px;
+  --t-22: 22px;
+  --t-72: 72px;
 
-  /* Type: Archivo throughout. Signage text uses the semi-expanded width. */
-  --font: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  --sign-stretch: 112%;
-
-  /* Motion */
-  --ease-ride: cubic-bezier(.65, 0, .35, 1);
-  --morph-ms: 480ms;   /* expand/collapse; keep in step with MORPH_MS in ride/timing.ts */
-  --ease-enter: cubic-bezier(.2, .7, .1, 1);
-  --ease-roll: cubic-bezier(.16, 1, .3, 1);
-  --ease-pop: cubic-bezier(.2, 1.6, .4, 1);
-  --ease-wipe: cubic-bezier(.7, 0, .3, 1);
-  --ease-depart: cubic-bezier(.5, 0, .75, 0);
-
-  /* Layout */
-  --map-w: 460px;
-  --map-w-collapsed: 128px;
-  --sign-h: 96px;
-  --strip-h: 150px;
-  --content-l: 72px;
-  --content-r: 76px;
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+  --ease-expand: cubic-bezier(.16, 1, .3, 1);
+  --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
 }

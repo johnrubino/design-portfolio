@@ -32,6 +32,6 @@ export default function middleware(request) {
   }
   return new Response('Password required.', {
     status: 401,
-    headers: { ...ROBOTS, 'WWW-Authenticate': 'Basic realm="Rubino Transit Authority beta", charset="UTF-8"' },
+    headers: { ...ROBOTS, 'WWW-Authenticate': 'Basic realm="John Rubino portfolio beta", charset="UTF-8"' },
   });
 }

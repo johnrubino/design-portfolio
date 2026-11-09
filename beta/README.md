@@ -1,12 +1,12 @@
-# johnrubino.design — portfolio beta
+# johnrubino.design — portfolio beta (v5 "side rail")
 
-A working beta of johnrubino.design, laid out as a fictional line map. Each body of work is a **line**, each page is a **station**, and the map is the only navigation. Choosing a station sends a marker along the Résumé line while the page changes behind a colour wipe.
+The home page of John Rubino's portfolio: a dark 220px rail carrying a line map, and one content column on stone. Each body of work is a **line** (FoWA, FPL, PPR, Labs, Writing).
 
-- **Current direction:** `../design/DIRECTION-v2.md`. It overrides the brief and prototype where they disagree: an abstract schematic, line chips, and a frosted-glass material instead of 1972 paper.
+- **Spec:** `../design/v5/CLAUDE_CODE_HANDOFF.md`. Where the spec and the reference disagree, the spec wins.
+- **Visual reference:** `../design/v5/reference/portfolio-home-BC-v5.html`, with renders in `../design/v5/renders/`.
+- **Earlier direction:** `../design/DIRECTION-v2.md` and `../design/RTA-beta-brief.md` describe the previous beta (a ride-between-pages map). v5 replaces it; the old code is in git history before this change.
 
-- **Original spec:** `../design/RTA-beta-brief.md`
-- **Original prototype:** `../design/Journey.dc.html`. v1 was a port of it.
-- **Targets:** `../design/ref-expanded.png`, `../design/ref-collapsed.png` (1440 × 900)
+**All copy is placeholder.** John writes his own prose. Don't polish it or add facts.
 
 Stack: Vite + React + TypeScript, plain CSS with one tokens file, no UI kit and no animation library. This app lives in `beta/`, separate from the static site at the repo root, so the live site, hiring links and board are never touched.
 
@@ -22,13 +22,18 @@ npm run dev        # http://localhost:5173
 
 | Command | What it does |
 |---|---|
-| `npm run dev` | Dev server. The walkthrough form fakes a successful send. |
-| `npm run build` | Pulls Substack posts, typechecks, builds to `dist/`. |
+| `npm run dev` | Dev server. |
+| `npm run build` | Typechecks, builds to `dist/`, then writes the finished page into `dist/index.html`. |
 | `npm run preview` | Serves the production build on port 4173. |
-| `npm run build:artifact` | Builds a preview for a claude.ai Artifact into `dist-artifact/`: hash URLs (`#labs`), relative assets, stubbed form. |
-| `npm test` | Geometry tests: 45°/90° turns, morphable paths, stations clear of corners, markers in route order. |
+| `npm test` | Rail geometry tests (Vitest). |
+| `npm run test:e2e` | Browser acceptance tests (Playwright) against the production build. Run `npm run build` first. The first time, also run `npx playwright install chromium`. |
+| `npm run build:artifact` | Same build with relative asset paths, into `dist-artifact/`, for previews served from a sub-path. |
 
-Every station is a real URL, following the live site's IA: `/` (Home), `/labs`, `/about`, `/writing`, `/resume`. The old `/case-studies` and `/timetable` links redirect. Deep links work, and back/forward ride the marker in the right direction.
+### How the page is delivered
+
+`npm run build` renders the React page to HTML ahead of time (`scripts/prerender.mjs`), so visitors see the whole page before any JavaScript arrives. React then loads and attaches to that HTML (`src/entry-client.tsx`) to run the interactions. The stylesheet is placed inline in the page and the four first-screen fonts are preloaded.
+
+**Departure from the spec, approved by John:** §2 and §11 ask for no client framework and under 15 kB of JavaScript. John chose React in the browser so later features aren't limited. The script is about 70 kB gzipped, loads at low priority, and the page doesn't depend on it to be read.
 
 ---
 
@@ -38,77 +43,40 @@ All copy lives in typed files in `src/content/`. You don't need to touch compone
 
 | File | What's in it |
 |---|---|
-| `site.ts` | Name, role, domain, page-title suffix, **contact links** |
-| `home.ts` | Home: positioning line, figures, "Currently" roles, call to action |
-| `about.ts` | About: lede, intro, sections |
-| `caseStudies.ts` | Selected work on Home, each project's stop on the Work line (`mapLabel`, `stop`), and the walkthrough form copy |
-| `labs.ts` | Labs projects and their stops on the Labs line |
-| `writing.ts` | Intro, Substack link, fallback post list |
-| `resume.ts` | Work history and contact links |
-| `lines.ts` | The three lines (Work, Labs, Résumé): names, colours, disc numbers, **geometry** |
-| `stations.ts` | Station names, routes, map sub-lines, which lines stop, **positions** |
+| `site.ts` | Name, footer line, Substack and About links, the latest essay |
+| `lines.ts` | The five lines: badge code, colour, map label, legend row, destination, hover card |
+| `home.ts` | Intro paragraphs and their expanding words, How I AI, Every stop |
 
-Placeholders are marked `// TODO(john)`. Find them all with:
+Open items are marked `TODO(john)`. Find them all with:
 
 ```bash
-grep -rn "TODO(john)" src
+grep -rn "TODO(john)" src index.html
 ```
 
-**Substack posts:** `npm run build` runs `scripts/fetch-posts.mjs`, which writes the latest four posts from `johnrubino.substack.com/feed` to `src/content/posts.generated.json` (git-ignored). If the feed can't be reached, the static list in `writing.ts` is used.
+**Expanding words.** In `home.ts`, a paragraph is a list of pieces: plain text, `{ word, text, line? }` for a pill, or `{ href, text }` for a link. Each `word` opens the expansion with the same `id`. An expansion with `parent` set belongs to a word inside another expansion (Wove sits inside "product designer") and folds with it.
 
-**Résumé:** replace `public/john-rubino-resume.pdf`.
-
-**Logo:** the mark is a placeholder in `src/components/Logo.tsx`. Replace that component (it takes `size` and a `tone` of `ink` or `light`) and every place that shows the logo updates.
+**Two slots stay exactly as written** until John fills them: `[Project name · link · John to confirm]` and `[daily stack · John to confirm]`.
 
 ---
 
 ## Change the map
 
-You edit centrelines and lanes, never raw SVG paths.
+Edit the constants at the top of `src/geometry/rail.ts`, never raw SVG paths: `SPACING` (9, between bundled lines), `LINE_WIDTH` (5), `CORNER` (14), `ROWS` (where each line ends) and `LANE` (each line's lane on the trunk). `src/components/Rail.tsx` draws the map from them.
 
-The constants at the top of `src/content/lines.ts` set the Vignelli bundle: `LANE` (9, the distance between neighbouring lines), `LINE_WIDTH` (8, so lines sit 1px apart), `CORNER_RADIUS` (20), `COLLAPSED_X` (64) and `COLLAPSED_LANE` (9).
+The geometry is a port of `../design/v5/map/map5.py`, and `npm test` checks it draws the same paths as the approved export (`../design/v5/map/rail-map.svg`). The tests also fail if a leg isn't at 0°, 45° or 90°, if two lines touch or cross, or if a badge code or colour changes.
 
-Each line has:
-- `centre`: the centreline vertices in 460 × 900 map space. Turn only at 45° or 90°. The Résumé line is a straight spine at x = 228 that calls at every page. The Work line leaves Home and the Labs line leaves the spine after Labs; their project stops are the `stop` points in `content/caseStudies.ts` and `content/labs.ts` (each must lie on its line, clear of corners). Keep each station on only the lines that stop there: `npm test` fails if a line passes through a station without stopping.
-- `lane`: the sideways offset in `LANE` steps. A positive lane is to the right of the direction of travel, which runs from About outward.
-- `collapsedEndY`: where the line stops in the collapsed bundle.
-- `order` and `short`: the number on the line's route disc (also its sort order), and the name shown at the line's end on the map.
+**Hard rule (spec §6):** the map never filters, highlights, dims or scroll-syncs the content column, and the content never drives the map. Hover state lives inside `Rail.tsx` only. A test asserts that a map hover changes nothing under `<main>`.
 
-`src/geometry/network.ts` turns these into paths:
+---
 
-```
-expanded:  centre → offsetPts(lane × LANE, miter joins) → rounded(CORNER_RADIUS)
-collapsed: centre vertices → same vertices on a vertical lane (x = COLLAPSED_X − lane × COLLAPSED_LANE),
-           each at its proportional arclength → rounded(CORNER_RADIUS)
-```
+## Type, colour and fonts
 
-Both go through `rounded()` with the same vertex count, so the expanded and collapsed command lists always match and the CSS `d` transition can morph between them.
+- `src/styles/tokens.css` is the only place raw values live (the five line colours are in `src/content/lines.ts`, shared by the map and legend).
+- Only four type sizes exist: 12, 16, 22 and 72px. No italics anywhere. Both are tested.
+- Fonts are self-hosted in `src/assets/fonts/`: Bricolage Grotesque 650, Public Sans 300/400/500, JetBrains Mono 400, cut down to Latin. Rebuild them with `python3 scripts/subset-fonts.py` (see the notes in that file) if you need a character they don't have.
+- Quiet text is slightly darker than the reference (68% ink instead of 56% and 40%), because the spec asks for WCAG AA contrast and the reference values fail it at 12px.
 
-Each station in `src/content/stations.ts` has:
-- `at`: a point on the shared centreline. A station dot is drawn on every line in `lines`, joined by a bar.
-- `label`: which side the label sits on, and the x of its inner edge.
-- Line ends point east, west or south automatically; set `endLabel` on a line to place its end label by hand.
-- `collapsedY`: the station's height in the collapsed bundle.
-- `mainLine`: the line whose disc appears in this page's header sign (its "Line N · Name" shows on hover and to screen readers).
-
-The expanded map centres itself: after any route or label change, `RouteMap.tsx` re-measures the content and shifts it so the space left and right is equal.
-
-Run `npm test` after editing. It fails if a line turns at an angle other than 45° or 90°, if a station sits within 40px of a corner, if the morph would break, or if markers fall out of route order.
-
-## How the ride works
-
-`src/ride/useRide.ts` is a small reducer with timers:
-
-```
-idle ──go(i)──▶ depart ──T/2──▶ arrive ──T+40──▶ idle
-idle ──toggle──▶ morph ──760ms──▶ idle
-```
-
-- `T = clamp(800 + distance × 2, 1100, 2400)` ms. Distance is measured along the Résumé line.
-- On `go`, one state update sets the target, `T` and the direction. The map marker (`offset-path` on the Résumé line), the rail marker and the wipe all start from that update, with the same `T` and easing, so they stay in sync.
-- At `T/2` the wipe fully covers the content. The page swaps, scroll resets, and the URL is pushed.
-- Clicks are ignored mid-ride. Back/forward can't be ignored, because the URL has already changed, so it is queued and ridden on arrival.
-- With reduced motion: `T = 150`, no wipe, line draw or stagger. The marker jumps and the page crossfades.
+3D icons: 3dicons by Vijay Verma (realvjy), https://3dicons.co, CC0 1.0. Sources and the tint script are in `../design/v5/assets/3d-icons/`.
 
 ---
 
@@ -118,45 +86,25 @@ The beta is its **own Vercel project**, so production isn't affected.
 
 1. In Vercel: **Add New → Project**, import `johnrubino/design-portfolio`.
 2. Set **Root Directory** to `beta`. The framework (Vite), build command and output come from `beta/vercel.json`.
-3. Under **Settings → Environment Variables**, add:
+3. Under **Settings → Environment Variables**, add `BETA_PASSWORD` (required; without it every request gets 503).
+4. Deploy the branch. Visitors get a browser password prompt; any username works.
 
-   | Variable | Value |
-   |---|---|
-   | `BETA_PASSWORD` | the beta password (required; without it every request gets 503) |
-   | `RESEND_API_KEY` | same key as the main site, for the walkthrough form |
-   | `NOTIFY_EMAIL` | where walkthrough requests go (optional) |
-   | `RESEND_FROM` | sender address (optional) |
-
-4. Deploy the `design/rta-beta` branch. Visitors get a browser password prompt; any username works.
-
-**Private beta protections:**
+**Private beta protections**, all to be removed when the site goes live:
 
 - `<meta name="robots" content="noindex, nofollow">` in `index.html`
+- `public/robots.txt` disallows all crawlers
 - An `X-Robots-Tag: noindex, nofollow, noarchive` header on every response (`vercel.json` and `middleware.js`)
-- A Basic-auth password gate in `middleware.js` (Vercel Routing Middleware)
+- A Basic-auth password gate in `middleware.js`
 
 The repo-root `.vercelignore` keeps `beta/` and `design/` out of the main site's deployment.
 
-**Walkthrough form:** posts to `api/walkthrough.js`, which emails you through Resend. To use Formspree or similar instead, set `VITE_WALKTHROUGH_ENDPOINT` to the form URL.
-
 ---
 
-## Layout and responsive behaviour
+## Layout
 
 | Width | Behaviour |
 |---|---|
-| ≥ 1280 px | Full layout: the expanded map is the only navigation, and the page starts at the top. There is no collapse control and no top navigation. |
-| 900–1279 px | The map is collapsed. Clicking or tapping the logo opens it as a floating frosted panel over the page (no layout shift). Click the logo again, click outside, press Escape or pick a station to close it. |
-| < 900 px | The map is hidden and the page rail becomes the navigation (it scrolls sideways). A **Map** button opens the full route map as a sheet; the ride plays there, then the sheet closes. |
+| ≥ 761px | Rail (220px, sticky, full height) beside the content column. The first screen fits 1440 × 900 exactly. On short windows the map scales down as one piece. |
+| ≤ 760px | The rail becomes a sticky top strip: "System map" and a sideways-scrolling row of line badges. Content is one column with 20px padding. |
 
-On windows shorter than 900 px, the whole map layer (lines, labels and marker) scales down together, so the marker stays on its line.
-
-## Departures from the original prototype
-
-See `../design/DIRECTION-v2.md` for the full list. In short:
-- No authority branding and no transit voice.
-- An abstract schematic with thinner, wider-spaced lines.
-- Route discs and station dots in the Vignelli manner, on a fictional schematic.
-- Frosted glass instead of 1972 paper: a translucent rail, backlit lines, dark-glass signs. The map has no panel of its own; it sits directly on the page, and the frosted rail appears on phones only.
-- The last stop is Résumé.
-- Each page opens with a direction sign (line disc, page name, then back and forward arrows) whose arrows navigate between pages. Focus rings are 2px orange everywhere.
+Reduced motion turns off the train, the blur, the pill flood, the scroll reveal and the portrait spring.

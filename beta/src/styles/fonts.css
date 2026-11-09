@@ -1,0 +1,65 @@
+/* Self-hosted, Latin only, and only the weights the page uses (brief §5, §11).
+   The files are built by scripts/subset-fonts.py.
+   The "Fallback" faces are local fonts resized to the web fonts' metrics, so
+   text doesn't jump when the real fonts arrive. */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 650;
+  /* Weight pinned at 650, optical size kept: see scripts/subset-fonts.py. */
+  src: url(../assets/fonts/bricolage-grotesque-650.woff2) format('woff2-variations');
+}
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300;
+  src: url(../assets/fonts/public-sans-300.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../assets/fonts/public-sans-400.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(../assets/fonts/public-sans-500.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../assets/fonts/jetbrains-mono-400.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Bricolage Fallback';
+  src: local('Arial Bold'), local('Arial-BoldMT'), local('Arial');
+  size-adjust: 93%;
+  ascent-override: 100%;
+  descent-override: 29%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Public Sans Fallback';
+  src: local('Arial'), local('ArialMT');
+  size-adjust: 104.5%;
+  ascent-override: 91%;
+  descent-override: 21.5%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'JetBrains Mono Fallback';
+  src: local('Courier New'), local('CourierNewPSMT');
+  size-adjust: 100%;
+  ascent-override: 102%;
+  descent-override: 30%;
+  line-gap-override: 0%;
+}

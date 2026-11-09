@@ -1,17 +1,14 @@
-/** Site-wide copy and links. */
+/** Site-wide facts and links. */
+import { ESSAY_URL } from './lines';
+
 export const SITE = {
   name: 'John Rubino',
-  role: 'Product designer',
-  domain: 'johnrubino.design',
-  titleSuffix: 'John Rubino, product designer',
-} as const;
-
-export const LINKS = {
-  // TODO(john): confirm the address recruiters should use.
-  email: 'mailto:johnrubinodesign@gmail.com',
-  // TODO(john): confirm LinkedIn URL.
-  linkedin: 'https://www.linkedin.com/in/john-rubino/',
-  // TODO(john): swap in the current résumé PDF (served from beta/public/).
-  resume: '/john-rubino-resume.pdf',
+  footer: 'John Rubino · Product designer',
   substack: 'https://johnrubino.substack.com',
-} as const;
+  about: 'https://johnrubino.design/about',
+  latestEssay: {
+    title: 'Figma isn’t always the starting line',
+    date: 'Sep 29, 2026',
+    url: ESSAY_URL,
+  },
+};

@@ -1,0 +1,109 @@
+/* ---------- How I AI ---------- */
+#howai {
+  display: grid; grid-template-columns: 420px minmax(0, 1fr); gap: 72px; padding: 96px 56px 104px;
+  background: var(--rail); background-image: radial-gradient(900px circle at 90% 0%, rgba(181, 123, 255, .07), rgba(181, 123, 255, 0) 60%);
+  color: var(--paper);
+}
+#howai .ai-k { display: flex; align-items: center; gap: 12px; font-family: var(--mono); font-size: var(--t-12); text-transform: uppercase; letter-spacing: .08em; color: var(--on-dark-muted); }
+#howai .ph3 { text-transform: none; letter-spacing: 0; color: #e0a58e; border: 1px dashed rgba(224, 165, 142, .5); border-radius: 4px; padding: 1px 6px; }
+#howai h2 { font-family: var(--display); font-size: var(--t-72); line-height: .92; font-weight: 650; letter-spacing: -.045em; margin-top: 14px; }
+/* The quote is body size: weight and colour only. */
+#howai .ai-lead { font-weight: 400; font-size: var(--t-16); line-height: 1.45; color: var(--paper); margin-top: 20px; max-width: 460px; }
+#howai .ai-cite { font-family: var(--mono); font-size: var(--t-12); color: var(--on-dark-muted); margin-top: 8px; }
+#howai .ai-lab { font-family: var(--mono); font-size: var(--t-12); font-weight: 400; text-transform: uppercase; letter-spacing: .08em; color: var(--write); margin: 40px 0 4px; }
+#howai .ai-r .ai-lab { margin-top: 0; }
+
+.pp { display: grid; gap: 4px; padding: 16px 0; border-top: 1px solid var(--on-dark-hair); }
+.pp-t { font-size: var(--t-16); font-weight: 500; }
+.pp-d { font-size: var(--t-16); line-height: 1.45; color: rgba(242, 239, 232, .72); }
+.pp-l, .ai-more a, .tools-b {
+  justify-self: start; display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; padding-bottom: 2px;
+  font-family: var(--mono); font-size: var(--t-12); color: rgba(242, 239, 232, .72); text-decoration: none;
+  background: linear-gradient(var(--write), var(--write)) 0 100% / 0 1px no-repeat;
+  transition: background-size .3s var(--ease-expand), color .2s;
+}
+.pp-l .ic { width: 12px; height: 12px; flex-basis: 12px; transition: transform .25s; }
+.pp-l:hover, .ai-more a:hover, .tools-b:hover, .tools-b[aria-expanded="true"] { color: var(--paper); background-size: 100% 1px; }
+.pp-l:hover .ic { transform: translateX(3px); }
+.ai-more { display: flex; flex-wrap: wrap; gap: 4px 20px; padding-top: 16px; border-top: 1px solid var(--on-dark-hair); }
+.tools-b { border: 0; cursor: pointer; background-color: transparent; }
+.tools-b::after { content: "+"; margin-left: 4px; display: inline-block; transition: transform .25s; }
+.tools-b[aria-expanded="true"]::after { transform: rotate(45deg); }
+.tools-p { font-size: var(--t-16); line-height: 1.6; color: rgba(242, 239, 232, .72); margin-top: 12px; opacity: 0; filter: blur(8px); transition: opacity .2s, filter .2s; }
+.xw.open .tools-p { opacity: 1; filter: none; }
+.slot { font-family: var(--mono); font-size: var(--t-12); color: #e0a58e; }
+
+/* What I've done: cards stacked on a purple line, a station dot per card. */
+.acs { position: relative; display: grid; gap: 16px; margin-top: 12px; padding-left: 28px; }
+.acs::before { content: ""; position: absolute; left: 6px; top: 28px; bottom: 28px; width: 2px; border-radius: 2px; background: var(--labs); opacity: .55; }
+.ac {
+  position: relative; display: grid; grid-template-columns: 200px 1fr; gap: 24px; padding: 24px 26px; border-radius: 18px;
+  background: var(--rail-card); border: 1px solid var(--on-dark-hair);
+  transition: border-color .24s, transform .38s var(--ease-expand);
+}
+.ac:hover { border-color: var(--labs); transform: translateX(6px); }
+.ac .node { position: absolute; left: -29px; top: 30px; width: 14px; height: 14px; border-radius: 50%; background: var(--rail); border: 2px solid var(--labs); transition: background .24s, box-shadow .24s; }
+.ac:hover .node { background: var(--labs); box-shadow: 0 0 0 6px rgba(181, 123, 255, .16); }
+.ac h4 { font-family: var(--display); font-size: var(--t-22); font-weight: 650; letter-spacing: -.025em; line-height: 1.15; }
+.ac-h p { font-size: var(--t-16); line-height: 1.45; color: rgba(242, 239, 232, .64); margin-top: 8px; }
+.ac ul { display: grid; gap: 12px; align-content: start; }
+.pf { position: relative; padding-left: 18px; font-size: var(--t-16); line-height: 1.45; color: rgba(242, 239, 232, .8); }
+.pf::before { content: ""; position: absolute; left: 0; top: .7em; width: 8px; height: 2px; background: var(--u, rgba(242, 239, 232, .4)); }
+/* Underline: 40% of the line colour at rest, full on hover. */
+.pf a {
+  color: inherit; text-decoration: none;
+  background: linear-gradient(color-mix(in srgb, var(--u) 40%, transparent), color-mix(in srgb, var(--u) 40%, transparent)) 0 100% / 100% 1px no-repeat;
+  transition: color .2s;
+}
+.pf a:hover { color: #fff; background-image: linear-gradient(var(--u), var(--u)); }
+.pf.slot { font-family: var(--sans); font-size: var(--t-16); color: var(--on-dark-muted); }
+
+/* Scroll reveal. Only hidden once the script has run, so the page still reads without it. */
+.js .rv { opacity: 0; transform: translateY(12px); transition: opacity .6s ease-out calc(var(--i, 0) * 90ms), transform .7s var(--ease-expand) calc(var(--i, 0) * 90ms); }
+.js .rv.in { opacity: 1; transform: none; }
+.js .ac.rv.in:hover { transform: translateX(6px); }
+
+/* ---------- Every stop ---------- */
+#list { padding: 56px 56px 48px; border-top: 1px solid var(--hair); }
+.lh { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 28px; }
+.lh h2 { font-family: var(--display); font-size: var(--t-72); line-height: .92; font-weight: 650; letter-spacing: -.045em; color: var(--name); }
+.lh p { font-size: var(--t-16); color: var(--body); margin-top: 10px; }
+.toggle { display: inline-flex; border: 1px solid rgba(20, 20, 19, .2); border-radius: 999px; padding: 3px; font-family: var(--mono); font-size: var(--t-12); }
+.toggle span { padding: 5px 12px; border-radius: 999px; color: var(--muted); }
+.toggle .on { background: var(--ink); color: var(--paper); }
+.cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
+.grp h3 { display: flex; align-items: center; gap: 10px; padding-bottom: 10px; border-bottom: 2px solid var(--ink); font-family: var(--display); font-size: var(--t-22); font-weight: 650; letter-spacing: -.025em; line-height: 1.45; }
+.grp h3 .lines { display: flex; gap: 3px; }
+.grp h3 .lines i { width: 12px; height: 3px; border-radius: 2px; display: block; }
+.li { display: grid; grid-template-columns: 22px 1fr 16px; gap: 8px; align-items: start; padding: 10px 0; border-bottom: 1px solid var(--hair); text-decoration: none; }
+.li span span { display: block; }
+.li-i { color: color-mix(in srgb, var(--c) 55%, var(--ink)); padding-top: 2px; }
+.li-t { font-size: var(--t-16); font-weight: 400; line-height: 1.35; }
+.li-s { font-size: var(--t-12); font-weight: 400; color: var(--muted); margin-top: 2px; }
+.li-s .st { width: 12px; height: 12px; flex-basis: 12px; margin-right: 5px; vertical-align: -2px; }
+.li-go { opacity: 0; transform: translateX(-6px); transition: opacity .2s ease, transform .26s var(--ease-out); padding-top: 3px; }
+a.li:hover .li-go, a.li:focus-visible .li-go { opacity: 1; transform: none; }
+a.li:hover .li-t { text-decoration: underline; text-decoration-color: var(--c); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+/* A row the rail just jumped to gets a brief marker. Pure CSS, driven by the URL. */
+li:target > .li .li-t { text-decoration: underline; text-decoration-color: var(--c); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.lfoot { margin-top: 40px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tools-p, .ac, .ac .node, .pp-l, .pp-l .ic, .ai-more a, .tools-b, .tools-b::after, .li-go { transition: none !important; }
+  .tools-p { filter: none !important; }
+  .js .rv { opacity: 1; transform: none; transition: none; }
+  .ac:hover, .js .ac.rv.in:hover { transform: none; }
+}
+
+@media (max-width: 1100px) and (min-width: 761px) {
+  #howai { grid-template-columns: 1fr; gap: 56px; }
+  .cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  #howai { grid-template-columns: 1fr; padding: 56px 20px; gap: 40px; }
+  .ac { grid-template-columns: 1fr; gap: 12px; }
+  .acs { padding-left: 24px; }
+  #list { padding: 40px 20px; }
+  .cols { grid-template-columns: 1fr; }
+  .lh { flex-direction: column; align-items: flex-start; gap: 12px; }
+}

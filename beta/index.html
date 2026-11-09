@@ -3,20 +3,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 3D icons: 3dicons by Vijay Verma (realvjy), https://3dicons.co — CC0 1.0 (github.com/realvjy/3dicons). Clay style, dynamic angle; recoloured. -->
+    <!-- Private beta: kept out of search engines. Remove this line (and the X-Robots-Tag header in vercel.json and middleware.js) to go live. -->
     <meta name="robots" content="noindex, nofollow" />
+    <!-- TODO(john): final title, description, Open Graph image and analytics (brief §13 Q8). -->
     <meta name="description" content="John Rubino, product designer. Product design work, laid out as a line map." />
-    <meta name="theme-color" content="#111111" />
+    <meta name="theme-color" content="#161615" />
     <title>John Rubino, product designer</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..600&family=IBM+Plex+Mono:wght@400&display=swap"
-    />
+    <!--preload-->
+    <script>document.documentElement.classList.add('js')</script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="root"><!--app--></div>
+    <script type="module" src="/src/entry-client.tsx"></script>
   </body>
 </html>

@@ -1,3 +1,4 @@
+/// <reference types="vitest/config" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
@@ -5,5 +6,10 @@ export default defineConfig(({ mode }) => ({
   // The artifact preview build is served from a sub-path, so assets are relative.
   base: mode === 'artifact' ? './' : '/',
   plugins: [react()],
-  build: { target: 'es2022' },
+  build: {
+    target: 'es2022',
+    // Serve images and fonts as files, never inlined as base64 (brief §10).
+    assetsInlineLimit: 0,
+  },
+  test: { include: ['src/**/*.test.ts'] },
 }));

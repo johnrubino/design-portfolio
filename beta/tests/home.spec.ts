@@ -1,0 +1,505 @@
+import { expect, test, type Page } from '@playwright/test';
+
+/**
+ * Acceptance checks from the v5 brief (design/v5/CLAUDE_CODE_HANDOFF.md §11, §12).
+ * Run `npm run build` first: these run against the production build.
+ */
+
+const ESSAY = 'https://johnrubino.substack.com/p/figma-isnt-always-the-starting-line';
+const DESKTOP = { width: 1440, height: 900 };
+
+async function open(page: Page, viewport = DESKTOP) {
+  await page.setViewportSize(viewport);
+  await page.goto('/');
+  await page.evaluate(() => document.fonts.ready);
+  // Wait for React to attach, so clicks are handled.
+  await page.waitForFunction(() => {
+    const el = document.querySelector('button.hl');
+    return !!el && Object.keys(el).some((k) => k.startsWith('__reactProps'));
+  });
+}
+
+test.describe('rail map', () => {
+  test('no label touches another label, a line or a station marker', async ({ page }) => {
+    await open(page);
+    const clashes = await page.evaluate(() => {
+      type Box = { name: string; x: number; y: number; r: number; b: number; owner?: Element | null };
+      const svg = document.querySelector('#mapsvg')!;
+      const box = (el: Element, name: string, pad = 0): Box => {
+        const r = el.getBoundingClientRect();
+        return { name, x: r.left - pad, y: r.top - pad, r: r.right + pad, b: r.bottom + pad };
+      };
+      const hit = (a: Box, b: Box) => a.x < b.r && b.x < a.r && a.y < b.b && b.y < a.b;
+
+      // The badge code sits inside its badge on purpose, so it isn't a free-standing label.
+      const labels = [...svg.querySelectorAll('text:not(.code)')].map((t) => box(t, `"${t.textContent}"`));
+      const out: string[] = [];
+
+      for (let i = 0; i < labels.length; i++)
+        for (let j = i + 1; j < labels.length; j++)
+          if (hit(labels[i], labels[j])) out.push(`${labels[i].name} × ${labels[j].name}`);
+
+      const markers = [...svg.querySelectorAll('.pill, .badge, .end, a > circle')].map((m, i) => box(m, `marker ${i}`));
+      for (const l of labels) for (const m of markers) if (hit(l, m)) out.push(`${l.name} × ${m.name}`);
+
+      // Lines: sample every 2px along each path and test a line-width square at that point.
+      const scale = svg.getBoundingClientRect().width / 220;
+      const ctm = (svg as SVGSVGElement).getScreenCTM()!;
+      const check = (name: string, x: number, y: number, half: number) => {
+        const px = x * ctm.a + ctm.e;
+        const py = y * ctm.d + ctm.f;
+        const dot: Box = { name, x: px - half, y: py - half, r: px + half, b: py + half };
+        for (const l of labels) if (hit(l, dot)) out.push(`${l.name} × ${name}`);
+      };
+      for (const p of svg.querySelectorAll<SVGPathElement>('path.rt')) {
+        const len = p.getTotalLength();
+        for (let d = 0; d <= len; d += 2) {
+          const pt = p.getPointAtLength(d);
+          check(`line ${p.id}`, pt.x, pt.y, 2.5 * scale);
+        }
+      }
+      const base = svg.querySelector<SVGLineElement>('line.base')!;
+      for (let y = base.y1.baseVal.value; y <= base.y2.baseVal.value; y += 2) check('base line', base.x1.baseVal.value, y, 1.5 * scale);
+
+      return [...new Set(out)];
+    });
+    expect(clashes).toEqual([]);
+  });
+
+  test('all map text is horizontal', async ({ page }) => {
+    await open(page);
+    const rotated = await page.locator('#mapsvg text[transform], #mapsvg text[rotate]').count();
+    expect(rotated).toBe(0);
+  });
+
+  test('badges match the legend exactly', async ({ page }) => {
+    await open(page);
+    const map = await page.locator('#mapsvg .stop').evaluateAll((stops) =>
+      stops.map((s) => {
+        const badge = s.querySelector('.badge')!;
+        const r = badge.getBoundingClientRect();
+        return { code: s.querySelector('.code')!.textContent, fill: getComputedStyle(badge).fill, w: Math.round(r.width), h: Math.round(r.height) };
+      }),
+    );
+    const legend = await page.locator('.legend .rb').evaluateAll((els) =>
+      els.map((b) => {
+        const r = b.getBoundingClientRect();
+        return { code: b.textContent, fill: getComputedStyle(b).backgroundColor, w: Math.round(r.width), h: Math.round(r.height) };
+      }),
+    );
+    expect(map.map((b) => b.code)).toEqual(['FoWA', 'FPL', 'PPR', 'Labs', 'W']);
+    expect(legend).toEqual(map);
+    for (const b of map) expect([b.w, b.h]).toEqual([44, 18]);
+  });
+
+  test('hover lights the line, dims the rest, shows the card and runs the train', async ({ page }) => {
+    await open(page);
+    await page.hover('[data-stop="fpl"] .badge');
+    await expect(page.locator('.map-wrap')).toHaveClass(/dim/);
+    await expect(page.locator('#p-fpl')).toHaveClass(/lit/);
+    await expect(page.locator('#p-fowa')).not.toHaveClass(/lit/);
+    await expect(page.locator('#p-fowa')).toHaveCSS('opacity', '0.14');
+    await expect(page.locator('.preview')).toHaveClass(/show/);
+    await expect(page.locator('.preview .pv-t')).toHaveText('Fully Paid Lending');
+    await expect(page.locator('.preview')).toHaveAttribute('aria-hidden', 'true');
+    await expect(page.locator('#train')).toHaveCSS('opacity', '1');
+
+    // The card sits to the right of the rail, over the content.
+    const rail = (await page.locator('.rail').boundingBox())!;
+    const card = (await page.locator('.preview').boundingBox())!;
+    expect(card.x).toBeGreaterThanOrEqual(rail.x + rail.width);
+
+    // PPR also lights Labs: they meet at the interchange.
+    await page.hover('[data-stop="ppr"] .badge');
+    await expect(page.locator('#p-ppr')).toHaveClass(/lit/);
+    await expect(page.locator('#p-labs')).toHaveClass(/lit/);
+
+    await page.mouse.move(800, 450);
+    await expect(page.locator('.map-wrap')).not.toHaveClass(/dim/);
+    await expect(page.locator('.preview')).not.toHaveClass(/show/);
+  });
+
+  test('HARD RULE: a map hover changes nothing in the content column', async ({ page }) => {
+    await open(page);
+    await page.evaluate(() => {
+      const w = window as unknown as { __changes: string[] };
+      w.__changes = [];
+      new MutationObserver((records) => {
+        for (const r of records) w.__changes.push(`${r.type} ${r.attributeName ?? ''} on <${(r.target as Element).nodeName}>`);
+      }).observe(document.querySelector('main')!, { subtree: true, childList: true, attributes: true, characterData: true });
+    });
+    const before = await page.evaluate(() => ({ y: window.scrollY, html: document.querySelector('main')!.innerHTML }));
+    for (const stop of ['fowa', 'fpl', 'ppr', 'labs', 'write']) {
+      await page.hover(`[data-stop="${stop}"] .badge`);
+      await page.waitForTimeout(350);
+    }
+    await page.mouse.move(800, 450);
+    await page.waitForTimeout(350);
+    const after = await page.evaluate(() => ({
+      y: window.scrollY,
+      html: document.querySelector('main')!.innerHTML,
+      changes: (window as unknown as { __changes: string[] }).__changes,
+    }));
+    expect(after.changes).toEqual([]);
+    expect(after.html).toBe(before.html);
+    expect(after.y).toBe(before.y);
+  });
+
+  test('every line end and station is a real link to the right place', async ({ page }) => {
+    await open(page);
+    const href = (name: string) => page.locator(`#mapsvg a[aria-label^="${name}"]`).getAttribute('href');
+    expect(await href('Future of Wealth Advisory')).toBe('#stop-fowa');
+    expect(await href('Fully Paid Lending')).toBe('#stop-fpl');
+    expect(await href('Purple Panda Rentals')).toBe('#stop-ppr');
+    expect(await href('Colllective Design')).toBe('#stop-labs');
+    expect(await href('Figma isn’t always the starting line')).toBe(ESSAY);
+    expect(await href('About')).toBe('https://johnrubino.design/about');
+    expect(await href('Timetable')).toBe('#stop-timetable');
+    expect(await href('Home')).toBe('#home');
+    for (const name of ['Figma isn’t always the starting line', 'About']) {
+      await expect(page.locator(`#mapsvg a[aria-label^="${name}"]`)).toHaveAttribute('target', '_blank');
+    }
+    // Every in-page destination exists.
+    for (const id of ['stop-fowa', 'stop-fpl', 'stop-ppr', 'stop-labs', 'stop-timetable', 'home', 'list']) {
+      await expect(page.locator(`#${id}`)).toHaveCount(1);
+    }
+    // Every link on the map has a name.
+    const unnamed = await page.locator('#mapsvg a:not([aria-label])').count();
+    expect(unnamed).toBe(0);
+  });
+
+  test('reduced motion hides the train', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await open(page);
+    await page.hover('[data-stop="fpl"] .badge');
+    await expect(page.locator('#train')).toHaveCSS('display', 'none');
+    await expect(page.locator('#p-fpl')).toHaveClass(/lit/);
+  });
+});
+
+test.describe('word expansions', () => {
+  const word = (page: Page, id: string) => page.locator(`button[aria-controls="xp-${id}"]`);
+  const panel = (page: Page, id: string) => page.locator(`#xp-${id}`);
+  const isInert = (page: Page, id: string) => panel(page, id).evaluate((el) => (el as HTMLElement).inert);
+
+  test('every word is a button wired to a closed, inert paragraph', async ({ page }) => {
+    await open(page);
+    const words = page.locator('button.hl');
+    expect(await words.count()).toBe(9);
+    for (const w of await words.all()) {
+      await expect(w).toHaveAttribute('type', 'button');
+      await expect(w).toHaveAttribute('aria-expanded', 'false');
+      const id = (await w.getAttribute('aria-controls'))!;
+      expect(await page.locator(`#${id}`).evaluate((el) => (el as HTMLElement).inert)).toBe(true);
+    }
+  });
+
+  test('opens in the flow under its paragraph, with no container styling', async ({ page }) => {
+    await open(page);
+    await word(page, 'fowa').click();
+    await expect(word(page, 'fowa')).toHaveAttribute('aria-expanded', 'true');
+    await expect(word(page, 'fowa')).toHaveClass(/done/);
+    expect(await isInert(page, 'fowa')).toBe(false);
+    await expect(panel(page, 'fowa').locator('.xpp')).toHaveCSS('opacity', '1');
+
+    const plain = await panel(page, 'fowa').evaluate((el) =>
+      [el, el.firstElementChild!, el.querySelector('p')!].every((n) => {
+        const s = getComputedStyle(n);
+        return s.backgroundColor === 'rgba(0, 0, 0, 0)' && s.borderTopWidth === '0px' && s.boxShadow === 'none' && s.position === 'static';
+      }),
+    );
+    expect(plain).toBe(true);
+    expect(await panel(page, 'fowa').locator('svg, img, button').count()).toBe(0);
+
+    // It sits between the standfirst and the body paragraph.
+    const order = await page.evaluate(() => {
+      const y = (s: string) => document.querySelector(s)!.getBoundingClientRect().top;
+      return [y('.stand'), y('#xp-fowa .xpp'), y('p.body')];
+    });
+    expect(order[0]).toBeLessThan(order[1]);
+    expect(order[1]).toBeLessThan(order[2]);
+
+    // Same body typography as the paragraph above it.
+    const type = (s: string) => page.locator(s).evaluate((el) => { const c = getComputedStyle(el); return [c.fontSize, c.fontWeight, c.lineHeight, c.color, c.fontFamily]; });
+    expect(await type('#xp-fowa .xpp')).toEqual(await type('p.body'));
+
+    // Several can be open at once, stacked in document order.
+    await word(page, 'designer').click();
+    await page.waitForTimeout(600); // let the height animation finish
+    const stacked = await page.evaluate(() => {
+      const y = (s: string) => document.querySelector(s)!.getBoundingClientRect().top;
+      return y('#xp-designer .xpp') < y('#xp-fowa .xpp');
+    });
+    expect(stacked).toBe(true);
+
+    await word(page, 'fowa').click();
+    await expect(word(page, 'fowa')).toHaveAttribute('aria-expanded', 'false');
+    expect(await isInert(page, 'fowa')).toBe(true);
+  });
+
+  test('nested Wove opens a second paragraph and folds with its parent', async ({ page }) => {
+    await open(page);
+    await word(page, 'designer').click();
+    await word(page, 'wove').click();
+    await expect(word(page, 'wove')).toHaveAttribute('aria-expanded', 'true');
+    expect(await isInert(page, 'wove')).toBe(false);
+
+    await word(page, 'designer').click();
+    await expect(word(page, 'designer')).toHaveAttribute('aria-expanded', 'false');
+    await expect(word(page, 'wove')).toHaveAttribute('aria-expanded', 'false');
+    expect(await isInert(page, 'wove')).toBe(true);
+    expect(await isInert(page, 'designer')).toBe(true);
+  });
+
+  test('Esc folds the most recently opened and returns focus to its word', async ({ page }) => {
+    await open(page);
+    await word(page, 'systems').click();
+    await word(page, 'handoff').click();
+    await page.locator('body').click({ position: { x: 900, y: 500 } });
+
+    await page.keyboard.press('Escape');
+    await expect(word(page, 'handoff')).toHaveAttribute('aria-expanded', 'false');
+    await expect(word(page, 'systems')).toHaveAttribute('aria-expanded', 'true');
+    await expect(word(page, 'handoff')).toBeFocused();
+
+    await page.keyboard.press('Escape');
+    await expect(word(page, 'systems')).toHaveAttribute('aria-expanded', 'false');
+    await expect(word(page, 'systems')).toBeFocused();
+  });
+
+  test('keyboard only: Tab to a word, Enter and Space toggle it', async ({ page }) => {
+    await open(page);
+    await word(page, 'designer').focus();
+    await expect(word(page, 'designer')).toHaveCSS('outline-style', 'solid');
+    await page.keyboard.press('Enter');
+    await expect(word(page, 'designer')).toHaveAttribute('aria-expanded', 'true');
+    // The nested word is now reachable by Tab, and wasn't before.
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Tab');
+    await expect(word(page, 'wove')).toBeFocused();
+    await page.keyboard.press('Space');
+    await expect(word(page, 'wove')).toHaveAttribute('aria-expanded', 'true');
+    await page.keyboard.press('Escape');
+    await expect(word(page, 'wove')).toHaveAttribute('aria-expanded', 'false');
+    await expect(word(page, 'wove')).toBeFocused();
+  });
+
+  test('the tools toggle uses the same mechanic', async ({ page }) => {
+    await open(page);
+    const toggle = page.locator('.tools-b');
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+    await expect(toggle).toHaveAttribute('aria-controls', 'tools');
+    expect(await page.locator('#tools').evaluate((el) => (el as HTMLElement).inert)).toBe(true);
+    await toggle.click();
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    expect(await page.locator('#tools').evaluate((el) => (el as HTMLElement).inert)).toBe(false);
+  });
+
+  test('reduced motion: no blur and no animation', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await open(page);
+    await expect(panel(page, 'fowa').locator('.xpp')).toHaveCSS('filter', 'none');
+    await expect(panel(page, 'fowa')).toHaveCSS('transition-duration', '0s');
+    await expect(page.locator('.rv').first()).toHaveCSS('opacity', '1');
+    await expect(page.locator('.portrait img')).toHaveCSS('transition-duration', '0s');
+  });
+});
+
+test.describe('typography', () => {
+  for (const viewport of [DESKTOP, { width: 390, height: 844 }]) {
+    test(`only 12/16/22/72px, three families and no italics at ${viewport.width}px`, async ({ page }) => {
+      await open(page, viewport);
+      // Open everything so hidden paragraphs are measured too.
+      for (const b of await page.locator('p.stand button.hl, p.body button.hl, .tools-b').all()) await b.click();
+      await page.locator('button[aria-controls="xp-wove"]').click();
+      if (viewport.width > 760) await page.hover('[data-stop="fpl"] .badge');
+
+      const report = await page.evaluate(() => {
+        const sizes = new Set<string>();
+        const families = new Set<string>();
+        const italics: string[] = [];
+        const odd: string[] = [];
+        for (const el of document.body.querySelectorAll('*')) {
+          const cs = getComputedStyle(el);
+          for (const pseudo of [null, '::before', '::after']) {
+            if (getComputedStyle(el, pseudo).fontStyle !== 'normal') italics.push(el.nodeName + (pseudo ?? ''));
+          }
+          const hasText = [...el.childNodes].some((n) => n.nodeType === 3 && n.textContent!.trim());
+          if (!hasText) continue;
+          sizes.add(cs.fontSize);
+          const family = cs.fontFamily.split(',')[0].replace(/["']/g, '').trim();
+          families.add(family);
+          if (!['12px', '16px', '22px', '72px'].includes(cs.fontSize)) odd.push(`${el.nodeName}.${el.getAttribute('class')} ${cs.fontSize}`);
+        }
+        return { sizes: [...sizes].sort(), families: [...families].sort(), italics, odd };
+      });
+      expect(report.odd).toEqual([]);
+      expect(report.italics).toEqual([]);
+      expect(report.families).toEqual(['Bricolage Grotesque', 'JetBrains Mono', 'Public Sans']);
+      expect(report.sizes).toEqual(['12px', '16px', '22px', '72px']);
+    });
+  }
+
+  test('the three web fonts load, self-hosted', async ({ page }) => {
+    const requests: string[] = [];
+    page.on('request', (r) => requests.push(r.url()));
+    await open(page);
+    const loaded = await page.evaluate(() => [...document.fonts].filter((f) => f.status === 'loaded').map((f) => f.family.replace(/["']/g, '')));
+    expect([...new Set(loaded)].sort()).toEqual(['Bricolage Grotesque', 'JetBrains Mono', 'Public Sans']);
+    expect(requests.filter((u) => !u.startsWith('http://localhost'))).toEqual([]);
+  });
+});
+
+test.describe('content', () => {
+  test('placeholder tags and both slots are present and untouched', async ({ page }) => {
+    await open(page);
+    await expect(page.locator('.ph')).toHaveText('Placeholder copy · John to rewrite');
+    await expect(page.locator('.ph3')).toHaveText('Placeholder · John to rewrite');
+    await expect(page.locator('.pf.slot')).toHaveText('An AI-first vision prototype with four designers. [Project name · link · John to confirm]');
+    await expect(page.locator('.tools-p .slot')).toHaveText('[daily stack · John to confirm]');
+  });
+
+  test('facts match the brief (§8)', async ({ page }) => {
+    await open(page);
+    const text = await page.locator('body').evaluate((b) => b.textContent ?? '');
+    expect(text).toContain('Sep 29, 2026');
+    expect(text).toContain('I’m an advisor to Colllective Design');
+    expect(text).not.toMatch(/Col{1,2}ective|Col{4,}ective/);
+    expect(text).not.toMatch(/founder of Colllective|co-founder/i);
+    expect(text).not.toContain('New Account Opening');
+    expect(text).not.toContain('AI-first advisor workspace');
+    expect(text).not.toMatch(/\$\s?\d|\d\+?\s+years/i);
+
+    await expect(page.locator('.legend .lg-d')).toHaveText([
+      'Future of Wealth Advisory · account opening, asset movement',
+      'Fully Paid Lending · liquidity for clients, kept compliant',
+      'Purple Panda Rentals · founder project, student rentals',
+      'Colllective Design · AI-native studio I advise',
+      'Design Thinker, essays on design and AI',
+    ]);
+    await expect(page.locator('#stop-fowa .li-s')).toHaveText('BNY Pershing · Wealth Services · NDA');
+    await expect(page.locator('#stop-fpl .li-s')).toHaveText('BNY Pershing · Wealth Services · NDA');
+    await expect(page.locator('#stop-ppr .li-s')).toHaveText('Founder project · In progress');
+    // Exactly three case studies.
+    await expect(page.locator('.grp').first().locator('li')).toHaveCount(3);
+  });
+
+  test('3dicons credit is in the head, and icons are files with set sizes', async ({ page }) => {
+    await open(page);
+    const head = await page.evaluate(() => document.head.innerHTML);
+    expect(head).toContain('3D icons: 3dicons by Vijay Verma (realvjy), https://3dicons.co — CC0 1.0 (github.com/realvjy/3dicons). Clay style, dynamic angle; recoloured.');
+    const imgs = await page.locator('img').evaluateAll((els) => els.map((i) => ({ src: i.getAttribute('src')!, w: i.getAttribute('width'), h: i.getAttribute('height') })));
+    expect(imgs).toHaveLength(5);
+    for (const i of imgs) {
+      expect(i.src).toMatch(/\.webp$/);
+      expect(i.src.startsWith('data:')).toBe(false);
+      expect(i.w && i.h).toBeTruthy();
+    }
+    // 3D icons appear only in the latest-essay block and the case-studies bar.
+    expect(await page.locator('.legend img, #list img, .xw img, #howai img').count()).toBe(0);
+  });
+
+  test('landmarks, headings and link names', async ({ page }) => {
+    await open(page);
+    await expect(page.locator('nav[aria-label="System map"]')).toHaveCount(1);
+    await expect(page.locator('main')).toHaveCount(1);
+    await expect(page.locator('h1')).toHaveText('John Rubino');
+    for (const s of await page.locator('main section').all()) {
+      const id = (await s.getAttribute('aria-labelledby'))!;
+      await expect(page.locator(`#${id}`)).toHaveCount(1);
+    }
+    const unnamed = await page.locator('a').evaluateAll((els) => els.filter((a) => !(a.textContent ?? '').trim() && !a.getAttribute('aria-label')).length);
+    expect(unnamed).toBe(0);
+  });
+});
+
+test.describe('layout', () => {
+  test('the hero fits one screen at 1440 × 900, with no scrollbar inside it', async ({ page }) => {
+    await open(page);
+    const m = await page.evaluate(() => {
+      const hero = document.querySelector('#home')!;
+      const r = hero.getBoundingClientRect();
+      const rail = document.querySelector('.rail')!.getBoundingClientRect();
+      return { top: r.top, height: r.height, scrollH: hero.scrollHeight, clientH: hero.clientHeight, railW: rail.width, railH: rail.height, pageW: document.documentElement.scrollWidth };
+    });
+    expect(m.top).toBe(0);
+    expect(m.height).toBe(900);
+    expect(m.scrollH).toBeLessThanOrEqual(m.clientH);
+    expect(m.railW).toBe(220);
+    expect(m.railH).toBe(900);
+    expect(m.pageW).toBe(1440);
+    // The whole map is visible inside the rail.
+    const map = (await page.locator('#mapsvg').boundingBox())!;
+    expect(map.height).toBe(800);
+    expect(map.y + map.height).toBeLessThanOrEqual(900);
+  });
+
+  for (const width of [1280, 1440, 1920]) {
+    test(`nothing overlaps at ${width}px wide`, async ({ page }) => {
+      await open(page, { width, height: 900 });
+      const m = await page.evaluate(() => {
+        const box = (s: string) => document.querySelector(s)!.getBoundingClientRect();
+        const hit = (a: DOMRect, b: DOMRect) => a.left < b.right - 0.5 && b.left < a.right - 0.5 && a.top < b.bottom - 0.5 && b.top < a.bottom - 0.5;
+        const pairs: [string, string][] = [
+          ['.rail', '.content'], ['.hero-l', '.hero-r'], ['h1', '.hero-r'], ['.portrait', '.hero-r'],
+          ['.ph', '.sec'], ['.legend', '.foot'], ['.continue', '.foot'], ['.dt', '.continue'], ['.meta', 'h1'],
+          ['.ai-l', '.ai-r'], ['#home', '#howai'], ['#howai', '#list'],
+        ];
+        const cols = [...document.querySelectorAll('.cols .grp')].map((g) => g.getBoundingClientRect());
+        const colClash = cols.some((a, i) => cols.some((b, j) => j > i && hit(a, b)));
+        return {
+          clashes: pairs.filter(([a, b]) => hit(box(a), box(b))).map((p) => p.join(' × ')),
+          colClash,
+          overflowX: document.documentElement.scrollWidth - window.innerWidth,
+          clipped: [...document.querySelectorAll('.lg-d, .li-t, .ac h4, h1, .lh h2')].filter((e) => e.scrollWidth > e.clientWidth + 1).map((e) => e.textContent),
+        };
+      });
+      expect(m.clashes).toEqual([]);
+      expect(m.colClash).toBe(false);
+      expect(m.overflowX).toBeLessThanOrEqual(0);
+      expect(m.clipped).toEqual([]);
+    });
+  }
+
+  test('the map scales to fit a short window', async ({ page }) => {
+    await open(page, { width: 1280, height: 640 });
+    const map = (await page.locator('#mapsvg').boundingBox())!;
+    expect(map.y + map.height).toBeLessThanOrEqual(640);
+    await page.hover('[data-stop="write"] .badge');
+    const card = (await page.locator('.preview').boundingBox())!;
+    expect(card.y + card.height).toBeLessThanOrEqual(640);
+  });
+
+  test('mobile: no horizontal page scroll, only the strip scrolls sideways', async ({ page }) => {
+    await open(page, { width: 390, height: 844 });
+    const m = await page.evaluate(() => {
+      const strip = document.querySelector('.strip')!;
+      const rail = document.querySelector('.rail')!;
+      return {
+        pageW: document.documentElement.scrollWidth,
+        stripScrolls: strip.scrollWidth > strip.clientWidth,
+        stripOverflow: getComputedStyle(strip).overflowX,
+        railPos: getComputedStyle(rail).position,
+        railH: rail.getBoundingClientRect().height,
+        mapHidden: getComputedStyle(document.querySelector('.map-wrap')!).display === 'none',
+        badges: [...strip.querySelectorAll('a')].map((a) => a.textContent),
+        wide: [...document.querySelectorAll('main *')].filter((e) => e.getBoundingClientRect().right > 390.5).map((e) => `${e.nodeName}.${e.getAttribute('class')}`),
+      };
+    });
+    expect(m.pageW).toBe(390);
+    expect(m.wide).toEqual([]);
+    expect(m.stripScrolls).toBe(true);
+    expect(m.stripOverflow).toBe('auto');
+    expect(m.railPos).toBe('sticky');
+    expect(m.railH).toBeGreaterThanOrEqual(44);
+    expect(m.railH).toBeLessThanOrEqual(48);
+    expect(m.mapHidden).toBe(true);
+    expect(m.badges).toEqual(['Home', 'FoWA', 'FPL', 'PPR', 'Labs', 'W']);
+
+    // The page itself can't be scrolled sideways.
+    await page.evaluate(() => window.scrollTo(200, 0));
+    expect(await page.evaluate(() => window.scrollX)).toBe(0);
+  });
+});

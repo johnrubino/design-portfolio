@@ -1,87 +1,90 @@
 /**
- * The seven lines on the map. Each line is one body of work.
- *
- * Geometry is a CENTRELINE plus a LANE. The map draws each line offset
- * sideways from its centreline by `lane × LANE` px (positive lanes sit to the
- * right of the direction of travel; every line runs from About at the top
- * outward to its end). Corners are rounded with CORNER_RADIUS.
- *
- * Organisation: the Résumé line is a straight spine at x = 228 that calls at
- * every page. The Case studies line runs with it from About to the Case
- * studies station, then branches off and calls at each project (the project
- * stops are defined in content/caseStudies.ts).
- * Lines turn only at 45° / 90°. Coordinates are in the 460 × 900 map space
- * (the header covers y < 96).
- *
- * To reroute a line, edit its `centre` vertices. The expanded map and the
- * collapsed bundle are both generated from them (src/geometry/network.ts).
+ * The five lines. Colours and codes are fixed by the v5 brief (§4, §6):
+ * the map badges and the legend both read from here, so they always match.
  */
-import type { Pt } from '../geometry/path';
+export type LineId = 'fowa' | 'fpl' | 'ppr' | 'labs' | 'write';
 
-export type LineId = 'work' | 'labs' | 'resume';
+export const LINE_IDS: LineId[] = ['fowa', 'fpl', 'ppr', 'labs', 'write'];
 
-export interface Line {
+export type IconId = 'case' | 'lab' | 'essay' | 'about' | 'time' | 'progress' | 'arrow';
+
+export interface LineInfo {
   id: LineId;
-  /** Line number: shown on the route disc, and the sort order everywhere. */
-  order: number;
+  /** Text on the badge. */
+  code: string;
   colour: string;
-  /** Disc number colour (yellow takes dark text). */
-  ink: string;
+  /** Full name, used as the link name for screen readers. */
   name: string;
-  /** Shorter name for the map's line ends. */
-  short: string;
-  /** What the line stops at, for the About board. */
-  stops: string;
-  lane: number;
-  /** Optional placement of the end label, relative to the line's end point. */
-  endLabel?: { dx: number; dy: number; anchor: 'start' | 'end' };
-  centre: Pt[];
-  /** Where the line ends in the collapsed bundle (y in map space). */
-  collapsedEndY: number;
+  /** End-of-line label on the map, one entry per row. */
+  mapLabel: string[];
+  /** Legend row under "The lines". */
+  legend: string;
+  icon: IconId;
+  /** Where the line end goes. In-page anchors point at "Every stop" rows. */
+  href: string;
+  external?: boolean;
+  /** Hover card beside the rail. */
+  card: { kind: string; title: string; text: string; status?: { icon: IconId; text: string } };
 }
 
-/** Vignelli bundle: 8px lines packed 9px apart (a 1px gap), tight rounded corners. */
-export const LANE = 9;
-export const LINE_WIDTH = 8;
-export const CORNER_RADIUS = 20;
-/** Collapsed bundle: lane 0 sits at this x; lanes are COLLAPSED_LANE px apart (lanes 0…−2 centre on 64). */
-export const COLLAPSED_X = 55;
-export const COLLAPSED_LANE = 9;
+export const ESSAY_URL = 'https://johnrubino.substack.com/p/figma-isnt-always-the-starting-line';
 
-const TOP: Pt = [228, 132];
-
-/** Drawing order (also the line-draw stagger order on first load). */
-export const LINES: Line[] = [
-  {
-    id: 'work', order: 1, colour: '#E4473C', ink: '#fff', name: 'Work', short: 'Work',
-    stops: 'Future of Wealth Advisory, Fully Paid Lending, Purple Panda Rentals',
-    lane: -2,
-    centre: [TOP, [228, 200], [300, 272], [300, 470]],
-    collapsedEndY: 300,
-    endLabel: { dx: 16, dy: 19, anchor: 'start' },
+export const LINE: Record<LineId, LineInfo> = {
+  fowa: {
+    id: 'fowa', code: 'FoWA', colour: '#FF6B4A', name: 'Future of Wealth Advisory',
+    mapLabel: ['Future of', 'Wealth Advisory'],
+    legend: 'Future of Wealth Advisory · account opening, asset movement',
+    icon: 'case', href: '#stop-fowa',
+    card: {
+      kind: 'Case study', title: 'Future of Wealth Advisory',
+      text: 'Reimagined account opening and asset movement workflows for a platform consolidation.',
+      status: { icon: 'case', text: 'BNY Pershing · NDA' },
+    },
   },
-  {
-    id: 'labs', order: 2, colour: '#7A5CB2', ink: '#fff', name: 'Labs', short: 'Labs',
-    stops: 'Navori, Music Maker, AI Knowledge Co-op',
-    lane: -1,
-    centre: [TOP, [228, 564], [300, 636], [300, 812]],
-    collapsedEndY: 600,
-    endLabel: { dx: 16, dy: 19, anchor: 'start' },
+  fpl: {
+    id: 'fpl', code: 'FPL', colour: '#E8A317', name: 'Fully Paid Lending',
+    mapLabel: ['Fully Paid', 'Lending'],
+    legend: 'Fully Paid Lending · liquidity for clients, kept compliant',
+    icon: 'case', href: '#stop-fpl',
+    card: {
+      kind: 'Case study', title: 'Fully Paid Lending',
+      text: 'Streamlined the program so advisors can unlock liquidity for clients while staying compliant.',
+      status: { icon: 'case', text: 'BNY Pershing · NDA' },
+    },
   },
-  {
-    id: 'resume', order: 3, colour: '#2471C4', ink: '#fff', name: 'Résumé', short: 'Résumé',
-    stops: 'Every page',
-    lane: 0,
-    centre: [TOP, [228, 840]],
-    collapsedEndY: 840,
+  ppr: {
+    id: 'ppr', code: 'PPR', colour: '#5B8CFF', name: 'Purple Panda Rentals',
+    mapLabel: ['Purple Panda', 'Rentals'],
+    legend: 'Purple Panda Rentals · founder project, student rentals',
+    icon: 'case', href: '#stop-ppr',
+    card: {
+      kind: 'Case study + Labs', title: 'Purple Panda Rentals',
+      text: 'A rental platform for college students; mobile app from research to validated prototypes.',
+      status: { icon: 'progress', text: 'Founder project · In progress' },
+    },
   },
-];
+  labs: {
+    id: 'labs', code: 'Labs', colour: '#B57BFF', name: 'Colllective Design',
+    mapLabel: ['Colllective', 'Design'],
+    legend: 'Colllective Design · AI-native studio I advise',
+    icon: 'lab', href: '#stop-labs',
+    card: {
+      kind: 'Labs · Advisor', title: 'Colllective Design',
+      text: 'AI-native product and brand studio: venture design, product strategy and 0-to-1 products.',
+    },
+  },
+  write: {
+    id: 'write', code: 'W', colour: '#D4C09A', name: 'Figma isn’t always the starting line',
+    mapLabel: ['Figma isn’t always', 'the starting line'],
+    legend: 'Design Thinker, essays on design and AI',
+    icon: 'essay', href: ESSAY_URL, external: true,
+    card: {
+      kind: 'Design Thinker · Latest', title: 'Figma isn’t always the starting line',
+      text: 'Two skills for working with AI — inside the system, and inventing outside it.',
+      status: { icon: 'time', text: 'Sep 29, 2026' },
+    },
+  },
+};
 
-export const LINE_BY_ID = Object.fromEntries(LINES.map((l) => [l.id, l])) as Record<LineId, Line>;
-
-/** Lines in number order (discs, wipe stripes, page rail). */
-export const byOrder = (ids: readonly LineId[]) =>
-  ids.map((id) => LINE_BY_ID[id]).sort((a, b) => a.order - b.order);
-
-/** The line the moving marker rides. */
-export const MARKER_LINE: LineId = 'resume';
+/** Hovering a line end also lights these lines (PPR meets Labs at the interchange). */
+export const ALSO_LIT: Partial<Record<LineId, LineId[]>> = { ppr: ['labs'] };
