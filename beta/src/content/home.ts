@@ -127,8 +127,6 @@ export const INTRO: IntroPara[] = [
 ];
 
 export const HERO = {
-  metaLeft: '00 · Home',
-  metaRight: 'You are here',
   legendHeading: 'The lines',
   essayKicker: 'Design Thinker · Latest essay',
   essaySource: 'johnrubino.substack.com',

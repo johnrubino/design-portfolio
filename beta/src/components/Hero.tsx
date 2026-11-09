@@ -15,8 +15,6 @@ export function Hero() {
   return (
     <section className="screen stone" id="home" aria-labelledby="h-name">
       <div className="content">
-        <div className="meta"><span>{HERO.metaLeft}</span><span>{HERO.metaRight}</span></div>
-
         <div className="hero">
           {/* Intro: spans the hero, up to a readable width. Expanding paragraphs grow below it. */}
           <div className="hero-top">

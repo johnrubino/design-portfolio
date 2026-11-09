@@ -445,7 +445,7 @@ test.describe('layout', () => {
         const hit = (a: DOMRect, b: DOMRect) => a.left < b.right - 0.5 && b.left < a.right - 0.5 && a.top < b.bottom - 0.5 && b.top < a.bottom - 0.5;
         const pairs: [string, string][] = [
           ['.rail', '.content'], ['.hero-l', '.hero-r'], ['h1', '.hero-r'], ['.portrait', '.hero-r'],
-          ['.hero-top', '.hero-l'], ['.legend', '.foot'], ['.continue', '.foot'], ['.dt', '.continue'], ['.meta', 'h1'],
+          ['.hero-top', '.hero-l'], ['.legend', '.foot'], ['.continue', '.foot'], ['.dt', '.continue'],
           ['.ai-l', '.ai-r'], ['#home', '#howai'], ['#howai', '#list'],
         ];
         const cols = [...document.querySelectorAll('.cols .grp')].map((g) => g.getBoundingClientRect());
