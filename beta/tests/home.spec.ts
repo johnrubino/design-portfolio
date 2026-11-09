@@ -355,8 +355,7 @@ test.describe('typography', () => {
 test.describe('content', () => {
   test('placeholder tags and both slots are present and untouched', async ({ page }) => {
     await open(page);
-    // The hero's placeholder tag was removed at John's request; the copy is still placeholder.
-    await expect(page.locator('.ph')).toHaveCount(0);
+    await expect(page.locator('.signoff .ph')).toHaveText('[Sign-off line · John to write]');
     await expect(page.locator('.ph3')).toHaveText('Placeholder · John to rewrite');
     await expect(page.locator('.pf.slot')).toHaveText('An AI-first vision prototype with four designers. [Project name · link · John to confirm]');
     await expect(page.locator('.tools-p .slot')).toHaveText('[daily stack · John to confirm]');
@@ -407,6 +406,12 @@ test.describe('content', () => {
     await expect(page.locator('nav[aria-label="System map"]')).toHaveCount(1);
     await expect(page.locator('main')).toHaveCount(1);
     await expect(page.locator('h1')).toHaveText('John Rubino');
+    // Intro structure: greeting, the sentence with the name and photo inline, second paragraph, sign-off, contact.
+    const order = await page.locator('.hero-top > *').evaluateAll((els) => els.map((e) => e.className.split(' ')[0] || e.nodeName));
+    expect(order.filter((c) => ['hello', 'stand', 'body', 'signoff', 'contact'].includes(c))).toEqual(['hello', 'stand', 'body', 'signoff', 'contact']);
+    await expect(page.locator('p.stand .nm')).toHaveText('John Rubino');
+    await expect(page.locator('p.stand .nm img')).toHaveCount(1);
+    await expect(page.locator('.contact a')).toHaveText(['Email me', 'LinkedIn', 'Substack']);
     for (const s of await page.locator('main section').all()) {
       const id = (await s.getAttribute('aria-labelledby'))!;
       await expect(page.locator(`#${id}`)).toHaveCount(1);
@@ -445,7 +450,7 @@ test.describe('layout', () => {
         const box = (s: string) => document.querySelector(s)!.getBoundingClientRect();
         const hit = (a: DOMRect, b: DOMRect) => a.left < b.right - 0.5 && b.left < a.right - 0.5 && a.top < b.bottom - 0.5 && b.top < a.bottom - 0.5;
         const pairs: [string, string][] = [
-          ['.rail', '.content'], ['.hero-l', '.hero-r'], ['h1', '.hero-r'], ['.portrait', '.hero-r'],
+          ['.rail', '.content'], ['.hero-l', '.hero-r'], ['.contact', '.hero-l'], ['.contact', '.hero-r'],
           ['.hero-top', '.hero-l'], ['.legend', '.foot'], ['.continue', '.foot'], ['.dt', '.continue'],
           ['.ai-l', '.ai-r'], ['#home', '#howai'], ['#howai', '#list'],
         ];
@@ -455,7 +460,7 @@ test.describe('layout', () => {
           clashes: pairs.filter(([a, b]) => hit(box(a), box(b))).map((p) => p.join(' × ')),
           colClash,
           overflowX: document.documentElement.scrollWidth - window.innerWidth,
-          clipped: [...document.querySelectorAll('.lg-d, .li-t, .ac h4, h1, .lh h2')].filter((e) => e.scrollWidth > e.clientWidth + 1).map((e) => e.textContent),
+          clipped: [...document.querySelectorAll('.lg-d, .li-t, .ac h4, .nm, .lh h2')].filter((e) => e.scrollWidth > e.clientWidth + 1).map((e) => e.textContent),
         };
       });
       expect(m.clashes).toEqual([]);

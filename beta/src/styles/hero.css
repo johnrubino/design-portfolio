@@ -8,31 +8,32 @@
 .hero-l, .hero-r { display: flex; flex-direction: column; min-width: 0; }
 .hero-l, .hero-r { justify-content: flex-end; }
 .hero-r { padding-bottom: 4px; }
-.eyebrow { width: 40px; height: 4px; margin: 0 0 14px; background: linear-gradient(90deg, var(--fowa) 0 33.3%, var(--fpl) 33.3% 66.6%, var(--ppr) 66.6%); }
+.eyebrow { width: 40px; height: 4px; margin: 0 0 22px; background: linear-gradient(90deg, var(--fowa) 0 33.3%, var(--fpl) 33.3% 66.6%, var(--ppr) 66.6%); }
 
-h1 {
-  font-family: var(--display); font-size: var(--t-72); line-height: .92; font-weight: 650; letter-spacing: -.045em;
-  color: var(--name); margin-bottom: 12px; white-space: nowrap;
-}
-.portrait { display: inline-block; vertical-align: -.02em; margin-left: .12em; width: .78em; height: .78em; position: relative; z-index: 5; }
+/* Intro: one flowing block of text. Greeting, the sentence with the name and
+   photo inline, a second paragraph, a sign-off, then contact links. */
+.hello, .stand, .body, .xpp, .signoff { font-size: var(--t-22); line-height: 1.4; font-weight: 400; color: var(--ink); }
+.stand, .body, .xpp, .signoff { margin-top: .8em; }
+.xpp { opacity: 0; filter: blur(8px); transition: opacity .2s ease-out, filter .2s ease-out; }
+.xw.open .xpp { opacity: 1; filter: none; transition: opacity .26s ease-out .04s, filter .26s ease-out .04s; }
+
+/* The name carries the display face and the name colour, at text size. */
+.nm { font-family: var(--display); font-weight: 650; letter-spacing: -.02em; color: var(--name); white-space: nowrap; }
+.portrait { display: inline-block; vertical-align: -.38em; margin-left: .3em; width: 1.5em; height: 1.5em; position: relative; z-index: 5; }
 .portrait img {
-  width: 100%; height: 100%; object-fit: cover; border-radius: 10px;
+  width: 100%; height: 100%; object-fit: cover; border-radius: 8px;
   box-shadow: 0 1px 2px rgba(20, 20, 19, .12), 0 6px 16px rgba(20, 20, 19, .16);
   transform-origin: center bottom;
   transition: transform .28s cubic-bezier(.175, .885, .32, 1.275), border-radius .28s ease, box-shadow .28s ease;
 }
 .portrait:hover img {
-  transform: scale(2.2) rotate(-2deg); border-radius: 6px;
+  transform: scale(3) rotate(-2deg); border-radius: 4px;
   box-shadow: 0 2px 4px rgba(20, 20, 19, .14), 0 18px 40px rgba(20, 20, 19, .28);
   transition: transform .32s var(--ease-spring) .12s, border-radius .32s ease .12s, box-shadow .32s ease .12s;
 }
 
-/* Standfirst, body and expansions share one size and one colour; only weight differs. */
-.stand, .body { font-size: var(--t-16); line-height: 1.45; color: var(--ink); }
-.stand { font-weight: 400; }
-.body { margin-top: 10px; }
-.xpp { font-size: var(--t-16); line-height: 1.45; color: var(--ink); margin-top: 10px; opacity: 0; filter: blur(8px); transition: opacity .2s ease-out, filter .2s ease-out; }
-.xw.open .xpp { opacity: 1; filter: none; transition: opacity .26s ease-out .04s, filter .26s ease-out .04s; }
+.signoff .ph { font-family: var(--mono); font-size: var(--t-12); color: var(--name); border: 1px dashed rgba(122, 58, 40, .5); border-radius: 4px; padding: 1px 6px; vertical-align: middle; }
+.contact { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-top: 1.2em; font-size: var(--t-16); font-weight: 400; }
 
 /* Expanding words: a tinted pill that floods from where the pointer enters. */
 .hl {
@@ -42,7 +43,6 @@ h1 {
   background: color-mix(in srgb, var(--c) 18%, transparent);
   transition: color .26s var(--ease-out), background-color .22s ease, padding .22s ease;
 }
-.body .hl, .xpp .hl { padding: 0 .4em; }
 .hl.n { background: rgba(20, 20, 19, .08); }
 .hl::before {
   content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: var(--c);
@@ -116,6 +116,5 @@ h1 {
 @media (max-width: 760px) {
   .content { padding: 20px; }
   .hero { grid-template-columns: 1fr; row-gap: 24px; }
-  h1 { white-space: normal; }
   .lg { grid-template-columns: 22px 56px 1fr 18px; }
 }

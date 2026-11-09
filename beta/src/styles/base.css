@@ -39,6 +39,9 @@ h1, h2, h3, h4 { font-size: inherit; font-weight: inherit; }
 }
 .stone > * { position: relative; z-index: 1; }
 
+/* Read by screen readers and search engines, not shown. */
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
 /* Icons */
 .ic { width: 16px; height: 16px; display: inline-block; flex: 0 0 16px; color: currentColor; vertical-align: -3px; }
 

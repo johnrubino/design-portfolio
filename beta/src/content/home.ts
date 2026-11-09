@@ -9,11 +9,12 @@ import type { IconId, LineId } from './lines';
 import { ESSAY_URL } from './lines';
 import { SITE } from './site';
 
-/** A run of text: plain, an expanding word, or a link. */
+/** A run of text: plain, an expanding word, a link, or John's name with his photo beside it. */
 export type Seg =
   | string
   | { word: string; text: string; line?: LineId }
-  | { href: string; text: string };
+  | { href: string; text: string }
+  | { name: string };
 
 export interface Expansion {
   /** Matches the `word` that opens it. */
@@ -30,11 +31,26 @@ export interface IntroPara {
   expansions: Expansion[];
 }
 
+/**
+ * The intro follows the structure of emilycampbell.co (at John's request):
+ * a greeting, a first-person sentence with the name and photo inline, a second
+ * paragraph, a sign-off, then contact links.
+ *
+ * TODO(john): the greeting and the "I’m … , a" glue words were added only to
+ * fit that structure. Everything here is still placeholder for John to rewrite.
+ */
+export const GREETING = 'Hello.';
+
+// TODO(john): write the sign-off line. Left as a slot rather than invented.
+export const SIGN_OFF_SLOT = '[Sign-off line · John to write]';
+
 export const INTRO: IntroPara[] = [
   {
     kind: 'stand',
     segs: [
-      'Senior ',
+      'I’m ',
+      { name: SITE.name },
+      ', a senior ',
       { word: 'designer', text: 'product designer' },
       ' at BNY Pershing, working on ',
       { word: 'fowa', text: 'wealth advisory', line: 'fowa' },

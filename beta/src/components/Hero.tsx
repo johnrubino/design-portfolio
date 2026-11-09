@@ -3,13 +3,13 @@ import fpl from '../assets/file-text-fpl.webp';
 import ppr from '../assets/file-text-ppr.webp';
 import headshot from '../assets/headshot.webp';
 import pencil from '../assets/pencil-write.webp';
-import { HERO, INTRO } from '../content/home';
+import { GREETING, HERO, INTRO, SIGN_OFF_SLOT } from '../content/home';
 import { SITE } from '../content/site';
 import { ExpandText } from './ExpandText';
 import { Icon } from './Icon';
 import { Legend } from './Legend';
 
-/** First screen: name, intro with expanding words, the legend, latest essay and the case-studies bar. */
+/** Hero: greeting, intro with the name inline and expanding words, sign-off and contact, then the legend, latest essay and case-studies bar. */
 export function Hero() {
   const essay = SITE.latestEssay;
   return (
@@ -19,13 +19,20 @@ export function Hero() {
           {/* Intro: spans the hero, up to a readable width. Expanding paragraphs grow below it. */}
           <div className="hero-top">
             <div className="eyebrow" />
-            <h1 id="h-name">
-              {SITE.name}
-              <span className="portrait">
-                <img src={headshot} alt="" width="256" height="256" decoding="async" />
-              </span>
-            </h1>
-            <ExpandText paragraphs={INTRO} />
+            {/* The name is in the first sentence; this heading names the page for screen readers and search. */}
+            <h1 id="h-name" className="sr-only">{SITE.name}</h1>
+            <p className="hello">{GREETING}</p>
+            <ExpandText paragraphs={INTRO} portrait={headshot} />
+            <p className="signoff"><span className="ph">{SIGN_OFF_SLOT}</span></p>
+            <ul className="contact">
+              {SITE.contact.map((c) => (
+                <li key={c.text}>
+                  <a className="tl" href={c.href} {...(c.href.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>
+                    {c.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="hero-l">

@@ -12,7 +12,7 @@ const INK = '#141413';
  * can be open at once. Folding a parent folds its children; Esc folds the most
  * recently opened one and returns focus to its word.
  */
-export function ExpandText({ paragraphs }: { paragraphs: IntroPara[] }) {
+export function ExpandText({ paragraphs, portrait }: { paragraphs: IntroPara[]; portrait?: string }) {
   /** Open expansion ids, oldest first. */
   const [open, setOpen] = useState<string[]>([]);
   const openRef = useRef(open);
@@ -59,6 +59,19 @@ export function ExpandText({ paragraphs }: { paragraphs: IntroPara[] }) {
   const renderSegs = (segs: Seg[]) =>
     segs.map((seg, i) => {
       if (typeof seg === 'string') return <Fragment key={i}>{seg}</Fragment>;
+      if ('name' in seg) {
+        // The name sits in the sentence, with the photo right after it.
+        return (
+          <span key={i} className="nm">
+            {seg.name}
+            {portrait && (
+              <span className="portrait">
+                <img src={portrait} alt="" width="256" height="256" decoding="async" />
+              </span>
+            )}
+          </span>
+        );
+      }
       if ('href' in seg) {
         return (
           <a key={i} className="tl" href={seg.href} target="_blank" rel="noopener">
