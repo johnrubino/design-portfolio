@@ -417,7 +417,7 @@ test.describe('content', () => {
 });
 
 test.describe('layout', () => {
-  test('the hero fits one screen at 1440 × 900, with no scrollbar inside it', async ({ page }) => {
+  test('the hero fits within one screen at 1440 × 900, with no scrollbar inside it', async ({ page }) => {
     await open(page);
     const m = await page.evaluate(() => {
       const hero = document.querySelector('#home')!;
@@ -426,7 +426,8 @@ test.describe('layout', () => {
       return { top: r.top, height: r.height, scrollH: hero.scrollHeight, clientH: hero.clientHeight, railW: rail.width, railH: rail.height, pageW: document.documentElement.scrollWidth };
     });
     expect(m.top).toBe(0);
-    expect(m.height).toBe(900);
+    // The hero is as tall as its content (no forced full-screen gap), and never taller than the window at rest.
+    expect(m.height).toBeLessThanOrEqual(900);
     expect(m.scrollH).toBeLessThanOrEqual(m.clientH);
     expect(m.railW).toBe(220);
     expect(m.railH).toBe(900);

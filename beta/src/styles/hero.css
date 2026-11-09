@@ -1,8 +1,8 @@
-/* First screen. At 1440 × 900 it fits exactly; the empty middle of the left
-   column is where the expanding paragraphs grow. */
-.screen { min-height: 100vh; display: flex; }
+/* Hero. As tall as its content: the legend and the essay / case-studies blocks
+   sit right under the intro and move down as expanding paragraphs open. */
+.screen { display: flex; }
 .content { flex: 1; min-width: 0; display: flex; flex-direction: column; padding: 28px 56px 24px; }
-.hero { flex: 1; display: grid; grid-template-columns: minmax(0, 600px) minmax(0, 420px); grid-template-rows: 1fr auto; justify-content: space-between; column-gap: 56px; }
+.hero { flex: 1; display: grid; grid-template-columns: minmax(0, 600px) minmax(0, 420px); justify-content: space-between; column-gap: 56px; row-gap: 32px; }
 /* The intro runs across the hero up to --measure, so lines don't get too long to read. */
 .hero-top { grid-column: 1 / -1; min-width: 0; max-width: var(--measure); }
 .hero-l, .hero-r { display: flex; flex-direction: column; min-width: 0; }
@@ -64,7 +64,7 @@ h1 {
 
 /* The lines */
 .sec { font-family: var(--mono); font-size: var(--t-12); font-weight: 400; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin: 20px 0 8px; }
-.hero-l .sec { margin-top: 0; padding-top: 24px; }
+.hero-l .sec { margin-top: 0; }
 .legend { margin-bottom: 4px; }
 .lg { display: grid; grid-template-columns: 22px 56px 1fr 18px; align-items: center; padding: 7px 0; border-top: 1px solid rgba(20, 20, 19, .08); font-size: var(--t-12); text-decoration: none; }
 .sw { width: 16px; height: 5px; border-radius: 3px; display: block; background: var(--c); }
@@ -114,7 +114,6 @@ h1 {
 }
 
 @media (max-width: 760px) {
-  .screen { min-height: 0; }
   .content { padding: 20px; }
   .hero { grid-template-columns: 1fr; row-gap: 24px; }
   h1 { white-space: normal; }
