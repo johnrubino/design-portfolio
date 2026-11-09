@@ -3,7 +3,7 @@ import fpl from '../assets/file-text-fpl.webp';
 import ppr from '../assets/file-text-ppr.webp';
 import headshot from '../assets/headshot.webp';
 import pencil from '../assets/pencil-write.webp';
-import { HERO, INTRO, PLACEHOLDER_TAG } from '../content/home';
+import { HERO, INTRO } from '../content/home';
 import { SITE } from '../content/site';
 import { ExpandText } from './ExpandText';
 import { Icon } from './Icon';
@@ -28,7 +28,6 @@ export function Hero() {
               </span>
             </h1>
             <ExpandText paragraphs={INTRO} />
-            <span className="ph">{PLACEHOLDER_TAG}</span>
           </div>
 
           <div className="hero-l">

@@ -355,7 +355,8 @@ test.describe('typography', () => {
 test.describe('content', () => {
   test('placeholder tags and both slots are present and untouched', async ({ page }) => {
     await open(page);
-    await expect(page.locator('.ph')).toHaveText('Placeholder copy · John to rewrite');
+    // The hero's placeholder tag was removed at John's request; the copy is still placeholder.
+    await expect(page.locator('.ph')).toHaveCount(0);
     await expect(page.locator('.ph3')).toHaveText('Placeholder · John to rewrite');
     await expect(page.locator('.pf.slot')).toHaveText('An AI-first vision prototype with four designers. [Project name · link · John to confirm]');
     await expect(page.locator('.tools-p .slot')).toHaveText('[daily stack · John to confirm]');
@@ -444,7 +445,7 @@ test.describe('layout', () => {
         const hit = (a: DOMRect, b: DOMRect) => a.left < b.right - 0.5 && b.left < a.right - 0.5 && a.top < b.bottom - 0.5 && b.top < a.bottom - 0.5;
         const pairs: [string, string][] = [
           ['.rail', '.content'], ['.hero-l', '.hero-r'], ['h1', '.hero-r'], ['.portrait', '.hero-r'],
-          ['.ph', '.sec'], ['.legend', '.foot'], ['.continue', '.foot'], ['.dt', '.continue'], ['.meta', 'h1'],
+          ['.hero-top', '.hero-l'], ['.legend', '.foot'], ['.continue', '.foot'], ['.dt', '.continue'], ['.meta', 'h1'],
           ['.ai-l', '.ai-r'], ['#home', '#howai'], ['#howai', '#list'],
         ];
         const cols = [...document.querySelectorAll('.cols .grp')].map((g) => g.getBoundingClientRect());

@@ -30,8 +30,6 @@ export interface IntroPara {
   expansions: Expansion[];
 }
 
-export const PLACEHOLDER_TAG = 'Placeholder copy · John to rewrite';
-
 export const INTRO: IntroPara[] = [
   {
     kind: 'stand',
