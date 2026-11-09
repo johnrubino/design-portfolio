@@ -7,9 +7,12 @@
   font-family: var(--mono); font-size: var(--t-12); color: var(--muted); text-transform: uppercase; letter-spacing: .08em;
   padding-bottom: 20px; border-bottom: 1px solid var(--hair);
 }
-.hero { flex: 1; display: grid; grid-template-columns: minmax(0, 600px) minmax(0, 420px); justify-content: space-between; column-gap: 56px; }
+.hero { flex: 1; display: grid; grid-template-columns: minmax(0, 600px) minmax(0, 420px); grid-template-rows: 1fr auto; justify-content: space-between; column-gap: 56px; }
+/* The intro runs across the hero up to --measure, so lines don't get too long to read. */
+.hero-top { grid-column: 1 / -1; min-width: 0; max-width: var(--measure); }
 .hero-l, .hero-r { display: flex; flex-direction: column; min-width: 0; }
-.hero-r { justify-content: flex-end; padding-bottom: 4px; }
+.hero-l, .hero-r { justify-content: flex-end; }
+.hero-r { padding-bottom: 4px; }
 .eyebrow { width: 40px; height: 4px; margin: 22px 0 14px; background: linear-gradient(90deg, var(--fowa) 0 33.3%, var(--fpl) 33.3% 66.6%, var(--ppr) 66.6%); }
 
 h1 {
@@ -29,11 +32,11 @@ h1 {
   transition: transform .32s var(--ease-spring) .12s, border-radius .32s ease .12s, box-shadow .32s ease .12s;
 }
 
-/* Standfirst and body are the same size; weight and colour set the hierarchy. */
-.stand, .body { max-width: 600px; font-size: var(--t-16); line-height: 1.45; }
-.stand { font-weight: 400; color: var(--ink); text-wrap: pretty; }
-.body { color: var(--body); margin-top: 10px; }
-.xpp { font-size: var(--t-16); line-height: 1.45; color: var(--body); margin-top: 10px; max-width: 600px; opacity: 0; filter: blur(8px); transition: opacity .2s ease-out, filter .2s ease-out; }
+/* Standfirst, body and expansions share one size and one colour; only weight differs. */
+.stand, .body { font-size: var(--t-16); line-height: 1.45; color: var(--ink); }
+.stand { font-weight: 400; }
+.body { margin-top: 10px; }
+.xpp { font-size: var(--t-16); line-height: 1.45; color: var(--ink); margin-top: 10px; opacity: 0; filter: blur(8px); transition: opacity .2s ease-out, filter .2s ease-out; }
 .xw.open .xpp { opacity: 1; filter: none; transition: opacity .26s ease-out .04s, filter .26s ease-out .04s; }
 
 /* Expanding words: a tinted pill that floods from where the pointer enters. */
@@ -65,11 +68,11 @@ h1 {
 .hl.n.done { text-decoration-color: rgba(20, 20, 19, .5); }
 
 /* Placeholder tag */
-.ph { margin-top: 8px; font-family: var(--mono); font-size: var(--t-12); color: var(--name); border: 1px dashed rgba(122, 58, 40, .5); border-radius: 4px; padding: 1px 6px; }
+.ph { display: block; margin-top: 8px; font-family: var(--mono); font-size: var(--t-12); color: var(--name); border: 1px dashed rgba(122, 58, 40, .5); border-radius: 4px; padding: 1px 6px; }
 
 /* The lines */
 .sec { font-family: var(--mono); font-size: var(--t-12); font-weight: 400; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin: 20px 0 8px; }
-.hero-l .sec { margin-top: auto; padding-top: 24px; }
+.hero-l .sec { margin-top: 0; padding-top: 24px; }
 .legend { margin-bottom: 4px; }
 .lg { display: grid; grid-template-columns: 22px 56px 1fr 18px; align-items: center; padding: 7px 0; border-top: 1px solid rgba(20, 20, 19, .08); font-size: var(--t-12); text-decoration: none; }
 .sw { width: 16px; height: 5px; border-radius: 3px; display: block; background: var(--c); }

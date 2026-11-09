@@ -31,6 +31,9 @@
   --sans: 'Public Sans', 'Public Sans Fallback', sans-serif;
   --mono: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
 
+  /* Widest the hero intro copy is allowed to run. */
+  --measure: 760px;
+
   /* Type scale: only these four sizes exist (brief §5). */
   --t-12: 12px;
   --t-16: 16px;

@@ -18,7 +18,8 @@ export function Hero() {
         <div className="meta"><span>{HERO.metaLeft}</span><span>{HERO.metaRight}</span></div>
 
         <div className="hero">
-          <div className="hero-l">
+          {/* Intro: spans the hero, up to a readable width. Expanding paragraphs grow below it. */}
+          <div className="hero-top">
             <div className="eyebrow" />
             <h1 id="h-name">
               {SITE.name}
@@ -28,6 +29,9 @@ export function Hero() {
             </h1>
             <ExpandText paragraphs={INTRO} />
             <span className="ph">{PLACEHOLDER_TAG}</span>
+          </div>
+
+          <div className="hero-l">
             <Legend heading={HERO.legendHeading} />
           </div>
 
