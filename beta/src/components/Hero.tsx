@@ -5,6 +5,7 @@ import headshot from '../assets/headshot.webp';
 import pencil from '../assets/pencil-write.webp';
 import { GREETINGS, HERO, INTRO, SIGN_OFF_SLOT } from '../content/home';
 import { SITE } from '../content/site';
+import { Currently } from './Currently';
 import { ExpandText, Greeting } from './ExpandText';
 import { Icon } from './Icon';
 import { Legend } from './Legend';
@@ -34,6 +35,8 @@ export function Hero() {
               ))}
             </ul>
           </div>
+
+          <Currently />
 
           <div className="hero-l">
             <Legend heading={HERO.legendHeading} />

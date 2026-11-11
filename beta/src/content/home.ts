@@ -147,6 +147,37 @@ export const INTRO: IntroPara[] = [
   },
 ];
 
+/**
+ * "Currently shipping for": what John is doing now, right under the intro.
+ * Copy is verbatim from the live johnrubino.design home page.
+ */
+export const CURRENTLY = {
+  heading: 'Currently shipping for',
+  items: [
+    {
+      eyebrow: 'Day role · New York, NY',
+      name: 'BNY Pershing',
+      lines: ['fowa', 'fpl'] as LineId[],
+      text: 'Senior Product Designer within the Wealth Services group — Clearing & Servicing Pods. Designing complex financial workflows for advisors managing institutional-scale assets.',
+      tags: ['Enterprise UX', 'Wealth Services', 'Design Systems', 'Fintech'],
+    },
+    {
+      eyebrow: 'Advisor · Product & Brand Studio',
+      name: 'Colllective Design',
+      lines: ['labs'] as LineId[],
+      text: 'AI-native product and brand studio focused on venture design, product strategy, and 0-to-1 product development. Helping founders build intelligent, human-centered products.',
+      tags: ['AI-Native', 'Venture Design', 'Product Strategy', '0-to-1'],
+    },
+    {
+      eyebrow: 'Writer · Substack',
+      name: 'Design Thinker',
+      lines: ['write'] as LineId[],
+      text: 'Short, provocative essays on the future of design practice, AI as creative infrastructure, and building sustainable design careers in a rapidly changing industry.',
+      tags: ['Design Thinking', 'AI & Future of Work', 'Career'],
+    },
+  ],
+};
+
 export const HERO = {
   legendHeading: 'The lines',
   essayKicker: 'Design Thinker · Latest essay',

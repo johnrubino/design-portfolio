@@ -58,6 +58,19 @@
 .hl:hover { color: var(--ink); }
 .hl.n:hover { color: var(--paper); }
 .hl:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+/* Currently shipping for: three columns across the hero, under the intro. */
+.now { grid-column: 1 / -1; min-width: 0; }
+.now .sec { margin-top: 0; }
+.now-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.now-item { display: flex; flex-direction: column; padding-top: 14px; border-top: 1px solid var(--hair); }
+.now-lines { display: flex; gap: 3px; margin-bottom: 12px; }
+.now-lines i { width: 16px; height: 5px; border-radius: 3px; display: block; }
+.now-k { font-family: var(--mono); font-size: var(--t-12); color: var(--muted); }
+.now-t { font-family: var(--display); font-size: var(--t-22); font-weight: 650; letter-spacing: -.025em; line-height: 1.2; margin-top: 4px; color: var(--ink); }
+.now-d { font-size: var(--t-16); line-height: 1.45; color: var(--ink); margin-top: 8px; }
+.now-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 14px; font-family: var(--mono); font-size: var(--t-12); color: var(--muted); }
+.now-tags li { border: 1px solid var(--hair); border-radius: 999px; padding: 1px 8px; }
+
 /* The lines */
 .sec { font-family: var(--mono); font-size: var(--t-12); font-weight: 400; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin: 20px 0 8px; }
 .hero-l .sec { margin-top: 0; }
@@ -109,8 +122,13 @@
   .portrait:hover img { transform: none; }
 }
 
+@media (max-width: 1100px) and (min-width: 761px) {
+  .now-list { grid-template-columns: 1fr 1fr; }
+}
+
 @media (max-width: 760px) {
   .content { padding: 20px; }
   .hero { grid-template-columns: 1fr; row-gap: 24px; }
+  .now-list { grid-template-columns: 1fr; gap: 24px; }
   .lg { grid-template-columns: 22px 56px 1fr 18px; }
 }

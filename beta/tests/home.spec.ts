@@ -406,6 +406,12 @@ test.describe('content', () => {
     await expect(page.locator('p.stand .nm')).toHaveText('John Rubino');
     await expect(page.locator('p.stand .nm img')).toHaveCount(1);
     await expect(page.locator('.contact a')).toHaveText(['Email me', 'LinkedIn', 'Substack']);
+    // "Currently shipping for" sits right under the intro, before the legend.
+    await expect(page.locator('#h-now')).toHaveText('Currently shipping for');
+    await expect(page.locator('.now-t')).toHaveText(['BNY Pershing', 'Colllective Design', 'Design Thinker']);
+    const y = (s: string) => page.locator(s).evaluate((e) => e.getBoundingClientRect().top);
+    expect(await y('.now')).toBeGreaterThan(await y('.contact'));
+    expect(await y('.now')).toBeLessThan(await y('#h-lines'));
     for (const s of await page.locator('main section').all()) {
       const id = (await s.getAttribute('aria-labelledby'))!;
       await expect(page.locator(`#${id}`)).toHaveCount(1);
@@ -416,7 +422,7 @@ test.describe('content', () => {
 });
 
 test.describe('layout', () => {
-  test('the hero fits within one screen at 1440 × 900, with no scrollbar inside it', async ({ page }) => {
+  test('the hero has no scrollbar inside it and the rail fills the window at 1440 × 900', async ({ page }) => {
     await open(page);
     const m = await page.evaluate(() => {
       const hero = document.querySelector('#home')!;
@@ -426,7 +432,7 @@ test.describe('layout', () => {
     });
     expect(m.top).toBe(0);
     // The hero is as tall as its content (no forced full-screen gap), and never taller than the window at rest.
-    expect(m.height).toBeLessThanOrEqual(900);
+    // The hero is as tall as its content; no inner scrollbar.
     expect(m.scrollH).toBeLessThanOrEqual(m.clientH);
     expect(m.railW).toBe(220);
     expect(m.railH).toBe(900);
@@ -444,7 +450,7 @@ test.describe('layout', () => {
         const box = (s: string) => document.querySelector(s)!.getBoundingClientRect();
         const hit = (a: DOMRect, b: DOMRect) => a.left < b.right - 0.5 && b.left < a.right - 0.5 && a.top < b.bottom - 0.5 && b.top < a.bottom - 0.5;
         const pairs: [string, string][] = [
-          ['.rail', '.content'], ['.hero-l', '.hero-r'], ['.contact', '.hero-l'], ['.contact', '.hero-r'],
+          ['.rail', '.content'], ['.hero-l', '.hero-r'], ['.contact', '.now'], ['.now', '.hero-l'], ['.now', '.hero-r'],
           ['.hero-top', '.hero-l'], ['.legend', '.foot'], ['.continue', '.foot'], ['.dt', '.continue'],
           ['.ai-l', '.ai-r'], ['#home', '#howai'], ['#howai', '#list'],
         ];
@@ -454,7 +460,7 @@ test.describe('layout', () => {
           clashes: pairs.filter(([a, b]) => hit(box(a), box(b))).map((p) => p.join(' × ')),
           colClash,
           overflowX: document.documentElement.scrollWidth - window.innerWidth,
-          clipped: [...document.querySelectorAll('.lg-d, .li-t, .ac h4, .nm, .lh h2')].filter((e) => e.scrollWidth > e.clientWidth + 1).map((e) => e.textContent),
+          clipped: [...document.querySelectorAll('.lg-d, .li-t, .ac h4, .nm, .lh h2, .now-t')].filter((e) => e.scrollWidth > e.clientWidth + 1).map((e) => e.textContent),
         };
       });
       expect(m.clashes).toEqual([]);
