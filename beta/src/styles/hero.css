@@ -60,6 +60,9 @@
 .hl:hover { color: var(--ink); }
 .hl.n:hover { color: var(--paper); }
 .hl:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+/* Section labels: small mono caps. */
+.sec { font-family: var(--mono); font-size: var(--t-12); font-weight: 400; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin: 20px 0 8px; }
+
 /* Currently shipping for: three columns across the hero, under the intro. */
 .now { grid-column: 1 / -1; min-width: 0; }
 .now .sec { margin-top: 0; }
