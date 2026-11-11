@@ -10,7 +10,7 @@ import { ExpandText, Greeting } from './ExpandText';
 import { Icon } from './Icon';
 import { Legend } from './Legend';
 
-/** Hero: greeting, intro with the name inline and expanding words, sign-off and contact, then the legend, latest essay and case-studies bar. */
+/** Hero: greeting and intro with the name inline and expanding words, "Currently shipping for", then the legend, latest essay and case-studies bar. */
 export function Hero() {
   const essay = SITE.latestEssay;
   return (
