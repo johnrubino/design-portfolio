@@ -1,8 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from 'react';
 import { ALSO_LIT, LINE, LINE_IDS, type LineId } from '../content/lines';
-import { SITE } from '../content/site';
 import {
-  ABOUT, BADGE, BASE_WIDTH, BASE_X, CASE_STUDIES_PILL, CASING, DRAW_ORDER, H, HOME_PILL, HOME_Y, LABEL_X,
+  BADGE, BASE_WIDTH, BASE_X, CASE_STUDIES_PILL, CASING, DRAW_ORDER, H, HOME_PILL, HOME_Y, LABEL_X,
   LINE_WIDTH, PPR_LABS_PILL, ROUTES, STOPS, TERMINUS_X, TIMETABLE, W,
 } from '../geometry/rail';
 import { Icon } from './Icon';
@@ -98,7 +97,7 @@ export function Rail() {
             <circle key={id} className={ln([id], 'field')} cx={ROUTES[id].end[0] + 22} cy={ROUTES[id].end[1]} r="22" fill={LINE[id].colour} fillOpacity="0.12" filter="url(#blur)" />
           ))}
 
-          <line className="ln base" x1={BASE_X} y1={ABOUT[1]} x2={BASE_X} y2={TIMETABLE[1]} strokeWidth={BASE_WIDTH} strokeLinecap="round" />
+          <line className="ln base" x1={BASE_X} y1={HOME_Y} x2={BASE_X} y2={TIMETABLE[1]} strokeWidth={BASE_WIDTH} strokeLinecap="round" />
 
           {DRAW_ORDER.map((id) => (
             <path key={id} className={ln([id], 'case')} d={ROUTES[id].d} strokeWidth={LINE_WIDTH + CASING} fill="none" strokeLinecap="round" strokeLinejoin="round" />
@@ -106,11 +105,6 @@ export function Rail() {
           {DRAW_ORDER.map((id) => (
             <path key={id} id={`p-${id}`} className={ln([id], 'rt')} style={{ '--c': LINE[id].colour } as CSSProperties} d={ROUTES[id].d} stroke={LINE[id].colour} strokeWidth={LINE_WIDTH} fill="none" strokeLinecap="round" strokeLinejoin="round" />
           ))}
-
-          <a href={SITE.about} target="_blank" rel="noopener" aria-label="About (opens in a new tab)" className="ln">
-            <circle className="end" cx={ABOUT[0]} cy={ABOUT[1]} r="6" />
-            <text className="t-station dimmer" x={ABOUT[0] + 16} y={ABOUT[1] + 5}>About</text>
-          </a>
 
           <a href="#home" aria-label="Home, you are here">
             <rect className="pill" {...rect(HOME_PILL)} rx="10" />

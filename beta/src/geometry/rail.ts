@@ -21,7 +21,7 @@ export const LINE_WIDTH = 5;
 export const CASING = 3;
 export const CORNER = 14;
 export const BASE_WIDTH = 3;
-/** Grey base line (About → Home → Timetable). */
+/** Grey base line (Home → Timetable). The About stop was removed at John's request. */
 export const BASE_X = 28;
 export const HOME_Y = 104;
 /** Centre of the vertical trunk. */
@@ -32,7 +32,6 @@ export const TERMINUS_X = 150;
 export const LABEL_X = 96;
 export const BADGE = { w: 44, h: 18, r: 9 } as const;
 
-export const ABOUT: Pt = [BASE_X, 36];
 export const TIMETABLE: Pt = [BASE_X, H - 36];
 
 /** The y of each line's terminus. */

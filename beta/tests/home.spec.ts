@@ -153,10 +153,11 @@ test.describe('rail map', () => {
     expect(await href('Purple Panda Rentals')).toBe('#stop-ppr');
     expect(await href('Colllective Design')).toBe('#stop-labs');
     expect(await href('Figma isn’t always the starting line')).toBe(ESSAY);
-    expect(await href('About')).toBe('https://johnrubino.design/about');
+    // The About stop was removed from the map at John's request.
+    await expect(page.locator('#mapsvg a[aria-label^="About"]')).toHaveCount(0);
     expect(await href('Timetable')).toBe('#stop-timetable');
     expect(await href('Home')).toBe('#home');
-    for (const name of ['Figma isn’t always the starting line', 'About']) {
+    for (const name of ['Figma isn’t always the starting line']) {
       await expect(page.locator(`#mapsvg a[aria-label^="${name}"]`)).toHaveAttribute('target', '_blank');
     }
     // Every in-page destination exists.
