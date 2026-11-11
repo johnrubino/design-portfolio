@@ -90,6 +90,37 @@ export function Rail() {
             <filter id="blur" x="-100%" y="-100%" width="300%" height="300%">
               <feGaussianBlur stdDeviation="12" />
             </filter>
+            {/* Depth: raised markers cast a small shadow down the page. */}
+            <filter id="lift" x="-30%" y="-40%" width="160%" height="200%">
+              <feDropShadow dx="0" dy="1.2" stdDeviation="1.1" floodColor="#000" floodOpacity="0.55" />
+            </filter>
+            <filter id="glow" x="-80%" y="-40%" width="260%" height="180%">
+              <feDropShadow dx="0" dy="0" stdDeviation="3" floodColor="#f2efe8" floodOpacity="0.45" />
+              <feDropShadow dx="0" dy="1.2" stdDeviation="1.1" floodColor="#000" floodOpacity="0.55" />
+            </filter>
+            {/* Enamel gloss laid over each badge's flat colour. */}
+            <linearGradient id="enamel" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stopColor="#fff" stopOpacity="0.42" />
+              <stop offset="0.5" stopColor="#fff" stopOpacity="0.06" />
+              <stop offset="0.51" stopColor="#000" stopOpacity="0.04" />
+              <stop offset="1" stopColor="#000" stopOpacity="0.14" />
+            </linearGradient>
+            {/* Raised white capsules: lit from above. */}
+            <linearGradient id="capsule" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stopColor="#ffffff" />
+              <stop offset="1" stopColor="#ddd8cd" />
+            </linearGradient>
+            {/* The train: a small glossy bead. */}
+            <radialGradient id="bead" cx="0.35" cy="0.3" r="0.75">
+              <stop offset="0" stopColor="#ffffff" />
+              <stop offset="0.55" stopColor="#f2efe8" />
+              <stop offset="1" stopColor="#b9b3a7" />
+            </radialGradient>
+            {/* Timetable end: a dark socket. */}
+            <radialGradient id="socket" cx="0.5" cy="0.35" r="0.7">
+              <stop offset="0" stopColor="#2a2a28" />
+              <stop offset="1" stopColor="#0e0e0d" />
+            </radialGradient>
           </defs>
 
           {/* Soft glow behind each line end */}
@@ -107,23 +138,23 @@ export function Rail() {
           ))}
 
           <a href="#home" aria-label="Home, you are here">
-            <rect className="pill" {...rect(HOME_PILL)} rx="10" />
+            <rect className="pill home-pill" {...rect(HOME_PILL)} rx="10" filter="url(#glow)" />
             <text className="ln t-home" x={LABEL_X + 6} y={HOME_Y + 2}>Home</text>
             <text className="ln t-mono yah" x={LABEL_X + 6} y={HOME_Y + 20}>YOU ARE HERE</text>
           </a>
 
           <a href="#list" aria-label="Case studies" className={ln(CASE_STUDIES_PILL.lines)}>
-            <rect className="pill" {...rect(CASE_STUDIES_PILL)} rx="8" />
+            <rect className="pill" {...rect(CASE_STUDIES_PILL)} rx="8" filter="url(#lift)" />
             <text className="t-station" x={LABEL_X + 6} y={171}>Case studies</text>
           </a>
 
           <g className={ln(PPR_LABS_PILL.lines)}>
-            <rect className="pill" {...rect(PPR_LABS_PILL)} rx="8" />
+            <rect className="pill" {...rect(PPR_LABS_PILL)} rx="8" filter="url(#lift)" />
           </g>
 
           {STOPS.map((s) => (
             <a key={s.line} href={s.line === 'labs' ? '#stop-labs' : '#stop-write'} aria-label={s.name} className={ln([s.line])}>
-              <circle cx={s.at[0]} cy={s.at[1]} r="5.5" fill="#f2efe8" stroke={LINE[s.line].colour} strokeWidth="3" />
+              <circle cx={s.at[0]} cy={s.at[1]} r="5.5" fill="url(#capsule)" stroke={LINE[s.line].colour} strokeWidth="3" filter="url(#lift)" />
               <text className="t-station" x={s.at[0] + 16} y={s.at[1] + 5}>{s.name}</text>
             </a>
           ))}
@@ -144,7 +175,8 @@ export function Rail() {
                 onBlur={leave}
               >
                 <g className={ln([id, ...(ALSO_LIT[id] ?? [])], 'stop')} data-stop={id}>
-                  <rect className="badge" x={TERMINUS_X + 4} y={y - BADGE.h / 2} width={BADGE.w} height={BADGE.h} rx={BADGE.r} fill={info.colour} />
+                  <rect className="badge" x={TERMINUS_X + 4} y={y - BADGE.h / 2} width={BADGE.w} height={BADGE.h} rx={BADGE.r} fill={info.colour} filter="url(#lift)" />
+                  <rect className="sheen" x={TERMINUS_X + 4} y={y - BADGE.h / 2} width={BADGE.w} height={BADGE.h} rx={BADGE.r} fill="url(#enamel)" />
                   <text className="t-mono code" x={TERMINUS_X + 4 + BADGE.w / 2} y={y + 4} textAnchor="middle">{info.code}</text>
                   {id === 'write' && <text className="t-mono kicker" x={LABEL_X} y={y + 22}>LATEST ESSAY</text>}
                   {info.mapLabel.map((row, i) => (

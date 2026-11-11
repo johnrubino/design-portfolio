@@ -40,6 +40,22 @@
   --t-22: 22px;
   --t-72: 72px;
 
+  /* Depth: one light source (top-left), three lift levels and a pressed state.
+     Every raised or pushed-in surface uses these, so the page reads as one set of objects. */
+  --hi: rgba(255, 255, 255, .6);                /* top edge catching the light */
+  --lo: rgba(20, 20, 19, .12);                  /* bottom edge in shade */
+  --lift-1: inset 0 1px 0 var(--hi), 0 1px 2px rgba(20, 20, 19, .10), 0 2px 6px rgba(20, 20, 19, .06);
+  --lift-2: inset 0 1px 0 var(--hi), 0 2px 4px rgba(20, 20, 19, .10), 0 10px 22px rgba(20, 20, 19, .12);
+  --lift-3: inset 0 1px 0 var(--hi), 0 4px 10px rgba(20, 20, 19, .14), 0 22px 44px rgba(20, 20, 19, .20);
+  --press: inset 0 2px 4px rgba(20, 20, 19, .22), inset 0 -1px 0 rgba(255, 255, 255, .5);
+  --deboss: inset 0 1px 2px rgba(20, 20, 19, .14), 0 1px 0 rgba(255, 255, 255, .7);
+  /* Enamel: a glossy top half and a slightly darker foot, over any flat colour. */
+  --enamel: linear-gradient(rgba(255, 255, 255, .38), rgba(255, 255, 255, .06) 50%, rgba(0, 0, 0, .06) 51%, rgba(0, 0, 0, .10));
+  --enamel-edge: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .12), 0 1px 1.5px rgba(20, 20, 19, .28);
+  /* Dark surfaces: the rail, keys and tiles. */
+  --dark-edge: inset 0 1px 0 rgba(255, 255, 255, .08), inset 0 -1px 0 rgba(0, 0, 0, .5);
+  --card-paper: #f4f1ea;
+
   --ease-out: cubic-bezier(.22, 1, .36, 1);
   --ease-expand: cubic-bezier(.16, 1, .3, 1);
   --ease-spring: cubic-bezier(.34, 1.56, .64, 1);

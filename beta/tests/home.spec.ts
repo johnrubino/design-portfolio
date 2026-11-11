@@ -1,3 +1,4 @@
+import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
 
 /**
@@ -421,6 +422,23 @@ test.describe('content', () => {
     const unnamed = await page.locator('a').evaluateAll((els) => els.filter((a) => !(a.textContent ?? '').trim() && !a.getAttribute('aria-label')).length);
     expect(unnamed).toBe(0);
   });
+});
+
+test.describe('contrast', () => {
+  // The depth effects (gloss, embossed and stamped labels, paper cards) must keep text at WCAG AA.
+  for (const viewport of [DESKTOP, { width: 390, height: 844 }]) {
+    test(`all text meets AA contrast at ${viewport.width}px, with every paragraph open`, async ({ page }) => {
+      await open(page, viewport);
+      const hl = page.locator('.hero-top button.hl');
+      while (await hl.count()) await hl.first().click();
+      await page.locator('.tools-b').click();
+      await page.evaluate(() => document.querySelectorAll('.rv').forEach((e) => e.classList.add('in')));
+      await page.waitForTimeout(900);
+      const results = await new AxeBuilder({ page }).withRules(['color-contrast']).analyze();
+      const failures = results.violations.flatMap((v) => v.nodes.map((n) => `${n.target.join(' ')}: ${n.failureSummary?.split('\n').slice(1).join(' ')}`));
+      expect(failures).toEqual([]);
+    });
+  }
 });
 
 test.describe('layout', () => {

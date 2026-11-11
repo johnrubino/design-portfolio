@@ -3,7 +3,11 @@
   position: sticky; top: 0; z-index: 30;
   width: 220px; flex: 0 0 220px; height: 100vh;
   display: flex; flex-direction: column;
-  background-color: var(--rail); color: var(--paper);
+  color: var(--paper);
+  /* Painted metal: a faint sheen across the panel and a lit bevel on its edge. */
+  background-color: var(--rail);
+  background-image: linear-gradient(100deg, rgba(255, 255, 255, .035), rgba(255, 255, 255, 0) 45%, rgba(0, 0, 0, .12));
+  box-shadow: inset -1px 0 0 rgba(255, 255, 255, .07), inset -2px 0 0 rgba(0, 0, 0, .5), 6px 0 18px rgba(20, 20, 19, .16);
 }
 .rail a { text-decoration: none; }
 .rail-head { padding: 24px 20px 4px; }
@@ -30,9 +34,11 @@
 
 #mapsvg .base { stroke: var(--base-line); }
 #mapsvg .case { stroke: var(--rail-card); }
-#mapsvg .pill { fill: var(--paper); stroke: var(--rail); stroke-width: 2; }
-#mapsvg .end { fill: var(--rail); stroke: #8a867f; stroke-width: 2.5; }
-#mapsvg #train { fill: var(--paper); stroke: var(--rail); stroke-width: 1.5; opacity: 0; pointer-events: none; transition: opacity .2s; }
+#mapsvg .pill { fill: url(#capsule); stroke: var(--rail); stroke-width: 2; }
+#mapsvg .sheen { pointer-events: none; }
+#mapsvg .code { filter: drop-shadow(0 .6px 0 rgba(255, 255, 255, .4)); }
+#mapsvg .end { fill: url(#socket); stroke: #8a867f; stroke-width: 2.5; }
+#mapsvg #train { fill: url(#bead); stroke: var(--rail); stroke-width: 1; opacity: 0; pointer-events: none; transition: opacity .2s; filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .6)); }
 #mapsvg a:focus-visible { outline: 2px solid var(--paper); outline-offset: 3px; border-radius: 4px; }
 
 /* Hover: the line lights, everything else on the map dims. Map only. */
@@ -48,7 +54,7 @@
 .preview {
   position: absolute; left: calc(100% + 14px); z-index: 40; width: 280px;
   background: var(--paper); color: var(--ink); border-radius: 8px; padding: 12px 14px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8), 0 2px 4px rgba(0, 0, 0, .2), 0 14px 34px rgba(0, 0, 0, .45);
   opacity: 0; transform: translateX(-6px); pointer-events: none;
   transition: opacity .2s ease, transform .26s var(--ease-out), top .26s var(--ease-out);
 }
@@ -77,8 +83,9 @@
   .strip { display: flex; align-items: center; gap: 10px; overflow-x: auto; position: relative; padding: 4px 2px; min-width: 0; scrollbar-width: none; }
   .strip::-webkit-scrollbar { display: none; }
   .strip::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 3px; margin-top: -1.5px; background: linear-gradient(90deg, var(--fowa), var(--fpl), var(--ppr), var(--labs), var(--write)); opacity: .6; }
-  .strip .st { position: relative; flex: none; font-family: var(--mono); font-size: var(--t-12); line-height: 18px; padding: 0 8px; border-radius: 9px; background: var(--c); color: var(--ink); }
+  .strip .st { position: relative; flex: none; font-family: var(--mono); font-size: var(--t-12); line-height: 18px; padding: 0 8px; border-radius: 9px; background: var(--enamel), var(--c); box-shadow: var(--enamel-edge); color: var(--ink); }
   /* A larger tap area than the 18px badge. */
   .strip .st::after { content: ""; position: absolute; inset: -8px -5px; }
-  .strip .st-home { background: var(--paper); }
+  .strip .st-home { background: linear-gradient(#fff, #ddd8cd); }
+  .strip .st:active { box-shadow: var(--press); transform: translateY(1px); }
 }
