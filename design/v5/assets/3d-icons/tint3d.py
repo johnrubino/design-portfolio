@@ -1,6 +1,8 @@
-"""Usage: python3 tint3d.py <source-clay dir> <beta/src/assets/3d dir>
 """Tint 3dicons Clay PNGs toward a line colour (same duotone method as
-design/v5/assets/3d-icons/tint.py) and save as 96px WebP."""
+tint.py) and save as 96px WebP.
+
+Usage: python3 tint3d.py <source-clay dir> <beta/src/assets/3d dir>
+"""
 import sys
 from PIL import Image, ImageOps
 src_dir, out_dir = sys.argv[1:3]
