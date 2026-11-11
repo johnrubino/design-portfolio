@@ -2,17 +2,14 @@ import fowa from '../assets/file-text-fowa.webp';
 import fpl from '../assets/file-text-fpl.webp';
 import ppr from '../assets/file-text-ppr.webp';
 import headshot from '../assets/headshot.webp';
-import pencil from '../assets/pencil-write.webp';
 import { GREETINGS, HERO, INTRO } from '../content/home';
 import { SITE } from '../content/site';
 import { Currently } from './Currently';
 import { ExpandText, Greeting } from './ExpandText';
 import { Icon } from './Icon';
-import { Legend } from './Legend';
 
-/** Hero: greeting and intro with the name inline and expanding words, "Currently shipping for", then the legend, latest essay and case-studies bar. */
+/** Hero: greeting and intro with the name inline and expanding words, "Currently shipping for", then the case-studies key. */
 export function Hero() {
-  const essay = SITE.latestEssay;
   return (
     <section className="screen stone" id="home" aria-labelledby="h-name">
       <div className="content">
@@ -28,19 +25,7 @@ export function Hero() {
 
           <Currently />
 
-          <div className="hero-l">
-            <Legend heading={HERO.legendHeading} />
-          </div>
-
           <div className="hero-r">
-            <a className="dt" href={essay.url} target="_blank" rel="noopener">
-              <img className="d3" src={pencil} alt="" width="48" height="48" decoding="async" />
-              <span>
-                <span className="k">{HERO.essayKicker}</span>
-                <span className="t">{essay.title}</span>
-                <span className="s">{essay.date} · {HERO.essaySource}</span>
-              </span>
-            </a>
             <a className="continue" href={HERO.continueHref}>
               <span>
                 <span className="kicker">{HERO.continueKicker}</span>

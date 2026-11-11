@@ -73,7 +73,7 @@ test.describe('rail map', () => {
     expect(rotated).toBe(0);
   });
 
-  test('badges match the legend exactly', async ({ page }) => {
+  test('badges keep their fixed codes, colours and size', async ({ page }) => {
     await open(page);
     const map = await page.locator('#mapsvg .stop').evaluateAll((stops) =>
       stops.map((s) => {
@@ -82,14 +82,8 @@ test.describe('rail map', () => {
         return { code: s.querySelector('.code')!.textContent, fill: getComputedStyle(badge).fill, w: Math.round(r.width), h: Math.round(r.height) };
       }),
     );
-    const legend = await page.locator('.legend .rb').evaluateAll((els) =>
-      els.map((b) => {
-        const r = b.getBoundingClientRect();
-        return { code: b.textContent, fill: getComputedStyle(b).backgroundColor, w: Math.round(r.width), h: Math.round(r.height) };
-      }),
-    );
     expect(map.map((b) => b.code)).toEqual(['FoWA', 'FPL', 'PPR', 'Labs', 'W']);
-    expect(legend).toEqual(map);
+    expect(map.map((b) => b.fill)).toEqual(['rgb(255, 107, 74)', 'rgb(232, 163, 23)', 'rgb(91, 140, 255)', 'rgb(181, 123, 255)', 'rgb(212, 192, 154)']);
     for (const b of map) expect([b.w, b.h]).toEqual([44, 18]);
   });
 
@@ -368,13 +362,8 @@ test.describe('content', () => {
     expect(text).not.toContain('AI-first advisor workspace');
     expect(text).not.toMatch(/\$\s?\d|\d\+?\s+years/i);
 
-    await expect(page.locator('.legend .lg-d')).toHaveText([
-      'Future of Wealth Advisory · account opening, asset movement',
-      'Fully Paid Lending · liquidity for clients, kept compliant',
-      'Purple Panda Rentals · founder project, student rentals',
-      'Colllective Design · AI-native studio I advise',
-      'Design Thinker, essays on design and AI',
-    ]);
+    // The legend ("The lines") and the latest-essay card were removed from the hero at John's request.
+    await expect(page.locator('.legend, .dt')).toHaveCount(0);
     await expect(page.locator('#stop-fowa .li-s')).toHaveText('BNY Pershing · Wealth Services · NDA');
     await expect(page.locator('#stop-fpl .li-s')).toHaveText('BNY Pershing · Wealth Services · NDA');
     await expect(page.locator('#stop-ppr .li-s')).toHaveText('Founder project · In progress');
@@ -387,14 +376,14 @@ test.describe('content', () => {
     const head = await page.evaluate(() => document.head.innerHTML);
     expect(head).toContain('3D icons: 3dicons by Vijay Verma (realvjy), https://3dicons.co — CC0 1.0 (github.com/realvjy/3dicons). Clay style, dynamic angle; recoloured.');
     const imgs = await page.locator('img').evaluateAll((els) => els.map((i) => ({ src: i.getAttribute('src')!, w: i.getAttribute('width'), h: i.getAttribute('height') })));
-    expect(imgs).toHaveLength(5);
+    expect(imgs).toHaveLength(4);
     for (const i of imgs) {
       expect(i.src).toMatch(/\.webp$/);
       expect(i.src.startsWith('data:')).toBe(false);
       expect(i.w && i.h).toBeTruthy();
     }
-    // 3D icons appear only in the latest-essay block and the case-studies bar.
-    expect(await page.locator('.legend img, #list img, .xw img, #howai img').count()).toBe(0);
+    // 3D icons appear only in the case-studies key.
+    expect(await page.locator('#list img, .xw img, #howai img, .now img').count()).toBe(0);
   });
 
   test('landmarks, headings and link names', async ({ page }) => {
@@ -409,12 +398,12 @@ test.describe('content', () => {
     await expect(page.locator('p.stand .nm img')).toHaveCount(1);
     // The contact links were removed from the intro at John's request.
     await expect(page.locator('.contact')).toHaveCount(0);
-    // "Currently shipping for" sits right under the intro, before the legend.
+    // "Currently shipping for" sits right under the intro, before the case-studies key.
     await expect(page.locator('#h-now')).toHaveText('Currently shipping for');
     await expect(page.locator('.now-t')).toHaveText(['BNY Pershing', 'Colllective Design', 'Design Thinker']);
     const y = (s: string) => page.locator(s).evaluate((e) => e.getBoundingClientRect().top);
     expect(await y('.now')).toBeGreaterThan(await y('p.body'));
-    expect(await y('.now')).toBeLessThan(await y('#h-lines'));
+    expect(await y('.now')).toBeLessThan(await y('.continue'));
     for (const s of await page.locator('main section').all()) {
       const id = (await s.getAttribute('aria-labelledby'))!;
       await expect(page.locator(`#${id}`)).toHaveCount(1);
@@ -470,8 +459,8 @@ test.describe('layout', () => {
         const box = (s: string) => document.querySelector(s)!.getBoundingClientRect();
         const hit = (a: DOMRect, b: DOMRect) => a.left < b.right - 0.5 && b.left < a.right - 0.5 && a.top < b.bottom - 0.5 && b.top < a.bottom - 0.5;
         const pairs: [string, string][] = [
-          ['.rail', '.content'], ['.hero-l', '.hero-r'], ['.hero-top', '.now'], ['.now', '.hero-l'], ['.now', '.hero-r'],
-          ['.hero-top', '.hero-l'], ['.legend', '.foot'], ['.continue', '.foot'], ['.dt', '.continue'],
+          ['.rail', '.content'], ['.hero-top', '.now'], ['.now', '.hero-r'],
+          ['.continue', '.foot'],
           ['.ai-l', '.ai-r'], ['#home', '#howai'], ['#howai', '#list'],
         ];
         const cols = [...document.querySelectorAll('.cols .grp')].map((g) => g.getBoundingClientRect());
@@ -480,7 +469,7 @@ test.describe('layout', () => {
           clashes: pairs.filter(([a, b]) => hit(box(a), box(b))).map((p) => p.join(' × ')),
           colClash,
           overflowX: document.documentElement.scrollWidth - window.innerWidth,
-          clipped: [...document.querySelectorAll('.lg-d, .li-t, .ac h4, .nm, .lh h2, .now-t')].filter((e) => e.scrollWidth > e.clientWidth + 1).map((e) => e.textContent),
+          clipped: [...document.querySelectorAll('.li-t, .ac h4, .nm, .lh h2, .now-t')].filter((e) => e.scrollWidth > e.clientWidth + 1).map((e) => e.textContent),
         };
       });
       expect(m.clashes).toEqual([]);

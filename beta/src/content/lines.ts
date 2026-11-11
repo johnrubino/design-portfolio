@@ -1,6 +1,6 @@
 /**
  * The five lines. Colours and codes are fixed by the v5 brief (§4, §6):
- * the map badges and the legend both read from here, so they always match.
+ * the map badges and the phone strip both read from here, so they always match.
  */
 export type LineId = 'fowa' | 'fpl' | 'ppr' | 'labs' | 'write';
 
@@ -17,7 +17,7 @@ export interface LineInfo {
   name: string;
   /** End-of-line label on the map, one entry per row. */
   mapLabel: string[];
-  /** Legend row under "The lines". */
+  /** One-line descriptor (the "The lines" legend that showed it was removed; kept for reuse). */
   legend: string;
   icon: IconId;
   /** Where the line end goes. In-page anchors point at "Every stop" rows. */

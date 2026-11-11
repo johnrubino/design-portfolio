@@ -1,5 +1,5 @@
 /* v5 design tokens (brief §4). The only place raw colours live, apart from
-   the line colours in src/content/lines.ts, which the map and legend share. */
+   the line colours in src/content/lines.ts, which the map, strip and cards share. */
 :root {
   --stone: #ebe7de;
   --ink: #141413;

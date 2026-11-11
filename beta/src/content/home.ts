@@ -176,9 +176,6 @@ export const CURRENTLY = {
 };
 
 export const HERO = {
-  legendHeading: 'The lines',
-  essayKicker: 'Design Thinker · Latest essay',
-  essaySource: 'johnrubino.substack.com',
   continueKicker: 'Start with',
   continueDest: 'Case studies',
   // TODO(john): where should "Start with Case studies" go? (brief §13 Q2). For now it scrolls to "Every stop".
