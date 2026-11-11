@@ -1,11 +1,10 @@
-/* Hero. As tall as its content: "Currently shipping for" and the case-studies key
-   sit right under the intro and move down as expanding paragraphs open. */
+/* Hero. As tall as its content: "Currently shipping for" sits right under the
+   intro and moves down as expanding paragraphs open. */
 .screen { display: flex; }
 .content { flex: 1; min-width: 0; display: flex; flex-direction: column; padding: 28px 56px 24px; }
 .hero { flex: 1; display: grid; grid-template-columns: minmax(0, 600px) minmax(0, 420px); justify-content: space-between; column-gap: 56px; row-gap: 32px; }
 /* The intro runs across the hero up to --measure, so lines don't get too long to read. */
 .hero-top { grid-column: 1 / -1; min-width: 0; max-width: var(--measure); }
-.hero-r { grid-column: 1 / -1; display: flex; flex-direction: column; min-width: 0; max-width: 420px; padding-bottom: 4px; }
 .eyebrow { width: 40px; height: 4px; margin: 0 0 22px; background: linear-gradient(90deg, var(--fowa) 0 33.3%, var(--fpl) 33.3% 66.6%, var(--ppr) 66.6%); }
 
 /* Intro: one flowing block of text. Greeting, the sentence with the name and
@@ -82,39 +81,12 @@
 .now-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 14px; font-family: var(--mono); font-size: var(--t-12); color: var(--muted); }
 .now-tags li { border-radius: 999px; padding: 1px 8px; background: rgba(20, 20, 19, .045); box-shadow: var(--deboss); }
 
-/* Start with Case studies */
-.continue {
-  /* A physical key: lit top edge, a solid base beneath it, and it travels when pressed. */
-  display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 22px;
-  border-radius: 12px; color: var(--paper); text-decoration: none;
-  background: linear-gradient(#2c2c2a, #161615 60%, #121211);
-  box-shadow: var(--dark-edge), 0 3px 0 #050505, 0 6px 14px rgba(20, 20, 19, .28);
-  transition: transform .14s var(--ease-out), box-shadow .14s var(--ease-out);
-}
-.continue:hover { transform: translateY(-1px); box-shadow: var(--dark-edge), 0 4px 0 #050505, 0 10px 22px rgba(20, 20, 19, .32); }
-.continue:active { transform: translateY(3px); box-shadow: inset 0 2px 6px rgba(0, 0, 0, .7), inset 0 -1px 0 rgba(255, 255, 255, .05), 0 0 0 #050505, 0 2px 6px rgba(20, 20, 19, .2); }
-.continue span span { display: block; }
-.continue .kicker { font-family: var(--mono); font-size: var(--t-12); letter-spacing: .1em; text-transform: uppercase; color: var(--on-dark-muted); margin-bottom: 2px; }
-.continue .dest { font-family: var(--display); font-size: var(--t-22); font-weight: 650; letter-spacing: -.02em; line-height: 1.45; }
-.continue .fan { display: flex; align-items: center; margin-left: auto; margin-right: 18px; height: 40px; }
-.continue .fan img { width: 40px; height: 40px; margin-left: -22px; transition: transform .32s var(--ease-spring); filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .35)); }
-.continue .fan img:first-child { margin-left: 0; }
-.continue .fan img:nth-child(1) { transform: rotate(-10deg); }
-.continue .fan img:nth-child(2) { transform: rotate(-3deg); }
-.continue .fan img:nth-child(3) { transform: rotate(9deg); }
-.continue:hover .fan img:nth-child(1) { transform: translateX(-12px) rotate(-16deg); }
-.continue:hover .fan img:nth-child(2) { transform: translateX(-4px) rotate(-6deg) translateY(-3px); }
-.continue:hover .fan img:nth-child(3) { transform: translateX(4px) rotate(6deg) translateY(-3px); }
-.continue .arrow { display: flex; }
-.continue .arrow .ic { width: 22px; height: 22px; flex-basis: 22px; transition: transform .26s var(--ease-out); }
-.continue:hover .arrow .ic { transform: translateX(6px); }
-
 .foot, .lfoot { display: flex; justify-content: space-between; font-family: var(--mono); font-size: var(--t-12); color: var(--muted); }
 .foot { margin-top: 12px; }
 
 @media (prefers-reduced-motion: reduce) {
-  .xw, .xpp, .hl, .hl::before, .portrait img, .continue, .continue .fan img, .continue .arrow .ic, .now-item { transition: none !important; }
-  .now-item:hover, .continue:hover { transform: none; }
+  .xw, .xpp, .hl, .hl::before, .portrait img, .now-item { transition: none !important; }
+  .now-item:hover { transform: none; }
   .xpp { filter: none !important; }
   .portrait:hover img { transform: none; }
 }
@@ -126,6 +98,5 @@
 @media (max-width: 760px) {
   .content { padding: 20px; }
   .hero { grid-template-columns: 1fr; row-gap: 24px; }
-  .hero-r { max-width: none; }
   .now-list { grid-template-columns: 1fr; gap: 24px; }
 }

@@ -1,14 +1,10 @@
-import fowa from '../assets/file-text-fowa.webp';
-import fpl from '../assets/file-text-fpl.webp';
-import ppr from '../assets/file-text-ppr.webp';
 import headshot from '../assets/headshot.webp';
 import { GREETINGS, HERO, INTRO } from '../content/home';
 import { SITE } from '../content/site';
 import { Currently } from './Currently';
 import { ExpandText, Greeting } from './ExpandText';
-import { Icon } from './Icon';
 
-/** Hero: greeting and intro with the name inline and expanding words, "Currently shipping for", then the case-studies key. */
+/** Hero: greeting and intro with the name inline and expanding words, then "Currently shipping for". */
 export function Hero() {
   return (
     <section className="screen stone" id="home" aria-labelledby="h-name">
@@ -25,20 +21,6 @@ export function Hero() {
 
           <Currently />
 
-          <div className="hero-r">
-            <a className="continue" href={HERO.continueHref}>
-              <span>
-                <span className="kicker">{HERO.continueKicker}</span>
-                <span className="dest">{HERO.continueDest}</span>
-              </span>
-              <span className="fan" aria-hidden="true">
-                <img src={fowa} alt="" width="40" height="40" decoding="async" />
-                <img src={fpl} alt="" width="40" height="40" decoding="async" />
-                <img src={ppr} alt="" width="40" height="40" decoding="async" />
-              </span>
-              <span className="arrow"><Icon id="arrow" /></span>
-            </a>
-          </div>
         </div>
 
         <div className="foot"><span>{SITE.footer}</span><span>{HERO.footRight}</span></div>

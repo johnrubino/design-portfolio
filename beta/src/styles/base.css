@@ -20,7 +20,7 @@ button { font: inherit; color: inherit; }
 h1, h2, h3, h4 { font-size: inherit; font-weight: inherit; }
 
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 2px; }
-.rail :focus-visible, #howai :focus-visible, .continue:focus-visible { outline-color: var(--paper); }
+.rail :focus-visible, #howai :focus-visible { outline-color: var(--paper); }
 
 .app { display: flex; align-items: flex-start; background: var(--stone); }
 .main { flex: 1; min-width: 0; }

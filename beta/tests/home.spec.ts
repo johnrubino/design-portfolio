@@ -362,8 +362,8 @@ test.describe('content', () => {
     expect(text).not.toContain('AI-first advisor workspace');
     expect(text).not.toMatch(/\$\s?\d|\d\+?\s+years/i);
 
-    // The legend ("The lines") and the latest-essay card were removed from the hero at John's request.
-    await expect(page.locator('.legend, .dt')).toHaveCount(0);
+    // The legend, the latest-essay card and the Case studies key were removed from the hero at John's request.
+    await expect(page.locator('.legend, .dt, .continue')).toHaveCount(0);
     await expect(page.locator('#stop-fowa .li-s')).toHaveText('BNY Pershing · Wealth Services · NDA');
     await expect(page.locator('#stop-fpl .li-s')).toHaveText('BNY Pershing · Wealth Services · NDA');
     await expect(page.locator('#stop-ppr .li-s')).toHaveText('Founder project · In progress');
@@ -376,13 +376,12 @@ test.describe('content', () => {
     const head = await page.evaluate(() => document.head.innerHTML);
     expect(head).toContain('3D icons: 3dicons by Vijay Verma (realvjy), https://3dicons.co — CC0 1.0 (github.com/realvjy/3dicons). Clay style, dynamic angle; recoloured.');
     const imgs = await page.locator('img').evaluateAll((els) => els.map((i) => ({ src: i.getAttribute('src')!, w: i.getAttribute('width'), h: i.getAttribute('height') })));
-    expect(imgs).toHaveLength(4);
+    expect(imgs).toHaveLength(1);
     for (const i of imgs) {
       expect(i.src).toMatch(/\.webp$/);
       expect(i.src.startsWith('data:')).toBe(false);
       expect(i.w && i.h).toBeTruthy();
     }
-    // 3D icons appear only in the case-studies key.
     expect(await page.locator('#list img, .xw img, #howai img, .now img').count()).toBe(0);
   });
 
@@ -398,12 +397,11 @@ test.describe('content', () => {
     await expect(page.locator('p.stand .nm img')).toHaveCount(1);
     // The contact links were removed from the intro at John's request.
     await expect(page.locator('.contact')).toHaveCount(0);
-    // "Currently shipping for" sits right under the intro, before the case-studies key.
+    // "Currently shipping for" sits right under the intro.
     await expect(page.locator('#h-now')).toHaveText('Currently shipping for');
     await expect(page.locator('.now-t')).toHaveText(['BNY Pershing', 'Colllective Design', 'Design Thinker']);
     const y = (s: string) => page.locator(s).evaluate((e) => e.getBoundingClientRect().top);
     expect(await y('.now')).toBeGreaterThan(await y('p.body'));
-    expect(await y('.now')).toBeLessThan(await y('.continue'));
     for (const s of await page.locator('main section').all()) {
       const id = (await s.getAttribute('aria-labelledby'))!;
       await expect(page.locator(`#${id}`)).toHaveCount(1);
@@ -459,8 +457,7 @@ test.describe('layout', () => {
         const box = (s: string) => document.querySelector(s)!.getBoundingClientRect();
         const hit = (a: DOMRect, b: DOMRect) => a.left < b.right - 0.5 && b.left < a.right - 0.5 && a.top < b.bottom - 0.5 && b.top < a.bottom - 0.5;
         const pairs: [string, string][] = [
-          ['.rail', '.content'], ['.hero-top', '.now'], ['.now', '.hero-r'],
-          ['.continue', '.foot'],
+          ['.rail', '.content'], ['.hero-top', '.now'], ['.now', '.foot'],
           ['.ai-l', '.ai-r'], ['#home', '#howai'], ['#howai', '#list'],
         ];
         const cols = [...document.querySelectorAll('.cols .grp')].map((g) => g.getBoundingClientRect());
