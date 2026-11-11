@@ -11,9 +11,10 @@ import toolPpr from '../assets/3d/tool-ppr.webp';
 import type { IconId, LineId } from '../content/lines';
 
 /**
- * 3D icons from 3dicons by Vijay Verma (https://3dicons.co, CC0 1.0), Clay style,
- * dynamic angle, tinted toward the line colours (see design/v5/assets/3d-icons/).
- * Used at John's request in place of the line icons; arrows stay as line glyphs.
+ * 3D icons from 3dicons by Vijay Verma (https://3dicons.co, CC0 1.0), "Color"
+ * style (multi-colour), dynamic angle. The file icon is hue-shifted per case
+ * study to match its line; the rest keep their own colours. Built by
+ * design/v5/assets/3d-icons/icons3d.py. Arrows stay as line glyphs.
  */
 const SRC = {
   'case-fowa': fileFowa,
