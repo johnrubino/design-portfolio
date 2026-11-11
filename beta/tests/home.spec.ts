@@ -371,18 +371,37 @@ test.describe('content', () => {
     await expect(page.locator('.grp').first().locator('li')).toHaveCount(3);
   });
 
-  test('3dicons credit is in the head, and icons are files with set sizes', async ({ page }) => {
+  test('3dicons credit is in the head, and images are WebP files with set sizes', async ({ page }) => {
     await open(page);
     const head = await page.evaluate(() => document.head.innerHTML);
     expect(head).toContain('3D icons: 3dicons by Vijay Verma (realvjy), https://3dicons.co — CC0 1.0 (github.com/realvjy/3dicons). Clay style, dynamic angle; recoloured.');
     const imgs = await page.locator('img').evaluateAll((els) => els.map((i) => ({ src: i.getAttribute('src')!, w: i.getAttribute('width'), h: i.getAttribute('height') })));
-    expect(imgs).toHaveLength(1);
+    // The headshot plus 3D icons (Every stop rows and the map's hover card).
+    expect(imgs.length).toBeGreaterThan(10);
     for (const i of imgs) {
       expect(i.src).toMatch(/\.webp$/);
       expect(i.src.startsWith('data:')).toBe(false);
       expect(i.w && i.h).toBeTruthy();
     }
-    expect(await page.locator('#list img, .xw img, #howai img, .now img').count()).toBe(0);
+    // No images inside the expanding paragraphs or How I AI.
+    expect(await page.locator('.xw img, #howai img, .now img').count()).toBe(0);
+  });
+
+  test('3D icons from 3dicons replace the line icons; arrows stay as line glyphs', async ({ page }) => {
+    await open(page);
+    // Every stop: each row leads with a 3D icon, no line-icon SVG in that slot.
+    const rows = page.locator('#list .li');
+    const n = await rows.count();
+    expect(n).toBeGreaterThan(0);
+    await expect(page.locator('#list .li-i img.i3')).toHaveCount(n);
+    await expect(page.locator('#list .li-i svg')).toHaveCount(0);
+    // Hover card: 3D kind and status icons.
+    await page.hover('[data-stop="fpl"] .badge');
+    await expect(page.locator('.preview .pv-k img.i3')).toHaveCount(1);
+    await expect(page.locator('.preview .pv-s img.i3')).toHaveCount(1);
+    // Every 3D icon is decorative.
+    const named = await page.locator('img.i3').evaluateAll((els) => els.filter((e) => e.getAttribute('alt') !== '').length);
+    expect(named).toBe(0);
   });
 
   test('landmarks, headings and link names', async ({ page }) => {

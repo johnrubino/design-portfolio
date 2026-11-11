@@ -3,6 +3,7 @@ import { STOP_LIST as C, type StopRow } from '../content/home';
 import { LINE } from '../content/lines';
 import { SITE } from '../content/site';
 import { Icon } from './Icon';
+import { Icon3D } from './Icon3D';
 
 const GREY = '#8a867f';
 
@@ -45,11 +46,11 @@ function row(r: StopRow, n: number) {
   const style = { '--c': r.line ? LINE[r.line].colour : GREY } as CSSProperties;
   const body = (
     <>
-      <span className="li-i"><Icon id={r.icon} /></span>
+      <span className="li-i">{r.icon !== 'arrow' && <Icon3D id={r.icon} line={r.line} size={28} />}</span>
       <span>
         <span className="li-t">{r.title}</span>
         <span className="li-s">
-          {r.subIcon && <Icon id={r.subIcon} className="st" />}
+          {r.subIcon && r.subIcon !== 'arrow' && <Icon3D id={r.subIcon} line={r.line} size={16} className="st" />}
           {r.sub}
         </span>
       </span>

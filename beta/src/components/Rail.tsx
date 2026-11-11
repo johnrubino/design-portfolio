@@ -4,7 +4,7 @@ import {
   BADGE, BASE_WIDTH, BASE_X, CASE_STUDIES_PILL, CASING, DRAW_ORDER, H, HOME_PILL, HOME_Y, LABEL_X,
   LINE_WIDTH, PPR_LABS_PILL, ROUTES, STOPS, TERMINUS_X, TIMETABLE, W,
 } from '../geometry/rail';
-import { Icon } from './Icon';
+import { Icon3D, type Icon3DId } from './Icon3D';
 
 const useIsoLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
 
@@ -203,11 +203,11 @@ export function Rail() {
           aria-hidden="true"
           style={{ top: pos.top, '--ay': `${pos.arrow}px`, '--c': LINE[shown].colour } as CSSProperties}
         >
-          <div className="pv-k"><Icon id={LINE[shown].icon} /><span>{card.kind}</span></div>
+          <div className="pv-k"><Icon3D id={LINE[shown].icon as Icon3DId} line={shown} size={24} /><span>{card.kind}</span></div>
           <div className="pv-t">{card.title}</div>
           <div className="pv-d">{card.text}</div>
           {card.status && (
-            <div className="pv-s"><Icon id={card.status.icon} /><span>{card.status.text}</span></div>
+            <div className="pv-s"><Icon3D id={statusIcon(card.status.icon)} line={shown} size={20} /><span>{card.status.text}</span></div>
           )}
         </div>
       </div>
@@ -231,5 +231,8 @@ export function Rail() {
     </nav>
   );
 }
+
+/** Status rows: NDA work shows a lock, in-progress a tool, dates a clock. */
+const statusIcon = (icon: string): Icon3DId => (icon === 'case' ? 'lock' : icon === 'progress' ? 'progress' : 'time');
 
 const rect = (r: { x: number; y: number; w: number; h: number }) => ({ x: r.x, y: r.y, width: r.w, height: r.h });
