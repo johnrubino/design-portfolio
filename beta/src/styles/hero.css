@@ -14,8 +14,14 @@
    photo inline, a second paragraph, a sign-off, then contact links. */
 .hello, .stand, .body, .xpp, .signoff { font-size: var(--t-22); line-height: 1.4; font-weight: 400; color: var(--ink); }
 .stand, .body, .xpp, .signoff { margin-top: .8em; }
-.xpp { opacity: 0; filter: blur(8px); transition: opacity .2s ease-out, filter .2s ease-out; }
-.xw.open .xpp { opacity: 1; filter: none; transition: opacity .26s ease-out .04s, filter .26s ease-out .04s; }
+.xpp { opacity: 0; filter: blur(8px); }
+/* The new paragraph fades in from a blur while the space opens (as on emilycampbell.co). */
+.xw.open .xpp { opacity: 1; filter: none; transition: opacity .7s ease-out, filter .7s ease-out; }
+.xpp:focus { outline: none; }
+
+/* Greeting: plain text; click it for another greeting. */
+.greet { border: 0; background: none; padding: 0; font: inherit; color: inherit; cursor: pointer; text-decoration: underline dotted transparent; text-decoration-thickness: 1.5px; text-underline-offset: 5px; transition: text-decoration-color .2s; }
+.greet:hover { text-decoration-color: rgba(20, 20, 19, .4); }
 
 /* The name carries the display face and the name colour, at text size. */
 .nm { font-family: var(--display); font-weight: 650; letter-spacing: -.02em; color: var(--name); white-space: nowrap; }
@@ -48,20 +54,10 @@
   content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: var(--c);
   clip-path: circle(0px at var(--x, 50%) var(--y, 50%)); transition: clip-path .3s var(--ease-out);
 }
-.hl:not(.done):hover::before { clip-path: circle(160% at var(--x, 50%) var(--y, 50%)); }
-.hl:not(.done):hover { color: var(--ink); }
-.hl.n:not(.done):hover { color: var(--paper); }
+.hl:hover::before { clip-path: circle(160% at var(--x, 50%) var(--y, 50%)); }
+.hl:hover { color: var(--ink); }
+.hl.n:hover { color: var(--paper); }
 .hl:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-/* Opened: back to plain text with a dotted underline in its colour. */
-.hl.done {
-  background: transparent; padding: 0; margin: 0;
-  text-decoration: underline dotted; text-decoration-thickness: 1.5px; text-underline-offset: 4px;
-  text-decoration-color: color-mix(in srgb, var(--c) 70%, var(--ink));
-}
-.hl.done::before { display: none; }
-.hl.done:hover { text-decoration-style: solid; }
-.hl.n.done { text-decoration-color: rgba(20, 20, 19, .5); }
-
 /* The lines */
 .sec { font-family: var(--mono); font-size: var(--t-12); font-weight: 400; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin: 20px 0 8px; }
 .hero-l .sec { margin-top: 0; }

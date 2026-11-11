@@ -33,13 +33,18 @@ export interface IntroPara {
 
 /**
  * The intro follows the structure of emilycampbell.co (at John's request):
- * a greeting, a first-person sentence with the name and photo inline, a second
- * paragraph, a sign-off, then contact links.
+ * a greeting (click it for another), a first-person sentence with the name and
+ * photo inline, a second paragraph, a sign-off, then contact links. Clicking a
+ * highlighted word turns it into plain text and opens a paragraph below it.
  *
  * TODO(john): the greeting and the "I’m … , a" glue words were added only to
  * fit that structure. Everything here is still placeholder for John to rewrite.
  */
-export const GREETING = 'Hello.';
+/**
+ * Clicking the greeting cycles through these. The first one shows on load.
+ * TODO(john): placeholder list; swap in your own.
+ */
+export const GREETINGS = ['Hello.', 'Hi there.', 'Good day.', 'Hey.', 'Welcome.'];
 
 // TODO(john): write the sign-off line. Left as a slot rather than invented.
 export const SIGN_OFF_SLOT = '[Sign-off line · John to write]';

@@ -14,7 +14,7 @@ async function open(page: Page, viewport = DESKTOP) {
   await page.evaluate(() => document.fonts.ready);
   // Wait for React to attach, so clicks are handled.
   await page.waitForFunction(() => {
-    const el = document.querySelector('button.hl');
+    const el = document.querySelector('.greet');
     return !!el && Object.keys(el).some((k) => k.startsWith('__reactProps'));
   });
 }
@@ -186,6 +186,7 @@ test.describe('word expansions', () => {
   test('every word is a button wired to a closed, inert paragraph', async ({ page }) => {
     await open(page);
     const words = page.locator('button.hl');
+    // Eight in the intro, plus Wove waiting inside the closed "product designer" paragraph.
     expect(await words.count()).toBe(9);
     for (const w of await words.all()) {
       await expect(w).toHaveAttribute('type', 'button');
@@ -195,13 +196,18 @@ test.describe('word expansions', () => {
     }
   });
 
-  test('opens in the flow under its paragraph, with no container styling', async ({ page }) => {
+  test('clicking turns the word into plain text and opens a paragraph under it, for good', async ({ page }) => {
     await open(page);
     await word(page, 'fowa').click();
-    await expect(word(page, 'fowa')).toHaveAttribute('aria-expanded', 'true');
-    await expect(word(page, 'fowa')).toHaveClass(/done/);
+    // The pill is gone: the words are plain text in the sentence, with no underline.
+    await expect(word(page, 'fowa')).toHaveCount(0);
+    await expect(page.locator('p.stand')).toContainText('working on wealth advisory,');
+    expect(await page.locator('p.stand').evaluate((p) => [...p.querySelectorAll('*')].some((e) => e.textContent === 'wealth advisory'))).toBe(false);
+
     expect(await isInert(page, 'fowa')).toBe(false);
     await expect(panel(page, 'fowa').locator('.xpp')).toHaveCSS('opacity', '1');
+    // Focus moves to the new paragraph, since the button it came from is gone.
+    await expect(panel(page, 'fowa').locator('.xpp')).toBeFocused();
 
     const plain = await panel(page, 'fowa').evaluate((el) =>
       [el, el.firstElementChild!, el.querySelector('p')!].every((n) => {
@@ -212,82 +218,68 @@ test.describe('word expansions', () => {
     expect(plain).toBe(true);
     expect(await panel(page, 'fowa').locator('svg, img, button').count()).toBe(0);
 
-    // It sits between the standfirst and the body paragraph.
+    // It sits between the standfirst and the body paragraph, in the same type.
     const order = await page.evaluate(() => {
       const y = (s: string) => document.querySelector(s)!.getBoundingClientRect().top;
       return [y('.stand'), y('#xp-fowa .xpp'), y('p.body')];
     });
     expect(order[0]).toBeLessThan(order[1]);
     expect(order[1]).toBeLessThan(order[2]);
-
-    // Same body typography as the paragraph above it.
     const type = (s: string) => page.locator(s).evaluate((el) => { const c = getComputedStyle(el); return [c.fontSize, c.fontWeight, c.lineHeight, c.color, c.fontFamily]; });
     expect(await type('#xp-fowa .xpp')).toEqual(await type('p.body'));
 
-    // Several can be open at once, stacked in document order.
+    // Several open at once, in document order; nothing folds back on Esc.
     await word(page, 'designer').click();
-    await page.waitForTimeout(600); // let the height animation finish
+    await page.waitForTimeout(600);
     const stacked = await page.evaluate(() => {
       const y = (s: string) => document.querySelector(s)!.getBoundingClientRect().top;
       return y('#xp-designer .xpp') < y('#xp-fowa .xpp');
     });
     expect(stacked).toBe(true);
-
-    await word(page, 'fowa').click();
-    await expect(word(page, 'fowa')).toHaveAttribute('aria-expanded', 'false');
-    expect(await isInert(page, 'fowa')).toBe(true);
+    await page.keyboard.press('Escape');
+    expect(await isInert(page, 'fowa')).toBe(false);
+    expect(await isInert(page, 'designer')).toBe(false);
   });
 
-  test('nested Wove opens a second paragraph and folds with its parent', async ({ page }) => {
+  test('opened paragraphs can hold more words: Wove opens a second layer', async ({ page }) => {
     await open(page);
-    await word(page, 'designer').click();
-    await word(page, 'wove').click();
-    await expect(word(page, 'wove')).toHaveAttribute('aria-expanded', 'true');
-    expect(await isInert(page, 'wove')).toBe(false);
-
-    await word(page, 'designer').click();
-    await expect(word(page, 'designer')).toHaveAttribute('aria-expanded', 'false');
-    await expect(word(page, 'wove')).toHaveAttribute('aria-expanded', 'false');
-    expect(await isInert(page, 'wove')).toBe(true);
+    // Wove waits inside the closed paragraph, out of reach until it opens.
     expect(await isInert(page, 'designer')).toBe(true);
+    await word(page, 'designer').click();
+    expect(await isInert(page, 'designer')).toBe(false);
+    await expect(word(page, 'wove')).toBeVisible();
+    await word(page, 'wove').click();
+    await expect(word(page, 'wove')).toHaveCount(0);
+    expect(await isInert(page, 'wove')).toBe(false);
+    await expect(panel(page, 'wove').locator('.xpp')).toBeFocused();
   });
 
-  test('Esc folds the most recently opened and returns focus to its word', async ({ page }) => {
-    await open(page);
-    await word(page, 'systems').click();
-    await word(page, 'handoff').click();
-    await page.locator('body').click({ position: { x: 900, y: 500 } });
-
-    await page.keyboard.press('Escape');
-    await expect(word(page, 'handoff')).toHaveAttribute('aria-expanded', 'false');
-    await expect(word(page, 'systems')).toHaveAttribute('aria-expanded', 'true');
-    await expect(word(page, 'handoff')).toBeFocused();
-
-    await page.keyboard.press('Escape');
-    await expect(word(page, 'systems')).toHaveAttribute('aria-expanded', 'false');
-    await expect(word(page, 'systems')).toBeFocused();
-  });
-
-  test('keyboard only: Tab to a word, Enter and Space toggle it', async ({ page }) => {
+  test('keyboard only: Enter and Space open words, and reading carries on from the new paragraph', async ({ page }) => {
     await open(page);
     await word(page, 'designer').focus();
     await expect(word(page, 'designer')).toHaveCSS('outline-style', 'solid');
     await page.keyboard.press('Enter');
-    await expect(word(page, 'designer')).toHaveAttribute('aria-expanded', 'true');
-    // The nested word is now reachable by Tab, and wasn't before.
-    await page.keyboard.press('Tab');
-    await page.keyboard.press('Tab');
-    await page.keyboard.press('Tab');
+    await expect(panel(page, 'designer').locator('.xpp')).toBeFocused();
+    // The next Tab lands on the word inside the paragraph that just opened.
     await page.keyboard.press('Tab');
     await expect(word(page, 'wove')).toBeFocused();
     await page.keyboard.press('Space');
-    await expect(word(page, 'wove')).toHaveAttribute('aria-expanded', 'true');
-    await page.keyboard.press('Escape');
-    await expect(word(page, 'wove')).toHaveAttribute('aria-expanded', 'false');
-    await expect(word(page, 'wove')).toBeFocused();
+    await expect(word(page, 'wove')).toHaveCount(0);
+    await expect(panel(page, 'wove').locator('.xpp')).toBeFocused();
   });
 
-  test('the tools toggle uses the same mechanic', async ({ page }) => {
+  test('the greeting cycles on each click', async ({ page }) => {
+    await open(page);
+    const greet = page.locator('.hello button');
+    const first = (await greet.innerText()).trim();
+    await greet.click();
+    const second = (await greet.innerText()).trim();
+    expect(second).not.toBe(first);
+    for (let n = 0; n < 10; n++) await greet.click();
+    expect((await greet.innerText()).trim()).toBeTruthy();
+  });
+
+  test('the tools toggle opens its list', async ({ page }) => {
     await open(page);
     const toggle = page.locator('.tools-b');
     await expect(toggle).toHaveAttribute('aria-expanded', 'false');
@@ -313,8 +305,9 @@ test.describe('typography', () => {
     test(`only 12/16/22/72px, three families and no italics at ${viewport.width}px`, async ({ page }) => {
       await open(page, viewport);
       // Open everything so hidden paragraphs are measured too.
-      for (const b of await page.locator('p.stand button.hl, p.body button.hl, .tools-b').all()) await b.click();
-      await page.locator('button[aria-controls="xp-wove"]').click();
+      const hl = page.locator('.hero-top button.hl');
+      while (await hl.count()) await hl.first().click();
+      await page.locator('.tools-b').click();
       if (viewport.width > 760) await page.hover('[data-stop="fpl"] .badge');
 
       const report = await page.evaluate(() => {

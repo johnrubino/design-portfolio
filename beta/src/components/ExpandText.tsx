@@ -1,60 +1,36 @@
-import { Fragment, useCallback, useEffect, useRef, useState, type CSSProperties, type MouseEvent } from 'react';
+import { Fragment, useEffect, useRef, useState, type CSSProperties, type MouseEvent } from 'react';
 import type { Expansion, IntroPara, Seg } from '../content/home';
 import { LINE } from '../content/lines';
 
 const INK = '#141413';
 
 /**
- * Inline word expansion (brief §7).
+ * Inline word expansion, modelled on emilycampbell.co (at John's request).
  *
- * Some words are pills. Clicking one turns it back into plain underlined text
- * and opens a new paragraph in the flow directly under its paragraph. Several
- * can be open at once. Folding a parent folds its children; Esc folds the most
- * recently opened one and returns focus to its word.
+ * Some words are pills. Clicking one turns it into plain text for good and a
+ * new paragraph fades in under its paragraph. That paragraph can hold more
+ * pills, so the intro unfolds layer by layer. Nothing folds back up.
+ *
+ * Keyboard: the pills are real buttons. Because the button disappears once
+ * used, focus moves to the paragraph it opened, so the reader keeps their place.
  */
 export function ExpandText({ paragraphs, portrait }: { paragraphs: IntroPara[]; portrait?: string }) {
-  /** Open expansion ids, oldest first. */
+  /** Opened expansion ids, in the order they were opened. */
   const [open, setOpen] = useState<string[]>([]);
-  const openRef = useRef(open);
-  openRef.current = open;
-  const words = useRef(new Map<string, HTMLButtonElement>());
+  const panels = useRef(new Map<string, HTMLParagraphElement>());
+  const justOpened = useRef<string | null>(null);
 
-  const all = paragraphs.flatMap((p) => p.expansions);
-
-  const toggle = useCallback(
-    (id: string) => {
-      setOpen((cur) => {
-        if (!cur.includes(id)) return [...cur, id];
-        const gone = new Set([id]);
-        // Fold children with their parent (children can nest further).
-        let grew = true;
-        while (grew) {
-          grew = false;
-          for (const e of all) {
-            if (e.parent && gone.has(e.parent) && !gone.has(e.id)) {
-              gone.add(e.id);
-              grew = true;
-            }
-          }
-        }
-        return cur.filter((x) => !gone.has(x));
-      });
-    },
-    // `all` is derived from static content.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
-  );
+  const expand = (id: string) => {
+    justOpened.current = id;
+    setOpen((cur) => (cur.includes(id) ? cur : [...cur, id]));
+  };
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      const last = openRef.current[openRef.current.length - 1];
-      if (e.key !== 'Escape' || !last) return;
-      toggle(last);
-      words.current.get(last)?.focus();
-    };
-    document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
-  }, [toggle]);
+    const id = justOpened.current;
+    if (!id) return;
+    justOpened.current = null;
+    panels.current.get(id)?.focus({ preventScroll: true });
+  }, [open]);
 
   const renderSegs = (segs: Seg[]) =>
     segs.map((seg, i) => {
@@ -79,20 +55,17 @@ export function ExpandText({ paragraphs, portrait }: { paragraphs: IntroPara[]; 
           </a>
         );
       }
-      const isOpen = open.includes(seg.word);
+      // Once opened, the word is just part of the sentence again.
+      if (open.includes(seg.word)) return <Fragment key={i}>{seg.text}</Fragment>;
       return (
         <button
           key={i}
           type="button"
-          ref={(el) => {
-            if (el) words.current.set(seg.word, el);
-            else words.current.delete(seg.word);
-          }}
-          className={`hl${seg.line ? '' : ' n'}${isOpen ? ' done' : ''}`}
+          className={`hl${seg.line ? '' : ' n'}`}
           style={{ '--c': seg.line ? LINE[seg.line].colour : INK } as CSSProperties}
-          aria-expanded={isOpen}
+          aria-expanded="false"
           aria-controls={`xp-${seg.word}`}
-          onClick={() => toggle(seg.word)}
+          onClick={() => expand(seg.word)}
           onMouseEnter={flood}
           onMouseLeave={flood}
         >
@@ -106,7 +79,16 @@ export function ExpandText({ paragraphs, portrait }: { paragraphs: IntroPara[]; 
     return (
       <div key={e.id} className={`xw${isOpen ? ' open' : ''}`} id={`xp-${e.id}`} inert={!isOpen}>
         <div className="xi">
-          <p className="xpp">{renderSegs(e.body)}</p>
+          <p
+            className="xpp"
+            tabIndex={-1}
+            ref={(el) => {
+              if (el) panels.current.set(e.id, el);
+              else panels.current.delete(e.id);
+            }}
+          >
+            {renderSegs(e.body)}
+          </p>
         </div>
       </div>
     );
@@ -121,6 +103,18 @@ export function ExpandText({ paragraphs, portrait }: { paragraphs: IntroPara[]; 
         </Fragment>
       ))}
     </>
+  );
+}
+
+/** The greeting: each click swaps in the next one, as on emilycampbell.co. */
+export function Greeting({ greetings }: { greetings: string[] }) {
+  const [i, setI] = useState(0);
+  return (
+    <p className="hello">
+      <button type="button" className="greet" onClick={() => setI((n) => (n + 1) % greetings.length)} aria-label={`${greetings[i]} (say it another way)`}>
+        <span aria-live="polite">{greetings[i]}</span>
+      </button>
+    </p>
   );
 }
 

@@ -3,9 +3,9 @@ import fpl from '../assets/file-text-fpl.webp';
 import ppr from '../assets/file-text-ppr.webp';
 import headshot from '../assets/headshot.webp';
 import pencil from '../assets/pencil-write.webp';
-import { GREETING, HERO, INTRO, SIGN_OFF_SLOT } from '../content/home';
+import { GREETINGS, HERO, INTRO, SIGN_OFF_SLOT } from '../content/home';
 import { SITE } from '../content/site';
-import { ExpandText } from './ExpandText';
+import { ExpandText, Greeting } from './ExpandText';
 import { Icon } from './Icon';
 import { Legend } from './Legend';
 
@@ -21,7 +21,7 @@ export function Hero() {
             <div className="eyebrow" />
             {/* The name is in the first sentence; this heading names the page for screen readers and search. */}
             <h1 id="h-name" className="sr-only">{SITE.name}</h1>
-            <p className="hello">{GREETING}</p>
+            <Greeting greetings={GREETINGS} />
             <ExpandText paragraphs={INTRO} portrait={headshot} />
             <p className="signoff"><span className="ph">{SIGN_OFF_SLOT}</span></p>
             <ul className="contact">
