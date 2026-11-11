@@ -38,7 +38,6 @@
   transition: transform .32s var(--ease-spring) .12s, border-radius .32s ease .12s, box-shadow .32s ease .12s;
 }
 
-.contact { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-top: 1.2em; font-size: var(--t-16); font-weight: 400; }
 
 /* Expanding words: a tinted pill that floods from where the pointer enters. */
 .hl {

@@ -34,7 +34,7 @@ export interface IntroPara {
 /**
  * The intro follows the structure of emilycampbell.co (at John's request):
  * a greeting (click it for another), a first-person sentence with the name and
- * photo inline, a second paragraph, then contact links. Clicking a
+ * photo inline, then a second paragraph. Clicking a
  * highlighted word turns it into plain text and opens a paragraph below it.
  *
  * TODO(john): the greeting and the "I’m … , a" glue words were added only to

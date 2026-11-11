@@ -24,15 +24,6 @@ export function Hero() {
             <h1 id="h-name" className="sr-only">{SITE.name}</h1>
             <Greeting greetings={GREETINGS} />
             <ExpandText paragraphs={INTRO} portrait={headshot} />
-            <ul className="contact">
-              {SITE.contact.map((c) => (
-                <li key={c.text}>
-                  <a className="tl" href={c.href} {...(c.href.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>
-                    {c.text}
-                  </a>
-                </li>
-              ))}
-            </ul>
           </div>
 
           <Currently />

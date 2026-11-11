@@ -401,17 +401,18 @@ test.describe('content', () => {
     await expect(page.locator('nav[aria-label="System map"]')).toHaveCount(1);
     await expect(page.locator('main')).toHaveCount(1);
     await expect(page.locator('h1')).toHaveText('John Rubino');
-    // Intro structure: greeting, the sentence with the name and photo inline, second paragraph, contact.
+    // Intro structure: greeting, the sentence with the name and photo inline, second paragraph.
     const order = await page.locator('.hero-top > *').evaluateAll((els) => els.map((e) => e.className.split(' ')[0] || e.nodeName));
-    expect(order.filter((c) => ['hello', 'stand', 'body', 'contact'].includes(c))).toEqual(['hello', 'stand', 'body', 'contact']);
+    expect(order.filter((c) => ['hello', 'stand', 'body'].includes(c))).toEqual(['hello', 'stand', 'body']);
     await expect(page.locator('p.stand .nm')).toHaveText('John Rubino');
     await expect(page.locator('p.stand .nm img')).toHaveCount(1);
-    await expect(page.locator('.contact a')).toHaveText(['Email me', 'LinkedIn', 'Substack']);
+    // The contact links were removed from the intro at John's request.
+    await expect(page.locator('.contact')).toHaveCount(0);
     // "Currently shipping for" sits right under the intro, before the legend.
     await expect(page.locator('#h-now')).toHaveText('Currently shipping for');
     await expect(page.locator('.now-t')).toHaveText(['BNY Pershing', 'Colllective Design', 'Design Thinker']);
     const y = (s: string) => page.locator(s).evaluate((e) => e.getBoundingClientRect().top);
-    expect(await y('.now')).toBeGreaterThan(await y('.contact'));
+    expect(await y('.now')).toBeGreaterThan(await y('p.body'));
     expect(await y('.now')).toBeLessThan(await y('#h-lines'));
     for (const s of await page.locator('main section').all()) {
       const id = (await s.getAttribute('aria-labelledby'))!;
@@ -451,7 +452,7 @@ test.describe('layout', () => {
         const box = (s: string) => document.querySelector(s)!.getBoundingClientRect();
         const hit = (a: DOMRect, b: DOMRect) => a.left < b.right - 0.5 && b.left < a.right - 0.5 && a.top < b.bottom - 0.5 && b.top < a.bottom - 0.5;
         const pairs: [string, string][] = [
-          ['.rail', '.content'], ['.hero-l', '.hero-r'], ['.contact', '.now'], ['.now', '.hero-l'], ['.now', '.hero-r'],
+          ['.rail', '.content'], ['.hero-l', '.hero-r'], ['.hero-top', '.now'], ['.now', '.hero-l'], ['.now', '.hero-r'],
           ['.hero-top', '.hero-l'], ['.legend', '.foot'], ['.continue', '.foot'], ['.dt', '.continue'],
           ['.ai-l', '.ai-r'], ['#home', '#howai'], ['#howai', '#list'],
         ];
