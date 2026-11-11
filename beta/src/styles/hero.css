@@ -12,8 +12,8 @@
 
 /* Intro: one flowing block of text. Greeting, the sentence with the name and
    photo inline, a second paragraph, a sign-off, then contact links. */
-.hello, .stand, .body, .xpp, .signoff { font-size: var(--t-22); line-height: 1.4; font-weight: 400; color: var(--ink); }
-.stand, .body, .xpp, .signoff { margin-top: .8em; }
+.hello, .stand, .body, .xpp { font-size: var(--t-22); line-height: 1.4; font-weight: 400; color: var(--ink); }
+.stand, .body, .xpp { margin-top: .8em; }
 .xpp { opacity: 0; filter: blur(8px); }
 /* The new paragraph fades in from a blur while the space opens (as on emilycampbell.co). */
 .xw.open .xpp { opacity: 1; filter: none; transition: opacity .7s ease-out, filter .7s ease-out; }
@@ -38,7 +38,6 @@
   transition: transform .32s var(--ease-spring) .12s, border-radius .32s ease .12s, box-shadow .32s ease .12s;
 }
 
-.signoff .ph { font-family: var(--mono); font-size: var(--t-12); color: var(--name); border: 1px dashed rgba(122, 58, 40, .5); border-radius: 4px; padding: 1px 6px; vertical-align: middle; }
 .contact { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-top: 1.2em; font-size: var(--t-16); font-weight: 400; }
 
 /* Expanding words: a tinted pill that floods from where the pointer enters. */

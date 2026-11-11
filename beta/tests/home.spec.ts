@@ -349,7 +349,8 @@ test.describe('typography', () => {
 test.describe('content', () => {
   test('placeholder tags and both slots are present and untouched', async ({ page }) => {
     await open(page);
-    await expect(page.locator('.signoff .ph')).toHaveText('[Sign-off line · John to write]');
+    // The sign-off slot was removed at John's request.
+    await expect(page.locator('.signoff')).toHaveCount(0);
     await expect(page.locator('.ph3')).toHaveText('Placeholder · John to rewrite');
     await expect(page.locator('.pf.slot')).toHaveText('An AI-first vision prototype with four designers. [Project name · link · John to confirm]');
     await expect(page.locator('.tools-p .slot')).toHaveText('[daily stack · John to confirm]');
@@ -400,9 +401,9 @@ test.describe('content', () => {
     await expect(page.locator('nav[aria-label="System map"]')).toHaveCount(1);
     await expect(page.locator('main')).toHaveCount(1);
     await expect(page.locator('h1')).toHaveText('John Rubino');
-    // Intro structure: greeting, the sentence with the name and photo inline, second paragraph, sign-off, contact.
+    // Intro structure: greeting, the sentence with the name and photo inline, second paragraph, contact.
     const order = await page.locator('.hero-top > *').evaluateAll((els) => els.map((e) => e.className.split(' ')[0] || e.nodeName));
-    expect(order.filter((c) => ['hello', 'stand', 'body', 'signoff', 'contact'].includes(c))).toEqual(['hello', 'stand', 'body', 'signoff', 'contact']);
+    expect(order.filter((c) => ['hello', 'stand', 'body', 'contact'].includes(c))).toEqual(['hello', 'stand', 'body', 'contact']);
     await expect(page.locator('p.stand .nm')).toHaveText('John Rubino');
     await expect(page.locator('p.stand .nm img')).toHaveCount(1);
     await expect(page.locator('.contact a')).toHaveText(['Email me', 'LinkedIn', 'Substack']);
